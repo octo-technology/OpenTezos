@@ -20,7 +20,7 @@ A cost in "gas" (i.e. the money that must be paid in order to execute instructio
 
 It also represents the work that bakers have to endure in order to validate a transaction. This work is rewarded in XTZ (the Tezos native currency).
 
-Adding more memory space to the storage of a smart contract also hs a cost (for each bytes allocated).
+Adding more memory space to the storage of a smart contract also has a cost (for each bytes allocated).
 
 ## Static typing
 
@@ -55,7 +55,7 @@ Michelson also provides specific types for smart contract modeling:
 ## Atomic computation
 
 The Michelson language provides basic operations on these types. For example:  
-- numbers: addition `ADD`, subtraction `SUB`, multiplication `MUL`, euclidean division `EDIV`, modulo `%`
+- numbers: addition `ADD`, subtraction `SUB`, multiplication `MUL`, euclidean division `EDIV`
 - string: split, concatenation
 - crypto: standard hash function
 
