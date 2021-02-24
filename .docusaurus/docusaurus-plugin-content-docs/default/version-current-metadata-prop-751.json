@@ -1,0 +1,68 @@
+{
+  "pluginId": "default",
+  "version": "current",
+  "label": "Next",
+  "isLast": true,
+  "docsSidebars": {
+    "docs": [
+      {
+        "collapsed": true,
+        "type": "category",
+        "label": "Welcome",
+        "items": [
+          {
+            "type": "link",
+            "label": "Welcome",
+            "href": "/"
+          }
+        ]
+      },
+      {
+        "collapsed": true,
+        "type": "category",
+        "label": "Michelson Basics",
+        "items": [
+          {
+            "type": "link",
+            "label": "Introduction",
+            "href": "/michelson/introduction"
+          },
+          {
+            "type": "link",
+            "label": "Language fundamentals",
+            "href": "/michelson/language_fundamentals"
+          },
+          {
+            "type": "link",
+            "label": "Smart Contracts",
+            "href": "/michelson/smart_contracts"
+          },
+          {
+            "type": "link",
+            "label": "Instructions",
+            "href": "/michelson/instructions"
+          },
+          {
+            "type": "link",
+            "label": "Examples",
+            "href": "/michelson/examples"
+          },
+          {
+            "type": "link",
+            "label": "Exam",
+            "href": "/michelson/exam"
+          }
+        ]
+      }
+    ]
+  },
+  "permalinkToSidebar": {
+    "/michelson/exam": "docs",
+    "/michelson/examples": "docs",
+    "/michelson/instructions": "docs",
+    "/michelson/introduction": "docs",
+    "/michelson/language_fundamentals": "docs",
+    "/michelson/smart_contracts": "docs",
+    "/": "docs"
+  }
+}

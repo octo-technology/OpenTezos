@@ -1,0 +1,227 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "loadedVersions": [
+        {
+          "versionName": "current",
+          "versionLabel": "Next",
+          "versionPath": "/",
+          "isLast": true,
+          "routePriority": -1,
+          "sidebarFilePath": "/Users/lol/apps/work/opentezos-docusaurus/my-website/sidebars.js",
+          "docsDirPath": "/Users/lol/apps/work/opentezos-docusaurus/my-website/docs",
+          "docsDirPathLocalized": "/Users/lol/apps/work/opentezos-docusaurus/my-website/i18n/en/docusaurus-plugin-content-docs/current",
+          "mainDocId": "welcome",
+          "sidebars": {
+            "docs": [
+              {
+                "collapsed": true,
+                "type": "category",
+                "label": "Welcome",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "welcome"
+                  }
+                ]
+              },
+              {
+                "collapsed": true,
+                "type": "category",
+                "label": "Michelson Basics",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "michelson/introduction"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "michelson/language_fundamentals"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "michelson/smart_contracts"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "michelson/instructions"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "michelson/examples"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "michelson/exam"
+                  }
+                ]
+              }
+            ]
+          },
+          "permalinkToSidebar": {
+            "/michelson/exam": "docs",
+            "/michelson/examples": "docs",
+            "/michelson/instructions": "docs",
+            "/michelson/introduction": "docs",
+            "/michelson/language_fundamentals": "docs",
+            "/michelson/smart_contracts": "docs",
+            "/": "docs"
+          },
+          "docs": [
+            {
+              "unversionedId": "michelson/exam",
+              "id": "michelson/exam",
+              "isDocsHomePage": false,
+              "title": "Exam",
+              "description": "Question 1",
+              "source": "@site/docs/michelson/exam.md",
+              "slug": "/michelson/exam",
+              "permalink": "/michelson/exam",
+              "editUrl": "https://github.com/octo-technology/opentezos/docs/michelson/exam.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Examples",
+                "permalink": "/michelson/examples"
+              }
+            },
+            {
+              "unversionedId": "michelson/examples",
+              "id": "michelson/examples",
+              "isDocsHomePage": false,
+              "title": "Examples",
+              "description": "Example 1 : Modulo with LOOP and IF",
+              "source": "@site/docs/michelson/examples.md",
+              "slug": "/michelson/examples",
+              "permalink": "/michelson/examples",
+              "editUrl": "https://github.com/octo-technology/opentezos/docs/michelson/examples.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Instructions",
+                "permalink": "/michelson/instructions"
+              },
+              "next": {
+                "title": "Exam",
+                "permalink": "/michelson/exam"
+              }
+            },
+            {
+              "unversionedId": "michelson/instructions",
+              "id": "michelson/instructions",
+              "isDocsHomePage": false,
+              "title": "Instructions",
+              "description": "As seen previously, a Tezos smart contract defines a storage, entry points and the code. The code of a smart contract is a sequence of Michelson instructions.",
+              "source": "@site/docs/michelson/instructions.md",
+              "slug": "/michelson/instructions",
+              "permalink": "/michelson/instructions",
+              "editUrl": "https://github.com/octo-technology/opentezos/docs/michelson/instructions.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Smart Contracts",
+                "permalink": "/michelson/smart_contracts"
+              },
+              "next": {
+                "title": "Examples",
+                "permalink": "/michelson/examples"
+              }
+            },
+            {
+              "unversionedId": "michelson/introduction",
+              "id": "michelson/introduction",
+              "isDocsHomePage": false,
+              "title": "Introduction",
+              "description": "To write smart contracts for Tezos, you can either choose a high-level language such as LIGO or SmartPy, or the official low-level language called Michelson.",
+              "source": "@site/docs/michelson/introduction.md",
+              "slug": "/michelson/introduction",
+              "permalink": "/michelson/introduction",
+              "editUrl": "https://github.com/octo-technology/opentezos/docs/michelson/introduction.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Welcome",
+                "permalink": "/"
+              },
+              "next": {
+                "title": "Language fundamentals",
+                "permalink": "/michelson/language_fundamentals"
+              }
+            },
+            {
+              "unversionedId": "michelson/language_fundamentals",
+              "id": "michelson/language_fundamentals",
+              "isDocsHomePage": false,
+              "title": "Language fundamentals",
+              "description": "The Michelson language is the reference language for Tezos smart contracts. It is a low-level stack-based language. It is also a Turing-complete language, i.e. it has basic operations allowing to read / write / compare values in-memory, has infinite memory and allows conditional operators (e.g. if, switch instructions)",
+              "source": "@site/docs/michelson/language_fundamentals.md",
+              "slug": "/michelson/language_fundamentals",
+              "permalink": "/michelson/language_fundamentals",
+              "editUrl": "https://github.com/octo-technology/opentezos/docs/michelson/language_fundamentals.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Introduction",
+                "permalink": "/michelson/introduction"
+              },
+              "next": {
+                "title": "Smart Contracts",
+                "permalink": "/michelson/smart_contracts"
+              }
+            },
+            {
+              "unversionedId": "michelson/smart_contracts",
+              "id": "michelson/smart_contracts",
+              "isDocsHomePage": false,
+              "title": "Smart Contracts",
+              "description": "Entry points, storage and code",
+              "source": "@site/docs/michelson/smart_contracts.md",
+              "slug": "/michelson/smart_contracts",
+              "permalink": "/michelson/smart_contracts",
+              "editUrl": "https://github.com/octo-technology/opentezos/docs/michelson/smart_contracts.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Language fundamentals",
+                "permalink": "/michelson/language_fundamentals"
+              },
+              "next": {
+                "title": "Instructions",
+                "permalink": "/michelson/instructions"
+              }
+            },
+            {
+              "unversionedId": "welcome",
+              "id": "welcome",
+              "isDocsHomePage": false,
+              "title": "Welcome",
+              "description": "Welcome to OpenTezos (Docusaurus test version).",
+              "source": "@site/docs/welcome.md",
+              "slug": "/",
+              "permalink": "/",
+              "editUrl": "https://github.com/octo-technology/opentezos/docs/welcome.md",
+              "version": "current",
+              "sidebar": "docs",
+              "next": {
+                "title": "Introduction",
+                "permalink": "/michelson/introduction"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "docusaurus-plugin-content-blog": {
+    "default": null
+  },
+  "docusaurus-plugin-content-pages": {
+    "default": []
+  },
+  "docusaurus-plugin-debug": {
+    "default": null
+  },
+  "docusaurus-theme-classic": {
+    "default": null
+  }
+}

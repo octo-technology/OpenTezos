@@ -1,0 +1,46 @@
+{
+  "name": "my-website",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "docusaurus": "docusaurus",
+    "start": "docusaurus start",
+    "build": "docusaurus build",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy",
+    "serve": "docusaurus serve",
+    "clear": "docusaurus clear",
+    "docker-create": "doctl k8s cluster create --region fra1 --node-pool \"name=opentezos-frontend;size=s-1vcpu-2gb;count=1;auto-scale=true;min-nodes=1;max-nodes=3\" opentezos-frontend --wait && doctl kubernetes cluster kubeconfig save opentezos-frontend",
+    "docker-build": "yarn build && docker build -t rtx/opentezos-frontend . --no-cache",
+    "docker-run": "docker run --rm -it -p 80:80 rtx/opentezos-frontend",
+    "docker-push": "doctl registry login && docker tag rtx/opentezos-frontend registry.digitalocean.com/rtx/opentezos-frontend && docker push registry.digitalocean.com/rtx/opentezos-frontend",
+    "docker-patch": "doctl registry kubernetes-manifest | kubectl --context do-fra1-opentezos-frontend apply -f - && kubectl --context do-fra1-opentezos-frontend patch serviceaccount default -p '{\"imagePullSecrets\": [{\"name\": \"registry-rtx\"}]}'",
+    "docker-secrets": "kubectl --context do-fra1-opentezos-frontend create secret generic person --from-env-file=.env",
+    "docker-deploy": "kubectl --context do-fra1-opentezos-frontend apply -f kubernetesDeployment.json",
+    "docker-serve": "kubectl --context do-fra1-opentezos-frontend apply -f kubernetesService.json",
+    "docker-restart": "kubectl --context do-fra1-opentezos-frontend delete pods -l app=opentezos-frontend",
+    "docker-logs": "kubectl --context do-fra1-opentezos-frontend logs --timestamps -l app=opentezos-frontend",
+    "docker-update": "yarn run docker-build && yarn run docker-push && yarn run docker-restart",
+    "docker-install": "yarn run docker-build && yarn run docker-push && yarn run docker-patch && yarn run docker-deploy && yarn run docker-serve"
+  },
+  "dependencies": {
+    "@docusaurus/core": "2.0.0-alpha.70",
+    "@docusaurus/preset-classic": "2.0.0-alpha.70",
+    "@mdx-js/react": "^1.6.21",
+    "clsx": "^1.1.1",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

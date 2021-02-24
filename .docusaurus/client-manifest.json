@@ -1,0 +1,198 @@
+{
+  "entrypoints": [
+    "main"
+  ],
+  "origins": {
+    "styles": [
+      1,
+      10,
+      11,
+      12,
+      13,
+      0
+    ],
+    "@theme/NotFound": [
+      0,
+      13,
+      1
+    ],
+    "@site/docs/michelson/smart_contracts.md": [
+      2
+    ],
+    "@site/docs/michelson/examples.md": [
+      3
+    ],
+    "@site/docs/michelson/introduction.md": [
+      4
+    ],
+    "@site/docs/michelson/instructions.md": [
+      5
+    ],
+    "~docs/default/version-current-metadata-prop-751.json": [
+      6
+    ],
+    "@site/docs/michelson/exam.md": [
+      7
+    ],
+    "@site/docs/michelson/language_fundamentals.md": [
+      8
+    ],
+    "@site/docs/welcome.md": [
+      9
+    ],
+    "main": [
+      0,
+      11,
+      10
+    ],
+    "runtime~main": [
+      0,
+      10,
+      11
+    ],
+    "@theme/DocItem": [
+      0,
+      12
+    ],
+    "@theme/DocPage": [
+      0,
+      1,
+      13
+    ]
+  },
+  "assets": {
+    "0": {
+      "css": [
+        {
+          "file": "styles.6a7e30de.css",
+          "hash": "5fbbc797ef03b7a21214",
+          "publicPath": "/styles.6a7e30de.css"
+        }
+      ],
+      "js": [
+        {
+          "file": "styles.ff0d45aa.js",
+          "hash": "5fbbc797ef03b7a21214",
+          "publicPath": "/styles.ff0d45aa.js"
+        }
+      ]
+    },
+    "1": {
+      "js": [
+        {
+          "file": "1.fc8d1da9.js",
+          "hash": "5470529fa4f17c907db4",
+          "publicPath": "/1.fc8d1da9.js"
+        }
+      ]
+    },
+    "2": {
+      "js": [
+        {
+          "file": "16209eab.49f3995b.js",
+          "hash": "348d874da8df29c6ef70",
+          "publicPath": "/16209eab.49f3995b.js"
+        }
+      ]
+    },
+    "3": {
+      "js": [
+        {
+          "file": "3d9f340d.23744188.js",
+          "hash": "8081e1c06b8165b6f50a",
+          "publicPath": "/3d9f340d.23744188.js"
+        }
+      ]
+    },
+    "4": {
+      "js": [
+        {
+          "file": "416e4355.f895ff40.js",
+          "hash": "65f40d1ac67b4dd86582",
+          "publicPath": "/416e4355.f895ff40.js"
+        }
+      ]
+    },
+    "5": {
+      "js": [
+        {
+          "file": "8fe3bcb8.af92d52e.js",
+          "hash": "4f2c3ead828d8fa4e1a4",
+          "publicPath": "/8fe3bcb8.af92d52e.js"
+        }
+      ]
+    },
+    "6": {
+      "js": [
+        {
+          "file": "935f2afb.0ecce629.js",
+          "hash": "d71ceee64cf30831b070",
+          "publicPath": "/935f2afb.0ecce629.js"
+        }
+      ]
+    },
+    "7": {
+      "js": [
+        {
+          "file": "a7751fda.49a79ffd.js",
+          "hash": "bc24fab2f19aea187dcf",
+          "publicPath": "/a7751fda.49a79ffd.js"
+        }
+      ]
+    },
+    "8": {
+      "js": [
+        {
+          "file": "dae16102.c799516a.js",
+          "hash": "1922c3e21a0ebfb0d4c7",
+          "publicPath": "/dae16102.c799516a.js"
+        }
+      ]
+    },
+    "9": {
+      "js": [
+        {
+          "file": "ebfee794.4a954c55.js",
+          "hash": "938e8b5c0dfb7631d127",
+          "publicPath": "/ebfee794.4a954c55.js"
+        }
+      ]
+    },
+    "10": {
+      "js": [
+        {
+          "file": "main.aa87c02a.js",
+          "hash": "ffd4add686aa260eaa1e",
+          "publicPath": "/main.aa87c02a.js"
+        }
+      ]
+    },
+    "11": {
+      "js": [
+        {
+          "file": "runtime~main.63e0df56.js",
+          "hash": "561672107c6785c0be8d",
+          "publicPath": "/runtime~main.63e0df56.js"
+        }
+      ]
+    },
+    "12": {
+      "js": [
+        {
+          "file": "12.1ea4918a.js",
+          "hash": "c687718ff878bb6c7434",
+          "publicPath": "/12.1ea4918a.js"
+        }
+      ]
+    },
+    "13": {
+      "js": [
+        {
+          "file": "13.33aecfed.js",
+          "hash": "5f4a157c042eab6cd1e7",
+          "publicPath": "/13.33aecfed.js"
+        }
+      ]
+    }
+  }
+}

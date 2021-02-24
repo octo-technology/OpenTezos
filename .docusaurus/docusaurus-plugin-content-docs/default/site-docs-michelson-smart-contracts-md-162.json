@@ -1,0 +1,21 @@
+{
+  "unversionedId": "michelson/smart_contracts",
+  "id": "michelson/smart_contracts",
+  "isDocsHomePage": false,
+  "title": "Smart Contracts",
+  "description": "Entry points, storage and code",
+  "source": "@site/docs/michelson/smart_contracts.md",
+  "slug": "/michelson/smart_contracts",
+  "permalink": "/michelson/smart_contracts",
+  "editUrl": "https://github.com/octo-technology/opentezos/docs/michelson/smart_contracts.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Language fundamentals",
+    "permalink": "/michelson/language_fundamentals"
+  },
+  "next": {
+    "title": "Instructions",
+    "permalink": "/michelson/instructions"
+  }
+}

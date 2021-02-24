@@ -1,0 +1,12 @@
+{
+  "unversionedId": "michelson/instructions",
+  "id": "michelson/instructions",
+  "isDocsHomePage": false,
+  "title": "Instructions",
+  "description": "Writing Tezos smart contracts requires to master a high-level language such as LIGO (or SmartPy, Morley ...) or the official low-level language called Michelson.",
+  "source": "@site/docs/michelson/instructions copy.md",
+  "slug": "/",
+  "permalink": "/",
+  "editUrl": "https://github.com/facebook/opentezos/docs/michelson/instructions copy.md",
+  "version": "current"
+}

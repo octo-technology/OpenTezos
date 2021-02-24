@@ -1,0 +1,14 @@
+{
+  "unversionedId": "michelson/language_fundamentals",
+  "id": "michelson/language_fundamentals",
+  "isDocsHomePage": false,
+  "title": "Language fundamentals",
+  "description": "References",
+  "source": "@site/docs/michelson/language_fundamentals copy.md",
+  "slug": "/",
+  "permalink": "/docs/",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/master/website/docs/michelson/language_fundamentals copy.md",
+  "version": "current",
+  "sidebar_label": "Language fundamentals",
+  "sidebar": "someSidebar"
+}

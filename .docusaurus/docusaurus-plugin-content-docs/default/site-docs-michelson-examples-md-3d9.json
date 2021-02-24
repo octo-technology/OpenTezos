@@ -1,0 +1,21 @@
+{
+  "unversionedId": "michelson/examples",
+  "id": "michelson/examples",
+  "isDocsHomePage": false,
+  "title": "Examples",
+  "description": "Example 1 : Modulo with LOOP and IF",
+  "source": "@site/docs/michelson/examples.md",
+  "slug": "/michelson/examples",
+  "permalink": "/michelson/examples",
+  "editUrl": "https://github.com/octo-technology/opentezos/docs/michelson/examples.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Instructions",
+    "permalink": "/michelson/instructions"
+  },
+  "next": {
+    "title": "Exam",
+    "permalink": "/michelson/exam"
+  }
+}

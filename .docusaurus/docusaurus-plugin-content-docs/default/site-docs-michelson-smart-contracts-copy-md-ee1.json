@@ -1,0 +1,11 @@
+{
+  "unversionedId": "michelson/smart_contracts",
+  "id": "michelson/smart_contracts",
+  "isDocsHomePage": false,
+  "title": "Smart Contracts",
+  "source": "@site/docs/michelson/smart_contracts copy.md",
+  "slug": "/",
+  "permalink": "/",
+  "editUrl": "https://github.com/facebook/opentezos/docs/michelson/smart_contracts copy.md",
+  "version": "current"
+}

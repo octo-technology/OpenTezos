@@ -1,0 +1,17 @@
+{
+  "unversionedId": "welcome",
+  "id": "welcome",
+  "isDocsHomePage": false,
+  "title": "Welcome",
+  "description": "Welcome to OpenTezos (Docusaurus test version).",
+  "source": "@site/docs/welcome.md",
+  "slug": "/",
+  "permalink": "/",
+  "editUrl": "https://github.com/octo-technology/opentezos/docs/welcome.md",
+  "version": "current",
+  "sidebar": "docs",
+  "next": {
+    "title": "Introduction",
+    "permalink": "/michelson/introduction"
+  }
+}

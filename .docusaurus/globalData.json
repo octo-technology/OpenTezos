@@ -1,0 +1,53 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "path": "/",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": true,
+          "path": "/",
+          "mainDocId": "welcome",
+          "docs": [
+            {
+              "id": "michelson/exam",
+              "path": "/michelson/exam",
+              "sidebar": "docs"
+            },
+            {
+              "id": "michelson/examples",
+              "path": "/michelson/examples",
+              "sidebar": "docs"
+            },
+            {
+              "id": "michelson/instructions",
+              "path": "/michelson/instructions",
+              "sidebar": "docs"
+            },
+            {
+              "id": "michelson/introduction",
+              "path": "/michelson/introduction",
+              "sidebar": "docs"
+            },
+            {
+              "id": "michelson/language_fundamentals",
+              "path": "/michelson/language_fundamentals",
+              "sidebar": "docs"
+            },
+            {
+              "id": "michelson/smart_contracts",
+              "path": "/michelson/smart_contracts",
+              "sidebar": "docs"
+            },
+            {
+              "id": "welcome",
+              "path": "/",
+              "sidebar": "docs"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "unversionedId": "doc1",
+  "id": "doc1",
+  "isDocsHomePage": false,
+  "title": "Language fundamentals",
+  "description": "References",
+  "source": "@site/docs/doc1.md",
+  "slug": "/",
+  "permalink": "/docs/",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/master/website/docs/doc1.md",
+  "version": "current",
+  "sidebar_label": "Language fundamentals",
+  "sidebar": "someSidebar",
+  "next": {
+    "title": "Document Number 2",
+    "permalink": "/docs/doc2"
+  }
+}

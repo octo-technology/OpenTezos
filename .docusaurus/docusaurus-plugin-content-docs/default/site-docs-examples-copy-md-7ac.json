@@ -1,0 +1,11 @@
+{
+  "unversionedId": "examples",
+  "id": "examples",
+  "isDocsHomePage": false,
+  "title": "Examples",
+  "source": "@site/docs/examples copy.md",
+  "slug": "/examples",
+  "permalink": "/examples",
+  "editUrl": "https://github.com/facebook/opentezos/docs/examples copy.md",
+  "version": "current"
+}

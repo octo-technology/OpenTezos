@@ -1,0 +1,17 @@
+{
+  "unversionedId": "michelson/exam",
+  "id": "michelson/exam",
+  "isDocsHomePage": false,
+  "title": "Exam",
+  "description": "Question 1",
+  "source": "@site/docs/michelson/exam.md",
+  "slug": "/michelson/exam",
+  "permalink": "/michelson/exam",
+  "editUrl": "https://github.com/octo-technology/opentezos/docs/michelson/exam.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Examples",
+    "permalink": "/michelson/examples"
+  }
+}

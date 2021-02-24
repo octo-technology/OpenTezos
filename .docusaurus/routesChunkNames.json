@@ -1,0 +1,34 @@
+{
+  "/-e9c": {
+    "component": "1be78505",
+    "versionMetadata": "935f2afb"
+  },
+  "/-328": {
+    "component": "17896441",
+    "content": "ebfee794"
+  },
+  "/michelson/exam-e33": {
+    "component": "17896441",
+    "content": "a7751fda"
+  },
+  "/michelson/examples-d19": {
+    "component": "17896441",
+    "content": "3d9f340d"
+  },
+  "/michelson/instructions-e1c": {
+    "component": "17896441",
+    "content": "8fe3bcb8"
+  },
+  "/michelson/introduction-742": {
+    "component": "17896441",
+    "content": "416e4355"
+  },
+  "/michelson/language_fundamentals-739": {
+    "component": "17896441",
+    "content": "dae16102"
+  },
+  "/michelson/smart_contracts-24d": {
+    "component": "17896441",
+    "content": "16209eab"
+  }
+}
