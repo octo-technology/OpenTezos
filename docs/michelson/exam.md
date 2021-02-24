@@ -34,7 +34,7 @@ What is returned by the execution of a smart contract ?
 
 Consider the following Michelson smart contract.
 
-```
+```js
 parameter nat;
 storage nat;
 code { DUP; CAR; DIP { CDR }; ADD; NIL operation; PAIR }
@@ -66,7 +66,7 @@ Check the right answer.
 
 Consider the following Michelson smart contract.
 
-```
+```js
 parameter nat;
 storage nat;
 code { DUP; CAR; DIP { CDR }; ADD; NIL operation; PAIR }
@@ -85,7 +85,7 @@ What will be the output of the execution ?
 ### Question 5
 Consider the following Michelson smart contract.
 
-```
+```js
 parameter (or (pair %assign address nat) (nat %global)) ;
 storage (pair (big_map %owners address nat) (nat %value)) ;
 code { DUP ;
@@ -127,7 +127,7 @@ What are the possible invocations of this smart contract ?
 ### Question 6
 Consider the following Michelson smart contract storage.
 
-```
+```js
 storage (pair (pair  (set %participants nat) (pair (nat %age) (string %name))) (pair (big_map %owners address nat) (nat %value)));
 ```
 
@@ -148,7 +148,7 @@ Which instruction can be used to retrieve the `big_map` part of the storage ?
 
 Consider the following smart contract that allows to increment or decrement an integer counter:
 
-```
+```js
 parameter (or (int %increment) (int %decrement)) ;
 storage int ;
 code {
@@ -176,10 +176,9 @@ The XXXXX instruction must be replaced by a conditional instruction. Which instr
 
 ### Question 8
 
+The following contract is incomplete:
 
-Let's consider the following contract. Sadly, it is not finished yet ! We need you to complete it ! 
-
-```
+```js
 parameter (or (pair %assign string nat) (string %remove)) ;
 storage (big_map string nat) ;
 code { DUP ;
@@ -195,14 +194,13 @@ code { DUP ;
      }
 ```
 
-You can notice that the storage is a _big\_map_ and the parameter allows two possible invocations: "assign" and "remove".
+Notice that the storage is a _big\_map_ and that the parameter allows two possible invocations: "assign" and "remove".
 
-The "assign" entry point takes two arguments ( a "key" as a _string_ and a "value" as a _nat_) gathered in a _pair_. The goal of the "assign" entry point is to modify the storage (the _big\_map_) by assigning the given "value" to the given "key". 
+The "assign" entry point takes two arguments ( a "key" as a _string_ and a "value" as a _nat_) set in a _pair_. The goal of the "assign" entry point is to modify the storage (the _big\_map_) by assigning the given "value" to the given "key". 
 
 The "remove" entry point takes a single argument (a "key" as a _string_). The goal of the "remove" entry point is to modify the storage by removing the given "key" from the _big\_map_. 
 
-
-Complete the missing "XXXXXXX" sequence of instructions accordingly to previously-mentioned statements.
+Complete the missing "XXXXXXX" sequence of instructions according to the previously-mentioned statements.
 
 - [ ] UNPAIR ; SOME
 - [ ] UNPAIR ; NONE
@@ -223,7 +221,7 @@ Complete the missing "XXXXXXX" sequence of instructions accordingly to previousl
 
 Consider the following "QCM_9.tz" smart contract.
 
-```
+```js
 parameter int ;
 storage (pair (set int) bool) ;
 code {
@@ -235,11 +233,15 @@ code {
        PAIR }
 ```
 
-What is the resulting storage if this contract is invoked with the following command. Notice that this command defines the initial storage state as `Pair {1;2;3;4} True` and the parameter as `5`.
+We invoke this contract with the following command:
 
-```
+```js
 tezos-client run script QCM_9.tz on storage 'Pair {1;2;3;4} True' and input '5'
 ```
+
+Notice that this command defines the initial storage state as `Pair {1;2;3;4} True` and the parameter as `5`.
+
+What is the resulting storage state ?
 
 - [ ] Pair {1;2;3;4;5} True
 - [ ] Pair {5;1;2;3;4} True
@@ -252,7 +254,7 @@ tezos-client run script QCM_9.tz on storage 'Pair {1;2;3;4} True' and input '5'
 
 Consider the following "QCM_10.tz" smart contract.
 
-```
+```js
 parameter unit ;
 storage (map string nat) ;
 code {
@@ -275,13 +277,17 @@ code {
        PAIR }
 ```
 
-What is the resulting storage if this contract is invoked with the following command. Notice that this command defines the initial storage state as `{ Elt "alice" 1; Elt "bob" 2; Elt "carin" 3 }` and the parameter as `Unit`.
+We invoke this contract with the following command:
+
+```js
+tezos-client run script QCM_10.tz on storage '{ Elt "alice" 1; Elt "bob" 2; Elt "carin" 3 }' and input 'Unit'
+```
+
+Notice that this command defines the initial storage state as `{ Elt "alice" 1; Elt "bob" 2; Elt "carin" 3 }` and the parameter as `Unit`.
 
 ![](../../static/img/QCM_10_123.svg)
 
-```
-tezos-client run script QCM_10.tz on storage '{ Elt "alice" 1; Elt "bob" 2; Elt "carin" 3 }' and input 'Unit'
-```
+What is the resulting storage state ?
 
 - [ ] { Elt "alice" 1; Elt "bob" 2; Elt "carin" 3 }
 

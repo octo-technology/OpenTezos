@@ -12,7 +12,7 @@ The idea is to repetitively subtract the divisor from the dividend. Once the div
 
 The following smart contract takes a pair of integer and computes the "modulo" of these two integers (using a `LOOP` instruction).
 
-```
+```js
 parameter (pair int int) ;
 storage int ;
 code { CAR ;
@@ -38,14 +38,13 @@ Now, let's simulate the execution of this snippet of code. For this example, we 
 Notice that the `LOOP` instruction stops when it is given a `False` condition (in red in the diagram below). In our example, the condition is initialized to `True` because 7 is greater than 5 (and the modulo need to be computed).
 
 ![](../../static/img/michelson_example_modulo_execution.svg)
-*Illustration of the _Modulo_ example*
+<small className="figure">FIGURE 1: Illustration of the _Modulo_ example</small>
 
 The execution of the "loop_example.tz" smart contract can be simulated with the following command:
 
-```
+```js
 tezos-client run script loop_example.tz on storage '0' and input '(Pair 7 5)'
 ```
-
 
 ### Example 2 : Maximum of a list with `ITER` and `CMPLE`
 
@@ -53,7 +52,7 @@ Let's illustrate the following Michelson instructions: `CAR`, `CDR`, `ITER`, `DI
 
 The idea is to repetitively take an element from the list and compare it with the maximum computed so far. Once the list is processed, the stack contains the biggest integer of the list.
 
-```
+```js
 parameter (list int) ;
 storage (option int) ;
 code { CAR ;
@@ -76,14 +75,13 @@ code { CAR ;
 Notice that the storage stores an `option int`. Indeed, if the given list is empty, then there is no maximum.
 
 ![](../../static/img/michelson_example_maxlist_execution.svg)
-*Illustration of the _Maximum of a list_ example*
+<small className="figure">FIGURE 2: Illustration of the _Maximum of a list_ example</small>
 
 Notice in red in the diagram above that the `ITER` instruction is called recursively on each element of the given list of integers.
 
-
 If you have setup a Tezos node, you can use the tezos-client program to simulate your smart contract (max_list.tz) with the following command. 
 
-```
+```js
 tezos-client run script max_list.tz on storage 'None' and input '{1;2;5;3;7;2;15;4}'
 ```
 
@@ -93,7 +91,7 @@ Let's illustrate the following Michelson instructions: `EXEC`, `LAMBDA`, `SWAP`,
 
 The idea is to define a lambda function (which increment an integer) and execute the function. Once the function has been applied the result is returned as new storage state.
 
-```
+```js
 parameter int ;
 storage int ;
 code { CAR ;
@@ -105,14 +103,13 @@ code { CAR ;
 ```
 
 ![](../../static/img/michelson_example_lambdaexec_execution.svg)
-*Illustration of the execution of a lambda*
-
+<small className="figure">FIGURE 3: Illustration of the execution of a lambda</small>
 
 ### Example 4 : Computing a sum with `LOOP_LEFT`
 
 The following smart contract illustrates the `LOOP_LEFT` instruction usage. It takes an integer as parameter and computes the sum from zero to the given integer.
 
-```
+```js
 parameter int ;
 storage int ;
 code { CAR ; PUSH int 0 ; SWAP ; PAIR ;
@@ -136,14 +133,13 @@ code { CAR ; PUSH int 0 ; SWAP ; PAIR ;
 Let's breakdown the execution of this smart contract. In our example, the storage is used just to store the result of the execution. The diagram below shows how the sum of integers from 0 to 5 is computed.
 
 ![](../../static/img/michelson_example_loopleft_execution.svg)
-*Illustration of the `LOOP_LEFT` instruction*
-
+<small className="figure">FIGURE 4: Illustration of the `LOOP_LEFT` instruction</small>
 
 ### Example 5 : Computing a factorial with `LOOP_LEFT`
 
 Let's illustrate the following Michelson instructions: `LOOP_LEFT`. The following snippet of code takes an integer and computes factorial of the given integer; the result is saved in the storage.
 
-```
+```js
 parameter int ;
 storage int ;
 code { PUSH int 1 ;

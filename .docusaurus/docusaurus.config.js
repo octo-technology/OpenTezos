@@ -64,6 +64,9 @@ export default {
       }
     ]
   ],
+  "plugins": [
+    "plugin-image-zoom"
+  ],
   "baseUrlIssueBanner": true,
   "i18n": {
     "defaultLocale": "en",
@@ -74,7 +77,6 @@ export default {
   },
   "onDuplicateRoutes": "warn",
   "customFields": {},
-  "plugins": [],
   "themes": [],
   "titleDelimiter": "|",
   "noIndex": false

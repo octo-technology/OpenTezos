@@ -3,9 +3,7 @@ id: instructions
 title: Instructions
 ---
 
-As seen previously, a Tezos smart contract defines a storage, entry points and the code. The code of a smart contract is a sequence of Michelson instructions.
-
-Since the Michelson language is in perpetual evolution, it is recommended to visit the [Michelson Reference page](https://tezos.gitlab.io/007/michelson.html)
+A Tezos smart contract defines a storage, entry points and the code. The code of a smart contract is a sequence of Michelson instructions.
 
 The main instructions are described in the next sections.
 
@@ -17,7 +15,7 @@ Michelson is a turing-complete language and thus provides basic control flow ins
 
 The Sequence structure is defined by `{` and `}` and contains instructions separated by `;` (semi-colon).
 
-```
+```js
 { instruction1 ; instruction2 ; ... ; instruction n}
 ```
 
@@ -44,7 +42,8 @@ The `IF` instruction allows to create branches of execution (also called conditi
 The `IF` instruction takes two sequences as parameters. It expects a boolean at the top element of the stack. It consumes the top element and executes the first given sequence if this boolean-top element is True. Otherwise it executes the second sequence.
 
 The Michelson grammar defines the `IF` instruction as:
-```
+
+```js
 IF bt bf / True : S  =>  bt / S
 IF bt bf / False : S  =>  bf / S
 ```
@@ -52,7 +51,7 @@ IF bt bf / False : S  =>  bf / S
 Here is an example of an `IF` instruction which inverts the position of two elements of the stack if the condition is _False_, otherwise it throws an exception. We will see in that inverting position of two element is done with the `SWAP` instruction.
 
 ![](../../static/img/michelson_instruction_if_example.svg)
-*Execution of `IF { FAIL } { SWAP }`*
+<small className="figure">FIGURE 1: Execution of `IF`</small>
 
 #### LOOP {}
 
@@ -62,7 +61,7 @@ The `LOOP` instruction allows to iterate on a composite structure (list, set, ma
 
 The Michelson grammar defines the `LOOP` instruction as:
 
-```
+```js
 LOOP body / True : S  =>  body ; LOOP body / S
 LOOP body / False : S  =>  S
 ```
@@ -73,7 +72,7 @@ Like the `LOOP` instruction, the `LOOP_LEFT` is a generic loop that handles an a
 
 The Michelson grammar defines the `LOOP_LEFT` instruction as:
 
-```
+```js
 LOOP_LEFT body / (Left a) : S  =>  body ; LOOP_LEFT body / a : S
 LOOP_LEFT body / (Right b) : S  =>  b : S
 ```
@@ -89,14 +88,14 @@ The `EXEC` instruction executes a function from the stack.
 
 The `EXEC` instruction consumes a function and its related input parameters on top of the stack. The `EXEC` instruction produces the expected function output on the top of the stack.
 
-```
+```js
 EXEC / a : f : S  =>  r : S
     where f / a : []  =>  r : []
 ```
 
 Here is an example of smart contract that defines a function with the `LAMBDA` instruction and executes the function with the `EXEC` instruction.
 
-```
+```js
 parameter int ;
 storage int ;
 code { CAR ;
@@ -118,26 +117,28 @@ The `APPLY 'a` instruction partially applies a _tuplified_ function from the sta
 The instruction produces a new function that is only partially resolved. For example, if a function takes 2 arguments, it is possible to provide one argument and to use the `APPLY` instruction to produce an equivalent partially-resolved function which takes one argument.
 
 The Michelson grammar defines the `APPLY` instruction as:
-```  
+
+```js  
 :: 'a : lambda (pair 'a 'b) 'c : 'C   ->   lambda 'b 'c : 'C
 ```
 
-```
+```js
 APPLY / a : f : S  => { PUSH 'a a ; PAIR ; f } : S
 ```
 
 For example, let's consider a lambda function (called _additionAB_) that takes a pair of _nat_ and returns a _nat_. It computes the addition of two numbers.
-``` 
+
+```js
 LAMBDA (pair nat nat) nat { ADD }
 ```
 
 Notice that the function is tuplified.
 
-
 The `APPLY` instruction allows to form a new lambda function (called _addition2B_) which takes a single _nat_ as argument and returns a _nat_. This function would increment a given _nat_ by two. 
 
 The resulting function _addition2B_ is equivalent to:
-```
+
+```js
 LAMBDA nat nat { PUSH nat 2 ; ADD }
 ```
 
@@ -152,7 +153,7 @@ The `PUSH` instruction allows to place an element on top of the stack.
 It requires to specify the type of the pushed element.
 
 ![](../../static/img/michelson_instruction_push_example.svg)
-*Illustration of the `PUSH` instruction*
+<small className="figure">FIGURE 2: Illustration of the `PUSH` instruction</small>
 
 #### UNIT instruction
 
@@ -165,37 +166,35 @@ The `Unit` value represents no value.
 The `DROP` instruction removes the top element of the stack
 
 ![](../../static/img/michelson_instruction_drop_example.svg)
-*Illustration of the `DROP` instruction*
+<small className="figure">FIGURE 3: Illustration of the `DROP` instruction</small>
 
 #### SWAP instruction
 
 The `SWAP` instruction inverts the position of the top two element of the stack.
 
 ![](../../static/img/michelson_instruction_swap_example.svg)
-*Illustration of the `SWAP` instruction*
+<small className="figure">FIGURE 4: Illustration of the `SWAP` instruction</small>
 
 #### DUP instruction
 
 The `DUP` instruction duplicates the top element of the stack
 
 ![](../../static/img/michelson_instruction_dup_example.svg)
-*Illustration of the `DUP` instruction*
+<small className="figure">FIGURE 5: Illustration of the `DUP` instruction</small>
 
 #### DIG instruction
 
 The `DIG` instruction moves the n-th element of the stack on top of the stack.
 
 ![](../../static/img/michelson_instruction_dig_example.svg)
-*Illustration of the `DIG` instruction*
-
+<small className="figure">FIGURE 6: Illustration of the `DIG` instruction</small>
 
 #### DUG instruction
 
 The `DUG` instruction moves the top element of the stack to the n-th element of the stack.
 
 ![](../../static/img/michelson_instruction_dug_example.svg)
-*Illustration of the `DUG` instruction*
-
+<small className="figure">FIGURE 7: Illustration of the `DUG` instruction</small>
 
 #### DIP instruction
 
@@ -206,7 +205,8 @@ The `DIP` instruction takes as parameters:
 It runs the provided sequence of instruction while protecting the _n_ top elements of the stack.
 
 The mMichelson grammar defines `DIP` as:
-```
+
+```js
 DIP n code / x{1} : ... : x{n} : S  =>  x{1} : ... : x{n} : S'
     where    code / S  =>  S'
 ```
@@ -216,7 +216,7 @@ There is a special case when n = 1. An alias (shortcut) is available for this ca
 Also notice that `DIP 0 code` is equivalent to `code`
 
 ![](../../static/img/michelson_instruction_dip_example.svg)
-*Illustration of the `DIP` instruction*
+<small className="figure">FIGURE 8: Illustration of the `DIP` instruction</small>
 
 #### LAMBDA
 
@@ -227,14 +227,15 @@ It requires three parameters:
 - the type returned by the function
 - the sequence of instructions associated with the function (code of the function)
 
-```
+```js
 LAMBDA _ _ code / S  =>  code : S
 ```
+
 Notice that "_" represents any type. So, a lambda takes and returns arguments that can be of any type.
 
 Here is an example of a smart contract that defines a function with the `LAMBDA` instruction and executes the function with the `EXEC` instruction.
 
-```
+```js
 parameter int ;
 storage int ;
 code { CAR ;
@@ -258,7 +259,8 @@ This instruction compares the top two elements of the stack.
 The COMPARE instruction returns -1 if the first element is smaller than the second one. It returns 0 if the two first elements are equal. Otherwise it returns 1.
 
 The Michelson grammar defines `COMPARE` as:
-```
+
+```js
 COMPARE / x : y : S  =>  -1 : S
     iff x < y
 COMPARE / x : y : S  =>  0 : S
@@ -270,13 +272,13 @@ COMPARE / x : y : S  =>  1 : S
 Here is an example of comparison between two natural integers:
 
 ![](../../static/img/michelson_instruction_compare_example.svg)
-*Illustration of the `COMPARE` instruction*
+<small className="figure">FIGURE 9: Illustration of the `COMPARE` instruction</small>
 
 #### EQ
 
 The top element is replaced by _True_ if this element is zero, otherwise by _False_. 
 
-```
+```js
 EQ / 0 : S  =>  True : S
 EQ / v : S  =>  False : S
     iff v <> 0
@@ -285,13 +287,13 @@ EQ / v : S  =>  False : S
 Here is an example:
 
 ![](../../static/img/michelson_instruction_eq_example.svg)
-*Illustration of the `EQ` instruction*
+<small className="figure">FIGURE 10: Illustration of the `EQ` instruction</small>
 
 #### LT
 
 The top element is replaced by _True_ if this element is lower than zero, otherwise by _False_. 
 
-```
+```js
 LT / v : S  =>  True : S
     iff  v < 0
 LT / v : S  =>  False : S
@@ -301,14 +303,13 @@ LT / v : S  =>  False : S
 Here is an example:
 
 ![](../../static/img/michelson_instruction_lt_example.svg)
-*Illustration of the `LT` instruction*
-
+<small className="figure">FIGURE 11: Illustration of the `LT` instruction</small>
 
 #### GE
 
 The top element is replaced by _True_ if this element is greater or equal to zero, otherwise by _False_. 
 
-```
+```js
 GE / v : S  =>  True : S
     iff  v >= 0
 GE / v : S  =>  False : S
@@ -318,7 +319,7 @@ GE / v : S  =>  False : S
 Here is an example:
 
 ![](../../static/img/michelson_instruction_ge_example.svg)
-*Illustration of the `GE` instruction*
+<small className="figure">FIGURE 12: Illustration of the `GE` instruction</small>
 
 ### Operations on bool
 
@@ -327,7 +328,7 @@ Here is an example:
 The `OR` instruction consumes the two top elements of the stack and computes a logical _OR_ of the two elements.
 
 ![](../../static/img/michelson_instruction_or_example.svg)
-*Illustration of the `OR` instruction*
+<small className="figure">FIGURE 13: Illustration of the `OR` instruction</small>
 
 The `OR` instruction requires boolean elements.
 
@@ -336,7 +337,7 @@ The `OR` instruction requires boolean elements.
 The `AND` instruction consumes the two top elements of the stack and computes a logical _AND_ of the two elements.
 
 ![](../../static/img/michelson_instruction_and_example.svg)
-*Illustration of the `AND` instruction*
+<small className="figure">FIGURE 14: Illustration of the `AND` instruction</small>
 
 The `AND` instruction requires boolean elements.
 
@@ -345,7 +346,7 @@ The `AND` instruction requires boolean elements.
 The `XOR` instruction consumes the two top elements of the stack and computes an exclusive logical OR of the two elements.
 
 ![](../../static/img/michelson_instruction_xor_example.svg)
-*Illustration of the `XOR` instruction*
+<small className="figure">FIGURE 15: Illustration of the `XOR` instruction</small>
 
 The `XOR` instruction requires boolean elements.
 
@@ -360,7 +361,7 @@ The `NOT` instruction consumes a boolean top element of the stack and push the l
 The `ADD` instruction computes additions on nat, int and mutez.
 
 ![](../../static/img/michelson_instruction_add_example.svg)
-*Illustration of the `ADD` instruction*
+<small className="figure">FIGURE 16: Illustration of the `ADD` instruction</small>
 
 #### SUB
 
@@ -369,18 +370,18 @@ The `SUB` instruction computes subtractions on nat, int and mutez.
 Notice that subtraction of two natural integers produces an integer.
 
 ![](../../static/img/michelson_instruction_sub_example.svg)
-*Illustration of the `SUB` instruction*
+<small className="figure">FIGURE 17: Illustration of the `SUB` instruction</small>
 
 #### MUL
 
 The `MUL` instruction computes multiplications on nat and int.
 
-```
+```js
 MUL / x : y : S  =>  (x * y) : S
 ```
 
 ![](../../static/img/michelson_instruction_mul_example.svg)
-*Illustration of the `MUL` instruction*
+<small className="figure">FIGURE 18: Illustration of the `MUL` instruction</small>
 
 Notice that the multiplication of two natural integers produces a natural integer.
 
@@ -391,15 +392,15 @@ The `EDIV` instruction computes divisions on nat and mutez.
 If the divisor is equal to zero then it returns an optional type with an assigned value None. Otherwise it apply the Euclidean division and return a optional type with value (Pair quotient remainder)
 
 The michelson grammar defines `EDIV` as:
-```
+
+```js
 EDIV / x : 0 : S  =>  None
 EDIV / x : y : S  =>  Some (Pair (x / y) (x % y)) : S
     iff y <> 0
 ```
 
 ![](../../static/img/michelson_instruction_ediv_example.svg)
-*Illustration of the `EDIV` instruction*
-
+<small className="figure">FIGURE 19: Illustration of the `EDIV` instruction</small>
 
 ### Operations on strings
 
@@ -411,7 +412,7 @@ The `CONCAT` instruction concatenates strings. It consumes the top element and p
 
 It takes one parameter which can be a single string or a list of strings. 
 
-```
+```js
 CONCAT / s : t : S  =>  (s ^ t) : S
 
 CONCAT / {} : S  =>  "" : S
@@ -433,7 +434,7 @@ It takes three parameters:
 
 It returns an optional string because the given offset may be out of bound.
 
-```
+```js
 SLICE / offset : length : s : S  =>  Some ss : S
    where ss is the substring of s at the given offset and of the given length
      iff offset and (offset + length) are in bounds
@@ -442,14 +443,13 @@ SLICE / offset : length : s : S  =>  None  : S
 ```
 
 ![](../../static/img/michelson_instruction_slice_example.svg)
-*Illustration of the `SLICE` instruction*
-
+<small className="figure">FIGURE 20: Illustration of the `SLICE` instruction</small>
 
 #### COMPARE with strings
 
 The `COMPARE` instruction allows to compare two strings. It consumes the top two elements of the stack and pushes an integer on top. If the first element is lexically greater than the second then, it returns 1. If the first element is lexically equal to the second element, then it returns 0. If the first element is lexically smaller than the second element, then it returns -1.
 
-```
+```js
 COMPARE / s : t : S  =>  -1 : S
     iff s < t
 COMPARE / s : t : S  =>  0 : S
@@ -464,34 +464,34 @@ COMPARE / s : t : S  =>  1 : S
 
 The PAIR instruction consumes the top two elements of the stack and creates a pair with these two elements.
 
-```
+```js
 PAIR / a : b : S  =>  (Pair a b) : S
 ```
 
 ![](../../static/img/michelson_instruction_pair_example.svg)
-*Illustration of the `PAIR` instruction*
+<small className="figure">FIGURE 21: Illustration of the `PAIR` instruction</small>
 
 #### CAR
 
 The CAR instruction consumes the top element of the stack (which must be a `PAIR`) and pushes on top the left part of the pair.
 
-```
+```js
 CAR / (Pair a _) : S  =>  a : S
 ```
 
 ![](../../static/img/michelson_instruction_car_example.svg)
-*Illustration of the `CAR` instruction*
+<small className="figure">FIGURE 22: Illustration of the `CAR` instruction</small>
 
 #### CDR
 
 The `CDR` instruction consumes the top element of the stack (which must be a `PAIR`) and pushes on top element the right part of the pair.
 
-```
+```js
 CDR / (Pair _ b) : S  =>  b : S
 ```
 
 ![](../../static/img/michelson_instruction_cdr_example.svg)
-*Illustration of the `CDR` instruction*
+<small className="figure">FIGURE 23: Illustration of the `CDR` instruction</small>
 
 #### COMPARE on pairs
 
@@ -499,7 +499,7 @@ The `COMPARE` instruction computes a lexicographic comparison. Like the generic 
 
 The `COMPARE` instruction executes the comparison on both (left and right) part of a _pair_. It starts with comparing left parts and if the result is 0 (i.e. left parts are equal) then the comparison is done on the right part of the pair.
 
-```
+```js
 > COMPARE / (Pair sa sb) : (Pair ta tb) : S  =>  -1 : S
     iff COMPARE / sa : ta : S => -1 : S
 > COMPARE / (Pair sa sb) : (Pair ta tb) : S  =>  1 : S
@@ -519,7 +519,7 @@ The `EMPTY_SET` instruction builds a new, empty set for elements of a given type
 
 The 'elt type must be comparable (the COMPARE primitive must be defined over it).
 
-```
+```js
 EMPTY_SET _ / S  =>  {} : S
 ```
 
@@ -527,7 +527,7 @@ EMPTY_SET _ / S  =>  {} : S
 
 The `MEM` instruction checks for the presence of an element in a set.
 
-```
+```js
 MEM / x : {} : S  =>  false : S
 MEM / x : { hd ; <tl> } : S  =>  r : S
     iff COMPARE / x : hd : []  =>  1 : []
@@ -548,7 +548,7 @@ It takes the top two elements of the stack:
 - an element whose type corresponds to the _set_ type
 - a boolean representing the existence of this element in the _set_
 
-```
+```js
 UPDATE / x : false : {} : S  =>  {} : S
 UPDATE / x : true : {} : S  =>  { x } : S
 UPDATE / x : v : { hd ; <tl> } : S  =>  { hd ; <tl'> } : S
@@ -567,17 +567,16 @@ UPDATE / x : true : { hd ; <tl> } : S  =>  { x ; hd ; <tl> } : S
 If the boolean parameter is _False_ then the element will be removed.
 
 ![](../../static/img/michelson_instruction_updatesetremove_example.svg)
-*Illustration of the `UPDATE` instruction*
+<small className="figure">FIGURE 24: Illustration of the `UPDATE` instruction</small>
 
 If the boolean parameter is _False_ then the element will be inserted.
 
 ![](../../static/img/michelson_instruction_updatesetinsert_example.svg)
-*Illustration of the `UPDATE` instruction*
-
+<small className="figure">FIGURE 25: Illustration of the `UPDATE` instruction</small>
 
 The following smart contract illustrates the `UPDATE` instruction usage. This smart contract stores a set of integers and can be invoked by specifying an integer that will be inserted in the set.
 
-```
+```js
 parameter int ;
 storage (set int) ;
 code { DUP ; CAR ; DIP { CDR } ;
@@ -590,7 +589,7 @@ code { DUP ; CAR ; DIP { CDR } ;
 
 You can test the smart contract with the following command:
 
-```
+```js
 tezos-client run script set_example.tz on storage '{1;2;3; 9}' and input '7'
 ```
 
@@ -600,7 +599,7 @@ The `ITER` instruction takes a sequence of instructions (called body) as paramet
 
 The `ITER` instruction applies a given sequence of instructions to each element of a set. The body sequence has access to the stack.
 
-```
+```js
 ITER body / {} : S  =>  S
 ITER body / { hd ; <tl> } : S  =>  ITER body / { <tl> } : S'
    iff body / hd : S  =>  S'
@@ -620,7 +619,7 @@ When defining an optional value the type of value must be specified.
 
 The `SOME` instruction packs a value as an optional value.
 
-```
+```js
 SOME / v : S  =>  (Some v) : S
 ```
 
@@ -628,7 +627,7 @@ SOME / v : S  =>  (Some v) : S
 
 The `NONE` instruction specifies the absence of value. It requires to specify the type of value that can be held.
 
-```
+```js
 NONE / S  =>  None : S
 ```
 
@@ -638,16 +637,16 @@ The `IF_NONE bt bf` instruction inspects an optional value.
 It requires two sequences of instructions like for an `IF` instruction.
 It executes the first sequence if the optional value has no value assigned, otherwise it executes the second sequence of instructions (where a value has been assigned with a `SOME` instruction).
 
-```
+```js
 IF_NONE bt bf / (None) : S  =>  bt / S
 IF_NONE bt bf / (Some a) : S  =>  bf / a : S
 ```
 
 ![](../../static/img/michelson_instruction_ifnone_none_example.svg)
-*Illustration of the `IF_NONE` instruction*
+<small className="figure">FIGURE 25: Illustration of the `IF_NONE` instruction</small>
 
 ![](../../static/img/michelson_instruction_ifnone_some_example.svg)
-*Illustration of the `IF_NONE` instruction*
+<small className="figure">FIGURE 26: Illustration of the `IF_NONE` instruction</small>
 
 ### Operations on maps/big_maps
 
@@ -661,7 +660,7 @@ The `EMPTY_MAP` instruction builds a new empty map. It requires the type definit
 
 The 'key type must be comparable (the COMPARE primitive must be defined over it).
 
-```
+```js
 EMPTY_MAP _ _ / S  =>  {} : S
 ```
 
@@ -673,7 +672,7 @@ The `MEM` instruction checks for the presence of a binding for a key in a map.
 
 It takes a key as parameter and returns a boolean on top of the stack.
 
-```
+```js
 MEM / x : {} : S  =>  false : S
 MEM / x : { Elt k v ; <tl> } : S  =>  r : S
     iff COMPARE / x : k : []  =>  1 : []
@@ -690,7 +689,7 @@ The `UPDATE` instruction adds or removes an element in a map.
 
 It takes a key and an optional value as parameters.
 
-```
+```js
 > UPDATE / x : None : {} : S  =>  {} : S
 > UPDATE / x : Some y : {} : S  =>  { Elt x y } : S
 > UPDATE / x : opt_y : { Elt k v ; <tl> } : S  =>  { Elt k v ; <tl'> } : S
@@ -708,7 +707,7 @@ It takes a key and an optional value as parameters.
 
 If the optional value is defined as `None` then the element is removed from the map. The following smart contract (map_remove_example.tz) illustrates the `UPDATE` usage while removing an element from the map.
 
-```
+```js
 parameter string ;
 storage (map string int) ;
 code { DUP ; CAR ; DIP { CDR } ;
@@ -721,16 +720,16 @@ code { DUP ; CAR ; DIP { CDR } ;
 
 This smart contract can be tested with the following command:
 
-```
+```js
 tezos-client run script map_remove_example.tz on storage '{ Elt "toto" 1 }' and input '"toto"'
 ```
 
 ![](../../static/img/michelson_instruction_mapremove_example.svg)
-*Illustration of the `UPDATE` instruction*
+<small className="figure">FIGURE 27: Illustration of the `UPDATE` instruction</small>
 
 If the optional value is defined as `Some` then the element is insert into the map.The following smart contract (map_insert_example.tz) illustrates the `UPDATE` usage while inserting an element into the map.
 
-```
+```js
 parameter string ;
 storage (map string int) ;
 code { DUP ; CAR ; DIP { CDR } ;
@@ -744,19 +743,18 @@ code { DUP ; CAR ; DIP { CDR } ;
 
 This smart contract can be tested with the following command.
 
-```
+```js
 tezos-client run script map_insert_example.tz on storage '{ Elt "toto" 1 }' and input '"tutu"'
 ```
 
 ![](../../static/img/michelson_instruction_mapinsert_example.svg)
-*Illustration of the `UPDATE` instruction*
-
+<small className="figure">FIGURE 28: Illustration of the `UPDATE` instruction</small>
 
 #### GET
 
 The `GET` instruction allows to access an element in a map. It returns an optional value to be checked with an `IF_SOME` instruction.
 
-```
+```js
 GET / x : { Elt k v ; <tl> } : S  =>  opt_y : S
     iff COMPARE / x : k : []  =>  1 : []
     where GET / x : { <tl> } : S  =>  opt_y : S
@@ -768,7 +766,7 @@ GET / x : { Elt k v ; <tl> } : S  =>  None : S
 
 The following smart contract illustrates the usage of `GET`. The contract takes a key as parameter and inserts a new element in the map if the key does not exist. It assigns value 0 to the given key. If the element for the given key exists in the map then it increments its associated value.
 
-```
+```js
 parameter string ;
 storage (map string int) ;
 code { DUP ;
@@ -787,22 +785,21 @@ code { DUP ;
 
 This smart contract can be simulated with the following commands:
 
-```
+```js
 tezos-client run script map_example.tz on storage '{}' and input '"toto"'
 ```
 
-```
+```js
 tezos-client run script map_example.tz on storage '{ Elt "toto" 5 }' and input '"toto"'
 ```
 
 Notice that `{}` represents an empty map and `{ Elt "toto" 5 }` a map containing one element where "toto" is the key and its associated value is 5.
 
-
 #### MAP body
 
 The `MAP` instruction applies a sequence of instructions to each element of a map. It takes a sequence of instructions as parameter (called "body"). This "body" sequence has access to the stack.
 
-```
+```js
 MAP body / {} : S  =>  {} : S
 MAP body / { Elt k v ; <tl> } : S  =>  { Elt k v' ; <tl'> } : S''
     where body / Pair k v : S  =>  v' : S'
@@ -811,7 +808,7 @@ MAP body / { Elt k v ; <tl> } : S  =>  { Elt k v' ; <tl'> } : S''
 
 The following smart contract (map_map_example.tz) illustrates the `MAP` usage. This smart contract stores a `map string nat` and when invoked it goes through all key-value elements of the map and multiplies by 2 the `nat` value.
 
-```
+```js
 parameter unit ;
 storage (map string nat) ;
 code {
@@ -823,7 +820,7 @@ code {
 
 The smart contract can be simulated with the following command.
 
-```
+```js
 tezos-client run script map_map_example.tz on storage '{ Elt "toto" 1 ; Elt "tutu" 4 }' and input Unit
 ```
 
@@ -831,7 +828,7 @@ tezos-client run script map_map_example.tz on storage '{ Elt "toto" 1 ; Elt "tut
 
 The `ITER` instruction applies a sequence of instructions (called body) to each element of a map. The body sequence has access to the stack.
 
-```
+```js
 ITER body / {} : S  =>  S
 ITER body / { Elt k v ; <tl> } : S  =>  ITER body / { <tl> } : S'
    iff body / (Pair k v) : S  =>  S'
@@ -851,7 +848,7 @@ The `union` data structure specifies two possible type definitions with logical 
 
 For example, the following Michelson expression defines the type "int_or_nat" as:
 
-```
+```js
 or int nat
 ```
 
@@ -861,7 +858,7 @@ The `LEFT` instruction packs a value in a union.
 
 It consumes a type definition on the top of the stack and pushes a union with left part is defined as the consumed type definition.
 
-```
+```js
 LEFT / v : S  =>  (Left v) : S
 ```
 
@@ -871,7 +868,7 @@ The `RIGHT` instruction packs a value in a union.
 
 It consumes a type definition on the top of the stack and pushes a union with right part is defined as the consumed type definition.
 
-```
+```js
 RIGHT / v : S  =>  (Right v) : S
 ```
 
@@ -883,14 +880,14 @@ The `IF_LEFT bt bf` executes the "bt" sequence if the left part of a *union* has
 
 The instruction consumes a Michelson expression on top of the stack which specifies which part of the union has been defined.
 
-```
+```js
 IF_LEFT bt bf / (Left a) : S  =>  bt / a : S
 IF_LEFT bt bf / (Right b) : S  =>  bf / b : S
 ```
 
 The following smart contract (union_example.tz) illustrates the `IF_LEFT` usage. Notice that the parameter is a union `(or string int)` and the storage is an integer. This smart contract increments the storage if an integer is passed as parameter and does nothing if a string is given.
 
-```
+```js
 parameter (or string int) ;
 storage int ;
 code { DUP ; CAR ; DIP { CDR } ;
@@ -902,21 +899,22 @@ code { DUP ; CAR ; DIP { CDR } ;
 So as to illustrate the invocation of the smart contract we will break down its execution.
 
 The following command simulates the execution of the smart contract when called with an integer.
-```
+
+```js
 tezos-client run script union_example.tz on storage '5' and input 'Right 1'
 ```
 
 ![](../../static/img/michelson_instruction_ifleft_right_example.svg)
-*Illustration of the `IF_LEFT` instruction*
+<small className="figure">FIGURE 30: Illustration of the `IF_LEFT` instruction</small>
 
 The following command simulates the execution of the smart contract when called with an integer.
 
-```
+```js
 tezos-client run script union_example.tz on storage '5' and input 'Left "Hello"'
 ```
 
 ![](../../static/img/michelson_instruction_ifleft_left_example.svg)
-*Illustration of the `IF_LEFT` instruction*
+<small className="figure">FIGURE 31: Illustration of the `IF_LEFT` instruction</small>
 
 ### Operations on lists
 
@@ -924,23 +922,23 @@ tezos-client run script union_example.tz on storage '5' and input 'Left "Hello"'
 
 The `CONS` instruction adds an element to a list (at the beginning of the list).
 
-```
+```js
 CONS / a : { <l> } : S  =>  { a ; <l> } : S
 ```
 
 ![](../../static/img/michelson_instruction_cons_example.svg)
-*Illustration of the `CONS` instruction*
+<small className="figure">FIGURE 32: Illustration of the `CONS` instruction</small>
 
 #### NIL
 
 The `NIL 'a` instruction specifies an empty list. The type of list elements must be specified. 
 
-```
+```js
 NIL / S  =>  {} : S
 ```
 
 ![](../../static/img/michelson_instruction_nillist_example.svg)
-*Illustration of the `NIL` instruction*
+<small className="figure">FIGURE 33: Illustration of the `NIL` instruction</small>
 
 #### IF_CONS
 
@@ -948,7 +946,7 @@ The `IF_CONS bt bf` instruction inspects a list. It requires two sequences of in
 
 This instruction removes the first element of the list, pushes it on top of the stack and executes the first sequence of instructions (`bt`). If the list is empty then the second list of instruction is executed (`bf`).
 
-```
+```js
 IF_CONS bt bf / { a ; <rest> } : S  =>  bt / a : { <rest> } : S
 IF_CONS bt bf / {} : S  =>  bf / S
 ```
@@ -957,7 +955,7 @@ IF_CONS bt bf / {} : S  =>  bf / S
 
 The `MAP` instruction applies a sequence of instructions to each element of a list. The `MAP` instruction requires a sequence of instructions (i.e. body) which has access to the stack.
 
-```
+```js
 MAP body / {} : S  =>  {} : S
 MAP body / { a ; <rest> } : S  =>  { b ; <rest'> } : S''
     where body / a : S  =>  b : S'
@@ -971,7 +969,7 @@ It consumes a list on top of the stack and pushes the number of elements of the 
 
 :: list 'elt : 'S -> nat : 'S
 
-```
+```js
 SIZE / { _ ; <rest> } : S  =>  1 + s : S
     where  SIZE / { <rest> } : S  =>  s : S
 SIZE / {} : S  =>  0 : S
@@ -981,7 +979,7 @@ SIZE / {} : S  =>  0 : S
 
 The `ITER` instruction applies a sequence of instruction to each element of a list. The `ITER` instruction requires a sequence of instruction (called body) which has access to the stack.
 
-```
+```js
 ITER body / {} : S  =>  S
 ITER body / { a ; <rest> } : S  =>  ITER body / { <rest> } : S'
    iff body / a : S  =>  S'
@@ -990,7 +988,6 @@ ITER body / { a ; <rest> } : S  =>  ITER body / { <rest> } : S'
 Notice that the Michelson language defines the `ITER` instruction as a recursive call.
 
 An example is described in the _Examples_ section.
-
 
 ### Operations on timestamps
 
@@ -1004,7 +1001,7 @@ The `NOW` instruction pushes the timestamp of the block whose validation trigger
 
 The `ADD` instruction increments a timestamp of the given number of seconds.
 
-```
+```js
 ADD / seconds : nat (t) : S  =>  (seconds + t) : S
 ADD / nat (t) : seconds : S  =>  (t + seconds) : S
 ```
@@ -1013,7 +1010,7 @@ ADD / nat (t) : seconds : S  =>  (t + seconds) : S
 
 The `SUB` instruction subtracts a number of seconds from a timestamp. It can also be used to subtract two timestamps.
 
-```
+```js
 SUB / seconds : nat (t) : S  =>  (seconds - t) : S
 SUB / seconds(t1) : seconds(t2) : S  =>  (t1 - t2) : S
 ```
@@ -1024,7 +1021,7 @@ The `COMPARE` computes timestamp comparison. It returns an integer as like the `
 
 It returns 1 if the first timestamp is bigger than the second timestamp; 0 if the two timestamps are equal; and -1 otherwise. 
 
-```
+```js
 COMPARE / seconds(t1) : seconds(t2) : S  =>  -1 : S
     iff t1 < t2
 COMPARE / seconds(t1) : seconds(t2) : S  =>  0 : S
@@ -1041,7 +1038,7 @@ Mutez (micro-Tez) are internally represented by a 64 bit signed integers. There 
 
 The `ADD` instruction computes addition on mutez.
 
-```
+```js
 ADD / x : y : S  =>  [FAILED]   on overflow
 ADD / x : y : S  =>  (x + y) : S
 ```
@@ -1050,7 +1047,7 @@ ADD / x : y : S  =>  (x + y) : S
 
 The `SUB` instruction computes subtraction on mutez.
 
-```
+```js
 SUB / x : y : S  =>  [FAILED]
     iff   x < y
 SUB / x : y : S  =>  (x - y) : S
@@ -1060,7 +1057,7 @@ SUB / x : y : S  =>  (x - y) : S
 
 The `MUL` instruction computes multiplication on mutez. The multiplication allows to multiply mutez with integer.
 
-```
+```js
 MUL / x : y : S  =>  [FAILED]   on overflow
 MUL / x : y : S  =>  (x * y) : S
 ```
@@ -1069,7 +1066,7 @@ MUL / x : y : S  =>  (x * y) : S
 
 The `EDIV` instruction computes the euclidean division on mutez. The multiplication allows to divide a mutez by a natural integer.
 
-```
+```js
 EDIV / x : 0 : S  =>  None
 EDIV / x : y : S  =>  Some (Pair (x / y) (x % y)) : S
     iff y <> 0
@@ -1079,7 +1076,7 @@ EDIV / x : y : S  =>  Some (Pair (x / y) (x % y)) : S
 
 The `COMPARE` instruction compares two mutez and returns an integer on top of the stack. It returns 0 if the two elements are equal, 1 if the first element is bigger than the second one; and -1 otherwise. 
 
-```
+```js
 COMPARE / x : y : S  =>  -1 : S
     iff x < y
 COMPARE / x : y : S  =>  0 : S
@@ -1099,7 +1096,7 @@ It consumes an `address` the top element of the stack and returns an option of c
 
 The parameter is `unit` in case of an implicit account.
 
-```
+```js
 CONTRACT / addr : S  =>  Some addr : S
     iff addr exists and is a contract of parameter type 'p
 CONTRACT / addr : S  =>  Some addr : S
@@ -1127,7 +1124,7 @@ To illustrate the `TRANSFER_TOKENS` instruction usage, we will consider a simple
 
 The following smart contract is the implementation of the "Counter" smart contract.
 
-```
+```js
 parameter (or (int %decrement) (int %increment)) ;
 storage int ;
 code { DUP ;
@@ -1141,7 +1138,7 @@ code { DUP ;
 
 The following smart contract is the implementation of the "CounterCaller" smart contract.
 
-```
+```js
 parameter (or int int);
 storage address;
 code {
@@ -1167,13 +1164,12 @@ Now, let's break down the execution of the "CounterCaller" smart contract.
 
 The following command simulates the invocation of the smart contract.
 
-```
+```js
 tezos-client run script countercaller.tz on storage '"KT1HUbVyf62ZAp7BRqwQaDueb6kgb7Q86cc3"' and input 'Left 3'
 ```
 
 ![](../../static/img/michelson_example_transfertoken_execution.svg)
-*Illustration of the `TRANSFER_TOKENS` instruction*
-
+<small className="figure">FIGURE 34: Illustration of the `TRANSFER_TOKENS` instruction</small>
 
 #### SET_DELEGATE
 
@@ -1202,7 +1198,7 @@ Accessing the newly created contract (via a `CONTRACT 'p` instruction) will fail
 
 The `ADDRESS` instruction casts the contract to its address. It consumes a contract on top of the stack and pushes back the address of the contract.
 
-```
+```js
 ADDRESS / addr : S  =>  addr : S
 ```
 
@@ -1248,7 +1244,7 @@ The `UNPACK` instruction de-serializes a piece of data, if valid. It returns an 
 
 The `CONCAT` instruction concatenates two byte sequences. It can also be applied to a list of byte sequences. It consumes a list of byte sequences and pushes the concatenation of all sequences (in the respective order). 
 
-```
+```js
 CONCAT / s : t : S  =>  (s ^ t) : S
 CONCAT / {} : S  =>  0x : S
 CONCAT / { s ; <ss> } : S  =>  (s ^ r) : S
@@ -1269,7 +1265,7 @@ It takes three parameters:
 
 It returns an optional byte sequence because the given offset and length may be out of bound.
 
-```
+```js
 SLICE / offset : length : s : S  =>  Some ss : S
    where ss is the substring of s at the given offset and of the given length
      iff offset and (offset + length) are in bounds
@@ -1283,7 +1279,7 @@ The `COMPARE` instruction computes a lexicographic comparison. As for other COMP
 
 The COMPARE can be used only on comparable types.
 
-```
+```js
 COMPARE / s : t : S  =>  -1 : S
     iff s < t
 COMPARE / s : t : S  =>  0 : S
@@ -1330,7 +1326,7 @@ The `COMPARE` instruction compares values of type `key_hash`.
 
 As for other COMPARE instructions, it returns 1 if the first *key_hash* is bigger than than the second key_hash, 0 if the two *key_hash* are equal, and -1 otherwise.
 
-```
+```js
 COMPARE / x : y : S  =>  -1 : S
     iff x < y
 COMPARE / x : y : S  =>  0 : S
@@ -1350,7 +1346,8 @@ Syntactic sugar exists for merging the `ASSERT` instruction with specific data t
 #### CMP{EQ|NEQ|LT|GT|LE|GE} macro
 
 This macro combines a `COMPARE` instruction with a basic comparison.
-```
+
+```js
 CMP(\op) / S  =>  COMPARE ; (\op) / S
 ```
 
@@ -1358,7 +1355,7 @@ CMP(\op) / S  =>  COMPARE ; (\op) / S
 
 This macro combines a basic comparison with an `IF` instruction. Like for an `IF` instruction, it requires two sequences of instructions (*bt* and *bf*).
 
-```
+```js
 IF(\op) bt bf / S  =>  (\op) ; IF bt bf / S
 ```
 
@@ -1366,14 +1363,15 @@ IF(\op) bt bf / S  =>  (\op) ; IF bt bf / S
 
 This macro combines a `COMPARE` instruction with a basic comparison, and an `IF` instruction.cLike for an `IF` instruction, it requires two sequences of instructions (*bt* and *bf*).
 
-```
+```js
 IFCMP(\op) / S  =>  COMPARE ; (\op) ; IF bt bf / S
 ```
 
 #### ASSERT macro
 
 The `ASSERT` macro combines an `IF` instruction and a `FAIL` instruction.
-```
+
+```js
 ASSERT  =>  IF {} {FAIL}
 ```
 
@@ -1383,7 +1381,7 @@ Notice that the first sequence of instructions is empty, meaning that it either 
 
 The `ASSERT` macro combines an `ASSERT` macro with a basic comparison.
 
-```
+```js
 ASSERT_(\op)  =>  IF(\op) {} {FAIL}
 ```
 
@@ -1392,7 +1390,7 @@ ASSERT_(\op)  =>  IF(\op) {} {FAIL}
 
 This macro combines an `IFCMP` macro with the `ASSERT` macro.
 
-```
+```js
 ASSERT_CMP(\op)  =>  IFCMP(\op) {} {FAIL}
 ```
 
@@ -1400,7 +1398,7 @@ ASSERT_CMP(\op)  =>  IFCMP(\op) {} {FAIL}
 
 The `ASSERT_NONE` macro combines a `IF_NONE` macro with the `ASSERT` macro.
 
-```
+```js
 ASSERT_NONE  =>  IF_NONE {} {FAIL}
 ```
 
@@ -1408,7 +1406,7 @@ ASSERT_NONE  =>  IF_NONE {} {FAIL}
 
 The `ASSERT_SOME` macro combines a `IF_NONE` macro with the `ASSERT` macro.
 
-```
+```js
 ASSERT_SOME @x =>  IF_NONE {FAIL} {RENAME @x}
 ```
 
@@ -1418,7 +1416,7 @@ Notice that this macro uses the `IF_NONE` instruction and not the `IF_SOME` inst
 
 The `ASSERT_LEFT` macro combines an `IF_LEFT` instruction with the `ASSERT` macro.
 
-```
+```js
 ASSERT_LEFT @x =>  IF_LEFT {RENAME @x} {FAIL}
 ```
 
@@ -1426,7 +1424,7 @@ ASSERT_LEFT @x =>  IF_LEFT {RENAME @x} {FAIL}
 
 The `ASSERT_RIGHT` macro combines an `IF_LEFT` instruction with the `ASSERT` macro. Notice that instruction sequences are inverted compared to the `ASSERT_LEFT` macro.
 
-```
+```js
 ASSERT_RIGHT @x =>  IF_LEFT {FAIL} {RENAME @x}
 ```
 
@@ -1436,7 +1434,7 @@ These macros are simply more syntactically convenient for various common operati
 
 The `DUP n` macro is a syntactic sugar for duplicating the n-th element of the stack.
 
-```
+```js
 DUP 1 / S  =>  DUP / S
 DUP 2 / S  =>  DIP (DUP) ; SWAP / S
 DUP (n+1) / S  =>  DIP n (DUP) ; DIG (n+1) / S
@@ -1448,7 +1446,7 @@ DUP (n+1) / S  =>  DIP n (DUP) ; DIG (n+1) / S
 Data structures may become complex in case of nested pairs. The 
 `P(\left=A|P(\left)(\right))(\right=I|P(\left)(\right))R` macro is a syntactic sugar for building nested pairs.
 
-```
+```js
 PA(\right)R / S => DIP ((\right)R) ; PAIR / S
 P(\left)IR / S => (\left)R ; PAIR / S
 P(\left)(\right)R =>  (\left)R ; DIP ((\right)R) ; PAIR / S
@@ -1457,13 +1455,14 @@ P(\left)(\right)R =>  (\left)R ; DIP ((\right)R) ; PAIR / S
 A good way to quickly figure out which macro to use is to mentally parse the macro as _P_ for the pair constructor, _A_ for the left leaf and _I_ for the right leaf. The macro takes as many elements from the stack as there are leaves and constructs a nested pair with the shape given by its name.
 
 Take the macro *PAPPAIIR* for instance:
-```
+
+```js
 P A  P P A  I    I R
 ( l, ( ( l, r ), r ))
 ```
 A typing rule can be inferred:
 
-```
+```js
 PAPPAIIR
 :: 'a : 'b : 'c : 'd : 'S  ->  (pair 'a (pair (pair 'b 'c) 'd))
 ```
@@ -1472,7 +1471,7 @@ PAPPAIIR
 
 Data structures may become complex in case of nested pairs. The `UNP(\left=A|P(\left)(\right))(\right=I|P(\left)(\right))R` is a syntactic sugar for destructing nested pairs. These macros follow the same convention as the previous one.
 
-```
+```js
 UNPAIR / S => DUP ; CAR ; DIP { CDR } / S
 UNPA(\right)R / S => UNPAIR ; DIP (UN(\right)R) / S
 UNP(\left)IR / S => UNPAIR ; UN(\left)R / S
@@ -1483,7 +1482,7 @@ UNP(\left)(\right)R => UNPAIR ; DIP (UN(\right)R) ; UN(\left)R / S
 
 The `C[AD]+R` macro is a syntactic sugar for accessing fields in nested pairs.
 
-```
+```js
 CA(\rest=[AD]+)R / S  =>  CAR ; C(\rest)R / S
 CD(\rest=[AD]+)R / S  =>  CDR ; C(\rest)R / S
 ```
@@ -1491,13 +1490,13 @@ CD(\rest=[AD]+)R / S  =>  CDR ; C(\rest)R / S
 For example, in order to access the "sub" part of the above nested pair, the macro `CADR` can be used, which is equivalent to `{ CAR; CDR }`.
 
 ![](../../static/img/michelson_macro_C[AD]+R_example.svg)
-*Illustration of the C[AD]+R macro*
+<small className="figure">FIGURE 35: Illustration of the C[AD]+R macro</small>
 
 #### IF_SOME macro
 
 The `IF_SOME bt bf` macro inspects an *option* value, like the `IF_NONE` instruction with inverted sequence of instruction.
 
-```
+```js
 IF_SOME bt bf / S  =>  IF_NONE bf bt / S
 ```
 
@@ -1505,7 +1504,7 @@ IF_SOME bt bf / S  =>  IF_NONE bf bt / S
 
 The `IF_RIGHT bt bf` macro inspects an *option* value, like the `IF_LEFT` with inverted sequence of instruction.
 
-```
+```js
 IF_RIGHT bt bf / S  =>  IF_LEFT bf bt / S
 ```
 
@@ -1513,19 +1512,19 @@ IF_RIGHT bt bf / S  =>  IF_LEFT bf bt / S
 
 The `SET_CAR` sets the left field of a pair. It combines the `CDR`, `SWAP` and `PAIR` instructions.
 
-```
+```js
 SET_CAR  =>  CDR ; SWAP ; PAIR
 ```
 
 The `SET_CDR` sets the right field of a pair. It combines the `CAR` and `PAIR` instructions.
 
-```
+```js
 SET_CDR  =>  CAR ; PAIR
 ```
 
 The `SET_C[AD]+R` macro is a syntactic sugar for setting fields in nested pairs.
 
-```
+```js
 SET_CA(\rest=[AD]+)R / S   =>
     { DUP ; DIP { CAR ; SET_C(\rest)R } ; CDR ; SWAP ; PAIR } / S
 SET_CD(\rest=[AD]+)R / S   =>
@@ -1536,19 +1535,19 @@ SET_CD(\rest=[AD]+)R / S   =>
 
 The `MAP_CAR code` macro transforms the left field of a pair. It applies the "code" sequence on the left field of a pair.
 
-```
+```js
 MAP_CAR code  =>  DUP ; CDR ; DIP { CAR ; code } ; SWAP ; PAIR
 ```
 
 The `MAP_CDR code` macro transforms the right field of a pair. It applies the "code" sequence on the right field of a pair.
 
-```
+```js
 MAP_CDR code  =>  DUP ; CDR ; code ; SWAP ; CAR ; PAIR
 ```
 
 The `MAP_C[AD]+R code` is a syntactic sugar for transforming fields in nested pairs.
 
-```
+```js
 MAP_CA(\rest=[AD]+)R code / S   =>
     { DUP ; DIP { CAR ; MAP_C(\rest)R code } ; CDR ; SWAP ; PAIR } / S
 MAP_CD(\rest=[AD]+)R code / S   =>
@@ -1566,19 +1565,19 @@ We distinguish three kinds of annotations:
 
 - *type annotations*, written `:type_annot` 
 
-```
+```js
 (pair :point (int :x_pos) (int :y_pos))
 ```
 
 - *variable annotations*, written `@var_annot`
 
-```
+```js
 (prim @v :t %x arg1 arg2 ...)
 ```
 
 - *field annotations* or constructors annotations, written `%field_annot`
 
-```
+```js
 (or :t
     (int %A)
     (or
@@ -1588,4 +1587,4 @@ We distinguish three kinds of annotations:
              (nat %n2))))
 ```
 
-Please visit the reference pages for more detail about annotations in the Michelson language.  
+Please visit the [reference pages](https://tezos.gitlab.io/007/michelson.html) for more detail about annotations in the Michelson language.  

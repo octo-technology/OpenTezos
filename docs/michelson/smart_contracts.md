@@ -42,9 +42,7 @@ The three possible entry points (add, sub and default) are specified in a single
 
 
 ![](../../static/img/michelson_entrypoint_or_example.svg)
-
-*Representation of the _or_ structure and how to specify the corresponding entry points (the identification of related entry points)*
-
+<small className="figure">FIGURE 1: Representation of the _or_ structure and how to specify the corresponding entry points (the identification of related entry points)</small>
 
 We will go deeper in the code part in the "union" section.
 
@@ -60,8 +58,7 @@ The balance represents the quantity of XTZ associated with a smart contract. The
 Generally a _stack_ data structure is a linear collection of elements where elements can be added or removed with `PUSH` and `POP` instructions. In the Michelson language, elements can be pushed on top of the pile or removed from the top of the pile. This kind of stack is called LIFO (Last In First Out).
 
 ![](../../static/img/michelson_stack_basics.svg)
-
-*Illustration of a stack*
+<small className="figure">FIGURE 2: Illustration of a stack</small>
 
 The _Instructions_ section describes basic stack manipulations allowed by the Michelson language.
 
@@ -81,7 +78,7 @@ The new storage state represents the impact your invocation will have on the con
 The diagram below describes the execution of the "empty smart contract" (seen in the previous section). Although this contract does not modify anything, it still has to fulfill the mentioned expectations (input and output format). 
 
 ![](../../static/img/michelson_smartcontract_basics.svg)
-*Execution of `CDR ; NIL operation ; PAIR`*
+<small className="figure">FIGURE 3: Execution of `CDR ; NIL operation ; PAIR`</small>
 
 Notice that this script does no modification. The storage is given as parameter and returned.
 
