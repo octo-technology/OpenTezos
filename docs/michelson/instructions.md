@@ -79,7 +79,7 @@ LOOP_LEFT body / (Right b) : S  =>  b : S
 
 LOOP_LEFT requires a `union` of a given parameter and an accumulator. If the left part of the `union` is initialized the process is repeated, otherwise if the right part is initialized then the process is stopped and the accumulator is returned.
 
-Two examples (#4 and #5) in the _Examples_ section describe in detail the `LOOP_LEFT` instruction usage.
+Two examples ([#4](https://opentezos.com/michelson/examples#example-4--computing-a-sum-with-loop_left) and [#5](https://opentezos.com/michelson/examples#example-5--computing-a-factorial-with-loop_left)) in the _Examples_ section describe in detail the `LOOP_LEFT` instruction usage.
 
 
 #### EXEC
@@ -429,7 +429,7 @@ The `SIZE` instruction consumes a string of the top of the stack and pushes the 
 The `SLICE` instruction provides a way to retrieve a part of a string.
 It takes three parameters:
 - an `offset` parameter indicating the beginning of the substring 
-- an `length` parameter indicating the size of the substring
+- a `length` parameter indicating the size of the substring
 - a `string` to slice
 
 It returns an optional string because the given offset may be out of bound.
