@@ -10,7 +10,7 @@ Let's illustrate the following Michelson instructions: `LOOP`, `DIP`, `DUP`, `SW
 
 The idea is to repetitively subtract the divisor from the dividend. Once the dividend is smaller than the divisor, we successfully computed the remainder.
 
-The following smart contract takes a pair of integer and computes the "modulo" of these two integers (using a `LOOP` instruction).
+The following smart contract takes a pair of integers and computes the "modulo" of these two integers (using a `LOOP` instruction).
 
 ```js
 parameter (pair int int) ;
