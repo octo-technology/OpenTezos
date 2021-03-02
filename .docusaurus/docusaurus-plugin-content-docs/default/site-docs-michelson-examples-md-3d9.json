@@ -7,7 +7,7 @@
   "source": "@site/docs/michelson/examples.md",
   "slug": "/michelson/examples",
   "permalink": "/michelson/examples",
-  "editUrl": "https://github.com/octo-technology/opentezos/docs/michelson/examples.md",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/michelson/examples.md",
   "version": "current",
   "sidebar": "docs",
   "previous": {

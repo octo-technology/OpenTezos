@@ -37,7 +37,7 @@ Now, let's simulate the execution of this snippet of code. For this example, we 
 
 Notice that the `LOOP` instruction stops when it is given a `False` condition (in red in the diagram below). In our example, the condition is initialized to `True` because 7 is greater than 5 (and the modulo need to be computed).
 
-![](../../static/img/michelson_example_modulo_execution.svg)
+![](../../static/img/michelson/michelson_example_modulo_execution.svg)
 <small className="figure">FIGURE 1: Illustration of the _Modulo_ example</small>
 
 The execution of the "loop_example.tz" smart contract can be simulated with the following command:
@@ -74,7 +74,7 @@ code { CAR ;
 
 Notice that the storage stores an `option int`. Indeed, if the given list is empty, then there is no maximum.
 
-![](../../static/img/michelson_example_maxlist_execution.svg)
+![](../../static/img/michelson/michelson_example_maxlist_execution.svg)
 <small className="figure">FIGURE 2: Illustration of the _Maximum of a list_ example</small>
 
 Notice in red in the diagram above that the `ITER` instruction is called recursively on each element of the given list of integers.
@@ -102,7 +102,7 @@ code { CAR ;
        PAIR }
 ```
 
-![](../../static/img/michelson_example_lambdaexec_execution.svg)
+![](../../static/img/michelson/michelson_example_lambdaexec_execution.svg)
 <small className="figure">FIGURE 3: Illustration of the execution of a lambda</small>
 
 ### Example 4 : Computing a sum with `LOOP_LEFT`
@@ -132,7 +132,7 @@ code { CAR ; PUSH int 0 ; SWAP ; PAIR ;
 
 Let's breakdown the execution of this smart contract. In our example, the storage is used just to store the result of the execution. The diagram below shows how the sum of integers from 0 to 5 is computed.
 
-![](../../static/img/michelson_example_loopleft_execution.svg)
+![](../../static/img/michelson/michelson_example_loopleft_execution.svg)
 <small className="figure">FIGURE 4: Illustration of the `LOOP_LEFT` instruction</small>
 
 ### Example 5 : Computing a factorial with `LOOP_LEFT`

@@ -7,7 +7,7 @@
   "source": "@site/docs/michelson/smart_contracts.md",
   "slug": "/michelson/smart_contracts",
   "permalink": "/michelson/smart_contracts",
-  "editUrl": "https://github.com/octo-technology/opentezos/docs/michelson/smart_contracts.md",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/michelson/smart_contracts.md",
   "version": "current",
   "sidebar": "docs",
   "previous": {

@@ -10,14 +10,13 @@ export default {
   "projectName": "OpenTezos",
   "themeConfig": {
     "navbar": {
-      "title": "OpenTezos",
       "logo": {
         "alt": "My Site Logo",
         "src": "img/logo.svg"
       },
       "items": [
         {
-          "href": "https://github.com/octo-technology/opentezos",
+          "href": "https://github.com/octo-technology/OpenTezos/",
           "label": "GitHub",
           "position": "right"
         }
@@ -54,12 +53,12 @@ export default {
       "@docusaurus/preset-classic",
       {
         "docs": {
-          "sidebarPath": "/Users/lol/apps/work/opentezos-docusaurus/my-website/sidebars.js",
+          "sidebarPath": "/Users/lol/apps/work/opentezos-docusaurus/opentezos/sidebars.js",
           "routeBasePath": "/",
-          "editUrl": "https://github.com/octo-technology/opentezos"
+          "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/"
         },
         "theme": {
-          "customCss": "/Users/lol/apps/work/opentezos-docusaurus/my-website/src/css/custom.css"
+          "customCss": "/Users/lol/apps/work/opentezos-docusaurus/opentezos/src/css/custom.css"
         }
       }
     ]

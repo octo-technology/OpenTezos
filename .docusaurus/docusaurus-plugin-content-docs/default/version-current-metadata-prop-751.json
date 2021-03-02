@@ -12,7 +12,7 @@
         "items": [
           {
             "type": "link",
-            "label": "Welcome",
+            "label": "Home",
             "href": "/"
           }
         ]

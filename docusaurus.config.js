@@ -10,14 +10,13 @@ module.exports = {
   projectName: 'OpenTezos', // Usually your repo name.
   themeConfig: {
     navbar: {
-      title: 'OpenTezos',
       logo: {
         alt: 'My Site Logo',
         src: 'img/logo.svg',
       },
       items: [
         {
-          href: 'https://github.com/octo-technology/opentezos',
+          href: 'https://github.com/octo-technology/OpenTezos/',
           label: 'GitHub',
           position: 'right',
         },
@@ -36,7 +35,7 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: '/',
           editUrl:
-            'https://github.com/octo-technology/opentezos',
+            'https://github.com/octo-technology/OpenTezos/tree/main/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),

@@ -7,11 +7,11 @@
   "source": "@site/docs/michelson/introduction.md",
   "slug": "/michelson/introduction",
   "permalink": "/michelson/introduction",
-  "editUrl": "https://github.com/octo-technology/opentezos/docs/michelson/introduction.md",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/michelson/introduction.md",
   "version": "current",
   "sidebar": "docs",
   "previous": {
-    "title": "Welcome",
+    "title": "Welcome to OpenTezos",
     "permalink": "/"
   },
   "next": {

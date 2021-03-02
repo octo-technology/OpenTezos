@@ -50,7 +50,7 @@ IF bt bf / False : S  =>  bf / S
 
 Here is an example of an `IF` instruction which inverts the position of two elements of the stack if the condition is _False_, otherwise it throws an exception. We will see in that inverting position of two element is done with the `SWAP` instruction.
 
-![](../../static/img/michelson_instruction_if_example.svg)
+![](../../static/img/michelson/michelson_instruction_if_example.svg)
 <small className="figure">FIGURE 1: Execution of `IF`</small>
 
 #### LOOP {}
@@ -152,7 +152,7 @@ The `PUSH` instruction allows to place an element on top of the stack.
 
 It requires to specify the type of the pushed element.
 
-![](../../static/img/michelson_instruction_push_example.svg)
+![](../../static/img/michelson/michelson_instruction_push_example.svg)
 <small className="figure">FIGURE 2: Illustration of the `PUSH` instruction</small>
 
 #### UNIT instruction
@@ -165,35 +165,35 @@ The `Unit` value represents no value.
 
 The `DROP` instruction removes the top element of the stack
 
-![](../../static/img/michelson_instruction_drop_example.svg)
+![](../../static/img/michelson/michelson_instruction_drop_example.svg)
 <small className="figure">FIGURE 3: Illustration of the `DROP` instruction</small>
 
 #### SWAP instruction
 
 The `SWAP` instruction inverts the position of the top two element of the stack.
 
-![](../../static/img/michelson_instruction_swap_example.svg)
+![](../../static/img/michelson/michelson_instruction_swap_example.svg)
 <small className="figure">FIGURE 4: Illustration of the `SWAP` instruction</small>
 
 #### DUP instruction
 
 The `DUP` instruction duplicates the top element of the stack
 
-![](../../static/img/michelson_instruction_dup_example.svg)
+![](../../static/img/michelson/michelson_instruction_dup_example.svg)
 <small className="figure">FIGURE 5: Illustration of the `DUP` instruction</small>
 
 #### DIG instruction
 
 The `DIG` instruction moves the n-th element of the stack on top of the stack.
 
-![](../../static/img/michelson_instruction_dig_example.svg)
+![](../../static/img/michelson/michelson_instruction_dig_example.svg)
 <small className="figure">FIGURE 6: Illustration of the `DIG` instruction</small>
 
 #### DUG instruction
 
 The `DUG` instruction moves the top element of the stack to the n-th element of the stack.
 
-![](../../static/img/michelson_instruction_dug_example.svg)
+![](../../static/img/michelson/michelson_instruction_dug_example.svg)
 <small className="figure">FIGURE 7: Illustration of the `DUG` instruction</small>
 
 #### DIP instruction
@@ -215,7 +215,7 @@ There is a special case when n = 1. An alias (shortcut) is available for this ca
 
 Also notice that `DIP 0 code` is equivalent to `code`
 
-![](../../static/img/michelson_instruction_dip_example.svg)
+![](../../static/img/michelson/michelson_instruction_dip_example.svg)
 <small className="figure">FIGURE 8: Illustration of the `DIP` instruction</small>
 
 #### LAMBDA
@@ -271,7 +271,7 @@ COMPARE / x : y : S  =>  1 : S
 
 Here is an example of comparison between two natural integers:
 
-![](../../static/img/michelson_instruction_compare_example.svg)
+![](../../static/img/michelson/michelson_instruction_compare_example.svg)
 <small className="figure">FIGURE 9: Illustration of the `COMPARE` instruction</small>
 
 #### EQ
@@ -286,7 +286,7 @@ EQ / v : S  =>  False : S
 
 Here is an example:
 
-![](../../static/img/michelson_instruction_eq_example.svg)
+![](../../static/img/michelson/michelson_instruction_eq_example.svg)
 <small className="figure">FIGURE 10: Illustration of the `EQ` instruction</small>
 
 #### LT
@@ -302,7 +302,7 @@ LT / v : S  =>  False : S
 
 Here is an example:
 
-![](../../static/img/michelson_instruction_lt_example.svg)
+![](../../static/img/michelson/michelson_instruction_lt_example.svg)
 <small className="figure">FIGURE 11: Illustration of the `LT` instruction</small>
 
 #### GE
@@ -318,7 +318,7 @@ GE / v : S  =>  False : S
 
 Here is an example:
 
-![](../../static/img/michelson_instruction_ge_example.svg)
+![](../../static/img/michelson/michelson_instruction_ge_example.svg)
 <small className="figure">FIGURE 12: Illustration of the `GE` instruction</small>
 
 ### Operations on bool
@@ -327,7 +327,7 @@ Here is an example:
 
 The `OR` instruction consumes the two top elements of the stack and computes a logical _OR_ of the two elements.
 
-![](../../static/img/michelson_instruction_or_example.svg)
+![](../../static/img/michelson/michelson_instruction_or_example.svg)
 <small className="figure">FIGURE 13: Illustration of the `OR` instruction</small>
 
 The `OR` instruction requires boolean elements.
@@ -336,7 +336,7 @@ The `OR` instruction requires boolean elements.
 
 The `AND` instruction consumes the two top elements of the stack and computes a logical _AND_ of the two elements.
 
-![](../../static/img/michelson_instruction_and_example.svg)
+![](../../static/img/michelson/michelson_instruction_and_example.svg)
 <small className="figure">FIGURE 14: Illustration of the `AND` instruction</small>
 
 The `AND` instruction requires boolean elements.
@@ -345,7 +345,7 @@ The `AND` instruction requires boolean elements.
 
 The `XOR` instruction consumes the two top elements of the stack and computes an exclusive logical OR of the two elements.
 
-![](../../static/img/michelson_instruction_xor_example.svg)
+![](../../static/img/michelson/michelson_instruction_xor_example.svg)
 <small className="figure">FIGURE 15: Illustration of the `XOR` instruction</small>
 
 The `XOR` instruction requires boolean elements.
@@ -360,7 +360,7 @@ The `NOT` instruction consumes a boolean top element of the stack and push the l
 
 The `ADD` instruction computes additions on nat, int and mutez.
 
-![](../../static/img/michelson_instruction_add_example.svg)
+![](../../static/img/michelson/michelson_instruction_add_example.svg)
 <small className="figure">FIGURE 16: Illustration of the `ADD` instruction</small>
 
 #### SUB
@@ -369,7 +369,7 @@ The `SUB` instruction computes subtractions on nat, int and mutez.
 
 Notice that subtraction of two natural integers produces an integer.
 
-![](../../static/img/michelson_instruction_sub_example.svg)
+![](../../static/img/michelson/michelson_instruction_sub_example.svg)
 <small className="figure">FIGURE 17: Illustration of the `SUB` instruction</small>
 
 #### MUL
@@ -380,7 +380,7 @@ The `MUL` instruction computes multiplications on nat and int.
 MUL / x : y : S  =>  (x * y) : S
 ```
 
-![](../../static/img/michelson_instruction_mul_example.svg)
+![](../../static/img/michelson/michelson_instruction_mul_example.svg)
 <small className="figure">FIGURE 18: Illustration of the `MUL` instruction</small>
 
 Notice that the multiplication of two natural integers produces a natural integer.
@@ -399,7 +399,7 @@ EDIV / x : y : S  =>  Some (Pair (x / y) (x % y)) : S
     iff y <> 0
 ```
 
-![](../../static/img/michelson_instruction_ediv_example.svg)
+![](../../static/img/michelson/michelson_instruction_ediv_example.svg)
 <small className="figure">FIGURE 19: Illustration of the `EDIV` instruction</small>
 
 ### Operations on strings
@@ -442,7 +442,7 @@ SLICE / offset : length : s : S  =>  None  : S
      iff offset or (offset + length) are out of bounds
 ```
 
-![](../../static/img/michelson_instruction_slice_example.svg)
+![](../../static/img/michelson/michelson_instruction_slice_example.svg)
 <small className="figure">FIGURE 20: Illustration of the `SLICE` instruction</small>
 
 #### COMPARE with strings
@@ -468,7 +468,7 @@ The PAIR instruction consumes the top two elements of the stack and creates a pa
 PAIR / a : b : S  =>  (Pair a b) : S
 ```
 
-![](../../static/img/michelson_instruction_pair_example.svg)
+![](../../static/img/michelson/michelson_instruction_pair_example.svg)
 <small className="figure">FIGURE 21: Illustration of the `PAIR` instruction</small>
 
 #### CAR
@@ -479,7 +479,7 @@ The CAR instruction consumes the top element of the stack (which must be a `PAIR
 CAR / (Pair a _) : S  =>  a : S
 ```
 
-![](../../static/img/michelson_instruction_car_example.svg)
+![](../../static/img/michelson/michelson_instruction_car_example.svg)
 <small className="figure">FIGURE 22: Illustration of the `CAR` instruction</small>
 
 #### CDR
@@ -490,7 +490,7 @@ The `CDR` instruction consumes the top element of the stack (which must be a `PA
 CDR / (Pair _ b) : S  =>  b : S
 ```
 
-![](../../static/img/michelson_instruction_cdr_example.svg)
+![](../../static/img/michelson/michelson_instruction_cdr_example.svg)
 <small className="figure">FIGURE 23: Illustration of the `CDR` instruction</small>
 
 #### COMPARE on pairs
@@ -566,12 +566,12 @@ UPDATE / x : true : { hd ; <tl> } : S  =>  { x ; hd ; <tl> } : S
 
 If the boolean parameter is _False_ then the element will be removed.
 
-![](../../static/img/michelson_instruction_updatesetremove_example.svg)
+![](../../static/img/michelson/michelson_instruction_updatesetremove_example.svg)
 <small className="figure">FIGURE 24: Illustration of the `UPDATE` instruction</small>
 
 If the boolean parameter is _False_ then the element will be inserted.
 
-![](../../static/img/michelson_instruction_updatesetinsert_example.svg)
+![](../../static/img/michelson/michelson_instruction_updatesetinsert_example.svg)
 <small className="figure">FIGURE 25: Illustration of the `UPDATE` instruction</small>
 
 The following smart contract illustrates the `UPDATE` instruction usage. This smart contract stores a set of integers and can be invoked by specifying an integer that will be inserted in the set.
@@ -642,10 +642,10 @@ IF_NONE bt bf / (None) : S  =>  bt / S
 IF_NONE bt bf / (Some a) : S  =>  bf / a : S
 ```
 
-![](../../static/img/michelson_instruction_ifnone_none_example.svg)
+![](../../static/img/michelson/michelson_instruction_ifnone_none_example.svg)
 <small className="figure">FIGURE 25: Illustration of the `IF_NONE` instruction</small>
 
-![](../../static/img/michelson_instruction_ifnone_some_example.svg)
+![](../../static/img/michelson/michelson_instruction_ifnone_some_example.svg)
 <small className="figure">FIGURE 26: Illustration of the `IF_NONE` instruction</small>
 
 ### Operations on maps/big_maps
@@ -724,7 +724,7 @@ This smart contract can be tested with the following command:
 tezos-client run script map_remove_example.tz on storage '{ Elt "toto" 1 }' and input '"toto"'
 ```
 
-![](../../static/img/michelson_instruction_mapremove_example.svg)
+![](../../static/img/michelson/michelson_instruction_mapremove_example.svg)
 <small className="figure">FIGURE 27: Illustration of the `UPDATE` instruction</small>
 
 If the optional value is defined as `Some` then the element is insert into the map.The following smart contract (map_insert_example.tz) illustrates the `UPDATE` usage while inserting an element into the map.
@@ -747,7 +747,7 @@ This smart contract can be tested with the following command.
 tezos-client run script map_insert_example.tz on storage '{ Elt "toto" 1 }' and input '"tutu"'
 ```
 
-![](../../static/img/michelson_instruction_mapinsert_example.svg)
+![](../../static/img/michelson/michelson_instruction_mapinsert_example.svg)
 <small className="figure">FIGURE 28: Illustration of the `UPDATE` instruction</small>
 
 #### GET
@@ -904,7 +904,7 @@ The following command simulates the execution of the smart contract when called 
 tezos-client run script union_example.tz on storage '5' and input 'Right 1'
 ```
 
-![](../../static/img/michelson_instruction_ifleft_right_example.svg)
+![](../../static/img/michelson/michelson_instruction_ifleft_right_example.svg)
 <small className="figure">FIGURE 30: Illustration of the `IF_LEFT` instruction</small>
 
 The following command simulates the execution of the smart contract when called with an integer.
@@ -913,7 +913,7 @@ The following command simulates the execution of the smart contract when called 
 tezos-client run script union_example.tz on storage '5' and input 'Left "Hello"'
 ```
 
-![](../../static/img/michelson_instruction_ifleft_left_example.svg)
+![](../../static/img/michelson/michelson_instruction_ifleft_left_example.svg)
 <small className="figure">FIGURE 31: Illustration of the `IF_LEFT` instruction</small>
 
 ### Operations on lists
@@ -926,7 +926,7 @@ The `CONS` instruction adds an element to a list (at the beginning of the list).
 CONS / a : { <l> } : S  =>  { a ; <l> } : S
 ```
 
-![](../../static/img/michelson_instruction_cons_example.svg)
+![](../../static/img/michelson/michelson_instruction_cons_example.svg)
 <small className="figure">FIGURE 32: Illustration of the `CONS` instruction</small>
 
 #### NIL
@@ -937,7 +937,7 @@ The `NIL 'a` instruction specifies an empty list. The type of list elements must
 NIL / S  =>  {} : S
 ```
 
-![](../../static/img/michelson_instruction_nillist_example.svg)
+![](../../static/img/michelson/michelson_instruction_nillist_example.svg)
 <small className="figure">FIGURE 33: Illustration of the `NIL` instruction</small>
 
 #### IF_CONS
@@ -1168,7 +1168,7 @@ The following command simulates the invocation of the smart contract.
 tezos-client run script countercaller.tz on storage '"KT1HUbVyf62ZAp7BRqwQaDueb6kgb7Q86cc3"' and input 'Left 3'
 ```
 
-![](../../static/img/michelson_example_transfertoken_execution.svg)
+![](../../static/img/michelson/michelson_example_transfertoken_execution.svg)
 <small className="figure">FIGURE 34: Illustration of the `TRANSFER_TOKENS` instruction</small>
 
 #### SET_DELEGATE
@@ -1489,7 +1489,7 @@ CD(\rest=[AD]+)R / S  =>  CDR ; C(\rest)R / S
 
 For example, in order to access the "sub" part of the above nested pair, the macro `CADR` can be used, which is equivalent to `{ CAR; CDR }`.
 
-![](../../static/img/michelson_macro_C[AD]+R_example.svg)
+![](../../static/img/michelson/michelson_macro_C[AD]+R_example.svg)
 <small className="figure">FIGURE 35: Illustration of the C[AD]+R macro</small>
 
 #### IF_SOME macro

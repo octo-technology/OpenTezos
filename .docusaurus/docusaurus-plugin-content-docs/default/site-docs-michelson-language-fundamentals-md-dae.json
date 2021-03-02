@@ -7,7 +7,7 @@
   "source": "@site/docs/michelson/language_fundamentals.md",
   "slug": "/michelson/language_fundamentals",
   "permalink": "/michelson/language_fundamentals",
-  "editUrl": "https://github.com/octo-technology/opentezos/docs/michelson/language_fundamentals.md",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/michelson/language_fundamentals.md",
   "version": "current",
   "sidebar": "docs",
   "previous": {

@@ -46,19 +46,19 @@ Check the right answer.
 
 - [ ] nat 2 , nat 5
 
-![](../../static/img/QCM_3_response_A.svg)
+![](../../static/img/michelson/QCM_3_response_A.svg)
 
 - [ ] nat 5, nat 2
 
-![](../../static/img/QCM_3_response_B.svg)
+![](../../static/img/michelson/QCM_3_response_B.svg)
 
 - [x] (PAIR (nat 2) (nat 5))
 
-![](../../static/img/QCM_3_response_C.svg)
+![](../../static/img/michelson/QCM_3_response_C.svg)
 
 - [ ] (PAIR (nat 5) (nat 2))
 
-![](../../static/img/QCM_3_response_D.svg)
+![](../../static/img/michelson/QCM_3_response_D.svg)
 
 
 
@@ -285,38 +285,38 @@ tezos-client run script QCM_10.tz on storage '{ Elt "alice" 1; Elt "bob" 2; Elt 
 
 Notice that this command defines the initial storage state as `{ Elt "alice" 1; Elt "bob" 2; Elt "carin" 3 }` and the parameter as `Unit`.
 
-![](../../static/img/QCM_10_123.svg)
+![](../../static/img/michelson/QCM_10_123.svg)
 
 What is the resulting storage state ?
 
 - [ ] { Elt "alice" 1; Elt "bob" 2; Elt "carin" 3 }
 
-![](../../static/img/QCM_10_123.svg)
+![](../../static/img/michelson/QCM_10_123.svg)
 
 - [ ] { Elt "alice" 1; Elt "bob" 4; Elt "carin" 3 }
 
-![](../../static/img/QCM_10_143.svg)
+![](../../static/img/michelson/QCM_10_143.svg)
 
 - [ ] { Elt "alice" 1; Elt "bob" 4; Elt "carin" 6 }
 
-![](../../static/img/QCM_10_146.svg)
+![](../../static/img/michelson/QCM_10_146.svg)
 
 - [ ] { Elt "alice" 1; Elt "bob" 2; Elt "carin" 6 }
 
-![](../../static/img/QCM_10_126.svg)
+![](../../static/img/michelson/QCM_10_126.svg)
 
 - [ ] { Elt "alice" 2; Elt "bob" 2; Elt "carin" 3 }
 
-![](../../static/img/QCM_10_223.svg)
+![](../../static/img/michelson/QCM_10_223.svg)
 
 - [ ] { Elt "alice" 2; Elt "bob" 4; Elt "carin" 3 }
 
-![](../../static/img/QCM_10_243.svg)
+![](../../static/img/michelson/QCM_10_243.svg)
 
 - [x] { Elt "alice" 2; Elt "bob" 2; Elt "carin" 6 }
 
-![](../../static/img/QCM_10_226.svg)
+![](../../static/img/michelson/QCM_10_226.svg)
 
 - [ ] { Elt "alice" 2; Elt "bob" 4; Elt "carin" 6 }
 
-![](../../static/img/QCM_10_246.svg)
+![](../../static/img/michelson/QCM_10_246.svg)

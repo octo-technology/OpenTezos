@@ -7,7 +7,7 @@
   "source": "@site/docs/michelson/instructions.md",
   "slug": "/michelson/instructions",
   "permalink": "/michelson/instructions",
-  "editUrl": "https://github.com/octo-technology/opentezos/docs/michelson/instructions.md",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/michelson/instructions.md",
   "version": "current",
   "sidebar": "docs",
   "previous": {

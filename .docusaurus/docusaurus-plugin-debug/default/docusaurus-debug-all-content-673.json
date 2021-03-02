@@ -8,9 +8,9 @@
           "versionPath": "/",
           "isLast": true,
           "routePriority": -1,
-          "sidebarFilePath": "/Users/lol/apps/work/opentezos-docusaurus/my-website/sidebars.js",
-          "docsDirPath": "/Users/lol/apps/work/opentezos-docusaurus/my-website/docs",
-          "docsDirPathLocalized": "/Users/lol/apps/work/opentezos-docusaurus/my-website/i18n/en/docusaurus-plugin-content-docs/current",
+          "sidebarFilePath": "/Users/lol/apps/work/opentezos-docusaurus/opentezos/sidebars.js",
+          "docsDirPath": "/Users/lol/apps/work/opentezos-docusaurus/opentezos/docs",
+          "docsDirPathLocalized": "/Users/lol/apps/work/opentezos-docusaurus/opentezos/i18n/en/docusaurus-plugin-content-docs/current",
           "mainDocId": "welcome",
           "sidebars": {
             "docs": [
@@ -77,7 +77,7 @@
               "source": "@site/docs/michelson/exam.md",
               "slug": "/michelson/exam",
               "permalink": "/michelson/exam",
-              "editUrl": "https://github.com/octo-technology/opentezos/docs/michelson/exam.md",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/michelson/exam.md",
               "version": "current",
               "sidebar": "docs",
               "previous": {
@@ -94,7 +94,7 @@
               "source": "@site/docs/michelson/examples.md",
               "slug": "/michelson/examples",
               "permalink": "/michelson/examples",
-              "editUrl": "https://github.com/octo-technology/opentezos/docs/michelson/examples.md",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/michelson/examples.md",
               "version": "current",
               "sidebar": "docs",
               "previous": {
@@ -115,7 +115,7 @@
               "source": "@site/docs/michelson/instructions.md",
               "slug": "/michelson/instructions",
               "permalink": "/michelson/instructions",
-              "editUrl": "https://github.com/octo-technology/opentezos/docs/michelson/instructions.md",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/michelson/instructions.md",
               "version": "current",
               "sidebar": "docs",
               "previous": {
@@ -136,11 +136,11 @@
               "source": "@site/docs/michelson/introduction.md",
               "slug": "/michelson/introduction",
               "permalink": "/michelson/introduction",
-              "editUrl": "https://github.com/octo-technology/opentezos/docs/michelson/introduction.md",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/michelson/introduction.md",
               "version": "current",
               "sidebar": "docs",
               "previous": {
-                "title": "Welcome",
+                "title": "Welcome to OpenTezos",
                 "permalink": "/"
               },
               "next": {
@@ -157,7 +157,7 @@
               "source": "@site/docs/michelson/language_fundamentals.md",
               "slug": "/michelson/language_fundamentals",
               "permalink": "/michelson/language_fundamentals",
-              "editUrl": "https://github.com/octo-technology/opentezos/docs/michelson/language_fundamentals.md",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/michelson/language_fundamentals.md",
               "version": "current",
               "sidebar": "docs",
               "previous": {
@@ -178,7 +178,7 @@
               "source": "@site/docs/michelson/smart_contracts.md",
               "slug": "/michelson/smart_contracts",
               "permalink": "/michelson/smart_contracts",
-              "editUrl": "https://github.com/octo-technology/opentezos/docs/michelson/smart_contracts.md",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/michelson/smart_contracts.md",
               "version": "current",
               "sidebar": "docs",
               "previous": {
@@ -194,13 +194,14 @@
               "unversionedId": "welcome",
               "id": "welcome",
               "isDocsHomePage": false,
-              "title": "Welcome",
-              "description": "Welcome to OpenTezos (Docusaurus test version).",
+              "title": "Welcome to OpenTezos",
+              "description": "Welcome Diem Developers.",
               "source": "@site/docs/welcome.md",
               "slug": "/",
               "permalink": "/",
-              "editUrl": "https://github.com/octo-technology/opentezos/docs/welcome.md",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/welcome.md",
               "version": "current",
+              "sidebar_label": "Home",
               "sidebar": "docs",
               "next": {
                 "title": "Introduction",
