@@ -204,7 +204,7 @@ The `DIP` instruction takes as parameters:
 
 It runs the provided sequence of instruction while protecting the _n_ top elements of the stack.
 
-The mMichelson grammar defines `DIP` as:
+The Michelson grammar defines `DIP` as:
 
 ```js
 DIP n code / x{1} : ... : x{n} : S  =>  x{1} : ... : x{n} : S'
