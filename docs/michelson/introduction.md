@@ -11,7 +11,7 @@ This module is inspired from the official Michelson documentation available [her
 
 ## Environment
 
-Before your proceed, it is recommended to setup a dev environment for testing your Michelson scripts.
+Before you proceed, it is recommended to set up a dev environment to test your Michelson scripts.
 
 A sandbox node can be launched by following the [Deploy a node module](/404.html) or the official documentation at [https://tezos.gitlab.io/user/sandbox.html](https://tezos.gitlab.io/user/sandbox.html).
 
@@ -21,7 +21,7 @@ Once your _tezos-client_ is installed and configured, you can test your smart co
 tezos-client run script example.tz on storage '0' and input '5'
 ```
 
-It is also possible to verify if the smart contract is well-formatted and respects the language grammar with the following command:
+It is also possible to verify whether the smart contract is well-formatted and respects the language's grammar with the following command:
 
 ```
 tezos-client typecheck script example.tz -v

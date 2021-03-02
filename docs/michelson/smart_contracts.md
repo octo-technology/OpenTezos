@@ -5,12 +5,12 @@ title: Smart Contracts
 
 ## Entry points, storage and code
 
-Michelson is a domain-specific language and is designed for implementing smart contracts. Tezos smart contracts contains three main information:
+Michelson is a domain-specific language and is designed for implementing smart contracts. Tezos smart contracts contain three main pieces of information:
 - the type definition of the **parameter** when invoking the smart contract (often called **entry point**)
-- the type definition of the persistent data structure associated with the smart contract (referred as **storage**)
-- a sequence of instructions to execute when invoking the smart contract (this is the **code** of the smart contract)
+- the type definition of the persistent data structure associated with the smart contract (referred to as **storage**)
+- a sequence of instructions to be executed when invoking the smart contract (this is the **code** of the smart contract)
 
-So basically, an empty smart contract defines those three information (parameter, storage, code) and looks like this:
+Basically, an empty smart contract defines those three pieces of information (parameter, storage, code) and looks like this:
 
 ```js
 parameter unit;
@@ -34,7 +34,7 @@ The example below shows a simple smart contract implementing a counter:
 
 Notice that the type definition of the storage is `int`.
 
-The three possible entry points (add, sub and default) are specified in a single logical structure composed of logical _or_ operators. Since _or_ is a two-operand operator, we need a nested _or_ structure to represent 3 or more elements.
+The three possible entry points (add, sub, and default) are specified in a single logical structure composed of logical _or_ operators. Since _or_ is a two-operand operator, we need a nested _or_ structure to represent 3 or more elements.
 
 ```js
 (or (or (nat %add) (nat %sub)) (unit %default))
@@ -44,25 +44,25 @@ The three possible entry points (add, sub and default) are specified in a single
 ![](../../static/img/michelson/michelson_entrypoint_or_example.svg)
 <small className="figure">FIGURE 1: Representation of the _or_ structure and how to specify the corresponding entry points (the identification of related entry points)</small>
 
-We will go deeper in the code part in the "union" section.
+We will delve into this more deeply in the code portion of the "union" section.
 
 ## Address and balance
 
-Tezos smart contracts also have some built-in internal information such as an address (where the smart contract is deployed) and a balance associated with this address (once deployed).
+Tezos smart contracts also have built-in internal information such as an address (where the smart contract is deployed) and a balance that is associated with this address (once deployed).
 
 The balance represents the quantity of XTZ associated with a smart contract. The smallest divisible part is a mutez (1 tez = 1,000,000 mutez).
 
 
 ## Stack-based language
 
-Generally a _stack_ data structure is a linear collection of elements where elements can be added or removed with `PUSH` and `POP` instructions. In the Michelson language, elements can be pushed on top of the pile or removed from the top of the pile. This kind of stack is called LIFO (Last In First Out).
+Generally a _stack_ data structure is a linear collection of elements where elements can be added or removed with `PUSH` and `POP` instructions. In the Michelson language, elements can be pushed to the top of the pile or removed from the top of the pile. This kind of stack is called LIFO (Last In First Out).
 
 ![](../../static/img/michelson/michelson_stack_basics.svg)
 <small className="figure">FIGURE 2: Illustration of a stack</small>
 
 The _Instructions_ section describes basic stack manipulations allowed by the Michelson language.
 
-## Invocation and transaction return (list of operation, storage)
+## Invocation and transaction return (list of operations, storage)
 
 The invocation of a smart contract is an explicit call for executing the code of the smart contract. It requires a call parameter which is a tuple of two elements (`PAIR`) containing:
 - a value of the entry point
@@ -80,7 +80,7 @@ The diagram below describes the execution of the "empty smart contract" (seen in
 ![](../../static/img/michelson/michelson_smartcontract_basics.svg)
 <small className="figure">FIGURE 3: Execution of `CDR ; NIL operation ; PAIR`</small>
 
-Notice that this script does no modification. The storage is given as parameter and returned.
+Notice that this script performs no modifications. Storage is given as a parameter and returned.
 
 
-Now, let's deep dive into the Michelson language.
+Now, let's dive deep into the Michelson language.
