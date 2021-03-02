@@ -3,9 +3,9 @@ id: instructions
 title: Instructions
 ---
 
-A Tezos smart contract defines a storage, entry points and the code. The code of a smart contract is a sequence of Michelson instructions.
+A Tezos smart contract defines storage, entry points, and the code. The code of a smart contract is a sequence of Michelson instructions.
 
-The main instructions are described in the next sections.
+The main instructions are described in the following sections.
 
 ### Control structures
 
@@ -19,47 +19,48 @@ The Sequence structure is defined by `{` and `}` and contains instructions separ
 { instruction1 ; instruction2 ; ... ; instruction n}
 ```
 
-When executing a sequence the interpreter executes sequentially each instructions, one after another in the specified order.
+When executing a sequence the interpreter executes each instruction sequentially, one after the other, in the specified order.
 
-However this sequence may stop.
-
+However, this sequence may stop.
+//todo: does the sequence stop on its own? is it a regular occurence? this is unclear to me
 #### FAILWITH
 
 The `FAILWITH` instruction aborts the execution of the Michelson script by throwing an exception.
 
 It takes a string message as parameter. It is allowed to throw an exception without message by specifying the `UNIT` value.
+//todo: "takes a string message as parameter" is unclear for me; i'm assuming the "it" refers to the instruction. there are articles missing in both sentences but without proper understanding i am unable to suggest a correction. 
 
 The `FAIL` keyword has been provided as replacement for `UNIT; FAILWITH`.
 
-Actually the `FAIL` keyword is not an instruction but a syntactic sugar (i.e. a "shortcut" instruction that combines many basic instructions of the language).
+Actually, the `FAIL` keyword is not an instruction but a syntactic sugar (i.e. a "shortcut" instruction that combines many of language's basic instructions).
 
-A `FAILWITH` instruction represents the way to reject a transaction by stopping the execution of related instructions.
+A `FAILWITH` instruction provides a way to reject a transaction by stopping the execution of related instructions.
 
 #### IF {} {}
 
-The `IF` instruction allows to create branches of execution (also called conditional branching).
+The `IF` instruction allows branches of execution to be created (also called conditional branching).
 
-The `IF` instruction takes two sequences as parameters. It expects a boolean at the top element of the stack. It consumes the top element and executes the first given sequence if this boolean-top element is True. Otherwise it executes the second sequence.
+The `IF` instruction takes two sequences as parameters. It expects a boolean at the top element of the stack. It consumes the top element and executes the first given sequence if this boolean-top element is *True*. Otherwise it executes the second sequence.
 
-The Michelson grammar defines the `IF` instruction as:
+Michelson grammar defines the `IF` instruction as:
 
 ```js
 IF bt bf / True : S  =>  bt / S
 IF bt bf / False : S  =>  bf / S
 ```
 
-Here is an example of an `IF` instruction which inverts the position of two elements of the stack if the condition is _False_, otherwise it throws an exception. We will see in that inverting position of two element is done with the `SWAP` instruction.
+Here is an example of an `IF` instruction that inverts the position of two elements of the stack if the condition is _False_, otherwise it throws an exception. Inverting the positions of two elements is done using the `SWAP` instruction.
 
 ![](../../static/img/michelson_instruction_if_example.svg)
 <small className="figure">FIGURE 1: Execution of `IF`</small>
 
 #### LOOP {}
 
-The `LOOP` instruction is a generic loop, meaning it is a repeatable pattern. It applies a sequence of instructions, many times until a condition is reached. 
+The `LOOP` instruction is a generic loop, meaning it is a repeatable pattern. It applies a sequence of instructions many times until a condition is reached. 
 
-The `LOOP` instruction allows to iterate on a composite structure (list, set, map, big_map) and apply a process to all elements sequentially.
+The `LOOP` instruction makes it possible to iterate on a composite structure (list, set, map, big_map) and apply a process to all elements sequentially.
 
-The Michelson grammar defines the `LOOP` instruction as:
+Michelson grammar defines the `LOOP` instruction as:
 
 ```js
 LOOP body / True : S  =>  body ; LOOP body / S
@@ -68,16 +69,16 @@ LOOP body / False : S  =>  S
 
 #### LOOP_LEFT (loop with accumulator)
 
-Like the `LOOP` instruction, the `LOOP_LEFT` is a generic loop that handles an accumulator usually used for aggregating data during a repetitive process. 
+Like the `LOOP` instruction, `LOOP_LEFT` is a generic loop that handles an accumulator geerally used for aggregating data during a repetitive process. 
 
-The Michelson grammar defines the `LOOP_LEFT` instruction as:
+Michelson grammar defines the `LOOP_LEFT` instruction as:
 
 ```js
 LOOP_LEFT body / (Left a) : S  =>  body ; LOOP_LEFT body / a : S
 LOOP_LEFT body / (Right b) : S  =>  b : S
 ```
 
-LOOP_LEFT requires a `union` of a given parameter and an accumulator. If the left part of the `union` is initialized the process is repeated, otherwise if the right part is initialized then the process is stopped and the accumulator is returned.
+LOOP_LEFT requires a `union` of a given parameter and an accumulator. If the left part of the `union` is initialized the process is repeated. If the right part is initialized then the process is stopped and the accumulator is returned.
 
 Two examples ([#4](https://opentezos.com/michelson/examples#example-4--computing-a-sum-with-loop_left) and [#5](https://opentezos.com/michelson/examples#example-5--computing-a-factorial-with-loop_left)) in the _Examples_ section describe in detail the `LOOP_LEFT` instruction usage.
 
@@ -93,7 +94,7 @@ EXEC / a : f : S  =>  r : S
     where f / a : []  =>  r : []
 ```
 
-Here is an example of smart contract that defines a function with the `LAMBDA` instruction and executes the function with the `EXEC` instruction.
+Here is an example of a smart contract that defines a function with the `LAMBDA` instruction and executes the function with the `EXEC` instruction.
 
 ```js
 parameter int ;
@@ -106,17 +107,17 @@ code { CAR ;
        PAIR }
 ```
 
-Notice that the code of the lambda function is just to increment a given integer by 1.
+Notice that the code of the `LAMBDA` function just increments a given integer by 1.
 
 The execution of this smart contract is described in the "example" section.
 
 #### APPLY
 
-The `APPLY 'a` instruction partially applies a _tuplified_ function from the stack (i.e. arguments are grouped in pairs or nested pairs). It is parameterized by a type `'a`. Values that are not both push-able and storable (i.e. values of type _operation_, _contract_ and _big map_) cannot be captured by _APPLY_ (cannot appear in parameter `'a`).
+The `APPLY 'a` instruction partially applies a _tuplified_ function from the stack (i.e. arguments are grouped in pairs or nested pairs). It is parameterized by a type `'a`. Values that are not both push-able and storable (i.e. values of type _operation_, _contract_, and _big map_) cannot be captured by _APPLY_ (and so cannot appear in parameter `'a`).
 
 The instruction produces a new function that is only partially resolved. For example, if a function takes 2 arguments, it is possible to provide one argument and to use the `APPLY` instruction to produce an equivalent partially-resolved function which takes one argument.
 
-The Michelson grammar defines the `APPLY` instruction as:
+Michelson grammar defines the `APPLY` instruction as:
 
 ```js  
 :: 'a : lambda (pair 'a 'b) 'c : 'C   ->   lambda 'b 'c : 'C
@@ -126,7 +127,7 @@ The Michelson grammar defines the `APPLY` instruction as:
 APPLY / a : f : S  => { PUSH 'a a ; PAIR ; f } : S
 ```
 
-For example, let's consider a lambda function (called _additionAB_) that takes a pair of _nat_ and returns a _nat_. It computes the addition of two numbers.
+For example, let's consider a `lambda` function (called _additionAB_) that takes a pair of _nat_ and returns a _nat_. It computes the addition of two numbers.
 
 ```js
 LAMBDA (pair nat nat) nat { ADD }
@@ -134,7 +135,7 @@ LAMBDA (pair nat nat) nat { ADD }
 
 Notice that the function is tuplified.
 
-The `APPLY` instruction allows to form a new lambda function (called _addition2B_) which takes a single _nat_ as argument and returns a _nat_. This function would increment a given _nat_ by two. 
+The `APPLY` instruction allows a new `lambda` function to be formed (called _addition2B_) which takes a single _nat_ as argument and returns a _nat_. This function would increment a given _nat_ by two. 
 
 The resulting function _addition2B_ is equivalent to:
 
@@ -144,13 +145,13 @@ LAMBDA nat nat { PUSH nat 2 ; ADD }
 
 ### Stack operations
 
-Some generic operators allow to manipulate elements in a stack; such as moving an element inside the stack, moving, copying and removing elements from the stack. 
+Some generic operators allow elements in a stack to be manipulated, such as moving an element into the stack or moving, copying, and removing elements from the stack. 
 
 #### PUSH instruction
 
-The `PUSH` instruction allows to place an element on top of the stack.
+The `PUSH` instruction allows an element to be placed on top of the stack.
 
-It requires to specify the type of the pushed element.
+It requires the type of pushed element be specified.
 
 ![](../../static/img/michelson_instruction_push_example.svg)
 <small className="figure">FIGURE 2: Illustration of the `PUSH` instruction</small>
@@ -170,7 +171,7 @@ The `DROP` instruction removes the top element of the stack
 
 #### SWAP instruction
 
-The `SWAP` instruction inverts the position of the top two element of the stack.
+The `SWAP` instruction inverts the position of the top two elements of the stack.
 
 ![](../../static/img/michelson_instruction_swap_example.svg)
 <small className="figure">FIGURE 4: Illustration of the `SWAP` instruction</small>
@@ -184,7 +185,7 @@ The `DUP` instruction duplicates the top element of the stack
 
 #### DIG instruction
 
-The `DIG` instruction moves the n-th element of the stack on top of the stack.
+The `DIG` instruction moves the n-th element of the stack to the top of the stack.
 
 ![](../../static/img/michelson_instruction_dig_example.svg)
 <small className="figure">FIGURE 6: Illustration of the `DIG` instruction</small>
@@ -202,9 +203,9 @@ The `DIP` instruction takes as parameters:
 - _n_: a number of elements to protect
 - _code_: a sequence of instructions to execute
 
-It runs the provided sequence of instruction while protecting the _n_ top elements of the stack.
+It runs the provided sequence of instructions while protecting the _n_ top elements of the stack.
 
-The mMichelson grammar defines `DIP` as:
+Michelson grammar defines `DIP` as:
 
 ```js
 DIP n code / x{1} : ... : x{n} : S  =>  x{1} : ... : x{n} : S'
@@ -220,7 +221,7 @@ Also notice that `DIP 0 code` is equivalent to `code`
 
 #### LAMBDA
 
-The LAMBDA instruction pushes a function on top of the stack.
+The `LAMBDA` instruction pushes a function on top of the stack.
 
 It requires three parameters:
 - the type of the given parameter
@@ -231,7 +232,7 @@ It requires three parameters:
 LAMBDA _ _ code / S  =>  code : S
 ```
 
-Notice that "_" represents any type. So, a lambda takes and returns arguments that can be of any type.
+Notice that "_" represents any type. So, a `lambda` takes and returns arguments that can be of any type.
 
 Here is an example of a smart contract that defines a function with the `LAMBDA` instruction and executes the function with the `EXEC` instruction.
 
@@ -246,7 +247,7 @@ code { CAR ;
        PAIR }
 ```
 
-The lambda function is just incrementing a given int.
+The `lambda` function is just incrementing a given int.
 
 The execution of this smart contract is described in the example section.
 
@@ -256,9 +257,9 @@ The execution of this smart contract is described in the example section.
 
 This instruction compares the top two elements of the stack.
 
-The COMPARE instruction returns -1 if the first element is smaller than the second one. It returns 0 if the two first elements are equal. Otherwise it returns 1.
+The `COMPARE` instruction returns -1 if the first element is smaller than the second one. It returns 0 if the two first elements are equal. Otherwise it returns 1.
 
-The Michelson grammar defines `COMPARE` as:
+Michelson grammar defines `COMPARE` as:
 
 ```js
 COMPARE / x : y : S  =>  -1 : S
@@ -269,7 +270,7 @@ COMPARE / x : y : S  =>  1 : S
     iff x > y
 ```
 
-Here is an example of comparison between two natural integers:
+Here is an example of a comparison between two natural integers:
 
 ![](../../static/img/michelson_instruction_compare_example.svg)
 <small className="figure">FIGURE 9: Illustration of the `COMPARE` instruction</small>
@@ -325,7 +326,7 @@ Here is an example:
 
 #### OR
 
-The `OR` instruction consumes the two top elements of the stack and computes a logical _OR_ of the two elements.
+The `OR` instruction consumes the top two elements of the stack and computes a logical _OR_ of both elements.
 
 ![](../../static/img/michelson_instruction_or_example.svg)
 <small className="figure">FIGURE 13: Illustration of the `OR` instruction</small>

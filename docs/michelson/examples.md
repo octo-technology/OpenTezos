@@ -6,11 +6,11 @@ title: Examples
 
 ### Example 1 : Modulo with `LOOP` and `IF`
 
-Let's illustrate the following Michelson instructions: `LOOP`, `DIP`, `DUP`, `SWAP`, `PUSH`, `CMPLE`, `IF`, `SUB`. The example below computes the modulo between two numbers (e.g. 7 % 5 = 2).
+Let's illustrate the following Michelson instructions: `LOOP`, `DIP`, `DUP`, `SWAP`, `PUSH`, `CMPLE`, `IF`, `SUB`. The example below computes the *modulo* between two numbers (e.g. 7 % 5 = 2).
 
 The idea is to repetitively subtract the divisor from the dividend. Once the dividend is smaller than the divisor, we successfully computed the remainder.
 
-The following smart contract takes a pair of integers and computes the "modulo" of these two integers (using a `LOOP` instruction).
+The following smart contract takes a pair of integers and computes the modulo of these two integers (using a `LOOP` instruction).
 
 ```js
 parameter (pair int int) ;
