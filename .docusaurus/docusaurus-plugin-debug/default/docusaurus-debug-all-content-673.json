@@ -111,7 +111,7 @@
               "id": "michelson/instructions",
               "isDocsHomePage": false,
               "title": "Instructions",
-              "description": "A Tezos smart contract defines a storage, entry points and the code. The code of a smart contract is a sequence of Michelson instructions.",
+              "description": "A Tezos smart contract defines storage, entry points, and the code. The code of a smart contract is a sequence of Michelson instructions.",
               "source": "@site/docs/michelson/instructions.md",
               "slug": "/michelson/instructions",
               "permalink": "/michelson/instructions",
@@ -153,7 +153,7 @@
               "id": "michelson/language_fundamentals",
               "isDocsHomePage": false,
               "title": "Language fundamentals",
-              "description": "The Michelson language is the reference language for Tezos smart contracts. It is a low-level stack-based language. It is also a Turing-complete language, i.e. it has basic operations allowing to read / write / compare values in-memory, has infinite memory and allows conditional operators (e.g. if, switch instructions)",
+              "description": "The Michelson language is the reference language for Tezos smart contracts. It is a low-level stack-based language and is also a Turing-complete language. This means it has basic operations allowing to read/write/compare values in-memory, has infinite memory, and allows conditional operators (e.g. if, switch instructions)",
               "source": "@site/docs/michelson/language_fundamentals.md",
               "slug": "/michelson/language_fundamentals",
               "permalink": "/michelson/language_fundamentals",
@@ -195,7 +195,7 @@
               "id": "welcome",
               "isDocsHomePage": false,
               "title": "Welcome to OpenTezos",
-              "description": "Welcome Diem Developers.",
+              "description": "Welcome Tezos Developers",
               "source": "@site/docs/welcome.md",
               "slug": "/",
               "permalink": "/",
@@ -225,7 +225,7 @@
   "docusaurus-theme-classic": {
     "default": null
   },
-  "docusaurus-plugin-image-zoom": {
+  "custom-webpack-plugin": {
     "default": null
   }
 }

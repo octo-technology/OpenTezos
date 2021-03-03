@@ -26,9 +26,13 @@
   "dependencies": {
     "@docusaurus/core": "2.0.0-alpha.70",
     "@docusaurus/preset-classic": "2.0.0-alpha.70",
+    "@libra-opensource/diem-docusaurus-components": "^0.1.17",
     "@mdx-js/react": "^1.6.21",
+    "@svgr/webpack": "^5.5.0",
+    "classnames": "^2.2.6",
     "clsx": "^1.1.1",
     "plugin-image-zoom": "ataft/plugin-image-zoom",
+    "prism-react-renderer": "^1.2.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
   },

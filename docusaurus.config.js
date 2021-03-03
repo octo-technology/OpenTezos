@@ -1,9 +1,12 @@
+const darkCodeTheme = require('prism-react-renderer/themes/palenight')
+const lightCodeTheme = require('prism-react-renderer/themes/github')
+
 module.exports = {
-  title: 'My Site',
-  tagline: 'The tagline of my site',
+  title: 'OpenTezos',
+  tagline: 'The full encyclopedia of Tezos',
   url: 'https://opentezos.com',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: 'OpenTezos', // Usually your GitHub org/user name.
@@ -11,8 +14,9 @@ module.exports = {
   themeConfig: {
     navbar: {
       logo: {
-        alt: 'My Site Logo',
+        alt: 'OpenTezos',
         src: 'img/logo.svg',
+        srcDark: 'img/logo-dark.svg',
       },
       items: [
         {
@@ -24,8 +28,29 @@ module.exports = {
     },
     footer: {
       style: 'dark',
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} OpenTezos.`,
     },
+    colorMode: {
+      defaultMode: 'light',
+      disableSwitch: false,
+      respectPrefersColorScheme: false,
+      switchConfig: {
+        darkIcon: '🌙',
+        darkIconStyle: {
+          marginLeft: '2px',
+        },
+        lightIcon: '\u{1F602}',
+        lightIconStyle: {
+          marginLeft: '1px',
+        },
+      },
+    },
+    prism: {
+      darkTheme: darkCodeTheme,
+      theme: lightCodeTheme,
+    },
+    sidebarCollapsible: true,
+    siteID: 'developers',
   },
   presets: [
     [
@@ -34,8 +59,7 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: '/',
-          editUrl:
-            'https://github.com/octo-technology/OpenTezos/tree/main/',
+          editUrl: 'https://github.com/octo-technology/OpenTezos/tree/main/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -43,7 +67,5 @@ module.exports = {
       },
     ],
   ],
-  plugins: [
-    'plugin-image-zoom'
-  ],
-};
+  plugins: [require.resolve('./plugins/webpack')], //'plugin-image-zoom'
+}

@@ -3,7 +3,7 @@
   "id": "welcome",
   "isDocsHomePage": false,
   "title": "Welcome to OpenTezos",
-  "description": "Welcome Diem Developers.",
+  "description": "Welcome Tezos Developers",
   "source": "@site/docs/welcome.md",
   "slug": "/",
   "permalink": "/",
