@@ -1,56 +1,90 @@
 {
-  "/__docusaurus/debug-3d6": {
-    "component": "component---theme-debug-config-23-a-2ff"
+  "/-e30": {
+    "component": "1be78505",
+    "versionMetadata": "935f2afb"
   },
-  "/__docusaurus/debug/config-914": {
-    "component": "component---theme-debug-config-23-a-2ff"
+  "/-9e2": {
+    "component": "17896441",
+    "content": "3c0291d6"
   },
-  "/__docusaurus/debug/content-c28": {
-    "component": "component---theme-debug-contentba-8-ce7",
-    "allContent": "allContent---docusaurus-debug-content-246-9aa"
+  "/baker-cfc": {
+    "component": "17896441",
+    "content": "44bf5896"
   },
-  "/__docusaurus/debug/globalData-3cf": {
-    "component": "component---theme-debug-global-dataede-0fa"
+  "/baking-4fe": {
+    "component": "17896441",
+    "content": "b0bc8c11"
   },
-  "/__docusaurus/debug/metadata-31b": {
-    "component": "component---theme-debug-site-metadata-68-e-3d4"
+  "/blockchain-basics-9d6": {
+    "component": "17896441",
+    "content": "2b1c9e38"
   },
-  "/__docusaurus/debug/registry-0da": {
-    "component": "component---theme-debug-registry-679-501"
+  "/contribute-f86": {
+    "component": "17896441",
+    "content": "6f9ebc89"
   },
-  "/__docusaurus/debug/routes-244": {
-    "component": "component---theme-debug-routes-946-699"
+  "/dapp-e2a": {
+    "component": "17896441",
+    "content": "e1a4b65f"
   },
-  "/-e9c": {
-    "component": "component---theme-doc-page-1-be-9be",
-    "versionMetadata": "versionMetadata---935-fcf"
+  "/defi-746": {
+    "component": "17896441",
+    "content": "7bc3f44f"
   },
-  "/-328": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---ebf-7f3"
+  "/deploy-a-node-9a7": {
+    "component": "17896441",
+    "content": "ad999c6a"
+  },
+  "/explorer-95a": {
+    "component": "17896441",
+    "content": "6a243c2b"
+  },
+  "/formal-verification-2e7": {
+    "component": "17896441",
+    "content": "1cff28f3"
+  },
+  "/ligo-aec": {
+    "component": "17896441",
+    "content": "1dfb9244"
+  },
+  "/michelson-e49": {
+    "component": "17896441",
+    "content": "416e4355"
   },
   "/michelson/exam-e33": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---michelson-exama-77-21a"
+    "component": "17896441",
+    "content": "a7751fda"
   },
   "/michelson/examples-d19": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---michelson-examples-3-d-9-2e7"
+    "component": "17896441",
+    "content": "3d9f340d"
+  },
+  "/michelson/fundamentals-de5": {
+    "component": "17896441",
+    "content": "dae16102"
   },
   "/michelson/instructions-e1c": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---michelson-instructions-8-fe-fb1"
-  },
-  "/michelson/introduction-742": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---michelson-introduction-416-58d"
-  },
-  "/michelson/language_fundamentals-739": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---michelson-language-fundamentalsdae-f32"
+    "component": "17896441",
+    "content": "8fe3bcb8"
   },
   "/michelson/smart_contracts-24d": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---michelson-smart-contracts-162-d06"
+    "component": "17896441",
+    "content": "16209eab"
+  },
+  "/paths-7a5": {
+    "component": "17896441",
+    "content": "feda3973"
+  },
+  "/private-279": {
+    "component": "17896441",
+    "content": "7abcfed7"
+  },
+  "/smartpy-6dd": {
+    "component": "17896441",
+    "content": "a3bb4c07"
+  },
+  "/tezos-basics-0e5": {
+    "component": "17896441",
+    "content": "2167d258"
   }
 }

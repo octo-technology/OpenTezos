@@ -5,192 +5,388 @@
   "origins": {
     "styles": [
       1,
+      3,
+      4,
+      5,
+      6,
+      7,
       10,
       11,
       12,
       13,
+      14,
+      17,
+      19,
+      20,
+      22,
+      24,
+      25,
+      26,
+      27,
       0
     ],
     "@theme/NotFound": [
       0,
-      13,
+      27,
       1
     ],
     "@site/docs/michelson/smart_contracts.md": [
       2
     ],
-    "@site/docs/michelson/examples.md": [
+    "@site/docs/formal-verification/example.md": [
+      0,
       3
     ],
-    "@site/docs/michelson/introduction.md": [
+    "@site/docs/ligo/example.md": [
+      0,
       4
     ],
-    "@site/docs/michelson/instructions.md": [
+    "@site/docs/tezos-basics/example.md": [
+      0,
       5
     ],
-    "~docs/default/version-current-metadata-prop-751.json": [
+    "@site/docs/blockchain-basics/example.md": [
+      0,
       6
     ],
-    "@site/docs/michelson/exam.md": [
+    "@site/docs/welcome/modules.md": [
+      0,
       7
     ],
-    "@site/docs/michelson/language_fundamentals.md": [
+    "@site/docs/michelson/examples.md": [
       8
     ],
-    "@site/docs/welcome.md": [
+    "@site/docs/michelson/introduction.md": [
       9
+    ],
+    "@site/docs/baker/example.md": [
+      0,
+      10
+    ],
+    "@site/docs/explorer/example.md": [
+      0,
+      11
+    ],
+    "@site/docs/contribute/example.md": [
+      0,
+      12
+    ],
+    "@site/docs/private/example.md": [
+      0,
+      13
+    ],
+    "@site/docs/defi/example.md": [
+      0,
+      14
+    ],
+    "@site/docs/michelson/instructions.md": [
+      15
+    ],
+    "~docs/default/version-current-metadata-prop-751.json": [
+      16
+    ],
+    "@site/docs/smartpy/example.md": [
+      0,
+      17
+    ],
+    "@site/docs/michelson/exam.md": [
+      18
+    ],
+    "@site/docs/deploy-a-node/example.md": [
+      0,
+      19
+    ],
+    "@site/docs/baking/example.md": [
+      0,
+      20
+    ],
+    "@site/docs/michelson/language_fundamentals.md": [
+      21
+    ],
+    "@site/docs/dapp/example.md": [
+      0,
+      22
+    ],
+    "@site/docs/welcome/paths.md": [
+      23
     ],
     "main": [
       0,
-      11,
-      10
+      25,
+      24
     ],
     "runtime~main": [
       0,
-      10,
-      11
+      24,
+      25
     ],
     "@theme/DocItem": [
       0,
-      12
+      26
     ],
     "@theme/DocPage": [
       0,
       1,
-      13
+      27
     ]
   },
   "assets": {
     "0": {
       "css": [
         {
-          "file": "styles.37b05d6f.css",
-          "hash": "f159495fb6571562b1b3",
-          "publicPath": "/styles.37b05d6f.css"
+          "file": "styles.8d050742.css",
+          "hash": "5508066db6dd8b31d06e",
+          "publicPath": "/styles.8d050742.css"
         }
       ],
       "js": [
         {
-          "file": "styles.70ac9433.js",
-          "hash": "f159495fb6571562b1b3",
-          "publicPath": "/styles.70ac9433.js"
+          "file": "styles.371cb276.js",
+          "hash": "5508066db6dd8b31d06e",
+          "publicPath": "/styles.371cb276.js"
         }
       ]
     },
     "1": {
       "js": [
         {
-          "file": "1.cbb51c6e.js",
-          "hash": "31a3c6f1790cc487339f",
-          "publicPath": "/1.cbb51c6e.js"
+          "file": "1.57af1bf4.js",
+          "hash": "990bf0e9f625a7012d67",
+          "publicPath": "/1.57af1bf4.js"
         }
       ]
     },
     "2": {
       "js": [
         {
-          "file": "16209eab.d4986690.js",
-          "hash": "d2a14a980eb2ab13f34c",
-          "publicPath": "/16209eab.d4986690.js"
+          "file": "16209eab.7ac847d5.js",
+          "hash": "bb42ea3a3bc416356249",
+          "publicPath": "/16209eab.7ac847d5.js"
         }
       ]
     },
     "3": {
       "js": [
         {
-          "file": "3d9f340d.6aeb3e4c.js",
-          "hash": "985bc4d423fdc909d25f",
-          "publicPath": "/3d9f340d.6aeb3e4c.js"
+          "file": "1cff28f3.78bca5a7.js",
+          "hash": "f19451d234993151be86",
+          "publicPath": "/1cff28f3.78bca5a7.js"
         }
       ]
     },
     "4": {
       "js": [
         {
-          "file": "416e4355.979e7400.js",
-          "hash": "71bfc5c58a6d1e587c70",
-          "publicPath": "/416e4355.979e7400.js"
+          "file": "1dfb9244.7d5ee117.js",
+          "hash": "52c9df219520ec2bb268",
+          "publicPath": "/1dfb9244.7d5ee117.js"
         }
       ]
     },
     "5": {
       "js": [
         {
-          "file": "8fe3bcb8.bb140f38.js",
-          "hash": "1c47c9aa13ade9844286",
-          "publicPath": "/8fe3bcb8.bb140f38.js"
+          "file": "2167d258.4d21771e.js",
+          "hash": "5bd8d85f262c6d23f563",
+          "publicPath": "/2167d258.4d21771e.js"
         }
       ]
     },
     "6": {
       "js": [
         {
-          "file": "935f2afb.f079ced4.js",
-          "hash": "1613f2bf4523d9169223",
-          "publicPath": "/935f2afb.f079ced4.js"
+          "file": "2b1c9e38.8f5dbf66.js",
+          "hash": "25d45c367c93938f347f",
+          "publicPath": "/2b1c9e38.8f5dbf66.js"
         }
       ]
     },
     "7": {
       "js": [
         {
-          "file": "a7751fda.1c2b17fa.js",
-          "hash": "64ad1aa16012a6fcc450",
-          "publicPath": "/a7751fda.1c2b17fa.js"
+          "file": "3c0291d6.ba9e8748.js",
+          "hash": "e9cf17d40d52d69f5ebf",
+          "publicPath": "/3c0291d6.ba9e8748.js"
         }
       ]
     },
     "8": {
       "js": [
         {
-          "file": "dae16102.266e3fd0.js",
-          "hash": "c4f8f88c4c33340d969d",
-          "publicPath": "/dae16102.266e3fd0.js"
+          "file": "3d9f340d.37142c00.js",
+          "hash": "551e7264e25770c0b741",
+          "publicPath": "/3d9f340d.37142c00.js"
         }
       ]
     },
     "9": {
       "js": [
         {
-          "file": "ebfee794.dea295e0.js",
-          "hash": "c1dee24a2e9d97fc110b",
-          "publicPath": "/ebfee794.dea295e0.js"
+          "file": "416e4355.f1c55780.js",
+          "hash": "74cea41487fda6598e88",
+          "publicPath": "/416e4355.f1c55780.js"
         }
       ]
     },
     "10": {
       "js": [
         {
-          "file": "main.1542a017.js",
-          "hash": "377659a75d7d4a6f84bd",
-          "publicPath": "/main.1542a017.js"
+          "file": "44bf5896.48642d4c.js",
+          "hash": "6e5526650d21a028c385",
+          "publicPath": "/44bf5896.48642d4c.js"
         }
       ]
     },
     "11": {
       "js": [
         {
-          "file": "runtime~main.d6708168.js",
-          "hash": "4d1a0d320ae34ffabd95",
-          "publicPath": "/runtime~main.d6708168.js"
+          "file": "6a243c2b.8da08ba7.js",
+          "hash": "eadf9d4a205982fd2b35",
+          "publicPath": "/6a243c2b.8da08ba7.js"
         }
       ]
     },
     "12": {
       "js": [
         {
-          "file": "12.5d3c0f52.js",
-          "hash": "b693e16c8ef93ab86579",
-          "publicPath": "/12.5d3c0f52.js"
+          "file": "6f9ebc89.79367168.js",
+          "hash": "03e351637cf02e9f40c5",
+          "publicPath": "/6f9ebc89.79367168.js"
         }
       ]
     },
     "13": {
       "js": [
         {
-          "file": "13.ebb7d0f8.js",
-          "hash": "1e899e62cc04b44eb67a",
-          "publicPath": "/13.ebb7d0f8.js"
+          "file": "7abcfed7.9758c486.js",
+          "hash": "dd8816d70919b7eb1c98",
+          "publicPath": "/7abcfed7.9758c486.js"
+        }
+      ]
+    },
+    "14": {
+      "js": [
+        {
+          "file": "7bc3f44f.c99fa15e.js",
+          "hash": "9918a6203c77c199bb27",
+          "publicPath": "/7bc3f44f.c99fa15e.js"
+        }
+      ]
+    },
+    "15": {
+      "js": [
+        {
+          "file": "8fe3bcb8.dfefc509.js",
+          "hash": "c4c6b1da2939609422c6",
+          "publicPath": "/8fe3bcb8.dfefc509.js"
+        }
+      ]
+    },
+    "16": {
+      "js": [
+        {
+          "file": "935f2afb.6be41a8b.js",
+          "hash": "73b733e8b2018332cc1c",
+          "publicPath": "/935f2afb.6be41a8b.js"
+        }
+      ]
+    },
+    "17": {
+      "js": [
+        {
+          "file": "a3bb4c07.5eecfedb.js",
+          "hash": "fae9314483391ae98f1a",
+          "publicPath": "/a3bb4c07.5eecfedb.js"
+        }
+      ]
+    },
+    "18": {
+      "js": [
+        {
+          "file": "a7751fda.695d2272.js",
+          "hash": "ba924d72429e6485a625",
+          "publicPath": "/a7751fda.695d2272.js"
+        }
+      ]
+    },
+    "19": {
+      "js": [
+        {
+          "file": "ad999c6a.562b0fc6.js",
+          "hash": "196bcc91eb8f9d4e56e0",
+          "publicPath": "/ad999c6a.562b0fc6.js"
+        }
+      ]
+    },
+    "20": {
+      "js": [
+        {
+          "file": "b0bc8c11.838c3764.js",
+          "hash": "acd3fd20f5ff7bdc0d3a",
+          "publicPath": "/b0bc8c11.838c3764.js"
+        }
+      ]
+    },
+    "21": {
+      "js": [
+        {
+          "file": "dae16102.84cb5963.js",
+          "hash": "feaa4f7dcf99810a0f58",
+          "publicPath": "/dae16102.84cb5963.js"
+        }
+      ]
+    },
+    "22": {
+      "js": [
+        {
+          "file": "e1a4b65f.8aeff45c.js",
+          "hash": "34c8e04db6dd276568b5",
+          "publicPath": "/e1a4b65f.8aeff45c.js"
+        }
+      ]
+    },
+    "23": {
+      "js": [
+        {
+          "file": "feda3973.9170cb68.js",
+          "hash": "ffec0b91ce0c08a2eafb",
+          "publicPath": "/feda3973.9170cb68.js"
+        }
+      ]
+    },
+    "24": {
+      "js": [
+        {
+          "file": "main.2403772b.js",
+          "hash": "ca32e07c0aa0e5f5f46c",
+          "publicPath": "/main.2403772b.js"
+        }
+      ]
+    },
+    "25": {
+      "js": [
+        {
+          "file": "runtime~main.35aa7ceb.js",
+          "hash": "8140169fdebd839b1f24",
+          "publicPath": "/runtime~main.35aa7ceb.js"
+        }
+      ]
+    },
+    "26": {
+      "js": [
+        {
+          "file": "26.a9491697.js",
+          "hash": "83af00beb1ee86941333",
+          "publicPath": "/26.a9491697.js"
+        }
+      ]
+    },
+    "27": {
+      "js": [
+        {
+          "file": "27.b9fc5588.js",
+          "hash": "56cb52607e0092676972",
+          "publicPath": "/27.b9fc5588.js"
         }
       ]
     }

@@ -38,7 +38,7 @@ export default {
         "darkIconStyle": {
           "marginLeft": "2px"
         },
-        "lightIcon": "😂",
+        "lightIcon": "☀️",
         "lightIconStyle": {
           "marginLeft": "1px"
         }
@@ -419,7 +419,7 @@ export default {
       "@docusaurus/preset-classic",
       {
         "docs": {
-          "sidebarPath": "/Users/lol/apps/work/opentezos-docusaurus/opentezos/sidebars.js",
+          "sidebarPath": "/Users/lol/apps/work/opentezos-docusaurus/opentezos/src/sidebar/sidebar.js",
           "routeBasePath": "/",
           "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/"
         },
@@ -430,7 +430,8 @@ export default {
     ]
   ],
   "plugins": [
-    "/Users/lol/apps/work/opentezos-docusaurus/opentezos/plugins/webpack/index.js"
+    "/Users/lol/apps/work/opentezos-docusaurus/opentezos/plugins/webpack/index.js",
+    "plugin-image-zoom"
   ],
   "baseUrlIssueBanner": true,
   "i18n": {

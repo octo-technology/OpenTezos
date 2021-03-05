@@ -39,7 +39,7 @@ module.exports = {
         darkIconStyle: {
           marginLeft: '2px',
         },
-        lightIcon: '\u{1F602}',
+        lightIcon: '☀️',
         lightIconStyle: {
           marginLeft: '1px',
         },
@@ -57,7 +57,7 @@ module.exports = {
       '@docusaurus/preset-classic',
       {
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
+          sidebarPath: require.resolve('./src/sidebar/sidebar.js'),
           routeBasePath: '/',
           editUrl: 'https://github.com/octo-technology/OpenTezos/tree/main/',
         },
@@ -67,5 +67,5 @@ module.exports = {
       },
     ],
   ],
-  plugins: [require.resolve('./plugins/webpack')], //'plugin-image-zoom'
+  plugins: [require.resolve('./plugins/webpack'), 'plugin-image-zoom'],
 }

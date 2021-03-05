@@ -8,10 +8,10 @@
           "versionPath": "/",
           "isLast": true,
           "routePriority": -1,
-          "sidebarFilePath": "/Users/lol/apps/work/opentezos-docusaurus/opentezos/sidebars.js",
+          "sidebarFilePath": "/Users/lol/apps/work/opentezos-docusaurus/opentezos/src/sidebar/sidebar.js",
           "docsDirPath": "/Users/lol/apps/work/opentezos-docusaurus/opentezos/docs",
           "docsDirPathLocalized": "/Users/lol/apps/work/opentezos-docusaurus/opentezos/i18n/en/docusaurus-plugin-content-docs/current",
-          "mainDocId": "welcome",
+          "mainDocId": "welcome/modules",
           "sidebars": {
             "docs": [
               {
@@ -21,14 +21,84 @@
                 "items": [
                   {
                     "type": "doc",
-                    "id": "welcome"
+                    "id": "welcome/modules"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "welcome/paths"
                   }
                 ]
               },
               {
                 "collapsed": true,
                 "type": "category",
-                "label": "Michelson Basics",
+                "label": "Blockchain Basics",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "blockchain-basics/introduction"
+                  }
+                ]
+              },
+              {
+                "collapsed": true,
+                "type": "category",
+                "label": "Tezos Basics",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "tezos-basics/introduction"
+                  }
+                ]
+              },
+              {
+                "collapsed": true,
+                "type": "category",
+                "label": "Deploy a node",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "deploy-a-node/introduction"
+                  }
+                ]
+              },
+              {
+                "collapsed": true,
+                "type": "category",
+                "label": "How to use an Explorer",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "explorer/introduction"
+                  }
+                ]
+              },
+              {
+                "collapsed": true,
+                "type": "category",
+                "label": "SmartPy",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "smartpy/introduction"
+                  }
+                ]
+              },
+              {
+                "collapsed": true,
+                "type": "category",
+                "label": "LIGO",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "ligo/introduction"
+                  }
+                ]
+              },
+              {
+                "collapsed": true,
+                "type": "category",
+                "label": "Michelson",
                 "items": [
                   {
                     "type": "doc",
@@ -36,7 +106,7 @@
                   },
                   {
                     "type": "doc",
-                    "id": "michelson/language_fundamentals"
+                    "id": "michelson/fundamentals"
                   },
                   {
                     "type": "doc",
@@ -55,19 +125,316 @@
                     "id": "michelson/exam"
                   }
                 ]
+              },
+              {
+                "collapsed": true,
+                "type": "category",
+                "label": "Build a Dapp",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "dapp/introduction"
+                  }
+                ]
+              },
+              {
+                "collapsed": true,
+                "type": "category",
+                "label": "Baking",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "baking/introduction"
+                  }
+                ]
+              },
+              {
+                "collapsed": true,
+                "type": "category",
+                "label": "Deploy Bakers",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "baker/introduction"
+                  }
+                ]
+              },
+              {
+                "collapsed": true,
+                "type": "category",
+                "label": "DeFi",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "defi/introduction"
+                  }
+                ]
+              },
+              {
+                "collapsed": true,
+                "type": "category",
+                "label": "Formal Verification",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "formal-verification/introduction"
+                  }
+                ]
+              },
+              {
+                "collapsed": true,
+                "type": "category",
+                "label": "Private Blockchain",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "private/introduction"
+                  }
+                ]
+              },
+              {
+                "collapsed": true,
+                "type": "category",
+                "label": "How to contribute",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "contribute/introduction"
+                  }
+                ]
               }
             ]
           },
           "permalinkToSidebar": {
+            "/baker": "docs",
+            "/baking": "docs",
+            "/blockchain-basics": "docs",
+            "/contribute": "docs",
+            "/dapp": "docs",
+            "/defi": "docs",
+            "/deploy-a-node": "docs",
+            "/explorer": "docs",
+            "/formal-verification": "docs",
+            "/ligo": "docs",
             "/michelson/exam": "docs",
             "/michelson/examples": "docs",
+            "/michelson/fundamentals": "docs",
             "/michelson/instructions": "docs",
-            "/michelson/introduction": "docs",
-            "/michelson/language_fundamentals": "docs",
+            "/michelson": "docs",
             "/michelson/smart_contracts": "docs",
-            "/": "docs"
+            "/private": "docs",
+            "/smartpy": "docs",
+            "/tezos-basics": "docs",
+            "/": "docs",
+            "/paths": "docs"
           },
           "docs": [
+            {
+              "unversionedId": "baker/introduction",
+              "id": "baker/introduction",
+              "isDocsHomePage": false,
+              "title": "Introduction",
+              "description": "Under construction.",
+              "source": "@site/docs/baker/example.md",
+              "slug": "/baker",
+              "permalink": "/baker",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/baker/example.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Introduction",
+                "permalink": "/baking"
+              },
+              "next": {
+                "title": "Introduction",
+                "permalink": "/defi"
+              }
+            },
+            {
+              "unversionedId": "baking/introduction",
+              "id": "baking/introduction",
+              "isDocsHomePage": false,
+              "title": "Introduction",
+              "description": "Under construction.",
+              "source": "@site/docs/baking/example.md",
+              "slug": "/baking",
+              "permalink": "/baking",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/baking/example.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Introduction",
+                "permalink": "/dapp"
+              },
+              "next": {
+                "title": "Introduction",
+                "permalink": "/baker"
+              }
+            },
+            {
+              "unversionedId": "blockchain-basics/introduction",
+              "id": "blockchain-basics/introduction",
+              "isDocsHomePage": false,
+              "title": "Introduction",
+              "description": "Under construction.",
+              "source": "@site/docs/blockchain-basics/example.md",
+              "slug": "/blockchain-basics",
+              "permalink": "/blockchain-basics",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/blockchain-basics/example.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Paths",
+                "permalink": "/paths"
+              },
+              "next": {
+                "title": "Introduction",
+                "permalink": "/tezos-basics"
+              }
+            },
+            {
+              "unversionedId": "contribute/introduction",
+              "id": "contribute/introduction",
+              "isDocsHomePage": false,
+              "title": "Introduction",
+              "description": "Under construction.",
+              "source": "@site/docs/contribute/example.md",
+              "slug": "/contribute",
+              "permalink": "/contribute",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/contribute/example.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Introduction",
+                "permalink": "/private"
+              }
+            },
+            {
+              "unversionedId": "dapp/introduction",
+              "id": "dapp/introduction",
+              "isDocsHomePage": false,
+              "title": "Introduction",
+              "description": "Under construction.",
+              "source": "@site/docs/dapp/example.md",
+              "slug": "/dapp",
+              "permalink": "/dapp",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/dapp/example.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Exam",
+                "permalink": "/michelson/exam"
+              },
+              "next": {
+                "title": "Introduction",
+                "permalink": "/baking"
+              }
+            },
+            {
+              "unversionedId": "defi/introduction",
+              "id": "defi/introduction",
+              "isDocsHomePage": false,
+              "title": "Introduction",
+              "description": "Under construction.",
+              "source": "@site/docs/defi/example.md",
+              "slug": "/defi",
+              "permalink": "/defi",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/example.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Introduction",
+                "permalink": "/baker"
+              },
+              "next": {
+                "title": "Introduction",
+                "permalink": "/formal-verification"
+              }
+            },
+            {
+              "unversionedId": "deploy-a-node/introduction",
+              "id": "deploy-a-node/introduction",
+              "isDocsHomePage": false,
+              "title": "Introduction",
+              "description": "Under construction.",
+              "source": "@site/docs/deploy-a-node/example.md",
+              "slug": "/deploy-a-node",
+              "permalink": "/deploy-a-node",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/deploy-a-node/example.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Introduction",
+                "permalink": "/tezos-basics"
+              },
+              "next": {
+                "title": "Introduction",
+                "permalink": "/explorer"
+              }
+            },
+            {
+              "unversionedId": "explorer/introduction",
+              "id": "explorer/introduction",
+              "isDocsHomePage": false,
+              "title": "Introduction",
+              "description": "Under construction.",
+              "source": "@site/docs/explorer/example.md",
+              "slug": "/explorer",
+              "permalink": "/explorer",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/explorer/example.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Introduction",
+                "permalink": "/deploy-a-node"
+              },
+              "next": {
+                "title": "Introduction",
+                "permalink": "/smartpy"
+              }
+            },
+            {
+              "unversionedId": "formal-verification/introduction",
+              "id": "formal-verification/introduction",
+              "isDocsHomePage": false,
+              "title": "Introduction",
+              "description": "Under construction.",
+              "source": "@site/docs/formal-verification/example.md",
+              "slug": "/formal-verification",
+              "permalink": "/formal-verification",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/formal-verification/example.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Introduction",
+                "permalink": "/defi"
+              },
+              "next": {
+                "title": "Introduction",
+                "permalink": "/private"
+              }
+            },
+            {
+              "unversionedId": "ligo/introduction",
+              "id": "ligo/introduction",
+              "isDocsHomePage": false,
+              "title": "Introduction",
+              "description": "Under construction.",
+              "source": "@site/docs/ligo/example.md",
+              "slug": "/ligo",
+              "permalink": "/ligo",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/example.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Introduction",
+                "permalink": "/smartpy"
+              },
+              "next": {
+                "title": "Introduction",
+                "permalink": "/michelson"
+              }
+            },
             {
               "unversionedId": "michelson/exam",
               "id": "michelson/exam",
@@ -83,6 +450,10 @@
               "previous": {
                 "title": "Examples",
                 "permalink": "/michelson/examples"
+              },
+              "next": {
+                "title": "Introduction",
+                "permalink": "/dapp"
               }
             },
             {
@@ -104,6 +475,27 @@
               "next": {
                 "title": "Exam",
                 "permalink": "/michelson/exam"
+              }
+            },
+            {
+              "unversionedId": "michelson/fundamentals",
+              "id": "michelson/fundamentals",
+              "isDocsHomePage": false,
+              "title": "Language fundamentals",
+              "description": "The Michelson language is the reference language for Tezos smart contracts. It is a low-level stack-based language and is also a Turing-complete language. This means it has basic operations allowing to read/write/compare values in-memory, has infinite memory, and allows conditional operators (e.g. if, switch instructions)",
+              "source": "@site/docs/michelson/language_fundamentals.md",
+              "slug": "/michelson/fundamentals",
+              "permalink": "/michelson/fundamentals",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/michelson/language_fundamentals.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Introduction",
+                "permalink": "/michelson"
+              },
+              "next": {
+                "title": "Smart Contracts",
+                "permalink": "/michelson/smart_contracts"
               }
             },
             {
@@ -134,39 +526,18 @@
               "title": "Introduction",
               "description": "To write smart contracts for Tezos, you can either choose a high-level language such as LIGO or SmartPy, or the official low-level language called Michelson.",
               "source": "@site/docs/michelson/introduction.md",
-              "slug": "/michelson/introduction",
-              "permalink": "/michelson/introduction",
+              "slug": "/michelson",
+              "permalink": "/michelson",
               "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/michelson/introduction.md",
               "version": "current",
               "sidebar": "docs",
               "previous": {
-                "title": "Welcome to OpenTezos",
-                "permalink": "/"
+                "title": "Introduction",
+                "permalink": "/ligo"
               },
               "next": {
                 "title": "Language fundamentals",
-                "permalink": "/michelson/language_fundamentals"
-              }
-            },
-            {
-              "unversionedId": "michelson/language_fundamentals",
-              "id": "michelson/language_fundamentals",
-              "isDocsHomePage": false,
-              "title": "Language fundamentals",
-              "description": "The Michelson language is the reference language for Tezos smart contracts. It is a low-level stack-based language and is also a Turing-complete language. This means it has basic operations allowing to read/write/compare values in-memory, has infinite memory, and allows conditional operators (e.g. if, switch instructions)",
-              "source": "@site/docs/michelson/language_fundamentals.md",
-              "slug": "/michelson/language_fundamentals",
-              "permalink": "/michelson/language_fundamentals",
-              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/michelson/language_fundamentals.md",
-              "version": "current",
-              "sidebar": "docs",
-              "previous": {
-                "title": "Introduction",
-                "permalink": "/michelson/introduction"
-              },
-              "next": {
-                "title": "Smart Contracts",
-                "permalink": "/michelson/smart_contracts"
+                "permalink": "/michelson/fundamentals"
               }
             },
             {
@@ -183,7 +554,7 @@
               "sidebar": "docs",
               "previous": {
                 "title": "Language fundamentals",
-                "permalink": "/michelson/language_fundamentals"
+                "permalink": "/michelson/fundamentals"
               },
               "next": {
                 "title": "Instructions",
@@ -191,21 +562,105 @@
               }
             },
             {
-              "unversionedId": "welcome",
-              "id": "welcome",
+              "unversionedId": "private/introduction",
+              "id": "private/introduction",
               "isDocsHomePage": false,
-              "title": "Welcome to OpenTezos",
-              "description": "Welcome Tezos Developers",
-              "source": "@site/docs/welcome.md",
-              "slug": "/",
-              "permalink": "/",
-              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/welcome.md",
+              "title": "Introduction",
+              "description": "Under construction.",
+              "source": "@site/docs/private/example.md",
+              "slug": "/private",
+              "permalink": "/private",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/private/example.md",
               "version": "current",
-              "sidebar_label": "Home",
               "sidebar": "docs",
+              "previous": {
+                "title": "Introduction",
+                "permalink": "/formal-verification"
+              },
               "next": {
                 "title": "Introduction",
-                "permalink": "/michelson/introduction"
+                "permalink": "/contribute"
+              }
+            },
+            {
+              "unversionedId": "smartpy/introduction",
+              "id": "smartpy/introduction",
+              "isDocsHomePage": false,
+              "title": "Introduction",
+              "description": "Under construction.",
+              "source": "@site/docs/smartpy/example.md",
+              "slug": "/smartpy",
+              "permalink": "/smartpy",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/smartpy/example.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Introduction",
+                "permalink": "/explorer"
+              },
+              "next": {
+                "title": "Introduction",
+                "permalink": "/ligo"
+              }
+            },
+            {
+              "unversionedId": "tezos-basics/introduction",
+              "id": "tezos-basics/introduction",
+              "isDocsHomePage": false,
+              "title": "Introduction",
+              "description": "Under construction.",
+              "source": "@site/docs/tezos-basics/example.md",
+              "slug": "/tezos-basics",
+              "permalink": "/tezos-basics",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/example.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Introduction",
+                "permalink": "/blockchain-basics"
+              },
+              "next": {
+                "title": "Introduction",
+                "permalink": "/deploy-a-node"
+              }
+            },
+            {
+              "unversionedId": "welcome/modules",
+              "id": "welcome/modules",
+              "isDocsHomePage": false,
+              "title": "Welcome to OpenTezos",
+              "description": "Welcome Tezos Developers! Explore the technical and economic concepts behind the Tezos Network, experiment with our tutorials, or start building your own Tezos Dapp. Each module will teach you a full concept of Tezos, ending with a quizz that will get you an official completion certification if you succeed.",
+              "source": "@site/docs/welcome/modules.md",
+              "slug": "/",
+              "permalink": "/",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/welcome/modules.md",
+              "version": "current",
+              "sidebar_label": "Modules",
+              "sidebar": "docs",
+              "next": {
+                "title": "Paths",
+                "permalink": "/paths"
+              }
+            },
+            {
+              "unversionedId": "welcome/paths",
+              "id": "welcome/paths",
+              "isDocsHomePage": false,
+              "title": "Paths",
+              "description": "Under construction",
+              "source": "@site/docs/welcome/paths.md",
+              "slug": "/paths",
+              "permalink": "/paths",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/welcome/paths.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Welcome to OpenTezos",
+                "permalink": "/"
+              },
+              "next": {
+                "title": "Introduction",
+                "permalink": "/blockchain-basics"
               }
             }
           ]
@@ -226,6 +681,9 @@
     "default": null
   },
   "custom-webpack-plugin": {
+    "default": null
+  },
+  "docusaurus-plugin-image-zoom": {
     "default": null
   }
 }

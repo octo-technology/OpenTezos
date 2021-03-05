@@ -1,0 +1,17 @@
+{
+  "unversionedId": "contribute/introduction",
+  "id": "contribute/introduction",
+  "isDocsHomePage": false,
+  "title": "Introduction",
+  "description": "Under construction.",
+  "source": "@site/docs/contribute/example.md",
+  "slug": "/contribute",
+  "permalink": "/contribute",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/contribute/example.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Introduction",
+    "permalink": "/private"
+  }
+}

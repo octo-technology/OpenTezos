@@ -1,0 +1,12 @@
+{
+  "unversionedId": "ligo copy/introduction",
+  "id": "ligo copy/introduction",
+  "isDocsHomePage": false,
+  "title": "Introduction",
+  "description": "Under construction.",
+  "source": "@site/docs/ligo copy/example.md",
+  "slug": "/ligo",
+  "permalink": "/ligo",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo copy/example.md",
+  "version": "current"
+}

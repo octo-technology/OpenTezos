@@ -12,25 +12,102 @@
         "items": [
           {
             "type": "link",
-            "label": "Home",
+            "label": "Modules",
             "href": "/"
+          },
+          {
+            "type": "link",
+            "label": "Paths",
+            "href": "/paths"
           }
         ]
       },
       {
         "collapsed": true,
         "type": "category",
-        "label": "Michelson Basics",
+        "label": "Blockchain Basics",
         "items": [
           {
             "type": "link",
             "label": "Introduction",
-            "href": "/michelson/introduction"
+            "href": "/blockchain-basics"
+          }
+        ]
+      },
+      {
+        "collapsed": true,
+        "type": "category",
+        "label": "Tezos Basics",
+        "items": [
+          {
+            "type": "link",
+            "label": "Introduction",
+            "href": "/tezos-basics"
+          }
+        ]
+      },
+      {
+        "collapsed": true,
+        "type": "category",
+        "label": "Deploy a node",
+        "items": [
+          {
+            "type": "link",
+            "label": "Introduction",
+            "href": "/deploy-a-node"
+          }
+        ]
+      },
+      {
+        "collapsed": true,
+        "type": "category",
+        "label": "How to use an Explorer",
+        "items": [
+          {
+            "type": "link",
+            "label": "Introduction",
+            "href": "/explorer"
+          }
+        ]
+      },
+      {
+        "collapsed": true,
+        "type": "category",
+        "label": "SmartPy",
+        "items": [
+          {
+            "type": "link",
+            "label": "Introduction",
+            "href": "/smartpy"
+          }
+        ]
+      },
+      {
+        "collapsed": true,
+        "type": "category",
+        "label": "LIGO",
+        "items": [
+          {
+            "type": "link",
+            "label": "Introduction",
+            "href": "/ligo"
+          }
+        ]
+      },
+      {
+        "collapsed": true,
+        "type": "category",
+        "label": "Michelson",
+        "items": [
+          {
+            "type": "link",
+            "label": "Introduction",
+            "href": "/michelson"
           },
           {
             "type": "link",
             "label": "Language fundamentals",
-            "href": "/michelson/language_fundamentals"
+            "href": "/michelson/fundamentals"
           },
           {
             "type": "link",
@@ -53,16 +130,114 @@
             "href": "/michelson/exam"
           }
         ]
+      },
+      {
+        "collapsed": true,
+        "type": "category",
+        "label": "Build a Dapp",
+        "items": [
+          {
+            "type": "link",
+            "label": "Introduction",
+            "href": "/dapp"
+          }
+        ]
+      },
+      {
+        "collapsed": true,
+        "type": "category",
+        "label": "Baking",
+        "items": [
+          {
+            "type": "link",
+            "label": "Introduction",
+            "href": "/baking"
+          }
+        ]
+      },
+      {
+        "collapsed": true,
+        "type": "category",
+        "label": "Deploy Bakers",
+        "items": [
+          {
+            "type": "link",
+            "label": "Introduction",
+            "href": "/baker"
+          }
+        ]
+      },
+      {
+        "collapsed": true,
+        "type": "category",
+        "label": "DeFi",
+        "items": [
+          {
+            "type": "link",
+            "label": "Introduction",
+            "href": "/defi"
+          }
+        ]
+      },
+      {
+        "collapsed": true,
+        "type": "category",
+        "label": "Formal Verification",
+        "items": [
+          {
+            "type": "link",
+            "label": "Introduction",
+            "href": "/formal-verification"
+          }
+        ]
+      },
+      {
+        "collapsed": true,
+        "type": "category",
+        "label": "Private Blockchain",
+        "items": [
+          {
+            "type": "link",
+            "label": "Introduction",
+            "href": "/private"
+          }
+        ]
+      },
+      {
+        "collapsed": true,
+        "type": "category",
+        "label": "How to contribute",
+        "items": [
+          {
+            "type": "link",
+            "label": "Introduction",
+            "href": "/contribute"
+          }
+        ]
       }
     ]
   },
   "permalinkToSidebar": {
+    "/baker": "docs",
+    "/baking": "docs",
+    "/blockchain-basics": "docs",
+    "/contribute": "docs",
+    "/dapp": "docs",
+    "/defi": "docs",
+    "/deploy-a-node": "docs",
+    "/explorer": "docs",
+    "/formal-verification": "docs",
+    "/ligo": "docs",
     "/michelson/exam": "docs",
     "/michelson/examples": "docs",
+    "/michelson/fundamentals": "docs",
     "/michelson/instructions": "docs",
-    "/michelson/introduction": "docs",
-    "/michelson/language_fundamentals": "docs",
+    "/michelson": "docs",
     "/michelson/smart_contracts": "docs",
-    "/": "docs"
+    "/private": "docs",
+    "/smartpy": "docs",
+    "/tezos-basics": "docs",
+    "/": "docs",
+    "/paths": "docs"
   }
 }

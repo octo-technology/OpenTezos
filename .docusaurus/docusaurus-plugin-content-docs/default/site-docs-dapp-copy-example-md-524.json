@@ -1,0 +1,12 @@
+{
+  "unversionedId": "dapp copy/introduction",
+  "id": "dapp copy/introduction",
+  "isDocsHomePage": false,
+  "title": "Introduction",
+  "description": "Under construction.",
+  "source": "@site/docs/dapp copy/example.md",
+  "slug": "/dapp",
+  "permalink": "/dapp",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/dapp copy/example.md",
+  "version": "current"
+}

@@ -7,11 +7,14 @@
   --ifm-color-primary-lighter: #5697f9;
   --ifm-color-primary-lightest: #80b1fa;
   --ifm-code-font-size: 95%;
+
+  --ifm-container-width: 1420px;
 }
 
 html[data-theme='dark'] {
   --ifm-background-color: #191f36;
   --ifm-background-surface-color: #2a3045;
+  --doc-component-background: #2a3045;
 }
 
 html[data-theme='light'] {
@@ -39,4 +42,122 @@ small {
 
 img {
   margin: 11px 0;
+}
+
+/* .menu__link--sublist {
+  justify-content: initial;
+} */
+
+.menu__link--sublist::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 24px;
+  float: left;
+  margin: 0 6px 0 0;
+}
+
+html[data-theme='light'] .menu__list > li:nth-child(1) > a::before {
+  background: url('/img/icons/home-small-light.svg') no-repeat;
+}
+html[data-theme='dark'] .menu__list > li:nth-child(1) > a::before {
+  background: url('/img/icons/home-small-dark.svg') no-repeat;
+}
+
+html[data-theme='light'] .menu__list > li:nth-child(2) > a::before {
+  background: url('/img/icons/blockchain-small-light.svg') no-repeat;
+}
+html[data-theme='dark'] .menu__list > li:nth-child(2) > a::before {
+  background: url('/img/icons/blockchain-small-dark.svg') no-repeat;
+}
+
+html[data-theme='light'] .menu__list > li:nth-child(3) > a::before {
+  background: url('/img/icons/tezos-small-light.svg') no-repeat;
+}
+html[data-theme='dark'] .menu__list > li:nth-child(3) > a::before {
+  background: url('/img/icons/tezos-small-dark.svg') no-repeat;
+}
+
+html[data-theme='light'] .menu__list > li:nth-child(4) > a::before {
+  background: url('/img/icons/node-small-light.svg') no-repeat;
+}
+html[data-theme='dark'] .menu__list > li:nth-child(4) > a::before {
+  background: url('/img/icons/node-small-dark.svg') no-repeat;
+}
+
+html[data-theme='light'] .menu__list > li:nth-child(5) > a::before {
+  background: url('/img/icons/explorer-small-light.svg') no-repeat;
+}
+html[data-theme='dark'] .menu__list > li:nth-child(5) > a::before {
+  background: url('/img/icons/explorer-small-dark.svg') no-repeat;
+}
+
+html[data-theme='light'] .menu__list > li:nth-child(6) > a::before {
+  background: url('/img/icons/smartpy-small-light.svg') no-repeat;
+}
+html[data-theme='dark'] .menu__list > li:nth-child(6) > a::before {
+  background: url('/img/icons/smartpy-small-dark.svg') no-repeat;
+}
+
+html[data-theme='light'] .menu__list > li:nth-child(7) > a::before {
+  background: url('/img/icons/ligo-small-light.svg') no-repeat;
+}
+html[data-theme='dark'] .menu__list > li:nth-child(7) > a::before {
+  background: url('/img/icons/ligo-small-dark.svg') no-repeat;
+}
+
+html[data-theme='light'] .menu__list > li:nth-child(8) > a::before {
+  background: url('/img/icons/michelson-small-light.svg') no-repeat;
+}
+html[data-theme='dark'] .menu__list > li:nth-child(8) > a::before {
+  background: url('/img/icons/michelson-small-dark.svg') no-repeat;
+}
+
+html[data-theme='light'] .menu__list > li:nth-child(9) > a::before {
+  background: url('/img/icons/dapp-small-light.svg') no-repeat;
+}
+html[data-theme='dark'] .menu__list > li:nth-child(9) > a::before {
+  background: url('/img/icons/dapp-small-dark.svg') no-repeat;
+}
+
+html[data-theme='light'] .menu__list > li:nth-child(10) > a::before {
+  background: url('/img/icons/baking-small-light.svg') no-repeat;
+}
+html[data-theme='dark'] .menu__list > li:nth-child(10) > a::before {
+  background: url('/img/icons/baking-small-dark.svg') no-repeat;
+}
+
+html[data-theme='light'] .menu__list > li:nth-child(11) > a::before {
+  background: url('/img/icons/baker-small-light.svg') no-repeat;
+}
+html[data-theme='dark'] .menu__list > li:nth-child(11) > a::before {
+  background: url('/img/icons/baker-small-dark.svg') no-repeat;
+}
+
+html[data-theme='light'] .menu__list > li:nth-child(12) > a::before {
+  background: url('/img/icons/defi-small-light.svg') no-repeat;
+}
+html[data-theme='dark'] .menu__list > li:nth-child(12) > a::before {
+  background: url('/img/icons/defi-small-dark.svg') no-repeat;
+}
+
+html[data-theme='light'] .menu__list > li:nth-child(13) > a::before {
+  background: url('/img/icons/formal-small-light.svg') no-repeat;
+}
+html[data-theme='dark'] .menu__list > li:nth-child(13) > a::before {
+  background: url('/img/icons/formal-small-dark.svg') no-repeat;
+}
+
+html[data-theme='light'] .menu__list > li:nth-child(14) > a::before {
+  background: url('/img/icons/private-small-light.svg') no-repeat;
+}
+html[data-theme='dark'] .menu__list > li:nth-child(14) > a::before {
+  background: url('/img/icons/private-small-dark.svg') no-repeat;
+}
+
+html[data-theme='light'] .menu__list > li:nth-child(15) > a::before {
+  background: url('/img/icons/contribute-small-light.svg') no-repeat;
+}
+html[data-theme='dark'] .menu__list > li:nth-child(15) > a::before {
+  background: url('/img/icons/contribute-small-dark.svg') no-repeat;
 }

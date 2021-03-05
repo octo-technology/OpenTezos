@@ -1,0 +1,13 @@
+{
+  "unversionedId": "welcome/welcome",
+  "id": "welcome/welcome",
+  "isDocsHomePage": false,
+  "title": "Welcome to OpenTezos",
+  "description": "Welcome Tezos Developers",
+  "source": "@site/docs/welcome/welcome.md",
+  "slug": "/",
+  "permalink": "/",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/welcome/welcome.md",
+  "version": "current",
+  "sidebar_label": "Home"
+}

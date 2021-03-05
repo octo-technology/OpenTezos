@@ -1,0 +1,21 @@
+{
+  "unversionedId": "baker/introduction",
+  "id": "baker/introduction",
+  "isDocsHomePage": false,
+  "title": "Introduction",
+  "description": "Under construction.",
+  "source": "@site/docs/baker/example.md",
+  "slug": "/baker",
+  "permalink": "/baker",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/baker/example.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Introduction",
+    "permalink": "/baking"
+  },
+  "next": {
+    "title": "Introduction",
+    "permalink": "/defi"
+  }
+}

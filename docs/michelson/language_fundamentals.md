@@ -1,5 +1,5 @@
 ---
-id: language_fundamentals
+id: fundamentals
 title: Language fundamentals
 ---
 

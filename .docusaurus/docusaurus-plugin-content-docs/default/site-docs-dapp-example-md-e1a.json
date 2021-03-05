@@ -1,0 +1,21 @@
+{
+  "unversionedId": "dapp/introduction",
+  "id": "dapp/introduction",
+  "isDocsHomePage": false,
+  "title": "Introduction",
+  "description": "Under construction.",
+  "source": "@site/docs/dapp/example.md",
+  "slug": "/dapp",
+  "permalink": "/dapp",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/dapp/example.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Exam",
+    "permalink": "/michelson/exam"
+  },
+  "next": {
+    "title": "Introduction",
+    "permalink": "/baking"
+  }
+}

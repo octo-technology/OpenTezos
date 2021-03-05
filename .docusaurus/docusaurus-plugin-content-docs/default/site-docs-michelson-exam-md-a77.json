@@ -13,5 +13,9 @@
   "previous": {
     "title": "Examples",
     "permalink": "/michelson/examples"
+  },
+  "next": {
+    "title": "Introduction",
+    "permalink": "/dapp"
   }
 }

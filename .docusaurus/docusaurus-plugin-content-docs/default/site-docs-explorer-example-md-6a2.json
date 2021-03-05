@@ -1,0 +1,21 @@
+{
+  "unversionedId": "explorer/introduction",
+  "id": "explorer/introduction",
+  "isDocsHomePage": false,
+  "title": "Introduction",
+  "description": "Under construction.",
+  "source": "@site/docs/explorer/example.md",
+  "slug": "/explorer",
+  "permalink": "/explorer",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/explorer/example.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Introduction",
+    "permalink": "/deploy-a-node"
+  },
+  "next": {
+    "title": "Introduction",
+    "permalink": "/smartpy"
+  }
+}

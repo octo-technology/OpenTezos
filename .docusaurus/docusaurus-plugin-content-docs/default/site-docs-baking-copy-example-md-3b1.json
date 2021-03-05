@@ -1,0 +1,12 @@
+{
+  "unversionedId": "baking copy/introduction",
+  "id": "baking copy/introduction",
+  "isDocsHomePage": false,
+  "title": "Introduction",
+  "description": "Under construction.",
+  "source": "@site/docs/baking copy/example.md",
+  "slug": "/dapp",
+  "permalink": "/dapp",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/baking copy/example.md",
+  "version": "current"
+}

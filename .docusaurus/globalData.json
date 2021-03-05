@@ -8,8 +8,58 @@
           "label": "Next",
           "isLast": true,
           "path": "/",
-          "mainDocId": "welcome",
+          "mainDocId": "welcome/modules",
           "docs": [
+            {
+              "id": "baker/introduction",
+              "path": "/baker",
+              "sidebar": "docs"
+            },
+            {
+              "id": "baking/introduction",
+              "path": "/baking",
+              "sidebar": "docs"
+            },
+            {
+              "id": "blockchain-basics/introduction",
+              "path": "/blockchain-basics",
+              "sidebar": "docs"
+            },
+            {
+              "id": "contribute/introduction",
+              "path": "/contribute",
+              "sidebar": "docs"
+            },
+            {
+              "id": "dapp/introduction",
+              "path": "/dapp",
+              "sidebar": "docs"
+            },
+            {
+              "id": "defi/introduction",
+              "path": "/defi",
+              "sidebar": "docs"
+            },
+            {
+              "id": "deploy-a-node/introduction",
+              "path": "/deploy-a-node",
+              "sidebar": "docs"
+            },
+            {
+              "id": "explorer/introduction",
+              "path": "/explorer",
+              "sidebar": "docs"
+            },
+            {
+              "id": "formal-verification/introduction",
+              "path": "/formal-verification",
+              "sidebar": "docs"
+            },
+            {
+              "id": "ligo/introduction",
+              "path": "/ligo",
+              "sidebar": "docs"
+            },
             {
               "id": "michelson/exam",
               "path": "/michelson/exam",
@@ -21,18 +71,18 @@
               "sidebar": "docs"
             },
             {
+              "id": "michelson/fundamentals",
+              "path": "/michelson/fundamentals",
+              "sidebar": "docs"
+            },
+            {
               "id": "michelson/instructions",
               "path": "/michelson/instructions",
               "sidebar": "docs"
             },
             {
               "id": "michelson/introduction",
-              "path": "/michelson/introduction",
-              "sidebar": "docs"
-            },
-            {
-              "id": "michelson/language_fundamentals",
-              "path": "/michelson/language_fundamentals",
+              "path": "/michelson",
               "sidebar": "docs"
             },
             {
@@ -41,8 +91,28 @@
               "sidebar": "docs"
             },
             {
-              "id": "welcome",
+              "id": "private/introduction",
+              "path": "/private",
+              "sidebar": "docs"
+            },
+            {
+              "id": "smartpy/introduction",
+              "path": "/smartpy",
+              "sidebar": "docs"
+            },
+            {
+              "id": "tezos-basics/introduction",
+              "path": "/tezos-basics",
+              "sidebar": "docs"
+            },
+            {
+              "id": "welcome/modules",
               "path": "/",
+              "sidebar": "docs"
+            },
+            {
+              "id": "welcome/paths",
+              "path": "/paths",
               "sidebar": "docs"
             }
           ]
