@@ -1558,9 +1558,9 @@ MAP_CD(\rest=[AD]+)R code / S   =>
 
 ### Annotations
 
-The annotation mechanism of Michelson provides ways to better track data on the stack and to give additional type constraints. Annotations are only here to add constraints, i.e. they cannot turn an otherwise rejected program into an accepted one. The notable exception to this rule is for entry points: the semantics of the `CONTRACT` and `SELF` instructions varies depending on their constructor annotations, and some contract origination may fail due to invalid entry point constructor annotations.
+Michelson's annotation mechanism provides ways to better track data on the stack and to give additional type constraints. Annotations are only here to add constraints, i.e. they cannot turn an otherwise rejected program into an accepted one. The notable exception to this rule is for entry points: the semantics of the `CONTRACT` and `SELF` instructions varies depending on their constructor annotations, and some contract origination may fail due to invalid entry point constructor annotations.
 
-Stack visualization tools like the Michelson’s Emacs mode print annotations associated with each type in the program, as propagated by the type checker as well as variable annotations on the types of the elements in the stack. This is especially useful for debugging.
+Stack visualization tools like the Michelson Emacs mode print annotations associated with each type in the program, as propagated by the type checker as well as variable annotations on the types of the elements in the stack. This is especially useful for debugging.
 
 We distinguish three kinds of annotations:
 
