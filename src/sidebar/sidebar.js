@@ -13,7 +13,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Tezos Basics',
-      items: ['tezos-basics/introduction'],
+      items: ['tezos-basics/history_of_evolutions'],
     },
     {
       type: 'category',
