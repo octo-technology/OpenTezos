@@ -19,13 +19,66 @@ type operation = {
   destination: contract hash;
 }
 ```
-Such an operation can be sent from a contract if signed using the manager's key or it can be sent programmatically by code executing in the contract. When the operation is received, the amount is added to the destination contract's balance and the destination contract's code is executed. This code can make use of the parameters passed to it, it can read and write the contract's storage, change the signature key and post operations to other contracts.
+
+Example of a entrypoint call transaction:
+```
+{
+  "branch": "BMXRpSqjJ9HnEeaSXj3YzM9jqB4kqDZemtJBGGqn5Sa9MepV1k7",
+  "contents": [
+	{
+  	"kind": "transaction",
+  	"source": "tz1YWK1gDPQx9N1Jh4JnmVre7xN6xhGGM4uC",
+  	"fee": "6678",
+  	"counter": "942780",
+  	"gas_limit": "63669",
+  	"storage_limit": "75",
+  	"amount": "0",
+  	"destination": "KT1S5hgipNSTFehZo7v81gq6fcLChbRwptqy",
+  	"parameters": {
+    	"entrypoint": "sellLand",
+    	"value": {
+      	"prim": "Pair",
+      	"args": [
+        	{
+          	"int": "100000000"
+        	},
+        	{
+          	"int": "11"
+        	}
+      	]
+    	}
+  	}
+	}
+  ]
+}
+```
+Example of a transaction between two implicit accounts:
+
+```
+{
+  "branch": "BKkwBsr6hfvj2MfaEydByALrASfCPzFBFSCs3iY7XaBLKRtwWj7",
+  "contents": [
+	{
+  	"kind": "transaction",
+  	"source": "tz1VAugX5LBcF4Anq1gEFr12LmsjqsCgsnPs",
+  	"fee": "444",
+  	"counter": "855452",
+  	"gas_limit": "1527",
+  	"storage_limit": "0",
+  	"amount": "100000000",
+  	"destination": "tz1YWK1gDPQx9N1Jh4JnmVre7xN6xhGGM4uC"
+	}
+  ]
+}
+```
+
+Such an operation can be sent from a contract if signed using the manager's key or it can be sent programmatically by contract code execution. When the operation is received, the amount is added to the destination contract's balance and the destination contract's code is executed. This code can make use of the parameters passed to it, it can read and write the contract's storage, change the signature key and post operations to other contracts.
 
 The role of the counter is to prevent replay attacks. An operation is only valid if the contract's counter is equal to the operation's counter. Once a operation is applied, the counter increases by one, preventing the operation from being reused.
 
 The operation also includes the block hash of a recent block that the client considers valid. If an attacker ever succeeds in forcing a long reorganization with a fork, he will be unable to include such operations, making the fork obviously fake. This last line of defense is named TAPOS, it is a great system to prevent long reorganizations but not a very good system to prevent short term double spending.
 
-Currently the network tezos has a speed of 40 tps (operation per second) and n operation time of 30 minutes [2](https://opentezos.com/tezos-basics/intro_to_operation#reference). The operation time is the time it takes for an operation to be considered secure. For example, bitcoin can proces 7tps and an operation time of 60 minutes. 
+Currently the network tezos has a speed of 40 tps (operation per second) and n operation time of 30 minutes [2](https://opentezos.com/tezos-basics/intro_to_operation#reference). The operation time is the time it takes for an operation to be considered secure. For example, bitcoin can process 7tps and an operation time of 60 minutes. 
 
 Actually Tezos operations are limited by a total maximum size of 512kB.
 
@@ -38,15 +91,15 @@ The diagram below represents the life cycle of a operation.
 Operations are received by nodes from a client via RPC or from a network peer.
 
 ### Pre-validator
-The pre-validator [3]((https://opentezos.com/tezos-basics/intro_to_operation#reference)) step that runs in the validation subsystem is responsible for deciding which operations will be added to the mempool. 
+The *pre-validator* [3](https://opentezos.com/tezos-basics/intro_to_operation#reference) step that runs in the validation subsystem is responsible for deciding which operations will be added to the mempool. 
 
-The Pre_filter function checks that enough gas required for the execution has passed and that the sender address has enough funds to pay it.
+The *Pre_filter* function checks that enough gas required for the execution has passed and that the sender address has enough funds to pay it.
 
-The apply function checks if the operation is in adequacy with the current step of the tezos chain.
+The *apply* function checks if the operation is in adequacy with the current state of the tezos chain.
 
-At the post_filter fonction, a decision to add an operation to the mempool based on the result is made and propagated via advertising. The advertise function advertises by using the distributed_db’s current_head function in the advertise module.
+At the *post_filter* fonction, a decision to add an operation to the mempool based on the result is made and broadcasted.
 
-If one error is triggered in one of these functions the operation is not added to the mempool and also not broadcasted.
+If one error is triggered in one of these functions, the operation is not added to the mempool and also not broadcasted.
 
 ### Mempool
 The node maintains a memory pool (“mempool”) to keep track of not-invalid-for-sure operations. The mempool keeps track of two different kinds of operation:
@@ -63,22 +116,25 @@ Operations in the mempool are broadcasted to peers whenever the mempool is updat
 
 A valid operation lives in the mempool until it is added to a valid block of the chain which the node considers to be canonical. If the operation is not added for its time-to-live duration, the operation is removed from the mempool.
 
+As long as a transaction is in the mempool, the sender address cannot issue another one. However, it is possible to send multiple transactions **at the same time** (in batch). Sending in batches is different from sending transactions one after the other.
+
 ### Baking and endorsement 
-The baker is free to select operations from the mempool, but they usually use a minimum fee filter. After the composition of this block, endorsers make a review to check its validity. At the end of the allotted time, the baker collects the endorsers' opinions and adds them to the block and he forges it.
+The baker is free to select operations from the mempool, but they usually use a minimum fee filter. After the block creation, endorsers make a review to check its validity. At the end of the allotted time, the baker collects the endorsers' opinions and adds them to the block and he forges it.
 
 ### Validator
-The baker sends the forged block on a node. the node processes the block validator. The apply_block function is called, the block header validation is done by using protocol parameters, and verifies all the operations.
+The baker sends the created block on a node. Once it is received it starts the block validator. The *apply_block* function is called, the block header validation is done by using protocol parameters, and verifies all the operations.
 
 The Block validation includes checks for errors such as too many operations, oversized operation, incorrect protocol version, unallowed validation pass, invalid fitness, unavailable protocol, and errors while applying the operation.
 
 Details about errors encountered during the block validation can be found [here](https://gitlab.com/tezos/tezos/blob/mainnet/src/lib_shell_services/block_validator_errors.ml).
 
-Once a block is validated and it is a candidate for the new head of the chain, it is passed to the chain validator, which checks if the fitness score of the new head is higher than the fitness score of the current head. If it is not, the block is ignored. If it is and this block replaces the current head, the chain validator then calls the prevalidator in order to flush the mempool. Finally, the new block head is advertised to the peer using the distributed_db’s Advertise module. This block becomes part of the canonical chain only if future bakers bake on top of it.
+Once a block is validated and is a candidate for the new head of the chain, it is passed to the chain validator, which checks if the fitness score [4](https://opentezos.com/tezos-basics/intro_to_operation#reference) of the new head is higher than the fitness score of the current head. If it is not, the block is ignored. If it is and this block replaces the current head, the chain validator then calls the prevalidator in order to flush the mempool. Finally, the new block head is advertised to the peer using the distributed_db’s Advertise module. This block becomes part of the canonical chain only if future bakers bake on top of it.
 
 ## Reference
-[1] https://tezos.gitlab.io/introduction/howtouse.html#implicit-accounts-and-smart-contracts
+[1]https://tezos.gitlab.io/introduction/howtouse.html#implicit-accounts-and-smart-contracts
 
-[2] https://alephzero.org/blog/what-is-the-fastest-blockchain-and-why-analysis-of-43-blockchains/
+[2]https://alephzero.org/blog/what-is-the-fastest-blockchain-and-why-analysis-of-43-blockchains/
 
-[3] https://medium.com/tqtezos/lifecycle-of-an-operation-in-tezos-248c51038ec2
+[3]https://medium.com/tqtezos/lifecycle-of-an-operation-in-tezos-248c51038ec2
 
+[4]https://tezos.gitlab.io/alpha/glossary.html?highlight=fitness#tezos
