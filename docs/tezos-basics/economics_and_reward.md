@@ -6,11 +6,11 @@ title: Economics and reward
 
 ## Transaction cost
 
-Each Tezos transaction has a cost. The user includes a gas fee when he submits his transaction. Bakers choose transactions with a minimal fee filter. If the baker chooses this transaction, he will add the operation to the block and will propagate it. These fees are used to pay the bakers. They are calculated with the following formula [1](https://opentezos.com/tezos-basics/economics_and_reward#references): 
+Each Tezos transaction has a cost. The user includes a gas fee when he submits his transaction. Bakers choose transactions with a minimal fee filter. If the baker chooses a transaction, he will add the operation to the block and will propagate it. These fees are used to pay the bakers. They are calculated with the following formula [1](https://opentezos.com/tezos-basics/economics_and_reward#references): 
 ```
 fees >= (minimal_fees + minimal_nanotez_per_byte * size + minimal_nanotez_per_gas_unit * gas)
 ```
-By default a transaction have this values:
+The transaction default values are:
 ```
 minimal_fees = 0.000 1ꜩ (100µꜩ)
 minimal_nanotez_per_gas_unit = 100nꜩ/gu (0.000 000 1ꜩ/gu)
@@ -21,7 +21,7 @@ The size is the number of bytes of the complete serialized operation.
 
 In a Tezos transaction, we can add additional information such as smart contracts deployment, smart contract call, etc. This information has a storage cost which is represented with a `minimal_nanotez_per_byte`. Since the Delphy protocol update [2](https://opentezos.com/tezos-basics/economics_and_reward#references) this cost has been reduced from 1ꜩ to 0.25 ꜩ per kilobyte. The price to create a new account is thus lowered from 0.257 tez to 0.06425 tez (the cost to create an account is important to protect the system from spams and Sybil attacks [3](https://opentezos.com/tezos-basics/economics_and_reward#references)).
 
-On the Tezos blockchain, gas refers to the cost necessary to perform a transaction on the network. Bakers set the price of gas based on supply and demand for the computational power of the network needed to process smart contracts and other transactions.
+On the Tezos blockchain, gas refers to the cost necessary to perform a transaction on the network. Bakers set the price of gas based on supply and demand for the computational power of the network needed to process smart contract calls and other transactions.
 It is used to determine the complexity of the transaction execution. Also, it is used to avoid infinite loops. `minimal_nanotez_per_byte` is the price of one unit of gas and it is selected by the user at the transaction creation. It is one of the baker's inputs before choosing his transactions. Before taking the transaction, the baker reviews the amount of gas required and its cost per unit. If this ratio is adequate, the baker selects the transaction. Each transaction has a gas limit : 1,040,000 gas units (gu). If the contract execution or deployment exceeds this limit the contract is unusable. This limit is useful to guarantee that the bakers will be able to validate the block in a limited amount of time [4](https://opentezos.com/tezos-basics/economics_and_reward#references). To be inclusive, all the users should be able to run a node and bake a block within the allotted time, which is why the Tezos network sets the limit so low, so that even slow nodes can participate.
 However, the Delphi update increased the amount of computation per units of gas. The minimal gas cost in order to achieve operations has been reduced from 10,000 to 1,000 units of gas. With this update, the execution cost of smart contracts decreased by approximately 75% [5](https://opentezos.com/tezos-basics/economics_and_reward#references). This evolution allows more complex smart contracts to be executed and demonstrates Tezos’ adaptability.
 
@@ -58,7 +58,7 @@ When a barker is partially random and bakes a block, he receives a reward compos
 ```	
 e * BAKING_REWARD_PER_ENDORSEMENT
 ```
-where `BAKING_REWARD_PER_ENDORSEMENT` = 1.250ꜩ if the baking priority is high or `BAKING_REWARD_PER_ENDORSEMENT` = 0.1875ꜩ if the baking priority is low. This Cartage update allows to focus the baker's efforts on the priority blocks.
+where `BAKING_REWARD_PER_ENDORSEMENT` = 1.250ꜩ if the baking priority is high or `BAKING_REWARD_PER_ENDORSEMENT` = 0.1875ꜩ if the baking priority is low. This Carthage update allows to focus the baker's efforts on the priority blocks.
  
 `e` is the number of endorsements the block contains. 32 endorsements are required to validate a block.
 Finally, with this formula, the network reward for a baked block is generally 32 X 1.25 = 40 ꜩ/block in addition of the transaction fee contain in the block.
