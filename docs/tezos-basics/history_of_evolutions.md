@@ -32,7 +32,7 @@ For a full list of changes be sure to read the corresponding blog posts from [No
 
 ## [Carthage](https://www.tezosagora.org/proposal/6) (PtCarthav)
 
-The first implementation of the proposal was rejected during the proposal period in november 2019. Since the Babylon change, it takes a minimum of 5% to move to the exploration period and Carthage obtains 3.5%.
+The first implementation of the proposal was rejected during the proposal period in november 2019. Since the Babylon change, it takes a minimum of 5% to move to the exploration period and Carthage obtained 3.5%.
 
 The purpose of this proposal was to increase the gas limit per block and per operation by 30% in order to improve the accuracy of the formula used for calculating baking and endorsing rewards and fix various small issues.
 
