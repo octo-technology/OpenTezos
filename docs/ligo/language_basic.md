@@ -151,7 +151,7 @@ const a : int = 5 - 10
 // Subtraction of two nats yields an int
 const b : int = 5n - 2n
 
-// Therefore the following is invalid
+// Therefore, the following is invalid
 // const c : nat = 5n - 2n
 
 const d : tez = 5mutez - 1mutez
@@ -175,7 +175,7 @@ In LIGO you can divide `int`, `nat`, and `tez`. Here is how:
 
 ⚠️ Remember that there are no floating point numbers in LIGO so dividing 9 by 2 will output 4 and not 4.5
 
-Therefore division of two `tez` values results into a `nat`
+Therefore, division of two `tez` values results into a `nat`
 
 ```js
 const a : int = 10 / 3
@@ -266,7 +266,7 @@ LIGO makes a copy of the arguments but also the environment variables.
 Therefore, any modification to these will not be reflected outside the scope of the function 
 and will be lost if not explicitly returned by the function.
 
-There are 2 types of functions in PascaLIGO, Block Functions and Blockless Functions :
+There are 2 types of functions in PascaLIGO, Block Functions and Blockless Functions:
 
 # Block functions
 
@@ -289,7 +289,7 @@ mistake.
 block { skip }
 ```
 
-Functions in PascaLIGO are defined using the following syntax :
+Functions in PascaLIGO are defined using the following syntax:
 
 ```js
 function <name> (<parameters>) : <return_type> is 
@@ -354,3 +354,182 @@ In PascaLigo recursive functions are defined using the `recursive` keyword.
 recursive function sum (const n : int; const acc: int) : int is
   if n<1 then acc else sum(n-1,acc+n)
 ```
+
+# Booleans & Conditionals
+
+## Booleans
+
+The type of boolean value is `bool`. Here is how to define a boolean
+value:
+
+```js
+const a : bool = True   // Also: true
+const b : bool = False  // Also: false
+```
+
+|   Operator   |   Example                                         |
+|:-:           |---                                                |
+|    **and**   |   ```const logical_and: bool = True and True;```  |
+|    **or**    |   ```const logical_or: bool = False or True;```   |
+|    **not**   |   ```const logical_not: bool = not False;```      |
+|    **=**     |   ```const eq: bool = 2 = 3;```                   |
+|    **=/=**   |   ```const not_eq: bool = 2 =/= 3;```             |
+|    **>**     |   ```const gt: bool = 4 > 3;```                   |
+|    **<**     |   ```const lt: bool = 4 < 3;```                   |
+|    **>=**    |   ```const gte: bool = 4 >= 3;```                 |
+|    **<=**    |   ```const lte: bool = 4 <= 3;```                 |
+
+## Comparing Values
+
+Only values of the same type can be natively compared, 
+i.e. int, nat, string, tez, timestamp, address, etc... 
+However some values of the same type are not natively comparable, 
+i.e. maps, sets or lists. 
+You will have to write your own comparison functions for those.
+
+### Comparing Strings
+
+```js
+const a : string = "Captain Rogers"
+const b : string = "Captain Rogers"
+const c : bool = (a = b) // True
+```
+
+### Comparing numbers
+
+```js
+const a : int  = 5
+const b : int  = 4
+const c : bool = (a = b)
+const d : bool = (a > b)
+const e : bool = (a < b)
+const f : bool = (a <= b)
+const g : bool = (a >= b)
+const h : bool = (a =/= b)
+```
+
+### Comparing tez
+
+```js
+const a : tez  = 5mutez
+const b : tez  = 10mutez
+const c : bool = (a = b) // False
+```
+
+> 💡 Comparing `tez` values is especially useful when dealing with an amount sent in a transaction.
+
+## Conditionals
+
+Conditional logic enables forking the control flow depending on the state.
+
+```js
+function isSmall (const n : nat) : bool is
+if n < 10n then true else false
+```
+
+⚠️ When the branches of the conditional are not a single expression, as above, we need a `block`:
+
+```js
+if x < y then
+block {
+x := x + 1;
+y := y - 1
+}
+else skip;
+```
+
+# Loops
+
+LIGO integrates 2 kinds of loops. General `while` iterations and bounded for `loops`.
+
+## While Loops
+
+While loops are defined as follows:
+
+```js
+while <condition> block {
+    <operations>
+}
+```
+
+For instance, here is how to compute the greatest common divisors of two natural numbers by means of Euclid's algorithm:
+
+```js
+function gcd (var x : nat; var y : nat) : nat is
+  block {
+    if x < y then {
+      const z : nat = x;
+      x := y; y := z
+    }
+    else skip;
+    var r : nat := 0n;
+    while y =/= 0n block {
+      r := x mod y;
+      x := y;
+      y := r
+    }
+  } with x
+```
+
+⚠️ If the while condition is never met, the block will repeatedly be evaluated until the contract run out of gas or fails.
+
+> ℹ️ About gas: The smart contracts interpreter uses the concept of gas. 
+> Each low-level instruction evaluation burns an amount of gas 
+> which is crafted to be proportional to the actual execution time 
+> and if an execution exceeds its allowed gas consumption, 
+> it is stopped immediately and the effects of the execution are rolled back. 
+> The transaction is still included in the block and the fees are taken, 
+> to prevent the nodes from being spammed with failing transactions. 
+> In Tezos, the economic protocol sets the gas limit per block and for each transaction, 
+> and the emitter of the transaction also set an upper bound to the gas consumption for its transaction. 
+> The economic protocol does not require the transaction fee to be proportional to the gas upper bound, 
+> however the default strategy of the baking software (that forges blocks) 
+> provided with Tezos current implementation does require it.
+
+## For Loops
+
+For-loops iterates over bounded intervals and are define as follows:
+
+```js
+for <variable assignment> to <upper bound> block {
+    <operations>
+}
+```
+
+For instance:
+
+```js
+var acc : int := 0;
+for i := 1 to 10 block {
+    acc := acc + i
+}
+```
+
+## Iterations
+
+For-loops can also iterate through the contents of a collection, that is, a list, a set or a map. 
+This is done with:
+
+```js
+for <element var> in <collection type> <collection var> block {
+    <operations>
+}
+```
+
+Here is an example where the integers in a list are summed up.
+
+```js
+function sum_list (var l : list (int)) : int is block {
+  var total : int := 0;
+  for i in list l block {
+    total := total + i
+  }
+} with total
+```
+
+Sets and maps follow the same logics:
+
+- maps with `for key -> value in map m`
+- sets with `for i in set s`
+
+
