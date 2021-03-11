@@ -50,11 +50,11 @@ So, the size optimization comes down to decreasing the number of instructions an
 We can also focus on reducing the gas consumption. Many ways are possible [6](https://opentezos.com/tezos-basics/economics_and_reward#references). However notice that the majority of gas is spent on the conversion of byte sequences into a protocol-specific typed representation and vice versa. Those conversions can be : reading, deserialization, parsing of bytes, checking the correctness of types, and conversion back to bytes. Follow this [link](https://gitlab.com/morley-framework/morley/-/blob/1f4ad392173a49752f1326a9dd4a4d5b7f6c5e70/docs/gasConsumption.md) for more details on the cost of gas.
 
 ## Tezos reward 
-To maintain the network, Tezos needs bakers and endorsers. They stake his token and use their computing power to create blocks, manage transactions, vote and secure the network. In exchange for the completion of these tasks, bakers are rewarded with tokens from the transaction fees or tokens created by the network. Since the Carthage update [7](https://opentezos.com/tezos-basics/economics_and_reward#references), the reward system has been updated to make the network more robust against non-cooperative baking strategies. 
+To maintain the network, Tezos needs bakers and endorsers. They stake their token and use their computing power to create blocks, manage transactions, vote and secure the network. In exchange for the completion of these tasks, bakers are rewarded with tokens from the transaction fees or tokens created by the network. Since the Carthage update [7](https://opentezos.com/tezos-basics/economics_and_reward#references), the reward system has been updated to make the network more robust against non-cooperative baking strategies. 
 
 
 ### Baking reward
-When a barker is partially random and bakes a block, he receives a reward composed of the all transaction fees contained in the block in addition to network reward computed by this formula [8](https://opentezos.com/tezos-basics/economics_and_reward#references) :
+When a baker is partially random and bakes a block, he receives a reward composed of the all transaction fees contained in the block in addition to network reward computed by this formula [8](https://opentezos.com/tezos-basics/economics_and_reward#references) :
 ```	
 e * BAKING_REWARD_PER_ENDORSEMENT
 ```
