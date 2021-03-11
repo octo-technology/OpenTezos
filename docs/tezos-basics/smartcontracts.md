@@ -1,6 +1,7 @@
-
-
-# Tezos basics Introduction to Smart contracts
+---
+id: introduction_to_smart_contracts
+title: Introduction to Smart contracts
+---
 
 ## General
 
