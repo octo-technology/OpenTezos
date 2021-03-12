@@ -6,39 +6,33 @@ slug: /ligo
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-LIGO is a programming language for writing [Tezos](https://tezos.com/) smart contracts. 
-Smart contracts are a unique domain with extreme resource constraints and even more extreme security risks. 
-Unlike desktop, mobile, or web application development, smart contracts cannot rely on cheap CPU time and memory. 
-All resources used by contracts are expensive, and tracked as 'gas costs'. 
-Smart contracts often directly control money or assets, 
-which if stolen could rack up to a large financial loss to the contracts controllers and users. 
-Tezos smart contracts live on the blockchain forever, 
-if there's a bug in them they can't be patched or amended. 
-Naturally, under these conditions, 
-it's not possible to develop smart contracts the same way as to develop user-facing applications.
+The goal of this module is to allow a developer to install LIGO on his operating system 
+and give him the essentials to write and deploy his first smart contract 
+on the Tezos blockchain.
 
-LIGO is designed with these problems in mind. The design philosophy can be described in a few bullet points:
+It will include the basics of LIGO languages, 
+inspired by the [official documentation](https://ligolang.org/docs/language-basics/types), 
+as well as detailed smart contract examples. 
+You will also be offered an exam to check your knowledge.
 
-1. Make a clean, simple language with no unnecessary parts.
-   
-2. Offer multiple familiar syntaxes so users can get up and running quickly. 
-   
-3. Encourage people to write simple code, 
-   so that it's easy to formally verify the compiled output using a project like 
-   [Mi-Cho-Coq](https://gitlab.com/nomadic-labs/mi-cho-coq/).
+<br/>
 
-4. Significantly reduce the risk that your smart contract will lose its balance to an 
-   [avoidable exploit](https://www.wired.com/2016/06/50-million-hack-just-showed-dao-human/).
+![](../../static/img/ligo/intro_schema.svg)
+<small className="figure">FIGURE 1: Ligo contextualisation </small>
 
-LIGO is a functional language designed to include the features you need while avoiding patterns 
-that make formal verification hard. 
-Most useful smart contracts can express their core functionality in under a thousand lines of code. 
-This makes them a good target for formal methods, 
-and what can't be easily proven can at least be extensively tested. 
+<br/>
+
+LIGO is a programming language for writing **[Tezos](https://tezos.com/) smart contracts**.
+The diagram helps to contextualize the role of LIGO in the Tezos ecosystem.
+LIGO takes action in the left part as a development tool allowing
+the production of smart contracts (scripts in Michelson),
+which can be deployed on the blockchain.
+At the top, the Tezos network disseminates information through the nodes
+in order to maintain an immutable common ledger (blockchain).
 
 By default, Tezos smart contracts are written in [Michelson](https://opentezos.com/michelson), 
 but it is hard to learn low level formal language. 
-LIGO's syntax is high level and transpiles to Michelson.
+LIGO's syntax is **high level and transpiles to Michelson**.
 
 LIGO currently offers three syntaxes:
 
