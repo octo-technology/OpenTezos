@@ -13,7 +13,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Tezos Basics',
-      items: ['tezos-basics/introduction'],
+      items: ['tezos-basics/introduction_to_cli_and_rpc'],
     },
     {
       type: 'category',
