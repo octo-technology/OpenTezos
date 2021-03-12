@@ -532,4 +532,130 @@ Sets and maps follow the same logics:
 - maps with `for key -> value in map m`
 - sets with `for i in set s`
 
+# Tuples, lists, sets
 
+## Tuples
+Tuples gather a given number of values in a specific order and those values, 
+called components, 
+can be retrieved by their index (position). 
+Probably the most common tuple is the pair `(x,y)`.
+
+### Defining Tuples
+
+To define a tuple type, use the * operator:
+
+```js
+type full_name is (string * string)
+const captain_full_name : full_name = ("Roger", "Johnson")
+```
+
+> Note that you are not force to give them names by type aliasing, 
+> and you could have done that instead:
+> ```js
+> const captain_full_name : (string * string) = ("Roger", "Johnson")
+> ```
+
+### Accessing Components
+
+You can access each component of a tuple by their position:
+
+```js
+const captain_first_name : string = captain_full_name.0
+const captain_last_name : string = captain_full_name.1
+```
+
+⚠️ Tuple components are zero-indexed, that is, the first component has the index `0`.
+
+### Update Components
+
+You can modify a component of tuple by assigning values as if it were a variable:
+
+```js
+captain_full_name.1 := "Carter"
+```
+
+## Lists
+
+Lists are **linear collections of elements of the same type**. 
+Linear means that, in order to reach an element in a list, 
+we must visit all the elements before (sequential access). 
+Elements can be repeated, as only their order in the collection matters. 
+The first element is called the head, 
+and the sub-list after the head is called the tail.
+
+> 💡 Lists are needed when returning operations from a smart contract's main function.
+
+### Defining Lists
+
+To define an empty list and a list with values:
+
+```js
+const empty_list : list (int) = list [] // Or nil
+const my_list : list (int) = list [1; 2; 2]
+```
+
+> You can also use `nil` instead of `list []`
+
+### Adding to Lists
+
+You can add elements to an existing list using the cons operator `#` or `cons(<value>, <list>)`:
+
+```js
+const larger_list : list (int) = 5 # my_list // [5; 1; 2; 2]
+const larger_list_bis : list (int) = cons(5, my_list) // [5; 1; 2; 2]
+```
+
+### Accessing list element
+
+You cannot access element directly in list, 
+but you can access the first element, 
+the head or the rest of the list, the tail. 
+The two function to access those are `List.head_opt` and `List.tail_opt`.
+
+```js
+const head : option (int) = List.head_opt (my_list) // 1
+const tail : option (list(int)) = List.tail_opt (my_list) // [2;2]
+```
+
+## Sets
+
+Sets are **unordered collections of values of the same type**, 
+like lists are ordered collections. 
+Like the mathematical sets and lists, 
+sets can be empty and, if not, 
+elements of sets in LIGO are unique, 
+whereas they can be repeated in a list.
+
+### Defining Sets
+
+```js
+const empty_set : set (int) = set []
+const my_set : set (int) = set [3; 2; 2; 1]
+```
+
+### Sets tools
+You can test membership with the contains operator:
+
+```js
+const contains_3 : bool = my_set contains 3
+```
+
+You can get the size of a set using the Set.size operator:
+
+```js
+const cardinal : nat = Set.size (my_set)
+```
+
+To update a set:
+
+```js
+const larger_set  : set (int) = Set.add (4, my_set)
+const smaller_set : set (int) = Set.remove (3, my_set)
+```
+
+
+# Records & Maps
+
+## Records
+
+## Maps
