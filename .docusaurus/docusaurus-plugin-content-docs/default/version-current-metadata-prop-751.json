@@ -46,18 +46,18 @@
         "items": [
           {
             "type": "link",
-<<<<<<< HEAD
             "label": "Introduction",
             "href": "/tezos-basics"
           },
           {
             "type": "link",
+            "label": "Liquid Proof-of-Stake",
+            "href": "/tezos-basics/liquid-proof-of-stake"
+          },
+          {
+            "type": "link",
             "label": "Exam",
             "href": "/tezos-basics/exam"
-=======
-            "label": "Consensus mechanism, Liquid-proof-of-stake",
-            "href": "/tezos-basics/liquid-proof-of-stake"
->>>>>>> liquid-proof-of-stake
           }
         ]
       },
@@ -354,12 +354,9 @@
     "/private": "docs",
     "/smartpy/exam": "docs",
     "/smartpy": "docs",
-<<<<<<< HEAD
     "/tezos-basics/exam": "docs",
     "/tezos-basics": "docs",
-=======
     "/tezos-basics/liquid-proof-of-stake": "docs",
->>>>>>> liquid-proof-of-stake
     "/": "docs",
     "/paths": "docs"
   }

@@ -191,7 +191,6 @@
               "sidebar": "docs"
             },
             {
-<<<<<<< HEAD
               "id": "tezos-basics/exam",
               "path": "/tezos-basics/exam",
               "sidebar": "docs"
@@ -199,10 +198,11 @@
             {
               "id": "tezos-basics/introduction",
               "path": "/tezos-basics",
-=======
+              "sidebar": "docs"
+            },
+            {
               "id": "tezos-basics/liquid-proof-of-stake",
               "path": "/tezos-basics/liquid-proof-of-stake",
->>>>>>> liquid-proof-of-stake
               "sidebar": "docs"
             },
             {

@@ -21,18 +21,13 @@
   "/__docusaurus/debug/routes-244": {
     "component": "component---theme-debug-routes-946-699"
   },
-<<<<<<< HEAD
-  "/-2bd": {
-=======
-  "/-6b7": {
->>>>>>> liquid-proof-of-stake
+  "/-c42": {
     "component": "component---theme-doc-page-1-be-9be",
     "versionMetadata": "versionMetadata---935-fcf"
   },
   "/-9e2": {
     "component": "component---theme-doc-item-178-a40",
     "content": "content---3-c-0-681"
-<<<<<<< HEAD
   },
   "/baker-414": {
     "component": "component---theme-doc-item-178-a40",
@@ -137,48 +132,6 @@
   "/ligo/exam-85a": {
     "component": "component---theme-doc-item-178-a40",
     "content": "content---ligo-exam-881-a94"
-=======
-  },
-  "/baker-cfc": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---baker-44-b-396"
-  },
-  "/baking-4fe": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---bakingb-0-b-642"
-  },
-  "/blockchain-basics-9d6": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---blockchain-basics-2-b-1-891"
-  },
-  "/contribute-f86": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---contribute-6-f-9-252"
-  },
-  "/dapp-e2a": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---dappe-1-a-31a"
-  },
-  "/defi-746": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---defi-7-bc-81d"
-  },
-  "/deploy-a-node-9a7": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---deploy-a-nodead-9-96a"
-  },
-  "/explorer-95a": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---explorer-6-a-2-6c6"
-  },
-  "/formal-verification-2e7": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---formal-verification-1-cf-a17"
-  },
-  "/ligo-aec": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---ligo-1-df-aba"
->>>>>>> liquid-proof-of-stake
   },
   "/michelson-e49": {
     "component": "component---theme-doc-item-178-a40",
@@ -207,7 +160,6 @@
   "/paths-7a5": {
     "component": "component---theme-doc-item-178-a40",
     "content": "content---pathsfed-263"
-<<<<<<< HEAD
   },
   "/private-89e": {
     "component": "component---theme-doc-item-178-a40",
@@ -233,22 +185,12 @@
     "component": "component---theme-doc-item-178-a40",
     "content": "content---tezos-basics-exam-1-e-4-fba"
   },
-  "/tezos-basics/transactions-49c": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---tezos-basics-transactionsfde-f47"
-=======
-  },
-  "/private-279": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---private-7-ab-eb5"
-  },
-  "/smartpy-6dd": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---smartpya-3-b-5e0"
-  },
   "/tezos-basics/liquid-proof-of-stake-435": {
     "component": "component---theme-doc-item-178-a40",
     "content": "content---tezos-basics-liquid-proof-of-stake-249-9e6"
->>>>>>> liquid-proof-of-stake
+  },
+  "/tezos-basics/transactions-49c": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---tezos-basics-transactionsfde-f47"
   }
 }

@@ -2,7 +2,7 @@
   "unversionedId": "tezos-basics/liquid-proof-of-stake",
   "id": "tezos-basics/liquid-proof-of-stake",
   "isDocsHomePage": false,
-  "title": "Consensus mechanism, Liquid-proof-of-stake",
+  "title": "Liquid Proof-of-Stake",
   "description": "Intro",
   "source": "@site/docs/tezos-basics/liquid-proof-of-stake.md",
   "slug": "/tezos-basics/liquid-proof-of-stake",
@@ -12,10 +12,10 @@
   "sidebar": "docs",
   "previous": {
     "title": "Introduction",
-    "permalink": "/blockchain-basics"
+    "permalink": "/tezos-basics"
   },
   "next": {
-    "title": "Introduction",
-    "permalink": "/deploy-a-node"
+    "title": "Exam",
+    "permalink": "/tezos-basics/exam"
   }
 }

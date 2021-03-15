@@ -39,11 +39,7 @@ export default [
 },
 {
   path: '/',
-<<<<<<< HEAD
-  component: ComponentCreator('/','2bd'),
-=======
-  component: ComponentCreator('/','6b7'),
->>>>>>> liquid-proof-of-stake
+  component: ComponentCreator('/','c42'),
   
   routes: [
 {
@@ -237,7 +233,6 @@ export default [
   exact: true,
 },
 {
-<<<<<<< HEAD
   path: '/tezos-basics',
   component: ComponentCreator('/tezos-basics','40c'),
   exact: true,
@@ -248,12 +243,13 @@ export default [
   exact: true,
 },
 {
-  path: '/tezos-basics/transactions',
-  component: ComponentCreator('/tezos-basics/transactions','49c'),
-=======
   path: '/tezos-basics/liquid-proof-of-stake',
   component: ComponentCreator('/tezos-basics/liquid-proof-of-stake','435'),
->>>>>>> liquid-proof-of-stake
+  exact: true,
+},
+{
+  path: '/tezos-basics/transactions',
+  component: ComponentCreator('/tezos-basics/transactions','49c'),
   exact: true,
 },
 ]
