@@ -167,6 +167,34 @@
                   {
                     "type": "doc",
                     "id": "defi/introduction"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "defi/tokens"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "defi/stable_coins"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "defi/dex"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "defi/lending"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "defi/flash_loans"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "defi/synthetics"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "defi/exam"
                   }
                 ]
               },
@@ -211,7 +239,14 @@
             "/blockchain-basics": "docs",
             "/contribute": "docs",
             "/dapp": "docs",
+            "/defi/dex": "docs",
+            "/defi/exam": "docs",
+            "/defi/flash_loans": "docs",
             "/defi": "docs",
+            "/defi/lending": "docs",
+            "/defi/stable_coins": "docs",
+            "/defi/synthetics": "docs",
+            "/defi/tokens": "docs",
             "/deploy-a-node": "docs",
             "/explorer": "docs",
             "/formal-verification": "docs",
@@ -331,15 +366,78 @@
               }
             },
             {
+              "unversionedId": "defi/dex",
+              "id": "defi/dex",
+              "isDocsHomePage": false,
+              "title": "Decentralized Exchanges",
+              "description": "An exchange is a marketplace where coins and tokens can be traded. The core function of an exchange is to ensure fair and orderly trading and the efficient dissemination of price information for any pair trading on that exchange. Exchanges give companies, traders, and just crypto-enthusiasts a platform from which to publicly sell and buy crypto-currencies.",
+              "source": "@site/docs/defi/dex.md",
+              "slug": "/defi/dex",
+              "permalink": "/defi/dex",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/dex.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Stable Coins",
+                "permalink": "/defi/stable_coins"
+              },
+              "next": {
+                "title": "Lending",
+                "permalink": "/defi/lending"
+              }
+            },
+            {
+              "unversionedId": "defi/exam",
+              "id": "defi/exam",
+              "isDocsHomePage": false,
+              "title": "Exam",
+              "description": "Under construction.",
+              "source": "@site/docs/defi/exam.md",
+              "slug": "/defi/exam",
+              "permalink": "/defi/exam",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/exam.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Synthetics",
+                "permalink": "/defi/synthetics"
+              },
+              "next": {
+                "title": "Introduction",
+                "permalink": "/formal-verification"
+              }
+            },
+            {
+              "unversionedId": "defi/flash_loans",
+              "id": "defi/flash_loans",
+              "isDocsHomePage": false,
+              "title": "Flash Loans",
+              "description": "Under construction.",
+              "source": "@site/docs/defi/flash_loans.md",
+              "slug": "/defi/flash_loans",
+              "permalink": "/defi/flash_loans",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/flash_loans.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Lending",
+                "permalink": "/defi/lending"
+              },
+              "next": {
+                "title": "Synthetics",
+                "permalink": "/defi/synthetics"
+              }
+            },
+            {
               "unversionedId": "defi/introduction",
               "id": "defi/introduction",
               "isDocsHomePage": false,
               "title": "Introduction",
               "description": "Under construction.",
-              "source": "@site/docs/defi/example.md",
+              "source": "@site/docs/defi/introdution.md",
               "slug": "/defi",
               "permalink": "/defi",
-              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/example.md",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/introdution.md",
               "version": "current",
               "sidebar": "docs",
               "previous": {
@@ -347,8 +445,92 @@
                 "permalink": "/baker"
               },
               "next": {
+                "title": "Tokens - FA2 Standards",
+                "permalink": "/defi/tokens"
+              }
+            },
+            {
+              "unversionedId": "defi/lending",
+              "id": "defi/lending",
+              "isDocsHomePage": false,
+              "title": "Lending",
+              "description": "Under construction.",
+              "source": "@site/docs/defi/lending.md",
+              "slug": "/defi/lending",
+              "permalink": "/defi/lending",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/lending.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Decentralized Exchanges",
+                "permalink": "/defi/dex"
+              },
+              "next": {
+                "title": "Flash Loans",
+                "permalink": "/defi/flash_loans"
+              }
+            },
+            {
+              "unversionedId": "defi/stable_coins",
+              "id": "defi/stable_coins",
+              "isDocsHomePage": false,
+              "title": "Stable Coins",
+              "description": "Under construction.",
+              "source": "@site/docs/defi/stable_coins.md",
+              "slug": "/defi/stable_coins",
+              "permalink": "/defi/stable_coins",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/stable_coins.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Tokens - FA2 Standards",
+                "permalink": "/defi/tokens"
+              },
+              "next": {
+                "title": "Decentralized Exchanges",
+                "permalink": "/defi/dex"
+              }
+            },
+            {
+              "unversionedId": "defi/synthetics",
+              "id": "defi/synthetics",
+              "isDocsHomePage": false,
+              "title": "Synthetics",
+              "description": "Under construction.",
+              "source": "@site/docs/defi/synthetics.md",
+              "slug": "/defi/synthetics",
+              "permalink": "/defi/synthetics",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/synthetics.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Flash Loans",
+                "permalink": "/defi/flash_loans"
+              },
+              "next": {
+                "title": "Exam",
+                "permalink": "/defi/exam"
+              }
+            },
+            {
+              "unversionedId": "defi/tokens",
+              "id": "defi/tokens",
+              "isDocsHomePage": false,
+              "title": "Tokens - FA2 Standards",
+              "description": "Under construction.",
+              "source": "@site/docs/defi/tokens.md",
+              "slug": "/defi/tokens",
+              "permalink": "/defi/tokens",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/tokens.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
                 "title": "Introduction",
-                "permalink": "/formal-verification"
+                "permalink": "/defi"
+              },
+              "next": {
+                "title": "Stable Coins",
+                "permalink": "/defi/stable_coins"
               }
             },
             {
@@ -398,16 +580,16 @@
               "id": "formal-verification/introduction",
               "isDocsHomePage": false,
               "title": "Introduction",
-              "description": "Under construction.",
-              "source": "@site/docs/formal-verification/example.md",
+              "description": "The Tezos blockchain brings several improvements including the formal verification of smart contract.This section describes the overview of how Tezos smart contract can be formally verified.",
+              "source": "@site/docs/formal-verification/introduction.md",
               "slug": "/formal-verification",
               "permalink": "/formal-verification",
-              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/formal-verification/example.md",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/formal-verification/introduction.md",
               "version": "current",
               "sidebar": "docs",
               "previous": {
-                "title": "Introduction",
-                "permalink": "/defi"
+                "title": "Exam",
+                "permalink": "/defi/exam"
               },
               "next": {
                 "title": "Introduction",
@@ -623,6 +805,18 @@
                 "title": "Introduction",
                 "permalink": "/deploy-a-node"
               }
+            },
+            {
+              "unversionedId": "tezos-basics/transactions",
+              "id": "tezos-basics/transactions",
+              "isDocsHomePage": false,
+              "title": "transactions",
+              "description": "Tezos basics Introduction to Smart contracts (WIP)",
+              "source": "@site/docs/tezos-basics/transactions.md",
+              "slug": "/tezos-basics/transactions",
+              "permalink": "/tezos-basics/transactions",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/transactions.md",
+              "version": "current"
             },
             {
               "unversionedId": "welcome/modules",

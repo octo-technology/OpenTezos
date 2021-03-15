@@ -65,7 +65,16 @@ module.exports = {
     {
       type: 'category',
       label: 'DeFi',
-      items: ['defi/introduction'],
+      items: [
+        'defi/introduction',
+        'defi/tokens',
+        'defi/stable_coins',
+        'defi/dex',
+        'defi/lending',
+        'defi/flash_loans',
+        'defi/synthetics',
+        'defi/exam',
+      ],
     },
     {
       type: 'category',

@@ -1,0 +1,21 @@
+{
+  "unversionedId": "defi/synthetics",
+  "id": "defi/synthetics",
+  "isDocsHomePage": false,
+  "title": "Synthetics",
+  "description": "Under construction.",
+  "source": "@site/docs/defi/synthetics.md",
+  "slug": "/defi/synthetics",
+  "permalink": "/defi/synthetics",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/synthetics.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Flash Loans",
+    "permalink": "/defi/flash_loans"
+  },
+  "next": {
+    "title": "Exam",
+    "permalink": "/defi/exam"
+  }
+}

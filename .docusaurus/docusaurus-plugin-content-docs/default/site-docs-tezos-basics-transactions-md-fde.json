@@ -1,0 +1,12 @@
+{
+  "unversionedId": "tezos-basics/transactions",
+  "id": "tezos-basics/transactions",
+  "isDocsHomePage": false,
+  "title": "transactions",
+  "description": "Tezos basics Introduction to Smart contracts (WIP)",
+  "source": "@site/docs/tezos-basics/transactions.md",
+  "slug": "/tezos-basics/transactions",
+  "permalink": "/tezos-basics/transactions",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/transactions.md",
+  "version": "current"
+}

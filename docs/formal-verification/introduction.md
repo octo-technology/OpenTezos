@@ -1,6 +1,7 @@
 ---
 id: introduction
 title: Introduction
+slug: /formal-verification
 ---
 
 
@@ -34,7 +35,7 @@ Formal verification of a Tezos smart contract consists of verifying formally tha
 
 The proof is a sequence of Coq tactics. Will see that part in the end of this section.
 
-![](proof)
+//TODO: proof
 
 ### Transaction execution (recall) WIP
 

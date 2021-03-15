@@ -3,8 +3,43 @@ import React from 'react';
 import ComponentCreator from '@docusaurus/ComponentCreator';
 export default [
 {
+  path: '/__docusaurus/debug',
+  component: ComponentCreator('/__docusaurus/debug','3d6'),
+  exact: true,
+},
+{
+  path: '/__docusaurus/debug/config',
+  component: ComponentCreator('/__docusaurus/debug/config','914'),
+  exact: true,
+},
+{
+  path: '/__docusaurus/debug/content',
+  component: ComponentCreator('/__docusaurus/debug/content','c28'),
+  exact: true,
+},
+{
+  path: '/__docusaurus/debug/globalData',
+  component: ComponentCreator('/__docusaurus/debug/globalData','3cf'),
+  exact: true,
+},
+{
+  path: '/__docusaurus/debug/metadata',
+  component: ComponentCreator('/__docusaurus/debug/metadata','31b'),
+  exact: true,
+},
+{
+  path: '/__docusaurus/debug/registry',
+  component: ComponentCreator('/__docusaurus/debug/registry','0da'),
+  exact: true,
+},
+{
+  path: '/__docusaurus/debug/routes',
+  component: ComponentCreator('/__docusaurus/debug/routes','244'),
+  exact: true,
+},
+{
   path: '/',
-  component: ComponentCreator('/','e30'),
+  component: ComponentCreator('/','f5c'),
   
   routes: [
 {
@@ -39,7 +74,42 @@ export default [
 },
 {
   path: '/defi',
-  component: ComponentCreator('/defi','746'),
+  component: ComponentCreator('/defi','d45'),
+  exact: true,
+},
+{
+  path: '/defi/dex',
+  component: ComponentCreator('/defi/dex','65f'),
+  exact: true,
+},
+{
+  path: '/defi/exam',
+  component: ComponentCreator('/defi/exam','a30'),
+  exact: true,
+},
+{
+  path: '/defi/flash_loans',
+  component: ComponentCreator('/defi/flash_loans','17b'),
+  exact: true,
+},
+{
+  path: '/defi/lending',
+  component: ComponentCreator('/defi/lending','9c4'),
+  exact: true,
+},
+{
+  path: '/defi/stable_coins',
+  component: ComponentCreator('/defi/stable_coins','36a'),
+  exact: true,
+},
+{
+  path: '/defi/synthetics',
+  component: ComponentCreator('/defi/synthetics','750'),
+  exact: true,
+},
+{
+  path: '/defi/tokens',
+  component: ComponentCreator('/defi/tokens','291'),
   exact: true,
 },
 {
@@ -54,7 +124,7 @@ export default [
 },
 {
   path: '/formal-verification',
-  component: ComponentCreator('/formal-verification','2e7'),
+  component: ComponentCreator('/formal-verification','c07'),
   exact: true,
 },
 {
@@ -110,6 +180,11 @@ export default [
 {
   path: '/tezos-basics',
   component: ComponentCreator('/tezos-basics','0e5'),
+  exact: true,
+},
+{
+  path: '/tezos-basics/transactions',
+  component: ComponentCreator('/tezos-basics/transactions','49c'),
   exact: true,
 },
 ]

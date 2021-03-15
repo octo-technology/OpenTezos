@@ -36,8 +36,43 @@
               "sidebar": "docs"
             },
             {
+              "id": "defi/dex",
+              "path": "/defi/dex",
+              "sidebar": "docs"
+            },
+            {
+              "id": "defi/exam",
+              "path": "/defi/exam",
+              "sidebar": "docs"
+            },
+            {
+              "id": "defi/flash_loans",
+              "path": "/defi/flash_loans",
+              "sidebar": "docs"
+            },
+            {
               "id": "defi/introduction",
               "path": "/defi",
+              "sidebar": "docs"
+            },
+            {
+              "id": "defi/lending",
+              "path": "/defi/lending",
+              "sidebar": "docs"
+            },
+            {
+              "id": "defi/stable_coins",
+              "path": "/defi/stable_coins",
+              "sidebar": "docs"
+            },
+            {
+              "id": "defi/synthetics",
+              "path": "/defi/synthetics",
+              "sidebar": "docs"
+            },
+            {
+              "id": "defi/tokens",
+              "path": "/defi/tokens",
               "sidebar": "docs"
             },
             {
@@ -104,6 +139,10 @@
               "id": "tezos-basics/introduction",
               "path": "/tezos-basics",
               "sidebar": "docs"
+            },
+            {
+              "id": "tezos-basics/transactions",
+              "path": "/tezos-basics/transactions"
             },
             {
               "id": "welcome/modules",
