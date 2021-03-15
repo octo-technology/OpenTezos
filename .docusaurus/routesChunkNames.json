@@ -1,90 +1,144 @@
 {
-  "/-e30": {
-    "component": "1be78505",
-    "versionMetadata": "935f2afb"
+  "/__docusaurus/debug-3d6": {
+    "component": "component---theme-debug-config-23-a-2ff"
+  },
+  "/__docusaurus/debug/config-914": {
+    "component": "component---theme-debug-config-23-a-2ff"
+  },
+  "/__docusaurus/debug/content-c28": {
+    "component": "component---theme-debug-contentba-8-ce7",
+    "allContent": "allContent---docusaurus-debug-content-246-9aa"
+  },
+  "/__docusaurus/debug/globalData-3cf": {
+    "component": "component---theme-debug-global-dataede-0fa"
+  },
+  "/__docusaurus/debug/metadata-31b": {
+    "component": "component---theme-debug-site-metadata-68-e-3d4"
+  },
+  "/__docusaurus/debug/registry-0da": {
+    "component": "component---theme-debug-registry-679-501"
+  },
+  "/__docusaurus/debug/routes-244": {
+    "component": "component---theme-debug-routes-946-699"
+  },
+  "/-f5c": {
+    "component": "component---theme-doc-page-1-be-9be",
+    "versionMetadata": "versionMetadata---935-fcf"
   },
   "/-9e2": {
-    "component": "17896441",
-    "content": "3c0291d6"
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---3-c-0-681"
   },
   "/baker-cfc": {
-    "component": "17896441",
-    "content": "44bf5896"
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---baker-44-b-396"
   },
   "/baking-4fe": {
-    "component": "17896441",
-    "content": "b0bc8c11"
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---bakingb-0-b-642"
   },
   "/blockchain-basics-9d6": {
-    "component": "17896441",
-    "content": "2b1c9e38"
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---blockchain-basics-2-b-1-891"
   },
   "/contribute-f86": {
-    "component": "17896441",
-    "content": "6f9ebc89"
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---contribute-6-f-9-252"
   },
   "/dapp-e2a": {
-    "component": "17896441",
-    "content": "e1a4b65f"
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---dappe-1-a-31a"
   },
-  "/defi-746": {
-    "component": "17896441",
-    "content": "7bc3f44f"
+  "/defi-d45": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---defi-437-c33"
+  },
+  "/defi/dex-65f": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---defi-dexf-01-d24"
+  },
+  "/defi/exam-a30": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---defi-examcb-7-5ea"
+  },
+  "/defi/flash_loans-17b": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---defi-flash-loans-1-d-3-b35"
+  },
+  "/defi/lending-9c4": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---defi-lendingf-91-9a1"
+  },
+  "/defi/stable_coins-36a": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---defi-stable-coins-853-519"
+  },
+  "/defi/synthetics-750": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---defi-synthetics-1-c-8-6ff"
+  },
+  "/defi/tokens-291": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---defi-tokens-8-b-5-0c2"
   },
   "/deploy-a-node-9a7": {
-    "component": "17896441",
-    "content": "ad999c6a"
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---deploy-a-nodead-9-96a"
   },
   "/explorer-95a": {
-    "component": "17896441",
-    "content": "6a243c2b"
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---explorer-6-a-2-6c6"
   },
-  "/formal-verification-2e7": {
-    "component": "17896441",
-    "content": "1cff28f3"
+  "/formal-verification-c07": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---formal-verification-392-cff"
   },
   "/ligo-aec": {
-    "component": "17896441",
-    "content": "1dfb9244"
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---ligo-1-df-aba"
   },
   "/michelson-e49": {
-    "component": "17896441",
-    "content": "416e4355"
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---michelson-416-728"
   },
   "/michelson/exam-e33": {
-    "component": "17896441",
-    "content": "a7751fda"
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---michelson-exama-77-21a"
   },
   "/michelson/examples-d19": {
-    "component": "17896441",
-    "content": "3d9f340d"
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---michelson-examples-3-d-9-2e7"
   },
   "/michelson/fundamentals-de5": {
-    "component": "17896441",
-    "content": "dae16102"
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---michelson-fundamentalsdae-f69"
   },
   "/michelson/instructions-e1c": {
-    "component": "17896441",
-    "content": "8fe3bcb8"
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---michelson-instructions-8-fe-fb1"
   },
   "/michelson/smart_contracts-24d": {
-    "component": "17896441",
-    "content": "16209eab"
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---michelson-smart-contracts-162-d06"
   },
   "/paths-7a5": {
-    "component": "17896441",
-    "content": "feda3973"
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---pathsfed-263"
   },
   "/private-279": {
-    "component": "17896441",
-    "content": "7abcfed7"
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---private-7-ab-eb5"
   },
   "/smartpy-6dd": {
-    "component": "17896441",
-    "content": "a3bb4c07"
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---smartpya-3-b-5e0"
   },
   "/tezos-basics-0e5": {
-    "component": "17896441",
-    "content": "2167d258"
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---tezos-basics-216-b62"
+  },
+  "/tezos-basics/transactions-49c": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---tezos-basics-transactionsfde-f47"
   }
 }

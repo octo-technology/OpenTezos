@@ -1,0 +1,21 @@
+{
+  "unversionedId": "defi/introduction",
+  "id": "defi/introduction",
+  "isDocsHomePage": false,
+  "title": "Introduction",
+  "description": "Under construction.",
+  "source": "@site/docs/defi/introdution.md",
+  "slug": "/defi",
+  "permalink": "/defi",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/introdution.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Introduction",
+    "permalink": "/baker"
+  },
+  "next": {
+    "title": "Tokens - FA2 Standards",
+    "permalink": "/defi/tokens"
+  }
+}

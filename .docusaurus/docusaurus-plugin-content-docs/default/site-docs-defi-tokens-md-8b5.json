@@ -1,0 +1,21 @@
+{
+  "unversionedId": "defi/tokens",
+  "id": "defi/tokens",
+  "isDocsHomePage": false,
+  "title": "Tokens - FA2 Standards",
+  "description": "Under construction.",
+  "source": "@site/docs/defi/tokens.md",
+  "slug": "/defi/tokens",
+  "permalink": "/defi/tokens",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/tokens.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Introduction",
+    "permalink": "/defi"
+  },
+  "next": {
+    "title": "Stable Coins",
+    "permalink": "/defi/stable_coins"
+  }
+}

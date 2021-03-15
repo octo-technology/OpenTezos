@@ -176,6 +176,41 @@
             "type": "link",
             "label": "Introduction",
             "href": "/defi"
+          },
+          {
+            "type": "link",
+            "label": "Tokens - FA2 Standards",
+            "href": "/defi/tokens"
+          },
+          {
+            "type": "link",
+            "label": "Stable Coins",
+            "href": "/defi/stable_coins"
+          },
+          {
+            "type": "link",
+            "label": "Decentralized Exchanges",
+            "href": "/defi/dex"
+          },
+          {
+            "type": "link",
+            "label": "Lending",
+            "href": "/defi/lending"
+          },
+          {
+            "type": "link",
+            "label": "Flash Loans",
+            "href": "/defi/flash_loans"
+          },
+          {
+            "type": "link",
+            "label": "Synthetics",
+            "href": "/defi/synthetics"
+          },
+          {
+            "type": "link",
+            "label": "Exam",
+            "href": "/defi/exam"
           }
         ]
       },
@@ -223,7 +258,14 @@
     "/blockchain-basics": "docs",
     "/contribute": "docs",
     "/dapp": "docs",
+    "/defi/dex": "docs",
+    "/defi/exam": "docs",
+    "/defi/flash_loans": "docs",
     "/defi": "docs",
+    "/defi/lending": "docs",
+    "/defi/stable_coins": "docs",
+    "/defi/synthetics": "docs",
+    "/defi/tokens": "docs",
     "/deploy-a-node": "docs",
     "/explorer": "docs",
     "/formal-verification": "docs",
