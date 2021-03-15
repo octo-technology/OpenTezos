@@ -1,0 +1,21 @@
+{
+  "unversionedId": "tezos-basics/liquid-proof-of-stake",
+  "id": "tezos-basics/liquid-proof-of-stake",
+  "isDocsHomePage": false,
+  "title": "Consensus mechanism, Liquid-proof-of-stake",
+  "description": "Intro",
+  "source": "@site/docs/tezos-basics/liquid-proof-of-stake.md",
+  "slug": "/tezos-basics/liquid-proof-of-stake",
+  "permalink": "/tezos-basics/liquid-proof-of-stake",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/liquid-proof-of-stake.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Introduction",
+    "permalink": "/blockchain-basics"
+  },
+  "next": {
+    "title": "Introduction",
+    "permalink": "/deploy-a-node"
+  }
+}

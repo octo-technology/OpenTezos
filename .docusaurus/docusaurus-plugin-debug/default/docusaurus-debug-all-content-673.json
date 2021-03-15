@@ -47,7 +47,7 @@
                 "items": [
                   {
                     "type": "doc",
-                    "id": "tezos-basics/introduction"
+                    "id": "tezos-basics/liquid-proof-of-stake"
                   }
                 ]
               },
@@ -224,7 +224,7 @@
             "/michelson/smart_contracts": "docs",
             "/private": "docs",
             "/smartpy": "docs",
-            "/tezos-basics": "docs",
+            "/tezos-basics/liquid-proof-of-stake": "docs",
             "/": "docs",
             "/paths": "docs"
           },
@@ -288,8 +288,8 @@
                 "permalink": "/paths"
               },
               "next": {
-                "title": "Introduction",
-                "permalink": "/tezos-basics"
+                "title": "Consensus mechanism, Liquid-proof-of-stake",
+                "permalink": "/tezos-basics/liquid-proof-of-stake"
               }
             },
             {
@@ -364,8 +364,8 @@
               "version": "current",
               "sidebar": "docs",
               "previous": {
-                "title": "Introduction",
-                "permalink": "/tezos-basics"
+                "title": "Consensus mechanism, Liquid-proof-of-stake",
+                "permalink": "/tezos-basics/liquid-proof-of-stake"
               },
               "next": {
                 "title": "Introduction",
@@ -604,15 +604,15 @@
               }
             },
             {
-              "unversionedId": "tezos-basics/introduction",
-              "id": "tezos-basics/introduction",
+              "unversionedId": "tezos-basics/liquid-proof-of-stake",
+              "id": "tezos-basics/liquid-proof-of-stake",
               "isDocsHomePage": false,
-              "title": "Introduction",
-              "description": "Under construction.",
-              "source": "@site/docs/tezos-basics/example.md",
-              "slug": "/tezos-basics",
-              "permalink": "/tezos-basics",
-              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/example.md",
+              "title": "Consensus mechanism, Liquid-proof-of-stake",
+              "description": "Intro",
+              "source": "@site/docs/tezos-basics/liquid-proof-of-stake.md",
+              "slug": "/tezos-basics/liquid-proof-of-stake",
+              "permalink": "/tezos-basics/liquid-proof-of-stake",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/liquid-proof-of-stake.md",
               "version": "current",
               "sidebar": "docs",
               "previous": {

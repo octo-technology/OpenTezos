@@ -41,8 +41,8 @@
         "items": [
           {
             "type": "link",
-            "label": "Introduction",
-            "href": "/tezos-basics"
+            "label": "Consensus mechanism, Liquid-proof-of-stake",
+            "href": "/tezos-basics/liquid-proof-of-stake"
           }
         ]
       },
@@ -236,7 +236,7 @@
     "/michelson/smart_contracts": "docs",
     "/private": "docs",
     "/smartpy": "docs",
-    "/tezos-basics": "docs",
+    "/tezos-basics/liquid-proof-of-stake": "docs",
     "/": "docs",
     "/paths": "docs"
   }
