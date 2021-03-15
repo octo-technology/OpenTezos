@@ -653,9 +653,118 @@ const larger_set  : set (int) = Set.add (4, my_set)
 const smaller_set : set (int) = Set.remove (3, my_set)
 ```
 
-
 # Records & Maps
 
 ## Records
 
+Records are one-way data of different types can be packed into a single type. 
+A record is made of a set of fields, which are made of a field name and a field type.
+
+### Defining records
+
+To instantiate a record, you must first declare its type as follows:
+
+```js
+type user is
+  record [
+    id : nat;
+    is_admin : bool;
+    name : string
+  ]
+```
+
+And here is how to define an associated record value:
+
+```js
+const rogers : user =
+  record [
+    id = 1n;
+    is_admin = true;
+    name = "Rogers"
+  ]
+```
+
+### Accessing Record Fields
+
+You can access the contents of a given field with the `.` infix operator.
+
+```js
+const rogers_admin : bool = roger.is_admin
+```
+
+### Updating a record
+
+You can modify values in a record as follows:
+
+```js
+function change_name (const u : user) : user is
+  block {
+      const u : user = u with record [name = "Mark"]
+  } with u
+```
+
+You can use `patch` to modify the record:
+
+```js
+function change_name (const u : user) : user is
+  block {
+      patch u with record [name = "Mark"]
+  } with u
+```
+
+⚠️ Note that user has not been changed by the function. 
+Rather, the function returned a nameless new version of it with the modified name.
+
 ## Maps
+
+Maps are a data structure which associate values of the same type to values of the same type. 
+The former are called key and, the latter values. 
+Together they make up a binding. 
+An additional requirement is that the type of the keys must be comparable, 
+in the Michelson sense.
+
+### Defining a Map
+
+```js
+type balances is map (string, nat)
+
+const empty : balances = map []
+
+const user_balances : balances =
+    map [
+        "tim" -> 5n;
+        "mark" -> 0n
+    ]
+```
+
+### Accessing Map Bindings
+
+Use the postfix [] operator to read a value of the map:
+
+```js
+const my_balance : option (nat) = user_balances ["tim"]
+```
+
+### Updating a Map
+
+You can add or modify a value using the usual assignment syntax `:=` :
+
+```js
+user_balances ["tim"] := 2n
+user_balances ["New User"] := 24n
+```
+
+A key-value can be removed from the mapping as follows:
+
+```js
+remove "tim" from map user_balances
+```
+
+> Maps load their entries into the environment, 
+> which is fine for small maps, 
+> but for maps holding millions of entries, 
+> the cost of loading such map would be too expensive. 
+> For this we use `big_maps`. Their syntax is the same as for regular maps.
+
+
+
