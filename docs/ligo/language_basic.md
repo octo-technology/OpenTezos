@@ -767,4 +767,55 @@ remove "tim" from map user_balances
 > For this we use `big_maps`. Their syntax is the same as for regular maps.
 
 
+# Unit, Variant & Option
+
+## Unit Type
+
+The `Unit` type in Michelson or LIGO is a predefined type 
+that contains only one value that carries no information. 
+It is used when no relevant information is required or produced. 
+Here is how it used.
+
+In PascaLIGO, the unique value of the unit type is `Unit`.
+
+```js
+const n : unit = Unit
+```
+
+## Variant type
+
+A variant type is a user-defined or a built-in type (in case of options) that defines a type by cases, 
+so a value of a variant type is either this, or that or... 
+The simplest variant type is equivalent to the enumerated types found in Java, C++, JavaScript etc.
+
+Here is how we define a bit as being either 1 or 0 (and nothing else):
+
+```js
+type bit is One | Zero
+const closed_switch : bit = One
+const open_switch : coin = Zero
+```
+
+## Pattern Matching
+
+Pattern matching is similar to the switch construct in Javascript, 
+and can be used to route the program's control flow based on the value of a variant. 
+Consider for example the definition of a power switch that turn on/off a light.
+
+```js
+type bit is One | Zero
+
+function power_switch (const b : bit) : bit is
+  case b of
+    One -> Zero
+  | Zero -> One
+  end
+```
+
+## Option type
+
+
+
+
+
 
