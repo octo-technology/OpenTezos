@@ -11,8 +11,18 @@
           "mainDocId": "welcome/modules",
           "docs": [
             {
+              "id": "baker/exam",
+              "path": "/baker/exam",
+              "sidebar": "docs"
+            },
+            {
               "id": "baker/introduction",
               "path": "/baker",
+              "sidebar": "docs"
+            },
+            {
+              "id": "baking/exam",
+              "path": "/baking/exam",
               "sidebar": "docs"
             },
             {
@@ -21,13 +31,28 @@
               "sidebar": "docs"
             },
             {
+              "id": "blockchain-basics/exam",
+              "path": "/blockchain-basics/exam",
+              "sidebar": "docs"
+            },
+            {
               "id": "blockchain-basics/introduction",
               "path": "/blockchain-basics",
               "sidebar": "docs"
             },
             {
+              "id": "contribute/exam",
+              "path": "/contribute/exam",
+              "sidebar": "docs"
+            },
+            {
               "id": "contribute/introduction",
               "path": "/contribute",
+              "sidebar": "docs"
+            },
+            {
+              "id": "dapp/exam",
+              "path": "/dapp/exam",
               "sidebar": "docs"
             },
             {
@@ -76,8 +101,18 @@
               "sidebar": "docs"
             },
             {
+              "id": "deploy-a-node/exam",
+              "path": "/deploy-a-node/exam",
+              "sidebar": "docs"
+            },
+            {
               "id": "deploy-a-node/introduction",
               "path": "/deploy-a-node",
+              "sidebar": "docs"
+            },
+            {
+              "id": "explorer/exam",
+              "path": "/explorer/exam",
               "sidebar": "docs"
             },
             {
@@ -86,8 +121,18 @@
               "sidebar": "docs"
             },
             {
+              "id": "formal-verification/exam",
+              "path": "/formal-verification/exam",
+              "sidebar": "docs"
+            },
+            {
               "id": "formal-verification/introduction",
               "path": "/formal-verification",
+              "sidebar": "docs"
+            },
+            {
+              "id": "ligo/exam",
+              "path": "/ligo/exam",
               "sidebar": "docs"
             },
             {
@@ -126,13 +171,28 @@
               "sidebar": "docs"
             },
             {
+              "id": "private/exam",
+              "path": "/private/exam",
+              "sidebar": "docs"
+            },
+            {
               "id": "private/introduction",
               "path": "/private",
               "sidebar": "docs"
             },
             {
+              "id": "smartpy/exam",
+              "path": "/smartpy/exam",
+              "sidebar": "docs"
+            },
+            {
               "id": "smartpy/introduction",
               "path": "/smartpy",
+              "sidebar": "docs"
+            },
+            {
+              "id": "tezos-basics/exam",
+              "path": "/tezos-basics/exam",
               "sidebar": "docs"
             },
             {

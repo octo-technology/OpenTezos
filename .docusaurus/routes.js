@@ -39,7 +39,7 @@ export default [
 },
 {
   path: '/',
-  component: ComponentCreator('/','f5c'),
+  component: ComponentCreator('/','2bd'),
   
   routes: [
 {
@@ -49,27 +49,52 @@ export default [
 },
 {
   path: '/baker',
-  component: ComponentCreator('/baker','cfc'),
+  component: ComponentCreator('/baker','414'),
+  exact: true,
+},
+{
+  path: '/baker/exam',
+  component: ComponentCreator('/baker/exam','369'),
   exact: true,
 },
 {
   path: '/baking',
-  component: ComponentCreator('/baking','4fe'),
+  component: ComponentCreator('/baking','93f'),
+  exact: true,
+},
+{
+  path: '/baking/exam',
+  component: ComponentCreator('/baking/exam','7b0'),
   exact: true,
 },
 {
   path: '/blockchain-basics',
-  component: ComponentCreator('/blockchain-basics','9d6'),
+  component: ComponentCreator('/blockchain-basics','783'),
+  exact: true,
+},
+{
+  path: '/blockchain-basics/exam',
+  component: ComponentCreator('/blockchain-basics/exam','ffe'),
   exact: true,
 },
 {
   path: '/contribute',
-  component: ComponentCreator('/contribute','f86'),
+  component: ComponentCreator('/contribute','41f'),
+  exact: true,
+},
+{
+  path: '/contribute/exam',
+  component: ComponentCreator('/contribute/exam','210'),
   exact: true,
 },
 {
   path: '/dapp',
-  component: ComponentCreator('/dapp','e2a'),
+  component: ComponentCreator('/dapp','f74'),
+  exact: true,
+},
+{
+  path: '/dapp/exam',
+  component: ComponentCreator('/dapp/exam','bb1'),
   exact: true,
 },
 {
@@ -114,12 +139,22 @@ export default [
 },
 {
   path: '/deploy-a-node',
-  component: ComponentCreator('/deploy-a-node','9a7'),
+  component: ComponentCreator('/deploy-a-node','fef'),
+  exact: true,
+},
+{
+  path: '/deploy-a-node/exam',
+  component: ComponentCreator('/deploy-a-node/exam','849'),
   exact: true,
 },
 {
   path: '/explorer',
-  component: ComponentCreator('/explorer','95a'),
+  component: ComponentCreator('/explorer','9c5'),
+  exact: true,
+},
+{
+  path: '/explorer/exam',
+  component: ComponentCreator('/explorer/exam','a71'),
   exact: true,
 },
 {
@@ -128,8 +163,18 @@ export default [
   exact: true,
 },
 {
+  path: '/formal-verification/exam',
+  component: ComponentCreator('/formal-verification/exam','dae'),
+  exact: true,
+},
+{
   path: '/ligo',
-  component: ComponentCreator('/ligo','aec'),
+  component: ComponentCreator('/ligo','f43'),
+  exact: true,
+},
+{
+  path: '/ligo/exam',
+  component: ComponentCreator('/ligo/exam','85a'),
   exact: true,
 },
 {
@@ -169,17 +214,32 @@ export default [
 },
 {
   path: '/private',
-  component: ComponentCreator('/private','279'),
+  component: ComponentCreator('/private','89e'),
+  exact: true,
+},
+{
+  path: '/private/exam',
+  component: ComponentCreator('/private/exam','cc9'),
   exact: true,
 },
 {
   path: '/smartpy',
-  component: ComponentCreator('/smartpy','6dd'),
+  component: ComponentCreator('/smartpy','080'),
+  exact: true,
+},
+{
+  path: '/smartpy/exam',
+  component: ComponentCreator('/smartpy/exam','efb'),
   exact: true,
 },
 {
   path: '/tezos-basics',
-  component: ComponentCreator('/tezos-basics','0e5'),
+  component: ComponentCreator('/tezos-basics','40c'),
+  exact: true,
+},
+{
+  path: '/tezos-basics/exam',
+  component: ComponentCreator('/tezos-basics/exam','68b'),
   exact: true,
 },
 {

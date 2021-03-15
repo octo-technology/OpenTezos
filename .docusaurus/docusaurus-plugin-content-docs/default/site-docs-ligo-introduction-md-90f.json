@@ -1,0 +1,21 @@
+{
+  "unversionedId": "ligo/introduction",
+  "id": "ligo/introduction",
+  "isDocsHomePage": false,
+  "title": "Introduction",
+  "description": "Under construction.",
+  "source": "@site/docs/ligo/introduction.md",
+  "slug": "/ligo",
+  "permalink": "/ligo",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/introduction.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Exam",
+    "permalink": "/smartpy/exam"
+  },
+  "next": {
+    "title": "Exam",
+    "permalink": "/ligo/exam"
+  }
+}

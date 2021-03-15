@@ -31,6 +31,11 @@
             "type": "link",
             "label": "Introduction",
             "href": "/blockchain-basics"
+          },
+          {
+            "type": "link",
+            "label": "Exam",
+            "href": "/blockchain-basics/exam"
           }
         ]
       },
@@ -43,6 +48,11 @@
             "type": "link",
             "label": "Introduction",
             "href": "/tezos-basics"
+          },
+          {
+            "type": "link",
+            "label": "Exam",
+            "href": "/tezos-basics/exam"
           }
         ]
       },
@@ -55,6 +65,11 @@
             "type": "link",
             "label": "Introduction",
             "href": "/deploy-a-node"
+          },
+          {
+            "type": "link",
+            "label": "Exam",
+            "href": "/deploy-a-node/exam"
           }
         ]
       },
@@ -67,6 +82,11 @@
             "type": "link",
             "label": "Introduction",
             "href": "/explorer"
+          },
+          {
+            "type": "link",
+            "label": "Exam",
+            "href": "/explorer/exam"
           }
         ]
       },
@@ -79,6 +99,11 @@
             "type": "link",
             "label": "Introduction",
             "href": "/smartpy"
+          },
+          {
+            "type": "link",
+            "label": "Exam",
+            "href": "/smartpy/exam"
           }
         ]
       },
@@ -91,6 +116,11 @@
             "type": "link",
             "label": "Introduction",
             "href": "/ligo"
+          },
+          {
+            "type": "link",
+            "label": "Exam",
+            "href": "/ligo/exam"
           }
         ]
       },
@@ -140,6 +170,11 @@
             "type": "link",
             "label": "Introduction",
             "href": "/dapp"
+          },
+          {
+            "type": "link",
+            "label": "Exam",
+            "href": "/dapp/exam"
           }
         ]
       },
@@ -152,6 +187,11 @@
             "type": "link",
             "label": "Introduction",
             "href": "/baking"
+          },
+          {
+            "type": "link",
+            "label": "Exam",
+            "href": "/baking/exam"
           }
         ]
       },
@@ -164,6 +204,11 @@
             "type": "link",
             "label": "Introduction",
             "href": "/baker"
+          },
+          {
+            "type": "link",
+            "label": "Exam",
+            "href": "/baker/exam"
           }
         ]
       },
@@ -223,6 +268,11 @@
             "type": "link",
             "label": "Introduction",
             "href": "/formal-verification"
+          },
+          {
+            "type": "link",
+            "label": "Exam",
+            "href": "/formal-verification/exam"
           }
         ]
       },
@@ -235,6 +285,11 @@
             "type": "link",
             "label": "Introduction",
             "href": "/private"
+          },
+          {
+            "type": "link",
+            "label": "Exam",
+            "href": "/private/exam"
           }
         ]
       },
@@ -247,16 +302,26 @@
             "type": "link",
             "label": "Introduction",
             "href": "/contribute"
+          },
+          {
+            "type": "link",
+            "label": "Exam",
+            "href": "/contribute/exam"
           }
         ]
       }
     ]
   },
   "permalinkToSidebar": {
+    "/baker/exam": "docs",
     "/baker": "docs",
+    "/baking/exam": "docs",
     "/baking": "docs",
+    "/blockchain-basics/exam": "docs",
     "/blockchain-basics": "docs",
+    "/contribute/exam": "docs",
     "/contribute": "docs",
+    "/dapp/exam": "docs",
     "/dapp": "docs",
     "/defi/dex": "docs",
     "/defi/exam": "docs",
@@ -266,9 +331,13 @@
     "/defi/stable_coins": "docs",
     "/defi/synthetics": "docs",
     "/defi/tokens": "docs",
+    "/deploy-a-node/exam": "docs",
     "/deploy-a-node": "docs",
+    "/explorer/exam": "docs",
     "/explorer": "docs",
+    "/formal-verification/exam": "docs",
     "/formal-verification": "docs",
+    "/ligo/exam": "docs",
     "/ligo": "docs",
     "/michelson/exam": "docs",
     "/michelson/examples": "docs",
@@ -276,8 +345,11 @@
     "/michelson/instructions": "docs",
     "/michelson": "docs",
     "/michelson/smart_contracts": "docs",
+    "/private/exam": "docs",
     "/private": "docs",
+    "/smartpy/exam": "docs",
     "/smartpy": "docs",
+    "/tezos-basics/exam": "docs",
     "/tezos-basics": "docs",
     "/": "docs",
     "/paths": "docs"

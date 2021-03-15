@@ -1,0 +1,21 @@
+{
+  "unversionedId": "tezos-basics/introduction",
+  "id": "tezos-basics/introduction",
+  "isDocsHomePage": false,
+  "title": "Introduction",
+  "description": "Under construction.",
+  "source": "@site/docs/tezos-basics/introduction.md",
+  "slug": "/tezos-basics",
+  "permalink": "/tezos-basics",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/introduction.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Exam",
+    "permalink": "/blockchain-basics/exam"
+  },
+  "next": {
+    "title": "Exam",
+    "permalink": "/tezos-basics/exam"
+  }
+}
