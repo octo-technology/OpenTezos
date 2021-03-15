@@ -1,6 +1,6 @@
 ---
 id: liquid-proof-of-stake
-title: Consensus mechanism, Liquid-proof-of-stake
+title: Liquid Proof-of-Stake
 ---
 
 ## Intro
