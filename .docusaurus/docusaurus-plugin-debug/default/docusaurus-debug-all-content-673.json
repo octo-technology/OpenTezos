@@ -51,11 +51,15 @@
                 "items": [
                   {
                     "type": "doc",
+<<<<<<< HEAD
                     "id": "tezos-basics/introduction"
                   },
                   {
                     "type": "doc",
                     "id": "tezos-basics/exam"
+=======
+                    "id": "tezos-basics/liquid-proof-of-stake"
+>>>>>>> liquid-proof-of-stake
                   }
                 ]
               },
@@ -318,8 +322,12 @@
             "/private": "docs",
             "/smartpy/exam": "docs",
             "/smartpy": "docs",
+<<<<<<< HEAD
             "/tezos-basics/exam": "docs",
             "/tezos-basics": "docs",
+=======
+            "/tezos-basics/liquid-proof-of-stake": "docs",
+>>>>>>> liquid-proof-of-stake
             "/": "docs",
             "/paths": "docs"
           },
@@ -446,6 +454,7 @@
                 "permalink": "/paths"
               },
               "next": {
+<<<<<<< HEAD
                 "title": "Exam",
                 "permalink": "/blockchain-basics/exam"
               }
@@ -465,6 +474,10 @@
               "previous": {
                 "title": "Introduction",
                 "permalink": "/contribute"
+=======
+                "title": "Consensus mechanism, Liquid-proof-of-stake",
+                "permalink": "/tezos-basics/liquid-proof-of-stake"
+>>>>>>> liquid-proof-of-stake
               }
             },
             {
@@ -732,8 +745,13 @@
               "version": "current",
               "sidebar": "docs",
               "previous": {
+<<<<<<< HEAD
                 "title": "Exam",
                 "permalink": "/tezos-basics/exam"
+=======
+                "title": "Consensus mechanism, Liquid-proof-of-stake",
+                "permalink": "/tezos-basics/liquid-proof-of-stake"
+>>>>>>> liquid-proof-of-stake
               },
               "next": {
                 "title": "Exam",
@@ -1098,15 +1116,24 @@
               }
             },
             {
-              "unversionedId": "tezos-basics/introduction",
-              "id": "tezos-basics/introduction",
+              "unversionedId": "tezos-basics/liquid-proof-of-stake",
+              "id": "tezos-basics/liquid-proof-of-stake",
               "isDocsHomePage": false,
+<<<<<<< HEAD
               "title": "Introduction",
               "description": "Under construction.",
               "source": "@site/docs/tezos-basics/introduction.md",
               "slug": "/tezos-basics",
               "permalink": "/tezos-basics",
               "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/introduction.md",
+=======
+              "title": "Consensus mechanism, Liquid-proof-of-stake",
+              "description": "Intro",
+              "source": "@site/docs/tezos-basics/liquid-proof-of-stake.md",
+              "slug": "/tezos-basics/liquid-proof-of-stake",
+              "permalink": "/tezos-basics/liquid-proof-of-stake",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/liquid-proof-of-stake.md",
+>>>>>>> liquid-proof-of-stake
               "version": "current",
               "sidebar": "docs",
               "previous": {

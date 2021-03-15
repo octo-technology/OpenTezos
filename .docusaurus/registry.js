@@ -9,6 +9,7 @@ export default {
   'component---theme-doc-item-178-a40': [() => import(/* webpackChunkName: 'component---theme-doc-item-178-a40' */ "@theme/DocItem"), "@theme/DocItem", require.resolveWeak("@theme/DocItem")],
   'component---theme-doc-page-1-be-9be': [() => import(/* webpackChunkName: 'component---theme-doc-page-1-be-9be' */ "@theme/DocPage"), "@theme/DocPage", require.resolveWeak("@theme/DocPage")],
   'content---3-c-0-681': [() => import(/* webpackChunkName: 'content---3-c-0-681' */ "@site/docs/welcome/modules.md"), "@site/docs/welcome/modules.md", require.resolveWeak("@site/docs/welcome/modules.md")],
+<<<<<<< HEAD
   'content---baker-8-ec-13f': [() => import(/* webpackChunkName: 'content---baker-8-ec-13f' */ "@site/docs/baker/introduction.md"), "@site/docs/baker/introduction.md", require.resolveWeak("@site/docs/baker/introduction.md")],
   'content---baker-exam-588-0cb': [() => import(/* webpackChunkName: 'content---baker-exam-588-0cb' */ "@site/docs/baker/exam.md"), "@site/docs/baker/exam.md", require.resolveWeak("@site/docs/baker/exam.md")],
   'content---baking-examb-65-f59': [() => import(/* webpackChunkName: 'content---baking-examb-65-f59' */ "@site/docs/baking/exam.md"), "@site/docs/baking/exam.md", require.resolveWeak("@site/docs/baking/exam.md")],
@@ -35,6 +36,18 @@ export default {
   'content---formal-verification-examec-2-297': [() => import(/* webpackChunkName: 'content---formal-verification-examec-2-297' */ "@site/docs/formal-verification/exam.md"), "@site/docs/formal-verification/exam.md", require.resolveWeak("@site/docs/formal-verification/exam.md")],
   'content---ligo-90-f-7cd': [() => import(/* webpackChunkName: 'content---ligo-90-f-7cd' */ "@site/docs/ligo/introduction.md"), "@site/docs/ligo/introduction.md", require.resolveWeak("@site/docs/ligo/introduction.md")],
   'content---ligo-exam-881-a94': [() => import(/* webpackChunkName: 'content---ligo-exam-881-a94' */ "@site/docs/ligo/exam.md"), "@site/docs/ligo/exam.md", require.resolveWeak("@site/docs/ligo/exam.md")],
+=======
+  'content---baker-44-b-396': [() => import(/* webpackChunkName: 'content---baker-44-b-396' */ "@site/docs/baker/example.md"), "@site/docs/baker/example.md", require.resolveWeak("@site/docs/baker/example.md")],
+  'content---bakingb-0-b-642': [() => import(/* webpackChunkName: 'content---bakingb-0-b-642' */ "@site/docs/baking/example.md"), "@site/docs/baking/example.md", require.resolveWeak("@site/docs/baking/example.md")],
+  'content---blockchain-basics-2-b-1-891': [() => import(/* webpackChunkName: 'content---blockchain-basics-2-b-1-891' */ "@site/docs/blockchain-basics/example.md"), "@site/docs/blockchain-basics/example.md", require.resolveWeak("@site/docs/blockchain-basics/example.md")],
+  'content---contribute-6-f-9-252': [() => import(/* webpackChunkName: 'content---contribute-6-f-9-252' */ "@site/docs/contribute/example.md"), "@site/docs/contribute/example.md", require.resolveWeak("@site/docs/contribute/example.md")],
+  'content---dappe-1-a-31a': [() => import(/* webpackChunkName: 'content---dappe-1-a-31a' */ "@site/docs/dapp/example.md"), "@site/docs/dapp/example.md", require.resolveWeak("@site/docs/dapp/example.md")],
+  'content---defi-7-bc-81d': [() => import(/* webpackChunkName: 'content---defi-7-bc-81d' */ "@site/docs/defi/example.md"), "@site/docs/defi/example.md", require.resolveWeak("@site/docs/defi/example.md")],
+  'content---deploy-a-nodead-9-96a': [() => import(/* webpackChunkName: 'content---deploy-a-nodead-9-96a' */ "@site/docs/deploy-a-node/example.md"), "@site/docs/deploy-a-node/example.md", require.resolveWeak("@site/docs/deploy-a-node/example.md")],
+  'content---explorer-6-a-2-6c6': [() => import(/* webpackChunkName: 'content---explorer-6-a-2-6c6' */ "@site/docs/explorer/example.md"), "@site/docs/explorer/example.md", require.resolveWeak("@site/docs/explorer/example.md")],
+  'content---formal-verification-1-cf-a17': [() => import(/* webpackChunkName: 'content---formal-verification-1-cf-a17' */ "@site/docs/formal-verification/example.md"), "@site/docs/formal-verification/example.md", require.resolveWeak("@site/docs/formal-verification/example.md")],
+  'content---ligo-1-df-aba': [() => import(/* webpackChunkName: 'content---ligo-1-df-aba' */ "@site/docs/ligo/example.md"), "@site/docs/ligo/example.md", require.resolveWeak("@site/docs/ligo/example.md")],
+>>>>>>> liquid-proof-of-stake
   'content---michelson-416-728': [() => import(/* webpackChunkName: 'content---michelson-416-728' */ "@site/docs/michelson/introduction.md"), "@site/docs/michelson/introduction.md", require.resolveWeak("@site/docs/michelson/introduction.md")],
   'content---michelson-exama-77-21a': [() => import(/* webpackChunkName: 'content---michelson-exama-77-21a' */ "@site/docs/michelson/exam.md"), "@site/docs/michelson/exam.md", require.resolveWeak("@site/docs/michelson/exam.md")],
   'content---michelson-examples-3-d-9-2e7': [() => import(/* webpackChunkName: 'content---michelson-examples-3-d-9-2e7' */ "@site/docs/michelson/examples.md"), "@site/docs/michelson/examples.md", require.resolveWeak("@site/docs/michelson/examples.md")],
@@ -42,6 +55,7 @@ export default {
   'content---michelson-instructions-8-fe-fb1': [() => import(/* webpackChunkName: 'content---michelson-instructions-8-fe-fb1' */ "@site/docs/michelson/instructions.md"), "@site/docs/michelson/instructions.md", require.resolveWeak("@site/docs/michelson/instructions.md")],
   'content---michelson-smart-contracts-162-d06': [() => import(/* webpackChunkName: 'content---michelson-smart-contracts-162-d06' */ "@site/docs/michelson/smart_contracts.md"), "@site/docs/michelson/smart_contracts.md", require.resolveWeak("@site/docs/michelson/smart_contracts.md")],
   'content---pathsfed-263': [() => import(/* webpackChunkName: 'content---pathsfed-263' */ "@site/docs/welcome/paths.md"), "@site/docs/welcome/paths.md", require.resolveWeak("@site/docs/welcome/paths.md")],
+<<<<<<< HEAD
   'content---private-533-aa6': [() => import(/* webpackChunkName: 'content---private-533-aa6' */ "@site/docs/private/introduction.md"), "@site/docs/private/introduction.md", require.resolveWeak("@site/docs/private/introduction.md")],
   'content---private-examaa-4-51a': [() => import(/* webpackChunkName: 'content---private-examaa-4-51a' */ "@site/docs/private/exam.md"), "@site/docs/private/exam.md", require.resolveWeak("@site/docs/private/exam.md")],
   'content---smartpy-exam-031-d3a': [() => import(/* webpackChunkName: 'content---smartpy-exam-031-d3a' */ "@site/docs/smartpy/exam.md"), "@site/docs/smartpy/exam.md", require.resolveWeak("@site/docs/smartpy/exam.md")],
@@ -49,4 +63,9 @@ export default {
   'content---tezos-basics-3-ac-cbd': [() => import(/* webpackChunkName: 'content---tezos-basics-3-ac-cbd' */ "@site/docs/tezos-basics/introduction.md"), "@site/docs/tezos-basics/introduction.md", require.resolveWeak("@site/docs/tezos-basics/introduction.md")],
   'content---tezos-basics-exam-1-e-4-fba': [() => import(/* webpackChunkName: 'content---tezos-basics-exam-1-e-4-fba' */ "@site/docs/tezos-basics/exam.md"), "@site/docs/tezos-basics/exam.md", require.resolveWeak("@site/docs/tezos-basics/exam.md")],
   'content---tezos-basics-transactionsfde-f47': [() => import(/* webpackChunkName: 'content---tezos-basics-transactionsfde-f47' */ "@site/docs/tezos-basics/transactions.md"), "@site/docs/tezos-basics/transactions.md", require.resolveWeak("@site/docs/tezos-basics/transactions.md")],
+=======
+  'content---private-7-ab-eb5': [() => import(/* webpackChunkName: 'content---private-7-ab-eb5' */ "@site/docs/private/example.md"), "@site/docs/private/example.md", require.resolveWeak("@site/docs/private/example.md")],
+  'content---smartpya-3-b-5e0': [() => import(/* webpackChunkName: 'content---smartpya-3-b-5e0' */ "@site/docs/smartpy/example.md"), "@site/docs/smartpy/example.md", require.resolveWeak("@site/docs/smartpy/example.md")],
+  'content---tezos-basics-liquid-proof-of-stake-249-9e6': [() => import(/* webpackChunkName: 'content---tezos-basics-liquid-proof-of-stake-249-9e6' */ "@site/docs/tezos-basics/liquid-proof-of-stake.md"), "@site/docs/tezos-basics/liquid-proof-of-stake.md", require.resolveWeak("@site/docs/tezos-basics/liquid-proof-of-stake.md")],
+>>>>>>> liquid-proof-of-stake
   'versionMetadata---935-fcf': [() => import(/* webpackChunkName: 'versionMetadata---935-fcf' */ "~docs/default/version-current-metadata-prop-751.json"), "~docs/default/version-current-metadata-prop-751.json", require.resolveWeak("~docs/default/version-current-metadata-prop-751.json")],};
