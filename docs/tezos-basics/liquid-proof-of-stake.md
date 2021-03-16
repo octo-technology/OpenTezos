@@ -32,7 +32,7 @@ In the Delegated-proof-of-stake, the users of this consensus delegate their vote
 To be selected, validators must be elected by the network. They are chosen according to their long-term reputation and efficiency. A new user is therefore unlikely to become a validator and cannot participate in the life of the network. Consequently, these validators are often the same ones. This creates a barrier to entry to new users to take part in the consensus mechanism.
 
 ![](../../static/img/tezos-basics/DPoS.svg)
-<small className="figure">FIGURE 1: DPoS</small>
+<small className="figure">FIGURE 2: DPoS</small>
 
 ## Liquid Proof-of-Stake (LPoS)
 ### An evolution from _DPoS_
@@ -75,7 +75,7 @@ The security of Tezos is also insured by endorsers: they control the baker's tra
 The "liquid" implementation allows greater decentralization and this process is more censorship-resistant than _DPoS_. Contrary to the DPoS, all the stakeholders can participate actively in the making of the block without depending on a small group of selected validators.
 
 ![](../../static/img/tezos-basics/LPoS.svg)
-<small className="figure">FIGURE 1: LPoS</small>
+<small className="figure">FIGURE 3: LPoS</small>
 
 This table highlights the differences between the liquid-proof-of-stake and the delegated-proof-of-stake [[7]](/tezos-basics/liquid-proof-of-stake#reference)):
 
