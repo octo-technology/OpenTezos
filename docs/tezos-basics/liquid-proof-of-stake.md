@@ -61,11 +61,27 @@ Baking rights are set in terms of priorities. For example, if there are 10 rolls
 
 Consequently the person who owns the roll 6 will have priority to propose the new block. If he does not create and broadcast a block within a certain period, the baker who owns the roll number 9 may take over. Note that a baker may have several rolls selected and therefor receive several priorities.
 
+//TODO How priority changes ? round-robin
+
 #### Cycle
-The Tezos consensus is organized in cycles. One cycle corresponds to 4096 blocks (≈ 2.8 days). It takes 7 cycles to accumulate rewards. It then takes another 5 cycles before the delegation service receives them and can transfer those rewards. Finally, the tokens are frozen during several weeks.
+The Tezos consensus is organized in cycles. One cycle corresponds to 4096 blocks (≈ 2.8 days). 
+
+##### Reward and Fee
+It takes 7 cycles to accumulate rewards. It then takes another 5 cycles before the delegation service receives them and can transfer those rewards. Finally, the tokens are frozen during several weeks.
+
+More details in [chapter Rewards and Fees]
 
 #### Rolls selection
-At each cycle _n_, a random seed is created. This seed is used to randomly select a roll snapshot from cycle _n-2_ and to randomly select rolls in the selected snapshot. The selected rolls determine the baking and endorsing rights in the next cycles.
+At each cycle, a random seed is created. This seed is used to produce baking rights (i.e. a list of priorities as mentioned above) based on a snapshot of existing rolls 2 cycles ago. 
+
+##### The snapshot
+Snapshots of owned rolls are done regularly. These snapshots of rolls define who can bake. The order of baking is defined by assigning priorities to each roll. The ordering is done using a pseudo-random number generator based on a seed.
+
+##### The seed
+This seed is created by requesting from all roll owners a secret number. All secret numbers are gathered and used to create hash that will be used as _random seed_. Since the last owner revealing its secret number may know other's secret numbers he may choose an appropriate number to choose its priority. This bias introduced by the construction of the seed is solved with a 2-phase process "Commit & Reveal". More details about the selection of the baker are available in the [Baking module]
+
+##### Baker and endorser selection
+The generated list of priorities identifies which roll has the responsibility to forge a block (baking) and which rolls have to endorse this new block. It is a round-robin process that cycles on the list of priorities until the end of the cycle (4096 blocks).
 
 ### Security
 The forgery of a block (e.g. transaction fraud) is avoided by preventing a baker from proceeding to the next cycle while his roll is being verified.
