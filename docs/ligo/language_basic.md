@@ -814,7 +814,57 @@ function power_switch (const b : bit) : bit is
 
 ## Option type
 
+The `option` type is a predefined variant type that is used to express whether 
+there is a value of some type or none. 
+This is especially useful when calling a partial function, 
+that is, a function that is not defined for some inputs. 
+In that case, the value of the option type would be `None`, 
+otherwise `Some (v)`, where `v` is some meaningful value of any type.
 
+```js
+function div (const a : nat; const b : nat) : option (nat) is
+  if b = 0n then (None: option (nat)) else Some (a/b)
+```
+
+The keyword `Some` can be used in a pattern matching to retrieve the value behind the option variable.  
+The keyword `None` can be used in a pattern matching to verify the option variable has no value.
+
+Here is an example of pattern matching resolving an option type directly 
+(useful when we just want to retrieve the value behind the optional) :
+
+```js
+const my_balance : expected_type = case user_balances[1n] of
+  Some (val) -> val
+| None -> (failwith ("Unknown user") : expected_type)
+end
+```
+
+> Notice the cast of failwith instruction into an expected_type
+
+
+# Timestamps, Addresses
+
+## Timestamps
+
+LIGO features timestamps are responsible for providing the given current timestamp for the contract.
+
+```js
+const today : timestamp = Tezos.now
+const one_day : int = 86_400
+const in_24_hrs : timestamp = today + one_day
+const some_date : timestamp = ("2000-01-01T10:10:10Z" : timestamp)
+const one_day_later : timestamp = some_date + one_day
+```
+
+## Addresses
+
+You can define Tezos addresses by casting a string to an address type:
+
+```js
+const my_account : address = ("tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx" : address)
+```
+
+⚠️ You will not see a transpilation error if the address you enter is wrong, but the execution will fail.
 
 
 
