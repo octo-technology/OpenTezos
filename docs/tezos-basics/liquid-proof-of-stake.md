@@ -3,7 +3,7 @@ id: liquid-proof-of-stake
 title: Liquid Proof-of-Stake
 ---
 
-## Intro
+## Introduction
 A blockchain network is composed of millions of users. In order to maintain network availability and prevent Sybil attacks [[1]](/tezos-basics/liquid-proof-of-stake#reference) (attacks with the creation of multiple fake accounts in a network), a blockchain needs a consensus mechanism. A consensus mechanism allows the network to agree on the validity of a transaction, the creation of a new block, a protocol update, etc. The main objective of a consensus mechanism is to maintain the same version of the history of the chain throughout the whole network.
 
 Since the creation of Bitcoin, many kinds of consensus have appeared. To understand the Tezos consensus, this chapter will first focus on the classical Proof-of-work (e.g. Bitcoin, Ethereum 1.0), then the delegated-proof-of-stake (e.g EOS, Lisk, Tron, Bitshare) and finally the liquid Proof-of-stake from Tezos [[2]](/tezos-basics/liquid-proof-of-stake#reference).
