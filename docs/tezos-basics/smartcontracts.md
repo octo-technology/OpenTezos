@@ -5,10 +5,12 @@ title: Introduction to Smart contracts
 
 ## General
 
+A smart contract is a code stored in the blockchain who executes a set of pre-defined instructions. Once deployed they become ‘irrevocable’. The user can use it but can’t modify the code. SmartContract has the possibility to realize some operations with the tokens/cryptocurrency of the chain. They can be compared to old signed paper contracts, like them they permit to secure an agreement between two or more parties thanks to the transparency and immutability of the blockchains. Also in many cases they drastically reduce intermediate costs( vs the old world).
+
 Tezos is a blockchain (i.e. a decentralized transactional system (UTXO)). 
 Transactions are broadcasted over the Tezos network and validated by bakers. Once validated transactions are executed and side-effects are applied to the blockchain.
 - A transaction can transfer a certain amount of XTZ to an address (account).
-- A transaction can contain some code (called *smart contract*) that will be stored in the blockchain. Once this transaction is executed, the smart contract is considered as deployed; an address and a persistent memory space (called *storage*) are associated to this smart contract.
+- A transaction can contain some code (*smart contract*) that will be stored in the blockchain. Once this transaction is executed, the smart contract is considered as deployed; an address and a persistent memory space (called *storage*) are associated to this smart contract.
 - A transaction can invoke some existing smart contract. Once deployed the smart contract can be invoked by anyone via a transaction to the contract address.
 
 Tezos smart contract are implemented in Michelson language.
