@@ -61,7 +61,7 @@ Baking rights are called priorities and are given in turns. For example, if ther
 
 Consequently, the person who owns roll 6 will have priority to propose the new block. If he does not create and broadcast a block within a certain period, the baker who owns the roll number 9 may take over. Note that a baker may have several rolls selected and therefor receive several priorities.
 
-//TODO How priority changes ? round-robin
+A new priority list is established for each block.
 
 #### Cycle
 The Tezos consensus is organized in cycles. One cycle corresponds to 4096 blocks (≈ 2.8 days). 
@@ -72,10 +72,12 @@ It takes 7 cycles to accumulate rewards. It then takes another 5 cycles before t
 More details in [chapter Rewards and Fees]
 
 #### Rolls selection
-At each cycle, a random seed is created. This seed is used to produce baking rights (i.e. a list of priorities as mentioned above) based on a snapshot of existing rolls 2 cycles ago. 
+At each cycle, a random seed is created. This seed is used to produce baking rights (i.e. a list of priorities as mentioned above) based on a snapshot of existing rolls 2 cycles ago.
+ 
+More details in [chapter Baking].
 
-##### The snapshot
-Snapshots of owned rolls are done regularly. These snapshots of rolls define who can bake. The order of baking is then defined by assigning priorities to each roll. The ordering is done using a pseudo-random number generator based on a seed.
+##### The Roll snapshot
+Snapshots of owned rolls are done regularly (Every 256 blocks). These snapshots of rolls define who can bake. The order of baking is then defined by assigning priorities to each roll. The ordering is done using a pseudo-random number generator based on a seed.
 
 ##### The seed
 The seed is created by requesting from all roll owners a secret number. All secret numbers are gathered and used to create a hash that will be used as the _random seed_. Since the last owner to reveal its secret number already knows the other's secret numbers a 2-phase process "Commit & Reveal" construction has been put in place. More details about the selection of the baker are available in the [Baking module]
