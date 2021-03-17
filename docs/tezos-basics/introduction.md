@@ -28,6 +28,8 @@ Compared to previous generations of blockchains (Bitcoin and Ethereum), the Tezo
 * The LPOS (Liquid-Proof-of-Stake) consensus.
 * The development of smart contracts with the Michelson language allows the use of formal verification methods.
 
+This module explains how the Tezos consensus algorithm works and provides a first overview of the possible interaction with this blockchain.
+
 ## Reference
 [1] https://www.ocamlpro.com
 
