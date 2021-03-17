@@ -6,7 +6,7 @@ title: Economics and reward
 
 ## Transaction cost
 
-Each Tezos transaction has a cost. The user includes a gas fee when he submits his transaction. Bakers choose transactions with a minimal fee filter. If the baker chooses a transaction, he will add the operation to the block and will propagate it. These fees are used to pay the bakers. They are calculated with the following formula [1](https://opentezos.com/tezos-basics/economics_and_reward#references): 
+Each Tezos transaction has a cost. The user includes a gas fee when he submits his transaction. Bakers choose transactions with a minimal fee filter. If the baker chooses a transaction, he will add the operation to the block and will propagate it. These fees are used to pay the bakers. They are calculated with the following formula [1](https://opentezos.com/tezos-basics/economics_and_reward#references):
 ```
 fees >= (minimal_fees + minimal_nanotez_per_byte * size + minimal_nanotez_per_gas_unit * gas)
 ```
