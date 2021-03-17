@@ -1,26 +1,19 @@
-
-
-# Tezos basics Introduction to Smart contracts (WIP)
-
+---
+id: introduction_to_smart_contract
+title: Introduction to smart contract
+---
 
 ## General definition of a smart contract
 
-//TODO
-in this part, we will have speak about global smart contracts characteristics:
-//TODO
-- irrevocable computer programs
-//TODO
-- that execute a set of pre-defined instructions.
-//TODO
-- 'code is law' Lawrence Lessig
-//TODO
-- Secure an agreement between two or more parties thanks to the transparency and immutability of blockchains
-//TODO
-- Drastically reduce intermediate costs( vs the old world)
-//TODO
-- Danger of the security breach
+A smart contract is a code stored in the blockchain which executes a set of pre-defined instructions. Once deployed they become ‘irrevocable’. 
 
+The user can use it but he can’t modify the code. Smart contracts can achieve different kind of operations with the tokens/cryptocurrencies and other smart contracts of the chain. They can be compared to old signed paper contracts, similarly they permit to secure an agreement between two or more parties thanks to the transparency and immutability of the blockchain. In this context the quote "code is law" from _Lawrence Lessig_ is appropriate.
 
+Also, in many cases, smart contracts drastically reduce intermediate costs compared to classic contracts.
+
+Notice that a smart contract communicates only within the Tezos network and thus, it can send transactions to other accounts or to smart contracts but it cannot interact with Internet; that's where decentralized applications come into play.
+
+See more detail in [Dapp module]
 
 ## Lifecycle of a Tezos smart contract
 
