@@ -866,6 +866,239 @@ const my_account : address = ("tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx" : address)
 
 ⚠️ You will not see a transpilation error if the address you enter is wrong, but the execution will fail.
 
+# Main function and Entrypoints
+
+## Main function
+
+Smart contracts are small programs that are stored and executed on the blockchain. 
+They allow people to cooperate and exchange tokens without requiring them to trust one another.
+
+A LIGO contract is made of a series of constant and function declarations. 
+Only functions having a special type can be called when the contract is activated: 
+we call them **main functions**. A main function takes two parameters, 
+the **contract parameter** and the **on-chain storage**, 
+and returns a pair made of a **list of operations** and a **(new) storage**.
+
+<br/>
+
+![](../../static/img/ligo/main_function.svg)
+<small className="figure">FIGURE 1: Main function</small>
+
+<br/>
+
+The type of the contract parameter and the storage are up to the contract designer, 
+but the type for list operations is not.
+
+The return type of a main function is as follows, 
+assuming that the type `storage` has been defined elsewhere.
+
+```js
+type storage is ...  // Any name, any type
+type return is list (operation) * storage
+```
+
+The contract storage can only be modified by activating a main function: 
+given the state of the storage on-chain, 
+a main function specifies how to create another state for it, 
+depending on the contract's parameter.
+
+Here is an example where the storage is a single natural number that is updated by the parameter.
+
+```js
+type parameter is nat
+type storage is nat
+type return is list (operation) * storage
+
+function save (const action : parameter; const store : storage) : return is
+  ((nil : list (operation)), store)
+```
+
+## Entrypoints
+
+In LIGO, the design pattern is to have one main function called `main`, 
+that dispatches the control flow according to its parameter. 
+Those functions called for those actions are called entrypoints.
+
+As an analogy, in the C programming language, 
+the `main` function is the unique main function and any function called from it would be an entrypoint.
+
+The parameter of the contract is then a variant type, 
+and, depending on the constructors of that type, 
+different functions in the contract are called. 
+In other terms, the unique main function dispatches the control flow 
+depending on a pattern matching on the contract parameter.
+
+In the following example, 
+the storage contains a counter of type `nat` and a name of type `string`. 
+Depending on the parameter of the contract, either the counter or the name is updated.
+
+```js
+type parameter is
+  Action_A of nat
+| Action_B of string
+
+type storage is record [
+  counter : nat;
+  name    : string
+]
+
+type return is list (operation) * storage
+
+function entry_A (const n : nat; const store : storage) : return is
+  ((nil : list (operation)), store with record [counter = n])
+
+function entry_B (const s : string; const store : storage) : return is
+  ((nil : list (operation)), store with record [name = s])
+
+function main (const action : parameter; const store : storage): return is
+  case action of
+    Action_A (n) -> entry_A (n, store)
+  | Action_B (s) -> entry_B (s, store)
+  end
+```
+
+# Built-in
+
+## A few Built-ins
+
+A LIGO smart contract can query part of the state of the Tezos blockchain by means of built-in values.
+
+- `Tezos.balance`: Get the balance for the contract.
+- `Tezos.amount`: Get the amount of tez provided by the sender to complete this transaction.
+- `Tezos.sender`: Get the address that initiated the current transaction.
+- `Tezos.self_address`: Get the address of the currently running contract.
+- `Tezos.source`: Get the originator (address) of the current transaction. 
+  That is, if a chain of transactions led to the current execution get the address that began the chain. 
+  Not to be confused with Tezos.sender, 
+  which gives the address of the contract or user which directly caused the current transaction.
+- `Tezos.chain_id`: Get the identifier of the chain to distinguish between main and test chains.
+
+## Failwith
+
+The keyword failwith throws an exception and stop the execution of the smart contract.
+
+```js
+failwith(<string_message>)
+```
+
+## Access Control
+
+This example shows how Tezos.source can be used to deny access to an entrypoint.
+
+```js
+const owner : address = ("tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx": address);
+
+function main (const action : parameter; const store : storage) : return is
+    if Tezos.source =/= owner then (failwith ("Access denied.") : return)
+else ((nil : list (operation)), store)
+```
+
+> **<string_message>** must be a `string value`
+
+# Transactions and Interactions
+
+## Transactions
+
+You can transfer tez to an account, or to a function of another smart contract. 
+For this, use :
+
+```js
+Tezos.transaction (<parameter>, <mutez>, <contract>);
+```
+
+where :
+
+- **parameter** is the entrypoint of another contract, 
+  or use `unit` if you are transferring to a wallet address,
+- **mutez** is the amount to transfer,
+- **contract** is the contract interface of the targeted contract. 
+  It can be retrieved from address of the other contract or the wallet.
+  
+Here is an example of how to send money to a wallet address.
+
+```js
+function purchase (const purchase_price : tez) : bool is
+block {
+    const ship_address : address = ("tz1TGu6TN5GSez2ndXXeDX6LgUDvLzPLqgYV" : address);
+    const vendor_address : address = ("tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx" : address);
+
+    if Tezos.source =/= ship_address then failwith ("Access denied");
+    if Tezos.amount =/= purchase_price then failwith ("Incorrect amount");
+
+    const vendor_contract : contract (unit) =
+      case (Tezos.get_contract_opt (vendor_address) : option (contract (unit))) of
+        Some (c) -> c
+      | None -> (failwith ("Contract not found.") : contract (unit))
+      end;
+    Tezos.transaction (unit, purchase_price, vendor_contract)
+} with True
+```
+
+## Interactions
+
+It is also possible to use `Tezos.transaction` to call an entrypoint from another contract. 
+In that case, we store the transaction in a type `operation` 
+which is a predefined type representing a contract invocation.
+
+```js
+const <operation_name> : operation = Tezos.transaction (<parameter>, <mutez>, <contract>);
+```
+To get the contract we want to call and its entry points, we can use:
+
+```js
+Tezos.get_contract_opt(<address>)
+```
+
+The function take an address and return an **optional contract** (remember to use `option`). 
+When no contract is found, or the contract doesn't match the type, `None` is returned.
+
+Here is an example of how to use it:
+
+```js
+type storage is unit
+
+type parameter is
+  Fire of int
+| Stop
+
+type return is list (operation) * storage
+
+const right_laser_address : address = ("tz1fND4ejogxWN7HB5JKdz119A48Cp2eYKj9" : address)
+const left_laser_address : address = ("tz1PVWEWDcuow9R6y5EFwcHbFNoZBZ9RjxaB" : address)
+
+function orders (const param : unit; const store : storage): return is
+  block {
+    const right_laser : contract (parameter) =
+      case (Tezos.get_contract_opt(right_laser_address) : option (contract (parameter))) of
+        Some (contract) -> contract
+      | None -> (failwith ("Contract not found.") : contract (parameter))
+      end;
+    const left_laser : contract (parameter) =
+      case (Tezos.get_contract_opt(left_laser_address) : option (contract (parameter))) of
+        Some (contract) -> contract
+      | None -> (failwith ("Contract not found.") : contract (parameter))
+      end;
+
+    const operations : list (operation) = list [
+        Tezos.transaction (Fire(5), 0tez, right_laser);
+        Tezos.transaction (Stop, 0tez, right_laser);
+        Tezos.transaction (Fire(5), 0tez, left_laser);
+        Tezos.transaction (Stop, 0tez, left_laser);
+    ]
+  } with (operations, store)
+
+type action is Order | Nothing
+
+function main (const a : action; const s : storage) : return is
+block { skip } with case a of
+      Order  -> orders(unit, s)
+    | Nothing -> ((nil: list(operation)), s)
+end
+```
+
+
+
+
 
 
 
