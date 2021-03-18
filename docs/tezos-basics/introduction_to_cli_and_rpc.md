@@ -4,7 +4,7 @@ title: Introduction to cli and rpc
 ---
 
 ## Tezos RPC (Remote procedure call)
-RPC [1](https://opentezos.com/tezos-basics/introduction_to_cli_and_rpc#reference) is a client-server protocol where the requesting program is the client and the program providing the service is the server. 
+RPC [[1]](https://opentezos.com/tezos-basics/introduction_to_cli_and_rpc#reference) is a client-server protocol where the requesting program is the client and the program providing the service is the server. 
 
 The Tezos node provides a JSON/RPC interface to interact with the Tezos Chain. Note that it is an RPC, and it is JSON based, but it does not follow the “JSON-RPC” protocol.
 
@@ -35,7 +35,7 @@ $ dnf install -y tezos-client
     Follow this [link](https://tezos.gitlab.io/introduction/howtoget.html#building-from-sources-via-opam)
 
 ### Conexion to a network
-The tezos-client needs to be connected to a Tezos node. You can connect to your own tezos node [2](https://opentezos.com/tezos-basics/introduction_to_cli_and_rpc#reference) or you can use a community node on the Tezos mainnet or on a Tezos testnet.
+The tezos-client needs to be connected to a Tezos node. You can connect to your own tezos node [[2]](https://opentezos.com/tezos-basics/introduction_to_cli_and_rpc#reference) or you can use a community node on the Tezos mainnet or on a Tezos testnet.
 [Here](https://tezostaquito.io/docs/rpc_nodes/) you can find a list of community nodes on the mainnet or testnet.
 
 If you use a testnet you need to obtain a faucet to interact with it.
@@ -58,7 +58,7 @@ $ tezos-client get balance for #accountName
 ```
 
 ### get timestamp
-This call is useful to check if the node is synchronized. It returns the actual time is in UTC so it may differ from your local time
+This call is useful to check if the node is synchronized. It returns the actual time is in UTC so it may differ from your local time.
 ```
 $ tezos-client get timestamp
 ```
