@@ -76,7 +76,7 @@ Such operation can be sent from a implicit account if signed using the manager's
 
 The role of the _counter_ field is to prevent replay attacks. An operation is only valid if the contract's counter is equal to the operation's counter. Once a operation is applied, the counter increases by one, preventing the operation from being reused.
 
-The operation also includes the block hash of a recent block that the client considers valid. If an attacker ever succeeds in forcing a long reorganization with a fork, he will be unable to include such operations, making the fork obviously fake. This last line of defense is named TAPOS, it is a system to prevent long reorganizations but not a very good system to prevent short term double spending.
+The operation also includes the block hash of a recent block that the client considers valid. If an attacker ever succeeds in forcing a long reorganization with a fork, he will be unable to include such operations, making the fork obviously fake. This last line of defense is named TAPOS which is a statistical detection of long term attacks based on the fraction of coins being moved. This kind of system prevents long reorganizations but are not efficient with short term double spending.
 
 Currently the network tezos has a speed of 40 tps (operation per second) and an operation time of 30 minutes [[2]](https://opentezos.com/tezos-basics/intro_to_operation#reference). This speed may vary with future protocols. The operation time is the time it takes for an operation to be considered secure. For example, bitcoin can process 7 tps and an operation time of 60 minutes. 
 
