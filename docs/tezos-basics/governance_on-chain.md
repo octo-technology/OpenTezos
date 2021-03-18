@@ -37,7 +37,7 @@ E.g new Quorum = 80% * 80% +  90% * 20% = 82%, With old Quorum = 80%  and curren
 
 Delegates’ votes are weighted proportionally to the number of rolls in their staking balance.
 
-##Phase 1: Proposal period
+## Phase 1: Proposal period
 The Tezos amendment process begins with the Proposal Period, during which delegates can submit proposals on-chain. The delegate submits the proposal by submitting the hash of the source code.
 
 In each Proposal Period, delegates can submit up to 20 proposals. A proposal submission also counts as a vote, which is equivalent to the number of rolls in his staking balance when the period starts. Other delegates can then vote on the proposal up to 20 times during the Proposal Period. 
