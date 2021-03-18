@@ -59,7 +59,7 @@ Baking rights are called priorities and are given in turns. For example, if ther
  Priority10 = Roll 7
 ```
 
-Consequently, the person who owns roll 6 will have priority to propose the new block. If he does not create and broadcast a block within a certain period, the baker who owns the roll number 9 may take over. Note that a baker may have several rolls selected and therefor receive several priorities.
+Consequently, the person who owns roll 6 will have priority to propose the new block. If he does not create and broadcast a block within a certain period, the baker who owns the roll number 9 may take over. Note that a baker may have several rolls selected and therefore receive several priorities.
 
 A new priority list is established for each block.
 
@@ -104,7 +104,7 @@ This table highlights the differences between liquid-proof-of-stake and delegate
 | **Validator Set**        | Dynamic (size not fixed). Up to 80,000 bakers (limited by roll size) | Fixed size. Between 21 (EOS) and 101 (Lisk).                                                             |
 | **Design Priorities**    | Decentralization, accountable governance, and security               | Scalability and usable consumer applications                                                             |
 
-To conclude, the Liquid Proof-of-stake consensus takes the best from _PoW_ and _DPoS_ with a fully decentralized consensus and low entry-barrier but without the high costs and high energy requirements.
+To conclude, the Liquid Proof-of-stake consensus is inspired by _PoW_ and _DPoS_ resulting in a fully decentralized consensus and low entry-barrier but without the high costs and high energy requirements.
 
 ## Reference
 
