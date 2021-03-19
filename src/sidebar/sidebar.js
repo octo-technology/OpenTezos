@@ -13,7 +13,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Tezos Basics',
-      items: ['tezos-basics/introduction', 'tezos-basics/liquid-proof-of-stake', 'tezos-basics/exam'],
+      items: ['tezos-basics/liquid-proof-of-stake', 'tezos-basics/economics_and_reward', 'tezos-basics/exam'],
     },
     {
       type: 'category',
