@@ -13,12 +13,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Tezos Basics',
-      items: [
-        'tezos-basics/introduction',
-        'tezos-basics/liquid-proof-of-stake',
-        'tezos-basics/economics_and_reward',
-        'tezos-basics/intro_to_operation',
-        'tezos-basics/exam'],
+      items: ['tezos-basics/introduction', 'tezos-basics/liquid-proof-of-stake', 'tezos-basics/governance-on-chain', 'tezos-basics/intro_to_operation', 'tezos-basics/economics_and_reward', 'tezos-basics/exam'],
     },
     {
       type: 'category',
