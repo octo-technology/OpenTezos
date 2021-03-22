@@ -13,7 +13,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Tezos Basics',
-      items: ['tezos-basics/governance_on-chain'],
+      items: ['tezos-basics/governance-on-chain'],
     },
     {
       type: 'category',
