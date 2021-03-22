@@ -4,10 +4,10 @@
   "isDocsHomePage": false,
   "title": "Introduction",
   "description": "Under construction.",
-  "source": "@site/docs/blockchain-basics/example.md",
+  "source": "@site/docs/blockchain-basics/introduction.md",
   "slug": "/blockchain-basics",
   "permalink": "/blockchain-basics",
-  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/blockchain-basics/example.md",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/blockchain-basics/introduction.md",
   "version": "current",
   "sidebar": "docs",
   "previous": {
@@ -15,7 +15,7 @@
     "permalink": "/paths"
   },
   "next": {
-    "title": "Consensus mechanism, Liquid-proof-of-stake",
-    "permalink": "/tezos-basics/liquid-proof-of-stake"
+    "title": "Exam",
+    "permalink": "/blockchain-basics/exam"
   }
 }

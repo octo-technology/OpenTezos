@@ -1,8 +1,6 @@
 ---
-id: introduction
-disable_pagination: true
-title: Introduction
-slug: /dapp
+id: flash_loans
+title: Flash Loans
 ---
 
 import NotificationBar from '../../src/components/docs/NotificationBar';

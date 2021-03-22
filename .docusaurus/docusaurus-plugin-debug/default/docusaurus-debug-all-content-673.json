@@ -37,6 +37,10 @@
                   {
                     "type": "doc",
                     "id": "blockchain-basics/introduction"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "blockchain-basics/exam"
                   }
                 ]
               },
@@ -48,6 +52,14 @@
                   {
                     "type": "doc",
                     "id": "tezos-basics/introduction"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "tezos-basics/liquid-proof-of-stake"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "tezos-basics/exam"
                   }
                 ]
               },
@@ -59,6 +71,10 @@
                   {
                     "type": "doc",
                     "id": "deploy-a-node/introduction"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "deploy-a-node/exam"
                   }
                 ]
               },
@@ -70,6 +86,10 @@
                   {
                     "type": "doc",
                     "id": "explorer/introduction"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "explorer/exam"
                   }
                 ]
               },
@@ -81,6 +101,10 @@
                   {
                     "type": "doc",
                     "id": "smartpy/introduction"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "smartpy/exam"
                   }
                 ]
               },
@@ -92,6 +116,10 @@
                   {
                     "type": "doc",
                     "id": "ligo/introduction"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "ligo/exam"
                   }
                 ]
               },
@@ -134,6 +162,10 @@
                   {
                     "type": "doc",
                     "id": "dapp/introduction"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "dapp/exam"
                   }
                 ]
               },
@@ -145,6 +177,10 @@
                   {
                     "type": "doc",
                     "id": "baking/introduction"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "baking/exam"
                   }
                 ]
               },
@@ -156,6 +192,10 @@
                   {
                     "type": "doc",
                     "id": "baker/introduction"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "baker/exam"
                   }
                 ]
               },
@@ -167,6 +207,34 @@
                   {
                     "type": "doc",
                     "id": "defi/introduction"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "defi/tokens"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "defi/stable_coins"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "defi/dex"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "defi/lending"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "defi/flash_loans"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "defi/synthetics"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "defi/exam"
                   }
                 ]
               },
@@ -178,6 +246,10 @@
                   {
                     "type": "doc",
                     "id": "formal-verification/introduction"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "formal-verification/exam"
                   }
                 ]
               },
@@ -189,6 +261,10 @@
                   {
                     "type": "doc",
                     "id": "private/introduction"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "private/exam"
                   }
                 ]
               },
@@ -200,21 +276,41 @@
                   {
                     "type": "doc",
                     "id": "contribute/introduction"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "contribute/exam"
                   }
                 ]
               }
             ]
           },
           "permalinkToSidebar": {
+            "/baker/exam": "docs",
             "/baker": "docs",
+            "/baking/exam": "docs",
             "/baking": "docs",
+            "/blockchain-basics/exam": "docs",
             "/blockchain-basics": "docs",
+            "/contribute/exam": "docs",
             "/contribute": "docs",
+            "/dapp/exam": "docs",
             "/dapp": "docs",
+            "/defi/dex": "docs",
+            "/defi/exam": "docs",
+            "/defi/flash_loans": "docs",
             "/defi": "docs",
+            "/defi/lending": "docs",
+            "/defi/stable_coins": "docs",
+            "/defi/synthetics": "docs",
+            "/defi/tokens": "docs",
+            "/deploy-a-node/exam": "docs",
             "/deploy-a-node": "docs",
+            "/explorer/exam": "docs",
             "/explorer": "docs",
+            "/formal-verification/exam": "docs",
             "/formal-verification": "docs",
+            "/ligo/exam": "docs",
             "/ligo": "docs",
             "/michelson/exam": "docs",
             "/michelson/examples": "docs",
@@ -222,23 +318,69 @@
             "/michelson/instructions": "docs",
             "/michelson": "docs",
             "/michelson/smart_contracts": "docs",
+            "/private/exam": "docs",
             "/private": "docs",
+            "/smartpy/exam": "docs",
             "/smartpy": "docs",
+            "/tezos-basics/exam": "docs",
             "/tezos-basics": "docs",
+            "/tezos-basics/liquid-proof-of-stake": "docs",
             "/": "docs",
             "/paths": "docs"
           },
           "docs": [
+            {
+              "unversionedId": "baker/exam",
+              "id": "baker/exam",
+              "isDocsHomePage": false,
+              "title": "Exam",
+              "description": "Question 1",
+              "source": "@site/docs/baker/exam.md",
+              "slug": "/baker/exam",
+              "permalink": "/baker/exam",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/baker/exam.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Introduction",
+                "permalink": "/baker"
+              },
+              "next": {
+                "title": "Introduction",
+                "permalink": "/defi"
+              }
+            },
             {
               "unversionedId": "baker/introduction",
               "id": "baker/introduction",
               "isDocsHomePage": false,
               "title": "Introduction",
               "description": "Under construction.",
-              "source": "@site/docs/baker/example.md",
+              "source": "@site/docs/baker/introduction.md",
               "slug": "/baker",
               "permalink": "/baker",
-              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/baker/example.md",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/baker/introduction.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Exam",
+                "permalink": "/baking/exam"
+              },
+              "next": {
+                "title": "Exam",
+                "permalink": "/baker/exam"
+              }
+            },
+            {
+              "unversionedId": "baking/exam",
+              "id": "baking/exam",
+              "isDocsHomePage": false,
+              "title": "Exam",
+              "description": "Question 1",
+              "source": "@site/docs/baking/exam.md",
+              "slug": "/baking/exam",
+              "permalink": "/baking/exam",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/baking/exam.md",
               "version": "current",
               "sidebar": "docs",
               "previous": {
@@ -247,7 +389,7 @@
               },
               "next": {
                 "title": "Introduction",
-                "permalink": "/defi"
+                "permalink": "/baker"
               }
             },
             {
@@ -256,19 +398,40 @@
               "isDocsHomePage": false,
               "title": "Introduction",
               "description": "Under construction.",
-              "source": "@site/docs/baking/example.md",
+              "source": "@site/docs/baking/introduction.md",
               "slug": "/baking",
               "permalink": "/baking",
-              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/baking/example.md",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/baking/introduction.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Exam",
+                "permalink": "/dapp/exam"
+              },
+              "next": {
+                "title": "Exam",
+                "permalink": "/baking/exam"
+              }
+            },
+            {
+              "unversionedId": "blockchain-basics/exam",
+              "id": "blockchain-basics/exam",
+              "isDocsHomePage": false,
+              "title": "Exam",
+              "description": "Question 1",
+              "source": "@site/docs/blockchain-basics/exam.md",
+              "slug": "/blockchain-basics/exam",
+              "permalink": "/blockchain-basics/exam",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/blockchain-basics/exam.md",
               "version": "current",
               "sidebar": "docs",
               "previous": {
                 "title": "Introduction",
-                "permalink": "/dapp"
+                "permalink": "/blockchain-basics"
               },
               "next": {
                 "title": "Introduction",
-                "permalink": "/baker"
+                "permalink": "/tezos-basics"
               }
             },
             {
@@ -277,10 +440,10 @@
               "isDocsHomePage": false,
               "title": "Introduction",
               "description": "Under construction.",
-              "source": "@site/docs/blockchain-basics/example.md",
+              "source": "@site/docs/blockchain-basics/introduction.md",
               "slug": "/blockchain-basics",
               "permalink": "/blockchain-basics",
-              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/blockchain-basics/example.md",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/blockchain-basics/introduction.md",
               "version": "current",
               "sidebar": "docs",
               "previous": {
@@ -288,8 +451,25 @@
                 "permalink": "/paths"
               },
               "next": {
+                "title": "Exam",
+                "permalink": "/blockchain-basics/exam"
+              }
+            },
+            {
+              "unversionedId": "contribute/exam",
+              "id": "contribute/exam",
+              "isDocsHomePage": false,
+              "title": "Exam",
+              "description": "Question 1",
+              "source": "@site/docs/contribute/exam.md",
+              "slug": "/contribute/exam",
+              "permalink": "/contribute/exam",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/contribute/exam.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
                 "title": "Introduction",
-                "permalink": "/tezos-basics"
+                "permalink": "/contribute"
               }
             },
             {
@@ -298,15 +478,40 @@
               "isDocsHomePage": false,
               "title": "Introduction",
               "description": "Under construction.",
-              "source": "@site/docs/contribute/example.md",
+              "source": "@site/docs/contribute/introduction.md",
               "slug": "/contribute",
               "permalink": "/contribute",
-              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/contribute/example.md",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/contribute/introduction.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Exam",
+                "permalink": "/private/exam"
+              },
+              "next": {
+                "title": "Exam",
+                "permalink": "/contribute/exam"
+              }
+            },
+            {
+              "unversionedId": "dapp/exam",
+              "id": "dapp/exam",
+              "isDocsHomePage": false,
+              "title": "Exam",
+              "description": "Question 1",
+              "source": "@site/docs/dapp/exam.md",
+              "slug": "/dapp/exam",
+              "permalink": "/dapp/exam",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/dapp/exam.md",
               "version": "current",
               "sidebar": "docs",
               "previous": {
                 "title": "Introduction",
-                "permalink": "/private"
+                "permalink": "/dapp"
+              },
+              "next": {
+                "title": "Introduction",
+                "permalink": "/baking"
               }
             },
             {
@@ -315,10 +520,10 @@
               "isDocsHomePage": false,
               "title": "Introduction",
               "description": "Under construction.",
-              "source": "@site/docs/dapp/example.md",
+              "source": "@site/docs/dapp/introduction.md",
               "slug": "/dapp",
               "permalink": "/dapp",
-              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/dapp/example.md",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/dapp/introduction.md",
               "version": "current",
               "sidebar": "docs",
               "previous": {
@@ -326,8 +531,71 @@
                 "permalink": "/michelson/exam"
               },
               "next": {
+                "title": "Exam",
+                "permalink": "/dapp/exam"
+              }
+            },
+            {
+              "unversionedId": "defi/dex",
+              "id": "defi/dex",
+              "isDocsHomePage": false,
+              "title": "Decentralized Exchanges",
+              "description": "An exchange is a marketplace where coins and tokens can be traded. The core function of an exchange is to ensure fair and orderly trading and the efficient dissemination of price information for any pair trading on that exchange. Exchanges give companies, traders, and just crypto-enthusiasts a platform from which to publicly sell and buy crypto-currencies.",
+              "source": "@site/docs/defi/dex.md",
+              "slug": "/defi/dex",
+              "permalink": "/defi/dex",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/dex.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Stable Coins",
+                "permalink": "/defi/stable_coins"
+              },
+              "next": {
+                "title": "Lending",
+                "permalink": "/defi/lending"
+              }
+            },
+            {
+              "unversionedId": "defi/exam",
+              "id": "defi/exam",
+              "isDocsHomePage": false,
+              "title": "Exam",
+              "description": "Under construction.",
+              "source": "@site/docs/defi/exam.md",
+              "slug": "/defi/exam",
+              "permalink": "/defi/exam",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/exam.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Synthetics",
+                "permalink": "/defi/synthetics"
+              },
+              "next": {
                 "title": "Introduction",
-                "permalink": "/baking"
+                "permalink": "/formal-verification"
+              }
+            },
+            {
+              "unversionedId": "defi/flash_loans",
+              "id": "defi/flash_loans",
+              "isDocsHomePage": false,
+              "title": "Flash Loans",
+              "description": "Under construction.",
+              "source": "@site/docs/defi/flash_loans.md",
+              "slug": "/defi/flash_loans",
+              "permalink": "/defi/flash_loans",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/flash_loans.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Lending",
+                "permalink": "/defi/lending"
+              },
+              "next": {
+                "title": "Synthetics",
+                "permalink": "/defi/synthetics"
               }
             },
             {
@@ -336,52 +604,115 @@
               "isDocsHomePage": false,
               "title": "Introduction",
               "description": "Under construction.",
-              "source": "@site/docs/defi/example.md",
+              "source": "@site/docs/defi/introdution.md",
               "slug": "/defi",
               "permalink": "/defi",
-              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/example.md",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/introdution.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Exam",
+                "permalink": "/baker/exam"
+              },
+              "next": {
+                "title": "Tokens - FA2 Standards",
+                "permalink": "/defi/tokens"
+              }
+            },
+            {
+              "unversionedId": "defi/lending",
+              "id": "defi/lending",
+              "isDocsHomePage": false,
+              "title": "Lending",
+              "description": "Under construction.",
+              "source": "@site/docs/defi/lending.md",
+              "slug": "/defi/lending",
+              "permalink": "/defi/lending",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/lending.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Decentralized Exchanges",
+                "permalink": "/defi/dex"
+              },
+              "next": {
+                "title": "Flash Loans",
+                "permalink": "/defi/flash_loans"
+              }
+            },
+            {
+              "unversionedId": "defi/stable_coins",
+              "id": "defi/stable_coins",
+              "isDocsHomePage": false,
+              "title": "Stable Coins",
+              "description": "Under construction.",
+              "source": "@site/docs/defi/stable_coins.md",
+              "slug": "/defi/stable_coins",
+              "permalink": "/defi/stable_coins",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/stable_coins.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Tokens - FA2 Standards",
+                "permalink": "/defi/tokens"
+              },
+              "next": {
+                "title": "Decentralized Exchanges",
+                "permalink": "/defi/dex"
+              }
+            },
+            {
+              "unversionedId": "defi/synthetics",
+              "id": "defi/synthetics",
+              "isDocsHomePage": false,
+              "title": "Synthetics",
+              "description": "Under construction.",
+              "source": "@site/docs/defi/synthetics.md",
+              "slug": "/defi/synthetics",
+              "permalink": "/defi/synthetics",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/synthetics.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Flash Loans",
+                "permalink": "/defi/flash_loans"
+              },
+              "next": {
+                "title": "Exam",
+                "permalink": "/defi/exam"
+              }
+            },
+            {
+              "unversionedId": "defi/tokens",
+              "id": "defi/tokens",
+              "isDocsHomePage": false,
+              "title": "Tokens - FA2 Standards",
+              "description": "Under construction.",
+              "source": "@site/docs/defi/tokens.md",
+              "slug": "/defi/tokens",
+              "permalink": "/defi/tokens",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/tokens.md",
               "version": "current",
               "sidebar": "docs",
               "previous": {
                 "title": "Introduction",
-                "permalink": "/baker"
+                "permalink": "/defi"
               },
               "next": {
-                "title": "Introduction",
-                "permalink": "/formal-verification"
+                "title": "Stable Coins",
+                "permalink": "/defi/stable_coins"
               }
             },
             {
-              "unversionedId": "deploy-a-node/introduction",
-              "id": "deploy-a-node/introduction",
+              "unversionedId": "deploy-a-node/exam",
+              "id": "deploy-a-node/exam",
               "isDocsHomePage": false,
-              "title": "Introduction",
-              "description": "Under construction.",
-              "source": "@site/docs/deploy-a-node/example.md",
-              "slug": "/deploy-a-node",
-              "permalink": "/deploy-a-node",
-              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/deploy-a-node/example.md",
-              "version": "current",
-              "sidebar": "docs",
-              "previous": {
-                "title": "Introduction",
-                "permalink": "/tezos-basics"
-              },
-              "next": {
-                "title": "Introduction",
-                "permalink": "/explorer"
-              }
-            },
-            {
-              "unversionedId": "explorer/introduction",
-              "id": "explorer/introduction",
-              "isDocsHomePage": false,
-              "title": "Introduction",
-              "description": "Under construction.",
-              "source": "@site/docs/explorer/example.md",
-              "slug": "/explorer",
-              "permalink": "/explorer",
-              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/explorer/example.md",
+              "title": "Exam",
+              "description": "Question 1",
+              "source": "@site/docs/deploy-a-node/exam.md",
+              "slug": "/deploy-a-node/exam",
+              "permalink": "/deploy-a-node/exam",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/deploy-a-node/exam.md",
               "version": "current",
               "sidebar": "docs",
               "previous": {
@@ -390,7 +721,91 @@
               },
               "next": {
                 "title": "Introduction",
+                "permalink": "/explorer"
+              }
+            },
+            {
+              "unversionedId": "deploy-a-node/introduction",
+              "id": "deploy-a-node/introduction",
+              "isDocsHomePage": false,
+              "title": "Introduction",
+              "description": "Under construction.",
+              "source": "@site/docs/deploy-a-node/introduction.md",
+              "slug": "/deploy-a-node",
+              "permalink": "/deploy-a-node",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/deploy-a-node/introduction.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Exam",
+                "permalink": "/tezos-basics/exam"
+              },
+              "next": {
+                "title": "Exam",
+                "permalink": "/deploy-a-node/exam"
+              }
+            },
+            {
+              "unversionedId": "explorer/exam",
+              "id": "explorer/exam",
+              "isDocsHomePage": false,
+              "title": "Exam",
+              "description": "Question 1",
+              "source": "@site/docs/explorer/exam.md",
+              "slug": "/explorer/exam",
+              "permalink": "/explorer/exam",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/explorer/exam.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Introduction",
+                "permalink": "/explorer"
+              },
+              "next": {
+                "title": "Introduction",
                 "permalink": "/smartpy"
+              }
+            },
+            {
+              "unversionedId": "explorer/introduction",
+              "id": "explorer/introduction",
+              "isDocsHomePage": false,
+              "title": "Introduction",
+              "description": "Under construction.",
+              "source": "@site/docs/explorer/introduction.md",
+              "slug": "/explorer",
+              "permalink": "/explorer",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/explorer/introduction.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Exam",
+                "permalink": "/deploy-a-node/exam"
+              },
+              "next": {
+                "title": "Exam",
+                "permalink": "/explorer/exam"
+              }
+            },
+            {
+              "unversionedId": "formal-verification/exam",
+              "id": "formal-verification/exam",
+              "isDocsHomePage": false,
+              "title": "Exam",
+              "description": "Question 1",
+              "source": "@site/docs/formal-verification/exam.md",
+              "slug": "/formal-verification/exam",
+              "permalink": "/formal-verification/exam",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/formal-verification/exam.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Introduction",
+                "permalink": "/formal-verification"
+              },
+              "next": {
+                "title": "Introduction",
+                "permalink": "/private"
               }
             },
             {
@@ -398,20 +813,41 @@
               "id": "formal-verification/introduction",
               "isDocsHomePage": false,
               "title": "Introduction",
-              "description": "Under construction.",
-              "source": "@site/docs/formal-verification/example.md",
+              "description": "The Tezos blockchain brings several improvements including the formal verification of smart contract.This section describes the overview of how Tezos smart contract can be formally verified.",
+              "source": "@site/docs/formal-verification/introduction.md",
               "slug": "/formal-verification",
               "permalink": "/formal-verification",
-              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/formal-verification/example.md",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/formal-verification/introduction.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Exam",
+                "permalink": "/defi/exam"
+              },
+              "next": {
+                "title": "Exam",
+                "permalink": "/formal-verification/exam"
+              }
+            },
+            {
+              "unversionedId": "ligo/exam",
+              "id": "ligo/exam",
+              "isDocsHomePage": false,
+              "title": "Exam",
+              "description": "Question 1",
+              "source": "@site/docs/ligo/exam.md",
+              "slug": "/ligo/exam",
+              "permalink": "/ligo/exam",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/exam.md",
               "version": "current",
               "sidebar": "docs",
               "previous": {
                 "title": "Introduction",
-                "permalink": "/defi"
+                "permalink": "/ligo"
               },
               "next": {
                 "title": "Introduction",
-                "permalink": "/private"
+                "permalink": "/michelson"
               }
             },
             {
@@ -420,19 +856,19 @@
               "isDocsHomePage": false,
               "title": "Introduction",
               "description": "Under construction.",
-              "source": "@site/docs/ligo/example.md",
+              "source": "@site/docs/ligo/introduction.md",
               "slug": "/ligo",
               "permalink": "/ligo",
-              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/example.md",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/introduction.md",
               "version": "current",
               "sidebar": "docs",
               "previous": {
-                "title": "Introduction",
-                "permalink": "/smartpy"
+                "title": "Exam",
+                "permalink": "/smartpy/exam"
               },
               "next": {
-                "title": "Introduction",
-                "permalink": "/michelson"
+                "title": "Exam",
+                "permalink": "/ligo/exam"
               }
             },
             {
@@ -532,8 +968,8 @@
               "version": "current",
               "sidebar": "docs",
               "previous": {
-                "title": "Introduction",
-                "permalink": "/ligo"
+                "title": "Exam",
+                "permalink": "/ligo/exam"
               },
               "next": {
                 "title": "Language fundamentals",
@@ -562,24 +998,66 @@
               }
             },
             {
+              "unversionedId": "private/exam",
+              "id": "private/exam",
+              "isDocsHomePage": false,
+              "title": "Exam",
+              "description": "Question 1",
+              "source": "@site/docs/private/exam.md",
+              "slug": "/private/exam",
+              "permalink": "/private/exam",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/private/exam.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Introduction",
+                "permalink": "/private"
+              },
+              "next": {
+                "title": "Introduction",
+                "permalink": "/contribute"
+              }
+            },
+            {
               "unversionedId": "private/introduction",
               "id": "private/introduction",
               "isDocsHomePage": false,
               "title": "Introduction",
               "description": "Under construction.",
-              "source": "@site/docs/private/example.md",
+              "source": "@site/docs/private/introduction.md",
               "slug": "/private",
               "permalink": "/private",
-              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/private/example.md",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/private/introduction.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Exam",
+                "permalink": "/formal-verification/exam"
+              },
+              "next": {
+                "title": "Exam",
+                "permalink": "/private/exam"
+              }
+            },
+            {
+              "unversionedId": "smartpy/exam",
+              "id": "smartpy/exam",
+              "isDocsHomePage": false,
+              "title": "Exam",
+              "description": "Question 1",
+              "source": "@site/docs/smartpy/exam.md",
+              "slug": "/smartpy/exam",
+              "permalink": "/smartpy/exam",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/smartpy/exam.md",
               "version": "current",
               "sidebar": "docs",
               "previous": {
                 "title": "Introduction",
-                "permalink": "/formal-verification"
+                "permalink": "/smartpy"
               },
               "next": {
                 "title": "Introduction",
-                "permalink": "/contribute"
+                "permalink": "/ligo"
               }
             },
             {
@@ -588,19 +1066,40 @@
               "isDocsHomePage": false,
               "title": "Introduction",
               "description": "Under construction.",
-              "source": "@site/docs/smartpy/example.md",
+              "source": "@site/docs/smartpy/introduction.md",
               "slug": "/smartpy",
               "permalink": "/smartpy",
-              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/smartpy/example.md",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/smartpy/introduction.md",
               "version": "current",
               "sidebar": "docs",
               "previous": {
-                "title": "Introduction",
-                "permalink": "/explorer"
+                "title": "Exam",
+                "permalink": "/explorer/exam"
+              },
+              "next": {
+                "title": "Exam",
+                "permalink": "/smartpy/exam"
+              }
+            },
+            {
+              "unversionedId": "tezos-basics/exam",
+              "id": "tezos-basics/exam",
+              "isDocsHomePage": false,
+              "title": "Exam",
+              "description": "Question 1",
+              "source": "@site/docs/tezos-basics/exam.md",
+              "slug": "/tezos-basics/exam",
+              "permalink": "/tezos-basics/exam",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/exam.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Liquid Proof-of-Stake",
+                "permalink": "/tezos-basics/liquid-proof-of-stake"
               },
               "next": {
                 "title": "Introduction",
-                "permalink": "/ligo"
+                "permalink": "/deploy-a-node"
               }
             },
             {
@@ -609,20 +1108,53 @@
               "isDocsHomePage": false,
               "title": "Introduction",
               "description": "Under construction.",
-              "source": "@site/docs/tezos-basics/example.md",
+              "source": "@site/docs/tezos-basics/introduction.md",
               "slug": "/tezos-basics",
               "permalink": "/tezos-basics",
-              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/example.md",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/introduction.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Exam",
+                "permalink": "/blockchain-basics/exam"
+              },
+              "next": {
+                "title": "Liquid Proof-of-Stake",
+                "permalink": "/tezos-basics/liquid-proof-of-stake"
+              }
+            },
+            {
+              "unversionedId": "tezos-basics/liquid-proof-of-stake",
+              "id": "tezos-basics/liquid-proof-of-stake",
+              "isDocsHomePage": false,
+              "title": "Liquid Proof-of-Stake",
+              "description": "Intro",
+              "source": "@site/docs/tezos-basics/liquid-proof-of-stake.md",
+              "slug": "/tezos-basics/liquid-proof-of-stake",
+              "permalink": "/tezos-basics/liquid-proof-of-stake",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/liquid-proof-of-stake.md",
               "version": "current",
               "sidebar": "docs",
               "previous": {
                 "title": "Introduction",
-                "permalink": "/blockchain-basics"
+                "permalink": "/tezos-basics"
               },
               "next": {
-                "title": "Introduction",
-                "permalink": "/deploy-a-node"
+                "title": "Exam",
+                "permalink": "/tezos-basics/exam"
               }
+            },
+            {
+              "unversionedId": "tezos-basics/transactions",
+              "id": "tezos-basics/transactions",
+              "isDocsHomePage": false,
+              "title": "transactions",
+              "description": "Tezos basics Introduction to Smart contracts (WIP)",
+              "source": "@site/docs/tezos-basics/transactions.md",
+              "slug": "/tezos-basics/transactions",
+              "permalink": "/tezos-basics/transactions",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/transactions.md",
+              "version": "current"
             },
             {
               "unversionedId": "welcome/modules",
