@@ -65,8 +65,6 @@ The implementation of a smart contract must specify its:
 
 ### Code of the smart contrat
 
-Code is law.
-
 The code of the smart contract is a sequence of Michelson instructions which is executed when the smart contract is invoked. 
 This sequence of instructions is defined at deployment phase (called **origination**) and cannot be changed afterwards. 
 
@@ -80,8 +78,6 @@ The full description of the language Michelson is detailed in the Michelson modu
 During the origination (deployment phase), a persistent memory space (called **storage**) is allocated to the smart contract. The initial state of the storage must be specified during the origination of the smart contract.
 
 The storage can be changed by invoking the smart contract which will apply its sequence of instructions.
-
-The storage can be seen as the result of all modifications (from the initial storage state to now). 
 
 One can use the CLI provided by tezos to inspect the storage state of a smart contract. The only required parameter is the address of the smart contract.
 
