@@ -2,7 +2,7 @@
 id: introduction
 disable_pagination: true
 title: Introduction
-slug: /formal-verification
+slug: /baking
 ---
 
 import NotificationBar from '../../src/components/docs/NotificationBar';

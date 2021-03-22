@@ -1,0 +1,21 @@
+{
+  "unversionedId": "defi/exam",
+  "id": "defi/exam",
+  "isDocsHomePage": false,
+  "title": "Exam",
+  "description": "Under construction.",
+  "source": "@site/docs/defi/exam.md",
+  "slug": "/defi/exam",
+  "permalink": "/defi/exam",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/exam.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Synthetics",
+    "permalink": "/defi/synthetics"
+  },
+  "next": {
+    "title": "Introduction",
+    "permalink": "/formal-verification"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "unversionedId": "private/exam",
+  "id": "private/exam",
+  "isDocsHomePage": false,
+  "title": "Exam",
+  "description": "Question 1",
+  "source": "@site/docs/private/exam.md",
+  "slug": "/private/exam",
+  "permalink": "/private/exam",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/private/exam.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Introduction",
+    "permalink": "/private"
+  },
+  "next": {
+    "title": "Introduction",
+    "permalink": "/contribute"
+  }
+}

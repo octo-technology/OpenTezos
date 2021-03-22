@@ -1,0 +1,21 @@
+{
+  "unversionedId": "defi/flash_loans",
+  "id": "defi/flash_loans",
+  "isDocsHomePage": false,
+  "title": "Flash Loans",
+  "description": "Under construction.",
+  "source": "@site/docs/defi/flash_loans.md",
+  "slug": "/defi/flash_loans",
+  "permalink": "/defi/flash_loans",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/flash_loans.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Lending",
+    "permalink": "/defi/lending"
+  },
+  "next": {
+    "title": "Synthetics",
+    "permalink": "/defi/synthetics"
+  }
+}

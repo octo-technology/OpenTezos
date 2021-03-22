@@ -335,7 +335,7 @@ The `OR` instruction requires boolean elements.
 
 #### AND
 
-The `AND` instruction consumes the two top elements of the stack and computes a logical _AND_ of the two elements.
+The `AND` instruction consumes the top two elements of the stack and computes a logical _AND_ of the two elements.
 
 ![](../../static/img/michelson/michelson_instruction_and_example.svg)
 <small className="figure">FIGURE 14: Illustration of the `AND` instruction</small>
@@ -344,7 +344,7 @@ The `AND` instruction requires boolean elements.
 
 #### XOR
 
-The `XOR` instruction consumes the two top elements of the stack and computes an exclusive logical OR of the two elements.
+The `XOR` instruction consumes the top two elements of the stack and computes an exclusive logical _OR_ of the two elements.
 
 ![](../../static/img/michelson/michelson_instruction_xor_example.svg)
 <small className="figure">FIGURE 15: Illustration of the `XOR` instruction</small>
@@ -353,29 +353,29 @@ The `XOR` instruction requires boolean elements.
 
 #### NOT
 
-The `NOT` instruction consumes a boolean top element of the stack and push the logical inverse of the given boolean.  
+The `NOT` instruction consumes a boolean top element of the stack and pushes the logical inverse of the given boolean.  
 
 ### Operations on numbers
 
 #### ADD
 
-The `ADD` instruction computes additions on nat, int and mutez.
+The `ADD` instruction computes additions on _nat_, _int_ and _mutez_.
 
 ![](../../static/img/michelson/michelson_instruction_add_example.svg)
 <small className="figure">FIGURE 16: Illustration of the `ADD` instruction</small>
 
 #### SUB
 
-The `SUB` instruction computes subtractions on nat, int and mutez.
+The `SUB` instruction computes subtractions on _nat_, _int_ and _mutez_.
 
-Notice that subtraction of two natural integers produces an integer.
+Notice that the subtraction of two natural integers produces an integer.
 
 ![](../../static/img/michelson/michelson_instruction_sub_example.svg)
 <small className="figure">FIGURE 17: Illustration of the `SUB` instruction</small>
 
 #### MUL
 
-The `MUL` instruction computes multiplications on nat and int.
+The `MUL` instruction computes multiplications on _nat_ and _int_.
 
 ```js
 MUL / x : y : S  =>  (x * y) : S
@@ -388,11 +388,11 @@ Notice that the multiplication of two natural integers produces a natural intege
 
 #### EDIV
 
-The `EDIV` instruction computes divisions on nat and mutez.
+The `EDIV` instruction computes divisions on _nat_ and _mutez_.
 
-If the divisor is equal to zero then it returns an optional type with an assigned value None. Otherwise it apply the Euclidean division and return a optional type with value (Pair quotient remainder)
-
-The michelson grammar defines `EDIV` as:
+If the divisor is equal to zero, then it returns an optional type with the assigned value _None_. Otherwise, it applies the Euclidean division and returns an optional type with value (Pair quotient remainder)
+//todo: with what value? with a/any value ? 
+Michelson grammar defines `EDIV` as:
 
 ```js
 EDIV / x : 0 : S  =>  None
@@ -405,13 +405,13 @@ EDIV / x : y : S  =>  Some (Pair (x / y) (x % y)) : S
 
 ### Operations on strings
 
-Strings are mostly used for naming things without having to rely on external ID databases. They are restricted to the printable subset of 7-bit ASCII, plus some escaped characters (see section on constants). We can use string constants as is, concatenate or splice them, and use them as keys.
+Strings are mostly used for naming things without having to rely on external ID databases. They are restricted to the printable subset of 7-bit ASCII, plus some escaped characters (see the section on constants). We can use string constants as is, concatenate or splice them, and also use them as keys.
 
 #### CONCAT
 
-The `CONCAT` instruction concatenates strings. It consumes the top element and produces a string (concatenation of the top element and the given string parameter) placed at top of the stack.
+The `CONCAT` instruction concatenates strings. It consumes the top element and produces a string (concatenation of the top element and the given string parameter) that is placed at the top of the stack.
 
-It takes one parameter which can be a single string or a list of strings. 
+It takes one parameter which can be either a single string or a list of strings. 
 
 ```js
 CONCAT / s : t : S  =>  (s ^ t) : S
@@ -424,7 +424,7 @@ CONCAT / { s ; <ss> } : S  =>  (s ^ r) : S
 #### SIZE
 
 The `SIZE` instruction consumes a string of the top of the stack and pushes the number of characters contained by the string element.
-
+//todo: contained 'in' ??
 #### SLICE
 
 The `SLICE` instruction provides a way to retrieve a part of a string.
@@ -448,7 +448,7 @@ SLICE / offset : length : s : S  =>  None  : S
 
 #### COMPARE with strings
 
-The `COMPARE` instruction allows to compare two strings. It consumes the top two elements of the stack and pushes an integer on top. If the first element is lexically greater than the second then, it returns 1. If the first element is lexically equal to the second element, then it returns 0. If the first element is lexically smaller than the second element, then it returns -1.
+The `COMPARE` instruction allows two strings to be comapared. It consumes the top two elements of the stack and pushes an integer to the top. If the first element is lexically greater than the second, then it returns 1. If the first element is lexically equal to the second element, then it returns 0. If the first element is lexically smaller than the second element, then it returns -1.
 
 ```js
 COMPARE / s : t : S  =>  -1 : S
@@ -463,7 +463,7 @@ COMPARE / s : t : S  =>  1 : S
 
 #### PAIR
 
-The PAIR instruction consumes the top two elements of the stack and creates a pair with these two elements.
+The `PAIR` instruction consumes the top two elements of the stack and creates a pair with these two elements.
 
 ```js
 PAIR / a : b : S  =>  (Pair a b) : S
@@ -474,7 +474,7 @@ PAIR / a : b : S  =>  (Pair a b) : S
 
 #### CAR
 
-The CAR instruction consumes the top element of the stack (which must be a `PAIR`) and pushes on top the left part of the pair.
+The `CAR` instruction consumes the top element of the stack (which must be a `PAIR`) and pushes to the top the left part of the pair.
 
 ```js
 CAR / (Pair a _) : S  =>  a : S
@@ -485,7 +485,7 @@ CAR / (Pair a _) : S  =>  a : S
 
 #### CDR
 
-The `CDR` instruction consumes the top element of the stack (which must be a `PAIR`) and pushes on top element the right part of the pair.
+The `CDR` instruction consumes the top element of the stack (which must be a `PAIR`) and pushes to the top the right part of the pair.
 
 ```js
 CDR / (Pair _ b) : S  =>  b : S
@@ -512,7 +512,7 @@ The `COMPARE` instruction executes the comparison on both (left and right) part 
 
 ### Operations on sets
 
-The `SET` data structure is an ordered list of elements. Therefore a value in a set can only appear just once.
+The `SET` data structure is an ordered list of elements. Therefore a value in a set can appear only once.
 
 #### EMPTY_SET 'elt
 
@@ -596,9 +596,9 @@ tezos-client run script set_example.tz on storage '{1;2;3; 9}' and input '7'
 
 #### ITER body
 
-The `ITER` instruction takes a sequence of instructions (called body) as parameter.
+The `ITER` instruction takes a sequence of instructions (called "body") as the parameter.
 
-The `ITER` instruction applies a given sequence of instructions to each element of a set. The body sequence has access to the stack.
+The `ITER` instruction applies a given sequence of instructions to each element of a set. The "body" sequence has access to the stack.
 
 ```js
 ITER body / {} : S  =>  S
@@ -608,13 +608,13 @@ ITER body / { hd ; <tl> } : S  =>  ITER body / { <tl> } : S'
 
 #### SIZE
 
-The `SIZE` instruction consumes a set from the top of the stack and pushes on top the number of elements contained in the set.
+The `SIZE` instruction consumes a set from the top of the stack and pushes to the top the number of elements contained in the set.
 
 ### Operations on optional values
 
-An optional value is a data structure that can hold a value (of a given type). The optional value have two states: it is defined as `NONE` if no value is assigned and can be defined as `SOME` if a value has been assigned.
+An optional value is a data structure that can hold a value (of a given type). The optional value has two states: it is defined as `NONE` if no value is assigned and can be defined as `SOME` if a value has been assigned.
 
-When defining an optional value the type of value must be specified.
+When defining an optional value, the type of value must be specified.
 
 #### SOME
 
@@ -626,7 +626,7 @@ SOME / v : S  =>  (Some v) : S
 
 #### NONE
 
-The `NONE` instruction specifies the absence of value. It requires to specify the type of value that can be held.
+The `NONE` instruction specifies the absence of value. It requires that the type of value that can be held be specified.
 
 ```js
 NONE / S  =>  None : S
@@ -635,7 +635,7 @@ NONE / S  =>  None : S
 #### IF_NONE
 
 The `IF_NONE bt bf` instruction inspects an optional value.
-It requires two sequences of instructions like for an `IF` instruction.
+It requires two sequences of instructions, as with an `IF` instruction.
 It executes the first sequence if the optional value has no value assigned, otherwise it executes the second sequence of instructions (where a value has been assigned with a `SOME` instruction).
 
 ```js
@@ -651,15 +651,15 @@ IF_NONE bt bf / (Some a) : S  =>  bf / a : S
 
 ### Operations on maps/big_maps
 
-A `map` is an associative array. It stores many pairs of key-value elements, i.e. it binds a key and a value. The type definition of key and value must be defined when instantiating a new `map`.
+A `map` is an associative array. It stores many pairs of key-value elements, i.e. it binds a key and a value. Key and value type must be defined when instantiating a new `map`.
 
-The `map` data structure can contain a limited amount of data. When using big and complex type as value, it is recommended to use the `big_map` data structure.
+The `map` data structure can only contain a limited amount of data. When using big and complex types as values, it is recommended to use the `big_map` data structure.
 
 #### EMPTY_MAP 'key 'val and EMPTY_BIG_MAP 'key 'val
 
-The `EMPTY_MAP` instruction builds a new empty map. It requires the type definition of the key ('key) and type definition of the value ('val).
+The `EMPTY_MAP` instruction builds a new empty map. It requires the type definition of the key (_'key_) and type definition of the value (_'val_).
 
-The 'key type must be comparable (the COMPARE primitive must be defined over it).
+The _'key_ type must be comparable (the COMPARE primitive must be defined over it).
 
 ```js
 EMPTY_MAP _ _ / S  =>  {} : S
@@ -670,8 +670,8 @@ The `EMPTY_BIG_MAP` instruction builds a new empty `big_map` data structure.
 #### MEM
 
 The `MEM` instruction checks for the presence of a binding for a key in a map.
-
-It takes a key as parameter and returns a boolean on top of the stack.
+//todo: checks for the presence of a binder or checks for the presence of binding? Can there be more than one?
+It takes a key as the parameter and returns a boolean to the top of the stack.
 
 ```js
 MEM / x : {} : S  =>  false : S
@@ -706,7 +706,7 @@ It takes a key and an optional value as parameters.
     iff COMPARE / x : k : []  =>  -1 : []
 ```
 
-If the optional value is defined as `None` then the element is removed from the map. The following smart contract (map_remove_example.tz) illustrates the `UPDATE` usage while removing an element from the map.
+If the optional value is defined as `None`, then the element is removed from the map. The following smart contract (map_remove_example.tz) illustrates the `UPDATE` usage while removing an element from the map.
 
 ```js
 parameter string ;
@@ -728,7 +728,7 @@ tezos-client run script map_remove_example.tz on storage '{ Elt "toto" 1 }' and 
 ![](../../static/img/michelson/michelson_instruction_mapremove_example.svg)
 <small className="figure">FIGURE 27: Illustration of the `UPDATE` instruction</small>
 
-If the optional value is defined as `Some` then the element is insert into the map.The following smart contract (map_insert_example.tz) illustrates the `UPDATE` usage while inserting an element into the map.
+If the optional value is defined as `Some` then the element is insert into the map. The following smart contract (map_insert_example.tz) illustrates the `UPDATE` usage while inserting an element into the map.
 
 ```js
 parameter string ;
@@ -753,7 +753,7 @@ tezos-client run script map_insert_example.tz on storage '{ Elt "toto" 1 }' and 
 
 #### GET
 
-The `GET` instruction allows to access an element in a map. It returns an optional value to be checked with an `IF_SOME` instruction.
+The `GET` instruction allows an element in a map to be accessed. It returns an optional value to be checked with an `IF_SOME` instruction.
 
 ```js
 GET / x : { Elt k v ; <tl> } : S  =>  opt_y : S
@@ -765,7 +765,7 @@ GET / x : { Elt k v ; <tl> } : S  =>  None : S
     iff COMPARE / x : k : []  =>  -1 : []
 ```
 
-The following smart contract illustrates the usage of `GET`. The contract takes a key as parameter and inserts a new element in the map if the key does not exist. It assigns value 0 to the given key. If the element for the given key exists in the map then it increments its associated value.
+The following smart contract illustrates the usage of `GET`. The contract takes a key as the parameter and inserts a new element in the map if the key does not exist. It assigns value 0 to the given key. If the element for the given key exists in the map, then it increments its associated value.
 
 ```js
 parameter string ;
@@ -798,7 +798,7 @@ Notice that `{}` represents an empty map and `{ Elt "toto" 5 }` a map containing
 
 #### MAP body
 
-The `MAP` instruction applies a sequence of instructions to each element of a map. It takes a sequence of instructions as parameter (called "body"). This "body" sequence has access to the stack.
+The `MAP` instruction applies a sequence of instructions to each element of a map. It takes a sequence of instructions as the parameter (called "body"). This "body" sequence has access to the stack.
 
 ```js
 MAP body / {} : S  =>  {} : S
@@ -827,7 +827,7 @@ tezos-client run script map_map_example.tz on storage '{ Elt "toto" 1 ; Elt "tut
 
 #### ITER body
 
-The `ITER` instruction applies a sequence of instructions (called body) to each element of a map. The body sequence has access to the stack.
+The `ITER` instruction applies a sequence of instructions (called "body") to each element of a map. The "body" sequence has access to the stack.
 
 ```js
 ITER body / {} : S  =>  S
@@ -835,11 +835,11 @@ ITER body / { Elt k v ; <tl> } : S  =>  ITER body / { <tl> } : S'
    iff body / (Pair k v) : S  =>  S'
 ```
 
-An example ("Max list") illustrating `ITER` instruction usage is described in the _Examples_ section. Despite being applied on a list of integers, the `ITER` instruction works in the same way with a map (except at each iteration a _pair_ key-value is pushed on the stack instead of a integer as in the example "Max list").
+An example ("Max list") illustrating `ITER` instruction usage is described in the _Examples_ section. Despite being applied to a list of integers, the `ITER` instruction works in the same way with a map (except at each iteration a _pair_ key-value is pushed on the stack instead of an integer, as in the example "Max list").
 
 #### SIZE
 
-The `SIZE` instruction computes the number of element inside a map.
+The `SIZE` instruction computes the number of elements inside a map.
 
 It consumes a map on top of the stack and places the number of elements on top of the stack.
 
@@ -1558,9 +1558,9 @@ MAP_CD(\rest=[AD]+)R code / S   =>
 
 ### Annotations
 
-The annotation mechanism of Michelson provides ways to better track data on the stack and to give additional type constraints. Annotations are only here to add constraints, i.e. they cannot turn an otherwise rejected program into an accepted one. The notable exception to this rule is for entry points: the semantics of the `CONTRACT` and `SELF` instructions varies depending on their constructor annotations, and some contract origination may fail due to invalid entry point constructor annotations.
+Michelson's annotation mechanism provides ways to better track data on the stack and to give additional type constraints. Annotations are only here to add constraints, i.e. they cannot turn an otherwise rejected program into an accepted one. The notable exception to this rule is for entry points: the semantics of the `CONTRACT` and `SELF` instructions varies depending on their constructor annotations, and some contract origination may fail due to invalid entry point constructor annotations.
 
-Stack visualization tools like the Michelson’s Emacs mode print annotations associated with each type in the program, as propagated by the type checker as well as variable annotations on the types of the elements in the stack. This is especially useful for debugging.
+Stack visualization tools like the Michelson Emacs mode print annotations associated with each type in the program, as propagated by the type checker as well as variable annotations on the types of the elements in the stack. This is especially useful for debugging.
 
 We distinguish three kinds of annotations:
 
