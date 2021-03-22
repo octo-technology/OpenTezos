@@ -3,14 +3,15 @@ id: introduction
 title: Introduction
 slug: /ligo
 ---
+//TODO(Remove imports)
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The goal of this module is to allow a developer to install LIGO on his operating system 
-and give him the essentials to write and deploy his first smart contract 
+The goal of this module is to allow a developer to install LIGO transpiler on his operating system 
+and give him TODO(the essentials) to write and deploy his first smart contract 
 on the Tezos blockchain.
 
-It will include the basics of LIGO languages, 
+It will include the basics of LIGO //TODO(languages), 
 inspired by the [official documentation](https://ligolang.org/docs/language-basics/types), 
 as well as detailed smart contract examples. 
 You will also be offered an exam to check your knowledge.
@@ -27,12 +28,17 @@ The diagram helps to contextualize the role of LIGO in the Tezos ecosystem.
 LIGO takes action in the left part as a development tool allowing
 the production of smart contracts (scripts in Michelson),
 which can be deployed on the blockchain.
-At the top, the Tezos network disseminates information through the nodes
+At the top, the Tezos network information through the nodes
 in order to maintain an immutable common ledger (blockchain).
 
-By default, Tezos smart contracts are written in [Michelson](https://opentezos.com/michelson), 
-but it is hard to learn low level formal language. 
+//TODO (replace previous sentence by "At the top, Tezos nodes broadcast information through the Tezos network in order to maintain an immutable common ledger (blockchain).")
+
+
+
+By default, Tezos smart contracts are written in [Michelson](https://opentezos.com/michelson), but it is hard to learn low level //TODO(replace formal by stack-based) language. 
+
 LIGO's syntax is **high level and transpiles to Michelson**.
+//TODO(replace previous sentence by "LIGO transpiles scripts  written high-level **LIGO** syntax into a Michelson script.")
 
 LIGO currently offers three syntaxes:
 
@@ -41,7 +47,9 @@ LIGO currently offers three syntaxes:
 - **CameLIGO**, an [OCaml](https://ocaml.org/) inspired syntax that allows you to write in a functional style.
 
 - **ReasonLIGO**, a [ReasonML](https://reasonml.github.io/) inspired syntax that builds on the strong points of OCaml. It aims to be familiar to those coming from JavaScript.
-  
+
+//TODO(here is an example of Counter contract that handle a single integer "counter" value as storage and allows users to increment decrement or reset this counter.)
+
 <Tabs
   defaultValue="pascaligo"
   values={[
