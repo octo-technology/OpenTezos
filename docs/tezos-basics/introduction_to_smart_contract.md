@@ -70,7 +70,7 @@ This sequence of instructions is defined at deployment phase (called **originati
 
 The execution of this sequence of instructions results in a modification of the storage state. The sequence of instructions defines how the storage is modified.
 
-The full description of the language Michelson is detailed in the Michelson module.
+The full description of the language Michelson is detailed in the [Michelson module](https://opentezos.com/michelson).
 
 
 ### The storage of the smart contract
@@ -82,7 +82,7 @@ The storage can be changed by invoking the smart contract which will apply its s
 One can use the CLI provided by tezos to inspect the storage state of a smart contract. The only required parameter is the address of the smart contract.
 
 The growth of the storage (i.e; memory allocation of extra space) is paid as fees when the smart contract is invoked.
-For more details see section [Fees and Reward]
+For more details see section [Fees and Reward](https://opentezos.com/tezos-basics/economics_and_reward)
 
 ### Invocation of the smart contract
 
