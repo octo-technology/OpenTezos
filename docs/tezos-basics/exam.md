@@ -42,7 +42,7 @@ On which elements are calculated a transaction Fee?
 - [ ] It is free if you are a baker
 
 ### Question 5
-In which way can the XTZ be created?  //TODO( What kind of operations is responsible for creating XTZ ?)
+What kind of operations is responsible for creating XTZ?
 
 - [ ] Run a node
 - [X] Baking
@@ -66,26 +66,32 @@ What are the two metrics required to validate the exploration period and the pro
 - [ ] Participation rate
 - [x] Quorum 
 
-### Question 8 //TODO(only 2 possible choice !!! it is a 50-50 chance ... it is almost impossible to fail this question)
+### Question 8
 
 Implicit account is:
 
-- [X] An account which can make transaction, can be registered as delegates and participate in the baking 
 - [ ] A smart contract, it can run the Michelson code each time they receive an operation.
+- [X] An account which can make transaction, can be registered as delegates and participate in the baking 
+- [ ] An account unused 
 
 
-### Question 9 //TODO(only 2 possible choice !!!)
+### Question 9
 
-Implicit account address start with:
+Implicit account address can start with:
 
-- [X] tz1,tz2 or tz3 
+- [ ] XTZ
 - [ ] KT1
-- [ ] kt1
+- [ ] KT2
+- [X] TZ1
+- [X] TZ2
+- [X] TZ3
 - [ ] TZ1
+- [ ] TZ2
+- [ ] TZ3
 
 ### Question 10
 
-If we want to update tezos network //TODO(not crystal clear ... do you mean update the protocol ?) we need to:
+If we want to update tezos protocol, we need to:
 
 - [ ] Realize a hard fork and hope that the network will follow us
 - [ ] Create a new Blockchain
