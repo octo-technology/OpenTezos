@@ -66,14 +66,6 @@ What are the two metrics required to validate the exploration period and the pro
 - [ ] Participation rate
 - [x] Quorum 
 
-### Question 8 //TODO (remove)
-
-What are the two metrics required to validate the exploration period and the promotion period ?
-
-- [x] Supermajority
-- [ ] Participation rate
-- [x] Quorum 
-
 ### Question 8 //TODO(only 2 possible choice !!! it is a 50-50 chance ... it is almost impossible to fail this question)
 
 Implicit account is:
