@@ -65,7 +65,6 @@ The implementation of a smart contract must specify its:
 
 ### Code of the smart contrat
 
-//TODO
 Code is law.
 
 The code of the smart contract is a sequence of Michelson instructions which is executed when the smart contract is invoked. 
@@ -82,7 +81,6 @@ During the origination (deployment phase), a persistent memory space (called **s
 
 The storage can be changed by invoking the smart contract which will apply its sequence of instructions.
 
-//TODO (keep ?)
 The storage can be seen as the result of all modifications (from the initial storage state to now). 
 
 One can use the CLI provided by tezos to inspect the storage state of a smart contract. The only required parameter is the address of the smart contract.
