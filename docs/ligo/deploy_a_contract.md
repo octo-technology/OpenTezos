@@ -45,8 +45,12 @@ Michelson smart contract are stored in a file with .tz extension.
 Here is how to transform LIGO code into Michelson code using the LIGO compiler in command line.
 
 ```shell
-ligo compile-contract SOURCE_LIGO_FILE ENTRY_POINT
+ligo compile-contract SOURCE_LIGO_FILE MAIN_FUNCTION
 ```
+
+Where:
+- **SOURCE_LIGO_FILE** is the path of your LIGO file containing the main function.
+- **MAIN_FUNCTION** is the name of your main function.
 
 > You can store the michelson output of the above command in .tz file 
 > in order to use it later when deploying the contract:
@@ -56,7 +60,7 @@ ligo compile-contract SOURCE_LIGO_FILE ENTRY_POINT
 
 ## Defining the initial storage
 
-The output of the following command can be used to init the initial_storage 
+The output of the following command can be used to init the storage 
 when deploying the contract.
 
 ```shell
@@ -64,8 +68,6 @@ ligo compile-storage SOURCE_LIGO_FILE MAIN_FUNCTION 'STORAGE_STATE'
 ```
 
 Where:
-- **SOURCE_LIGO_FILE** is the path of your LIGO file containing the main function.
-- **MAIN_FUNCTION** is the name of your main function.
 - **STORAGE_STATE** is a LIGO expression to defining the state of the storage.
 
 ## Invoking the contract with a parameter
@@ -92,6 +94,91 @@ ligo dry-run [options] SOURCE_LIGO_FILE MAIN_FUNCTION 'ENTRY_POINT(P)' 'STORAGE_
 - **STORAGE_STATE** state of the storage when simulating the execution of the entry point
 - **ENTRY_POINT(P)** entrypoint of the smart contract that is invoked 
   (parameter p of this entry point is specified between parentheses).
+  
+## Some specificities for Maps, Tuples and Records
+
+Consider the following LIGO code snippet for the storage definition
+
+```js
+//starmap.ligo
+type coordinates is ( int * int * int)
+type storage is map (string, coordinates)
+
+[...]
+```
+
+### Maps
+
+Initialization of elements of a map is specified between map `[` and `]` 
+and elements separated by semi-colon `;`.   
+Each element is a key/value pair separated by `->` and follow the syntax:
+
+```
+map[ KEY1 -> VALUE1; KEY2 -> VALUE2 ]
+```
+
+### Tuples
+
+Initialization of elements of a tuple is specified between `(` and `)` separated by comma `,` .
+
+```
+(VALUE1, VALUE2, VALUE3)
+```
+
+Here is an example of a command line `ligo compile-storage` for transpiling a map containing a tuple.
+
+```shell
+ligo compile-storage starmap.ligo main 'map [ "earth" -> (1,1,1) ]'
+```
+
+This command returns:
+
+```shell
+{ Elt "earth" (Pair (Pair 1 1) 1) }
+```
+
+When specifying an empty map, one must cast the map [] into the expected type.
+
+```shell
+ligo compile-storage starmap.ligo main '(map []: map(string,coordinates))'
+```
+
+### Records
+
+Initialization of elements of a record is specified between map `[` and `]`
+and elements separated by semi-colon `;`.  
+Each element is a key/value pair separated by `=` and follow the syntax:
+
+```
+record[ KEY1 = VALUE1; KEY2 = VALUE2 ]
+```
+
+If we now have a record instead of a tuple for `coordinates`,
+
+```js
+//starmap2.ligo
+type coordinates = record [
+  x = int;
+  y = int;
+  z = int
+]
+type storage is map (string, coordinates)
+
+[...]
+```
+
+we will compile the storage as follows:
+
+```shell
+ligo compile-storage code.ligo main 'map [ "earth" -> record [x=1;y=1;z=1] ]'
+```
+
+This command returns:
+
+```shell
+{ Elt "earth" (Pair (Pair 1 1) 1) }
+```
+
 
 # Deploy and Invoke
 

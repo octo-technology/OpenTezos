@@ -35,7 +35,7 @@ module.exports = {
       label: 'LIGO',
       items: [
         'ligo/introduction',
-        'ligo/compilation',
+        'ligo/deploy_a_contract',
         'ligo/exam'],
     },
     {
