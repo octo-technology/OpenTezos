@@ -31,7 +31,7 @@ type breed is string
 const dog_breed : breed = "Saluki"
 ```
 
-## Simple types
+## Simple types (Map example)
 
 ```js
 // The type account_balances denotes maps from addresses to tez
@@ -43,7 +43,7 @@ const ledger : account_balances =
 ```
 We will look more deeply into the map construct in the following chapters.
 
-## Structured types
+## Structured types (Record example)
 
 Often contracts require complex data structures, 
 which in turn require well-typed storage or functions to work with. 
