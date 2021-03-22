@@ -3,7 +3,7 @@ id: introduction
 title: Introduction
 slug: /ligo
 ---
-//TODO(Remove imports)
+//TODO(Remove imports ???)
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -48,7 +48,8 @@ LIGO currently offers three syntaxes:
 
 - **ReasonLIGO**, a [ReasonML](https://reasonml.github.io/) inspired syntax that builds on the strong points of OCaml. It aims to be familiar to those coming from JavaScript.
 
-//TODO(here is an example of Counter contract that handle a single integer "counter" value as storage and allows users to increment decrement or reset this counter.)
+//TODO(Here is an example of Counter contract that handle a single integer "counter" value as storage and allows users to increment decrement or reset this counter.)
+
 
 <Tabs
   defaultValue="pascaligo"
