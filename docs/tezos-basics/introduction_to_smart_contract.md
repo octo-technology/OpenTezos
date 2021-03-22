@@ -63,7 +63,7 @@ The implementation of a smart contract must specify its:
 
 <small className="figure">FIGURE 2: Tezos smart contracts content</small>
 
-### Code of the smart contrat
+### Code of the smart contract
 
 The code of the smart contract is a sequence of Michelson instructions which is executed when the smart contract is invoked. 
 This sequence of instructions is defined at deployment phase (called **origination**) and cannot be changed afterwards. 
@@ -108,4 +108,4 @@ Because Michelson is a low-level stack-based language, adoption to common develo
 - Camel : Ligo
 - Pascal : Ligo
 - Morley : Morley
-...
+
