@@ -87,7 +87,7 @@ Proposals : {
 
 `proposals` is a non-empty list of maximum 20 protocol hashes.
 
-This operation [[3]](/tezos-basics/governance-on-chain#references) can be submitted more than once but only if the cumulative number of active proposals is less than 20. Duplicate proposals from the same delegate are counted as the maximum number of proposals for that delegate.
+This operation [[3]](/tezos-basics/governance-on-chain#references) can be submitted more than once but only if the cumulative number of active proposals is less than 20. Each time a delegate duplicates a proposal, a vote is counted with the 20 vote maximum applying.
 
 ### Ballot
 A ballot operation can only be submitted during the _Promotion Vote Period_ or the _Exploration Vote Period_, and only once per period.
