@@ -74,14 +74,11 @@ The execution of this sequence of instructions results in a modification of the 
 
 The full description of the language Michelson is detailed in the [Michelson module](/michelson).
 
-// TODO : Add a diagram of a smart contract storage being modified by an operation.
-//TODO in figma
 
 ![](../../static/img/tezos-basics/invoke_smart_contract.svg)
+<small className="figure">FIGURE 3: Invocation of a smart contract triggers the code of the smart contract and modifies the storage</small>
 
 ### Storage of a smart contract
-
-// TODO : Repetition avec le point precedent. Repetition voulue
 
 During the origination (deployment phase), a persistent memory space (called **storage**) is allocated to the smart contract. The initial state of the storage must be specified during the origination of the smart contract.
 
