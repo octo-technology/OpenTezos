@@ -22,8 +22,7 @@ module.exports = {
               'tezos-basics/history_of_evolutions',
               'tezos-basics/economics_and_reward',
               'tezos-basics/exam'
-             ],
-    },
+             ],    },
     {
       type: 'category',
       label: 'Deploy a node',
