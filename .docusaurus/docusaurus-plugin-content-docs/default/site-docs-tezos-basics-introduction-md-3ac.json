@@ -3,7 +3,7 @@
   "id": "tezos-basics/introduction",
   "isDocsHomePage": false,
   "title": "Introduction",
-  "description": "Under construction.",
+  "description": "Tezos Creation",
   "source": "@site/docs/tezos-basics/introduction.md",
   "slug": "/tezos-basics",
   "permalink": "/tezos-basics",
@@ -15,7 +15,7 @@
     "permalink": "/blockchain-basics/exam"
   },
   "next": {
-    "title": "Liquid Proof-of-Stake",
-    "permalink": "/tezos-basics/liquid-proof-of-stake"
+    "title": "Smart contracts",
+    "permalink": "/tezos-basics/smart-contracts"
   }
 }

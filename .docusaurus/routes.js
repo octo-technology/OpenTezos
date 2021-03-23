@@ -39,7 +39,7 @@ export default [
 },
 {
   path: '/',
-  component: ComponentCreator('/','c42'),
+  component: ComponentCreator('/','df0'),
   
   routes: [
 {
@@ -88,13 +88,13 @@ export default [
   exact: true,
 },
 {
-  path: '/dapp',
-  component: ComponentCreator('/dapp','f74'),
+  path: '/dapp/exam',
+  component: ComponentCreator('/dapp/exam','bb1'),
   exact: true,
 },
 {
-  path: '/dapp/exam',
-  component: ComponentCreator('/dapp/exam','bb1'),
+  path: '/dapp/introduction',
+  component: ComponentCreator('/dapp/introduction','50a'),
   exact: true,
 },
 {
@@ -238,8 +238,28 @@ export default [
   exact: true,
 },
 {
+  path: '/tezos-basics/cli-and-rpc',
+  component: ComponentCreator('/tezos-basics/cli-and-rpc','1ab'),
+  exact: true,
+},
+{
+  path: '/tezos-basics/economics-and-rewards',
+  component: ComponentCreator('/tezos-basics/economics-and-rewards','adc'),
+  exact: true,
+},
+{
   path: '/tezos-basics/exam',
   component: ComponentCreator('/tezos-basics/exam','68b'),
+  exact: true,
+},
+{
+  path: '/tezos-basics/governance-on-chain',
+  component: ComponentCreator('/tezos-basics/governance-on-chain','630'),
+  exact: true,
+},
+{
+  path: '/tezos-basics/history-of-evolutions',
+  component: ComponentCreator('/tezos-basics/history-of-evolutions','571'),
   exact: true,
 },
 {
@@ -248,8 +268,13 @@ export default [
   exact: true,
 },
 {
-  path: '/tezos-basics/transactions',
-  component: ComponentCreator('/tezos-basics/transactions','49c'),
+  path: '/tezos-basics/operations',
+  component: ComponentCreator('/tezos-basics/operations','752'),
+  exact: true,
+},
+{
+  path: '/tezos-basics/smart-contracts',
+  component: ComponentCreator('/tezos-basics/smart-contracts','a47'),
   exact: true,
 },
 ]

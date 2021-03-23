@@ -51,8 +51,38 @@
           },
           {
             "type": "link",
+            "label": "Smart contracts",
+            "href": "/tezos-basics/smart-contracts"
+          },
+          {
+            "type": "link",
             "label": "Liquid Proof-of-Stake",
             "href": "/tezos-basics/liquid-proof-of-stake"
+          },
+          {
+            "type": "link",
+            "label": "Operations",
+            "href": "/tezos-basics/operations"
+          },
+          {
+            "type": "link",
+            "label": "CLI and RPC",
+            "href": "/tezos-basics/cli-and-rpc"
+          },
+          {
+            "type": "link",
+            "label": "Governance on-chain",
+            "href": "/tezos-basics/governance-on-chain"
+          },
+          {
+            "type": "link",
+            "label": "History of evolutions",
+            "href": "/tezos-basics/history-of-evolutions"
+          },
+          {
+            "type": "link",
+            "label": "Economics and rewards",
+            "href": "/tezos-basics/economics-and-rewards"
           },
           {
             "type": "link",
@@ -173,8 +203,8 @@
         "items": [
           {
             "type": "link",
-            "label": "Introduction",
-            "href": "/dapp"
+            "label": "introduction",
+            "href": "/dapp/introduction"
           },
           {
             "type": "link",
@@ -327,7 +357,7 @@
     "/contribute/exam": "docs",
     "/contribute": "docs",
     "/dapp/exam": "docs",
-    "/dapp": "docs",
+    "/dapp/introduction": "docs",
     "/defi/dex": "docs",
     "/defi/exam": "docs",
     "/defi/flash_loans": "docs",
@@ -354,9 +384,15 @@
     "/private": "docs",
     "/smartpy/exam": "docs",
     "/smartpy": "docs",
+    "/tezos-basics/cli-and-rpc": "docs",
+    "/tezos-basics/economics-and-rewards": "docs",
     "/tezos-basics/exam": "docs",
+    "/tezos-basics/governance-on-chain": "docs",
+    "/tezos-basics/history-of-evolutions": "docs",
     "/tezos-basics": "docs",
     "/tezos-basics/liquid-proof-of-stake": "docs",
+    "/tezos-basics/operations": "docs",
+    "/tezos-basics/smart-contracts": "docs",
     "/": "docs",
     "/paths": "docs"
   }

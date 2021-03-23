@@ -409,7 +409,7 @@ Strings are mostly used for naming things without having to rely on external ID 
 
 #### CONCAT
 
-The `CONCAT` instruction concatenates strings. It consumes the top element and produces a string (concatenation of the top element and the given string parameter) that is placed at the top of the stack.
+The `CONCAT` instruction concatenates strings. It consumes the top element and produces a string (concatenation of the top element and the given string parameter) that is placed on top of the stack.
 
 It takes one parameter which can be either a single string or a list of strings. 
 
@@ -671,7 +671,7 @@ The `EMPTY_BIG_MAP` instruction builds a new empty `big_map` data structure.
 
 The `MEM` instruction checks for the presence of a binding for a key in a map.
 //todo: checks for the presence of a binder or checks for the presence of binding? Can there be more than one?
-It takes a key as the parameter and returns a boolean to the top of the stack.
+It takes a key as the parameter and returns a boolean on top of the stack.
 
 ```js
 MEM / x : {} : S  =>  false : S
@@ -855,9 +855,9 @@ or int nat
 
 #### LEFT
 
-The `LEFT` instruction packs a value in a union.
+The `LEFT` instruction packs a value in a *union*.
 
-It consumes a type definition on the top of the stack and pushes a union with left part is defined as the consumed type definition.
+It consumes a type definition on top of the stack and pushes a union where the left part is defined as the consumed type definition.
 
 ```js
 LEFT / v : S  =>  (Left v) : S
@@ -865,9 +865,9 @@ LEFT / v : S  =>  (Left v) : S
 
 #### RIGHT
 
-The `RIGHT` instruction packs a value in a union.
+The `RIGHT` instruction packs a value in a *union*.
 
-It consumes a type definition on the top of the stack and pushes a union with right part is defined as the consumed type definition.
+It consumes a type definition on top of the stack and pushes a union where the right part is defined as the consumed type definition.
 
 ```js
 RIGHT / v : S  =>  (Right v) : S
@@ -875,18 +875,18 @@ RIGHT / v : S  =>  (Right v) : S
 
 #### IF_LEFT
 
-The `IF_LEFT` instruction inspects a value of union. It requires two sequences of instructions (bt bf) like for an `IF` instruction. 
+The `IF_LEFT` instruction inspects a value of *union*. It requires two sequences of instructions (bt bf), like with an `IF` instruction. 
 
 The `IF_LEFT bt bf` executes the "bt" sequence if the left part of a *union* has been given, otherwise it will execute the "bf" sequence.
 
-The instruction consumes a Michelson expression on top of the stack which specifies which part of the union has been defined.
+The instruction consumes a Michelson expression on top of the stack which specifies which part of the *union* has been defined.
 
 ```js
 IF_LEFT bt bf / (Left a) : S  =>  bt / a : S
 IF_LEFT bt bf / (Right b) : S  =>  bf / b : S
 ```
 
-The following smart contract (union_example.tz) illustrates the `IF_LEFT` usage. Notice that the parameter is a union `(or string int)` and the storage is an integer. This smart contract increments the storage if an integer is passed as parameter and does nothing if a string is given.
+The following smart contract (union_example.tz) illustrates the `IF_LEFT` usage. Notice that the parameter is a *union* `(or string int)` and the storage is an integer. This smart contract increments the storage if an integer is passed as a parameter and does nothing if a string is given.
 
 ```js
 parameter (or string int) ;
@@ -897,7 +897,7 @@ code { DUP ; CAR ; DIP { CDR } ;
        PAIR }
 ```
 
-So as to illustrate the invocation of the smart contract we will break down its execution.
+To illustrate the invocation of the smart contract, we will break down its execution.
 
 The following command simulates the execution of the smart contract when called with an integer.
 
@@ -909,7 +909,7 @@ tezos-client run script union_example.tz on storage '5' and input 'Right 1'
 <small className="figure">FIGURE 30: Illustration of the `IF_LEFT` instruction</small>
 
 The following command simulates the execution of the smart contract when called with an integer.
-
+//todo: identique à la phase au-dessus ; normal ?
 ```js
 tezos-client run script union_example.tz on storage '5' and input 'Left "Hello"'
 ```
@@ -943,9 +943,9 @@ NIL / S  =>  {} : S
 
 #### IF_CONS
 
-The `IF_CONS bt bf` instruction inspects a list. It requires two sequences of instructions (bt anf bf) like the `IF` instruction.
+The `IF_CONS bt bf` instruction inspects a list. It requires two sequences of instructions (bt anf bf), as with the `IF` instruction.
 
-This instruction removes the first element of the list, pushes it on top of the stack and executes the first sequence of instructions (`bt`). If the list is empty then the second list of instruction is executed (`bf`).
+This instruction removes the first element of the list, pushes it on top of the stack and executes the first sequence of instructions (`bt`). If the list is empty, then the second list of instructions is executed (`bf`).
 
 ```js
 IF_CONS bt bf / { a ; <rest> } : S  =>  bt / a : { <rest> } : S
@@ -954,7 +954,7 @@ IF_CONS bt bf / {} : S  =>  bf / S
 
 #### MAP body
 
-The `MAP` instruction applies a sequence of instructions to each element of a list. The `MAP` instruction requires a sequence of instructions (i.e. body) which has access to the stack.
+The `MAP` instruction applies a sequence of instructions to each element of a list. The `MAP` instruction requires a sequence of instructions (i.e. "body") which has access to the stack.
 
 ```js
 MAP body / {} : S  =>  {} : S
@@ -978,7 +978,7 @@ SIZE / {} : S  =>  0 : S
 
 #### ITER body
 
-The `ITER` instruction applies a sequence of instruction to each element of a list. The `ITER` instruction requires a sequence of instruction (called body) which has access to the stack.
+The `ITER` instruction applies a sequence of instructions to each element of a list. The `ITER` instruction requires a sequence of instructions (called "body") which has access to the stack.
 
 ```js
 ITER body / {} : S  =>  S
@@ -1018,9 +1018,9 @@ SUB / seconds(t1) : seconds(t2) : S  =>  (t1 - t2) : S
 
 #### COMPARE
 
-The `COMPARE` computes timestamp comparison. It returns an integer as like the `COMPARE` instruction for integer.
+The `COMPARE` computes timestamp comparison. It returns an integer, as with the `COMPARE` instruction for an integer.
 
-It returns 1 if the first timestamp is bigger than the second timestamp; 0 if the two timestamps are equal; and -1 otherwise. 
+It returns 1 if the first timestamp is bigger than the second timestamp, 0 if both timestamps are equal, and -1 otherwise. 
 
 ```js
 COMPARE / seconds(t1) : seconds(t2) : S  =>  -1 : S
@@ -1033,11 +1033,11 @@ COMPARE / seconds(t1) : seconds(t2) : S  =>  1 : S
 
 ### Operations on mutez
 
-Mutez (micro-Tez) are internally represented by a 64 bit signed integers. There are restrictions to prevent creating a negative amount of mutez. Operations are limited to prevent overflow and mixing them with other numerical types by mistake. They are also mandatory checked for under/overflows.
+Mutez (micro-Tez) are internally represented by a 64-bit, signed integer. There are restrictions to prevent creating a negative amount of mutez. Operations are limited in order to prevent overflow and to avoid mixing with other numerical types by mistake. They are also mandatorily checked for under/overflows.
 
 #### ADD
 
-The `ADD` instruction computes addition on mutez.
+The `ADD` instruction computes additions on mutez.
 
 ```js
 ADD / x : y : S  =>  [FAILED]   on overflow
@@ -1046,7 +1046,7 @@ ADD / x : y : S  =>  (x + y) : S
 
 #### SUB 
 
-The `SUB` instruction computes subtraction on mutez.
+The `SUB` instruction computes subtractions on mutez.
 
 ```js
 SUB / x : y : S  =>  [FAILED]
@@ -1056,7 +1056,7 @@ SUB / x : y : S  =>  (x - y) : S
 
 #### MUL
 
-The `MUL` instruction computes multiplication on mutez. The multiplication allows to multiply mutez with integer.
+The `MUL` instruction computes multiplications on mutez. The multiplication allows mutez to be multiplied with integers.
 
 ```js
 MUL / x : y : S  =>  [FAILED]   on overflow
@@ -1065,7 +1065,7 @@ MUL / x : y : S  =>  (x * y) : S
 
 #### EDIV
 
-The `EDIV` instruction computes the euclidean division on mutez. The multiplication allows to divide a mutez by a natural integer.
+The `EDIV` instruction computes the euclidean division on mutez. The multiplication allows a mutez to be divided by a natural integer.
 
 ```js
 EDIV / x : 0 : S  =>  None
@@ -1075,7 +1075,7 @@ EDIV / x : y : S  =>  Some (Pair (x / y) (x % y)) : S
 
 #### COMPARE
 
-The `COMPARE` instruction compares two mutez and returns an integer on top of the stack. It returns 0 if the two elements are equal, 1 if the first element is bigger than the second one; and -1 otherwise. 
+The `COMPARE` instruction compares two mutez and returns an integer on top of the stack. It returns 0 if both elements are equal, 1 if the first element is bigger than the second, and -1 otherwise. 
 
 ```js
 COMPARE / x : y : S  =>  -1 : S
@@ -1088,12 +1088,12 @@ COMPARE / x : y : S  =>  1 : S
 
 ### Operations on contracts
 
-This section describes instructions specific to smart contracts and interactions between contracts. It includes key features such as emitting transactions and invoking a contract, setting delegation and even creating contracts on the fly.  
+This section describes instructions specific to smart contracts and interactions between contracts. It includes key features such as emitting transactions and invoking a contract, setting delegations, and even creating contracts on the fly.  
 
 #### CONTRACT
 
 The `CONTRACT 'p` instruction casts the address to the given contract type if possible.
-It consumes an `address` the top element of the stack and returns an option of contract which corresponds to the given parameter type.
+It consumes an `address` to the top element of the stack and returns a contract option which corresponds to the given parameter type.
 
 The parameter is `unit` in case of an implicit account.
 
@@ -1109,21 +1109,21 @@ CONTRACT / addr : S  =>  None : S
 #### TRANSFER_TOKENS
 
 The `TRANSFER_TOKENS` instruction forges a transaction. In Michelson, the `operation` type represents a transaction. 
-Forging a transaction requires to specify: 
+Forging a transaction requires the following be specified: 
 - the *parameter* (i.e. the entry point expected by the targeted contract)
 - a *quantity of mutez* transferred by this transaction
-- a *recipient contract* representing the target of the transaction (i.e. to which contract this transaction will be sent to)
+- a *recipient contract* representing the target of the transaction (i.e. to which contract this transaction will be sent)
 
 The parameter must be consistent with the one expected by the contract.
 If the transaction is sent to an implicit account (i.e. the address of an account) then the parameter must be set to `unit`.
 
 The `TRANSFER_TOKENS` instruction consumes the three top elements of the stack and outputs a transaction on top of the stack.
 
-As seen in previous sections, the invocation of a Tezos smart contract produces a list of operations and a new storage state. In a smart contract, when using a `TRANSFER_TOKENS` instruction to forge a transaction, the produced transaction must be included in the returned list of operations in order to be taken into account.
+As seen in previous sections, the invocation of a Tezos smart contract produces a list of operations and a new storage state. In a smart contract, when using a `TRANSFER_TOKENS` instruction to forge a transaction the produced transaction must be included in the returned list of operations in order to be taken into account.
 
-To illustrate the `TRANSFER_TOKENS` instruction usage, we will consider a simple "Counter" smart contract that can increment or decrement a value. We will create a second smart contract "CounterCaller" which forges a transaction and send it to the "Counter" smart contract using the `TRANSFER_TOKENS` instruction.
+To illustrate the usage of the `TRANSFER_TOKENS` instruction, we will consider a simple "Counter" smart contract that can increment or decrement a value. We will create a second smart contract, "CounterCaller", which forges a transaction and sends it to the "Counter" smart contract using the `TRANSFER_TOKENS` instruction.
 
-The following smart contract is the implementation of the "Counter" smart contract.
+The following smart contract demonstrates the implementation of the "Counter" smart contract.
 
 ```js
 parameter (or (int %decrement) (int %increment)) ;
@@ -1137,7 +1137,7 @@ code { DUP ;
        PAIR }
 ```
 
-The following smart contract is the implementation of the "CounterCaller" smart contract.
+The following smart contract demonstrates the implementation of the "CounterCaller" smart contract.
 
 ```js
 parameter (or int int);
@@ -1161,7 +1161,7 @@ code {
        PAIR }
 ```
 
-Now, let's break down the execution of the "CounterCaller" smart contract.
+Now, let's break down the execution of the "CounterCaller" smart contract:
 
 The following command simulates the invocation of the smart contract.
 
@@ -1176,11 +1176,11 @@ tezos-client run script countercaller.tz on storage '"KT1HUbVyf62ZAp7BRqwQaDueb6
 
 The `SET_DELEGATE` sets or withdraws the contract’s delegation. It consumes an *option key_hash* specifying the delegate and returns a transaction (operation) on top of the stack.
 
-Using this instruction is the only way to modify the delegation of a smart contract. If the parameter is _None_ then the delegation of the current contract is withdrawn. If the parameter is _Some kh_ where _kh_ is the key hash of a registered delegate (that is not the current delegate of the contract), then this operation sets the delegate of the contract to this registered delegate. The operation fails if _kh_ is the current delegate of the contract or if _kh_ is not a registered delegate.
+Using this instruction is the only way to modify the delegation of a smart contract. If the parameter is _None_, then the delegation of the current contract is withdrawn. If the parameter is _Some kh_, where _kh_ is the key hash of a registered delegate (that is not the current delegate of the contract), then this operation sets the delegate of the contract to this registered delegate. The operation fails if _kh_ is the current delegate of the contract or if _kh_ is not a registered delegate.
 
 #### BALANCE
 
-The `BALANCE` instruction pushes to the stack the current amount of mutez held by the executing contract, including any mutez added by the calling transaction.
+The `BALANCE` instruction pushes the current amount of mutez held by the executing contract to the stack, including any mutez added by the calling transaction.
 
 #### CREATE_CONTRACT
 
@@ -1231,7 +1231,7 @@ The `CHAIN_ID` instruction pushes the chain identifier on top of the stack.
 
 ### Operations on bytes
 
-Bytes are used for serializing data, in order to check signatures and to compute hashes on them. They can also be used to incorporate data from the untyped outside world.
+Bytes are used for serializing data in order to check signatures and to compute hashes on them. They can also be used to incorporate data from the untyped outside world.
 
 #### PACK
 
@@ -1239,7 +1239,7 @@ The `PACK` instruction serializes a piece of data to its optimized binary repres
 
 #### UNPACK
 
-The `UNPACK` instruction de-serializes a piece of data, if valid. It returns an *option* initialized to *None* if the de-serialization is invalid or an *option* initialized to *Some* if valid.
+The `UNPACK` instruction de-serializes a piece of data, if valid. It returns an *option* initialized to *None* if the de-serialization is invalid, or an *option* initialized to *Some* if valid.
 
 #### CONCAT
 
@@ -1260,8 +1260,8 @@ The `SIZE` instruction computes the size of a sequence of bytes. It consumes a b
 
 The `SLICE` instruction provides a way to retrieve a part of a byte sequence.
 It takes three parameters:
-- an `offset` parameter indicating the beginning of the byte sequence 
-- an `length` parameter indicating the size of the sub-sequence
+- an `offset` parameter, indicating the beginning of the byte sequence 
+- a `length` parameter, indicating the size of the sub-sequence
 - a `byte sequence` to slice
 
 It returns an optional byte sequence because the given offset and length may be out of bound.
@@ -1276,9 +1276,9 @@ SLICE / offset : length : s : S  =>  None : S
 
 #### COMPARE
 
-The `COMPARE` instruction computes a lexicographic comparison. As for other COMPARE instructions, it returns 1 if the first sequence is bigger than the second sequence, 0 if the two byte sequences are equal or -1 otherwise.
+The `COMPARE` instruction computes a lexicographic comparison. As with other `COMPARE` instructions, it returns 1 if the first sequence is bigger than the second sequence, 0 if both byte sequences are equal, or -1 otherwise.
 
-The COMPARE can be used only on comparable types.
+The `COMPARE` instruction can be used only on comparable types.
 
 ```js
 COMPARE / s : t : S  =>  -1 : S
@@ -1325,7 +1325,7 @@ It consumes the top two elements *pf* the stack (a key and a signature) and push
 
 The `COMPARE` instruction compares values of type `key_hash`. 
 
-As for other COMPARE instructions, it returns 1 if the first *key_hash* is bigger than than the second key_hash, 0 if the two *key_hash* are equal, and -1 otherwise.
+As for other `COMPARE` instructions, it returns 1 if the first *key_hash* is bigger than than the second key_hash, 0 if the both *key_hash* values are equal, and -1 otherwise.
 
 ```js
 COMPARE / x : y : S  =>  -1 : S
@@ -1338,7 +1338,7 @@ COMPARE / x : y : S  =>  1 : S
 
 ### Macros and syntactic sugar
 
-Since Michelson is a low-level language there are some basic combinations of instructions that are regularly used. In order to ease the implementation and reduce the number of instructions of a smart contract, some macros and syntactic sugar have been introduced.
+Since Michelson is a low-level language, there are some basic combinations of instructions that are regularly used. In order to ease the implementation and reduce the number of instructions of a smart contract, some macros and syntactic sugars have been introduced.
 
 Syntactic sugar exists for merging the `COMPARE` instruction with comparison combinators, and also for branching.
 
@@ -1354,7 +1354,7 @@ CMP(\op) / S  =>  COMPARE ; (\op) / S
 
 #### IF{EQ|NEQ|LT|GT|LE|GE} bt bf macro
 
-This macro combines a basic comparison with an `IF` instruction. Like for an `IF` instruction, it requires two sequences of instructions (*bt* and *bf*).
+This macro combines a basic comparison with an `IF` instruction. As with an `IF` instruction, it requires two sequences of instructions (*bt* and *bf*).
 
 ```js
 IF(\op) bt bf / S  =>  (\op) ; IF bt bf / S
@@ -1362,7 +1362,7 @@ IF(\op) bt bf / S  =>  (\op) ; IF bt bf / S
 
 #### IFCMP{EQ|NEQ|LT|GT|LE|GE} bt bf macro
 
-This macro combines a `COMPARE` instruction with a basic comparison, and an `IF` instruction.cLike for an `IF` instruction, it requires two sequences of instructions (*bt* and *bf*).
+This macro combines a `COMPARE` instruction with a basic comparison and an `IF` instruction. As with an `IF` instruction, it requires two sequences of instructions (*bt* and *bf*).
 
 ```js
 IFCMP(\op) / S  =>  COMPARE ; (\op) ; IF bt bf / S
@@ -1397,7 +1397,7 @@ ASSERT_CMP(\op)  =>  IFCMP(\op) {} {FAIL}
 
 #### ASSERT_NONE macro
 
-The `ASSERT_NONE` macro combines a `IF_NONE` macro with the `ASSERT` macro.
+The `ASSERT_NONE` macro combines an `IF_NONE` macro with the `ASSERT` macro.
 
 ```js
 ASSERT_NONE  =>  IF_NONE {} {FAIL}
@@ -1405,7 +1405,7 @@ ASSERT_NONE  =>  IF_NONE {} {FAIL}
 
 #### ASSERT_SOME macro
 
-The `ASSERT_SOME` macro combines a `IF_NONE` macro with the `ASSERT` macro.
+The `ASSERT_SOME` macro combines an `IF_NONE` macro with the `ASSERT` macro.
 
 ```js
 ASSERT_SOME @x =>  IF_NONE {FAIL} {RENAME @x}
@@ -1495,7 +1495,7 @@ For example, in order to access the "sub" part of the above nested pair, the mac
 
 #### IF_SOME macro
 
-The `IF_SOME bt bf` macro inspects an *option* value, like the `IF_NONE` instruction with inverted sequence of instruction.
+The `IF_SOME bt bf` macro inspects an *option* value, like the `IF_NONE` instruction with inverted sequences of instruction.
 
 ```js
 IF_SOME bt bf / S  =>  IF_NONE bf bt / S
@@ -1503,7 +1503,7 @@ IF_SOME bt bf / S  =>  IF_NONE bf bt / S
 
 #### IF_RIGHT macro
 
-The `IF_RIGHT bt bf` macro inspects an *option* value, like the `IF_LEFT` with inverted sequence of instruction.
+The `IF_RIGHT bt bf` macro inspects an *option* value, like the `IF_LEFT` with inverted sequences of instruction.
 
 ```js
 IF_RIGHT bt bf / S  =>  IF_LEFT bf bt / S
@@ -1558,9 +1558,9 @@ MAP_CD(\rest=[AD]+)R code / S   =>
 
 ### Annotations
 
-Michelson's annotation mechanism provides ways to better track data on the stack and to give additional type constraints. Annotations are only here to add constraints, i.e. they cannot turn an otherwise rejected program into an accepted one. The notable exception to this rule is for entry points: the semantics of the `CONTRACT` and `SELF` instructions varies depending on their constructor annotations, and some contract origination may fail due to invalid entry point constructor annotations.
+Michelson's annotation mechanism provides ways to better track data on the stack and give additional type constraints. Annotations are only here to add constraints, i.e. they cannot turn an otherwise rejected program into an accepted one. The notable exception to this rule is for entry points: the semantics of the `CONTRACT` and `SELF` instructions vary depending on their constructor annotations, and some contract origination may fail due to invalid entry point constructor annotations.
 
-Stack visualization tools like the Michelson Emacs mode print annotations associated with each type in the program, as propagated by the type checker as well as variable annotations on the types of the elements in the stack. This is especially useful for debugging.
+Stack visualization tools, like the Michelson Emacs mode, print annotations associated with each type in the program, as propagated by the type checker as well as variable annotations on the types of elements in the stack. This is especially useful for debugging.
 
 We distinguish three kinds of annotations:
 

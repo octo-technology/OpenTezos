@@ -1,0 +1,21 @@
+{
+  "unversionedId": "tezos-basics/history-of-evolutions",
+  "id": "tezos-basics/history-of-evolutions",
+  "isDocsHomePage": false,
+  "title": "History of evolutions",
+  "description": "As presented in the Governance on-chain chapter, Tezos is constantly evolving through new amendments. In this chapter we will see an history of past proposals, both approved or refused and why.",
+  "source": "@site/docs/tezos-basics/history-of-evolutions.md",
+  "slug": "/tezos-basics/history-of-evolutions",
+  "permalink": "/tezos-basics/history-of-evolutions",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/history-of-evolutions.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Governance on-chain",
+    "permalink": "/tezos-basics/governance-on-chain"
+  },
+  "next": {
+    "title": "Economics and rewards",
+    "permalink": "/tezos-basics/economics-and-rewards"
+  }
+}
