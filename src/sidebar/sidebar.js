@@ -33,7 +33,11 @@ module.exports = {
     {
       type: 'category',
       label: 'LIGO',
-      items: ['ligo/introduction', 'ligo/exam'],
+      items: [
+        'ligo/introduction',
+        'ligo/exam',
+        'ligo/full_examples',
+      ],
     },
     {
       type: 'category',
