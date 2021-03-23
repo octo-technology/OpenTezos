@@ -1,0 +1,21 @@
+{
+  "unversionedId": "tezos-basics/cli-and-rpc",
+  "id": "tezos-basics/cli-and-rpc",
+  "isDocsHomePage": false,
+  "title": "CLI and RPC",
+  "description": "Tezos RPC (Remote Procedure Call)",
+  "source": "@site/docs/tezos-basics/cli-and-rpc.md",
+  "slug": "/tezos-basics/cli-and-rpc",
+  "permalink": "/tezos-basics/cli-and-rpc",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/cli-and-rpc.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Operations",
+    "permalink": "/tezos-basics/operations"
+  },
+  "next": {
+    "title": "Governance on-chain",
+    "permalink": "/tezos-basics/governance-on-chain"
+  }
+}

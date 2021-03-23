@@ -14,13 +14,13 @@ module.exports = {
       type: 'category',
       label: 'Tezos Basics',
       items: ['tezos-basics/introduction',
-              'tezos-basics/introduction_to_smart_contract',
+              'tezos-basics/smart-contracts',
               'tezos-basics/liquid-proof-of-stake',
-              'tezos-basics/intro_to_operation',
-              'tezos-basics/introduction_to_cli_and_rpc',
+              'tezos-basics/operations',
+              'tezos-basics/cli-and-rpc',
               'tezos-basics/governance-on-chain',
-              'tezos-basics/history_of_evolutions',
-              'tezos-basics/economics_and_reward',
+              'tezos-basics/history-of-evolutions',
+              'tezos-basics/economics-and-rewards',
               'tezos-basics/exam'
              ],    },
     {

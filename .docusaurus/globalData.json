@@ -57,7 +57,7 @@
             },
             {
               "id": "dapp/introduction",
-              "path": "/dapp",
+              "path": "/dapp/introduction",
               "sidebar": "docs"
             },
             {
@@ -191,8 +191,28 @@
               "sidebar": "docs"
             },
             {
+              "id": "tezos-basics/cli-and-rpc",
+              "path": "/tezos-basics/cli-and-rpc",
+              "sidebar": "docs"
+            },
+            {
+              "id": "tezos-basics/economics-and-rewards",
+              "path": "/tezos-basics/economics-and-rewards",
+              "sidebar": "docs"
+            },
+            {
               "id": "tezos-basics/exam",
               "path": "/tezos-basics/exam",
+              "sidebar": "docs"
+            },
+            {
+              "id": "tezos-basics/governance-on-chain",
+              "path": "/tezos-basics/governance-on-chain",
+              "sidebar": "docs"
+            },
+            {
+              "id": "tezos-basics/history-of-evolutions",
+              "path": "/tezos-basics/history-of-evolutions",
               "sidebar": "docs"
             },
             {
@@ -206,8 +226,14 @@
               "sidebar": "docs"
             },
             {
-              "id": "tezos-basics/transactions",
-              "path": "/tezos-basics/transactions"
+              "id": "tezos-basics/operations",
+              "path": "/tezos-basics/operations",
+              "sidebar": "docs"
+            },
+            {
+              "id": "tezos-basics/smart-contracts",
+              "path": "/tezos-basics/smart-contracts",
+              "sidebar": "docs"
             },
             {
               "id": "welcome/modules",

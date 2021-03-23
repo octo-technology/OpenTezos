@@ -55,7 +55,31 @@
                   },
                   {
                     "type": "doc",
+                    "id": "tezos-basics/smart-contracts"
+                  },
+                  {
+                    "type": "doc",
                     "id": "tezos-basics/liquid-proof-of-stake"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "tezos-basics/operations"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "tezos-basics/cli-and-rpc"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "tezos-basics/governance-on-chain"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "tezos-basics/history-of-evolutions"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "tezos-basics/economics-and-rewards"
                   },
                   {
                     "type": "doc",
@@ -295,7 +319,7 @@
             "/contribute/exam": "docs",
             "/contribute": "docs",
             "/dapp/exam": "docs",
-            "/dapp": "docs",
+            "/dapp/introduction": "docs",
             "/defi/dex": "docs",
             "/defi/exam": "docs",
             "/defi/flash_loans": "docs",
@@ -322,9 +346,15 @@
             "/private": "docs",
             "/smartpy/exam": "docs",
             "/smartpy": "docs",
+            "/tezos-basics/cli-and-rpc": "docs",
+            "/tezos-basics/economics-and-rewards": "docs",
             "/tezos-basics/exam": "docs",
+            "/tezos-basics/governance-on-chain": "docs",
+            "/tezos-basics/history-of-evolutions": "docs",
             "/tezos-basics": "docs",
             "/tezos-basics/liquid-proof-of-stake": "docs",
+            "/tezos-basics/operations": "docs",
+            "/tezos-basics/smart-contracts": "docs",
             "/": "docs",
             "/paths": "docs"
           },
@@ -506,8 +536,8 @@
               "version": "current",
               "sidebar": "docs",
               "previous": {
-                "title": "Introduction",
-                "permalink": "/dapp"
+                "title": "introduction",
+                "permalink": "/dapp/introduction"
               },
               "next": {
                 "title": "Introduction",
@@ -518,11 +548,11 @@
               "unversionedId": "dapp/introduction",
               "id": "dapp/introduction",
               "isDocsHomePage": false,
-              "title": "Introduction",
-              "description": "Under construction.",
+              "title": "introduction",
+              "description": "",
               "source": "@site/docs/dapp/introduction.md",
-              "slug": "/dapp",
-              "permalink": "/dapp",
+              "slug": "/dapp/introduction",
+              "permalink": "/dapp/introduction",
               "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/dapp/introduction.md",
               "version": "current",
               "sidebar": "docs",
@@ -888,8 +918,8 @@
                 "permalink": "/michelson/examples"
               },
               "next": {
-                "title": "Introduction",
-                "permalink": "/dapp"
+                "title": "introduction",
+                "permalink": "/dapp/introduction"
               }
             },
             {
@@ -897,7 +927,7 @@
               "id": "michelson/examples",
               "isDocsHomePage": false,
               "title": "Examples",
-              "description": "Example 1 : Modulo with LOOP and IF",
+              "description": "Example 1: Modulo with LOOP and IF",
               "source": "@site/docs/michelson/examples.md",
               "slug": "/michelson/examples",
               "permalink": "/michelson/examples",
@@ -1082,6 +1112,48 @@
               }
             },
             {
+              "unversionedId": "tezos-basics/cli-and-rpc",
+              "id": "tezos-basics/cli-and-rpc",
+              "isDocsHomePage": false,
+              "title": "CLI and RPC",
+              "description": "Tezos RPC (Remote Procedure Call)",
+              "source": "@site/docs/tezos-basics/cli-and-rpc.md",
+              "slug": "/tezos-basics/cli-and-rpc",
+              "permalink": "/tezos-basics/cli-and-rpc",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/cli-and-rpc.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Operations",
+                "permalink": "/tezos-basics/operations"
+              },
+              "next": {
+                "title": "Governance on-chain",
+                "permalink": "/tezos-basics/governance-on-chain"
+              }
+            },
+            {
+              "unversionedId": "tezos-basics/economics-and-rewards",
+              "id": "tezos-basics/economics-and-rewards",
+              "isDocsHomePage": false,
+              "title": "Economics and rewards",
+              "description": "Transaction cost",
+              "source": "@site/docs/tezos-basics/economics-and-rewards.md",
+              "slug": "/tezos-basics/economics-and-rewards",
+              "permalink": "/tezos-basics/economics-and-rewards",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/economics-and-rewards.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "History of evolutions",
+                "permalink": "/tezos-basics/history-of-evolutions"
+              },
+              "next": {
+                "title": "Exam",
+                "permalink": "/tezos-basics/exam"
+              }
+            },
+            {
               "unversionedId": "tezos-basics/exam",
               "id": "tezos-basics/exam",
               "isDocsHomePage": false,
@@ -1094,8 +1166,8 @@
               "version": "current",
               "sidebar": "docs",
               "previous": {
-                "title": "Liquid Proof-of-Stake",
-                "permalink": "/tezos-basics/liquid-proof-of-stake"
+                "title": "Economics and rewards",
+                "permalink": "/tezos-basics/economics-and-rewards"
               },
               "next": {
                 "title": "Introduction",
@@ -1103,11 +1175,53 @@
               }
             },
             {
+              "unversionedId": "tezos-basics/governance-on-chain",
+              "id": "tezos-basics/governance-on-chain",
+              "isDocsHomePage": false,
+              "title": "Governance on-chain",
+              "description": "Tezos is a self-amending blockchain network which incorporates an on-chain mechanism for proposing, selecting, testing, and activating protocol upgrades without having to hard fork. [1]",
+              "source": "@site/docs/tezos-basics/governance-on-chain.md",
+              "slug": "/tezos-basics/governance-on-chain",
+              "permalink": "/tezos-basics/governance-on-chain",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/governance-on-chain.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "CLI and RPC",
+                "permalink": "/tezos-basics/cli-and-rpc"
+              },
+              "next": {
+                "title": "History of evolutions",
+                "permalink": "/tezos-basics/history-of-evolutions"
+              }
+            },
+            {
+              "unversionedId": "tezos-basics/history-of-evolutions",
+              "id": "tezos-basics/history-of-evolutions",
+              "isDocsHomePage": false,
+              "title": "History of evolutions",
+              "description": "As presented in the Governance on-chain chapter, Tezos is constantly evolving through new amendments. In this chapter we will see an history of past proposals, both approved or refused and why.",
+              "source": "@site/docs/tezos-basics/history-of-evolutions.md",
+              "slug": "/tezos-basics/history-of-evolutions",
+              "permalink": "/tezos-basics/history-of-evolutions",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/history-of-evolutions.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Governance on-chain",
+                "permalink": "/tezos-basics/governance-on-chain"
+              },
+              "next": {
+                "title": "Economics and rewards",
+                "permalink": "/tezos-basics/economics-and-rewards"
+              }
+            },
+            {
               "unversionedId": "tezos-basics/introduction",
               "id": "tezos-basics/introduction",
               "isDocsHomePage": false,
               "title": "Introduction",
-              "description": "Under construction.",
+              "description": "Tezos Creation",
               "source": "@site/docs/tezos-basics/introduction.md",
               "slug": "/tezos-basics",
               "permalink": "/tezos-basics",
@@ -1119,8 +1233,8 @@
                 "permalink": "/blockchain-basics/exam"
               },
               "next": {
-                "title": "Liquid Proof-of-Stake",
-                "permalink": "/tezos-basics/liquid-proof-of-stake"
+                "title": "Smart contracts",
+                "permalink": "/tezos-basics/smart-contracts"
               }
             },
             {
@@ -1128,7 +1242,7 @@
               "id": "tezos-basics/liquid-proof-of-stake",
               "isDocsHomePage": false,
               "title": "Liquid Proof-of-Stake",
-              "description": "Intro",
+              "description": "Introduction",
               "source": "@site/docs/tezos-basics/liquid-proof-of-stake.md",
               "slug": "/tezos-basics/liquid-proof-of-stake",
               "permalink": "/tezos-basics/liquid-proof-of-stake",
@@ -1136,25 +1250,55 @@
               "version": "current",
               "sidebar": "docs",
               "previous": {
+                "title": "Smart contracts",
+                "permalink": "/tezos-basics/smart-contracts"
+              },
+              "next": {
+                "title": "Operations",
+                "permalink": "/tezos-basics/operations"
+              }
+            },
+            {
+              "unversionedId": "tezos-basics/operations",
+              "id": "tezos-basics/operations",
+              "isDocsHomePage": false,
+              "title": "Operations",
+              "description": "This chapter introduces the notion of Operations on Tezos, more commonly known as Transactions on other blockchains.",
+              "source": "@site/docs/tezos-basics/operations.md",
+              "slug": "/tezos-basics/operations",
+              "permalink": "/tezos-basics/operations",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/operations.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Liquid Proof-of-Stake",
+                "permalink": "/tezos-basics/liquid-proof-of-stake"
+              },
+              "next": {
+                "title": "CLI and RPC",
+                "permalink": "/tezos-basics/cli-and-rpc"
+              }
+            },
+            {
+              "unversionedId": "tezos-basics/smart-contracts",
+              "id": "tezos-basics/smart-contracts",
+              "isDocsHomePage": false,
+              "title": "Smart contracts",
+              "description": "General definition of a smart contract",
+              "source": "@site/docs/tezos-basics/smart-contracts.md",
+              "slug": "/tezos-basics/smart-contracts",
+              "permalink": "/tezos-basics/smart-contracts",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/smart-contracts.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
                 "title": "Introduction",
                 "permalink": "/tezos-basics"
               },
               "next": {
-                "title": "Exam",
-                "permalink": "/tezos-basics/exam"
+                "title": "Liquid Proof-of-Stake",
+                "permalink": "/tezos-basics/liquid-proof-of-stake"
               }
-            },
-            {
-              "unversionedId": "tezos-basics/transactions",
-              "id": "tezos-basics/transactions",
-              "isDocsHomePage": false,
-              "title": "transactions",
-              "description": "Tezos basics Introduction to Smart contracts (WIP)",
-              "source": "@site/docs/tezos-basics/transactions.md",
-              "slug": "/tezos-basics/transactions",
-              "permalink": "/tezos-basics/transactions",
-              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/transactions.md",
-              "version": "current"
             },
             {
               "unversionedId": "welcome/modules",

@@ -1,0 +1,21 @@
+{
+  "unversionedId": "baking/exam",
+  "id": "baking/exam",
+  "isDocsHomePage": false,
+  "title": "Exam",
+  "description": "Question 1",
+  "source": "@site/docs/baking/exam.md",
+  "slug": "/baking/exam",
+  "permalink": "/baking/exam",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/baking/exam.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Introduction",
+    "permalink": "/baking"
+  },
+  "next": {
+    "title": "Introduction",
+    "permalink": "/baker"
+  }
+}

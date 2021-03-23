@@ -1,6 +1,6 @@
 ---
-id: economics_and_reward
-title: Economics and reward
+id: economics-and-rewards
+title: Economics and rewards
 ---
 
 

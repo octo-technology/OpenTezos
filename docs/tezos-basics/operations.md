@@ -1,6 +1,6 @@
 ---
-id: intro_to_operation
-title: Intro to operation
+id: operations
+title: Operations
 ---
 
 This chapter introduces the notion of _Operations_ on Tezos, more commonly known as _Transactions_ on other blockchains. 

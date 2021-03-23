@@ -1,6 +1,6 @@
 ---
-id: introduction_to_cli_and_rpc
-title: Introduction to cli and rpc
+id: cli-and-rpc
+title: CLI and RPC
 ---
 
 ## Tezos RPC (Remote Procedure Call)

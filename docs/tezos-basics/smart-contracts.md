@@ -1,6 +1,6 @@
 ---
-id: introduction_to_smart_contract
-title: Introduction to smart contract
+id: smart-contracts
+title: Smart contracts
 ---
 
 ## General definition of a smart contract

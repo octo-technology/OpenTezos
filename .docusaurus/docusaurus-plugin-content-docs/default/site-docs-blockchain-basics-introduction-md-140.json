@@ -1,0 +1,21 @@
+{
+  "unversionedId": "blockchain-basics/introduction",
+  "id": "blockchain-basics/introduction",
+  "isDocsHomePage": false,
+  "title": "Introduction",
+  "description": "Under construction.",
+  "source": "@site/docs/blockchain-basics/introduction.md",
+  "slug": "/blockchain-basics",
+  "permalink": "/blockchain-basics",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/blockchain-basics/introduction.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Paths",
+    "permalink": "/paths"
+  },
+  "next": {
+    "title": "Exam",
+    "permalink": "/blockchain-basics/exam"
+  }
+}
