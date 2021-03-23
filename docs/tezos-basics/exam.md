@@ -60,11 +60,13 @@ How many periods are required in the self-amending process?
 
 ### Question 7
 
-What are the two metrics required to validate the exploration period and the promotion period ? //TODO(Are you sure participant rate is not included in the validation criteria ? .. only 3 solutions .. not enough)
+What are the two metrics required to validate the exploration period and the promotion period ?
 
 - [x] Supermajority
 - [ ] Participation rate
 - [x] Quorum 
+- [ ] The alternative vote
+- [ ] Semi-proportional systems
 
 ### Question 8
 
