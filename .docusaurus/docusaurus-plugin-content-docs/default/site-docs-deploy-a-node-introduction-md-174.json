@@ -4,18 +4,18 @@
   "isDocsHomePage": false,
   "title": "Introduction",
   "description": "Under construction.",
-  "source": "@site/docs/deploy-a-node/example.md",
+  "source": "@site/docs/deploy-a-node/introduction.md",
   "slug": "/deploy-a-node",
   "permalink": "/deploy-a-node",
-  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/deploy-a-node/example.md",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/deploy-a-node/introduction.md",
   "version": "current",
   "sidebar": "docs",
   "previous": {
-    "title": "Consensus mechanism, Liquid-proof-of-stake",
-    "permalink": "/tezos-basics/liquid-proof-of-stake"
+    "title": "Exam",
+    "permalink": "/tezos-basics/exam"
   },
   "next": {
-    "title": "Introduction",
-    "permalink": "/explorer"
+    "title": "Exam",
+    "permalink": "/deploy-a-node/exam"
   }
 }

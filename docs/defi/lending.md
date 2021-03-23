@@ -1,8 +1,6 @@
 ---
-id: introduction
-disable_pagination: true
-title: Introduction
-slug: /formal-verification
+id: lending
+title: Lending
 ---
 
 import NotificationBar from '../../src/components/docs/NotificationBar';

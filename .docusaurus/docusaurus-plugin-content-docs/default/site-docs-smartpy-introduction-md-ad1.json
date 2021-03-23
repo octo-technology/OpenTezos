@@ -1,0 +1,21 @@
+{
+  "unversionedId": "smartpy/introduction",
+  "id": "smartpy/introduction",
+  "isDocsHomePage": false,
+  "title": "Introduction",
+  "description": "Under construction.",
+  "source": "@site/docs/smartpy/introduction.md",
+  "slug": "/smartpy",
+  "permalink": "/smartpy",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/smartpy/introduction.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Exam",
+    "permalink": "/explorer/exam"
+  },
+  "next": {
+    "title": "Exam",
+    "permalink": "/smartpy/exam"
+  }
+}
