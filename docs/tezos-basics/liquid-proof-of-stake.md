@@ -8,7 +8,7 @@ A blockchain network is composed of millions of users. To maintain network avail
 
 Since the creation of Bitcoin, many kinds of consensus have appeared. To understand the Tezos consensus, this chapter will focus first on the classical _Proof-of-work_ (e.g. Bitcoin, Ethereum 1.0), then on the _delegated-proof-of-stake_ (e.g EOS, Lisk, Tron, Bitshare) and finally on the _liquid Proof-of-stake_ from Tezos [[2]](/tezos-basics/liquid-proof-of-stake#reference).
 
-In a word, Proof-of-work is based on computation power and Proof-of-stake is based on token staking.
+In a word, Proof-of-work is based on computation power and Proof-of-stake is based on token staking
 
 All these consensuses have the same goal: selecting a user who will be responsible for the creation of a new block, by selecting, verifying and inserting transactions into a potential new block. This user will then receive a reward if his block is validated. This reward is usually a fixed amount of coins created by the blockchain protocol or collected from the transactions-cost.
 
