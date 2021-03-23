@@ -3,7 +3,7 @@ id: governance-on-chain
 title: Governance on-chain
 ---
 
-Tezos is a self-amending blockchain network which incorporates an on-chain mechanism for proposing, selecting, testing, and activating protocol upgrades without having to hard fork. [[1]](/tezos-basics/governance-on-chain#Reference)
+Tezos is a self-amending blockchain network which incorporates an on-chain mechanism for proposing, selecting, testing, and activating protocol upgrades without having to hard fork. [[1]](/tezos-basics/governance-on-chain#references)
 
 ## What is self-amendment?
 Tezos is a blockchain that can improve itself over time by having a formalized process for protocol upgrades. In practice, it is similar to the structure of a corporation, where shareholders get to vote on the future direction of the company.
@@ -16,10 +16,10 @@ The self-amendment process is split into 4 periods: the _Proposal Period_, the _
 Should there be any failure in a given period, the whole process reverts to the _Proposal Period_, effectively restarting the whole process.
 
 ![](../../static/img/tezos-basics/Overview_of_the_Tezos_Governance_Mechanism.png)
-<small className="figure">FIGURE 1: Overview of the governance Mechanism (Source: [[1]](/tezos-basics/governance-on-chain#Reference))</small>
+<small className="figure">FIGURE 1: Overview of the governance Mechanism (Source: <a href="/tezos-basics/governance-on-chain#references">[1]</a>)</small>
 
 ## Super-majority and Quorum
-_Exploration Vote Period_ and _Promotion Vote Period_ work the same way. During a vote a delegate can use a single ballot: `Yea`, `Nay` or `Pass`. A vote is successful if it has a super-majority and if the participation reaches the current quorum [[2]](/tezos-basics/governance-on-chain#Reference).
+_Exploration Vote Period_ and _Promotion Vote Period_ work the same way. During a vote a delegate can use a single ballot: `Yea`, `Nay` or `Pass`. A vote is successful if it has a super-majority and if the participation reaches the current quorum [[2]](/tezos-basics/governance-on-chain#references).
 
 In Tezos, having the _Super-majority_ means that _Yea_ represents more than 80% of the total of _Yeas_ + _Nays_ votes. 
 
@@ -87,7 +87,7 @@ Proposals : {
 
 `proposals` is a non-empty list of maximum 20 protocol hashes.
 
-This operation [[3]](/tezos-basics/governance-on-chain#Reference) can be submitted more than once but only if the cumulative number of active proposals is less than 20. Duplicate proposals from the same delegate are counted for the maximum number of proposals for that delegate.
+This operation [[3]](/tezos-basics/governance-on-chain#references) can be submitted more than once but only if the cumulative number of active proposals is less than 20. Duplicate proposals from the same delegate are counted for the maximum number of proposals for that delegate.
 
 ### Ballot
 A ballot operation can only be submitted during the _Promotion Vote Period_ or the _Exploration Vote Period_, and only once per period.

@@ -6,7 +6,7 @@ slug: /michelson
 
 To write smart contracts for Tezos, you can either choose a high-level language such as [LIGO](/404.html) or [SmartPy](/404.html), or the official low-level language called Michelson.
 
-## Reference
+## References
 
 This module is inspired from the official Michelson documentation available [here](https://tezos.gitlab.io/007/michelson.html) and [here](https://tezos.gitlab.io/michelson-reference/).
 
