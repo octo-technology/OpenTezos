@@ -1,0 +1,21 @@
+{
+  "unversionedId": "tezos-basics/exam",
+  "id": "tezos-basics/exam",
+  "isDocsHomePage": false,
+  "title": "Exam",
+  "description": "Question 1",
+  "source": "@site/docs/tezos-basics/exam.md",
+  "slug": "/tezos-basics/exam",
+  "permalink": "/tezos-basics/exam",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/exam.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Liquid Proof-of-Stake",
+    "permalink": "/tezos-basics/liquid-proof-of-stake"
+  },
+  "next": {
+    "title": "Introduction",
+    "permalink": "/deploy-a-node"
+  }
+}
