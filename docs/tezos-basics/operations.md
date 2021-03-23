@@ -6,12 +6,13 @@ title: Operations
 This chapter introduces the notion of _Operations_ on Tezos, more commonly known as _Transactions_ on other blockchains. 
 
 ## Implicit accounts and smart contracts
-Let's first talk about the two types of addresses in Tezos [[1]](/tezos-basics/intro_to_operation#referencess): 
+Let's start by talking about the two types of addresses in Tezos [[1]](/tezos-basics/intro_to_operation#referencess): 
 * Implicit accounts are accounts that are linked to a public key. Their addresses start with _tz1_, _tz2_, and _tz3_ (depending on the chosen signature scheme) and the hash of the public key. They are created by a transfer operation to the account public key hash. Only implicit accounts can be registered as delegates and participate in baking.
 * Smart contracts are also called `Originated accounts` and are created with an origination operation. Their addresses start with _KT1_. They don’t have a corresponding secret key. They run some Michelson code each time they receive an operation.
+* //TODO: "some" ?? on peut être plus explicite? c'est bizarre comme tournure.
 
 ## Tezos operations
-An operation is a message sent from one address to another address, this message is represented as:
+An operation is a message sent from one address to another. The message is represented as:
 ```js
 type operation = {
   amount: amount; (* amount being sent *)
@@ -74,9 +75,9 @@ Example of a transaction between two implicit accounts:
 }
 ```
 
-Such operation can be sent from a implicit account (if signed using the manager's key) or programmatically by contract code execution. When the operation is received, the amount received is added to the destination contract's balance and the destination contract's code is executed. This code can make use of the parameters passed to it. It can read and write the contract's storage, change the signature key and post operations to other contracts.
+Such an operation can be sent from an implicit account (if signed using the manager's key) or programmatically by contract code execution. When the operation is received, the amount received is added to the destination contract's balance and the destination contract's code is executed. This code can make use of the parameters passed on to it. It can read and write the contract's storage, change the signature key, and post operations to other contracts.
 
-As seen in the example, there is also a _counter_ field which purpose is to prevent replay attacks. An operation is only valid if the contract's _counter_ is equal to the operation's _counter_. Once a operation is applied, the _counter_ increases by one, preventing the operation from being reused.
+As the example shows, there is also a _counter_ field, whose purpose is to prevent replay attacks. An operation is only valid if the contract's _counter_ is equal to the operation's _counter_. Once an operation is applied, the _counter_ increases by one, preventing the operation from being reused.
 
 The operation also includes the block hash of a recent block that the client considers valid. If an attacker ever succeeds in forcing a long reorganization with a fork, he will be unable to include this operation, making the fork obviously fake. This last line of defense is named `TAPOS` which is a statistical detection of long term attacks based on the fraction of coins being moved. This kind of system prevents long reorganizations but are not efficient with short term double spending.
 
