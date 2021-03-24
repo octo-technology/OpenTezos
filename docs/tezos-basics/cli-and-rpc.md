@@ -6,11 +6,11 @@ title: CLI and RPC
 ## Tezos RPC (Remote Procedure Call)
 RPC [[1]](/tezos-basics/introduction_to_cli_and_rpc#referencess) is a client-server protocol where the requesting program is the client and the program providing the service is the server. 
 
-Tezos nodes provide a JSON/RPC interface to interact with the Tezos network. Note that although it is using RPC and it is JSON based, it does not follow the `JSON-RPC` protocol.
+Tezos nodes provide a JSON/RPC interface to interact with the Tezos network. Note that although it uses RPC and is JSON based, it does not follow the `JSON-RPC` protocol.
 
 ## Tezos-client
 
-Tezos-client is the client for interacting with a Tezos node via RPC. Let's take a look at some examples and how to use it.
+Tezos-client is the client when interacting with a Tezos node via RPC. Let's take a look at some examples and how to use it.
 
 ## How to install
 
@@ -34,9 +34,9 @@ $ dnf install -y tezos-client
 * From sources with OPAM :
     follow this [link](https://tezos.gitlab.io/introduction/howtoget.html#building-from-sources-via-opam).
 
-### Connect to the network
+### Connecting to the network
 The tezos-client needs to be connected to a Tezos node. You can connect to your own tezos node [[2]](/tezos-basics/introduction_to_cli_and_rpc#references) or you can use a community node on the Tezos mainnet or on a Tezos testnet.
-[Here](https://tezostaquito.io/docs/rpc_nodes/) you can find a list of community nodes on the mainnet or testnet.
+[Here](https://tezostaquito.io/docs/rpc_nodes/) you can find a list of community nodes on the mainnet and testnet.
 
 If you use a testnet you can download a free faucet file with test XTZ on it[here](https://faucet.tzalpha.net).
 
@@ -59,19 +59,19 @@ $ tezos-client get balance for #accountName
 ```
 
 ### Get timestamp
-This call is useful to check if the node is synchronized. It returns the UTC time of the latest downloaded block so it may differ from your local time.
+This call is useful to check if the node is synchronized. It returns the UTC time of the latest downloaded block, timezones may differ from your local time.
 ```
 $ tezos-client get timestamp
 ```
 
 ### List known addresses
-This call list the addresses register in your tezos-client.
+This call, list the addresses registered in your tezos-client.
 ```
 $ tezos-client list known addresses
 ```
 
 ### Transfers and receipts
-The command line below makes a transaction of 42ꜩ from the account _user1_ to _user2_ (You can also just use the tezos addresses directly).
+The command line below makes/shows a transaction of 42ꜩ from the account _user1_ to _user2_ (You can also just use the tezos addresses directly).
 
 ```
 $ tezos-client transfer 30 from user1 to user2 --burn-cap 0.5
