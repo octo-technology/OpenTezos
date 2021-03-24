@@ -65,7 +65,7 @@ $ tezos-client get timestamp
 ```
 
 ### List known addresses
-This call, list the addresses registered in your tezos-client.
+This call lists the addresses registered in your tezos-client.
 ```
 $ tezos-client list known addresses
 ```
