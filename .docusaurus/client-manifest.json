@@ -1,0 +1,724 @@
+{
+  "entrypoints": [
+    "main"
+  ],
+  "origins": {
+    "styles": [
+      1,
+      5,
+      7,
+      9,
+      10,
+      13,
+      17,
+      20,
+      22,
+      26,
+      28,
+      29,
+      31,
+      36,
+      39,
+      41,
+      42,
+      49,
+      51,
+      52,
+      53,
+      54,
+      0
+    ],
+    "@theme/NotFound": [
+      0,
+      54,
+      1
+    ],
+    "@site/docs/smartpy/exam.md": [
+      2
+    ],
+    "@site/docs/dapp/introduction.md": [
+      3
+    ],
+    "@site/docs/contribute/exam.md": [
+      4
+    ],
+    "@site/docs/blockchain-basics/introduction.md": [
+      0,
+      5
+    ],
+    "@site/docs/michelson/smart_contracts.md": [
+      6
+    ],
+    "@site/docs/deploy-a-node/introduction.md": [
+      0,
+      7
+    ],
+    "@site/docs/explorer/exam.md": [
+      8
+    ],
+    "@site/docs/defi/synthetics.md": [
+      0,
+      9
+    ],
+    "@site/docs/defi/flash_loans.md": [
+      0,
+      10
+    ],
+    "@site/docs/tezos-basics/exam.md": [
+      11
+    ],
+    "@site/docs/tezos-basics/liquid-proof-of-stake.md": [
+      12
+    ],
+    "@site/docs/explorer/introduction.md": [
+      0,
+      13
+    ],
+    "@site/docs/blockchain-basics/exam.md": [
+      14
+    ],
+    "@site/docs/formal-verification/introduction.md": [
+      15
+    ],
+    "@site/docs/tezos-basics/introduction.md": [
+      16
+    ],
+    "@site/docs/welcome/modules.md": [
+      0,
+      17
+    ],
+    "@site/docs/michelson/examples.md": [
+      18
+    ],
+    "@site/docs/michelson/introduction.md": [
+      19
+    ],
+    "@site/docs/defi/introdution.md": [
+      0,
+      20
+    ],
+    "@site/docs/tezos-basics/governance-on-chain.md": [
+      21
+    ],
+    "@site/docs/private/introduction.md": [
+      0,
+      22
+    ],
+    "@site/docs/baker/exam.md": [
+      23
+    ],
+    "@site/docs/dapp/exam.md": [
+      24
+    ],
+    "@site/docs/tezos-basics/history-of-evolutions.md": [
+      25
+    ],
+    "@site/docs/defi/stable_coins.md": [
+      0,
+      26
+    ],
+    "@site/docs/ligo/exam.md": [
+      27
+    ],
+    "@site/docs/defi/tokens.md": [
+      0,
+      28
+    ],
+    "@site/docs/baker/introduction.md": [
+      0,
+      29
+    ],
+    "@site/docs/michelson/instructions.md": [
+      30
+    ],
+    "@site/docs/ligo/introduction.md": [
+      0,
+      31
+    ],
+    "~docs/default/version-current-metadata-prop-751.json": [
+      32
+    ],
+    "@site/docs/tezos-basics/smart-contracts.md": [
+      33
+    ],
+    "@site/docs/michelson/exam.md": [
+      34
+    ],
+    "@site/docs/private/exam.md": [
+      35
+    ],
+    "@site/docs/smartpy/introduction.md": [
+      0,
+      36
+    ],
+    "@site/docs/baking/exam.md": [
+      37
+    ],
+    "@site/docs/tezos-basics/economics-and-rewards.md": [
+      38
+    ],
+    "@site/docs/contribute/introduction.md": [
+      0,
+      39
+    ],
+    "@site/docs/deploy-a-node/exam.md": [
+      40
+    ],
+    "@site/docs/defi/exam.md": [
+      0,
+      41
+    ],
+    "@site/docs/baking/introduction.md": [
+      0,
+      42
+    ],
+    "@site/docs/michelson/language_fundamentals.md": [
+      43
+    ],
+    "@site/docs/tezos-basics/cli-and-rpc.md": [
+      44
+    ],
+    "@site/docs/tezos-basics/operations.md": [
+      45
+    ],
+    "@site/docs/formal-verification/exam.md": [
+      46
+    ],
+    "@site/docs/defi/dex.md": [
+      47
+    ],
+    "@site/docs/michelson/take_away.md": [
+      48
+    ],
+    "@site/docs/defi/lending.md": [
+      0,
+      49
+    ],
+    "@site/docs/welcome/paths.md": [
+      50
+    ],
+    "main": [
+      0,
+      52,
+      51
+    ],
+    "runtime~main": [
+      0,
+      51,
+      52
+    ],
+    "@theme/DocItem": [
+      0,
+      53
+    ],
+    "@theme/DocPage": [
+      0,
+      1,
+      54
+    ]
+  },
+  "assets": {
+    "0": {
+      "css": [
+        {
+          "file": "styles.f26c72d7.css",
+          "hash": "e75b9f58c09f3611d142",
+          "publicPath": "/styles.f26c72d7.css"
+        }
+      ],
+      "js": [
+        {
+          "file": "styles.8b33fc1f.js",
+          "hash": "e75b9f58c09f3611d142",
+          "publicPath": "/styles.8b33fc1f.js"
+        }
+      ]
+    },
+    "1": {
+      "js": [
+        {
+          "file": "1.46a883c8.js",
+          "hash": "365a02d1ef39f329dcca",
+          "publicPath": "/1.46a883c8.js"
+        }
+      ]
+    },
+    "2": {
+      "js": [
+        {
+          "file": "0319aecb.6b807291.js",
+          "hash": "8434db7dc7aa647c4e3a",
+          "publicPath": "/0319aecb.6b807291.js"
+        }
+      ]
+    },
+    "3": {
+      "js": [
+        {
+          "file": "0eafec62.3bf97bc1.js",
+          "hash": "f4d06ddccde68b2ef017",
+          "publicPath": "/0eafec62.3bf97bc1.js"
+        }
+      ]
+    },
+    "4": {
+      "js": [
+        {
+          "file": "13b27404.0c50124a.js",
+          "hash": "447364120d7f094f13cf",
+          "publicPath": "/13b27404.0c50124a.js"
+        }
+      ]
+    },
+    "5": {
+      "js": [
+        {
+          "file": "14056b2e.20d22571.js",
+          "hash": "030030183af7f2d1b218",
+          "publicPath": "/14056b2e.20d22571.js"
+        }
+      ]
+    },
+    "6": {
+      "js": [
+        {
+          "file": "16209eab.818f6ce2.js",
+          "hash": "728df869495e3628db71",
+          "publicPath": "/16209eab.818f6ce2.js"
+        }
+      ]
+    },
+    "7": {
+      "js": [
+        {
+          "file": "1745024d.bccf8dc1.js",
+          "hash": "5ab874adf3e975989f16",
+          "publicPath": "/1745024d.bccf8dc1.js"
+        }
+      ]
+    },
+    "8": {
+      "js": [
+        {
+          "file": "188b7f87.39f7bd4c.js",
+          "hash": "58c9404bfd60a4bba0f1",
+          "publicPath": "/188b7f87.39f7bd4c.js"
+        }
+      ]
+    },
+    "9": {
+      "js": [
+        {
+          "file": "1c88c030.a801d865.js",
+          "hash": "56171a4f662869a7d71c",
+          "publicPath": "/1c88c030.a801d865.js"
+        }
+      ]
+    },
+    "10": {
+      "js": [
+        {
+          "file": "1d3bcb90.e6e880a5.js",
+          "hash": "f7d8ab6de76ed33081f3",
+          "publicPath": "/1d3bcb90.e6e880a5.js"
+        }
+      ]
+    },
+    "11": {
+      "js": [
+        {
+          "file": "1e4ddc07.bf3e1845.js",
+          "hash": "ae24125837cc4bf9b9e9",
+          "publicPath": "/1e4ddc07.bf3e1845.js"
+        }
+      ]
+    },
+    "12": {
+      "js": [
+        {
+          "file": "2491d0d9.6ae5af29.js",
+          "hash": "6f3cf84ef0d03303e815",
+          "publicPath": "/2491d0d9.6ae5af29.js"
+        }
+      ]
+    },
+    "13": {
+      "js": [
+        {
+          "file": "28de5552.9cfe89fa.js",
+          "hash": "dd57762bbd801ac03603",
+          "publicPath": "/28de5552.9cfe89fa.js"
+        }
+      ]
+    },
+    "14": {
+      "js": [
+        {
+          "file": "2b43537d.d70937c6.js",
+          "hash": "8723146c2a22ca0d4539",
+          "publicPath": "/2b43537d.d70937c6.js"
+        }
+      ]
+    },
+    "15": {
+      "js": [
+        {
+          "file": "39218319.bb35a4fe.js",
+          "hash": "7df20ecb21494cef1a14",
+          "publicPath": "/39218319.bb35a4fe.js"
+        }
+      ]
+    },
+    "16": {
+      "js": [
+        {
+          "file": "3ac224be.6c1f92fa.js",
+          "hash": "4632678bd6347e0bff72",
+          "publicPath": "/3ac224be.6c1f92fa.js"
+        }
+      ]
+    },
+    "17": {
+      "js": [
+        {
+          "file": "3c0291d6.417d5d72.js",
+          "hash": "41a0729c712d166eecfd",
+          "publicPath": "/3c0291d6.417d5d72.js"
+        }
+      ]
+    },
+    "18": {
+      "js": [
+        {
+          "file": "3d9f340d.75802c44.js",
+          "hash": "f97b347c8124d1879991",
+          "publicPath": "/3d9f340d.75802c44.js"
+        }
+      ]
+    },
+    "19": {
+      "js": [
+        {
+          "file": "416e4355.84b7a50c.js",
+          "hash": "0b0a5387f3249bc42050",
+          "publicPath": "/416e4355.84b7a50c.js"
+        }
+      ]
+    },
+    "20": {
+      "js": [
+        {
+          "file": "437452c5.2bdab806.js",
+          "hash": "28829b3c381ec3350213",
+          "publicPath": "/437452c5.2bdab806.js"
+        }
+      ]
+    },
+    "21": {
+      "js": [
+        {
+          "file": "4613f71c.4a096caf.js",
+          "hash": "5d38dfeef3059aba0cf8",
+          "publicPath": "/4613f71c.4a096caf.js"
+        }
+      ]
+    },
+    "22": {
+      "js": [
+        {
+          "file": "533966e6.331b0c05.js",
+          "hash": "509cd5419c78a46ed48d",
+          "publicPath": "/533966e6.331b0c05.js"
+        }
+      ]
+    },
+    "23": {
+      "js": [
+        {
+          "file": "588652d4.2d6b0eab.js",
+          "hash": "c7e111a2c3a18a59368f",
+          "publicPath": "/588652d4.2d6b0eab.js"
+        }
+      ]
+    },
+    "24": {
+      "js": [
+        {
+          "file": "5cfbf023.79425704.js",
+          "hash": "af566e3626c331e9c860",
+          "publicPath": "/5cfbf023.79425704.js"
+        }
+      ]
+    },
+    "25": {
+      "js": [
+        {
+          "file": "6a9ae905.a17ce3c9.js",
+          "hash": "26c98a73442e3159aa8b",
+          "publicPath": "/6a9ae905.a17ce3c9.js"
+        }
+      ]
+    },
+    "26": {
+      "js": [
+        {
+          "file": "853e6f52.ab2e4043.js",
+          "hash": "19b9c61dde34a7b9805f",
+          "publicPath": "/853e6f52.ab2e4043.js"
+        }
+      ]
+    },
+    "27": {
+      "js": [
+        {
+          "file": "881479f8.c7c91878.js",
+          "hash": "83e252dbdb6f40eb23e3",
+          "publicPath": "/881479f8.c7c91878.js"
+        }
+      ]
+    },
+    "28": {
+      "js": [
+        {
+          "file": "8b549c1c.47b5168d.js",
+          "hash": "19bab2f170f53c24a223",
+          "publicPath": "/8b549c1c.47b5168d.js"
+        }
+      ]
+    },
+    "29": {
+      "js": [
+        {
+          "file": "8ec71dac.a41a1ab8.js",
+          "hash": "f3dbcc3eb1516c2bd3e2",
+          "publicPath": "/8ec71dac.a41a1ab8.js"
+        }
+      ]
+    },
+    "30": {
+      "js": [
+        {
+          "file": "8fe3bcb8.e198d1d7.js",
+          "hash": "35367d1083ed98b6e6da",
+          "publicPath": "/8fe3bcb8.e198d1d7.js"
+        }
+      ]
+    },
+    "31": {
+      "js": [
+        {
+          "file": "90f37560.150a4fcc.js",
+          "hash": "bd491cc08570fa0d8edc",
+          "publicPath": "/90f37560.150a4fcc.js"
+        }
+      ]
+    },
+    "32": {
+      "js": [
+        {
+          "file": "935f2afb.08a5aab1.js",
+          "hash": "cea72a5b5d87f540c886",
+          "publicPath": "/935f2afb.08a5aab1.js"
+        }
+      ]
+    },
+    "33": {
+      "js": [
+        {
+          "file": "9f28657b.b9c59c34.js",
+          "hash": "a1f7e26ec23955a539ec",
+          "publicPath": "/9f28657b.b9c59c34.js"
+        }
+      ]
+    },
+    "34": {
+      "js": [
+        {
+          "file": "a7751fda.ba926771.js",
+          "hash": "6ff4eb7367ae42f52ed4",
+          "publicPath": "/a7751fda.ba926771.js"
+        }
+      ]
+    },
+    "35": {
+      "js": [
+        {
+          "file": "aa4fddc1.75dbab7b.js",
+          "hash": "e5a99ac8bb614a5033fa",
+          "publicPath": "/aa4fddc1.75dbab7b.js"
+        }
+      ]
+    },
+    "36": {
+      "js": [
+        {
+          "file": "ad123792.55e7f451.js",
+          "hash": "32e5a4ee1edfc69ff768",
+          "publicPath": "/ad123792.55e7f451.js"
+        }
+      ]
+    },
+    "37": {
+      "js": [
+        {
+          "file": "b65a8641.dcb02920.js",
+          "hash": "3de18e555e97a34800a3",
+          "publicPath": "/b65a8641.dcb02920.js"
+        }
+      ]
+    },
+    "38": {
+      "js": [
+        {
+          "file": "b67bde24.8ef1deea.js",
+          "hash": "319ac04d31b84eed5438",
+          "publicPath": "/b67bde24.8ef1deea.js"
+        }
+      ]
+    },
+    "39": {
+      "js": [
+        {
+          "file": "bb1a7bb2.4b16d35a.js",
+          "hash": "343eef0a617b8fe9e3d9",
+          "publicPath": "/bb1a7bb2.4b16d35a.js"
+        }
+      ]
+    },
+    "40": {
+      "js": [
+        {
+          "file": "c94eaf45.03bd7b73.js",
+          "hash": "ea337ef79511315e4350",
+          "publicPath": "/c94eaf45.03bd7b73.js"
+        }
+      ]
+    },
+    "41": {
+      "js": [
+        {
+          "file": "cb77ab9d.dfa762a0.js",
+          "hash": "31107bfb4da583e5117c",
+          "publicPath": "/cb77ab9d.dfa762a0.js"
+        }
+      ]
+    },
+    "42": {
+      "js": [
+        {
+          "file": "d59298da.952a34db.js",
+          "hash": "ff51c161022270df7798",
+          "publicPath": "/d59298da.952a34db.js"
+        }
+      ]
+    },
+    "43": {
+      "js": [
+        {
+          "file": "dae16102.ac651c40.js",
+          "hash": "e89d6e4520a9ec8a5283",
+          "publicPath": "/dae16102.ac651c40.js"
+        }
+      ]
+    },
+    "44": {
+      "js": [
+        {
+          "file": "dc900be6.32e09da7.js",
+          "hash": "80a2cd991e1484eea376",
+          "publicPath": "/dc900be6.32e09da7.js"
+        }
+      ]
+    },
+    "45": {
+      "js": [
+        {
+          "file": "e949fdff.752a730b.js",
+          "hash": "998bf9fdeb799fe1948e",
+          "publicPath": "/e949fdff.752a730b.js"
+        }
+      ]
+    },
+    "46": {
+      "js": [
+        {
+          "file": "ec2c4156.bed55254.js",
+          "hash": "3567131b11325aa76e2d",
+          "publicPath": "/ec2c4156.bed55254.js"
+        }
+      ]
+    },
+    "47": {
+      "js": [
+        {
+          "file": "f01db04a.167bc99d.js",
+          "hash": "d3bc3d40dfed83062655",
+          "publicPath": "/f01db04a.167bc99d.js"
+        }
+      ]
+    },
+    "48": {
+      "js": [
+        {
+          "file": "f4b4c63c.3572bb85.js",
+          "hash": "88ad502f2621ae2d7b3b",
+          "publicPath": "/f4b4c63c.3572bb85.js"
+        }
+      ]
+    },
+    "49": {
+      "js": [
+        {
+          "file": "f91eaf27.e6474c05.js",
+          "hash": "0817a919ec5e25073b96",
+          "publicPath": "/f91eaf27.e6474c05.js"
+        }
+      ]
+    },
+    "50": {
+      "js": [
+        {
+          "file": "feda3973.cc48489b.js",
+          "hash": "5596b6b717463c77e654",
+          "publicPath": "/feda3973.cc48489b.js"
+        }
+      ]
+    },
+    "51": {
+      "js": [
+        {
+          "file": "main.f5460f18.js",
+          "hash": "75ab87ca77497bcf2df3",
+          "publicPath": "/main.f5460f18.js"
+        }
+      ]
+    },
+    "52": {
+      "js": [
+        {
+          "file": "runtime~main.cae97f28.js",
+          "hash": "ba90805471ea6e58fe54",
+          "publicPath": "/runtime~main.cae97f28.js"
+        }
+      ]
+    },
+    "53": {
+      "js": [
+        {
+          "file": "53.c474cd67.js",
+          "hash": "d4441476f5f14ff11958",
+          "publicPath": "/53.c474cd67.js"
+        }
+      ]
+    },
+    "54": {
+      "js": [
+        {
+          "file": "54.ccd0f68c.js",
+          "hash": "cbf01003ced793291d9d",
+          "publicPath": "/54.ccd0f68c.js"
+        }
+      ]
+    }
+  }
+}

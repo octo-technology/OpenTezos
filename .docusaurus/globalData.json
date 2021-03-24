@@ -171,6 +171,11 @@
               "sidebar": "docs"
             },
             {
+              "id": "michelson/take-away",
+              "path": "/michelson/take-away",
+              "sidebar": "docs"
+            },
+            {
               "id": "private/exam",
               "path": "/private/exam",
               "sidebar": "docs"

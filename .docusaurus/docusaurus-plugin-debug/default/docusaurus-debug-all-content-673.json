@@ -175,6 +175,10 @@
                   {
                     "type": "doc",
                     "id": "michelson/exam"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "michelson/take-away"
                   }
                 ]
               },
@@ -342,6 +346,7 @@
             "/michelson/instructions": "docs",
             "/michelson": "docs",
             "/michelson/smart_contracts": "docs",
+            "/michelson/take-away": "docs",
             "/private/exam": "docs",
             "/private": "docs",
             "/smartpy/exam": "docs",
@@ -557,8 +562,8 @@
               "version": "current",
               "sidebar": "docs",
               "previous": {
-                "title": "Exam",
-                "permalink": "/michelson/exam"
+                "title": "Take away",
+                "permalink": "/michelson/take-away"
               },
               "next": {
                 "title": "Exam",
@@ -918,8 +923,8 @@
                 "permalink": "/michelson/examples"
               },
               "next": {
-                "title": "introduction",
-                "permalink": "/dapp/introduction"
+                "title": "Take away",
+                "permalink": "/michelson/take-away"
               }
             },
             {
@@ -1025,6 +1030,27 @@
               "next": {
                 "title": "Instructions",
                 "permalink": "/michelson/instructions"
+              }
+            },
+            {
+              "unversionedId": "michelson/take-away",
+              "id": "michelson/take-away",
+              "isDocsHomePage": false,
+              "title": "Take away",
+              "description": "- Smart contracts in Tezos are implemented in the Michelson language which is a stack-based strongly-typed language.",
+              "source": "@site/docs/michelson/take_away.md",
+              "slug": "/michelson/take-away",
+              "permalink": "/michelson/take-away",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/michelson/take_away.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Exam",
+                "permalink": "/michelson/exam"
+              },
+              "next": {
+                "title": "introduction",
+                "permalink": "/dapp/introduction"
               }
             },
             {
@@ -1179,7 +1205,7 @@
               "id": "tezos-basics/governance-on-chain",
               "isDocsHomePage": false,
               "title": "Governance on-chain",
-              "description": "Tezos is a self-amending blockchain network which incorporates an on-chain mechanism for proposing, selecting, testing, and activating protocol upgrades without having to hard fork. [1]",
+              "description": "Tezos is a self-amending blockchain network that incorporates an on-chain mechanism for proposing, selecting, testing, and activating protocol upgrades without having to hard fork. [1]",
               "source": "@site/docs/tezos-basics/governance-on-chain.md",
               "slug": "/tezos-basics/governance-on-chain",
               "permalink": "/tezos-basics/governance-on-chain",
@@ -1200,7 +1226,7 @@
               "id": "tezos-basics/history-of-evolutions",
               "isDocsHomePage": false,
               "title": "History of evolutions",
-              "description": "As presented in the Governance on-chain chapter, Tezos is constantly evolving through new amendments. In this chapter we will see an history of past proposals, both approved or refused and why.",
+              "description": "As presented in the Governance on-chain chapter, the Tezos blockchain is constantly evolving through new amendments. In this chapter we will see a history of past proposals, both those approved and those refused and look at why.",
               "source": "@site/docs/tezos-basics/history-of-evolutions.md",
               "slug": "/tezos-basics/history-of-evolutions",
               "permalink": "/tezos-basics/history-of-evolutions",

@@ -3,7 +3,7 @@
   "id": "tezos-basics/governance-on-chain",
   "isDocsHomePage": false,
   "title": "Governance on-chain",
-  "description": "Tezos is a self-amending blockchain network which incorporates an on-chain mechanism for proposing, selecting, testing, and activating protocol upgrades without having to hard fork. [1]",
+  "description": "Tezos is a self-amending blockchain network that incorporates an on-chain mechanism for proposing, selecting, testing, and activating protocol upgrades without having to hard fork. [1]",
   "source": "@site/docs/tezos-basics/governance-on-chain.md",
   "slug": "/tezos-basics/governance-on-chain",
   "permalink": "/tezos-basics/governance-on-chain",

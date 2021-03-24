@@ -193,6 +193,11 @@
             "type": "link",
             "label": "Exam",
             "href": "/michelson/exam"
+          },
+          {
+            "type": "link",
+            "label": "Take away",
+            "href": "/michelson/take-away"
           }
         ]
       },
@@ -380,6 +385,7 @@
     "/michelson/instructions": "docs",
     "/michelson": "docs",
     "/michelson/smart_contracts": "docs",
+    "/michelson/take-away": "docs",
     "/private/exam": "docs",
     "/private": "docs",
     "/smartpy/exam": "docs",
