@@ -32,10 +32,10 @@ What is a roll?
 
 ### Question 4
 
-On which elements are calculated a transaction fee?
+On which elements are transaction fees calculated?
 
 - [X] With the gas consumption
-- [X] With the storage require to realize the operation
+- [X] With the storage required to realize the operation
 - [ ] According to the congestion of the network
 - [ ] It is free if you are a baker
 
@@ -71,8 +71,8 @@ What are the two metrics required to validate the _Exploration Period_ and the _
 
 An implicit account is:
 
-- [ ] A smart contract, it can run the Michelson code each time it receives an operation
-- [X] An account which can make a transaction, can be registered as delegate and participate in the baking 
+- [ ] A smart contract, that can run the Michelson code each time it receives an operation
+- [X] An account that can make a transaction, can be registered as delegate and participate in the baking 
 - [ ] An unused account
 
 
@@ -97,24 +97,23 @@ If we want to update the Tezos protocol, we need to:
 
 
 =======
-What notions are defined inside the smart contract ?
+What notions are defined inside the smart contract?
 
-- [x] The type definition of the storage
+- [x] The type of storage
 - [ ] The balance of the contract
 - [ ] The initial value of the storage
 - [ ] The value of the entry point and its related parameters
-- [x] The type definition of the entry point
+- [x] The type of entry point, its definition
 - [ ] The size of the storage
 - [x] The code of the smart contract
 - [ ] The list of users allowed to call the smart contract
 
 ### Question 2
 
-What is returned by the execution of a smart contract ?
+What is returned by the execution of a smart contract?
 
-- [ ] The current storage state when invoking the smart contract
-- [x] The modified storage state after invoking the smart contract
-- [ ] The entry point that has been called (and its related parameters)
+- [x] The modified state of storage after the invocation the smart contract
+- [ ] The related parameters of the entry point that has been called
 - [x] The list of emitted operations produced by the execution of the smart contract
 - [ ] The balance of the contract
 - [ ] The size of the storage
