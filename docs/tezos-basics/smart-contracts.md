@@ -32,9 +32,16 @@ A transaction can contain transfers of a certain amount of XTZ to an account but
 
 Once deployed the smart contract can be invoked by anyone via a transaction to the contract address. This triggers the execution of the set of pre-defined instructions.
 
-The CLI command `tezos-client originate` is provided for deploying a contract. It expects the 3 mentioned items of information as the argument and returns the address associated with the newly deployed contract. More details in the [CLI chapter](/tezos-basics/introduction_to_cli_and_rpc).
-// TODO : What 3 mentioned information ???
-//TODO: keep "items of information" if you change the sentence, please. "information" by itself is wonky
+The CLI command `tezos-client originate` is provided for deploying a contract. It expects as arguments
+- the name of the contract
+- the Michelson script which defines 
+    - the type definition of the storage, 
+    - entrypoints of the smart contract
+    - the sequence of Michelson instructions
+- the amount of XTZ transferred to the contract
+- the initial storage value
+- optionally the address of a delegate
+ and returns the address associated with the newly deployed contract. More detail in the [CLI chapter](/tezos-basics/introduction_to_cli_and_rpc).
 
 These pre-defined instructions are written in Michelson, which is part of the protocol of the Tezos blockchain. More details in the [Michelson module](/michelson).
 
@@ -67,11 +74,11 @@ The execution of this sequence of instructions results in a modification of the 
 
 The full description of the Michelson language is detailed in the [Michelson module](/michelson).
 
-// TODO : Add a diagram of a smart contract storage being modified by an operation.
+
+![](../../static/img/tezos-basics/invoke_smart_contract.svg)
+<small className="figure">FIGURE 3: Invocation of a smart contract triggers the code of the smart contract and modifies the storage</small>
 
 ### Storage of a smart contract
-
-// TODO : Repetition avec le point precedent.
 
 During the origination (deployment phase), a persistent memory space (called **storage**) is allocated to the smart contract. The initial state of the storage must be specified during the origination of the smart contract.
 
