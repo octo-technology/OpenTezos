@@ -6,9 +6,9 @@ title: Governance on-chain
 Tezos is a self-amending blockchain network that incorporates an on-chain mechanism for proposing, selecting, testing, and activating protocol upgrades without having to hard fork. [[1]](/tezos-basics/governance-on-chain#references)
 
 ## What is self-amendment?
-Tezos is a blockchain that can improve itself over time by having a formalized process to upgrades its protocol. In practice, it is similar to the structure of a corporation, where shareholders get to vote on the future direction of the company.
+Tezos is a blockchain that can improve itself over time by using a formalized process to upgrade its protocol. In practice, it is similar to the structure of a corporation, where shareholders get to vote on the future direction of the company.
 
-Many other blockchains do not have this type of formal governance structure. Consequently, the direction of these projects is often decided by a small group of developers or by a foundation, which may not represent all stakeholders fairly.
+Many other blockchains do not have this type of formal governance structure. Consequently, direction of these projects is often decided by a small group of developers or by a foundation, which may not represent all stakeholders fairly.
 
 ## How does it work?
 The self-amendment process is split into 4 periods: the _Proposal Period_, the _Exploration Vote Period_, the _Testing Period_ and the _Promotion Vote Period_. Each of these four periods lasts eight baking cycles (i.e. 32,768 blocks or roughly 22 days and 18 hours), taking almost three months from the proposal to activation. The latest and current self-amendments are available at [tezosagora.org](https://www.tezosagora.org)
@@ -55,16 +55,16 @@ In the _Exploration Vote Period_, delegates may vote for the top-ranked proposal
 ## Phase 3: Testing period
 If the proposal is approved in the _Exploration Vote Period_, the _Testing Period_ begins with a testnet fork that runs in parallel with the main network for 48 hours. These forks have access to the standard library but are sandboxed. 
 
-The purpose of this fork is simply to verify that the migration from the old protocol to the new one work's correctly. This 48 hours parallel fork has been set conservatively to reduce the risk that the network perceive the testnet-fork as the main chain. However, 48 hours of testing is too short to determine whether a proposal is a worthwhile and safe amendment or not. To find any security vulnerabilities, a testnet matching the amendment proposal is likely to run off-chain during the remaining ~7.3 cycles of the _Testing Period_, allowing stakeholders to evaluate and discuss the amendment as they gain better knowledge of its properties.
+The purpose of this fork is simply to verify that the migration from the old protocol to the new one work's correctly. This 48-hour parallel fork has been set conservatively to reduce the risk of the network perceiving the testnet-fork as the main chain. However, 48 hours of testing is too short to determine whether a proposal is a worthwhile and safe amendment, or not. To find any security vulnerabilities, a testnet matching the amendment proposal is likely to run off-chain during the remaining ~7.3 cycles of the _Testing Period_, allowing stakeholders to evaluate and discuss the amendment as they gain better knowledge of its properties.
 
 ## Phase 4: Promotion vote period
 At the end of the _Testing Period_, the _Promotion Vote Period_ begins. In this period, the network decides whether to adopt the amendment based on off-chain discussions and its behaviour during the _Testing Period_. The voting rules are identical to the exploration voting period and are explained in the _Super-Majority_ and _Quorum_ section.
 
 At the end of the _Promotion Vote Period_, the network counts the number of votes. If the participation rate reaches the minimum quorum and an 80% _Super-Majority_ of non-passing delegates vote _Yea_ then the proposal is activated in the new mainnet. If not, the process reverts back to the _Proposal Period_. The minimum vote participation rate is set based on past participation rates.
 
-In exchange for their work on the proposal, some delegates can put a symbolic self-reward in the protocol. If the protocol is accepted, they will receive it. 
+In exchange for their work on the proposal, some delegates can put a symbolic self-reward into the protocol. If the protocol is accepted, they will receive the reward. 
 
-As of (Marck 2021), 42 periods have passed. A total of 6 proposals have been made and 5 have been validated. 
+As of (March 2021), 42 periods have passed. A total of 6 proposals have been made and 5 have been validated. 
 
 This diagram sums up the self-amendment process :
 
