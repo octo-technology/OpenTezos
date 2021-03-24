@@ -53,6 +53,7 @@ module.exports = {
         'michelson/instructions',
         'michelson/examples',
         'michelson/exam',
+        'michelson/take-away',
       ],
     },
     {
