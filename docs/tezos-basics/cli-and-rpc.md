@@ -8,6 +8,12 @@ RPC [[1]](/tezos-basics/introduction_to_cli_and_rpc#referencess) is a client-ser
 
 Tezos nodes provide a JSON/RPC interface to interact with the Tezos network. Note that although it is using RPC and it is JSON based, it does not follow the `JSON-RPC` protocol.
 
+### RPC URLs
+//TODO examples of URL (same as CLI)
+
+## tezos-client-admin
+//TODO examples of commands
+
 ## Tezos-client
 
 Tezos-client is the client for interacting with a Tezos node via RPC. Let's take a look at some examples and how to use it.
@@ -43,6 +49,8 @@ If you use a testnet you can download a free faucet file with test XTZ on it[her
 ### Account activation
 Activate your account by replacing `#accountName` and `#faucet` below with an account name and the path to your downloaded faucet file. 
 
+//TODO: le bash change la coloration du reste de la ligne 
+
 ```bash
 $ tezos-client activate account #accountName with ~/Downloads/#faucet.json
 ```
@@ -65,9 +73,17 @@ $ tezos-client get timestamp
 ```
 
 ### List known addresses
-This call list the addresses register in your tezos-client.
+
+This call lists implicit accounts registered in your tezos-client.
 ```
 $ tezos-client list known addresses
+```
+
+### List known contracts
+
+This call lists all accounts (implicit and smart contract) registered in your tezos-client.
+```
+$ tezos-client list known contracts
 ```
 
 ### Transfers and receipts
