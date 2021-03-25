@@ -1,10 +1,22 @@
 ---
 id: full_examples
 disable_pagination: true
-title: Full examples
+title: Examples
 ---
 
-# Funadvisor
+## Functions
+
+## Records
+
+## Loops
+
+## Main function
+
+## Transaction
+
+## Option
+
+# Full example - Funadvisor
 
 This example is meant to illustrate the communication between contracts (with get_entrypoint_opt LIGO function) 
 and lambda pattern which allows to modify a contract already deployed. 
@@ -42,7 +54,7 @@ So an entrypoint `ChangeAlgorithm` is provided to modify the algorithm that comp
 
 1. Having the LIGO Compiler, and an code editor installed. 
    If not go [here](https://opentezos.com/ligo/installation).
-2. Having a sandboxed mode ready
+2. Having a sandboxed mode ready.
 
 ## Sandboxed mode
 
@@ -51,7 +63,8 @@ This part will explain to you how to run a ‘localhost-only’ instance of a Te
 ### Run a sandboxed node
 
 For instance, if you want to run a local network with two nodes, in the first terminal, 
-the following command will initialize a node listening for peers on port 19731 and listening for RPC on port 18731.
+the following command will initialize a node listening for peers on port 19731 and 
+listening for RPC on port 18731.
 
 ```shell
 ./src/bin_node/tezos-sandboxed-node.sh 1 --connections 1
@@ -83,18 +96,16 @@ tezos-activate-alpha
 
 ## First contract - Indice
 
-### Defining storage
+### Defining storage and entrypoints
 
-In a indice_types.ligo file we will put all the needed type definition.
-For now let's definine the type of the storage and the entrypoints.
+Let's create an `indice_types.ligo` file to put all the needed type definition.
 
 - `indiceStorage` is of integer type
 - `indiceEntrypoints` that determine how the contract will be invoked:
   - By increasing the contract storage value with `Increment of int`.
   - By decreasing it with `Decrement of int`.
-  - By sending this value to another contract that would have called it, with `sendValue of unit`.
-- `indiceFullReturn`that determine the return type of the main function.
-  
+  - By sending this value to another contract that would have called it, with `SendValue of unit`.
+- `indiceFullReturn`that determines the return type of the main function.
 
 ```js
 // indice_types.ligo
@@ -112,7 +123,7 @@ type indiceFullReturn is list(operation) * indiceStorage
 
 Now let's move to another file `indice.ligo` 
 that will include the previous file `indice_types.ligo` 
-and create the main function `indiceMain`.
+and create the main function `indiceMain`
 with writing `#include "indice_types.ligo"` at the beginning of the script.
 
 ```js
@@ -140,6 +151,9 @@ This should return:
 Now let's implement the three entrypoints:
 
 ```js
+// indice.ligo
+`#include "indice_types.ligo"`
+
 function indiceMain(const ep : indiceEntrypoints; const store : indiceStorage) : indiceFullReturn is
 block { 
     const ret : indiceFullReturn = case ep of 
@@ -155,29 +169,62 @@ block {
 
 #### Increment
 
-Increment function take two parameters:
-- `param` of type `int` which is the value we will ad to the storage.
-- `s` of type `indiceStorage`
+`increment` function takes two parameters:
+- `param` of type `int` which is the value that will be incremented to the storage.
+- `s` the initial value of the storage.
 
-This function return type is `indiceFullReturn` and will returns:
+This function return type is `indiceFullReturn` and returns:
 - an empty list of operations
-- a modified storage which`s`
+- a modified storage with a new value of `s + param`
 
 ```js
+//indice.ligo
+
 function increment(const param : int; const s : indiceStorage) : indiceFullReturn is 
 block { skip } with ((nil: list(operation)), s + param)
 ```
 
 #### Decrement
 
+`decrement` function takes two parameters:
+- `param` of type `int` which is the value that will be decremented to the storage.
+- `s` the initial value of the storage.
+
+This function return type is `indiceFullReturn` and returns:
+- an empty list of operations
+- a modified storage with a new value of `s - param`
+
 ```js
+//indice.ligo
+
 function decrement(const param : int; const s : indiceStorage) : indiceFullReturn is 
 block { skip } with ((nil: list(operation)), s - param)
 ```
 
 #### SendValue
 
+`sendValue` function takes two parameters:
+- `param` of type `unit` which means it takes no parameter.
+- `s` the initial value of the storage.
+
+This function return type is `indiceFullReturn` and returns:
+- a list of operation containing a transaction.
+- the initial storage that is not modified.
+
+The predefined function `Tezos.get_entrypoint_opt` can be used 
+to retrieve the definition of a single entry point.  
+`%receiveValue` is the label of the entrypoint that will be defined in the advisor contract.
+
+When the function `get_entrypoint_opt` does not find any contract 
+at a given `address`, or the contract doesn't match the type, then `None` is returned.
+
+> Note that the `Tezos.get_entrypoint_opt` function is a solution of two-way communication 
+> between contract that are already deployed.
+> Find out more on `Tezos.get_entrypoint_opt` [here](https://tezosacademy.io/pascal/chapter-polymorphism)
+
 ```js
+//indice.ligo
+
 function sendValue(const param : unit; const s : indiceStorage) : indiceFullReturn is 
 block { 
     const c_opt : option(contract(int)) = Tezos.get_entrypoint_opt("%receiveValue", Tezos.sender);
@@ -189,4 +236,138 @@ block {
     const txs : list(operation) = list [ op; ];
  } with (txs, s)
 ```
+
+Let's compile again the main function to be sure we made no mistakes.
+
+```shell
+ligo compile-contract indice.ligo indiceMain
+```
+
+## Second contract - Advisor
+
+### Defining storage and entrypoints
+
+In a new file called `advisor_types.ligo` we define:
+
+- `advisorStorage` is of record type containing three fields:
+    - `indiceAddress` of type `address` to communicate with the indice contract.
+    - `algorithm` which takes an `int` of parameter and returns a `bool`, 
+      depending on the business logic.
+    - `result` which is `True` if the investor should invest and `False` otherwise.
+- `advisorEntrypoints` that determines how the contract will be invoked:
+    - By receiving an integer value from another contract storage with `ReceiveValue of int`.
+    - By requesting this value with `sendValue of unit`. 
+    - By modifying the algorithm that computes the worth of investment with `ChangeAlgorithm of advisorAlgo`.
+- `advisorFullReturn`that determines the return type of the main function.
+
+```js
+//advisor_types.ligo
+type advisorAlgo is int -> bool
+
+type advisorStorage is record [
+    indiceAddress : address;
+    algorithm : advisorAlgo;
+    result : bool;
+]
+
+type advisorEntrypoints is ReceiveValue of int | RequestValue of unit | ChangeAlgorithm of advisorAlgo
+
+type advisorFullReturn is list(operation) * advisorStorage
+```
+### Defining the main function
+
+Like before, let's create another file `advisor.ligo`
+that will include the previous file `advisor_types.ligo`
+and create the main function `advisorMain`.
+
+```js
+//advisor.ligo
+#include "advisor_types.ligo"
+
+function advisorMain(const ep : advisorEntrypoints; const store : advisorStorage) : advisorFullReturn is
+block { 
+    const ret : advisorFullReturn = case ep of 
+    | ReceiveValue(p) -> execute(p, store)
+    | RequestValue(p) -> request(p, store)
+    | ChangeAlgorithm(p) -> change(p, store)
+    end;
+ } with ret
+```
+
+### Defining the entrypoints
+
+#### ReceiveValue
+
+Symmetrically to the `SendValue` function defined for the indice contract, 
+we define here the `RequestValue` function, so the two-way communication is complete.
+
+`request` function takes two parameters:
+- `param` of type `unit` which means it takes no parameter.
+- `s` the initial value of the storage.
+
+This function return type is `advisorFullReturn` and returns:
+- a list of operation containing a transaction.
+- the initial storage that is not modified.
+
+```js
+//advisor.ligo
+
+function request(const p : unit; const s : advisorStorage) : advisorFullReturn is
+block { 
+    const c_opt : option(contract(unit)) = Tezos.get_entrypoint_opt("%sendValue", s.indiceAddress);
+    const destinataire : contract(unit) = case c_opt of
+    | Some(c) -> c
+    | None -> (failwith("indice cannot send its value") : contract(unit))
+    end;
+    const op : operation = Tezos.transaction(unit, 0mutez, destinataire);
+    const txs : list(operation) = list [ op; ];
+ } with (txs, s)
+```
+
+#### RequestValue
+
+`execute` function takes two parameters:
+- `indiceVal` of type `int` which is the value that will be passed in the algorithm.
+- `s` the initial value of the storage.
+
+This function return type is `advisorFullReturn` and returns:
+- an empty list of operations
+- a modified storage with a new value for `s.result ` 
+  that will be the boolean return of the algorithm.
+
+```js
+//advisor.ligo
+
+function execute(const indiceVal : int; const s : advisorStorage) : advisorFullReturn is
+block { 
+    s.result := s.algorithm(indiceVal)
+ } with ((nil : list(operation)), s)
+```
+
+#### ChangeAlgorithm
+
+`change` function takes two parameters:
+- `p` of type `advisorAlgo` which is the algorithm function corresponding to the wanted business logic.
+- `s` the initial value of the storage.
+
+This function return type is `advisorFullReturn` and returns:
+- an empty list of operations
+- a modified storage with a new value for `s.algorithm `.
+
+```js
+//advisor.ligo
+
+function change(const p : advisorAlgo; const s : advisorStorage) : advisorFullReturn is
+block { 
+    s.algorithm := p;
+ } with ((nil : list(operation)), s)
+```
+
+Let's compile the main function.
+
+```shell
+ligo compile-contract advisor.ligo advisorMain
+```
+
+### Compilation and deployment
 
