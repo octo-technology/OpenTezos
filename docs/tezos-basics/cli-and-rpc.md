@@ -22,24 +22,24 @@ The list of RPC call available is [here](http://tezos.gitlab.io/shell/rpc.html#r
 
 #### Get block
 This call is used to find all the information about a block. The associated metadata may not be present depending on the history mode and block's distance from the head.
-```
+```bash
 GET NodeUrl/chains/[chain_id]/blocks/[blocks_id]
 ```
 
 Example to get the block number 1400114 in the main chain using the node giganode.
 
-```
+```bash
 GET https://mainnet-tezos.giganode.io/chains/main/blocks/1400114
 ```
 
 #### Get contract storage
 This call is used access to the data of the contract.
-```
+```bash
 GET NodeUrl/chains/[chain_id]/blocks/[blocks_id]/context/contracts/[contract_id]/storage
 ```
 
 Example to get the block number 1400114 in the main chain using the node giganode.
-```
+```bash
 GET https://mainnet-tezos.giganode.io/chains/main/blocks/1400114/context/contracts/KT1Hkg5qeNhfwpKW4fXvq7HGZB9z2EnmCCA9/storage
 ```
 
@@ -254,7 +254,7 @@ $ tezos-admin-client rpc get [url]
 $ tezos-admin-client list protocols
 ```
 
-####Commands for managing protocols
+#### Commands for managing protocols
 * List protocols known by the node:
 ```bash
 $ tezos-admin-client rpc post [url] with [input]
@@ -266,13 +266,13 @@ $ tezos-admin-client inject protocol [given_dir]
 ```
 
 
-####Commands to report the node's status:
+#### Commands to report the node's status:
 * The last heads that have been considered by the node. -o --output : write to a file:
 ```bash
 $ tezos-admin-client list heads [-o --output [path]]
 ```
 
-####Commands for editing and viewing the client's config file:
+#### Commands for editing and viewing the client's config file:
 * Show the current config (config file content + command line arguments) or the mockup config files if --mode mockup is specified:
 ```bash
 $ tezos-admin-client config show
