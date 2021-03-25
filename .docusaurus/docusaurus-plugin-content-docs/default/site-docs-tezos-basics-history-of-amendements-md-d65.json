@@ -4,10 +4,10 @@
   "isDocsHomePage": false,
   "title": "History of amendements",
   "description": "As presented in the Governance on-chain chapter, the Tezos blockchain is constantly evolving through new amendments. In this chapter, we will go over a history of past proposals both approved and refused, and look at why.",
-  "source": "@site/docs/tezos-basics/history-of-evolutions.md",
+  "source": "@site/docs/tezos-basics/history-of-amendements.md",
   "slug": "/tezos-basics/history-of-amendements",
   "permalink": "/tezos-basics/history-of-amendements",
-  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/history-of-evolutions.md",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/history-of-amendements.md",
   "version": "current",
   "sidebar": "docs",
   "previous": {

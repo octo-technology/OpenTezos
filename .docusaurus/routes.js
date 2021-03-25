@@ -3,8 +3,43 @@ import React from 'react';
 import ComponentCreator from '@docusaurus/ComponentCreator';
 export default [
 {
+  path: '/__docusaurus/debug',
+  component: ComponentCreator('/__docusaurus/debug','3d6'),
+  exact: true,
+},
+{
+  path: '/__docusaurus/debug/config',
+  component: ComponentCreator('/__docusaurus/debug/config','914'),
+  exact: true,
+},
+{
+  path: '/__docusaurus/debug/content',
+  component: ComponentCreator('/__docusaurus/debug/content','c28'),
+  exact: true,
+},
+{
+  path: '/__docusaurus/debug/globalData',
+  component: ComponentCreator('/__docusaurus/debug/globalData','3cf'),
+  exact: true,
+},
+{
+  path: '/__docusaurus/debug/metadata',
+  component: ComponentCreator('/__docusaurus/debug/metadata','31b'),
+  exact: true,
+},
+{
+  path: '/__docusaurus/debug/registry',
+  component: ComponentCreator('/__docusaurus/debug/registry','0da'),
+  exact: true,
+},
+{
+  path: '/__docusaurus/debug/routes',
+  component: ComponentCreator('/__docusaurus/debug/routes','244'),
+  exact: true,
+},
+{
   path: '/',
-  component: ComponentCreator('/','5bb'),
+  component: ComponentCreator('/','6c0'),
   
   routes: [
 {
@@ -68,8 +103,13 @@ export default [
   exact: true,
 },
 {
-  path: '/defi/dex',
-  component: ComponentCreator('/defi/dex','65f'),
+  path: '/defi/cross-chain-swaps',
+  component: ComponentCreator('/defi/cross-chain-swaps','a3e'),
+  exact: true,
+},
+{
+  path: '/defi/dexs',
+  component: ComponentCreator('/defi/dexs','252'),
   exact: true,
 },
 {
@@ -78,18 +118,18 @@ export default [
   exact: true,
 },
 {
-  path: '/defi/flash_loans',
-  component: ComponentCreator('/defi/flash_loans','17b'),
-  exact: true,
-},
-{
   path: '/defi/lending',
   component: ComponentCreator('/defi/lending','9c4'),
   exact: true,
 },
 {
-  path: '/defi/stable_coins',
-  component: ComponentCreator('/defi/stable_coins','36a'),
+  path: '/defi/oracles',
+  component: ComponentCreator('/defi/oracles','df5'),
+  exact: true,
+},
+{
+  path: '/defi/stablecoins',
+  component: ComponentCreator('/defi/stablecoins','5fa'),
   exact: true,
 },
 {
@@ -98,8 +138,13 @@ export default [
   exact: true,
 },
 {
-  path: '/defi/tokens',
-  component: ComponentCreator('/defi/tokens','291'),
+  path: '/defi/token-standards',
+  component: ComponentCreator('/defi/token-standards','850'),
+  exact: true,
+},
+{
+  path: '/defi/wrapped-assets',
+  component: ComponentCreator('/defi/wrapped-assets','0fe'),
   exact: true,
 },
 {
@@ -228,8 +273,8 @@ export default [
   exact: true,
 },
 {
-  path: '/tezos-basics/history-of-evolutions',
-  component: ComponentCreator('/tezos-basics/history-of-evolutions','571'),
+  path: '/tezos-basics/history-of-amendements',
+  component: ComponentCreator('/tezos-basics/history-of-amendements','413'),
   exact: true,
 },
 {

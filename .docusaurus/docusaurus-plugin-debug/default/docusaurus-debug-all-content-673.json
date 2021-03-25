@@ -75,7 +75,7 @@
                   },
                   {
                     "type": "doc",
-                    "id": "tezos-basics/history-of-evolutions"
+                    "id": "tezos-basics/history-of-amendements"
                   },
                   {
                     "type": "doc",
@@ -238,27 +238,35 @@
                   },
                   {
                     "type": "doc",
-                    "id": "defi/tokens"
+                    "id": "defi/token-standards"
                   },
                   {
                     "type": "doc",
-                    "id": "defi/stable_coins"
+                    "id": "defi/dexs"
                   },
                   {
                     "type": "doc",
-                    "id": "defi/dex"
+                    "id": "defi/wrapped-assets"
                   },
                   {
                     "type": "doc",
-                    "id": "defi/lending"
+                    "id": "defi/cross-chain-swaps"
                   },
                   {
                     "type": "doc",
-                    "id": "defi/flash_loans"
+                    "id": "defi/oracles"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "defi/stablecoins"
                   },
                   {
                     "type": "doc",
                     "id": "defi/synthetics"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "defi/lending"
                   },
                   {
                     "type": "doc",
@@ -324,14 +332,16 @@
             "/contribute": "docs",
             "/dapp/exam": "docs",
             "/dapp/introduction": "docs",
-            "/defi/dex": "docs",
+            "/defi/cross-chain-swaps": "docs",
+            "/defi/dexs": "docs",
             "/defi/exam": "docs",
-            "/defi/flash_loans": "docs",
             "/defi": "docs",
             "/defi/lending": "docs",
-            "/defi/stable_coins": "docs",
+            "/defi/oracles": "docs",
+            "/defi/stablecoins": "docs",
             "/defi/synthetics": "docs",
-            "/defi/tokens": "docs",
+            "/defi/token-standards": "docs",
+            "/defi/wrapped-assets": "docs",
             "/deploy-a-node/exam": "docs",
             "/deploy-a-node": "docs",
             "/explorer/exam": "docs",
@@ -355,7 +365,7 @@
             "/tezos-basics/economics-and-rewards": "docs",
             "/tezos-basics/exam": "docs",
             "/tezos-basics/governance-on-chain": "docs",
-            "/tezos-basics/history-of-evolutions": "docs",
+            "/tezos-basics/history-of-amendements": "docs",
             "/tezos-basics": "docs",
             "/tezos-basics/liquid-proof-of-stake": "docs",
             "/tezos-basics/operations": "docs",
@@ -571,24 +581,45 @@
               }
             },
             {
-              "unversionedId": "defi/dex",
-              "id": "defi/dex",
+              "unversionedId": "defi/cross-chain-swaps",
+              "id": "defi/cross-chain-swaps",
               "isDocsHomePage": false,
-              "title": "Decentralized Exchanges",
-              "description": "An exchange is a marketplace where coins and tokens can be traded. The core function of an exchange is to ensure fair and orderly trading and the efficient dissemination of price information for any pair trading on that exchange. Exchanges give companies, traders, and just crypto-enthusiasts a platform from which to publicly sell and buy crypto-currencies.",
-              "source": "@site/docs/defi/dex.md",
-              "slug": "/defi/dex",
-              "permalink": "/defi/dex",
-              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/dex.md",
+              "title": "Cross-chain Swaps",
+              "description": "Under construction.",
+              "source": "@site/docs/defi/cross-chain-swaps.md",
+              "slug": "/defi/cross-chain-swaps",
+              "permalink": "/defi/cross-chain-swaps",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/cross-chain-swaps.md",
               "version": "current",
               "sidebar": "docs",
               "previous": {
-                "title": "Stable Coins",
-                "permalink": "/defi/stable_coins"
+                "title": "Wrapped Assets",
+                "permalink": "/defi/wrapped-assets"
               },
               "next": {
-                "title": "Lending",
-                "permalink": "/defi/lending"
+                "title": "On-chain Oracles",
+                "permalink": "/defi/oracles"
+              }
+            },
+            {
+              "unversionedId": "defi/dexs",
+              "id": "defi/dexs",
+              "isDocsHomePage": false,
+              "title": "Decentralized Exchanges",
+              "description": "An exchange is a marketplace where coins and tokens can be traded. The core function of an exchange is to ensure fair and orderly trading and the efficient dissemination of price information for any pair trading on that exchange. Exchanges give companies, traders, and just crypto-enthusiasts a platform from which to publicly sell and buy crypto-currencies.",
+              "source": "@site/docs/defi/dexs.md",
+              "slug": "/defi/dexs",
+              "permalink": "/defi/dexs",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/dexs.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Token Standards",
+                "permalink": "/defi/token-standards"
+              },
+              "next": {
+                "title": "Wrapped Assets",
+                "permalink": "/defi/wrapped-assets"
               }
             },
             {
@@ -604,8 +635,8 @@
               "version": "current",
               "sidebar": "docs",
               "previous": {
-                "title": "Synthetics",
-                "permalink": "/defi/synthetics"
+                "title": "Lending and Flash Loans",
+                "permalink": "/defi/lending"
               },
               "next": {
                 "title": "Introduction",
@@ -613,32 +644,11 @@
               }
             },
             {
-              "unversionedId": "defi/flash_loans",
-              "id": "defi/flash_loans",
-              "isDocsHomePage": false,
-              "title": "Flash Loans",
-              "description": "Under construction.",
-              "source": "@site/docs/defi/flash_loans.md",
-              "slug": "/defi/flash_loans",
-              "permalink": "/defi/flash_loans",
-              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/flash_loans.md",
-              "version": "current",
-              "sidebar": "docs",
-              "previous": {
-                "title": "Lending",
-                "permalink": "/defi/lending"
-              },
-              "next": {
-                "title": "Synthetics",
-                "permalink": "/defi/synthetics"
-              }
-            },
-            {
               "unversionedId": "defi/introduction",
               "id": "defi/introduction",
               "isDocsHomePage": false,
               "title": "Introduction",
-              "description": "Under construction.",
+              "description": "What is DeFi ?",
               "source": "@site/docs/defi/introdution.md",
               "slug": "/defi",
               "permalink": "/defi",
@@ -650,15 +660,15 @@
                 "permalink": "/baker/exam"
               },
               "next": {
-                "title": "Tokens - FA2 Standards",
-                "permalink": "/defi/tokens"
+                "title": "Token Standards",
+                "permalink": "/defi/token-standards"
               }
             },
             {
               "unversionedId": "defi/lending",
               "id": "defi/lending",
               "isDocsHomePage": false,
-              "title": "Lending",
+              "title": "Lending and Flash Loans",
               "description": "Under construction.",
               "source": "@site/docs/defi/lending.md",
               "slug": "/defi/lending",
@@ -667,33 +677,54 @@
               "version": "current",
               "sidebar": "docs",
               "previous": {
-                "title": "Decentralized Exchanges",
-                "permalink": "/defi/dex"
+                "title": "Synthetics",
+                "permalink": "/defi/synthetics"
               },
               "next": {
-                "title": "Flash Loans",
-                "permalink": "/defi/flash_loans"
+                "title": "Exam",
+                "permalink": "/defi/exam"
               }
             },
             {
-              "unversionedId": "defi/stable_coins",
-              "id": "defi/stable_coins",
+              "unversionedId": "defi/oracles",
+              "id": "defi/oracles",
               "isDocsHomePage": false,
-              "title": "Stable Coins",
+              "title": "On-chain Oracles",
               "description": "Under construction.",
-              "source": "@site/docs/defi/stable_coins.md",
-              "slug": "/defi/stable_coins",
-              "permalink": "/defi/stable_coins",
-              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/stable_coins.md",
+              "source": "@site/docs/defi/oracles.md",
+              "slug": "/defi/oracles",
+              "permalink": "/defi/oracles",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/oracles.md",
               "version": "current",
               "sidebar": "docs",
               "previous": {
-                "title": "Tokens - FA2 Standards",
-                "permalink": "/defi/tokens"
+                "title": "Cross-chain Swaps",
+                "permalink": "/defi/cross-chain-swaps"
               },
               "next": {
-                "title": "Decentralized Exchanges",
-                "permalink": "/defi/dex"
+                "title": "Stablecoins",
+                "permalink": "/defi/stablecoins"
+              }
+            },
+            {
+              "unversionedId": "defi/stablecoins",
+              "id": "defi/stablecoins",
+              "isDocsHomePage": false,
+              "title": "Stablecoins",
+              "description": "Under construction.",
+              "source": "@site/docs/defi/stablecoins.md",
+              "slug": "/defi/stablecoins",
+              "permalink": "/defi/stablecoins",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/stablecoins.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "On-chain Oracles",
+                "permalink": "/defi/oracles"
+              },
+              "next": {
+                "title": "Synthetics",
+                "permalink": "/defi/synthetics"
               }
             },
             {
@@ -709,24 +740,24 @@
               "version": "current",
               "sidebar": "docs",
               "previous": {
-                "title": "Flash Loans",
-                "permalink": "/defi/flash_loans"
+                "title": "Stablecoins",
+                "permalink": "/defi/stablecoins"
               },
               "next": {
-                "title": "Exam",
-                "permalink": "/defi/exam"
+                "title": "Lending and Flash Loans",
+                "permalink": "/defi/lending"
               }
             },
             {
-              "unversionedId": "defi/tokens",
-              "id": "defi/tokens",
+              "unversionedId": "defi/token-standards",
+              "id": "defi/token-standards",
               "isDocsHomePage": false,
-              "title": "Tokens - FA2 Standards",
+              "title": "Token Standards",
               "description": "Under construction.",
-              "source": "@site/docs/defi/tokens.md",
-              "slug": "/defi/tokens",
-              "permalink": "/defi/tokens",
-              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/tokens.md",
+              "source": "@site/docs/defi/token-standards.md",
+              "slug": "/defi/token-standards",
+              "permalink": "/defi/token-standards",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/token-standards.md",
               "version": "current",
               "sidebar": "docs",
               "previous": {
@@ -734,8 +765,29 @@
                 "permalink": "/defi"
               },
               "next": {
-                "title": "Stable Coins",
-                "permalink": "/defi/stable_coins"
+                "title": "Decentralized Exchanges",
+                "permalink": "/defi/dexs"
+              }
+            },
+            {
+              "unversionedId": "defi/wrapped-assets",
+              "id": "defi/wrapped-assets",
+              "isDocsHomePage": false,
+              "title": "Wrapped Assets",
+              "description": "Under construction.",
+              "source": "@site/docs/defi/wrapped-assets.md",
+              "slug": "/defi/wrapped-assets",
+              "permalink": "/defi/wrapped-assets",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/wrapped-assets.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Decentralized Exchanges",
+                "permalink": "/defi/dexs"
+              },
+              "next": {
+                "title": "Cross-chain Swaps",
+                "permalink": "/defi/cross-chain-swaps"
               }
             },
             {
@@ -1142,7 +1194,7 @@
               "id": "tezos-basics/cli-and-rpc",
               "isDocsHomePage": false,
               "title": "CLI and RPC",
-              "description": "Tezos RPC (Remote Procedure Call)",
+              "description": "Connecting to the network",
               "source": "@site/docs/tezos-basics/cli-and-rpc.md",
               "slug": "/tezos-basics/cli-and-rpc",
               "permalink": "/tezos-basics/cli-and-rpc",
@@ -1171,8 +1223,8 @@
               "version": "current",
               "sidebar": "docs",
               "previous": {
-                "title": "History of evolutions",
-                "permalink": "/tezos-basics/history-of-evolutions"
+                "title": "History of amendements",
+                "permalink": "/tezos-basics/history-of-amendements"
               },
               "next": {
                 "title": "Exam",
@@ -1217,20 +1269,20 @@
                 "permalink": "/tezos-basics/cli-and-rpc"
               },
               "next": {
-                "title": "History of evolutions",
-                "permalink": "/tezos-basics/history-of-evolutions"
+                "title": "History of amendements",
+                "permalink": "/tezos-basics/history-of-amendements"
               }
             },
             {
-              "unversionedId": "tezos-basics/history-of-evolutions",
-              "id": "tezos-basics/history-of-evolutions",
+              "unversionedId": "tezos-basics/history-of-amendements",
+              "id": "tezos-basics/history-of-amendements",
               "isDocsHomePage": false,
-              "title": "History of evolutions",
-              "description": "As presented in the Governance on-chain chapter, the Tezos blockchain is constantly evolving through new amendments. In this chapter we will see a history of past proposals, both those approved and those refused and look at why.",
-              "source": "@site/docs/tezos-basics/history-of-evolutions.md",
-              "slug": "/tezos-basics/history-of-evolutions",
-              "permalink": "/tezos-basics/history-of-evolutions",
-              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/history-of-evolutions.md",
+              "title": "History of amendements",
+              "description": "As presented in the Governance on-chain chapter, the Tezos blockchain is constantly evolving through new amendments. In this chapter, we will go over a history of past proposals both approved and refused, and look at why.",
+              "source": "@site/docs/tezos-basics/history-of-amendements.md",
+              "slug": "/tezos-basics/history-of-amendements",
+              "permalink": "/tezos-basics/history-of-amendements",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/history-of-amendements.md",
               "version": "current",
               "sidebar": "docs",
               "previous": {

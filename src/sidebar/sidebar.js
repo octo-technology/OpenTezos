@@ -19,7 +19,7 @@ module.exports = {
               'tezos-basics/operations',
               'tezos-basics/cli-and-rpc',
               'tezos-basics/governance-on-chain',
-              'tezos-basics/history-of-evolutions',
+              'tezos-basics/history-of-amendements',
               'tezos-basics/economics-and-rewards',
               'tezos-basics/exam'
              ],    },

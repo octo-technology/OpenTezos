@@ -3,7 +3,7 @@
   "id": "tezos-basics/cli-and-rpc",
   "isDocsHomePage": false,
   "title": "CLI and RPC",
-  "description": "Tezos RPC (Remote Procedure Call)",
+  "description": "Connecting to the network",
   "source": "@site/docs/tezos-basics/cli-and-rpc.md",
   "slug": "/tezos-basics/cli-and-rpc",
   "permalink": "/tezos-basics/cli-and-rpc",

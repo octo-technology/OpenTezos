@@ -1,0 +1,21 @@
+{
+  "unversionedId": "defi/cross-chain-swaps",
+  "id": "defi/cross-chain-swaps",
+  "isDocsHomePage": false,
+  "title": "Cross-chain Swaps",
+  "description": "Under construction.",
+  "source": "@site/docs/defi/cross-chain-swaps.md",
+  "slug": "/defi/cross-chain-swaps",
+  "permalink": "/defi/cross-chain-swaps",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/cross-chain-swaps.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Wrapped Assets",
+    "permalink": "/defi/wrapped-assets"
+  },
+  "next": {
+    "title": "On-chain Oracles",
+    "permalink": "/defi/oracles"
+  }
+}

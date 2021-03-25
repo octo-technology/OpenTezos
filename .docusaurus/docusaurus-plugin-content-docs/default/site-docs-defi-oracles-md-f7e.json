@@ -1,0 +1,21 @@
+{
+  "unversionedId": "defi/oracles",
+  "id": "defi/oracles",
+  "isDocsHomePage": false,
+  "title": "On-chain Oracles",
+  "description": "Under construction.",
+  "source": "@site/docs/defi/oracles.md",
+  "slug": "/defi/oracles",
+  "permalink": "/defi/oracles",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/oracles.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Cross-chain Swaps",
+    "permalink": "/defi/cross-chain-swaps"
+  },
+  "next": {
+    "title": "Stablecoins",
+    "permalink": "/defi/stablecoins"
+  }
+}

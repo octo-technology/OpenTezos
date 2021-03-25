@@ -25,11 +25,11 @@ What are the advantages of the Liquid Proof-of-Stake consensus
 ### Question 3
 
 What is a roll?
-//TODO: bias in the answer, it is obvious that the right answer is the one with details
-- [ ] A transaction cycle
+
+- [ ] A transaction cycle for approving or refusing an amendement period
 - [X] 8000 XTZ that when staked gives the right to vote on amendments and to participate in the baking process
-- [ ] A security mechanism 
-- [] the process of baker selection
+- [ ] A security mechanism for prevetn double-spend
+- [ ] The process of baker selection
 
 ### Question 4
 
@@ -71,7 +71,7 @@ What are the two metrics required to validate the _Exploration Period_ and the _
 ### Question 8
 
 An implicit account is:
-//TODO: actually the sentence "An account that can make a transaction" is strange because smart contract too can make transactions.
+
 - [ ] The account linked to a smart contract which can run the Michelson code each time it receives an operation
 - [X] An account that can make a transaction, can be registered as delegate and participate in the baking 
 - [ ] An unused account
@@ -91,7 +91,7 @@ Implicit account addresses can start with:
 ### Question 10
 
 If we want to update the Tezos protocol, we need to:
-//TODO: what's the difference between "create a new blockchain" and "realize a hard fork" ? 
+
 - [ ] Realize a hard fork and hope that the network will follow us
 - [ ] Create a new blockchain
 - [X] Make a proposal with the self-amending mechanism
@@ -100,6 +100,7 @@ If we want to update the Tezos protocol, we need to:
 
 
 ### Question 11
+
 What notions are defined inside the smart contract?
 
 - [x] The type of the storage

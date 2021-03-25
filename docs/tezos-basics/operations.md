@@ -7,9 +7,10 @@ This chapter introduces the notion of _Operations_ on Tezos, more commonly known
 
 ## Implicit accounts and smart contracts
 Let's start by talking about the two types of addresses in Tezos [[1]](/tezos-basics/intro_to_operation#referencess): 
+
 * Implicit accounts are accounts that are linked to a public key. Their addresses start with _tz1_, _tz2_, and _tz3_ (depending on the chosen signature scheme) and the hash of the public key. They are created by a transfer operation to the account public key hash. Only implicit accounts can be registered as delegates and participate in baking.
-* Smart contracts are also called `Originated accounts` and are created with an origination operation. Their addresses start with _KT1_. They don’t have a corresponding secret key. They run some Michelson code each time they receive an operation.
-* //TODO: "some" ?? on peut être plus explicite? c'est bizarre comme tournure.
+  
+* Smart contracts are also called `Originated accounts` and are created with an origination operation. Their addresses start with _KT1_. They don’t have a corresponding secret key. They run their Michelson code each time they receive an operation.
 
 ## Tezos operations
 An operation is a message sent from one address to another. The message is represented as:

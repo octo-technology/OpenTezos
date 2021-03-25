@@ -61,18 +61,18 @@
               "sidebar": "docs"
             },
             {
-              "id": "defi/dex",
-              "path": "/defi/dex",
+              "id": "defi/cross-chain-swaps",
+              "path": "/defi/cross-chain-swaps",
+              "sidebar": "docs"
+            },
+            {
+              "id": "defi/dexs",
+              "path": "/defi/dexs",
               "sidebar": "docs"
             },
             {
               "id": "defi/exam",
               "path": "/defi/exam",
-              "sidebar": "docs"
-            },
-            {
-              "id": "defi/flash_loans",
-              "path": "/defi/flash_loans",
               "sidebar": "docs"
             },
             {
@@ -86,8 +86,13 @@
               "sidebar": "docs"
             },
             {
-              "id": "defi/stable_coins",
-              "path": "/defi/stable_coins",
+              "id": "defi/oracles",
+              "path": "/defi/oracles",
+              "sidebar": "docs"
+            },
+            {
+              "id": "defi/stablecoins",
+              "path": "/defi/stablecoins",
               "sidebar": "docs"
             },
             {
@@ -96,8 +101,13 @@
               "sidebar": "docs"
             },
             {
-              "id": "defi/tokens",
-              "path": "/defi/tokens",
+              "id": "defi/token-standards",
+              "path": "/defi/token-standards",
+              "sidebar": "docs"
+            },
+            {
+              "id": "defi/wrapped-assets",
+              "path": "/defi/wrapped-assets",
               "sidebar": "docs"
             },
             {
@@ -216,8 +226,8 @@
               "sidebar": "docs"
             },
             {
-              "id": "tezos-basics/history-of-evolutions",
-              "path": "/tezos-basics/history-of-evolutions",
+              "id": "tezos-basics/history-of-amendements",
+              "path": "/tezos-basics/history-of-amendements",
               "sidebar": "docs"
             },
             {

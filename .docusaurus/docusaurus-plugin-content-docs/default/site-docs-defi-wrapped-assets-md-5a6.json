@@ -1,0 +1,21 @@
+{
+  "unversionedId": "defi/wrapped-assets",
+  "id": "defi/wrapped-assets",
+  "isDocsHomePage": false,
+  "title": "Wrapped Assets",
+  "description": "Under construction.",
+  "source": "@site/docs/defi/wrapped-assets.md",
+  "slug": "/defi/wrapped-assets",
+  "permalink": "/defi/wrapped-assets",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/wrapped-assets.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Decentralized Exchanges",
+    "permalink": "/defi/dexs"
+  },
+  "next": {
+    "title": "Cross-chain Swaps",
+    "permalink": "/defi/cross-chain-swaps"
+  }
+}

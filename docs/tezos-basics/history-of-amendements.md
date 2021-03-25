@@ -1,6 +1,6 @@
 ---
-id: history-of-evolutions
-title: History of evolutions
+id: history-of-amendements
+title: History of amendements
 ---
 
 As presented in the [Governance on-chain chapter](/tezos-basics/governance-on-chain), the Tezos blockchain is constantly evolving through new amendments. In this chapter, we will go over a history of past proposals both approved and refused, and look at why.

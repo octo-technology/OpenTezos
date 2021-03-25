@@ -8,19 +8,34 @@ Tezos is a self-amending blockchain network that incorporates an on-chain mechan
 ## What is self-amendment?
 Tezos is a blockchain that can improve itself over time by using a formalized process to upgrade its protocol. In practice, it is similar to the structure of a corporation, where shareholders get to vote on the future direction of the company.
 
-Many other blockchains do not have this type of formal governance structure. Consequently, direction of these projects is often decided by a small group of developers or by a foundation, which may not represent all stakeholders fairly.
+Many other blockchains do not have this type of formal governance structure. Consequently, the direction of these projects is either decided by a small group and imposed to the whole ecosystem, or the process results in many _hard forks_ of the blockchain with participants that did not agree with the decisions. Consequently, two or more chains can co-exists and split the community. Self-amendement aims to avoid this scenario, and Tezos has had no hard fork so far.
+
+![](../../static/img/tezos-basics/tezos-hard-forks.svg)
+<small className="figure">FIGURE 1: Bitcoin hard-forks Vs Tezos hard-forks</small>
+
+## Definitions of main concepts 
+
+* **Baking**: The creation of new blocks on the Tezos blockchain by its validator nodes (aka _bakers_), who receive compensation for each block produced.
+
+* **Endorsement**: Each baked block is validated by other bakers who have not baked the block. These are known as endorsers of the block, and they receive compensation for this.
+
+* **Delegation**: All holders of the XTZ crypto-currency can delegate their baking and voting rights to a baker called a _delegate_, while still maintaining control of their funds.
+
+* **Roll**: An amount of XTZ which is used as the unit of measure for baking and voting rights. Weight in the baking and voting process are indexed to an integral number of rolls. At present, one roll is equal to 8,000 XTZ.
+
+* **Cycle**: The time required for 4,096 blocks to be created on Tezos, usually this is 2 days, 20 hours and 16 minutes (or 1 minute per block, if all bakers cooperate effectively).
+
+* **Proposal**: A request for an addition, adjustment or removal of a feature of the protocol.
 
 ## How does it work?
-Since _EDO_ amendment the self-amendment process is split into 5 periods: the _Proposal Period_, the _Exploration Vote Period_, the _Testing Period_, the _Promotion Vote Period_ and the _Adoption period_. Each of these five periods lasts five baking cycles (i.e. 20 480 blocks or roughly 14 days), taking almost two months from the proposal to activation. The latest and current self-amendments are available at [tezosagora.org](https://www.tezosagora.org)
+The self-amendment process is split into 5 periods: the _Proposal Period_, the _Exploration Vote Period_, the _Testing Period_, the _Promotion Vote Period_ and the _Adoption period_. Each of these five periods lasts five baking cycles (i.e. 20 480 blocks or roughly 14 days), taking almost two months from the proposal to activation. The latest and current self-amendments are available at [tezosagora.org](https://www.tezosagora.org)
 
-Should there be any failure in a given period, the whole process reverts to the _Proposal Period_, effectively restarting the process.
+Should there be any failure in a given period, the whole process reverts back to the _Proposal Period_, effectively aborting and restarting the process.
 
-![](../../static/img/tezos-basics/Overview_of_the_Tezos_Governance_Mechanism.png)
-<small className="figure">FIGURE 1: Overview of the governance Mechanism (Source: <a href="/tezos-basics/governance-on-chain#references">[1]</a>)</small>
+## Super-majority, Voter Turnout and Quorum
+The _Exploration Vote Period_ and _Promotion Vote Period_ work the same way. During a vote, each delegate has to use a single ballot: `Yea` (For), `Nay` (Against) or `Pass` (Neutral). A vote is successful if there is a _Super-majority_ and if the participation has reaches the current quorum [[2]](/tezos-basics/governance-on-chain#references).
 
-## Super-majority and Quorum
-The_Exploration Vote Period_ and _Promotion Vote Period_ work the same way. During a vote, each delegate has to use a single ballot: `Yea`, `Nay` or `Pass`. A vote is successful if there is a super-majority and if the participation has reaches the current quorum [[2]](/tezos-basics/governance-on-chain#references).
-
+### Super-majority
 In Tezos, having the _Super-majority_ means that _Yea_ represents more than 80% of the total of _Yeas_ + _Nays_ votes. 
 
 Example: With 90 votes = 75 _Yeas_ + 10 _Nays_ + 5 _Pass_, the total of _Yeas_ + _Nays_ is 85. 
@@ -29,15 +44,31 @@ The number of _Yeas_ required for the validation is 85 * 80% = 68 votes.
 
 The number of _Yeas_ is then high enough to validate the vote (68 < 75 _Yeas_).
 
-A _quorum_ is the minimum number of voters required to deliberate. At the launch of the Tezos Mainnet, the defined quorum was 80%. The _participation_ is the ratio of all received votes, including _Pass_ votes. The quorum evolves with the following coefficients:
+### Voter Turnout
+_Voter Turnout_ represents the percentage of bakers that have voted compared to the total number of bakers with active rolls.
+
+Example: With 90 votes = 75 _Yeas_ + 10 _Nays_ + 5 _Pass_ out of 100 active rolls, the _Voter Turnout_ is 90 / 100 = 90%. 
+
+### Quorum
+A _Quorum_ is the minimum number of voters required to deliberate. When the Tezos Mainnet was launched, the Quorum was set at 80% and updated at the end of each vote which was successfully approved, based on the _Voter Turnout_.
+
+The _Carthage_ amendment introduced two major changes to the calculation of the _Quorum_:
+
+* The calculation now takes into account the exponential moving average (EMA) of the _Voter Turnout_. At time _t_, the EMA is represented as `EMA(t)`.
+  
+* The Quorum is now bounded between 30% and 70%. The following formula is used to calculate the Quorum:
 
 ```
-new quorum = old Quorum * 8/10 + current participation * 2/10
+Quorum = 0.3 + EMA(t) * (0.7 - 0.3)
 ```
 
-Example: New quorum = 80% * 80% +  90% * 20% = 82%, with old quorum = 80%  and current participation ratio = 90%.
+The following formula is then used to update the moving average for the next vote:
 
-Delegates’ votes are weighted proportionally to the number of rolls in their staking balance.
+```
+EMA(t+1)= 0.8 * EMA(t) + 0.2 * Voter Turnout
+```
+
+Note that delegates’ votes are weighted proportionally to the number of rolls in their staking balance.
 
 ## Phase 1: Proposal period
 The Tezos amendment process begins with the _Proposal Period_, during which delegates can submit proposals on-chain. The delegates submit the proposal by submitting the hash of the source code.
@@ -78,6 +109,67 @@ This diagram sums up the self-amendment process :
 ![](../../static/img/tezos-basics/Governance_mechanism_uml.svg)
 <small className="figure">FIGURE 2: Self-amendment process</small>
 
+
+## Voting examples
+
+Let's illustrate this process:
+
+### Example 1
+Let us assume a total of 100 active rolls managed by bakers and a _Voter Turnout_ EMA of 75%, and then 90 votes (Yay, Nay and Pass) during the _Exploration Period_.
+
+```
+Yays : 75
+Nays : 10
+Pass : 5
+```
+
+In this case, we have:
+```
+Voter Turnout = (75 + 10 + 5) / 100 = 90%
+
+Quorum = 0.3 + 75% * (0.7 - 0.3) = 60%
+(Therefore 90% Voter Turnout > 60% Quorum, we can continue)
+
+Positive Voter Turnout = 75 / ( 75 + 10 ) = 88%
+```
+
+As 88% _Positive Voter Turnout_ > 80% _Super-majority_, the amendement proposal can move to the next period.
+
+PS: Let's not forget to update the EMA for the next proposal:
+
+```
+EMA(t+1) = 0.8 * 75% + 0.2 * 88% = 78%
+(considering EMA(t) = 75%)
+```
+
+### Example 2
+Let us assume a total of 100 active rolls managed by bakers and a _Voter Turnout_ EMA of 75%, and then 55 votes (Yay, Nay and Pass) during the _Exploration Period_.
+
+```
+Yays : 45
+Nays : 10
+Pass : 0
+```
+
+In this case, we have:
+```
+Voter Turnout = (45 + 10 + 0) / 100 = 55%
+
+Quorum = 0.3 + 75% * (0.7 - 0.3) = 60%
+(Therefore 55% Voter Turnout < 60% Quorum, proposal rejected)
+
+Positive Voter Turnout = 45 / ( 45 + 10 ) = 81%
+```
+
+Although the 81% _Positive Voter Turnout_ > 80% _Super-majority_, the amendement proposal is rejected as the Quorum has not been reached. We must therefore go back to the initial proposals stage.
+
+PS: Let's not forget to update the EMA for the next proposal :
+
+```
+EMA(t+1) = 0.8 * 75% + 0.2 * 55% = 71%
+(considering EMA(t) = 75%)
+```
+
 ## Operations
 ### Proposal
 A proposal operation can only be submitted during a _Proposal Period_.
@@ -114,8 +206,12 @@ Ballot : {
 
 `ballot` is one of the possible ballot response: `Yea`, `Nay` or `Pass`
 
+
 ## Send a proposal
 To send a proposal or a ballot, please refer to [CLI chapter](/tezos-basics/introduction_to_cli_and_rpc)
+
+## Learn more
+To learn more about the amendement process on Tezos, please refer to the [official documentation](https://gitlab.com/tezos-paris-hub/tezos-on-chain-governance/-/blob/master/Documentations/Amendements_Tezos_en.pdf).
 
 ## References
 [1] https://medium.com/tezos/amending-tezos-b77949d97e1e
@@ -129,3 +225,5 @@ To send a proposal or a ballot, please refer to [CLI chapter](/tezos-basics/intr
 [5] https://www.tezosagora.org/learn
 
 [6] https://blog.octo.com/tezos-une-blockchain-auto-evolutive-partie-1-3/
+
+[7] https://gitlab.com/tezos-paris-hub/tezos-on-chain-governance/-/blob/master/Documentations/Amendements_Tezos_en.pdf

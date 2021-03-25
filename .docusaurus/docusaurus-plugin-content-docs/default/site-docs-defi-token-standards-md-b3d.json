@@ -1,0 +1,21 @@
+{
+  "unversionedId": "defi/token-standards",
+  "id": "defi/token-standards",
+  "isDocsHomePage": false,
+  "title": "Token Standards",
+  "description": "Under construction.",
+  "source": "@site/docs/defi/token-standards.md",
+  "slug": "/defi/token-standards",
+  "permalink": "/defi/token-standards",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/token-standards.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Introduction",
+    "permalink": "/defi"
+  },
+  "next": {
+    "title": "Decentralized Exchanges",
+    "permalink": "/defi/dexs"
+  }
+}
