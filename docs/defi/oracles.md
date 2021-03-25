@@ -1,6 +1,6 @@
 ---
-id: flash_loans
-title: Flash Loans
+id: oracles
+title: On-chain Oracles
 ---
 
 import NotificationBar from '../../src/components/docs/NotificationBar';

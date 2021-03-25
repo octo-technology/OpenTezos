@@ -1,6 +1,6 @@
 ---
-id: stable_coins
-title: Stable Coins
+id: token-standards
+title: Token Standards
 ---
 
 import NotificationBar from '../../src/components/docs/NotificationBar';

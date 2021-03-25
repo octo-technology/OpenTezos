@@ -1,6 +1,6 @@
 ---
-id: lending
-title: Lending and Flash Loans
+id: stablecoins
+title: Stablecoins
 ---
 
 import NotificationBar from '../../src/components/docs/NotificationBar';

@@ -1,6 +1,6 @@
 ---
-id: tokens
-title: Tokens - FA2 Standards 
+id: wrapped-assets
+title: Wrapped Assets
 ---
 
 import NotificationBar from '../../src/components/docs/NotificationBar';

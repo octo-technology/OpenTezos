@@ -1,6 +1,6 @@
 ---
-id: lending
-title: Lending and Flash Loans
+id: cross-chain-swaps
+title: Cross-chain Swaps
 ---
 
 import NotificationBar from '../../src/components/docs/NotificationBar';

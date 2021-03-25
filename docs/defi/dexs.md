@@ -1,5 +1,5 @@
 ---
-id: dex
+id: dexs
 title: Decentralized Exchanges
 ---
 
@@ -77,5 +77,7 @@ And of course, like with everything in DeFi we have to remember about potential 
 ### Conclusion
 
 [1] https://selfkey.org/list-of-cryptocurrency-exchange-hacks/
+
 [2] https://thecontrol.co/a-comparison-of-decentralized-exchange-designs-1deef249f56a
+
 [3] https://finematics.com/liquidity-pools-explained/
