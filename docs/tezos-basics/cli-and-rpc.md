@@ -290,3 +290,4 @@ $ tezos-admin-client tezos-admin-client p2p stat
 
 ## References
 
+[1] https://en.wikipedia.org/wiki/Remote_procedure_call
