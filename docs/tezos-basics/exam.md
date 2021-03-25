@@ -25,10 +25,11 @@ What are the advantages of the Liquid Proof-of-Stake consensus
 ### Question 3
 
 What is a roll?
-
+//TODO: bias in the answer, it is obvious that the right answer is the one with details
 - [ ] A transaction cycle
 - [X] 8000 XTZ that when staked gives the right to vote on amendments and to participate in the baking process
 - [ ] A security mechanism 
+- [] the process of baker selection
 
 ### Question 4
 
@@ -70,8 +71,8 @@ What are the two metrics required to validate the _Exploration Period_ and the _
 ### Question 8
 
 An implicit account is:
-
-- [ ] A smart contract, that can run the Michelson code each time it receives an operation
+//TODO: actually the sentence "An account that can make a transaction" is strange because smart contract too can make transactions.
+- [ ] The account linked to a smart contract which can run the Michelson code each time it receives an operation
 - [X] An account that can make a transaction, can be registered as delegate and participate in the baking 
 - [ ] An unused account
 
@@ -90,16 +91,18 @@ Implicit account addresses can start with:
 ### Question 10
 
 If we want to update the Tezos protocol, we need to:
-
+//TODO: what's the difference between "create a new blockchain" and "realize a hard fork" ? 
 - [ ] Realize a hard fork and hope that the network will follow us
 - [ ] Create a new blockchain
 - [X] Make a proposal with the self-amending mechanism
+- [ ] Submit a change request to the Tezos developers community
+- [ ] Tezos protocol can only be modified by Tezos developers
 
 
-=======
+### Question 11
 What notions are defined inside the smart contract?
 
-- [x] The type of storage
+- [x] The type of the storage
 - [ ] The balance of the contract
 - [ ] The initial value of the storage
 - [ ] The value of the entry point and its related parameters
@@ -108,14 +111,28 @@ What notions are defined inside the smart contract?
 - [x] The code of the smart contract
 - [ ] The list of users allowed to call the smart contract
 
-### Question 2
+### Question 12
 
 What is returned by the execution of a smart contract?
 
-- [x] The modified state of storage after the invocation the smart contract
+- [x] The modified state of the storage after the invocation of the smart contract
 - [ ] The related parameters of the entry point that has been called
 - [x] The list of emitted operations produced by the execution of the smart contract
 - [ ] The balance of the contract
 - [ ] The size of the storage
 - [ ] The code of the smart contract
 - [ ] The list of users allowed to call the smart contract
+
+
+### Question 13
+
+What CLI command is responsible for deploying a smart contract in Tezos blockchain ?
+
+- [ ] tezos-client activate
+- [ ] tezos-client register
+- [ ] tezos-client deploy
+- [x] tezos-client originate
+- [ ] tezos-client activate
+
+
+

@@ -3,7 +3,7 @@ id: history-of-evolutions
 title: History of evolutions
 ---
 
-As presented in the [Governance on-chain chapter](/tezos-basics/governance-on-chain), the Tezos blockchain is constantly evolving through new amendments. In this chapter we will see a history of past proposals, both those approved and those refused and look at why.
+As presented in the [Governance on-chain chapter](/tezos-basics/governance-on-chain), the Tezos blockchain is constantly evolving through new amendments. In this chapter, we will go over a history of past proposals both approved and refused, and look at why.
 
 ![](../../static/img/tezos-basics/history_of_tezos_amendement.svg)
 <small className="figure">FIGURE 1: History of Tezos amendments</small>
@@ -19,7 +19,7 @@ For a full list of changes, be sure to read the corresponding blog [post](https:
 
 `Brest A` was the first amendment proposed to be rejected during the _Exploration Period_. It was proposed in June 2019 and received only 0.35% of the votes during the _Proposal Period_. But as it had no competition, it was promoted. The amendment was then rejected in the _Exploration Period_ with only 0.26% of the votes in favour. The 80% _Super-majority_ was not reached and neither was the minimum _Quorum_ to validate the vote.
 
-This proposal would have allowed fixing of a security breach linked to issues pertaining to the rehashing push during the _Athens_ protocol change. Moreover, it would have facilitated amendment-invoice tracking. But the invoice for this proposal, 8,000 tez, was much higher than the usual cost.
+This proposal would have allowed to fix a security breach linked to issues pertaining to the rehashing push during the _Athens_ protocol change. Moreover, it would have facilitated amendment-invoice tracking. But the invoice for this proposal, 8,000 tez, was much higher than the usual cost.
 
 ## [Babylon](https://www.tezosagora.org/proposal/5) (PsBABY5nk)
 
@@ -47,7 +47,7 @@ Carthage 2 was autonomously [activated](https://twitter.com/tezos/status/1235590
 For a full list of changes be sure to read the corresponding [changelog](https://tezos.gitlab.io/protocols/006_carthage.html#changelog) and blog posts from [Nomadic Labs](https://blog.nomadic-labs.com/carthage-changelog-and-testnet.html) and [Cryptium Labs](https://medium.com/metastatedev/updating-the-potential-carthage-proposal-and-resetting-the-carthagenet-test-network-f413a792571f) (Metastate). 
 
 ## [Delphi](https://www.tezosagora.org/proposal/8) (PsDELPH1K)
-The Delphi proposal was a contribution from Nomadic Labs, Metastate, and Gabriel Alfour adopted in September 2020.
+The Delphi proposal was a contribution from Nomadic Labs, Metastate, and Gabriel Alfour, adopted in September 2020.
 
 Notable changes included improving the performance of the Michelson interpreter, improving gas costs by adjusting the gas model, reducing storage costs by 4x, and various other small fixes.
 
@@ -58,11 +58,11 @@ For a full list of changes be sure to read the corresponding [changelog](https:/
 ## [Edo](https://www.tezosagora.org/proposal/9) (PtEdoTezd)
 The `Edo` proposal was in turn adopted in November 2020 with contributions by Nomadic Labs, Metastate, and Gabriel Alfour.
 
-Edo added two major features to Tezos smart contracts :
+Edo added two major features to Tezos smart contracts:
 
 * Sapling and BLS12-381 to enable privacy-preserving smart contracts
 
-* Tickets for native on-chain permissions and asset issuance
+* Tickets for native on-chain permissions and asset issuance.
 
 Among other features, Edo also updates the Tezos amendment process by lowering period length to 5 cycles and by adding a 5th Adoption Period. A full changelog is available [here](https://tezos.gitlab.io/protocols/008_edo.html).
 
