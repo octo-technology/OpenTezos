@@ -4,7 +4,7 @@ title: CLI and RPC
 ---
 
 ## Connecting to the network
-The tezos-client and Tezos RPC needs to be connected to a Tezos node. You can connect to your own tezos node [[2]](/tezos-basics/introduction_to_cli_and_rpc#references) or you can use a community node on the Tezos mainnet or on a Tezos testnet.
+The tezos-client and Tezos RPC needs to be connected to a Tezos node. You can connect to your own [tezos node](/deploy-a-node/introduction) or you can use a community node on the Tezos mainnet or on a Tezos testnet.
 
 [Here](https://tezostaquito.io/docs/rpc_nodes/) you can find a list of community nodes on the mainnet and testnet.
 
