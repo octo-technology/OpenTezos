@@ -107,5 +107,5 @@ More details in the [RPC and CLI chapter](/tezos-basics/introduction_to_cli_and_
 ## High-level languages for Tezos smart contract implementation
 
 Because Michelson is a low-level, stack-based language, adoption for most developer is not easy. To counter this difficulty, many Michelson transpilers have been developed. These high-level languages are closer to the languages developers are more used to working with: [SmartPy](/smartpy) close to Python, [LIGO](/ligo) close to Camel and Pascal, and, finally, Morley.
-//TODO: "adoption for most developer is not easy" --> it isn't always easy for the average developer to adopt.
+
 
