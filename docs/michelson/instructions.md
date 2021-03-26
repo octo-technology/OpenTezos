@@ -21,14 +21,14 @@ The Sequence structure is defined by `{` and `}` and contains instructions separ
 
 When executing a sequence the interpreter executes each instruction sequentially, one after the other, in the specified order.
 
-However, this sequence may stop.
-//todo: does the sequence stop on its own? is it a regular occurence? this is unclear to me
+However, this sequence may stop by throwing an exception.
+
 #### FAILWITH
 
 The `FAILWITH` instruction aborts the execution of the Michelson script by throwing an exception.
 
-It takes a string message as parameter. It is allowed to throw an exception without message by specifying the `UNIT` value.
-//todo: "takes a string message as parameter" is unclear for me; i'm assuming the "it" refers to the instruction. there are articles missing in both sentences but without proper understanding i am unable to suggest a correction. 
+The `FAILWITH` instruction consumes the top element of the stack as parameter (usually a string message). The consumed element must be of a pushable type. It is allowed to throw an exception without message by specifying the `UNIT` value.
+
 
 The `FAIL` keyword has been provided as replacement for `UNIT; FAILWITH`.
 
@@ -390,8 +390,10 @@ Notice that the multiplication of two natural integers produces a natural intege
 
 The `EDIV` instruction computes divisions on _nat_ and _mutez_.
 
-If the divisor is equal to zero, then it returns an optional type with the assigned value _None_. Otherwise, it applies the Euclidean division and returns an optional type with value (Pair quotient remainder)
-//todo: with what value? with a/any value ? 
+The euclidean division computes the quotient and the remainder between two numbers.
+
+If the divisor is equal to zero, then it returns an optional type with the assigned value _None_. Otherwise, it applies the Euclidean division and returns an optional type containing the resulting  value (Pair quotient remainder). 
+
 Michelson grammar defines `EDIV` as:
 
 ```js
@@ -423,8 +425,8 @@ CONCAT / { s ; <ss> } : S  =>  (s ^ r) : S
 
 #### SIZE
 
-The `SIZE` instruction consumes a string of the top of the stack and pushes the number of characters contained by the string element.
-//todo: contained 'in' ??
+The `SIZE` instruction consumes a string of the top of the stack and pushes the number of characters contained in the string element.
+
 #### SLICE
 
 The `SLICE` instruction provides a way to retrieve a part of a string.
@@ -638,6 +640,9 @@ The `IF_NONE bt bf` instruction inspects an optional value.
 It requires two sequences of instructions, as with an `IF` instruction.
 It executes the first sequence if the optional value has no value assigned, otherwise it executes the second sequence of instructions (where a value has been assigned with a `SOME` instruction).
 
+If the `IF_NONE` instruction encounters a NONE value it consumes it and then start executing the first sequence.  
+If the `IF_NONE` instruction encounters a SOME value it does not consumes it and then start executing the second sequence.
+
 ```js
 IF_NONE bt bf / (None) : S  =>  bt / S
 IF_NONE bt bf / (Some a) : S  =>  bf / a : S
@@ -670,7 +675,7 @@ The `EMPTY_BIG_MAP` instruction builds a new empty `big_map` data structure.
 #### MEM
 
 The `MEM` instruction checks for the presence of a binding for a key in a map.
-//todo: checks for the presence of a binder or checks for the presence of binding? Can there be more than one?
+
 It takes a key as the parameter and returns a boolean on top of the stack.
 
 ```js
@@ -843,6 +848,8 @@ The `SIZE` instruction computes the number of elements inside a map.
 
 It consumes a map on top of the stack and places the number of elements on top of the stack.
 
+Notice that the `SIZE` instruction cannot be applied to `big_map` type. 
+
 ### Operations on unions
 
 The `union` data structure specifies two possible type definitions with logical _or_. It can be used to create a new type which can handle two different type definitions.
@@ -908,8 +915,8 @@ tezos-client run script union_example.tz on storage '5' and input 'Right 1'
 ![](../../static/img/michelson/michelson_instruction_ifleft_right_example.svg)
 <small className="figure">FIGURE 30: Illustration of the `IF_LEFT` instruction</small>
 
-The following command simulates the execution of the smart contract when called with an integer.
-//todo: identique à la phase au-dessus ; normal ?
+The following command simulates the execution of the smart contract when called with a string.
+
 ```js
 tezos-client run script union_example.tz on storage '5' and input 'Left "Hello"'
 ```
@@ -1000,7 +1007,7 @@ The `NOW` instruction pushes the timestamp of the block whose validation trigger
 
 #### ADD
 
-The `ADD` instruction increments a timestamp of the given number of seconds.
+The `ADD` instruction increments a timestamp of the given number of seconds. The number of seconds must be expressed as a type `int`. Addition of timestamp does not accept a number of seconds as `nat`.
 
 ```js
 ADD / seconds : nat (t) : S  =>  (seconds + t) : S
@@ -1056,7 +1063,14 @@ SUB / x : y : S  =>  (x - y) : S
 
 #### MUL
 
-The `MUL` instruction computes multiplications on mutez. The multiplication allows mutez to be multiplied with integers.
+The `MUL` instruction computes multiplications on mutez. The multiplication allows mutez to be multiplied with natural integers.
+
+```
+:: mutez : nat : 'S   ->   mutez : 'S
+:: nat : mutez : 'S   ->   mutez : 'S
+```
+
+Multiplication of 2 `mutez` operands is not allowed. 
 
 ```js
 MUL / x : y : S  =>  [FAILED]   on overflow
@@ -1065,7 +1079,15 @@ MUL / x : y : S  =>  (x * y) : S
 
 #### EDIV
 
-The `EDIV` instruction computes the euclidean division on mutez. The multiplication allows a mutez to be divided by a natural integer.
+The `EDIV` instruction computes the euclidean division on mutez. The euclidean division allows a mutez to be divided by a natural integer.
+
+```
+:: mutez : nat : 'S   ->   option (pair mutez mutez) : 'S
+:: mutez : mutez : 'S   ->   option (pair nat mutez) : 'S
+```
+
+It is also possible to divide 2 mutez, in this case it returns a `nat` as a quotient and a mutez standing for the rest of the euclidean division.
+
 
 ```js
 EDIV / x : 0 : S  =>  None
@@ -1096,6 +1118,8 @@ The `CONTRACT 'p` instruction casts the address to the given contract type if po
 It consumes an `address` to the top element of the stack and returns a contract option which corresponds to the given parameter type.
 
 The parameter is `unit` in case of an implicit account.
+
+The `CONTRACT 'p` instruction considers the default entrypoint if it exists, otherwise the full parameter is returned. 
 
 ```js
 CONTRACT / addr : S  =>  Some addr : S
@@ -1213,7 +1237,9 @@ The `SENDER` instruction pushes the address of the contract that initiated the c
 
 #### SELF
 
-The `SELF` instruction pushes the current contract on top of the stack. The contract specifies its expected parameter type. 
+The `SELF` instruction pushes the default entry point of a contract on top of the stack. This default entry point specifies the expected parameter type. 
+
+The `SELF 'p` instruction allows to take a entry point name 'p as parameter. In this case, it pushed the specified entrypoint on top of the stack. 
 
 #### AMOUNT
 
@@ -1319,7 +1345,7 @@ It consumes a byte sequence and pushes back the computed *Sha512* of this byte s
 
 The `CHECK_SIGNATURE` instruction checks that a sequence of bytes has been signed with a given key.
 
-It consumes the top two elements *pf* the stack (a key and a signature) and pushes a boolean. 
+It consumes the top three elements of the stack (a byte sequence, a key and a signature) and pushes a boolean. 
 
 #### COMPARE
 

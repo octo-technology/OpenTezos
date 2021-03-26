@@ -31,6 +31,8 @@ The Michelson language provides basic type support on numbers, sequence of chara
 - `int` represents a integer (e.g. -10, 2, 3)
 - `string` represents a sequence of characters (e.g. "Hello")
 - `bool` represents a boolean value (e.g. True, False)
+- `bytes` represents a sequence of bytes (octet)
+- `unit` represents a non-specified type.
 - `timestamp` represents a duration (e.g. NOW, 1571659294, "2019-09-26T10:59:51Z"; i.e. a string following the RFC3339 standard)
 
 Michelson also provides composite types for grouping properties:

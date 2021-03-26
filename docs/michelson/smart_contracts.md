@@ -6,7 +6,7 @@ title: Smart Contracts
 ## Entry points, storage and code
 
 Michelson is a domain-specific language and is designed for implementing smart contracts. Tezos smart contracts contain three main pieces of information:
-- the type definition of the **parameter** when invoking the smart contract (often called **entry point**)
+- the type definition of the **parameter** when invoking the smart contract (often called **entrypoints**)
 - the type definition of the persistent data structure associated with the smart contract (referred to as **storage**)
 - a sequence of instructions to be executed when invoking the smart contract (this is the **code** of the smart contract)
 
@@ -55,7 +55,7 @@ The balance represents the quantity of XTZ associated with a smart contract. The
 
 ## Stack-based language
 
-Generally a _stack_ data structure is a linear collection of elements where elements can be added or removed with `PUSH` and `POP` instructions. In the Michelson language, elements can be pushed to the top of the pile or removed from the top of the pile. This kind of stack is called LIFO (Last In First Out).
+Generally a _stack_ data structure is a linear collection of elements where elements can be added or removed with `PUSH` and `DROP` instructions. In the Michelson language, elements can be pushed to the top of the pile or removed from the top of the pile. This kind of stack is called LIFO (Last In First Out).
 
 ![](../../static/img/michelson/michelson_stack_basics.svg)
 <small className="figure">FIGURE 2: Illustration of a stack</small>
