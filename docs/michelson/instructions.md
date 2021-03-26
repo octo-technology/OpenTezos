@@ -862,7 +862,8 @@ or int nat
 
 #### LEFT
 
-The `LEFT` instruction packs a value in a *union*.
+The `LEFT p` instruction takes the top-element of the stack and produces a *union*. 
+The top-element is placed in the right branch of the `or` structure and the left branch is type with the given p parameter.
 
 It consumes a type definition on top of the stack and pushes a union where the left part is defined as the consumed type definition.
 
@@ -870,15 +871,20 @@ It consumes a type definition on top of the stack and pushes a union where the l
 LEFT / v : S  =>  (Left v) : S
 ```
 
+Illustration of `LEFT` usage can be seen in the examples section.
+
 #### RIGHT
 
-The `RIGHT` instruction packs a value in a *union*.
+The `RIGHT p` instruction takes the top-element of the stack and produces a *union*. 
+The top-element is placed in the left branch of the `or` structure and the right branch is type with the given p parameter.
 
 It consumes a type definition on top of the stack and pushes a union where the right part is defined as the consumed type definition.
 
 ```js
 RIGHT / v : S  =>  (Right v) : S
 ```
+
+Illustration of `RIGHT` usage can be seen in the examples section.
 
 #### IF_LEFT
 
