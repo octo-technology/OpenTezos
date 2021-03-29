@@ -6,8 +6,8 @@ title: Examples
 
 ## Function
 
-The following function takes as an input a string `my_ship` describing an id 
-and modifies the third attribute to 1 and assigns the result to a constant `modified_ship`.
+The following function takes a string `my_ship` as input which design an id and, 
+modifies the third attribute to 1 and assigns the result to a constant `modified_ship`.
 
 ```js
 type ship_code is string
@@ -18,7 +18,7 @@ function modify_ship_code (const my_ship : ship_code) : ship_code is
   } with modified_ship
 ```
 
-You can call the function modify_ship_code defined above using the LIGO compiler like this:
+You can call the function `modify_ship_code` defined above using the LIGO compiler like this:
 
 ```shell
 ligo run-function function_example.ligo modify_ship_code '020433'
@@ -469,5 +469,175 @@ Let's compile the main function.
 ligo compile-contract advisor.ligo advisorMain
 ```
 
-### Compilation and deployment
+## Dry-run, compilation and deployment
 
+### Indice contract
+
+#### Simulation
+
+Let's simulate the contract with the increment action with `5` as parameter and an initial storage of `0`.
+
+```shell
+ligo dry-run indice.ligo indiceMain 'Increment(5)' '0'
+```
+
+This should return:
+
+```
+( LIST_EMPTY(), 5 )
+```
+
+As expected there is an empty list of operation, and the storage has been incremented of 5.
+
+To be sure let's modify the initial value of the storage to `4`.
+
+```shell
+ligo dry-run indice.ligo indiceMain 'Increment(5)' '4'
+```
+
+This should return:
+
+```
+( LIST_EMPTY(), 9 )
+```
+
+Let's simulate another entrypoint, `sendValue`:
+
+```shell
+ligo dry-run indice.ligo indiceMain 'SendValue(unit)' '3'
+```
+
+This command should return:
+
+```
+failwith("sender cannot receive indice value")
+```
+
+Indeed, because the contract is not deployed yet. 
+This is the limite in terms of simulation.
+
+#### Compilation
+
+Now, let's prepare the parameters and the storage.
+
+```shell
+ligo compile-storage indice.ligo indiceMain '0'
+//output: 0
+```
+
+```shell
+ligo compile-parameter indice.ligo indiceMain 'Increment(5)'
+//output: (Right Unit)
+```
+
+```shell
+ligo compile-parameter indice.ligo indiceMain 'Decrement(5)'
+//output: (Right Unit)
+```
+
+```shell
+ligo compile-parameter indice.ligo indiceMain 'SendValue(unit)'
+//output: (Right Unit)
+```
+
+> **Reminder:** `0`, `(Right Unit)` are Michelson expressions that 
+> can be used as parameter in the deployment commande line `tezos-client orginate contract`
+
+Once everything's looks ok, we can compile the main and save the output in a `indice.tz` file.
+
+```shell
+ligo compile-contract indice.ligo indiceMain > indice.tz
+```
+
+This should return:
+
+```
+{ parameter (or (or (int %decrement) (int %increment)) (unit %sendValue)) ;
+  storage int ;
+  code { DUP ;
+         CDR ;
+         SWAP ;
+         CAR ;
+         IF_LEFT
+           { IF_LEFT
+               { SWAP ; SUB ; NIL operation ; PAIR }
+               { ADD ; NIL operation ; PAIR } }
+           { DROP ;
+             SENDER ;
+             CONTRACT %receiveValue int ;
+             IF_NONE { PUSH string "sender cannot receive indice value" ; FAILWITH } {} ;
+             PUSH mutez 0 ;
+             DIG 2 ;
+             DUP ;
+             DUG 3 ;
+             TRANSFER_TOKENS ;
+             SWAP ;
+             NIL operation ;
+             DIG 2 ;
+             CONS ;
+             PAIR } } }
+```
+
+#### Deployment
+
+```shell
+tezos-client list known contracts
+```
+
+This should return something like this:
+
+```
+activator: tz1TGu6TN5GSez2ndXXeDX6LgUDvLzPLqgYV
+bootstrap5: tz1ddb9NMYHZi5UzPdzTZMYQQZoMub195zgv
+bootstrap3: tz1b7tUupMgCNw2cCLpKTkSD1NZzB5TkP2sv
+bootstrap2: tz1faswCTDciRzE4oJ9jn2Vm2dvjeyA9fUzU
+bootstrap1: tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx
+```
+
+```shell
+tezos-client originate contract indice transferring 1 from bootstrap1  running 'indice.tz' --init '0' --dry-run
+```
+
+You should have an error message telling you to specify the gaz fee with `--burn-cap`
+
+Try again and if everything works properly run the same command without the `--dry-run` part.
+
+```shell
+tezos-client originate contract indice transferring 1 from bootstrap1  running 'indice.tz' --init '0' --burn-cap 0.12525
+```
+
+The transaction is now launched, and you should have the following response:
+
+```
+Node is boostrapped.
+Estimated gas 2306,275 units (will add 100 + 88 for safety)
+Estimated storage: 501 bytes added (will add 20 for safety)
+Operation successfully injected in the node.
+Operation hash is 'opR766cSqn37L8qCjgcEqu4tfGeukCKBezpHjjicAYB4NYf6g2b'
+Waiting for the operation to be included...
+```
+
+Let's open another terminal in order to bake this transaction with the following command line:
+
+```shell
+tezos-client bake for bootstrap1
+```
+
+Now, run the command bellow and see your indice contract on the list !
+
+```shell
+tezos-client list known contracts
+```
+
+```
+indice: KT1D99kSAsGuLNmT1CAZWx51vgvJpzSQuoZn
+activator: tz1TGu6TN5GSez2ndXXeDX6LgUDvLzPLqgYV
+bootstrap5: tz1ddb9NMYHZi5UzPdzTZMYQQZoMub195zgv
+bootstrap3: tz1b7tUupMgCNw2cCLpKTkSD1NZzB5TkP2sv
+bootstrap2: tz1faswCTDciRzE4oJ9jn2Vm2dvjeyA9fUzU
+bootstrap1: tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx
+```
+
+Note your indice contract address somewhere because you will need it to initialize your advisor contract.
+
+## Advisor contract
