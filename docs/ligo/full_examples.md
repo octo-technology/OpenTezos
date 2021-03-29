@@ -4,17 +4,117 @@ disable_pagination: true
 title: Examples
 ---
 
-## Functions
+## Function
 
-## Records
+The following function takes as an input a string `my_ship` describing an id 
+and modifies the third attribute to 1 and assigns the result to a constant `modified_ship`.
 
-## Loops
+```js
+type ship_code is string
+var my_ship : ship_code := "020433"
+function modify_ship_code (const my_ship : ship_code) : ship_code is
+  block {
+    const modified_ship = String.sub(0n, 2n, my_ship) ^ "1" ^ String.sub(3n, 3n, my_ship)
+  } with modified_ship
+```
+
+You can call the function modify_ship_code defined above using the LIGO compiler like this:
+
+```shell
+ligo run-function function_example.ligo modify_ship_code '020433'
+# Outputs: '021433'
+```
+
+## Record
+
+```js
+type coordinates is
+    record [
+        x : int;
+        y : int;
+        z : int
+    ]
+
+var earth_coordinates : coordinates :=
+    record [
+        x = 2;
+        y = 7;
+        z = 1
+    ]
+
+patch earth_coordinates with record [z = 5]
+```
+
+>A patch takes a record to be updated, 
+> and a record with a subset of the fields to update, 
+> then applies the latter to the former.
+
 
 ## Main function
 
-## Transaction
+In LIGO, the design pattern is to have one main function called main, 
+that dispatches the control flow according to its parameter. 
+Those functions called for those actions are called entrypoints.
+
+In the example bellow:
+- The functions `set_ship_code` and `go_to` are the entrypoints.
+- `Set_ship_code` and `Go_to` are the associated actions.
+
+```js
+type parameter is
+  Set_ship_code of string
+| Go_to of string
+
+type storage is record [
+  ship_code : string;
+  destination : string
+]
+
+type return is list (operation) * storage
+
+function set_ship_code (const input_string : string; const store : storage) : return is
+  ((nil : list (operation)), store with record [ship_code = input_string])
+
+function go_to (const input_string : string; const store : storage) : return is
+  ((nil : list (operation)), store with record [destination = input_string])
+
+function main (const action : parameter; const store : storage): return is
+  case action of
+    Set_ship_code (input_string) -> set_ship_code (input_string, store)
+  | Go_to (input_string) -> go_to (input_string, store)
+  end
+```
 
 ## Option
+
+Notice the weapons mapping which maps the name of each weapon to its corresponding input of power. 
+We want to increase the power of the Main Laser but mapping returns optional results as they might not be found in the mapping. 
+So we define the constant `main_laser_power` as an optional `int` from selecting "Main Laser" from the weapons mapping.
+
+Then we write a pattern matching for `main_laser_power`.
+- If it exists, it increases the power of the "Main Laser" by 1 (use i as temporary matching variable).  
+- If it does not exist in the mapping, it fails with "Weapon not found"
+
+```js
+type weapon_power is map (string, int)
+
+function main (const p : unit; const store : unit) : (list(operation) * unit) is
+  block {
+    const weapons : weapon_power =
+        map [
+            "Main Laser" -> 5;
+            "Right Laser" -> 2;
+            "Left Laser" -> 3;
+        ];
+
+    const main_laser_power : option(int) = weapons["Main Laser"];
+    case main_laser_power of
+      Some(i) -> weapons["Main Laser"] := i + 1
+    | None -> failwith("Weapon not found")
+    end
+
+  } with ((nil: list(operation)), unit)
+```
 
 # Full example - Funadvisor
 
