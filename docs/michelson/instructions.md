@@ -7,6 +7,97 @@ A Tezos smart contract defines storage, entry points, and the code. The code of 
 
 The main instructions are described in the following sections.
 
+### Stack programming
+
+#### Basics
+
+Let's start with basics of stack manipulation.
+
+##### Basic stack operators (PUSH DROP SWAP)
+
+The code of a smart contract is defined as a **sequence** of Michelson instructions. The **sequence** structure is defined by `{` and `}` and contains instructions separated by `;` (semi-colon). When executing a sequence the interpreter executes each instruction sequentially, one after the other, in the specified order.
+
+Let's describe the most basics instructions (PUSH, DROP, SWAP) manipulating the elements of the stack.
+
+The `PUSH` instruction adds an element at the top of the stack. The value and the type of element pushed must be specified.
+
+For example the instruction `PUSH nat 1` add an element `1` as natural integer on top of the stack. The instruction `PUSH string "Hello"`  add an element "Hello" as a string on top of the stack.
+
+The `DROP` instruction removes the top element of the stack.
+
+The following diagram executes the sequence `{ PUSH nat 1; DROP }` which illustrates the `PUSH` and `DROP` usage.
+
+![](../../static/img/michelson/michelson_tutorial_push_drop.svg)
+<small className="figure">FIGURE 1: Execution of `PUSH` and `DROP`</small>
+
+The `SWAP` instruction inverts the position of the top two elements of the stack.
+
+![](../../static/img/michelson/michelson_instruction_swap_example.svg)
+<small className="figure">FIGURE 2: Illustration of the `SWAP` instruction</small>
+
+##### Stack manipulation using arithmetic operators
+
+Once elements are added in the stack, they can be combined using arithmetic operators such as addition (`ADD`) and multiplication  (`MUL`).  Other arithmetic operators are described in the "Operations on numbers" section.
+
+The `ADD` instruction sums the top two element of the stack. and the `MUL` multiply them. The result is pushed on top of the stack.
+
+![](../../static/img/michelson/michelson_instruction_add_example.svg)
+<small className="figure">FIGURE 3: Illustration of the `ADD` instruction</small>
+
+More complex computation can be done. For example, the mathematical expression `((2 + 3) * 6) + 7` can be written with the following sequence of instructions:
+
+```js
+PUSH int 2;
+PUSH int 3;
+ADD;
+PUSH int 6;
+MUL;
+PUSH int 7;
+ADD
+```
+
+The following schema illustrates the execution of this sequence of instructions.
+
+![](../../static/img/michelson/michelson_tutorial_arithmetic.svg)
+<small className="figure">FIGURE 4: Illustration of the arithmetic operators</small>
+
+##### Other basic stack operators (DIG DUG)
+
+Other instructions allows to change the position of elements in the stack such as `DIG` and `DUG`. Other stack operators are described in the "Stack operations" section.
+
+The `DIG n` instruction moves the n-th element of the stack to the top of the stack.
+
+![](../../static/img/michelson/michelson_instruction_dig_example.svg)
+<small className="figure">FIGURE 5: Illustration of the `DIG` instruction</small>
+
+The `DUG n` instruction moves the top element of the stack to the n-th element of the stack.
+
+![](../../static/img/michelson/michelson_instruction_dug_example.svg)
+<small className="figure">FIGURE 6: Illustration of the `DUG` instruction</small>
+
+For example, the mathematical expression `((2 + 3) * 6) + 7` can be written also with the following sequence of instructions:
+
+```js
+PUSH int 2;
+PUSH int 6;
+PUSH int 3;
+PUSH int 7;
+DUG 3;
+DIG 2;
+ADD;
+MUL;
+ADD
+```
+
+The following schema illustrates the execution of this sequence of instructions.
+
+![](../../static/img/michelson/michelson_tutorial_dug_dig.svg)
+<small className="figure">FIGURE 7: Illustration of the `DUG` and `DIG` instructions</small>
+
+##### Conditional branching
+
+//TODO
+
 ### Control structures
 
 Michelson is a turing-complete language and thus provides basic control flow instructions.
@@ -185,14 +276,14 @@ The `DUP` instruction duplicates the top element of the stack
 
 #### DIG instruction
 
-The `DIG` instruction moves the n-th element of the stack to the top of the stack.
+The `DIG n` instruction moves the n-th element of the stack to the top of the stack.
 
 ![](../../static/img/michelson/michelson_instruction_dig_example.svg)
 <small className="figure">FIGURE 6: Illustration of the `DIG` instruction</small>
 
 #### DUG instruction
 
-The `DUG` instruction moves the top element of the stack to the n-th element of the stack.
+The `DUG n` instruction moves the top element of the stack to the n-th element of the stack.
 
 ![](../../static/img/michelson/michelson_instruction_dug_example.svg)
 <small className="figure">FIGURE 7: Illustration of the `DUG` instruction</small>
