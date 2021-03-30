@@ -967,5 +967,4 @@ So now it is your turn to play with these two smart contracts by incrementing th
 
 > Remember if you are not sure what you are doing add `--dry-run` at the end of the command line to see if everything is ok.
 
-
-
+To go further you can find the code with video explanations on this [Github](https://github.com/frankhillard/ligo_tutorial_fundadvisor)
