@@ -7,21 +7,27 @@ A Tezos smart contract defines storage, entry points, and the code. The code of 
 
 The main instructions are described in the following sections.
 
+This section begins with an introduction of some critical instructions and stack manipulation before exhaustively describing all instructions of the Michelson language.
+
 ### Stack programming
 
 #### Basics
 
-Let's start with basics of stack manipulation.
+Michelson is stack-based language which means that all data (variables of the program) will be stacked on a single pile. Therefore Michelson language provides stack operators for reorganizing elements of the stack and other kind of operators which consumes top elements of the stack. In this section basic stack manipulation operators will be introduced and illustrated with simple examples. In a second time, the focus will be put on arithmetic operators and conditional branching.
 
 ##### Basic stack operators (PUSH DROP SWAP)
 
 The code of a smart contract is defined as a **sequence** of Michelson instructions. The **sequence** structure is defined by `{` and `}` and contains instructions separated by `;` (semi-colon). When executing a sequence the interpreter executes each instruction sequentially, one after the other, in the specified order.
 
+```js
+{ instruction1 ; instruction2 ; ... ; instruction n}
+```
+
 Let's describe the most basics instructions (PUSH, DROP, SWAP) manipulating the elements of the stack.
 
 The `PUSH` instruction adds an element at the top of the stack. The value and the type of element pushed must be specified.
 
-For example the instruction `PUSH nat 1` add an element `1` as natural integer on top of the stack. The instruction `PUSH string "Hello"`  add an element "Hello" as a string on top of the stack.
+For example the instruction `PUSH nat 1` add an element `1` as natural integer on top of the stack. The instruction `PUSH string "Hello"` adds an element "Hello" as a string on top of the stack.
 
 The `DROP` instruction removes the top element of the stack.
 
@@ -34,6 +40,13 @@ The `SWAP` instruction inverts the position of the top two elements of the stack
 
 ![](../../static/img/michelson/michelson_instruction_swap_example.svg)
 <small className="figure">FIGURE 2: Illustration of the `SWAP` instruction</small>
+
+The `DUP` instruction duplicates the top element of the stack. Prevent loss of varaiables since most instructions consume elements of the stack. Later examples will illustrate this.
+
+![](../../static/img/michelson/michelson_instruction_dup_example.svg)
+<small className="figure">FIGURE 3: Illustration of the `DUP` instruction</small>
+
+
 
 ##### Stack manipulation using arithmetic operators
 
@@ -94,7 +107,116 @@ The following schema illustrates the execution of this sequence of instructions.
 ![](../../static/img/michelson/michelson_tutorial_dug_dig.svg)
 <small className="figure">FIGURE 7: Illustration of the `DUG` and `DIG` instructions</small>
 
+Now that we have seen basic stack operators we are able to reorganize elements of the stack as pleased. These stack operators will be useful to prepare the stack of more complex operators that requires precise elements in a specific order on the top of the stack.
+
+
 ##### Conditional branching
+
+The Michelson language provides the possibility to execute a part of the code depending on some criteria. This is called conditional branching and some instructions are provided for this intent.
+
+For example, the `IF` instruction allows branches of execution to be created.
+
+The `IF {} {}` instruction takes two sequences as arguments. It expects a boolean at the top element of the stack. It consumes the top element and executes the first given sequence if this boolean-top element is *True*. Otherwise it executes the second sequence.
+
+In order to illustrate the conditional branching, let's explain the following sequence of instruction.
+
+```js
+IF 
+{ PUSH int 1 }
+{ PUSH int 2 }
+```
+
+This snippet of code is equivalent to the expression `if True then 1 else 2`. It checks the top element of the stack and ensures it is a boolean and consumes it. If the value of this top element is _True_ then the value 1 is pushed onto the stack otherwise value 2 is pushed. 
+
+This other example removes one of the top elements of the stack. If the top element is a boolean _True_ then the next element is ermoved otherwise removes the one after.
+
+```js
+IF 
+{ DROP }
+{ SWAP; DROP }
+```
+
+The following diagrams illustrates the modification of the stack while executing the `IF { DROP }` instruction part.
+
+
+![](../../static/img/michelson/michelson_tutorial_if_true.svg)
+<small className="figure">FIGURE 8: Illustration of the `IF` instruction (true case)</small>
+
+The following diagrams illustrates the modification of the stack while executing the `IF { SWAP; DROP }` instruction part.
+
+![](../../static/img/michelson/michelson_tutorial_if_false.svg)
+<small className="figure">FIGURE 9: Illustration of the `IF` instruction (false case)</small>
+
+Obviously the conditional branching is very useful and can be combined with other instructions that set up this condition such as comparison operators. 
+
+##### Comparison
+
+Elements of the stack can be compared if they belongs to comparable type. For example two integer can be compared but an integer and a string cannot.
+
+The `COMPARE` instruction compares the top two elements of the stack. It consumes the two top elements and returns an integer at the top of the stack. The returned value is -1 if the first element is smaller than the second one; 0 if the two first elements are equal; 1 otherwise.
+
+![](../../static/img/michelson/michelson_instruction_compare_example.svg)
+<small className="figure">FIGURE 9: Illustration of the `COMPARE` instruction</small>
+
+The `EQ` instruction consumes the top element and returns ont top of the stack a boolean. It return _True_ if this value is zero, _False_ otherwise. 
+
+The combination of the `COMPARE` and `EQ` instructions allows to create boolean conditions based on number comparison.
+The following sequence verify if two numbers are equal and returns a boolean answer on top of the stack.
+
+```js
+COMPARE;
+EQ
+```
+
+![](../../static/img/michelson/michelson_tutorial_compare_example.svg)
+<small className="figure">FIGURE 10: Illustration of number comparison</small>
+
+Other comparison instructions are available to check if a number is lower or equal to zero (`LE` instruction) or greater than zero (`GT` instruction). The list of comparison operators is described in the "Generic comparison" section.
+
+##### Conditional branching based on number comparison
+
+The combination of the `COMPARE` and `LE` and `IF` instructions allows to apply conditional branching by comparing two numbers.
+
+The following sequence of instruction expects two integers on top of the stack and removes the smaller one.
+
+```
+DUP;
+DUG 2;
+SWAP;
+DUP;
+DUG 2;
+DUG 3;
+COMPARE;
+LE;
+IF { DROP } { SWAP; DROP }
+```
+
+Notice that the `DUP; DUG 2; SWAP; DUP; DUG 2; DUG 3` sequence duplicates the top two elements of the stack. The `COMPARE; LE` sequence determines which is the biggest number and the `IF { DROP } { SWAP; DROP }` sequence removes the smallest number.
+
+![](../../static/img/michelson/michelson_tutorial_compare_numbers.svg)
+<small className="figure">FIGURE 11: Illustration of conditional branching based on number comparison</small>
+
+This principle of duplicating the top two elements of the stack and comparing them to choose one of them is a common pattern. Some syntactic sugar (macros) has been introduced in the Michelson language so as to ease on those common patterns. 
+
+For example the macro `CMPLE` stands for `COMPARE; LE`. A more exhaustive list is available in the "macros" section.
+
+Notice that the duplication of the top two elements of the stack is not an optimal sequence. It is intended to be like this in order to illustrate the `DUG` instruction but some better implementation can be done with the `DIP` instruction.
+
+##### DIP
+//TODO
+
+### Working with collection
+
+Since the beginning we ony used primitive types such as _int_, _nat_ and _string_. Now let's take a look into composite data structures.
+
+A composite structure integrate many fields. 
+
+There are 5 kind of composite data structures: 
+- binary tree implemented with nested _PAIR_ structure
+- ordered list of elements with type _list_
+- set of unique elements with type _set_
+- an associative array (a collection of key-value pairs) implemented with the type _map_
+- a union (i.e. an exlcusive composite type) implemented with nested _or_ structure.
 
 //TODO
 
