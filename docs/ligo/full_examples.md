@@ -6,7 +6,7 @@ title: Examples
 
 ## Function
 
-The following function takes a string `my_ship` as input which design an id and, 
+The following function takes a string `my_ship` as input and, 
 modifies the third attribute to 1 and assigns the result to a constant `modified_ship`.
 
 ```js
@@ -26,6 +26,8 @@ ligo run-function function_example.ligo modify_ship_code '020433'
 ```
 
 ## Record
+
+The structured type `record` is used here to define the coordinates of a planet in the solar system.
 
 ```js
 type coordinates is
@@ -93,7 +95,7 @@ So we define the constant `main_laser_power` as an optional `int` from selecting
 
 Then we write a pattern matching for `main_laser_power`.
 - If it exists, it increases the power of the "Main Laser" by 1 (use i as temporary matching variable).  
-- If it does not exist in the mapping, it fails with "Weapon not found"
+- If it does not exist in the mapping, it fails with "Weapon not found".
 
 ```js
 type weapon_power is map (string, int)
@@ -116,7 +118,7 @@ function main (const p : unit; const store : unit) : (list(operation) * unit) is
   } with ((nil: list(operation)), unit)
 ```
 
-# Full example - Funadvisor
+# Full example - FundAdvisor
 
 This example is meant to illustrate the communication between contracts (with get_entrypoint_opt LIGO function) 
 and lambda pattern which allows to modify a contract already deployed. 
@@ -134,7 +136,10 @@ The `indice` contract receives the request (transaction)
 and sends back the requested value. 
 When `advisor` contract receives the fund value it can apply the "algorithm" to check it is worth investing !
 
-TODO SCHEMA HERE
+<br/>
+
+![](../../static/img/ligo/schema_fundadvisor.svg)
+<small className="figure">FIGURE 1: FundAdvisor</small>
 
 The resulting advice is stored in the storage (in result field).
 
@@ -200,7 +205,7 @@ tezos-activate-alpha
 
 Let's create an `indice_types.ligo` file to put all the needed type definition.
 
-- `indiceStorage` is of integer type
+- `indiceStorage` is of integer type which can be the value of an equity.
 - `indiceEntrypoints` that determine how the contract will be invoked:
   - By increasing the contract storage value with `Increment of int`.
   - By decreasing it with `Decrement of int`.
@@ -270,12 +275,12 @@ block {
 #### Increment
 
 `increment` function takes two parameters:
-- `param` of type `int` which is the value that will be incremented to the storage.
+- `param` of type `int` which is the value that will be added to the storage.
 - `s` the initial value of the storage.
 
 This function return type is `indiceFullReturn` and returns:
-- an empty list of operations
-- a modified storage with a new value of `s + param`
+- an empty list of operations.
+- a modified storage with a new value of `s + param`.
 
 ```js
 //indice.ligo
@@ -287,12 +292,12 @@ block { skip } with ((nil: list(operation)), s + param)
 #### Decrement
 
 `decrement` function takes two parameters:
-- `param` of type `int` which is the value that will be decremented to the storage.
+- `param` of type `int` which is the value that will be removed from the storage.
 - `s` the initial value of the storage.
 
 This function return type is `indiceFullReturn` and returns:
-- an empty list of operations
-- a modified storage with a new value of `s - param`
+- an empty list of operations.
+- a modified storage with a new value of `s - param`.
 
 ```js
 //indice.ligo
@@ -320,7 +325,7 @@ at a given `address`, or the contract doesn't match the type, then `None` is ret
 
 > Note that the `Tezos.get_entrypoint_opt` function is a solution of two-way communication 
 > between contract that are already deployed.
-> Find out more on `Tezos.get_entrypoint_opt` [here](https://tezosacademy.io/pascal/chapter-polymorphism)
+> Find out more on `Tezos.get_entrypoint_opt` [here](https://tezosacademy.io/pascal/chapter-polymorphism).
 
 ```js
 //indice.ligo
@@ -432,7 +437,7 @@ block {
 
 This function return type is `advisorFullReturn` and returns:
 - an empty list of operations
-- a modified storage with a new value for `s.result ` 
+- a modified storage with a new value for `s.result`
   that will be the boolean return of the algorithm.
 
 ```js
@@ -473,9 +478,41 @@ ligo compile-contract advisor.ligo advisorMain
 
 ### Indice contract
 
+```js
+//indice.ligo
+#include "indice_types.ligo"
+
+function increment(const param : int; const s : indiceStorage) : indiceFullReturn is 
+block { skip } with ((nil: list(operation)), s + param)
+
+function decrement(const param : int; const s : indiceStorage) : indiceFullReturn is 
+block { skip } with ((nil: list(operation)), s - param)
+
+function sendValue(const param : unit; const s : indiceStorage) : indiceFullReturn is 
+block { 
+    const c_opt : option(contract(int)) = Tezos.get_entrypoint_opt("%receiveValue", Tezos.sender);
+    const destinataire : contract(int) = case c_opt of
+    | Some(c) -> c
+    | None -> (failwith("sender cannot receive indice value") : contract(int))
+    end;
+    const op : operation = Tezos.transaction(s, 0mutez, destinataire);
+    const txs : list(operation) = list [ op; ];
+ } with (txs, s)
+
+function indiceMain(const ep : indiceEntrypoints; const store : indiceStorage) : indiceFullReturn is
+block { 
+    const ret : indiceFullReturn = case ep of 
+    | Increment(p) -> increment(p, store)
+    | Decrement(p) -> decrement(p, store)
+    | SendValue(p) -> sendValue(p, store)
+    end;
+    
+ } with ret
+```
+
 #### Simulation
 
-Let's simulate the contract with the increment action with `5` as parameter and an initial storage of `0`.
+Let's simulate the indice contract with the increment action with `5` as parameter and an initial storage of `0`.
 
 ```shell
 ligo dry-run indice.ligo indiceMain 'Increment(5)' '0'
@@ -483,7 +520,7 @@ ligo dry-run indice.ligo indiceMain 'Increment(5)' '0'
 
 This should return:
 
-```
+```js
 ( LIST_EMPTY(), 5 )
 ```
 
@@ -497,7 +534,7 @@ ligo dry-run indice.ligo indiceMain 'Increment(5)' '4'
 
 This should return:
 
-```
+```js
 ( LIST_EMPTY(), 9 )
 ```
 
@@ -509,7 +546,7 @@ ligo dry-run indice.ligo indiceMain 'SendValue(unit)' '3'
 
 This command should return:
 
-```
+```js
 failwith("sender cannot receive indice value")
 ```
 
@@ -522,28 +559,28 @@ Now, let's prepare the parameters and the storage.
 
 ```shell
 ligo compile-storage indice.ligo indiceMain '0'
-//output: 0
+#output: 0
 ```
 
 ```shell
 ligo compile-parameter indice.ligo indiceMain 'Increment(5)'
-//output: (Right Unit)
+#output: (Left (Right 5))
 ```
 
 ```shell
 ligo compile-parameter indice.ligo indiceMain 'Decrement(5)'
-//output: (Right Unit)
+#output: (Left (Left 5))
 ```
 
 ```shell
 ligo compile-parameter indice.ligo indiceMain 'SendValue(unit)'
-//output: (Right Unit)
+#output: (Right Unit)
 ```
 
-> **Reminder:** `0`, `(Right Unit)` are Michelson expressions that 
-> can be used as parameter in the deployment commande line `tezos-client orginate contract`
+> **Reminder:** `0`, `(Left (Right 5))`, `(Left (Left 5))`, `(Right Unit)` are Michelson expressions that 
+> can be used as parameter in `tezos-client` command lines.
 
-Once everything's looks ok, we can compile the main and save the output in a `indice.tz` file.
+Once everything's looks ok, we can compile the main function and save the output in a `indice.tz` file.
 
 ```shell
 ligo compile-contract indice.ligo indiceMain > indice.tz
@@ -551,7 +588,7 @@ ligo compile-contract indice.ligo indiceMain > indice.tz
 
 This should return:
 
-```
+```js
 { parameter (or (or (int %decrement) (int %increment)) (unit %sendValue)) ;
   storage int ;
   code { DUP ;
@@ -580,6 +617,8 @@ This should return:
 
 #### Deployment
 
+To display the list of deployed contracts, run the following command:
+
 ```shell
 tezos-client list known contracts
 ```
@@ -593,6 +632,10 @@ bootstrap3: tz1b7tUupMgCNw2cCLpKTkSD1NZzB5TkP2sv
 bootstrap2: tz1faswCTDciRzE4oJ9jn2Vm2dvjeyA9fUzU
 bootstrap1: tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx
 ```
+
+Note that on the sandboxed mode there are already users that are created, and we can reuse later.
+
+It's time to deploy the indice smart contract.
 
 ```shell
 tezos-client originate contract indice transferring 1 from bootstrap1  running 'indice.tz' --init '0' --dry-run
@@ -623,6 +666,8 @@ Let's open another terminal in order to bake this transaction with the following
 tezos-client bake for bootstrap1
 ```
 
+> **Tezos baking** is the process of signing and appending a block of transactions to the Tezos blockchain.
+
 Now, run the command bellow and see your indice contract on the list !
 
 ```shell
@@ -638,6 +683,289 @@ bootstrap2: tz1faswCTDciRzE4oJ9jn2Vm2dvjeyA9fUzU
 bootstrap1: tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx
 ```
 
-Note your indice contract address somewhere because you will need it to initialize your advisor contract.
+Write down your indice contract address somewhere because you will need it to initialize your advisor contract.
 
-## Advisor contract
+### Advisor contract
+
+```js
+//advisor.ligo
+#include "advisor_types.ligo"
+
+function request(const p : unit; const s : advisorStorage) : advisorFullReturn is
+block { 
+    const c_opt : option(contract(unit)) = Tezos.get_entrypoint_opt("%sendValue", s.indiceAddress);
+    const destinataire : contract(unit) = case c_opt of
+    | Some(c) -> c
+    | None -> (failwith("indice cannot send its value") : contract(unit))
+    end;
+    const op : operation = Tezos.transaction(unit, 0mutez, destinataire);
+    const txs : list(operation) = list [ op; ];
+ } with (txs, s)
+
+function execute(const indiceVal : int; const s : advisorStorage) : advisorFullReturn is
+block { 
+    s.result := s.algorithm(indiceVal)
+ } with ((nil : list(operation)), s)
+
+
+function change(const p : advisorAlgo; const s : advisorStorage) : advisorFullReturn is
+block { 
+    s.algorithm := p;
+ } with ((nil : list(operation)), s)
+
+function advisorMain(const ep : advisorEntrypoints; const store : advisorStorage) : advisorFullReturn is
+block { 
+    const ret : advisorFullReturn = case ep of 
+    | ReceiveValue(p) -> execute(p, store)
+    | RequestValue(p) -> request(p, store)
+    | ChangeAlgorithm(p) -> change(p, store)
+    end;
+ } with ret
+```
+
+#### Simulation
+
+Let's simulate the advisor contract with an initial storage of:  
+`record[indiceAddress=("KT1D99kSAsGuLNmT1CAZWx51vgvJpzSQuoZn" : address); algorithm=(function(const i : int) is False); result=False]`.
+
+Note that we choose a simple algorithm function that is `function(const i : int) is False` therefore the saved result is `False` too.
+
+Let's simulate with `ReceiveValue(5)` as action.
+
+```shell
+ligo dry-run advisor.ligo advisorMain 'ReceiveValue(5)' 'record[indiceAddress=("KT1D99kSAsGuLNmT1CAZWx51vgvJpzSQuoZn" : address); algorithm=(function(const i : int) is False); result=False];'
+```
+
+Let's simulate with `RequestValue(unit)` as action.
+
+```shell
+ligo dry-run advisor.ligo advisorMain 'RequestValue(unit)' 'record[indiceAddress=("KT1D99kSAsGuLNmT1CAZWx51vgvJpzSQuoZn" : address); algorithm=(function(const i : int) is False); result=False]'
+```
+
+Let's simulate with `ChangeAlgorithm(function(const i : int) is if i < 10 then True else False)` as action.
+
+```shell
+ligo dry-run advisor.ligo advisorMain 'ReceiveValue(5)' 'record[indiceAddress=("KT1D99kSAsGuLNmT1CAZWx51vgvJpzSQuoZn" : address); algorithm=(function(const i : int) is False); result=False]'
+```
+
+#### Compilation
+
+Now, let's prepare the parameters and the storage.
+
+```shell
+ligo compile-parameter advisor.ligo advisorMain 'ReceiveValue(5)'
+#output: (Left (Right 5))
+```
+
+```shell
+ligo compile-parameter advisor.ligo advisorMain 'RequestValue(unit)'
+#output: (Right Unit)
+```
+
+Let's say we want to change the algorithm for a more interesting but still simple business logic : 
+*if the indice of a stock (indice storage) is under 20, one should invest*.
+
+```shell
+ligo compile-parameter advisor.ligo advisorMain 'ChangeAlgorithm(function(const i : int) is if i < 20 then True else False)'
+#output: (Left (Left { PUSH int 20 ; SWAP ; COMPARE ; LT ; IF { PUSH bool True ] [ PUSH bool False } }))
+```
+
+Let's compile the storage with a similar business logic as an initial state.
+
+```shell
+ligo compile-storage advisor.ligo advisorMain 'record[indiceAddress=("KT1D99kSAsGuLNmT1CAZWx51vgvJpzSQuoZn" : address); algorithm=(function(const i : int) is if i < 10 then True else False); result=False]'
+```
+
+This command should return:
+
+```js
+(Pair (Pair { PUSH int 10 ;
+              SWAP ;
+              COMPARE ;
+              LT ;
+              IF { PUSH bool True ] [ PUSH bool False } }
+            "KT1D99kSAsGuLNmT1CAZWx51vgvJpzSQuoZn")
+      False) 
+```
+
+Once everything's looks ok, we can compile the main and save the output in a `advisor.tz` file.
+
+```shell
+ligo compile-contract advisor.ligo indiceMain > advisor.tz
+```
+
+This should return:
+
+```js
+{ parameter
+    (or (or (lambda %changeAlgorithm int bool) (int %receiveValue)) (unit %requestValue)) ;
+  storage
+    (pair (pair (lambda %algorithm int bool) (address %indiceAddress)) (bool %result)) ;
+  code { DUP ;
+         CDR ;
+         SWAP ;
+         CAR ;
+         IF_LEFT
+           { IF_LEFT
+               { SWAP ;
+                 DUP ;
+                 DUG 2 ;
+                 CDR ;
+                 DIG 2 ;
+                 CAR ;
+                 CDR ;
+                 DIG 2 ;
+                 PAIR ;
+                 PAIR ;
+                 NIL operation ;
+                 PAIR }
+               { SWAP ;
+                 DUP ;
+                 DUG 2 ;
+                 CAR ;
+                 CAR ;
+                 SWAP ;
+                 EXEC ;
+                 SWAP ;
+                 CAR ;
+                 PAIR ;
+                 NIL operation ;
+                 PAIR } }
+           { DROP ;
+             DUP ;
+             CAR ;
+             CDR ;
+             CONTRACT %sendValue unit ;
+             IF_NONE { PUSH string "indice cannot send its value" ; FAILWITH } {} ;
+             PUSH mutez 0 ;
+             UNIT ;
+             TRANSFER_TOKENS ;
+             SWAP ;
+             NIL operation ;
+             DIG 2 ;
+             CONS ;
+             PAIR } } }
+```
+
+#### Deployment
+
+In the same way as for the indice contract, let's run the following command in a `--dry-run` mode.  
+In the `--init` section we put the michelson result of the `compile-storage` we just run above.
+
+```shell
+tezos-client originate contract advisor transferring 1 from bootstrap1  running 'advisor.tz' --init '(Pair (Pair { PUSH int 10 ; SWAP ; COMPARE ; LT ; IF { PUSH bool True } { PUSH bool False } } "KT1D99kSAsGuLNmT1CAZWx51vgvJpzSQuoZn") False)' --dry-run
+```
+
+You should have an error message telling you to specify the gaz fee with `--burn-cap`
+
+Try again and if everything works properly run the same command without the `--dry-run` part.
+
+```shell
+tezos-client originate contract advisor transferring 1 from bootstrap1  running 'advisor.tz' --init '(Pair (Pair { PUSH int 10 ; SWAP ; COMPARE ; LT ; IF { PUSH bool True } { PUSH bool False } } "KT1D99kSAsGuLNmT1CAZWx51vgvJpzSQuoZn") False)' --burn-cap 0.16825
+```
+
+The transaction is now launched, and you should have the following response:
+
+```
+Node is boostrapped.
+Estimated gas 3144,273 units (will add 100 + 112 for safety)
+Estimated storage: 673 bytes added (will add 20 for safety)
+Operation successfully injected in the node.
+Operation hash is 'opR766cSqn37L8qCjgcEqu4tfGeukCKBezpHjjicAYB4NYf6g2b'
+Waiting for the operation to be included...
+```
+
+Let's open another initialized terminal in order to bake this transaction with the following command line:
+
+```shell
+tezos-client bake for bootstrap1
+```
+
+Now, run the command bellow and see your advisor contract on the list !
+
+```shell
+tezos-client list known contracts
+```
+
+```
+advisor: KT1FzbmriX7zNuKh6wTiRQidk9eyb7zFsk6c
+indice: KT1D99kSAsGuLNmT1CAZWx51vgvJpzSQuoZn
+activator: tz1TGu6TN5GSez2ndXXeDX6LgUDvLzPLqgYV
+bootstrap5: tz1ddb9NMYHZi5UzPdzTZMYQQZoMub195zgv
+bootstrap3: tz1b7tUupMgCNw2cCLpKTkSD1NZzB5TkP2sv
+bootstrap2: tz1faswCTDciRzE4oJ9jn2Vm2dvjeyA9fUzU
+bootstrap1: tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx
+```
+
+### Use
+
+Now that the two contracts are deployed we will be able to use them.
+
+You can run the following command to access the storage of the indicated contract.
+
+```shell
+tezos-client get contract storage for advisor
+```
+
+This should return the same result as the `compile-storage` command because no transaction has been made yet.
+
+```js
+(Pair (Pair { PUSH int 10 ;
+              SWAP ;
+              COMPARE ;
+              LT ;
+              IF { PUSH bool True ] [ PUSH bool False } }
+            "KT1D99kSAsGuLNmT1CAZWx51vgvJpzSQuoZn")
+      False) 
+```
+
+Let's check for the indice contract as well.
+
+```shell
+tezos-client get contract storage for indice
+//output: 0
+```
+
+Now, let's do a transaction !
+
+Imagine the user **bootstrap3** want to use the advisor smart contract to know if he should invest.
+
+For that he must make a transaction using the action `RequestValue(Unit)` which the michelson expression is `(Right Unit)`.
+
+```shell
+tezos-client transfer 0 from bootstrap3 to advisor --arg '(Right Unit)'
+```
+
+Then in another terminal let's bake for **bootstrap3**,
+
+```shell
+tezos-client bake for bootstrap3
+```
+
+Now let's check if it's worth the investment by looking at the storage
+
+```shell
+tezos-client get contract storage for advisor
+```
+
+```js
+(Pair (Pair { PUSH int 10 ;
+              SWAP ;
+              COMPARE ;
+              LT ;
+              IF { PUSH bool True ] [ PUSH bool False } }
+            "KT1D99kSAsGuLNmT1CAZWx51vgvJpzSQuoZn")
+      True) 
+```
+
+The result pass from `False` to `True` in the result field, so it is worth the investment.
+
+However, this is the case because the initial value of the indice storage is `0` 
+and our algorithm returns true if this value is under `10`.
+
+So now it is your turn to play with these two smart contracts by incrementing the indice storage or changing the advisor algorithm for example.
+
+> Remember if you are not sure what you are doing add `--dry-run` at the end of the command line to see if everything is ok.
+
+
+
