@@ -205,11 +205,11 @@ Notice that the duplication of the top two elements of the stack is not an optim
 ##### DIP
 //TODO
 
-### Working with collection
+### Working with complex data structures
 
-Since the beginning we ony used primitive types such as _int_, _nat_ and _string_. Now let's take a look into composite data structures.
+Since the beginning we ony used primitive types such as _int_, _nat_ and _string_. The storage of the smart contract usually stores more than just one number. Now let's take a look into composite data structures.
 
-A composite structure integrate many fields. 
+A composite structure integrate many fields and can organize them in many ways. 
 
 There are 5 kind of composite data structures: 
 - binary tree implemented with nested _PAIR_ structure
