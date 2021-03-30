@@ -118,7 +118,7 @@ However, this sequence may stop by throwing an exception.
 
 The `FAILWITH` instruction aborts the execution of the Michelson script by throwing an exception.
 
-The `FAILWITH` instruction consumes the top element of the stack as parameter (usually a string message). The consumed element must be of a pushable type. It is allowed to throw an exception without message by specifying the `UNIT` value.
+The `FAILWITH` instruction consumes the top element of the stack as argument (usually a string message). The consumed element must be of a pushable type. It is allowed to throw an exception without message by pushing a `UNIT` value on top of the stack.
 
 
 The `FAIL` keyword has been provided as replacement for `UNIT; FAILWITH`.
@@ -131,7 +131,7 @@ A `FAILWITH` instruction provides a way to reject a transaction by stopping the 
 
 The `IF` instruction allows branches of execution to be created (also called conditional branching).
 
-The `IF` instruction takes two sequences as parameters. It expects a boolean at the top element of the stack. It consumes the top element and executes the first given sequence if this boolean-top element is *True*. Otherwise it executes the second sequence.
+The `IF` instruction takes two sequences as arguments. It expects a boolean at the top element of the stack. It consumes the top element and executes the first given sequence if this boolean-top element is *True*. Otherwise it executes the second sequence.
 
 Michelson grammar defines the `IF` instruction as:
 
@@ -160,7 +160,7 @@ LOOP body / False : S  =>  S
 
 #### LOOP_LEFT (loop with accumulator)
 
-Like the `LOOP` instruction, `LOOP_LEFT` is a generic loop that handles an accumulator geerally used for aggregating data during a repetitive process. 
+Like the `LOOP` instruction, `LOOP_LEFT {}` is a generic loop that handles an accumulator generally used for aggregating data during a repetitive process. 
 
 Michelson grammar defines the `LOOP_LEFT` instruction as:
 
@@ -169,7 +169,7 @@ LOOP_LEFT body / (Left a) : S  =>  body ; LOOP_LEFT body / a : S
 LOOP_LEFT body / (Right b) : S  =>  b : S
 ```
 
-LOOP_LEFT requires a `union` of a given parameter and an accumulator. If the left part of the `union` is initialized the process is repeated. If the right part is initialized then the process is stopped and the accumulator is returned.
+The `LOOP_LEFT {}` takes a sequence of instructions as argument and requires a `union` (composed of a given data structure and an accumulator) on top of the stack. If the left part of the `union` is initialized the process is repeated. If the right part is initialized then the process is stopped and the accumulator is returned.
 
 Two examples ([#4](https://opentezos.com/michelson/examples#example-4--computing-a-sum-with-loop_left) and [#5](https://opentezos.com/michelson/examples#example-5--computing-a-factorial-with-loop_left)) in the _Examples_ section describe in detail the `LOOP_LEFT` instruction usage.
 
@@ -178,7 +178,7 @@ Two examples ([#4](https://opentezos.com/michelson/examples#example-4--computing
 
 The `EXEC` instruction executes a function from the stack.
 
-The `EXEC` instruction consumes a function and its related input parameters on top of the stack. The `EXEC` instruction produces the expected function output on the top of the stack.
+The `EXEC` instruction consumes a function and its related input arguments on top of the stack. The `EXEC` instruction produces the expected function output on the top of the stack.
 
 ```js
 EXEC / a : f : S  =>  r : S
@@ -204,7 +204,7 @@ The execution of this smart contract is described in the "example" section.
 
 #### APPLY
 
-The `APPLY 'a` instruction partially applies a _tuplified_ function from the stack (i.e. arguments are grouped in pairs or nested pairs). It is parameterized by a type `'a`. Values that are not both push-able and storable (i.e. values of type _operation_, _contract_, and _big map_) cannot be captured by _APPLY_ (and so cannot appear in parameter `'a`).
+The `APPLY 'a` instruction partially applies a _tuplified_ function from the stack (i.e. arguments are grouped in pairs or nested pairs). It is parameterized by a type `'a`. Values that are not both push-able and storable (i.e. values of type _operation_, _contract_, and _big map_) cannot be captured by _APPLY_ (and so cannot appear in argument `'a`).
 
 The instruction produces a new function that is only partially resolved. For example, if a function takes 2 arguments, it is possible to provide one argument and to use the `APPLY` instruction to produce an equivalent partially-resolved function which takes one argument.
 
@@ -290,8 +290,8 @@ The `DUG n` instruction moves the top element of the stack to the n-th element o
 
 #### DIP instruction
 
-The `DIP` instruction takes as parameters:
-- _n_: a number of elements to protect
+The `DIP` instruction takes two arguments:
+- _n_: a number of elements to protect (by default 1)
 - _code_: a sequence of instructions to execute
 
 It runs the provided sequence of instructions while protecting the _n_ top elements of the stack.
@@ -314,8 +314,8 @@ Also notice that `DIP 0 code` is equivalent to `code`
 
 The `LAMBDA` instruction pushes a function on top of the stack.
 
-It requires three parameters:
-- the type of the given parameter
+It requires three arguments:
+- the type of the function argument
 - the type returned by the function
 - the sequence of instructions associated with the function (code of the function)
 
@@ -502,8 +502,9 @@ Strings are mostly used for naming things without having to rely on external ID 
 
 #### CONCAT
 
-The `CONCAT` instruction concatenates strings. It consumes the top element and produces a string (concatenation of the top element and the given string parameter) that is placed on top of the stack.
+The `CONCAT` instruction concatenates strings. It consumes the two top element and produces a string (concatenation of the two top element) that is placed on top of the stack.
 
+//TODO
 It takes one parameter which can be either a single string or a list of strings. 
 
 ```js
@@ -521,9 +522,9 @@ The `SIZE` instruction consumes a string of the top of the stack and pushes the 
 #### SLICE
 
 The `SLICE` instruction provides a way to retrieve a part of a string.
-It takes three parameters:
-- an `offset` parameter indicating the beginning of the substring 
-- a `length` parameter indicating the size of the substring
+It takes three arguments:
+- an `offset` argument indicating the beginning of the substring 
+- a `length` argument indicating the size of the substring
 - a `string` to slice
 
 It returns an optional string because the given offset may be out of bound.
@@ -658,12 +659,12 @@ UPDATE / x : true : { hd ; <tl> } : S  =>  { x ; hd ; <tl> } : S
     iff COMPARE / x : hd : []  =>  -1 : []
 ```
 
-If the boolean parameter is _False_ then the element will be removed.
+If the boolean argument is _False_ then the element will be removed.
 
 ![](../../static/img/michelson/michelson_instruction_updatesetremove_example.svg)
 <small className="figure">FIGURE 24: Illustration of the `UPDATE` instruction</small>
 
-If the boolean parameter is _False_ then the element will be inserted.
+If the boolean argument is _True_ then the element will be inserted.
 
 ![](../../static/img/michelson/michelson_instruction_updatesetinsert_example.svg)
 <small className="figure">FIGURE 25: Illustration of the `UPDATE` instruction</small>
@@ -689,7 +690,7 @@ tezos-client run script set_example.tz on storage '{1;2;3; 9}' and input '7'
 
 #### ITER body
 
-The `ITER` instruction takes a sequence of instructions (called "body") as the parameter.
+The `ITER` instruction takes a sequence of instructions (called "body") as argument.
 
 The `ITER` instruction applies a given sequence of instructions to each element of a set. The "body" sequence has access to the stack.
 
@@ -767,7 +768,7 @@ The `EMPTY_BIG_MAP` instruction builds a new empty `big_map` data structure.
 
 The `MEM` instruction checks for the presence of a binding for a key in a map.
 
-It takes a key as the parameter and returns a boolean on top of the stack.
+It takes a key as argument and returns a boolean on top of the stack.
 
 ```js
 MEM / x : {} : S  =>  false : S
@@ -784,7 +785,7 @@ MEM / x : { Elt k v ; <tl> } : S  =>  false : S
 
 The `UPDATE` instruction adds or removes an element in a map.
 
-It takes a key and an optional value as parameters.
+The `UPDATE` instruction expects a key, an optional value and a map on top of the stack. It consumes the key and the optional value and modifies the map accordingly.
 
 ```js
 > UPDATE / x : None : {} : S  =>  {} : S
@@ -849,7 +850,7 @@ tezos-client run script map_insert_example.tz on storage '{ Elt "toto" 1 }' and 
 
 #### GET
 
-The `GET` instruction allows an element in a map to be accessed. It returns an optional value to be checked with an `IF_SOME` instruction.
+The `GET` instruction allows to access to an element inside a map. It returns an optional value to be checked with an `IF_SOME` instruction.
 
 ```js
 GET / x : { Elt k v ; <tl> } : S  =>  opt_y : S
@@ -861,7 +862,7 @@ GET / x : { Elt k v ; <tl> } : S  =>  None : S
     iff COMPARE / x : k : []  =>  -1 : []
 ```
 
-The following smart contract illustrates the usage of `GET`. The contract takes a key as the parameter and inserts a new element in the map if the key does not exist. It assigns value 0 to the given key. If the element for the given key exists in the map, then it increments its associated value.
+The following smart contract illustrates the usage of `GET`. The storage of this contract defines a map. This smart contract takes a key as the parameter and inserts a new element in the map if the key does not exist. In this case it assigns value 0 to the given key. Otherwise if the map possesses an element for the given key then it increments its associated value.
 
 ```js
 parameter string ;
@@ -894,7 +895,7 @@ Notice that `{}` represents an empty map and `{ Elt "toto" 5 }` a map containing
 
 #### MAP body
 
-The `MAP` instruction applies a sequence of instructions to each element of a map. It takes a sequence of instructions as the parameter (called "body"). This "body" sequence has access to the stack.
+The `MAP` instruction applies a sequence of instructions to each element of a map. It takes a sequence of instructions as argument (called "body"). This "body" sequence has access to the stack.
 
 ```js
 MAP body / {} : S  =>  {} : S
@@ -954,7 +955,7 @@ or int nat
 #### LEFT
 
 The `LEFT p` instruction takes the top-element of the stack and produces a *union*. 
-The top-element is placed in the right branch of the `or` structure and the left branch is type with the given p parameter.
+The top-element is placed in the right branch of the `or` structure and the left branch is typed with the given `p` argument.
 
 It consumes a type definition on top of the stack and pushes a union where the left part is defined as the consumed type definition.
 
@@ -967,7 +968,7 @@ Illustration of `LEFT` usage can be seen in the examples section.
 #### RIGHT
 
 The `RIGHT p` instruction takes the top-element of the stack and produces a *union*. 
-The top-element is placed in the left branch of the `or` structure and the right branch is type with the given p parameter.
+The top-element is placed in the left branch of the `or` structure and the right branch is typed with the given `p` argument.
 
 It consumes a type definition on top of the stack and pushes a union where the right part is defined as the consumed type definition.
 
@@ -990,7 +991,7 @@ IF_LEFT bt bf / (Left a) : S  =>  bt / a : S
 IF_LEFT bt bf / (Right b) : S  =>  bf / b : S
 ```
 
-The following smart contract (union_example.tz) illustrates the `IF_LEFT` usage. Notice that the parameter is a *union* `(or string int)` and the storage is an integer. This smart contract increments the storage if an integer is passed as a parameter and does nothing if a string is given.
+The following smart contract (union_example.tz) illustrates the `IF_LEFT` usage. Notice that the parameter is a *union* `(or string int)` and the storage is an integer. This smart contract increments the storage if an integer is passed as parameter (i.e. if the smart contract is invoked with an integer) and does nothing if a string is given.
 
 ```js
 parameter (or string int) ;
@@ -1230,7 +1231,7 @@ CONTRACT / addr : S  =>  None : S
 #### TRANSFER_TOKENS
 
 The `TRANSFER_TOKENS` instruction forges a transaction. In Michelson, the `operation` type represents a transaction. 
-Forging a transaction requires the following be specified: 
+Forging a transaction requires the following to be specified: 
 - the *parameter* (i.e. the entry point expected by the targeted contract)
 - a *quantity of mutez* transferred by this transaction
 - a *recipient contract* representing the target of the transaction (i.e. to which contract this transaction will be sent)
@@ -1297,7 +1298,7 @@ tezos-client run script countercaller.tz on storage '"KT1HUbVyf62ZAp7BRqwQaDueb6
 
 The `SET_DELEGATE` sets or withdraws the contract’s delegation. It consumes an *option key_hash* specifying the delegate and returns a transaction (operation) on top of the stack.
 
-Using this instruction is the only way to modify the delegation of a smart contract. If the parameter is _None_, then the delegation of the current contract is withdrawn. If the parameter is _Some kh_, where _kh_ is the key hash of a registered delegate (that is not the current delegate of the contract), then this operation sets the delegate of the contract to this registered delegate. The operation fails if _kh_ is the current delegate of the contract or if _kh_ is not a registered delegate.
+Using this instruction is the only way to modify the delegation of a smart contract. If the top element is _None_, then the delegation of the current contract is withdrawn. If the top element is _Some kh_, where _kh_ is the key hash of a registered delegate (that is not the current delegate of the contract), then this operation sets the delegate of the contract to this registered delegate. The operation fails if _kh_ is the current delegate of the contract or if _kh_ is not a registered delegate.
 
 #### BALANCE
 
@@ -1336,7 +1337,7 @@ The `SENDER` instruction pushes the address of the contract that initiated the c
 
 The `SELF` instruction pushes the default entry point of a contract on top of the stack. This default entry point specifies the expected parameter type. 
 
-The `SELF 'p` instruction allows to take a entry point name 'p as parameter. In this case, it pushed the specified entrypoint on top of the stack. 
+The `SELF 'p` instruction allows to take a entry point name 'p as argument. In this case, it pushed the specified entrypoint on top of the stack. 
 
 #### AMOUNT
 
@@ -1382,9 +1383,9 @@ The `SIZE` instruction computes the size of a sequence of bytes. It consumes a b
 #### SLICE
 
 The `SLICE` instruction provides a way to retrieve a part of a byte sequence.
-It takes three parameters:
-- an `offset` parameter, indicating the beginning of the byte sequence 
-- a `length` parameter, indicating the size of the sub-sequence
+It takes expects following elements on top of the stack:
+- an `offset`, indicating the beginning of the byte sequence 
+- a `length`, indicating the size of the sub-sequence
 - a `byte sequence` to slice
 
 It returns an optional byte sequence because the given offset and length may be out of bound.
