@@ -3,17 +3,14 @@ id: exam
 title: Exam
 ---
 
+### Question 1
 
-import NotificationBar from '../../src/components/docs/NotificationBar';
+Why is DeFi often compared to _Money LEGOs_ ?
 
-<h1 className="p">Under construction.</h1>
+- [x] DeFi apps form layers than rely on other DeFi apps just like _LEGO_ blocks would with each other.
+- [x] DeFi apps respects common standards that allows them to interact with each other.
+- [x] DeFi apps are often open-source allowing developers to fork them and modify them to create their own apps.
 
-<NotificationBar>
-  <p>
-    Lorem ipsum
-  </p>
-</NotificationBar>
+### Question 2
 
-### Lorem ipsum
-
-Lorem ipsum
+DEX ...

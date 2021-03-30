@@ -17,11 +17,11 @@ Although it started as a decentralized reproduction of existing centralized fina
 
 The objective of DeFi is to create added financial value accessible to everyone, decentralized, instantaneous, transparent and cutting out middlemen, in order to execute transactions, create and manage savings, trade, and obtain returns on financial assets not regulated by a central power.
 
-DeFi tools and services are built based on `Money Lego` [[1]](/defi/introduction#references). Instead of creating an isolated software from the ground up like banks do, DeFi tools and services usually take advantage of the whole ecosystem in place, and integrate within them just like _LEGO_ blocks would with each other. For instance, decentralized exchanges (_DEXs_ for short) rely on tokens, stable coins and oracles, which themselves rely on the smart contracts and the blockchain consensus. Additionally, we can find DeFi apps on top of DEXs e.g. for swapping, yield farming, lending, insurances, etc..
+DeFi tools and services are often compared to `Money LEGOs` [[1]](/defi/introduction#references). Instead of creating an isolated software from the ground up like banks do, DeFi tools and services usually take advantage of the whole ecosystem in place, and integrate within them just like _LEGO_ blocks would with each other. For instance, decentralized exchanges (_DEXs_ for short) rely on tokens, stable coins and oracles, which themselves rely on the smart contracts and the blockchain consensus. Additionally, we can find DeFi apps on top of DEXs e.g. for swapping, yield farming, lending, insurances, etc..
 Just like _LEGO_ blocks, DeFi applications can layer on top of each other and build the foundation needed to create a completely decentralized financial layer — cutting out the middle man (banks, insurance companies, etc.) to reduce the costs and make the service more inclusive.
 
 ![](../../static/img/defi/money-legos.svg)
-<small className="figure">FIGURE 1: Illustration of DeFi as _Money Legos_.</small>
+<small className="figure">FIGURE 1: Illustration of DeFi as <i>Money LEGOs<i>.</small>
 
 ## DeFi on Tezos
 
