@@ -35,6 +35,134 @@ the writing of automated tests as a tool to guide the implementation of features
 
 ## PyTezos Installation
 
+### Requirement
+
+- Have python installed, and a text editor ready to use.
+- Have a cryptographic library in your system. 
+  If not, take a look on the requirement section on this [link](https://pytezos.org/quick_start.html#requirements).
+
+### Installation
+
+#### Creation of a virtual environment
+
+```shell
+$ python3 -m venv /path/to/env
+```
+
+#### Activating the environment
+
+```shell
+$ source /path/to/env/bin/activate
+```
+
+#### Installation of the necessary python libraries
+
+Installation of wheel:
+
+```shell
+(venv) $ pip install wheel
+```
+
+Installation of pytezos:
+
+```shell
+(venv) $ pip install pytezos
+```
+
+Verification of the installation:
+
+```shell
+(venv) $ python -c "import pytezos"
+```
+
+If the command returns nothing then the installation is successful.
+
+## Unittest (Python library)
+
+Before writing tests for smart contracts with **PyTezos** 
+you need to know how to use the **Unittest** test library.
+
+Let's see how **Unittest** works through a simple example.
+
+Consider a python file `calculator.py` with two functions: `add` and `sub`
+
+```python
+#calculator.py
+
+def add(x, y):
+    return x + y
+
+
+def sub(x, y):
+    return x - y
+```
+
+In order to test these two functions 
+let's create a new test file beginning by **test_** : `test_calculator.py`.
+
+In this file you will need to:
+- `import unittest`.
+- import the file you want with the functions you want to test, `import calculator`.
+- Create a test class that inherits from `unittest.TestCase`.  
+  You can name this class whatever you want but try to keep it descriptive.
+- Write your tests by creating methods whose name must start with `test_` 
+  otherwise it will not be recognized.
+
+```python
+#test_calculator.py
+
+import unittest
+import calculator
+
+
+class TestCalculator(unittest.TestCase):
+
+    def test_add(self):
+        result = calculator.add(10, 5)
+        self.assertEqual(result, 15)
+
+    def test_sub(self):
+        result = calculator.sub(10, 5)
+        self.assertEqual(result, 5)
+```
+
+> Note that the names of the classes are by convention in **CamelCase** 
+> and that the names of the tests methods are in **snake_case**
+
+You can run your tests in command line as follows:
+
+```shell
+$ python -m unittest test_calculator
+```
+
+This should return:
+
+```shell
+..
+----------------------------------------------------------------------
+Ran 2 tests in 0.000s
+
+OK
+```
+
+Note that the command has executed all the tests in our test file, 
+but we can only execute certain tests.
+
+Indeed, the unittest module can be used from the command line to execute tests from modules, 
+classes or even individual test methods:
+
+```shell
+$ python -m unittest test_calculator
+$ python -m unittest test_calculator.TestCalculator
+$ python -m unittest test_calculator.TestCalculator.test_sub
+```
+
+
+
+
+
+
+
 
 
 
