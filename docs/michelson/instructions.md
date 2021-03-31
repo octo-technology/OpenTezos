@@ -294,8 +294,164 @@ The next section will explain the list operators (`NIL operation`).
 
 #### LIST
 
+The `list` type represents an ordered collection of elements of the same type. A _list_ can contain multiple occurences of the same value. For example, here is a list of integers `{ 2; 4; 5; 3; 5 }`.
+
+##### Building a list
+
+The `NIL 'a` instruction pushes an empty list on top of the stack. When creating a _list_ the type of list elements must be specified. For example, `NIL operation` pushes an empty list of operations on top of the stack. Similarly `NIL int` pushes an empty list of integers on top of the stack.
+
+![](../../static/img/michelson/michelson_instruction_nillist_example.svg)
+<small className="figure">FIGURE 33: Illustration of the `NIL` instruction</small>
+
+##### Adding an element in the list
+
+The `CONS` instruction allows to add an element at the beginning of a list. It expects an element and a list on top of the stack, consumes them and pushes back the updated _list_ on top of the stack.
+
+![](../../static/img/michelson/michelson_instruction_cons_example.svg)
+<small className="figure">FIGURE 32: Illustration of the `CONS` instruction</small>
+
+So as to illustrate the _list_ type usage take a look at the following smart contract.
+
+```
+parameter int ;
+storage (list int);
+code { UNPAIR ;
+       CONS;
+       NIL operation ;
+       PAIR }
+```
+
+The unique entrypoint of smart contract expects an integer as input (`parameter int`).
+Notice that the storage of this smart contract is a list of integer declared with `(list int)`.
+This smart contract concatenates the given integer at the beginning of the integer list and returns the updated list aas the new state of the storage.
+
+This smart contract can be simulated by running the following CLI command:
+```
+tezos-client run script max_list.tz on storage '{1;2;5;3}' and input '12'
+```
+
+Notice that in the CLI command the integer list is specified by `{1;2;5;3}`. 
+
+##### Removing the top element of the list
+
+The `IF_CONS bt bf` instruction inspects a list. It requires two sequences of instructions (bt anf bf), as with the `IF` instruction.
+
+This instruction removes the first element of the list, pushes it on top of the stack and executes the first sequence of instructions (`bt`). If the list is empty, then the second list of instructions is executed (`bf`).
+
+This `IF_CONS` instruction allows to remove the first element of the list. The following smart contract illustrates this usage.
+
+```
+parameter unit;
+storage (list int);
+code { CDR ;
+       IF_CONS { DROP } { FAIL };
+       NIL operation ;
+       PAIR }
+```
+
+Notice that the entrypoint expects a value of type `unit` (i.e. no value expected).
+
+The smart contract can be simulated with the following CLI command:
+```
+tezos-client run script instruction_ifcons2.tz on storage '{1;2;5;3}' and input 'Unit'
+```
+
+Notice that the given parameter value is `Unit` of type `unit`.
+
+##### Using list (MAP, ITER, SIZE)
+
+Other list operators are available to apply a process on a list.
+
+The `SIZE` instruction computes the number of elements in the list.
+It consumes a list on top of the stack and pushes the number of elements of the list back on top of the stack.
+
+
+The `MAP {}` instruction applies a sequence of instructions to each element of a list. The `MAP` instruction requires a sequence of instructions (i.e. called "body") which has access to the stack. 
+
+The following smart contract illustrates the `MAP` usage. This smart contract holds a list of integer in his storage and when invoked it increments each integer of the list by 1.
+
+```
+parameter unit ;
+storage (list int);
+code { CDR ;
+       MAP { PUSH int 1; ADD };
+       NIL operation ;
+       PAIR }
+```
+
+This smart contract can be simulated with the following CLI command:
+```
+tezos-client run script instruction_list_map.tz on storage '{1;2;5;3}' and input 'Unit'
+```
+
+The `ITER {}` instruction applies a sequence of instructions to each element of a list. The `ITER` instruction requires a sequence of instructions (called "body") which has access to the stack.
+
+An example is described in the _Examples_ section (Example 2).
+
 
 #### SET
+
+The `set` type represents an unordered collection of elements. It preserves the uniqueness of elements inside the collection. For example, here is a set of integers `{ 2; 4; 5 }`.
+
+##### Creation and uniqueness checking
+
+The `EMPTY_SET 'elt` instruction builds a new empty set for elements of a given type 'elt. The 'elt type must be a comparable type (i.e. the COMPARE primitive must be defined over it).
+
+
+The `MEM` instruction checks for the existence of an element in a set. It consumes an element and a set and pushes back a boolean on top of the stack.
+
+##### Modify elements of the set
+
+The `UPDATE` instruction inserts or removes an element in a set, replacing a previous value.
+
+It takes the top two elements of the stack:
+- an element whose type corresponds to the _set_ type
+- a boolean representing the existence of this element in the _set_
+
+If the boolean argument is _False_ then the element will be removed.
+
+![](../../static/img/michelson/michelson_instruction_updatesetremove_example.svg)
+<small className="figure">FIGURE 24: Illustration of the `UPDATE` instruction</small>
+
+If the boolean argument is _True_ then the element will be inserted.
+
+![](../../static/img/michelson/michelson_instruction_updatesetinsert_example.svg)
+<small className="figure">FIGURE 25: Illustration of the `UPDATE` instruction</small>
+
+The following smart contract illustrates the `UPDATE` instruction usage. This smart contract stores a set of integers and can be invoked by specifying an integer that will be inserted in the set.
+
+```js
+parameter int ;
+storage (set int) ;
+code { DUP ; CAR ; DIP { CDR } ;
+       PUSH bool True ;
+       SWAP ;
+       UPDATE ;
+       NIL operation ;
+       PAIR }
+```
+
+You can test the smart contract with the following command:
+
+```js
+tezos-client run script set_example.tz on storage '{1; 2; 3; 9}' and input '7'
+```
+
+##### Apply process on a set
+
+The `ITER` instruction takes a sequence of instructions (called "body") as argument. It applies a given sequence of instructions to each element of a set. The "body" sequence has access to the stack.
+
+
+The `SIZE` instruction consumes a set from the top of the stack and pushes to the top the number of elements contained in the set.
+
+
+
+
+
+
+
+//TODO
+
 #### MAP
 #### union
 
@@ -308,6 +464,20 @@ The next section will explain the list operators (`NIL operation`).
 #### TRANSFER_TOKENS
 #### contract interface (invocation)
 #### contract creation
+
+### Lambda
+#### Lambda definition
+#### Lambda execution
+
+
+
+
+
+
+
+
+
+
 
 
 ## Instructions
