@@ -157,6 +157,28 @@ $ python -m unittest test_calculator.TestCalculator
 $ python -m unittest test_calculator.TestCalculator.test_sub
 ```
 
+## PyTezos
+
+**PyTezos** library is a **Python** toolset for **Tezos** blockchain, 
+including work with keys, signatures, contracts, operations, RPC query builder, 
+and a high-level interface for smart contract interaction.
+
+### Testing a smart contract
+
+In this section we will to test entrypoints of a michelson script
+from a smart contract which is compiled but not deployed.
+
+For this we will need:
+
+- The **Unittest** library which is the standard framework for writing tests in Python.
+- Two very useful classes from **PyTezos**:
+  - **ContractInterface**: allows interfacing with the entrypoints of a contract 
+  and interact with them.
+  - **MichelsonRuntimeError**: allows handling errors raised during execution.
+- The **Decimal** library to manage the amounts in mutez, tez that are specific to the Tezos environment.
+
+
+
 
 
 
