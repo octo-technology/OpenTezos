@@ -9,6 +9,8 @@ The main instructions are described in the following sections.
 
 This section begins with an introduction of some critical instructions and stack manipulation before exhaustively describing all instructions of the Michelson language.
 
+## Tutorial
+
 ### Stack programming
 
 #### Basics
@@ -236,9 +238,79 @@ There are 5 kind of composite data structures:
 - ordered list of elements with type _list_
 - set of unique elements with type _set_
 - an associative array (a collection of key-value pairs) implemented with the type _map_
-- a union (i.e. an exlcusive composite type) implemented with nested _or_ structure.
+- a union (i.e. an exclusive composite type) implemented with nested _or_ structure.
 
-//TODO
+
+#### PAIR
+
+The Michelson language introduces the _pair_ type which defines a data structure containing multiple fields. 
+
+A _pair_ type is a tuple of 2 elements. It is possible to create nested _pair_ in order to create tuple of more than 2 elements. For example, the following nested _pair_ `PAIR (PAIR nat 5, string "Hello") int 37` contains a natural integer 5, a string "Hello" and an integer 37.
+
+![](../../static/img/michelson/michelson_tutorial_pair.svg)
+<small className="figure">FIGURE 35: Illustration of the C[AD]+R macro</small>
+
+The _pair_ type can embbed primitive types (nat, string, int) but also other composite types such as list, map, set, lambda function or union.
+
+##### creating and destructuring pairs
+
+The `PAIR` instruction takes the top two elements of the stack and pushes back on top of the stack a pair containing these two elements.
+
+The `UNPAIR` instruction takes the top element of the stack and ensures it is a _pair_ type. It pushes back on top of the stack the two elements of the _pair_.
+
+![](../../static/img/michelson/michelson_tutorial_pair_unpair.svg)
+<small className="figure">FIGURE 35: Illustration of the _PAIR_ and _UNPAIR_ instructions</small>
+
+##### Accessing to elements of a _PAIR_
+
+The `CAR` instruction consumes the top element of the stack (which must be a `PAIR`) and pushes back on top of the stack the left part of the pair.
+
+![](../../static/img/michelson/michelson_instruction_car_example.svg)
+<small className="figure">FIGURE 22: Illustration of the `CAR` instruction</small>
+
+The `CDR` instruction consumes the top element of the stack (which must be a `PAIR`) and pushes back on top of the stack the right part of the pair.
+
+![](../../static/img/michelson/michelson_instruction_cdr_example.svg)
+<small className="figure">FIGURE 23: Illustration of the `CDR` instruction</small>
+
+These `CDR` and `CAR` instructions are useful to retrieve a part of a _PAIR_. As seen in the "Smart contract" section, when invoking a smart contract, the initial stack is defined by a _PAIR_ containing the parameter of the invoked entrypoint and the current storage value.
+
+Now that we introduced basic instructions (like `CDR` and `PAIR`) we can explain the empty contracvt seen in the "Smart contract" section.
+
+```js
+parameter unit;
+storage unit;
+code { CDR ;
+       NIL operation ;
+       PAIR };
+```
+
+![](../../static/img/michelson/michelson_smartcontract_basics.svg)
+<small className="figure">FIGURE 3: Execution of `CDR ; NIL operation ; PAIR`</small>
+
+Notice that the `CDR` instruction retrieves the right part of the initial _PAIR_. The `NIL operation` pushed an empty list of operations on top of the stack. The _PAIR_ instructions forms a _pair_ type with the empty list of operations and the initial storage.
+
+The next section will explain the list operators (`NIL operation`).
+
+#### LIST
+
+
+#### SET
+#### MAP
+#### union
+
+### Iterative processing
+#### ITER
+#### LOOP
+#### LOOP_LEFT
+
+### Contract communication
+#### TRANSFER_TOKENS
+#### contract interface (invocation)
+#### contract creation
+
+
+## Instructions
 
 ### Control structures
 
@@ -710,7 +782,7 @@ PAIR / a : b : S  =>  (Pair a b) : S
 
 #### CAR
 
-The `CAR` instruction consumes the top element of the stack (which must be a `PAIR`) and pushes to the top the left part of the pair.
+The `CAR` instruction consumes the top element of the stack (which must be a `PAIR`) and pushes back on top of the stack the left part of the pair.
 
 ```js
 CAR / (Pair a _) : S  =>  a : S
@@ -721,7 +793,7 @@ CAR / (Pair a _) : S  =>  a : S
 
 #### CDR
 
-The `CDR` instruction consumes the top element of the stack (which must be a `PAIR`) and pushes to the top the right part of the pair.
+The `CDR` instruction consumes the top element of the stack (which must be a `PAIR`) and pushes back on top of the stack the right part of the pair.
 
 ```js
 CDR / (Pair _ b) : S  =>  b : S
