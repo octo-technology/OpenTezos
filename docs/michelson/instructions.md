@@ -196,14 +196,34 @@ Notice that the `DUP; DUG 2; SWAP; DUP; DUG 2; DUG 3` sequence duplicates the to
 ![](../../static/img/michelson/michelson_tutorial_compare_numbers.svg)
 <small className="figure">FIGURE 11: Illustration of conditional branching based on number comparison</small>
 
+##### DIP CMPLE
+
 This principle of duplicating the top two elements of the stack and comparing them to choose one of them is a common pattern. Some syntactic sugar (macros) has been introduced in the Michelson language so as to ease on those common patterns. 
 
 For example the macro `CMPLE` stands for `COMPARE; LE`. A more exhaustive list is available in the "macros" section.
 
 Notice that the duplication of the top two elements of the stack is not an optimal sequence. It is intended to be like this in order to illustrate the `DUG` instruction but some better implementation can be done with the `DIP` instruction.
 
-##### DIP
-//TODO
+The `DIP` instruction runs a provided sequence of instructions while protecting the _n_ top elements of the stack.
+
+The `DIP` instruction takes two arguments:
+- _n_: a number of elements to protect (by default 1)
+- _code_: a sequence of instructions to execute
+
+This instruction can be very useful. For example let's re-write the duplication of the top two elements of the stack with the `DIP` instruction.
+
+The following sequence of instruction expects two integers on top of the stack and removes the smaller one.
+
+```
+DIP { DUP };
+DUP;
+DIP { SWAP };
+CMPLE;
+IF { DROP } { SWAP; DROP }
+```
+
+![](../../static/img/michelson/michelson_tutorial_compare_numbers_dip.svg)
+<small className="figure">FIGURE 11: Illustration of conditional branching based on number comparison</small>
 
 ### Working with complex data structures
 
