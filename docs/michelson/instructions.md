@@ -225,16 +225,16 @@ The `NOT` instruction consumes a boolean top element of the stack and pushes the
 
 #### ADD
 
-The `ADD` instruction computes additions on _nat_, _int_ and _mutez_.
+The `ADD` instruction computes addition on _nat_ and _int_. It consumes the top two element of the stack and pushes back the addition of the two element on top of the stack.
 
 ![](../../static/img/michelson/michelson_instruction_add_example.svg)
 <small className="figure">FIGURE 16: Illustration of the `ADD` instruction</small>
 
 #### SUB
 
-The `SUB` instruction computes subtractions on _nat_, _int_ and _mutez_.
+The `SUB` instruction computes subtractions on _nat_ and _int_. It consumes the top two element of the stack and pushes back the difference of the two element on top of the stack.
 
-Notice that the subtraction of two natural integers produces an integer.
+Notice that the subtraction of two natural integers produces an integer, (since expression `2 - 4` produces an number smaller than 0).
 
 ![](../../static/img/michelson/michelson_instruction_sub_example.svg)
 <small className="figure">FIGURE 17: Illustration of the `SUB` instruction</small>
@@ -277,10 +277,7 @@ Strings are mostly used for naming things without having to rely on external ID 
 
 #### CONCAT
 
-The `CONCAT` instruction concatenates strings. It consumes the two top element and produces a string (concatenation of the two top element) that is placed on top of the stack.
-
-//TODO
-It takes one parameter which can be either a single string or a list of strings. 
+The `CONCAT` instruction concatenates strings. It consumes the two top element and produces a string (concatenation of the two top element) that is placed on top of the stack. The `CONCAT` instruction also works with a list of strings. 
 
 ```js
 CONCAT / s : t : S  =>  (s ^ t) : S
@@ -297,7 +294,7 @@ The `SIZE` instruction consumes a string of the top of the stack and pushes the 
 #### SLICE
 
 The `SLICE` instruction provides a way to retrieve a part of a string.
-It takes three arguments:
+It expects on top of the stack three elements:
 - an `offset` argument indicating the beginning of the substring 
 - a `length` argument indicating the size of the substring
 - a `string` to slice
@@ -317,7 +314,7 @@ SLICE / offset : length : s : S  =>  None  : S
 
 #### COMPARE with strings
 
-The `COMPARE` instruction allows two strings to be comapared. It consumes the top two elements of the stack and pushes an integer to the top. If the first element is lexically greater than the second, then it returns 1. If the first element is lexically equal to the second element, then it returns 0. If the first element is lexically smaller than the second element, then it returns -1.
+The `COMPARE` instruction allows two strings to be compared. It consumes the top two elements of the stack and pushes an integer to the top. If the first element is lexically greater than the second, then it returns 1. If the first element is lexically equal to the second element, then it returns 0. If the first element is lexically smaller than the second element, then it returns -1.
 
 ```js
 COMPARE / s : t : S  =>  -1 : S
@@ -1053,7 +1050,9 @@ Mutez (micro-Tez) are internally represented by a 64-bit, signed integer. There 
 
 #### ADD
 
-The `ADD` instruction computes additions on mutez.
+The `ADD` instruction computes additions on mutez. It consumes two _mutez_ element on top of the stack and pushes back the addition of the two quantity on top of the stack.
+
+This operation may fail in case of overflow.
 
 ```js
 ADD / x : y : S  =>  [FAILED]   on overflow
@@ -1062,7 +1061,9 @@ ADD / x : y : S  =>  (x + y) : S
 
 #### SUB 
 
-The `SUB` instruction computes subtractions on mutez.
+The `SUB` instruction computes subtractions on mutez. It consumes two _mutez_ element on top of the stack and pushes back the difference of the two quantity on top of the stack.
+
+A _mutez_ value cannot be negative so this substration may fail if the first value is smaller than the second one.
 
 ```js
 SUB / x : y : S  =>  [FAILED]
@@ -1072,7 +1073,9 @@ SUB / x : y : S  =>  (x - y) : S
 
 #### MUL
 
-The `MUL` instruction computes multiplications on mutez. The multiplication allows mutez to be multiplied with natural integers.
+The `MUL` instruction computes multiplications on mutez. It consumes a _mutez_and a _nat_ element on top of the stack and pushes back the product of the two quantity on top of the stack.
+
+The multiplication allows mutez to be multiplied with natural integers.
 
 ```
 :: mutez : nat : 'S   ->   mutez : 'S
@@ -1088,7 +1091,9 @@ MUL / x : y : S  =>  (x * y) : S
 
 #### EDIV
 
-The `EDIV` instruction computes the euclidean division on mutez. The euclidean division allows a mutez to be divided by a natural integer.
+The `EDIV` instruction computes the euclidean division on mutez. It consumes a _mutez_and a _nat_ element on top of the stack and pushes back a `pair` with the quotient and the reminder (of the two elements) on top of the stack.
+
+The euclidean division allows a mutez to be divided by a natural integer.
 
 ```
 :: mutez : nat : 'S   ->   option (pair mutez mutez) : 'S
