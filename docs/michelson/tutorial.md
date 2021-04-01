@@ -483,9 +483,68 @@ The `XOR` instruction consumes the top two boolean elements of the stack and com
 The `NOT` instruction consumes a boolean top element of the stack and pushes the logical opposite of the given boolean. 
 
 #### timestamp
-//TODO
-#### bytes and bytes operators
-//TODO
+
+The Michelson language supports `timestamp` type. Like in most languages a timestamp represents a numbers of seconds passed since the beginning of year 1970. 
+Timestamps can be used in smart contract to authorize actions on a certain period of time.  
+
+Timestamps can be obtained by the `NOW` operation, or retrieved from script parameters or globals.
+
+The `NOW` instruction pushes on top of the stack the timestamp of the block whose validation triggered this execution. This timestamp does not change during the execution of the contract.
+
+##### Standard timestamp operations
+
+The `ADD` instruction increments a timestamp of the given number of seconds. The number of seconds must be expressed as a type `int`. Addition of timestamp does not accept a number of seconds as `nat`.
+
+The `SUB` instruction subtracts a number of seconds from a timestamp. It can also be used to subtract two timestamps.
+
+
+##### Comparing timestamps
+
+The `COMPARE` computes timestamp comparison. It returns an integer, as with the `COMPARE` instruction for an integer.
+
+It returns 1 if the first timestamp is bigger than the second timestamp, 0 if both timestamps are equal, and -1 otherwise. 
+
+//TODO example
+
+#### Bytes
+
+Bytes are used for serializing data in order to check signatures and to compute hashes on them. They can also be used to incorporate data from the untyped outside world.
+
+The Michelson language provides _bytes_ supports with common operators like for _string_ type. It also provides standard serialization and de-serialization. 
+
+##### Serialization
+
+The `PACK` instruction serializes a piece of data to its optimized binary representation.
+
+
+The `UNPACK` instruction de-serializes a piece of data, if valid. It returns an *option* initialized to *None* if the de-serialization is invalid, or an *option* initialized to *Some* if valid.
+
+
+##### Standard operators
+
+The `CONCAT` instruction concatenates two byte sequences. It can also be applied to a list of byte sequences. It consumes a list of byte sequences and pushes the concatenation of all sequences (in the respective order). 
+
+
+The `SIZE` instruction computes the size of a sequence of bytes. It consumes a byte sequence and pushes the number of bytes of this sequence.
+
+
+The `SLICE` instruction provides a way to retrieve a part of a byte sequence.
+It expects following elements on top of the stack:
+- an `offset`, indicating the beginning of the byte sequence 
+- a `length`, indicating the size of the sub-sequence
+- a `byte sequence` to slice
+
+It returns an optional byte sequence because the given offset and length may be out of bound.
+
+
+##### Comparing bytes
+
+The `COMPARE` instruction computes a lexicographic comparison. As with other `COMPARE` instructions, it returns 1 if the first sequence is bigger than the second sequence, 0 if both byte sequences are equal, or -1 otherwise.
+
+The `COMPARE` instruction can be used only on comparable types.
+
+//TODO example
+
 
 ### Working with complex data structures
 
@@ -909,7 +968,7 @@ tezos-client run script union_example.tz on storage '5' and input 'Left "Hello"'
 
 
 
-### Contract specific types
+### Contract specific types and operations
 
 Now let's focus on the specific types related to Tezos smart contract such as crypto-currency (mutez), address identifying an account or a contract, delegation.
 
@@ -1055,6 +1114,8 @@ The three consumed elements represent arguments for deploying a contract:
 
 Accessing the newly created contract (via a `CONTRACT 'p` instruction) will fail until it is actually originated.
 
+// TODO example
+
 ##### Built-ins
 
 The `ADDRESS` instruction casts the contract to its address. It consumes a contract on top of the stack and pushes back the address of the contract.
@@ -1075,14 +1136,7 @@ The `SELF 'p` instruction allows to take a entry point name 'p as argument. In t
 
 An other useful built-in is the `AMOUNT` instruction which is key when currencies are being exchanged. The `AMOUNT` instruction pushes the amount of mutez of the current transaction on top of the stack.
 
-
-
-
-
-
-
-
-
+//TODO example
 
 
 
@@ -1102,3 +1156,17 @@ An other useful built-in is the `AMOUNT` instruction which is key when currencie
 #### LOOP
 #### LOOP_LEFT
 
+
+
+
+
+
+### More detail in the "Instructions" section
+
+This "Tutorial" part ends, hoping you had satisfying introduction to the Michelson language.
+
+More detail about macros and syntactic sugar are available int the "Instructions" section.
+
+For more advanced Michelson programmers, there are other concepts such as cryptographic features and annotations which are described in the "Instructions" section. 
+
+The Michelson language being part of the protocol is destined to change and thus many other features will be supported in the future bringing new possibilities like anonymity (with sappling techniques) or allowing stamping atomic information (with tickets). 

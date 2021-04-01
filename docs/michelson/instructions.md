@@ -1299,7 +1299,7 @@ The `SIZE` instruction computes the size of a sequence of bytes. It consumes a b
 #### SLICE
 
 The `SLICE` instruction provides a way to retrieve a part of a byte sequence.
-It takes expects following elements on top of the stack:
+It expects following elements on top of the stack:
 - an `offset`, indicating the beginning of the byte sequence 
 - a `length`, indicating the size of the sub-sequence
 - a `byte sequence` to slice
