@@ -24,7 +24,8 @@ These three instructions will be described later in the "invocation" sub-section
 
 ### Entry point
 
-An entrypoint is a callable function of the smart contract which takes arguments. These arguments are specific to the entrypoint.
+The **parameter** of the smart contract describes all possible invocations of the smart contract.
+An entrypoint is a invocable function of the smart contract which takes arguments. These arguments are specific to the entrypoint.
 
 Each entrypoint is composed of:
 - the type definition of the expected argument of the entrypoint 

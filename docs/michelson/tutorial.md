@@ -3,11 +3,9 @@ id: tutorial
 title: Tutorial
 ---
 
-A Tezos smart contract defines storage, entry points, and the code. The code of a smart contract is a sequence of Michelson instructions.
+This section intends to introduce main concepts of the Michelson language. It begins with basics of **stack manipulation** then focus on primitive types and more complex **data structures** that can be modeled; and finally focus on specific features related to smart contracts concept.
 
-The main instructions are described in the following sections.
 
-This section begins with an introduction of some critical instructions and stack manipulation before deep diving into more complex data structure of the Michelson language.
 
 ### Stack programming
 
@@ -224,6 +222,28 @@ IF { DROP } { SWAP; DROP }
 
 ![](../../static/img/michelson/michelson_tutorial_compare_numbers_dip.svg)
 <small className="figure">FIGURE 11: Illustration of conditional branching based on number comparison</small>
+
+### Primitive types support
+
+The Michelson language supports only few primitive data types:
+- `nat` represents a natural integer (e.g. 0, 3, 15)
+- `int` represents a integer (e.g. -10, 2, 3)
+- `string` represents a sequence of characters (e.g. "Hello")
+- `bool` represents a boolean value (e.g. True, False)
+- `bytes` represents a sequence of bytes (octet)
+- `unit` represents a non-specified type.
+- `timestamp` represents a duration (e.g. NOW, 1571659294, "2019-09-26T10:59:51Z"; i.e. a string following the RFC3339 standard)
+
+Notice that there is no floating point type supported (such as _float_).
+
+Obviously The Michelson language also provides operators allowing the manipulation of types.
+
+//TODO
+#### numbers
+#### string
+#### timestamp
+#### bytes
+
 
 ### Working with complex data structures
 
