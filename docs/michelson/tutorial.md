@@ -126,7 +126,7 @@ IF
 
 This snippet of code is equivalent to the expression `if True then 1 else 2`. It checks the top element of the stack and ensures it is a boolean and consumes it. If the value of this top element is _True_ then the value 1 is pushed onto the stack otherwise value 2 is pushed. 
 
-This other example removes one of the top elements of the stack. If the top element is a boolean _True_ then the next element is ermoved otherwise removes the one after.
+This other example removes one of the top elements of the stack. If the top element is a boolean _True_ then the next element is removed otherwise removes the one after.
 
 ```js
 IF 
@@ -194,7 +194,7 @@ Notice that the `DUP; DUG 2; SWAP; DUP; DUG 2; DUG 3` sequence duplicates the to
 ![](../../static/img/michelson/michelson_tutorial_compare_numbers.svg)
 <small className="figure">FIGURE 11: Illustration of conditional branching based on number comparison</small>
 
-##### DIP CMPLE
+##### More stack operator (`DIP`, `CMPLE`)
 
 This principle of duplicating the top two elements of the stack and comparing them to choose one of them is a common pattern. Some syntactic sugar (macros) has been introduced in the Michelson language so as to ease on those common patterns. 
 
@@ -273,7 +273,7 @@ If the `IF_NONE` instruction encounters a SOME value it does not consumes it and
 ![](../../static/img/michelson/michelson_instruction_ifnone_some_example.svg)
 <small className="figure">FIGURE 26: Illustration of the `IF_NONE` instruction</small>
 
-The Michelson also introduces the `IF_SOME bt bf` instruction which retrieves the value behind an optional and executes the first sequence if it encounters a SOME value. It executes the second seuqence if it encounters a NONE value.
+The Michelson also introduces the `IF_SOME bt bf` instruction which retrieves the value behind an optional and executes the first sequence if it encounters a SOME value. It executes the second sequence if it encounters a NONE value.
 
 
 #### PAIR
@@ -285,7 +285,7 @@ A _pair_ type is a tuple of 2 elements. It is possible to create nested _pair_ i
 ![](../../static/img/michelson/michelson_tutorial_pair.svg)
 <small className="figure">FIGURE 35: Illustration of the C[AD]+R macro</small>
 
-The _pair_ type can embbed primitive types (nat, string, int) but also other composite types such as list, map, set, lambda function or union.
+The _pair_ type can embed primitive types (nat, string, int) but also other composite types such as list, map, set, lambda function or union.
 
 ##### creating and destructuring pairs
 
@@ -368,12 +368,12 @@ If the divisor is equal to zero, then it returns an optional type with the assig
 
 The Michelson language provides also instructions to cast an integer into a natural integer with the `ABS` instruction. Respectively the `INT` instruction casts a natural integer into an integer.
 
-The `ABS` instruction consumes an integer on top of the stack and pushes back the absolut value of this integer as a _nat_ value. 
+The `ABS` instruction consumes an integer on top of the stack and pushes back the absolute value of this integer as a _nat_ value. 
 
 ![](../../static/img/michelson/michelson_instruction_abs_example.svg)
 <small className="figure">FIGURE 19: Illustration of the `ABS` instruction</small>
 
-The following smart contract illustrates the `ABS` usage. It receives an integer as input parameter and computes the absolut value and adds it to the storage.
+The following smart contract illustrates the `ABS` usage. It receives an integer as input parameter and computes the absolute value and adds it to the storage.
 
 ```
 parameter int;
@@ -394,7 +394,7 @@ The resulting storage has value 11.
 
 #### String
 
-The `string` type represents a sequence of characters useful for modeling non-numerous data. A _string_ value can splitted and two _string_ values can be concatenated. A _string_ can be compared to an other _string_.
+The `string` type represents a sequence of characters useful for modeling non-numerous data. A _string_ value can be split and two _string_ values can be concatenated. A _string_ can be compared to an other _string_.
 
 Like for numbers, a _string_ can be pushed on top of the stack with the `PUSH` instruction.
 ```js
@@ -499,14 +499,14 @@ There are 5 kind of composite data structures:
 - **set** of unique elements with type _set_
 - an **associative array** (a collection of key-value pairs) implemented with the type _map_
 - a **union** (i.e. an exclusive composite type) implemented with nested _or_ structure.
-- a **optional** implements a type holding a value which handle an unitialized state if a value hasn't been assigned.  (seen in the previous section)
+- a **optional** implements a type holding a value which handle an uninitialized state if a value hasn't been assigned.  (seen in the previous section)
 
 
 
 
 #### LIST
 
-The `list` type represents an ordered collection of elements of the same type. A _list_ can contain multiple occurences of the same value. For example, here is a list of integers `{ 2; 4; 5; 3; 5 }`.
+The `list` type represents an ordered collection of elements of the same type. A _list_ can contain multiple occurrences of the same value. For example, here is a list of integers `{ 2; 4; 5; 3; 5 }`.
 
 ##### Building a list
 
@@ -678,7 +678,7 @@ The `EMPTY_BIG_MAP` instruction builds a new empty `big_map` data structure.
 
 The `MEM` instruction checks for the existence of a binding for a key in a map.
 
-It expects a key and a map on top of the stack and and puhshes back a boolean on top of the stack.
+It expects a key and a map on top of the stack and and pushes back a boolean on top of the stack.
 
 
 ##### Modifying a map
@@ -823,7 +823,7 @@ For example, the following Michelson expression defines the type "int_or_nat" as
 or int nat
 ```
 
-The logical _or_ operator has 2 branhces a left part and a right part. It is possible to form nested _or_ structure in order to combine more than 2 types. For example, the type `string_or_int_or_nat` would be defined by 
+The logical _or_ operator has 2 branches a left part and a right part. It is possible to form nested _or_ structure in order to combine more than 2 types. For example, the type `string_or_int_or_nat` would be defined by 
 ```
 or (or (int) (nat)) (string)
 ```
@@ -913,7 +913,7 @@ tezos-client run script union_example.tz on storage '5' and input 'Left "Hello"'
 
 Now let's focus on the specific types related to Tezos smart contract such as crypto-currency (mutez), address identifying an account or a contract, delegation.
 
-#### mutez
+#### Mutez
 
 Mutez (micro-Tez) are internally represented by a 64-bit, signed integer. There are restrictions to prevent creating a negative amount of mutez. Operations are limited in order to prevent overflow and to avoid mixing with other numerical types by mistake. They are also mandatorily checked for under/overflows.
 
@@ -926,7 +926,7 @@ The `ADD` instruction computes additions on mutez. It consumes two _mutez_ eleme
 This operation may fail in case of overflow.
 
 The `SUB` instruction computes subtractions on mutez. It consumes two _mutez_ element on top of the stack and pushes back the difference of the two quantity on top of the stack.
-A _mutez_ value cannot be negative so this substration may fail if the first value is smaller than the second one.
+A _mutez_ value cannot be negative so this subtraction may fail if the first value is smaller than the second one.
 
 
 The `MUL` instruction computes multiplications on mutez. It consumes a _mutez_and a _nat_ element on top of the stack and pushes back the product of the two quantity on top of the stack.
@@ -1073,7 +1073,7 @@ The `SELF` instruction pushes the default entry point of a contract on top of th
 The `SELF 'p` instruction allows to take a entry point name 'p as argument. In this case, it pushed the specified entrypoint on top of the stack. 
 
 
-An other useful built-in is the `AMOUNT` instruction which is key when curencies are being exhanged. The `AMOUNT` instruction pushes the amount of mutez of the current transaction on top of the stack.
+An other useful built-in is the `AMOUNT` instruction which is key when currencies are being exchanged. The `AMOUNT` instruction pushes the amount of mutez of the current transaction on top of the stack.
 
 
 
