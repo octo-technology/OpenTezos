@@ -23,9 +23,7 @@ Unit tests represent the base of the pyramid and therefore the most important pa
 **Unit testing** is performed at a very fine granularity 
 by verifying the behavior of a portion of code totally 
 or partially isolated from its dependencies.
-It will then be simple to write and maintain.
-
-While an integration test aims to verify that several components work well together: 
+It will then be simple to write and maintain. While an integration test aims to verify that several components work well together: 
 it checks the assembly.
 
 To go further, take a look at **Test Driven Development (TDD)** 
@@ -57,13 +55,7 @@ source /path/to/env/bin/activate
 
 #### Installation of the necessary python libraries
 
-Installation of wheel:
-
-```shell
-(venv) pip install wheel
-```
-
-Installation of pytezos:
+Installation of **PyTezos**:
 
 ```shell
 (venv) pip install pytezos
@@ -76,6 +68,10 @@ Verification of the installation:
 ```
 
 If the command returns nothing then the installation is successful.
+
+> The pytezos version used for the following example is `pytezos==3.1.0`.  
+> You can check the version of your package with the `pip freeze` command.    
+> You can install a specific version if needed with `pip install pytezos==3.1.0`.
 
 ## Unittest (Python library)
 
@@ -138,8 +134,8 @@ class TestCalculator(unittest.TestCase):
     self.assertEqual(result, 5)
 ```
 
-> Note that the names of the classes are by convention in **CamelCase** 
-> and that the names of the tests methods are in **snake_case**
+> Note that classe names are by convention in **CamelCase** 
+> and test method names are in **snake_case**.
 
 You can run your tests in command line as follows:
 
@@ -157,8 +153,8 @@ Ran 2 tests in 0.002s
 OK
 ```
 
-Note that the command has executed all the tests in our test file, 
-but we can only execute certain tests.
+Note that the command has executed all the tests in the `test_calculator.py` file, 
+but it is possible to only execute certain tests.
 
 Indeed, the unittest module can be used from the command line to execute tests from modules, 
 classes or even individual test methods:
@@ -185,9 +181,8 @@ For this we will need:
   - **ContractInterface**: allows interfacing with the entrypoints of a contract 
   and interact with them.
   - **MichelsonRuntimeError**: allows handling errors raised during execution.
-- The **Decimal** library to manage the amounts in mutez, tez that are specific to the Tezos environment.
 
-To write the tests we will start from the following template:
+To write the tests we will use the following template:
 
 ```python
 # TEMPLATE
@@ -214,9 +209,9 @@ class TestContract(TestCase):
     pass
 ```
 
-PyTezos expects the path to a file containing Michelson code `path_to_michelson_contract`.
+**PyTezos** expects the path to a file containing Michelson code `path_to_michelson_contract`.
 
-The compiled contract will have been obtained with a command of this type:
+The compiled contract is obtained with a command of this type:
 
 ```shell
 ligo compile-contract file.ligo main > contract.tz
@@ -226,12 +221,20 @@ Remember to recompile after any modification of the contract.
 
 ### Equivalence between michelson type and python
 
-TABLEAU
+**PyTezos** allows to interpret michelson code, so here are the equivalences:
+
+|   Michelson    |   Python   |
+|:-:             |:---:       |
+|    List, Set   |   []       |
+|    Big_map     |   ()       |
+|    String      |   String   |
+|    Number      |   Integer  |
+|    mutez, tez  |   Interpreted as Integer by `.interpret()`  |
 
 ### Counter Contract Example
 
 Here is an example of **Counter contract** that handle an integer "counter" value and an administrator address
-as storage and allows an administrator **only** to increment or decrement this counter.
+as storage and allows the administrator **only** to increment or decrement this counter.
 
 ```js
 type indiceStorage is record[
@@ -323,13 +326,13 @@ First let's test the **increment** entrypoint when the user is the administrator
 #### Test increment entrypoint
 
 For example, let's write a test that verifies that the storage is incremented by 5 
-when the administrator performs the action `Increment(5)`.
+when the administrator performs the `Increment(5)` action.
 
 - For the test a false address tz1 has been assigned to the administrator,
   you can generate false addresses [here](https://faucet.tzalpha.net/).
-- In the `setUpClass` method we load the contract from the michelson source code stored in a the **counter.tz** file,
-  thanks to the `ContractInterface.from_file()` method.
-- Note that the name of the test accurately describes our intention.
+- In the `setUpClass` method we load the contract from the michelson source code stored in the **counter.tz** file,
+  with the `ContractInterface.from_file()` method.
+- Note that the name of the test accurately describes the testing intention.
 
 ```python
 from unittest import TestCase
@@ -360,11 +363,11 @@ class TestCounterContract(TestCase):
 **GIVEN** 
 - The storage has been initialized as a dictionary `{}` 
   to respect the equivalence with the michelson format. 
-- The incremented value to an `int`.
+- The incremented value is an `int`.
 
 **WHEN**
-- From our contract `self.counterContract` we can call an **entrypoint** and its **parameter** like `.increment(value)`.
-- Then we can add a context with `.interpret`.
+- From our contract `self.counterContract` we can call an **entrypoint** and its **parameter** with `.increment(value)`.
+- Then we can add a context with `.interpret()`.
   to specify the storage and the source (the original address sending the transaction).
 
 **THEN**  
@@ -422,9 +425,9 @@ def test_should_failed_if_the_source_is_not_the_administrator(self):
 - The line `with self.assertRaises(MichelsonRuntimeError) as administrator_error:`
   retrieves and stores the error in the `administrator_error` variable. 
 - The administrator's address is still defined in the initial state of storage 
-  but this time the address of alice is specified in the context source variable.
-- Finally, in the variable `error_message` we get the string message from the error and 
-  compare it to the original message written in the `failwith()` of the LIGO code. 
+  but this time the address of alice is specified in the context source variable: `source=alice`.
+- Finally, the string message from the error is stored in the variable `error_message` 
+  and it is compared with the original message written in the `failwith()` of the LIGO code. 
   
 
 ```shell
@@ -438,4 +441,10 @@ Ran 1 test in 0.011s
 OK
 
 ```
+
+Now it's your turn to write tests! 
+Try to do the same thing for the entrypoint `decrement` for example.  
+The goal of writing tests is to have an optimal coverage of the whole code.  
+This allows you to have a robust and high quality code. 
+Moreover, future developers who will use your code will thank you very much.
 
