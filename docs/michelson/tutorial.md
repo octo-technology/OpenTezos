@@ -82,7 +82,7 @@ The following schema illustrates the execution of this sequence of instructions.
 
 ##### Other basic stack operators (DIG DUG)
 
-Other instructions allows to change the position of elements in the stack such as `DIG` and `DUG`. Other stack operators are described in the "Stack operations" section.
+Other instructions allow to change the position of elements in the stack such as `DIG` and `DUG`. Other stack operators are described in the "Stack operations" section.
 
 The `DIG n` instruction moves the n-th element of the stack to the top of the stack.
 
@@ -120,7 +120,7 @@ Now that we have seen basic stack operators we are able to reorganize elements o
 
 The Michelson language provides the possibility to execute a part of the code depending on some criteria. This is called conditional branching and some instructions are provided for this intent.
 
-For example, the `IF` instruction allows branches of execution to be created.
+The `IF` instruction allows branches of execution to be created.
 
 The `IF {} {}` instruction takes two sequences as arguments. It expects a boolean at the top element of the stack. It consumes the top element and executes the first given sequence if this boolean-top element is *True*. Otherwise it executes the second sequence.
 
