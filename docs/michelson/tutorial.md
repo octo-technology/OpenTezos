@@ -5,6 +5,14 @@ title: Tutorial
 
 This section intends to introduce main concepts of the Michelson language. It begins with basics of **stack manipulation** then focus on primitive types and more complex **data structures** that can be modeled; and finally focus on specific features related to smart contracts concept.
 
+Here is an overview the sub-sections of this "Tutorial" section:
+- Stack programming
+- Primitive types support
+- Working with complex data structures
+- Contract specific types and operations
+- Functions (Lambda)
+- Iterative processing
+
 
 
 ### Stack programming
@@ -326,6 +334,18 @@ code { CDR ;
 Notice that the `CDR` instruction retrieves the right part of the initial _PAIR_. The `NIL operation` pushed an empty list of operations on top of the stack. The _PAIR_ instructions forms a _pair_ type with the empty list of operations and the initial storage.
 
 The next section will explain the list operators (`NIL operation`).
+
+##### Nested pairs
+
+As seen a _pair_ structure contain two fields which can be primitive types but can also be an other pair (in this case, it is called _nested pair_).
+
+The creation of a _nested pair_ consists in a successions of `PAIR` instruction (and reorganizing elements in the stack). This may become a fastidious exercise with large _nested pairs_. The Michelson language supports these nested pairs by providing the `PAPPAIIR` macros for creating _nested pair_ in a single instruction.
+
+Similarly, the Michelson language provides the `UNPAPPAIIR` macro for destructuring _nested pairs_.
+
+Similarly, the Michelson language provides the `C[AD]+R` macro for accessing a specific field inside a _nested pair_.
+
+These macros are described in the "Instructions" section (in the "macros" sub-section).
 
 
 #### Numbers
@@ -1145,19 +1165,157 @@ An other useful built-in is the `AMOUNT` instruction which is key when currencie
 
 
 
-//TODO
 
-### Lambda
-#### Lambda definition (LAMBDA)
-#### Lambda execution (EXEC)
+
+### Lambda functions
+
+//TODO (to rework)
+
+The Michelson language supports anonymous function, also called **lambda**. Lambda functions are strongly typed and when called it executes a sequence of instructions.
+
+The `LAMBDA` instruction defines a lambda function and the `EXEC` instruction allows to execute its code.
+
+
+Function can be partially applied with the `APPLY` instruction. 
+
+#### Lambda definition with `LAMBDA`
+
+
+The `LAMBDA` instruction pushes a function on top of the stack.
+
+It requires three arguments:
+- the type of the function argument
+- the type returned by the function
+- the sequence of instructions associated with the function (code of the function)
+
+```js
+LAMBDA _ _ code / S  =>  code : S
+```
+
+Notice that "_" represents any type. So, a `lambda` takes and returns arguments that can be of any type.
+
+Here is an example of a smart contract that defines a function with the `LAMBDA` instruction and executes the function with the `EXEC` instruction.
+
+```js
+parameter int ;
+storage int ;
+code { CAR ;
+       LAMBDA int int { PUSH int 1 ; ADD } ;
+       SWAP ;
+       EXEC ;
+       NIL operation ;
+       PAIR }
+```
+
+The `lambda` function is just incrementing a given int.
+
+The execution of this smart contract is described in the example section.
+
+
+#### Lambda execution with `EXEC`
+
+The `EXEC` instruction executes a function from the stack.
+
+The `EXEC` instruction consumes a function and its related input arguments on top of the stack. The `EXEC` instruction produces the expected function output on the top of the stack.
+
+```js
+EXEC / a : f : S  =>  r : S
+    where f / a : []  =>  r : []
+```
+
+Here is an example of a smart contract that defines a function with the `LAMBDA` instruction and executes the function with the `EXEC` instruction.
+
+```js
+parameter int ;
+storage int ;
+code { CAR ;
+       LAMBDA int int { PUSH int 1 ; ADD } ;
+       SWAP ;
+       EXEC ;
+       NIL operation ;
+       PAIR }
+```
+
+Notice that the code of the `LAMBDA` function just increments a given integer by 1.
+
+The execution of this smart contract is described in the "example" section.
+
+#### APPLY
+
+The `APPLY 'a` instruction partially applies a _tuplified_ function from the stack (i.e. arguments are grouped in pairs or nested pairs). It is parameterized by a type `'a`. Values that are not both push-able and storable (i.e. values of type _operation_, _contract_, and _big map_) cannot be captured by _APPLY_ (and so cannot appear in argument `'a`).
+
+The instruction produces a new function that is only partially resolved. For example, if a function takes 2 arguments, it is possible to provide one argument and to use the `APPLY` instruction to produce an equivalent partially-resolved function which takes one argument.
+
+Michelson grammar defines the `APPLY` instruction as:
+
+```js  
+:: 'a : lambda (pair 'a 'b) 'c : 'C   ->   lambda 'b 'c : 'C
+```
+
+```js
+APPLY / a : f : S  => { PUSH 'a a ; PAIR ; f } : S
+```
+
+For example, let's consider a `lambda` function (called _additionAB_) that takes a pair of _nat_ and returns a _nat_. It computes the addition of two numbers.
+
+```js
+LAMBDA (pair nat nat) nat { ADD }
+```
+
+Notice that the function is tuplified.
+
+The `APPLY` instruction allows a new `lambda` function to be formed (called _addition2B_) which takes a single _nat_ as argument and returns a _nat_. This function would increment a given _nat_ by two. 
+
+The resulting function _addition2B_ is equivalent to:
+
+```js
+LAMBDA nat nat { PUSH nat 2 ; ADD }
+```
+
 
 ### Iterative processing
-#### ITER on LIST SET MAP
-#### LOOP
-#### LOOP_LEFT
+
+The Michelson language supports repetitive processing. As seen the the previous sections, the collection types (set, list, map) supports the `ITER` instruction allowing to parse each element of the collection and applying a sequence of instruction on each element.
+
+The example ([#2](https://opentezos.com/michelson/examples#example-2--maximum-of-a-list-with-iter-and-cmple) in the "Examples" section illustrates the `ITER` instruction usage on _list_ type.
 
 
+There are also two other instructions allowing repetitive processing: the `LOOP` and the `LOOP_LEFT` instructions.
+The `LOOP` instruction have access to the stack and the repetiveness of the processus is controlled by boolean on the stack. It is very similar to _while_ operators in other languages.
 
+The `LOOP_LEFT` instruction is a bit more complex and allows to handle a repetitive process with an accumulator. An accumulateur is a element used for aggregating data during a repretitive process. The `LOOP_LEFT` is based on _union_ type for storing the accumulator and controlling  the repetition.
+
+
+#### LOOP {}
+
+The `LOOP` instruction is a generic loop, meaning it is a repeatable pattern. It applies a sequence of instructions many times until a condition is reached. 
+
+The `LOOP` instruction makes it possible to iterate on a composite structure (list, set, map, big_map) and apply a process to all elements sequentially.
+
+Michelson grammar defines the `LOOP` instruction as:
+
+```js
+LOOP body / True : S  =>  body ; LOOP body / S
+LOOP body / False : S  =>  S
+```
+
+The example ([#1](https://opentezos.com/michelson/examples#example-1--modulo-with-loop-and-if) in the "Examples" section illustrates the `LOOP` instruction usage by implementing a modulo function.
+
+
+#### LOOP_LEFT (loop with accumulator)
+
+Like the `LOOP` instruction, `LOOP_LEFT {}` is a generic loop that handles an accumulator generally used for aggregating data during a repetitive process. 
+
+Michelson grammar defines the `LOOP_LEFT` instruction as:
+
+```js
+LOOP_LEFT body / (Left a) : S  =>  body ; LOOP_LEFT body / a : S
+LOOP_LEFT body / (Right b) : S  =>  b : S
+```
+
+The `LOOP_LEFT {}` takes a sequence of instructions as argument and requires a `union` (composed of a given data structure and an accumulator) on top of the stack. If the left part of the `union` is initialized the process is repeated. If the right part is initialized then the process is stopped and the accumulator is returned.
+
+Two examples ([#4](https://opentezos.com/michelson/examples#example-4--computing-a-sum-with-loop_left) and [#5](https://opentezos.com/michelson/examples#example-5--computing-a-factorial-with-loop_left)) in the _Examples_ section describe in detail the `LOOP_LEFT` instruction usage.
 
 
 
@@ -1170,3 +1328,35 @@ More detail about macros and syntactic sugar are available int the "Instructions
 For more advanced Michelson programmers, there are other concepts such as cryptographic features and annotations which are described in the "Instructions" section. 
 
 The Michelson language being part of the protocol is destined to change and thus many other features will be supported in the future bringing new possibilities like anonymity (with sappling techniques) or allowing stamping atomic information (with tickets). 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#### UNIT instruction
+
+The `UNIT` instruction pushes a `Unit` value on top of the stack.
+
+The `Unit` value represents no value.
+
+#### FAILWITH
+
+The `FAILWITH` instruction aborts the execution of the Michelson script by throwing an exception.
+
+The `FAILWITH` instruction consumes the top element of the stack as argument (usually a string message). The consumed element must be of a pushable type. It is allowed to throw an exception without message by pushing a `UNIT` value on top of the stack.
+
+
+The `FAIL` keyword has been provided as replacement for `UNIT; FAILWITH`.
+
+Actually, the `FAIL` keyword is not an instruction but a syntactic sugar (i.e. a "shortcut" instruction that combines many of language's basic instructions).
+
+A `FAILWITH` instruction provides a way to reject a transaction by stopping the execution of related instructions.
