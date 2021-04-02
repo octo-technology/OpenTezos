@@ -47,7 +47,7 @@ The `SWAP` instruction inverts the position of the top two elements of the stack
 ![](../../static/img/michelson/michelson_instruction_swap_example.svg)
 <small className="figure">FIGURE 2: Illustration of the `SWAP` instruction</small>
 
-The `DUP` instruction duplicates the top element of the stack. Prevent loss of varaiables since most instructions consume elements of the stack. Later examples will illustrate this.
+The `DUP` instruction duplicates the top element of the stack. Prevent loss of variables since most instructions consume elements of the stack. Later examples will illustrate this.
 
 ![](../../static/img/michelson/michelson_instruction_dup_example.svg)
 <small className="figure">FIGURE 3: Illustration of the `DUP` instruction</small>
@@ -263,7 +263,7 @@ The _unit_ type is also used for throwing an empty exception. Let's see how exce
 
 The `FAILWITH` instruction aborts the execution of the Michelson script by throwing an exception.
 
-The `FAILWITH` instruction consumes the top element of the stack as argument (usually a string message). The consumed element must be of a pushable type. It is allowed to throw an exception without message by pushing a `UNIT` value on top of the stack.
+The `FAILWITH` instruction consumes the top element of the stack as argument (usually a string message). The consumed element must be of a push-able type. It is allowed to throw an exception without message by pushing a `UNIT` value on top of the stack.
 
 
 The `FAIL` keyword has been provided as replacement for `UNIT; FAILWITH`.
@@ -1293,7 +1293,7 @@ code { DROP;
 The `DROP` instruction removes entrypoint and storage elements from the stack since they are not used.
 
 The first expected element for `CREATE_CONTRACT` is the delegate of the smart contract. Here we specify there is none (`NONE key_hash;`). Notice that the `NONE` instruction must be typed.
-The second expected element for `CREATE_CONTRACT` is the quantity of mutez transfered to the new contract. Here we specify 0 with `PUSH mutez 0;`.
+The second expected element for `CREATE_CONTRACT` is the quantity of mutez transferred to the new contract. Here we specify 0 with `PUSH mutez 0;`.
 The third expected element for `CREATE_CONTRACT` is the initial storage value for the new contract. Here the `PUSH int 9;` set the default counter value to 9.
 
 The `CREATE_CONTRACT` instruction produces on top of the stack an _operation_ and the _address_ of the contract.
@@ -1515,9 +1515,9 @@ The example ([#2](https://opentezos.com/michelson/examples#example-2--maximum-of
 
 
 There are also two other instructions allowing repetitive processing: the `LOOP` and the `LOOP_LEFT` instructions.
-The `LOOP` instruction have access to the stack and the repetiveness of the processus is controlled by boolean on the stack. It is very similar to _while_ operators in other languages.
+The `LOOP` instruction have access to the stack and the repetitiveness of the process is controlled by boolean on the stack. It is very similar to _while_ operators in other languages.
 
-The `LOOP_LEFT` instruction is a bit more complex and allows to handle a repetitive process with an accumulator. An accumulateur is a element used for aggregating data during a repretitive process. The `LOOP_LEFT` is based on _union_ type for storing the accumulator and controlling  the repetition.
+The `LOOP_LEFT` instruction is a bit more complex and allows to handle a repetitive process with an accumulator. An accumulator is a element used for aggregating data during a repetitive process. The `LOOP_LEFT` is based on _union_ type for storing the accumulator and controlling  the repetition.
 
 
 #### LOOP {}
