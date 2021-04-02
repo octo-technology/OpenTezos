@@ -343,9 +343,38 @@ The creation of a _nested pair_ consists in a successions of `PAIR` instruction 
 
 Similarly, the Michelson language provides the `UNPAPPAIIR` macro for destructuring _nested pairs_.
 
-Similarly, the Michelson language provides the `C[AD]+R` macro for accessing a specific field inside a _nested pair_.
+Similarly, the Michelson language provides the `C[AD]+R` macro for accessing a specific field inside a _nested pair_. For example, the `CAAR` macro stands for `{ CAR; CAR }` and `CADAR` macro stands for `{ CAR; CDR; CAR }`.
+
+![](../../static/img/michelson/michelson_macro_C[AD]+R_example.svg)
+<small className="figure">FIGURE 35: Illustration of the C[AD]+R macro</small>
+
 
 These macros are described in the "Instructions" section (in the "macros" sub-section).
+
+
+Here is an example of a smart contract that stores a natural integer in its storage and receives as parameter a nested pair containing a _nat_ , a _string_ and an _int_. It only takes the nat part of the nested pair and adds it to the storage.
+
+```
+parameter (pair (pair (nat) (string)) (int));
+storage nat;
+code { UNPAIR;
+       CAAR;
+       ADD;
+       NIL operation ;
+       PAIR }
+```
+
+Notice that the `UNPAIR` separates the entrypoint and the storage.
+
+Notice that the `CAAR` extracts a single fields from the _nested pair_. The `CAAR` macro only retrieves the _nat_ field of the parameter; it is equivalent to `{ CAR; CAR }`.
+
+This smart contract can be simulated with the CLI command:
+```
+tezos-client run script instruction_caar.tz on storage '9' and input 'Pair (Pair 2 "toto") -23'
+```
+
+Notice that defining a michelson expression containing a _pair_ in CLI expects a `Pair` keyword (which is different from _pair_ type or `PAIR` instruction).
+
 
 
 #### Numbers
@@ -511,12 +540,54 @@ Timestamps can be obtained by the `NOW` operation, or retrieved from script para
 
 The `NOW` instruction pushes on top of the stack the timestamp of the block whose validation triggered this execution. This timestamp does not change during the execution of the contract.
 
+
+This small contract registers when it is invoked by storing in a list of timestamps the `NOW` timestamp of this transaction.
+
+```
+parameter unit;
+storage (list timestamp);
+code { CDR;
+       NOW;
+       CONS;
+       NIL operation ;
+       PAIR }
+```
+
+The `CDR` instruction retrieves the storage part. The `NOW` instruction pushes on top of the stack the timestamp of the block. And finally the `CONS` operator adds an element in a _list_.
+
+This smart contract can be simulated with the CLI command:
+```
+tezos-client run script instruction_timestamp.tz on storage '{ "2021-04-01T12:43:31Z" }' and input 'Unit'
+```
+
+Notice that the storage (i.e. a list of timestamps) is initialized with a _timestamp_ value in string format `"2021-04-01T12:43:31Z"`.
+
+
 ##### Standard timestamp operations
 
 The `ADD` instruction increments a timestamp of the given number of seconds. The number of seconds must be expressed as a type `int`. Addition of timestamp does not accept a number of seconds as `nat`.
 
 The `SUB` instruction subtracts a number of seconds from a timestamp. It can also be used to subtract two timestamps.
 
+For example, this smart contract when invoked computes the delay between two timestamps, and keeps it in the storage.
+
+```
+parameter (pair timestamp timestamp);
+storage int;
+code { CAR;
+       UNPAIR;
+       SUB;
+       NIL operation ;
+       PAIR }
+```
+
+The `CAR` instruction retrieves the parameter value. The `UNPAIR` instruction pushes on top of the stack the two given timestamps. And finally the `SUB` operator returns the difference of the two timestamps (expressed in number of seconds).
+
+
+This smart contract can be simulated with the CLI command:
+```
+tezos-client run script instruction_timestamp2.tz on storage '0' and input 'Pair "2021-04-01T12:43:31Z" "2021-04-01T12:42:31Z"'
+```
 
 ##### Comparing timestamps
 
@@ -524,7 +595,7 @@ The `COMPARE` computes timestamp comparison. It returns an integer, as with the 
 
 It returns 1 if the first timestamp is bigger than the second timestamp, 0 if both timestamps are equal, and -1 otherwise. 
 
-//TODO example
+
 
 #### Bytes
 
@@ -563,7 +634,26 @@ The `COMPARE` instruction computes a lexicographic comparison. As with other `CO
 
 The `COMPARE` instruction can be used only on comparable types.
 
-//TODO example
+
+The following smart contract concatenates the given bytes with the ones in the storage only if the parameter value is 0x12. Otherwise it fails.
+
+```
+parameter bytes;
+storage bytes;
+code { UNPAIR;
+       DUP;
+       PUSH bytes 0x12;
+       COMPARE;
+       EQ;
+       IF { CONCAT } { FAIL };
+       NIL operation ;
+       PAIR }
+```
+
+This smart contract can be simulated with the CLI command:
+```
+tezos-client run script instruction_bytes.tz on storage '0xa2' and input '0x12'
+```
 
 
 ### Working with complex data structures
@@ -1028,6 +1118,11 @@ This section describes instructions specific to smart contracts and interactions
 
 This section introduces the _address_ type identifying an account or a deployed smart contract; and other built-in instructions related to transactions.
 
+##### `address` type
+
+The _address_ type represents an identifier for a user account or a deployed smart contract (e.g. "tz1faswCTDciRzE4oJ9jn2Vm2dvjeyA9fUzU").
+
+Built-ins macros such as SOURCE or SENDER push an _address_ value on top of the stack. (see "Built-ins" section) 
 
 ##### Entrypoint verification with `CONTRACT`
 
@@ -1125,20 +1220,99 @@ The `BALANCE` instruction pushes the current amount of mutez held by the executi
 
 ##### Creating contract dynamically with `CREATE_CONTRACT`
 
-The `CREATE_CONTRACT` instruction forges a new contract. It consumes the top three elements of the stack and pushes a *transaction* (responsible for creating the contract) and the *address* of the newly created contract.
+The `CREATE_CONTRACT` instruction forges a new contract. It consumes the top three elements of the stack and pushes back a *transaction* (responsible for creating the contract) and the *address* of the newly created contract.
 
-The three consumed elements represent arguments for deploying a contract:
-- the smart contract definition as a literal `{ storage 'g ; parameter 'p ; code ... }`, including the storage definition, parameter definition and the code of the smart contract
+The `CREATE_CONTRACT` instruction expects as argument the smart contract definition as a literal `{ storage 'g ; parameter 'p ; code ... }`, including the storage definition, parameter definition and the code of the smart contract.
+
+The `CREATE_CONTRACT` instruction expects three elements on top of the stack (these elements represent arguments for deploying a contract):
+- the initial storage value for the new contract.
 - an optional `key_hash` value representing the delegate
 - a quantity of mutez transferred to the new contract
 
 Accessing the newly created contract (via a `CONTRACT 'p` instruction) will fail until it is actually originated.
 
-// TODO example
+
+
+So as to illustrate the dynamic creation of contracts, let's make a smart contract that create the "Counter" contract seen previously in `TRANSFER_TOKENS`.
+
+The implementation of the "Counter" smart contract is:
+```js
+parameter (or (int %decrement) (int %increment)) ;
+storage int ;
+code { DUP ;
+       CDR ;
+       SWAP ;
+       CAR ;
+       IF_LEFT { SWAP ; SUB } { ADD } ;
+       NIL operation ;
+       PAIR }
+```
+
+
+Now let's see the implementation of a "Factory" contract that create and deploys a "Counter" contract.
+
+```
+parameter unit;
+storage unit;
+code { DROP;
+       PUSH int 9;
+       PUSH mutez 0;
+       NONE key_hash;
+       CREATE_CONTRACT { parameter (or (int %decrement) (int %increment)) ; storage int ; code { DUP ; CDR ; SWAP ; CAR ; IF_LEFT { SWAP ; SUB } { ADD } ; NIL operation ; PAIR } };
+       DIP { NIL operation };
+       CONS;
+       DIP { DROP; UNIT };
+       PAIR }
+```
+
+The `DROP` instruction removes entrypoint and storage elements from the stack since they are not used.
+
+The first expected element for `CREATE_CONTRACT` is the delegate of the smart contract. Here we specify there is none (`NONE key_hash;`). Notice that the `NONE` instruction must be typed.
+The second expected element for `CREATE_CONTRACT` is the quantity of mutez transfered to the new contract. Here we specify 0 with `PUSH mutez 0;`.
+The third expected element for `CREATE_CONTRACT` is the initial storage value for the new contract. Here the `PUSH int 9;` set the default counter value to 9.
+
+The `CREATE_CONTRACT` instruction produces on top of the stack an _operation_ and the _address_ of the contract.
+The `DIP { NIL operation }; CONS` sequence adds this operation into a list of operation (which will constitute the return of the smart contract).
+The `DIP { DROP }` sequence deletes the address of the (because we don't use it here). 
+The `UNIT` instruction specifies an empty storage as described in the storage definition (`storage unit;`)
+The `PAIR` instruction forms the _pair_ returned by the smart contract (including the list of operation and the storage).
+
+This smart contract can be simulated with the CLI command:
+```
+tezos-client run script factory.tz on storage 'Unit' and input 'Unit'
+```
+
+This CLI command produces the following output:
+```
+storage
+  Unit
+emitted operations
+  Internal origination:
+    From: KT1BEqzn5Wx8uJrZNvuS9DVHmLvG9td3fDLi
+    Credit: ꜩ0
+    Script:
+      { parameter (or (int %decrement) (int %increment)) ;
+        storage int ;
+        code { DUP ;
+               CDR ;
+               SWAP ;
+               CAR ;
+               IF_LEFT { SWAP ; SUB } { ADD } ;
+               NIL operation ;
+               PAIR } }
+      Initial storage: 9
+      No delegate for this contract
+```
+
+
 
 ##### Built-ins
 
 The `ADDRESS` instruction casts the contract to its address. It consumes a contract on top of the stack and pushes back the address of the contract.
+
+The `SELF` instruction pushes the default entry point of a contract on top of the stack. This default entry point specifies the expected parameter type. 
+The `SELF 'p` instruction allows to take a entry point name 'p as argument. In this case, it pushed the specified entrypoint on top of the stack. 
+
 
 
 
@@ -1148,16 +1322,54 @@ The `SENDER` instruction pushes the address of the contract that initiated the c
 
 The `SOURCE` and `SENDER` built-ins represent the identity who invoked the smart contract. 
 
+To illustrates the `SENDER` macro, here is a smart contract handling a set of address as storage. When invoked this smart contract saves the identifier of the invoker (i.e. its _address_) inside the storage.
+
+```
+parameter unit;
+storage (set address);
+code { CDR;
+       SENDER;
+       DIP { PUSH bool True };
+       UPDATE;
+       NIL operation ;
+       PAIR }
+```
+The `CDR` extracts the storage value. The `SENDER` instruction push on top of the stack the address of the invoker. The `DIP { PUSH bool True }` pushes a True boolean value on second position of the stack. Finally, the `UPDATE` consumes the 3 top elements (the address , the boolean and the set) and produces an updated _set_ containing the sender address. 
+
+This smart contract can be simulated with CLI command:
+```
+tezos-client run script instruction_sender.tz on storage '{}' and input 'Unit'
+```
 
 
-The `SELF` instruction pushes the default entry point of a contract on top of the stack. This default entry point specifies the expected parameter type. 
-The `SELF 'p` instruction allows to take a entry point name 'p as argument. In this case, it pushed the specified entrypoint on top of the stack. 
 
 
 An other useful built-in is the `AMOUNT` instruction which is key when currencies are being exchanged. The `AMOUNT` instruction pushes the amount of mutez of the current transaction on top of the stack.
 
-//TODO example
+The following smart contract illustrates the `AMOUNT` usage. When invoked it concatenates a given string to the string of the storage only if no money has been transferred with this transaction. In fact, it verifies that the _amount_ is equal to zero.
 
+```
+parameter string;
+storage string;
+code { AMOUNT;
+       PUSH mutez 0;
+       COMPARE;
+       EQ;
+       IF { UNPAIR; CONCAT } { FAIL };
+       NIL operation ;
+       PAIR }
+
+``` 
+
+ The `AMOUNT` instruction pushes the amount of mutez of the current transaction on top of the stack. The `PUSH mutez 0; COMPARE; EQ` sequence verifies that the amount is equal to zero. If it is the case then the parameter string and the storage string are concatenated (with sequence`{ UNPAIR; CONCAT }`) otherwise the transaction stops with a `FAIL` instruction.
+
+
+This contract can be simulated with the CLI command:
+```
+tezos-client run script instruction_amount.tz on storage '"Hello"' and input '"World"' --amount 0
+```
+
+Notice that the `tezos-client run script` command provides an optional argument `--amount 0` for specifying the amount of mutez sent with this transaction.
 
 
 
