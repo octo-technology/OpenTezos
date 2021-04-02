@@ -19,7 +19,7 @@ Here is an overview the sub-sections of this "Tutorial" section:
 
 #### Basics
 
-Michelson is stack-based language which means that all data (variables of the program) will be stacked on a single pile. Therefore Michelson language provides stack operators for reorganizing elements of the stack and other kind of operators which consumes top elements of the stack. In this section basic stack manipulation operators will be introduced and illustrated with simple examples. In a second time, the focus will be put on arithmetic operators and conditional branching.
+Michelson is stack-based language which means that all data (variables of the program) will be stacked on a single pile. Therefore the Michelson language provides stack operators for reorganizing elements of the stack and other kind of operators which consumes top elements of the stack. In this section basic stack-manipulation operators will be introduced and illustrated with simple examples. In a second time, the focus will be put on arithmetic operators and conditional branching.
 
 ##### Basic stack operators (PUSH DROP SWAP)
 
@@ -56,7 +56,7 @@ The `DUP` instruction duplicates the top element of the stack. Prevent loss of v
 
 ##### Stack manipulation using arithmetic operators
 
-Once elements are added in the stack, they can be combined using arithmetic operators such as addition (`ADD`) and multiplication  (`MUL`).  Other arithmetic operators are described in the "Operations on numbers" section.
+Once elements are added in the stack, they can be combined using arithmetic operators such as addition (`ADD`) and multiplication  (`MUL`). Other arithmetic operators are described in the "Instructions/Operations on numbers" section.
 
 The `ADD` instruction sums the top two element of the stack. and the `MUL` multiply them. The result is pushed on top of the stack.
 
@@ -1274,7 +1274,7 @@ code { DUP ;
 ```
 
 
-Now let's see the implementation of a "Factory" contract that create and deploys a "Counter" contract.
+Now let's see the implementation of a "Factory" contract that creates and deploys a "Counter" contract.
 
 ```
 parameter unit;
