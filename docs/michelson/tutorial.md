@@ -246,7 +246,32 @@ Notice that there is no floating point type supported (such as _float_).
 
 Obviously The Michelson language also provides operators allowing the manipulation of these types.
 
-But before going on primitive type , let's introduce the optional (i.e. the _option_ type) and the _pair_ type.
+But before going on primitive type , let's introduce _unit_ type, the optional (i.e. the _option_ type) and the _pair_ type.
+
+#### "You shall not pass type" with `UNIT` 
+
+The `UNIT` instruction pushes a `Unit` value  of type _unit_ on top of the stack. The _unit_ type stands for nothing in many context:
+- an empty structure in case of a storage. 
+- an empty entrypoint in case of a parameter.
+- an empty argument in a function. 
+
+The `Unit` value represents the value of a _unit_ type.
+
+The _unit_ type is also used for throwing an empty exception. Let's see how exceptions are thrown in Michelson.
+
+#### Throwing an exception with `FAILWITH`
+
+The `FAILWITH` instruction aborts the execution of the Michelson script by throwing an exception.
+
+The `FAILWITH` instruction consumes the top element of the stack as argument (usually a string message). The consumed element must be of a pushable type. It is allowed to throw an exception without message by pushing a `UNIT` value on top of the stack.
+
+
+The `FAIL` keyword has been provided as replacement for `UNIT; FAILWITH`.
+
+Actually, the `FAIL` keyword is not an instruction but a syntactic sugar (i.e. a "shortcut" instruction that combines many of language's basic instructions).
+
+A `FAILWITH` instruction provides a way to reject a transaction by stopping the execution of related instructions.
+
 
 #### Optional
 
@@ -1381,25 +1406,27 @@ Notice that the `tezos-client run script` command provides an optional argument 
 
 ### Lambda functions
 
-//TODO (to rework)
-
 The Michelson language supports anonymous function, also called **lambda**. Lambda functions are strongly typed and when called it executes a sequence of instructions.
+
+Lambda functions are useful for factoring code, thus preventing code duplication. 
+
+Lambda functions can also be defined inside the storage. A smart contract would be able to apply on-demand the stored lambda; and would also be able to change the code of the lambda. BE CAREFUL ! In this case it means the smart contract is not immutable. This kind of design requires a strong administration layer (with multi-signature patterns); and proofs on those smart contract might become irrelevant.
 
 The `LAMBDA` instruction defines a lambda function and the `EXEC` instruction allows to execute its code.
 
-
-Function can be partially applied with the `APPLY` instruction. 
+Function can be partially applied (i.e. partially resolved) with the `APPLY` instruction. 
 
 #### Lambda definition with `LAMBDA`
 
 
-The `LAMBDA` instruction pushes a function on top of the stack.
+The `LAMBDA` instruction pushes an anonymous function on top of the stack. The function is an element like others being pushed on the stack excepts that only few instructions may be applied on this kind of element. A lambda can be executed with the `EXEC` instruction if lambda arguments have been provided on the stack. A lambda can be partially resolved (i.e. producing a new lambda function) with the `APPLY` instruction. 
 
-It requires three arguments:
+The `LAMBDA` instruction requires three arguments:
 - the type of the function argument
 - the type returned by the function
 - the sequence of instructions associated with the function (code of the function)
 
+Michelson grammar defines the `LAMBDA` instruction as:
 ```js
 LAMBDA _ _ code / S  =>  code : S
 ```
@@ -1430,11 +1457,6 @@ The `EXEC` instruction executes a function from the stack.
 
 The `EXEC` instruction consumes a function and its related input arguments on top of the stack. The `EXEC` instruction produces the expected function output on the top of the stack.
 
-```js
-EXEC / a : f : S  =>  r : S
-    where f / a : []  =>  r : []
-```
-
 Here is an example of a smart contract that defines a function with the `LAMBDA` instruction and executes the function with the `EXEC` instruction.
 
 ```js
@@ -1452,7 +1474,7 @@ Notice that the code of the `LAMBDA` function just increments a given integer by
 
 The execution of this smart contract is described in the "example" section.
 
-#### APPLY
+#### Partially resolving functions with `APPLY`
 
 The `APPLY 'a` instruction partially applies a _tuplified_ function from the stack (i.e. arguments are grouped in pairs or nested pairs). It is parameterized by a type `'a`. Values that are not both push-able and storable (i.e. values of type _operation_, _contract_, and _big map_) cannot be captured by _APPLY_ (and so cannot appear in argument `'a`).
 
@@ -1541,34 +1563,3 @@ For more advanced Michelson programmers, there are other concepts such as crypto
 
 The Michelson language being part of the protocol is destined to change and thus many other features will be supported in the future bringing new possibilities like anonymity (with sappling techniques) or allowing stamping atomic information (with tickets). 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-#### UNIT instruction
-
-The `UNIT` instruction pushes a `Unit` value on top of the stack.
-
-The `Unit` value represents no value.
-
-#### FAILWITH
-
-The `FAILWITH` instruction aborts the execution of the Michelson script by throwing an exception.
-
-The `FAILWITH` instruction consumes the top element of the stack as argument (usually a string message). The consumed element must be of a pushable type. It is allowed to throw an exception without message by pushing a `UNIT` value on top of the stack.
-
-
-The `FAIL` keyword has been provided as replacement for `UNIT; FAILWITH`.
-
-Actually, the `FAIL` keyword is not an instruction but a syntactic sugar (i.e. a "shortcut" instruction that combines many of language's basic instructions).
-
-A `FAILWITH` instruction provides a way to reject a transaction by stopping the execution of related instructions.

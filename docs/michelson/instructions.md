@@ -1222,14 +1222,37 @@ The `BALANCE` instruction pushes the current amount of mutez held by the executi
 
 #### CREATE_CONTRACT
 
-The `CREATE_CONTRACT` instruction forges a new contract. It consumes the top three elements of the stack and pushes a *transaction* (responsible for creating the contract) and the *address* of the newly created contract.
+The `CREATE_CONTRACT` instruction forges a new contract. It consumes the top three elements of the stack and pushes back a *transaction* (responsible for creating the contract) and the *address* of the newly created contract.
 
-The three consumed elements represent arguments for deploying a contract:
-- the smart contract definition as a literal `{ storage 'g ; parameter 'p ; code ... }`, including the storage definition, parameter definition and the code of the smart contract
+The `CREATE_CONTRACT` instruction expects as argument the smart contract definition as a literal `{ storage 'g ; parameter 'p ; code ... }`, including the storage definition, parameter definition and the code of the smart contract.
+
+The `CREATE_CONTRACT` instruction expects three elements on top of the stack (these elements represent arguments for deploying a contract):
+- the initial storage value for the new contract.
 - an optional `key_hash` value representing the delegate
 - a quantity of mutez transferred to the new contract
 
 Accessing the newly created contract (via a `CONTRACT 'p` instruction) will fail until it is actually originated.
+
+For example, here is an implementation of a "Factory" contract that create and deploys a "Counter" contract (as seen previsouly).
+
+```
+parameter unit;
+storage unit;
+code { DROP;
+       PUSH int 9;
+       PUSH mutez 0;
+       NONE key_hash;
+       CREATE_CONTRACT { parameter (or (int %decrement) (int %increment)) ; storage int ; code { DUP ; CDR ; SWAP ; CAR ; IF_LEFT { SWAP ; SUB } { ADD } ; NIL operation ; PAIR } };
+       DIP { NIL operation };
+       CONS;
+       DIP { DROP; UNIT };
+       PAIR }
+```
+
+This smart contract can be simulated with the CLI command:
+```
+tezos-client run script factory.tz on storage 'Unit' and input 'Unit'
+```
 
 ### Built-ins
 
