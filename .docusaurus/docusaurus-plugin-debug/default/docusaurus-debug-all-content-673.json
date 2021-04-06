@@ -166,6 +166,10 @@
                   },
                   {
                     "type": "doc",
+                    "id": "michelson/tutorial"
+                  },
+                  {
+                    "type": "doc",
                     "id": "michelson/instructions"
                   },
                   {
@@ -357,6 +361,7 @@
             "/michelson": "docs",
             "/michelson/smart_contracts": "docs",
             "/michelson/take-away": "docs",
+            "/michelson/tutorial": "docs",
             "/private/exam": "docs",
             "/private": "docs",
             "/smartpy/exam": "docs",
@@ -992,7 +997,7 @@
               "version": "current",
               "sidebar": "docs",
               "previous": {
-                "title": "Instructions",
+                "title": "Instructions Reference",
                 "permalink": "/michelson/instructions"
               },
               "next": {
@@ -1025,8 +1030,8 @@
               "unversionedId": "michelson/instructions",
               "id": "michelson/instructions",
               "isDocsHomePage": false,
-              "title": "Instructions",
-              "description": "A Tezos smart contract defines storage, entry points, and the code. The code of a smart contract is a sequence of Michelson instructions.",
+              "title": "Instructions Reference",
+              "description": "This chapter provides an explicit list of all the most commonly used instructions in Michelson. It is not intended for you to read it as is but to use it as a reference during your developments.",
               "source": "@site/docs/michelson/instructions.md",
               "slug": "/michelson/instructions",
               "permalink": "/michelson/instructions",
@@ -1034,8 +1039,8 @@
               "version": "current",
               "sidebar": "docs",
               "previous": {
-                "title": "Smart Contracts",
-                "permalink": "/michelson/smart_contracts"
+                "title": "Tutorial",
+                "permalink": "/michelson/tutorial"
               },
               "next": {
                 "title": "Examples",
@@ -1068,7 +1073,7 @@
               "id": "michelson/smart_contracts",
               "isDocsHomePage": false,
               "title": "Smart Contracts",
-              "description": "Entry points, storage and code",
+              "description": "Smart contracts in Michelson",
               "source": "@site/docs/michelson/smart_contracts.md",
               "slug": "/michelson/smart_contracts",
               "permalink": "/michelson/smart_contracts",
@@ -1080,8 +1085,8 @@
                 "permalink": "/michelson/fundamentals"
               },
               "next": {
-                "title": "Instructions",
-                "permalink": "/michelson/instructions"
+                "title": "Tutorial",
+                "permalink": "/michelson/tutorial"
               }
             },
             {
@@ -1103,6 +1108,27 @@
               "next": {
                 "title": "introduction",
                 "permalink": "/dapp/introduction"
+              }
+            },
+            {
+              "unversionedId": "michelson/tutorial",
+              "id": "michelson/tutorial",
+              "isDocsHomePage": false,
+              "title": "Tutorial",
+              "description": "This section introduces the main concepts of the Michelson language. It begins with the basics of stack manipulation then focuses on primitive types and more complex data structures. Finally the chapter focuses on specific features related to smart contracts concepts.",
+              "source": "@site/docs/michelson/tutorial.md",
+              "slug": "/michelson/tutorial",
+              "permalink": "/michelson/tutorial",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/michelson/tutorial.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Smart Contracts",
+                "permalink": "/michelson/smart_contracts"
+              },
+              "next": {
+                "title": "Instructions Reference",
+                "permalink": "/michelson/instructions"
               }
             },
             {

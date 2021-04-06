@@ -39,7 +39,7 @@ export default [
 },
 {
   path: '/',
-  component: ComponentCreator('/','6c0'),
+  component: ComponentCreator('/','1ca'),
   
   routes: [
 {
@@ -220,6 +220,11 @@ export default [
 {
   path: '/michelson/take-away',
   component: ComponentCreator('/michelson/take-away','57c'),
+  exact: true,
+},
+{
+  path: '/michelson/tutorial',
+  component: ComponentCreator('/michelson/tutorial','865'),
   exact: true,
 },
 {

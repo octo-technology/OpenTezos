@@ -50,6 +50,7 @@ module.exports = {
         'michelson/introduction',
         'michelson/fundamentals',
         'michelson/smart_contracts',
+        'michelson/tutorial',
         'michelson/instructions',
         'michelson/examples',
         'michelson/exam',

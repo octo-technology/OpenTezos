@@ -5,15 +5,15 @@ title: Language fundamentals
 
 The Michelson language is the reference language for Tezos smart contracts. It is a low-level **stack-based** language and is also a **Turing-complete** language. This means it has basic operations allowing to read/write/compare values in-memory, has infinite memory, and allows conditional operators (e.g. _if_, _switch_ instructions)
 
-A persistent memory space (called **storage**) is associated with a Tezos smart contract. This storage is stored on the blockchain.
+## Smart contract
 
-A smart contract provides a list of entry points (invocable functions of the smart contract) and a sequence of Michelson instructions for each entry point.
+The main goal of the Michelson language is to model smart contracts, i.e. to model complex data structures and to design complex processes on these data. Once a smart contract is deployed on the Tezos network, it can be invoked and trigger modifications of the data of the smart contract. 
 
-The invocation of a smart contract must specify which entry point is called and what are its related parameters.
+A persistent memory space (called **storage**) is associated with a Tezos smart contract and holds the data of the smart contract. This storage is stored on the blockchain.
 
-The execution of an entry point produces a modified state of the storage and a list of operations (i.e. transactions to other contracts or to implicit accounts).
+A smart contract must provide a list of invocable functions of the smart contract (called **entrypoints**) and instructions (that modifies the storage) for each entrypoint.
 
-A smart contract must be deployed on the blockchain so as to be invocable.
+These concepts of _storage_ and _entrypoint_ are described in the "Smart contract" section.
 
 ## Gas model
 A cost in "gas" (i.e. the money that must be paid in order to execute instructions) is associated with the execution of a Michelson instruction. This "gas" modeling prevents the execution from ending up in an infinite loop. 
@@ -24,13 +24,17 @@ Adding more memory space to the storage of a smart contract also has a cost (for
 
 ## Static typing
 
-Michelson is a strongly typed language. It introduces multiple data structures and type definitions.
+The Michelson language is a strongly typed language. It means that all data inserted into the stack must be typed and operators manipulating these data must respect the typing rules.
+
+The Michelson language introduces primitive types for modeling data and composite types allowing complex data structure definitions. It also introduce very specific types for smart contract modeling.
 
 The Michelson language provides basic type support on numbers, sequence of characters, logical expressions, and timestamps:
 - `nat` represents a natural integer (e.g. 0, 3, 15)
 - `int` represents a integer (e.g. -10, 2, 3)
 - `string` represents a sequence of characters (e.g. "Hello")
 - `bool` represents a boolean value (e.g. True, False)
+- `bytes` represents a sequence of bytes (octet)
+- `unit` represents a non-specified type.
 - `timestamp` represents a duration (e.g. NOW, 1571659294, "2019-09-26T10:59:51Z"; i.e. a string following the RFC3339 standard)
 
 Michelson also provides composite types for grouping properties:
@@ -52,15 +56,22 @@ Michelson also provides specific types for smart contract modeling:
 - `operation` represents a transaction
 - `contract` represents a contract interface used for contract interaction
 
+The usage of these types are illustrated in the "Tutorial" and "Instructions" sections.
+
 ## Atomic computation
 
-The Michelson language provides basic operations on these types. For example:  
-- numbers: addition `ADD`, subtraction `SUB`, multiplication `MUL`, euclidean division `EDIV`
-- string: split, concatenation
+The Michelson language provides basic operations on these types:  
+- numbers: addition, subtraction, multiplication, euclidean division, comparison
+- string: split, concatenation, comparison
 - crypto: standard hash function
+- collection: standard collection manipulation (create, insert, remove, access, modification) 
+- currency: standard operations on XTZ crypto-currency
+- smart contract: contract interactions, transfer, invocation of other smart contract, delegation
 
-An exhaustive list of instructions for each type is described in the "instructions" section.
+A description of some of these operators is provided in the "Tutorial" section.
+
+An exhaustive list of instructions for each type is described in the "Instructions" section.
 
 ## Explicit failure
 
-When invoking a smart contract, the execution of the sequence of instructions may terminate. In this case the transaction is considered finalized. If the execution of the sequence of instructions throws an exception, the transaction is considered to be rejected. The `FAILWITH` Michelson instruction is responsible for throwing an error. 
+When invoking a smart contract, the execution of the sequence of instructions may terminate. In this case the transaction is considered finalized. If the execution of the sequence of instructions throws an exception, the transaction is considered to be rejected. The following sections will introduce the `FAIL` Michelson instruction which is responsible for throwing an error. 

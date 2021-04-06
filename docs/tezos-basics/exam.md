@@ -106,8 +106,8 @@ What notions are defined inside the smart contract?
 - [x] The type of the storage
 - [ ] The balance of the contract
 - [ ] The initial value of the storage
-- [ ] The value of the entry point and its related parameters
-- [x] The type of entry point, its definition
+- [ ] The value of the entrypoint and its related parameters
+- [x] The type of entrypoint, its definition
 - [ ] The size of the storage
 - [x] The code of the smart contract
 - [ ] The list of users allowed to call the smart contract
@@ -117,7 +117,7 @@ What notions are defined inside the smart contract?
 What is returned by the execution of a smart contract?
 
 - [x] The modified state of the storage after the invocation of the smart contract
-- [ ] The related parameters of the entry point that has been called
+- [ ] The related parameters of the entrypoint that has been called
 - [x] The list of emitted operations produced by the execution of the smart contract
 - [ ] The balance of the contract
 - [ ] The size of the storage
