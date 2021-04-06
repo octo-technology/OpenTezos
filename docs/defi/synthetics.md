@@ -24,9 +24,6 @@ Second point is accessibility. Traditionally only bigger players had access, but
 ## No wrapped/tokenized assets
 The different approach has another advantage. The fact that through synthetics, since you don’t actually buy the asset, anything can be traded on blockchain without the need for wrapped, or tokenized assets. As long as you have an oracle that updates values for the asset that is part of the contract, the sky is the limit. You could have a synthetic for Apple or Tesla if the oracle can update values for the smart contract.
 
-![](../../static/img/defi/stablecoin-types.svg)
-<small className="figure">FIGURE 3: Recapitulation of the 3 types of stablecoins.</small>
-
 ## Synthetics on Tezos
 _SEXP_ is a synthetics exchange on Tezos launching soon. SEXP will make use of Harbinger, which is an oracle built on Tezos, and utilizes Tezos staking rewards to provide a fully free service. Harbinger has no utility token, just free price feeds. SEXP will also integrate Kolibri, which is a Stablecoin that is about to go live on Tezos.
 
