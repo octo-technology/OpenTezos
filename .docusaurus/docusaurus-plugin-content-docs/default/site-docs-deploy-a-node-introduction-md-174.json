@@ -1,0 +1,21 @@
+{
+  "unversionedId": "deploy-a-node/introduction",
+  "id": "deploy-a-node/introduction",
+  "isDocsHomePage": false,
+  "title": "Introduction",
+  "description": "Under construction.",
+  "source": "@site/docs/deploy-a-node/introduction.md",
+  "slug": "/deploy-a-node",
+  "permalink": "/deploy-a-node",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/deploy-a-node/introduction.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Exam",
+    "permalink": "/tezos-basics/exam"
+  },
+  "next": {
+    "title": "Exam",
+    "permalink": "/deploy-a-node/exam"
+  }
+}

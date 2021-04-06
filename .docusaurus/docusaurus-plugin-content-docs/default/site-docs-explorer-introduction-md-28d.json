@@ -1,0 +1,21 @@
+{
+  "unversionedId": "explorer/introduction",
+  "id": "explorer/introduction",
+  "isDocsHomePage": false,
+  "title": "Introduction",
+  "description": "Under construction.",
+  "source": "@site/docs/explorer/introduction.md",
+  "slug": "/explorer",
+  "permalink": "/explorer",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/explorer/introduction.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Exam",
+    "permalink": "/deploy-a-node/exam"
+  },
+  "next": {
+    "title": "Exam",
+    "permalink": "/explorer/exam"
+  }
+}

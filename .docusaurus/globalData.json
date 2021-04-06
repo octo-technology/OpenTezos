@@ -11,8 +11,18 @@
           "mainDocId": "welcome/modules",
           "docs": [
             {
+              "id": "baker/exam",
+              "path": "/baker/exam",
+              "sidebar": "docs"
+            },
+            {
               "id": "baker/introduction",
               "path": "/baker",
+              "sidebar": "docs"
+            },
+            {
+              "id": "baking/exam",
+              "path": "/baking/exam",
               "sidebar": "docs"
             },
             {
@@ -21,8 +31,18 @@
               "sidebar": "docs"
             },
             {
+              "id": "blockchain-basics/exam",
+              "path": "/blockchain-basics/exam",
+              "sidebar": "docs"
+            },
+            {
               "id": "blockchain-basics/introduction",
               "path": "/blockchain-basics",
+              "sidebar": "docs"
+            },
+            {
+              "id": "contribute/exam",
+              "path": "/contribute/exam",
               "sidebar": "docs"
             },
             {
@@ -31,8 +51,28 @@
               "sidebar": "docs"
             },
             {
+              "id": "dapp/exam",
+              "path": "/dapp/exam",
+              "sidebar": "docs"
+            },
+            {
               "id": "dapp/introduction",
-              "path": "/dapp",
+              "path": "/dapp/introduction",
+              "sidebar": "docs"
+            },
+            {
+              "id": "defi/cross-chain-swaps",
+              "path": "/defi/cross-chain-swaps",
+              "sidebar": "docs"
+            },
+            {
+              "id": "defi/dexs",
+              "path": "/defi/dexs",
+              "sidebar": "docs"
+            },
+            {
+              "id": "defi/exam",
+              "path": "/defi/exam",
               "sidebar": "docs"
             },
             {
@@ -41,8 +81,48 @@
               "sidebar": "docs"
             },
             {
+              "id": "defi/lending",
+              "path": "/defi/lending",
+              "sidebar": "docs"
+            },
+            {
+              "id": "defi/oracles",
+              "path": "/defi/oracles",
+              "sidebar": "docs"
+            },
+            {
+              "id": "defi/stablecoins",
+              "path": "/defi/stablecoins",
+              "sidebar": "docs"
+            },
+            {
+              "id": "defi/synthetics",
+              "path": "/defi/synthetics",
+              "sidebar": "docs"
+            },
+            {
+              "id": "defi/token-standards",
+              "path": "/defi/token-standards",
+              "sidebar": "docs"
+            },
+            {
+              "id": "defi/wrapped-assets",
+              "path": "/defi/wrapped-assets",
+              "sidebar": "docs"
+            },
+            {
+              "id": "deploy-a-node/exam",
+              "path": "/deploy-a-node/exam",
+              "sidebar": "docs"
+            },
+            {
               "id": "deploy-a-node/introduction",
               "path": "/deploy-a-node",
+              "sidebar": "docs"
+            },
+            {
+              "id": "explorer/exam",
+              "path": "/explorer/exam",
               "sidebar": "docs"
             },
             {
@@ -51,8 +131,18 @@
               "sidebar": "docs"
             },
             {
+              "id": "formal-verification/exam",
+              "path": "/formal-verification/exam",
+              "sidebar": "docs"
+            },
+            {
               "id": "formal-verification/introduction",
               "path": "/formal-verification",
+              "sidebar": "docs"
+            },
+            {
+              "id": "ligo/exam",
+              "path": "/ligo/exam",
               "sidebar": "docs"
             },
             {
@@ -91,8 +181,28 @@
               "sidebar": "docs"
             },
             {
+              "id": "michelson/take-away",
+              "path": "/michelson/take-away",
+              "sidebar": "docs"
+            },
+            {
+              "id": "michelson/tutorial",
+              "path": "/michelson/tutorial",
+              "sidebar": "docs"
+            },
+            {
+              "id": "private/exam",
+              "path": "/private/exam",
+              "sidebar": "docs"
+            },
+            {
               "id": "private/introduction",
               "path": "/private",
+              "sidebar": "docs"
+            },
+            {
+              "id": "smartpy/exam",
+              "path": "/smartpy/exam",
               "sidebar": "docs"
             },
             {
@@ -101,8 +211,48 @@
               "sidebar": "docs"
             },
             {
+              "id": "tezos-basics/cli-and-rpc",
+              "path": "/tezos-basics/cli-and-rpc",
+              "sidebar": "docs"
+            },
+            {
+              "id": "tezos-basics/economics-and-rewards",
+              "path": "/tezos-basics/economics-and-rewards",
+              "sidebar": "docs"
+            },
+            {
+              "id": "tezos-basics/exam",
+              "path": "/tezos-basics/exam",
+              "sidebar": "docs"
+            },
+            {
+              "id": "tezos-basics/governance-on-chain",
+              "path": "/tezos-basics/governance-on-chain",
+              "sidebar": "docs"
+            },
+            {
+              "id": "tezos-basics/history-of-amendements",
+              "path": "/tezos-basics/history-of-amendements",
+              "sidebar": "docs"
+            },
+            {
               "id": "tezos-basics/introduction",
               "path": "/tezos-basics",
+              "sidebar": "docs"
+            },
+            {
+              "id": "tezos-basics/liquid-proof-of-stake",
+              "path": "/tezos-basics/liquid-proof-of-stake",
+              "sidebar": "docs"
+            },
+            {
+              "id": "tezos-basics/operations",
+              "path": "/tezos-basics/operations",
+              "sidebar": "docs"
+            },
+            {
+              "id": "tezos-basics/smart-contracts",
+              "path": "/tezos-basics/smart-contracts",
               "sidebar": "docs"
             },
             {

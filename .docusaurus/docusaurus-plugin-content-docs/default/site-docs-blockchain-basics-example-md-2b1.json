@@ -15,7 +15,7 @@
     "permalink": "/paths"
   },
   "next": {
-    "title": "Introduction",
-    "permalink": "/tezos-basics"
+    "title": "Consensus mechanism, Liquid-proof-of-stake",
+    "permalink": "/tezos-basics/liquid-proof-of-stake"
   }
 }

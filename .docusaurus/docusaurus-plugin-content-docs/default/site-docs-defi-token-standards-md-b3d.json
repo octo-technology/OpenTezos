@@ -1,0 +1,21 @@
+{
+  "unversionedId": "defi/token-standards",
+  "id": "defi/token-standards",
+  "isDocsHomePage": false,
+  "title": "Token Standards",
+  "description": "Tokens are the basis of Decentralized Finance, just like Fiat currencies (e.g. USD, EUR) are the basis of traditional finance. They represents a way to exchange assets and value. However contrary to traditional finance, tokens can represent much more than a simple currency. Tokens can represent any type of virtual or physical asset or value. For instance, real-estate which has so far always been a illiquid market can now be tokenized and traded on exchanges. Tokens can also enclose collectibles or luxury items such as art. They can enclose traditional finance products like equity, stocks, bonds, etc. Tokens are the future of finance.",
+  "source": "@site/docs/defi/token-standards.md",
+  "slug": "/defi/token-standards",
+  "permalink": "/defi/token-standards",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/token-standards.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Introduction",
+    "permalink": "/defi"
+  },
+  "next": {
+    "title": "Decentralized Exchanges",
+    "permalink": "/defi/dexs"
+  }
+}

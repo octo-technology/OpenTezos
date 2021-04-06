@@ -3,7 +3,7 @@
   "id": "michelson/smart_contracts",
   "isDocsHomePage": false,
   "title": "Smart Contracts",
-  "description": "Entry points, storage and code",
+  "description": "Smart contracts in Michelson",
   "source": "@site/docs/michelson/smart_contracts.md",
   "slug": "/michelson/smart_contracts",
   "permalink": "/michelson/smart_contracts",
@@ -15,7 +15,7 @@
     "permalink": "/michelson/fundamentals"
   },
   "next": {
-    "title": "Instructions",
-    "permalink": "/michelson/instructions"
+    "title": "Tutorial",
+    "permalink": "/michelson/tutorial"
   }
 }

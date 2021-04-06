@@ -1,0 +1,21 @@
+{
+  "unversionedId": "baker/exam",
+  "id": "baker/exam",
+  "isDocsHomePage": false,
+  "title": "Exam",
+  "description": "Question 1",
+  "source": "@site/docs/baker/exam.md",
+  "slug": "/baker/exam",
+  "permalink": "/baker/exam",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/baker/exam.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Introduction",
+    "permalink": "/baker"
+  },
+  "next": {
+    "title": "Introduction",
+    "permalink": "/defi"
+  }
+}
