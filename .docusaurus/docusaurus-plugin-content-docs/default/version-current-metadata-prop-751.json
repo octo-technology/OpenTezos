@@ -51,8 +51,38 @@
           },
           {
             "type": "link",
+            "label": "Smart contracts",
+            "href": "/tezos-basics/smart-contracts"
+          },
+          {
+            "type": "link",
             "label": "Liquid Proof-of-Stake",
             "href": "/tezos-basics/liquid-proof-of-stake"
+          },
+          {
+            "type": "link",
+            "label": "Operations",
+            "href": "/tezos-basics/operations"
+          },
+          {
+            "type": "link",
+            "label": "CLI and RPC",
+            "href": "/tezos-basics/cli-and-rpc"
+          },
+          {
+            "type": "link",
+            "label": "Governance on-chain",
+            "href": "/tezos-basics/governance-on-chain"
+          },
+          {
+            "type": "link",
+            "label": "History of amendements",
+            "href": "/tezos-basics/history-of-amendements"
+          },
+          {
+            "type": "link",
+            "label": "Economics and rewards",
+            "href": "/tezos-basics/economics-and-rewards"
           },
           {
             "type": "link",
@@ -151,7 +181,12 @@
           },
           {
             "type": "link",
-            "label": "Instructions",
+            "label": "Tutorial",
+            "href": "/michelson/tutorial"
+          },
+          {
+            "type": "link",
+            "label": "Instructions Reference",
             "href": "/michelson/instructions"
           },
           {
@@ -163,6 +198,11 @@
             "type": "link",
             "label": "Exam",
             "href": "/michelson/exam"
+          },
+          {
+            "type": "link",
+            "label": "Take away",
+            "href": "/michelson/take-away"
           }
         ]
       },
@@ -173,8 +213,8 @@
         "items": [
           {
             "type": "link",
-            "label": "Introduction",
-            "href": "/dapp"
+            "label": "introduction",
+            "href": "/dapp/introduction"
           },
           {
             "type": "link",
@@ -229,33 +269,43 @@
           },
           {
             "type": "link",
-            "label": "Tokens - FA2 Standards",
-            "href": "/defi/tokens"
-          },
-          {
-            "type": "link",
-            "label": "Stable Coins",
-            "href": "/defi/stable_coins"
+            "label": "Token Standards",
+            "href": "/defi/token-standards"
           },
           {
             "type": "link",
             "label": "Decentralized Exchanges",
-            "href": "/defi/dex"
+            "href": "/defi/dexs"
           },
           {
             "type": "link",
-            "label": "Lending",
-            "href": "/defi/lending"
+            "label": "Wrapped Assets",
+            "href": "/defi/wrapped-assets"
           },
           {
             "type": "link",
-            "label": "Flash Loans",
-            "href": "/defi/flash_loans"
+            "label": "Cross-chain Swaps",
+            "href": "/defi/cross-chain-swaps"
+          },
+          {
+            "type": "link",
+            "label": "On-chain Oracles",
+            "href": "/defi/oracles"
+          },
+          {
+            "type": "link",
+            "label": "Stablecoins",
+            "href": "/defi/stablecoins"
           },
           {
             "type": "link",
             "label": "Synthetics",
             "href": "/defi/synthetics"
+          },
+          {
+            "type": "link",
+            "label": "Lending and Flash Loans",
+            "href": "/defi/lending"
           },
           {
             "type": "link",
@@ -327,15 +377,17 @@
     "/contribute/exam": "docs",
     "/contribute": "docs",
     "/dapp/exam": "docs",
-    "/dapp": "docs",
-    "/defi/dex": "docs",
+    "/dapp/introduction": "docs",
+    "/defi/cross-chain-swaps": "docs",
+    "/defi/dexs": "docs",
     "/defi/exam": "docs",
-    "/defi/flash_loans": "docs",
     "/defi": "docs",
     "/defi/lending": "docs",
-    "/defi/stable_coins": "docs",
+    "/defi/oracles": "docs",
+    "/defi/stablecoins": "docs",
     "/defi/synthetics": "docs",
-    "/defi/tokens": "docs",
+    "/defi/token-standards": "docs",
+    "/defi/wrapped-assets": "docs",
     "/deploy-a-node/exam": "docs",
     "/deploy-a-node": "docs",
     "/explorer/exam": "docs",
@@ -350,13 +402,21 @@
     "/michelson/instructions": "docs",
     "/michelson": "docs",
     "/michelson/smart_contracts": "docs",
+    "/michelson/take-away": "docs",
+    "/michelson/tutorial": "docs",
     "/private/exam": "docs",
     "/private": "docs",
     "/smartpy/exam": "docs",
     "/smartpy": "docs",
+    "/tezos-basics/cli-and-rpc": "docs",
+    "/tezos-basics/economics-and-rewards": "docs",
     "/tezos-basics/exam": "docs",
+    "/tezos-basics/governance-on-chain": "docs",
+    "/tezos-basics/history-of-amendements": "docs",
     "/tezos-basics": "docs",
     "/tezos-basics/liquid-proof-of-stake": "docs",
+    "/tezos-basics/operations": "docs",
+    "/tezos-basics/smart-contracts": "docs",
     "/": "docs",
     "/paths": "docs"
   }

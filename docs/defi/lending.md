@@ -1,6 +1,7 @@
 ---
 id: lending
-title: Lending
+title: Lending and Flash Loans
+author: Aymeric Bethencourt
 ---
 
 import NotificationBar from '../../src/components/docs/NotificationBar';

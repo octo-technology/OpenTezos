@@ -2,7 +2,7 @@
   "unversionedId": "defi/lending",
   "id": "defi/lending",
   "isDocsHomePage": false,
-  "title": "Lending",
+  "title": "Lending and Flash Loans",
   "description": "Under construction.",
   "source": "@site/docs/defi/lending.md",
   "slug": "/defi/lending",
@@ -11,11 +11,11 @@
   "version": "current",
   "sidebar": "docs",
   "previous": {
-    "title": "Decentralized Exchanges",
-    "permalink": "/defi/dex"
+    "title": "Synthetics",
+    "permalink": "/defi/synthetics"
   },
   "next": {
-    "title": "Flash Loans",
-    "permalink": "/defi/flash_loans"
+    "title": "Exam",
+    "permalink": "/defi/exam"
   }
 }
