@@ -1,6 +1,7 @@
 ---
 id: stablecoins
 title: Stablecoins
+author: Aymeric Bethencourt
 ---
 
 import NotificationBar from '../../src/components/docs/NotificationBar';
