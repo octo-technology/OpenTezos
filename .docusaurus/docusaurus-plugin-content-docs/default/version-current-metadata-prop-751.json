@@ -181,7 +181,12 @@
           },
           {
             "type": "link",
-            "label": "Instructions",
+            "label": "Tutorial",
+            "href": "/michelson/tutorial"
+          },
+          {
+            "type": "link",
+            "label": "Instructions Reference",
             "href": "/michelson/instructions"
           },
           {
@@ -398,6 +403,7 @@
     "/michelson": "docs",
     "/michelson/smart_contracts": "docs",
     "/michelson/take-away": "docs",
+    "/michelson/tutorial": "docs",
     "/private/exam": "docs",
     "/private": "docs",
     "/smartpy/exam": "docs",

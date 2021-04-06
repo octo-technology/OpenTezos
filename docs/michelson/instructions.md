@@ -1,11 +1,9 @@
 ---
 id: instructions
-title: Instructions
+title: Instructions Reference
 ---
 
-A Tezos smart contract defines storage, entry points, and the code. The code of a smart contract is a sequence of Michelson instructions.
-
-The main instructions are described in the following sections.
+This chapter provides an explicit list of all the most commonly used instructions in Michelson. It is not intended for you to read it as is but to use it as a reference during your developments.
 
 ## Instructions
 
@@ -225,16 +223,16 @@ The `NOT` instruction consumes a boolean top element of the stack and pushes the
 
 #### ADD
 
-The `ADD` instruction computes addition on _nat_ and _int_. It consumes the top two element of the stack and pushes back the addition of the two element on top of the stack.
+The `ADD` instruction computes addition on _nat_ and _int_. It consumes the top two elements of the stack and pushes back the addition of the two elements on top of the stack.
 
 ![](../../static/img/michelson/michelson_instruction_add_example.svg)
 <small className="figure">FIGURE 16: Illustration of the `ADD` instruction</small>
 
 #### SUB
 
-The `SUB` instruction computes subtractions on _nat_ and _int_. It consumes the top two element of the stack and pushes back the difference of the two element on top of the stack.
+The `SUB` instruction computes subtractions on _nat_ and _int_. It consumes the top two elements of the stack and pushes back the difference of the two elements on top of the stack.
 
-Notice that the subtraction of two natural integers produces an integer, (since expression `2 - 4` produces an number smaller than 0).
+Notice that the subtraction of two natural integers produces an integer  (since the expression `2 - 4` produces an number smaller than 0).
 
 ![](../../static/img/michelson/michelson_instruction_sub_example.svg)
 <small className="figure">FIGURE 17: Illustration of the `SUB` instruction</small>
@@ -258,7 +256,7 @@ The `EDIV` instruction computes divisions on _nat_ and _mutez_.
 
 The euclidean division computes the quotient and the remainder between two numbers.
 
-If the divisor is equal to zero, then it returns an optional type with the assigned value _None_. Otherwise, it applies the Euclidean division and returns an optional type containing the resulting  value (Pair quotient remainder). 
+If the divisor is equal to zero, it returns an optional type with the assigned value _None_. Otherwise, it applies the Euclidean division and returns an optional type containing the result (quotient and remainder). 
 
 Michelson grammar defines `EDIV` as:
 
@@ -277,7 +275,7 @@ Strings are mostly used for naming things without having to rely on external ID 
 
 #### CONCAT
 
-The `CONCAT` instruction concatenates strings. It consumes the two top element and produces a string (concatenation of the two top element) that is placed on top of the stack. The `CONCAT` instruction also works with a list of strings. 
+The `CONCAT` instruction concatenates strings. It consumes the two top elements and produces a string (concatenation of the two top element) that is placed on top of the stack. The `CONCAT` instruction also works with a list of strings. 
 
 ```js
 CONCAT / s : t : S  =>  (s ^ t) : S
@@ -871,7 +869,7 @@ It consumes a type definition on top of the stack and pushes a union where the l
 LEFT / v : S  =>  (Left v) : S
 ```
 
-Illustration of `LEFT` usage can be seen in the examples section.
+Usage of the `LEFT` instruction is illustrated in the example section.
 
 #### RIGHT
 
@@ -884,7 +882,7 @@ It consumes a type definition on top of the stack and pushes a union where the r
 RIGHT / v : S  =>  (Right v) : S
 ```
 
-Illustration of `RIGHT` usage can be seen in the examples section.
+Usage of the `RIGHT` instruction is illustrated in the example section.
 
 #### IF_LEFT
 
@@ -1013,7 +1011,7 @@ The `NOW` instruction pushes the timestamp of the block whose validation trigger
 
 #### ADD
 
-The `ADD` instruction increments a timestamp of the given number of seconds. The number of seconds must be expressed as a type `int`. Addition of timestamp does not accept a number of seconds as `nat`.
+The `ADD` instruction increments a timestamp of the given number of seconds. The number of seconds must be expressed as an `int` and not as a `nat`.
 
 ```js
 ADD / seconds : nat (t) : S  =>  (seconds + t) : S
@@ -1050,7 +1048,7 @@ Mutez (micro-Tez) are internally represented by a 64-bit, signed integer. There 
 
 #### ADD
 
-The `ADD` instruction computes additions on mutez. It consumes two _mutez_ element on top of the stack and pushes back the addition of the two quantity on top of the stack.
+The `ADD` instruction computes additions on mutez. It consumes two _mutez_ elements on top of the stack and pushes back the addition of the two quantities on top of the stack.
 
 This operation may fail in case of overflow.
 
@@ -1061,7 +1059,7 @@ ADD / x : y : S  =>  (x + y) : S
 
 #### SUB 
 
-The `SUB` instruction computes subtractions on mutez. It consumes two _mutez_ element on top of the stack and pushes back the difference of the two quantity on top of the stack.
+The `SUB` instruction computes subtractions on mutez. It consumes two _mutez_ elements on top of the stack and pushes back the difference of the two quantities on top of the stack.
 
 A _mutez_ value cannot be negative so this substration may fail if the first value is smaller than the second one.
 
@@ -1073,7 +1071,7 @@ SUB / x : y : S  =>  (x - y) : S
 
 #### MUL
 
-The `MUL` instruction computes multiplications on mutez. It consumes a _mutez_and a _nat_ element on top of the stack and pushes back the product of the two quantity on top of the stack.
+The `MUL` instruction computes multiplications on mutez. It consumes a _mutez_ and a _nat_ elements on top of the stack and pushes back the product of the two quantities on top of the stack.
 
 The multiplication allows mutez to be multiplied with natural integers.
 
@@ -1091,7 +1089,7 @@ MUL / x : y : S  =>  (x * y) : S
 
 #### EDIV
 
-The `EDIV` instruction computes the euclidean division on mutez. It consumes a _mutez_and a _nat_ element on top of the stack and pushes back a `pair` with the quotient and the reminder (of the two elements) on top of the stack.
+The `EDIV` instruction computes the euclidean division on mutez. It consumes a _mutez_ and a _nat_ elements on top of the stack and pushes back a `pair` with the quotient and the reminder (of the two elements) on top of the stack.
 
 The euclidean division allows a mutez to be divided by a natural integer.
 
@@ -1100,7 +1098,7 @@ The euclidean division allows a mutez to be divided by a natural integer.
 :: mutez : mutez : 'S   ->   option (pair nat mutez) : 'S
 ```
 
-It is also possible to divide 2 mutez, in this case it returns a `nat` as a quotient and a mutez standing for the rest of the euclidean division.
+It is also possible to divide 2 mutez, in this case it returns a `nat` as a quotient and a mutez as the rest of the euclidean division.
 
 
 ```js
@@ -1148,7 +1146,7 @@ CONTRACT / addr : S  =>  None : S
 
 The `TRANSFER_TOKENS` instruction forges a transaction. In Michelson, the `operation` type represents a transaction. 
 Forging a transaction requires the following to be specified: 
-- the *parameter* (i.e. the entry point expected by the targeted contract)
+- the *parameter* (i.e. the entrypoint expected by the targeted contract)
 - a *quantity of mutez* transferred by this transaction
 - a *recipient contract* representing the target of the transaction (i.e. to which contract this transaction will be sent)
 
@@ -1274,9 +1272,9 @@ The `SENDER` instruction pushes the address of the contract that initiated the c
 
 #### SELF
 
-The `SELF` instruction pushes the default entry point of a contract on top of the stack. This default entry point specifies the expected parameter type. 
+The `SELF` instruction pushes the default entrypoint of a contract on top of the stack. This default entrypoint specifies the expected parameter type. 
 
-The `SELF 'p` instruction allows to take a entry point name 'p as argument. In this case, it pushed the specified entrypoint on top of the stack. 
+The `SELF 'p` instruction allows to take a entrypoint name 'p as argument. In this case, it pushed the specified entrypoint on top of the stack. 
 
 #### AMOUNT
 
@@ -1322,7 +1320,7 @@ The `SIZE` instruction computes the size of a sequence of bytes. It consumes a b
 #### SLICE
 
 The `SLICE` instruction provides a way to retrieve a part of a byte sequence.
-It expects following elements on top of the stack:
+It expects the following elements on top of the stack:
 - an `offset`, indicating the beginning of the byte sequence 
 - a `length`, indicating the size of the sub-sequence
 - a `byte sequence` to slice
@@ -1621,7 +1619,7 @@ MAP_CD(\rest=[AD]+)R code / S   =>
 
 ### Annotations
 
-Michelson's annotation mechanism provides ways to better track data on the stack and give additional type constraints. Annotations are only here to add constraints, i.e. they cannot turn an otherwise rejected program into an accepted one. The notable exception to this rule is for entry points: the semantics of the `CONTRACT` and `SELF` instructions vary depending on their constructor annotations, and some contract origination may fail due to invalid entry point constructor annotations.
+Michelson's annotation mechanism provides ways to better track data on the stack and give additional type constraints. Annotations are only here to add constraints, i.e. they cannot turn an otherwise rejected program into an accepted one. The notable exception to this rule is for entrypoints: the semantics of the `CONTRACT` and `SELF` instructions vary depending on their constructor annotations, and some contract origination may fail due to invalid entrypoint constructor annotations.
 
 Stack visualization tools, like the Michelson Emacs mode, print annotations associated with each type in the program, as propagated by the type checker as well as variable annotations on the types of elements in the stack. This is especially useful for debugging.
 

@@ -3,23 +3,13 @@ id: tutorial
 title: Tutorial
 ---
 
-This section intends to introduce main concepts of the Michelson language. It begins with basics of **stack manipulation** then focus on primitive types and more complex **data structures** that can be modeled; and finally focus on specific features related to smart contracts concept.
-
-Here is an overview the sub-sections of this "Tutorial" section:
-- Stack programming
-- Primitive types support
-- Working with complex data structures
-- Contract specific types and operations
-- Functions (Lambda)
-- Iterative processing
-
-
+This section introduces the main concepts of the Michelson language. It begins with the basics of **stack manipulation** then focuses on primitive types and more complex **data structures**. Finally the chapter focuses on specific features related to smart contracts concepts.
 
 ### Stack programming
 
 #### Basics
 
-Michelson is stack-based language which means that all data (variables of the program) will be stacked on a single pile. Therefore the Michelson language provides stack operators for reorganizing elements of the stack and other kind of operators which consumes top elements of the stack. In this section basic stack-manipulation operators will be introduced and illustrated with simple examples. In a second time, the focus will be put on arithmetic operators and conditional branching.
+Michelson is a stack-based language, which means that all data (variables of the program) will be stacked on a single pile. Therefore the Michelson language provides stack operators for reorganizing elements of the stack and other kind of operators which consumes top elements of the stack. In this section basic stack-manipulation operators will be introduced and illustrated with simple examples. In a second time, the focus will be put on arithmetic operators and conditional branching.
 
 ##### Basic stack operators (PUSH DROP SWAP)
 
@@ -411,20 +401,20 @@ There are two number types in Michelson. The _nat_ type represents natural integ
 
 Standard arithmetic operations are supported by the Michelson language on _nat_ and _int_ types.
 
-The `ADD` instruction computes additions on _nat_ and _int_. It consumes the top two element of the stack and pushes back the addition of the two element on top of the stack.
+The `ADD` instruction computes additions on _nat_ and _int_. It consumes the top two elements of the stack and pushes back the addition of the two elements on top of the stack.
 
 ![](../../static/img/michelson/michelson_instruction_add_example.svg)
 <small className="figure">FIGURE 16: Illustration of the `ADD` instruction</small>
 
 
-The `SUB` instruction computes subtractions on _nat_ and _int_. It consumes the top two element of the stack and pushes back the difference of the two element on top of the stack.
+The `SUB` instruction computes subtractions on _nat_ and _int_. It consumes the top two elements of the stack and pushes back the difference of the two elements on top of the stack.
 
-Notice that the subtraction of two natural integers produces an integer, (since expression `2 - 4` produces an number smaller than 0).
+Notice that the subtraction of two natural integers produces an integer (since the expression `2 - 4` produces an number smaller than 0).
 
 ![](../../static/img/michelson/michelson_instruction_sub_example.svg)
 <small className="figure">FIGURE 17: Illustration of the `SUB` instruction</small>
 
-The `MUL` instruction computes multiplications on _nat_ and _int_. It consumes the top two element of the stack and pushes back the product of the two element on top of the stack.
+The `MUL` instruction computes multiplications on _nat_ and _int_. It consumes the top two elements of the stack and pushes back the product of the two elements on top of the stack.
 
 Notice similarly that the multiplication of a natural integer and an integer produces an integer.
 
@@ -433,7 +423,7 @@ Notice similarly that the multiplication of a natural integer and an integer pro
 
 The `EDIV` instruction computes euclidean divisions on _nat_. The euclidean division computes the quotient and the remainder between two numbers.
 
-If the divisor is equal to zero, then it returns an optional type with the assigned value _None_. Otherwise, it applies the Euclidean division and returns an optional type containing the resulting  value (Pair quotient remainder). 
+If the divisor is equal to zero, it returns an optional type with the assigned value _None_. Otherwise, it applies the Euclidean division and returns an optional type containing the result (quotient and remainder). 
 
 ![](../../static/img/michelson/michelson_instruction_ediv_example.svg)
 <small className="figure">FIGURE 19: Illustration of the `EDIV` instruction</small>
@@ -478,7 +468,7 @@ PUSH string "Hello World"
 The `SIZE` instruction consumes a string of the top of the stack and pushes the number of characters contained in the string element.
 
 
-The `CONCAT` instruction concatenates strings. It consumes the two top element and produces a string (concatenation of the two top element) that is placed on top of the stack. The `CONCAT` instruction also works with a list of strings. 
+The `CONCAT` instruction concatenates strings. It consumes the two top elements and produces a string (concatenation of the two top element) that is placed on top of the stack. The `CONCAT` instruction also works with a list of strings. 
 
 For example, the following smart contract concatenates a given string at the end of the storage.
 
@@ -590,7 +580,7 @@ Notice that the storage (i.e. a list of timestamps) is initialized with a _times
 
 ##### Standard timestamp operations
 
-The `ADD` instruction increments a timestamp of the given number of seconds. The number of seconds must be expressed as a type `int`. Addition of timestamp does not accept a number of seconds as `nat`.
+The `ADD` instruction increments a timestamp of the given number of seconds. The number of seconds must be expressed as an `int` and not as a `nat`.
 
 The `SUB` instruction subtracts a number of seconds from a timestamp. It can also be used to subtract two timestamps.
 
@@ -645,7 +635,7 @@ The `SIZE` instruction computes the size of a sequence of bytes. It consumes a b
 
 
 The `SLICE` instruction provides a way to retrieve a part of a byte sequence.
-It expects following elements on top of the stack:
+It expects the following elements on top of the stack:
 - an `offset`, indicating the beginning of the byte sequence 
 - a `length`, indicating the size of the sub-sequence
 - a `byte sequence` to slice
@@ -1041,8 +1031,7 @@ It consumes a type definition on top of the stack and pushes a union where the l
 ![](../../static/img/michelson/michelson_instruction_left.svg)
 <small className="figure">FIGURE 28: Illustration of the `LEFT` instruction</small>
 
-Illustration of `LEFT` usage can be seen in the examples section.
-
+Usage of the `LEFT` instruction is illustrated in the example section.
 
 The `RIGHT p` instruction takes the top-element of the stack and produces a *union*. 
 The top-element is placed in the left branch of the `or` structure and the right branch is typed with the given `p` argument.
@@ -1052,7 +1041,7 @@ It consumes a type definition on top of the stack and pushes a union where the r
 ![](../../static/img/michelson/michelson_instruction_right.svg)
 <small className="figure">FIGURE 28: Illustration of the `RIGHT` instruction</small>
 
-Illustration of `RIGHT` usage can be seen in the examples section.
+Usage of the `RIGHT` instruction is illustrated in the example section.
 
 Now that the creation of a _union_ is described, let's see how to inspect a _union_.
 
@@ -1116,20 +1105,20 @@ Mutez (micro-Tez) are internally represented by a 64-bit, signed integer. There 
 
 Standard operations on currency are supported by the Michelson language. These operators are more restricted than for integers.
 
-The `ADD` instruction computes additions on mutez. It consumes two _mutez_ element on top of the stack and pushes back the addition of the two quantity on top of the stack.
+The `ADD` instruction computes additions on mutez. It consumes two _mutez_ elements on top of the stack and pushes back the addition of the two quantities on top of the stack.
 This operation may fail in case of overflow.
 
-The `SUB` instruction computes subtractions on mutez. It consumes two _mutez_ element on top of the stack and pushes back the difference of the two quantity on top of the stack.
+The `SUB` instruction computes subtractions on mutez. It consumes two _mutez_ elements on top of the stack and pushes back the difference of the two quantities on top of the stack.
 A _mutez_ value cannot be negative so this subtraction may fail if the first value is smaller than the second one.
 
 
-The `MUL` instruction computes multiplications on mutez. It consumes a _mutez_and a _nat_ element on top of the stack and pushes back the product of the two quantity on top of the stack.
+The `MUL` instruction computes multiplications on mutez. It consumes a _mutez_ and a _nat_ elements on top of the stack and pushes back the product of the two quantities on top of the stack.
 The multiplication allows mutez to be multiplied with natural integers.
 Multiplication of 2 `mutez` operands is not allowed. 
 
 
-The `EDIV` instruction computes the euclidean division on mutez. It consumes a _mutez_and a _nat_ element on top of the stack and pushes back a `pair` with the quotient and the reminder (of the two elements) on top of the stack.
-The euclidean division allows a mutez to be divided by a natural integer. It is also possible to divide 2 mutez, in this case it returns a `nat` as a quotient and a mutez standing for the rest of the euclidean division.
+The `EDIV` instruction computes the euclidean division on mutez. It consumes a _mutez_ and a _nat_ elements on top of the stack and pushes back a `pair` with the quotient and the reminder (of the two elements) on top of the stack.
+The euclidean division allows a mutez to be divided by a natural integer. It is also possible to divide 2 mutez, in this case it returns a `nat` as a quotient and a mutez as the rest of the euclidean division.
 
 
 The `COMPARE` instruction compares two mutez and returns an integer on top of the stack. It returns 0 if both elements are equal, 1 if the first element is bigger than the second, and -1 otherwise. 
@@ -1171,7 +1160,7 @@ Communication between contracts (and accounts) are done via transactions. The Mi
 
 The `TRANSFER_TOKENS` instruction forges a transaction. In Michelson, the `operation` type represents a transaction. 
 Forging a transaction requires the following to be specified: 
-- the *parameter* (i.e. the entry point expected by the targeted contract)
+- the *parameter* (i.e. the entrypoint expected by the targeted contract)
 - a *quantity of mutez* transferred by this transaction
 - a *recipient contract* representing the target of the transaction (i.e. to which contract this transaction will be sent)
 
@@ -1335,8 +1324,8 @@ emitted operations
 
 The `ADDRESS` instruction casts the contract to its address. It consumes a contract on top of the stack and pushes back the address of the contract.
 
-The `SELF` instruction pushes the default entry point of a contract on top of the stack. This default entry point specifies the expected parameter type. 
-The `SELF 'p` instruction allows to take a entry point name 'p as argument. In this case, it pushed the specified entrypoint on top of the stack. 
+The `SELF` instruction pushes the default entrypoint of a contract on top of the stack. This default entrypoint specifies the expected parameter type. 
+The `SELF 'p` instruction allows to take a entrypoint name 'p as argument. In this case, it pushed the specified entrypoint on top of the stack. 
 
 
 

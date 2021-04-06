@@ -7,11 +7,11 @@ The Michelson language is the reference language for Tezos smart contracts. It i
 
 ## Smart contract
 
-The main goal of the Michelson language is to model smart contracts, i.e. to model complex data structures and to design complex processes on these data. Once a smart contract is deployed on the Tezos network, it can be invoked and thus triggers a modification of data of the smart contract. 
+The main goal of the Michelson language is to model smart contracts, i.e. to model complex data structures and to design complex processes on these data. Once a smart contract is deployed on the Tezos network, it can be invoked and trigger modifications of the data of the smart contract. 
 
 A persistent memory space (called **storage**) is associated with a Tezos smart contract and holds the data of the smart contract. This storage is stored on the blockchain.
 
-A smart contract must provide a list of invocable functions of the smart contract (called **entrypoints**) and instructions (that modifies the storage) for each entry point.
+A smart contract must provide a list of invocable functions of the smart contract (called **entrypoints**) and instructions (that modifies the storage) for each entrypoint.
 
 These concepts of _storage_ and _entrypoint_ are described in the "Smart contract" section.
 

@@ -186,6 +186,11 @@
               "sidebar": "docs"
             },
             {
+              "id": "michelson/tutorial",
+              "path": "/michelson/tutorial",
+              "sidebar": "docs"
+            },
+            {
               "id": "private/exam",
               "path": "/private/exam",
               "sidebar": "docs"

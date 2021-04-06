@@ -3,7 +3,7 @@ id: smart_contracts
 title: Smart Contracts
 ---
 
-## Smart contract
+## Smart contracts in Michelson
 
 Michelson is a domain-specific language and is designed for implementing smart contracts. Tezos smart contracts contain three main pieces of information:
 - the **parameter** of the smart contract which describes the possible invocations of the smart contract (often called **entrypoints**)
@@ -22,14 +22,14 @@ code { CDR ;
 
 These three instructions will be described later in the "invocation" sub-section of this chapter and in the "Instructions" section.
 
-### Entry point
+### Entrypoint
 
 The **parameter** of the smart contract describes all possible invocations of the smart contract.
 An entrypoint is a invocable function of the smart contract which takes arguments. These arguments are specific to the entrypoint.
 
 Each entrypoint is composed of:
 - the type definition of the expected argument of the entrypoint 
-- the annotation (name) of the entrypoint.
+- the annotation (name) of the entrypoint
 
 
 The example below (Counter contract) shows a simple smart contract implementing a counter: 
@@ -44,7 +44,7 @@ The example below (Counter contract) shows a simple smart contract implementing 
          NIL operation ; PAIR } }
 ```
 
-Notice that in Counter contract the parameter describing possible invocations is defined as:
+Notice that in the Counter contract the parameter describing possible invocations is defined as:
 
 ```js
 (or (or (nat %add) (nat %sub)) (unit %default))
@@ -54,13 +54,13 @@ The three possible invocations (add, sub, and default) are specified in a single
 Since _or_ is a two-operand operator, we need a nested _or_ structure to represent 3 or more elements.
 
 ![](../../static/img/michelson/michelson_entrypoint_or_example.svg)
-<small className="figure">FIGURE 1: Representation of the _or_ structure and how to specify the corresponding entry points (the identification of related entry points)</small>
+<small className="figure">FIGURE 1: Representation of the _or_ structure and how to specify the corresponding entrypoints (the identification of related entrypoints)</small>
 
 We will delve into this more deeply in the code portion of the "union" section.
 
 ### Storage
 
-The **storage** is a persistent memory space associated to the smart contract when deployed. The data structure of the storage is defined in the smart contract during the deployment phase.
+The **storage** is a persistent memory space associated with the smart contract when deployed. The data structure of the storage is defined in the smart contract during the deployment phase.
 
 Notice that in the Counter contract (above) the type definition describing the storage is:
 
@@ -76,18 +76,15 @@ We will delve into this more deeply in the code portion of the "instructions" se
 
 ## Address and balance
 
-In order to ba accessible to anyone on the Tezos network , a smart contract must be deployed. This deployment phase is called **origination**.
-
-We will delve into this more deeply in the Tezos-basics chapter ("CLI and RPC" section).
+In order to be accessible to anyone on the Tezos network, a smart contract must be deployed. This deployment phase is called **origination**.
 
 Tezos smart contracts have built-in internal information available once the smart contract has been deployed:
-- the **address** of the smart contract is a unique identifier  
+- the **address** of the smart contract is a unique identifier.
 - the **balance** represents the quantity of XTZ associated with a smart contract. The smallest divisible part is a mutez (1 tez = 1,000,000 mutez).
-
 
 ## Stack-based language
 
-Generally a _stack_ data structure is a linear collection of elements where elements can be added or removed with `PUSH` and `POP` instructions. In the Michelson language, elements can be pushed to the top of the pile (with `PUSH`) or removed from the top of the pile (with `DROP`). This kind of stack is called LIFO (Last In First Out).
+Generally speaking, a _stack_ data structure is a linear collection of elements which can be added or removed respectively with the `PUSH` and `POP` instruction. In the Michelson language, elements can be pushed to the top of the pile or removed from the top of the pile. This kind of stack is called LIFO (Last In First Out).
 
 ![](../../static/img/michelson/michelson_stack_basics.svg)
 <small className="figure">FIGURE 2: Illustration of a stack</small>
@@ -97,7 +94,7 @@ The _Instructions_ section describes basic stack manipulations allowed by the Mi
 ## Invocation and transaction return (list of operations, storage)
 
 The **invocation** of a smart contract is an explicit call for executing the code of the smart contract. It requires a call parameter which is a tuple of two elements (`PAIR`) containing:
-- a value of the entry point
+- a value of the entrypoint
 - the value of the storage (current storage state)
 
 The invocation of the smart contract is expected to produce a tuple of two elements (`PAIR`) containing:
