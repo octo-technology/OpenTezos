@@ -143,7 +143,31 @@
                   },
                   {
                     "type": "doc",
+                    "id": "ligo/installation"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "ligo/language-basics"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "ligo/deploy-a-contract"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "ligo/unit-testing"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "ligo/examples"
+                  },
+                  {
+                    "type": "doc",
                     "id": "ligo/exam"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "ligo/take-away"
                   }
                 ]
               },
@@ -158,11 +182,11 @@
                   },
                   {
                     "type": "doc",
-                    "id": "michelson/fundamentals"
+                    "id": "michelson/language-basics"
                   },
                   {
                     "type": "doc",
-                    "id": "michelson/smart_contracts"
+                    "id": "michelson/smart-contracts"
                   },
                   {
                     "type": "doc",
@@ -170,7 +194,7 @@
                   },
                   {
                     "type": "doc",
-                    "id": "michelson/instructions"
+                    "id": "michelson/instructions-reference"
                   },
                   {
                     "type": "doc",
@@ -352,14 +376,20 @@
             "/explorer": "docs",
             "/formal-verification/exam": "docs",
             "/formal-verification": "docs",
+            "/ligo/deploy-a-contract": "docs",
             "/ligo/exam": "docs",
+            "/ligo/examples": "docs",
+            "/ligo/installation": "docs",
             "/ligo": "docs",
+            "/ligo/language-basics": "docs",
+            "/ligo/take-away": "docs",
+            "/ligo/unit-testing": "docs",
             "/michelson/exam": "docs",
             "/michelson/examples": "docs",
-            "/michelson/fundamentals": "docs",
-            "/michelson/instructions": "docs",
+            "/michelson/instructions-reference": "docs",
             "/michelson": "docs",
-            "/michelson/smart_contracts": "docs",
+            "/michelson/language-basics": "docs",
+            "/michelson/smart-contracts": "docs",
             "/michelson/take-away": "docs",
             "/michelson/tutorial": "docs",
             "/private/exam": "docs",
@@ -590,7 +620,7 @@
               "id": "defi/cross-chain-swaps",
               "isDocsHomePage": false,
               "title": "Cross-chain Swaps",
-              "description": "A cross-chain swap (also referred as Atomic Swap) refers to the action of exchanging two different cryptocurrencies through a peer-to-peer form. This process enable two parties to exchange between each other trustless and w/o third-party moderation. Today, TEZEX is currently in development and will enable cross-chain swaps.",
+              "description": "DEXs as seen previously are limited to exchanges of tokens within the same blockchain. DEXs on Tezos only work with FA1.2 or FA2 tokens. So what if we want to exchange some XTZ against some ETH? One solution is to use wrapped assets as seen in the previous chapter and actually exchange wrapped XTZ (wXTZ) against Wrapped ETH (ETHtz) on a DEX. Another solution is to do a cross-chain swap.",
               "source": "@site/docs/defi/cross-chain-swaps.md",
               "slug": "/defi/cross-chain-swaps",
               "permalink": "/defi/cross-chain-swaps",
@@ -922,6 +952,27 @@
               }
             },
             {
+              "unversionedId": "ligo/deploy-a-contract",
+              "id": "ligo/deploy-a-contract",
+              "isDocsHomePage": false,
+              "title": "Deploy a contract",
+              "description": "Smart Contract",
+              "source": "@site/docs/ligo/deploy-a-contract.md",
+              "slug": "/ligo/deploy-a-contract",
+              "permalink": "/ligo/deploy-a-contract",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/deploy-a-contract.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Language basics",
+                "permalink": "/ligo/language-basics"
+              },
+              "next": {
+                "title": "Unit Testing with PyTezos",
+                "permalink": "/ligo/unit-testing"
+              }
+            },
+            {
               "unversionedId": "ligo/exam",
               "id": "ligo/exam",
               "isDocsHomePage": false,
@@ -934,12 +985,54 @@
               "version": "current",
               "sidebar": "docs",
               "previous": {
+                "title": "Examples",
+                "permalink": "/ligo/examples"
+              },
+              "next": {
+                "title": "Take Away",
+                "permalink": "/ligo/take-away"
+              }
+            },
+            {
+              "unversionedId": "ligo/examples",
+              "id": "ligo/examples",
+              "isDocsHomePage": false,
+              "title": "Examples",
+              "description": "Function",
+              "source": "@site/docs/ligo/examples.md",
+              "slug": "/ligo/examples",
+              "permalink": "/ligo/examples",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/examples.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Unit Testing with PyTezos",
+                "permalink": "/ligo/unit-testing"
+              },
+              "next": {
+                "title": "Exam",
+                "permalink": "/ligo/exam"
+              }
+            },
+            {
+              "unversionedId": "ligo/installation",
+              "id": "ligo/installation",
+              "isDocsHomePage": false,
+              "title": "Installation",
+              "description": "There are currently three ways to get started with LIGO. You can choose to use a Docker image, a static Linux binary or to install packages for your Debian Linux distribution.",
+              "source": "@site/docs/ligo/installation.md",
+              "slug": "/ligo/installation",
+              "permalink": "/ligo/installation",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/installation.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
                 "title": "Introduction",
                 "permalink": "/ligo"
               },
               "next": {
-                "title": "Introduction",
-                "permalink": "/michelson"
+                "title": "Language basics",
+                "permalink": "/ligo/language-basics"
               }
             },
             {
@@ -947,7 +1040,7 @@
               "id": "ligo/introduction",
               "isDocsHomePage": false,
               "title": "Introduction",
-              "description": "Under construction.",
+              "description": "The goal of this module is to allow a developer to install LIGO transpiler on his operating system",
               "source": "@site/docs/ligo/introduction.md",
               "slug": "/ligo",
               "permalink": "/ligo",
@@ -959,8 +1052,71 @@
                 "permalink": "/smartpy/exam"
               },
               "next": {
+                "title": "Installation",
+                "permalink": "/ligo/installation"
+              }
+            },
+            {
+              "unversionedId": "ligo/language-basics",
+              "id": "ligo/language-basics",
+              "isDocsHomePage": false,
+              "title": "Language basics",
+              "description": "In this chapter, all the following examples will use the PascaLigo syntax.",
+              "source": "@site/docs/ligo/language-basics.md",
+              "slug": "/ligo/language-basics",
+              "permalink": "/ligo/language-basics",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/language-basics.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Installation",
+                "permalink": "/ligo/installation"
+              },
+              "next": {
+                "title": "Deploy a contract",
+                "permalink": "/ligo/deploy-a-contract"
+              }
+            },
+            {
+              "unversionedId": "ligo/take-away",
+              "id": "ligo/take-away",
+              "isDocsHomePage": false,
+              "title": "Take Away",
+              "description": "- LIGO is a programming language for writing Tezos smart contracts.",
+              "source": "@site/docs/ligo/take-away.md",
+              "slug": "/ligo/take-away",
+              "permalink": "/ligo/take-away",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/take-away.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
                 "title": "Exam",
                 "permalink": "/ligo/exam"
+              },
+              "next": {
+                "title": "Introduction",
+                "permalink": "/michelson"
+              }
+            },
+            {
+              "unversionedId": "ligo/unit-testing",
+              "id": "ligo/unit-testing",
+              "isDocsHomePage": false,
+              "title": "Unit Testing with PyTezos",
+              "description": "Unit Testing",
+              "source": "@site/docs/ligo/unit-testing.md",
+              "slug": "/ligo/unit-testing",
+              "permalink": "/ligo/unit-testing",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/unit-testing.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Deploy a contract",
+                "permalink": "/ligo/deploy-a-contract"
+              },
+              "next": {
+                "title": "Examples",
+                "permalink": "/ligo/examples"
               }
             },
             {
@@ -998,7 +1154,7 @@
               "sidebar": "docs",
               "previous": {
                 "title": "Instructions Reference",
-                "permalink": "/michelson/instructions"
+                "permalink": "/michelson/instructions-reference"
               },
               "next": {
                 "title": "Exam",
@@ -1006,36 +1162,15 @@
               }
             },
             {
-              "unversionedId": "michelson/fundamentals",
-              "id": "michelson/fundamentals",
-              "isDocsHomePage": false,
-              "title": "Language fundamentals",
-              "description": "The Michelson language is the reference language for Tezos smart contracts. It is a low-level stack-based language and is also a Turing-complete language. This means it has basic operations allowing to read/write/compare values in-memory, has infinite memory, and allows conditional operators (e.g. if, switch instructions)",
-              "source": "@site/docs/michelson/language_fundamentals.md",
-              "slug": "/michelson/fundamentals",
-              "permalink": "/michelson/fundamentals",
-              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/michelson/language_fundamentals.md",
-              "version": "current",
-              "sidebar": "docs",
-              "previous": {
-                "title": "Introduction",
-                "permalink": "/michelson"
-              },
-              "next": {
-                "title": "Smart Contracts",
-                "permalink": "/michelson/smart_contracts"
-              }
-            },
-            {
-              "unversionedId": "michelson/instructions",
-              "id": "michelson/instructions",
+              "unversionedId": "michelson/instructions-reference",
+              "id": "michelson/instructions-reference",
               "isDocsHomePage": false,
               "title": "Instructions Reference",
               "description": "This chapter provides an explicit list of all the most commonly used instructions in Michelson. It is not intended for you to read it as is but to use it as a reference during your developments.",
-              "source": "@site/docs/michelson/instructions.md",
-              "slug": "/michelson/instructions",
-              "permalink": "/michelson/instructions",
-              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/michelson/instructions.md",
+              "source": "@site/docs/michelson/instructions-reference.md",
+              "slug": "/michelson/instructions-reference",
+              "permalink": "/michelson/instructions-reference",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/michelson/instructions-reference.md",
               "version": "current",
               "sidebar": "docs",
               "previous": {
@@ -1060,29 +1195,50 @@
               "version": "current",
               "sidebar": "docs",
               "previous": {
-                "title": "Exam",
-                "permalink": "/ligo/exam"
+                "title": "Take Away",
+                "permalink": "/ligo/take-away"
               },
               "next": {
-                "title": "Language fundamentals",
-                "permalink": "/michelson/fundamentals"
+                "title": "Language Basics",
+                "permalink": "/michelson/language-basics"
               }
             },
             {
-              "unversionedId": "michelson/smart_contracts",
-              "id": "michelson/smart_contracts",
+              "unversionedId": "michelson/language-basics",
+              "id": "michelson/language-basics",
               "isDocsHomePage": false,
-              "title": "Smart Contracts",
-              "description": "Smart contracts in Michelson",
-              "source": "@site/docs/michelson/smart_contracts.md",
-              "slug": "/michelson/smart_contracts",
-              "permalink": "/michelson/smart_contracts",
-              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/michelson/smart_contracts.md",
+              "title": "Language Basics",
+              "description": "The Michelson language is the reference language for Tezos smart contracts. It is a low-level stack-based language and is also a Turing-complete language. This means it has basic operations allowing to read/write/compare values in-memory, has infinite memory, and allows conditional operators (e.g. if, switch instructions)",
+              "source": "@site/docs/michelson/language-basics.md",
+              "slug": "/michelson/language-basics",
+              "permalink": "/michelson/language-basics",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/michelson/language-basics.md",
               "version": "current",
               "sidebar": "docs",
               "previous": {
-                "title": "Language fundamentals",
-                "permalink": "/michelson/fundamentals"
+                "title": "Introduction",
+                "permalink": "/michelson"
+              },
+              "next": {
+                "title": "Smart Contracts",
+                "permalink": "/michelson/smart-contracts"
+              }
+            },
+            {
+              "unversionedId": "michelson/smart-contracts",
+              "id": "michelson/smart-contracts",
+              "isDocsHomePage": false,
+              "title": "Smart Contracts",
+              "description": "Smart contracts in Michelson",
+              "source": "@site/docs/michelson/smart-contracts.md",
+              "slug": "/michelson/smart-contracts",
+              "permalink": "/michelson/smart-contracts",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/michelson/smart-contracts.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Language Basics",
+                "permalink": "/michelson/language-basics"
               },
               "next": {
                 "title": "Tutorial",
@@ -1095,10 +1251,10 @@
               "isDocsHomePage": false,
               "title": "Take away",
               "description": "- Smart contracts in Tezos are implemented in the Michelson language which is a stack-based strongly-typed language.",
-              "source": "@site/docs/michelson/take_away.md",
+              "source": "@site/docs/michelson/take-away.md",
               "slug": "/michelson/take-away",
               "permalink": "/michelson/take-away",
-              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/michelson/take_away.md",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/michelson/take-away.md",
               "version": "current",
               "sidebar": "docs",
               "previous": {
@@ -1124,11 +1280,11 @@
               "sidebar": "docs",
               "previous": {
                 "title": "Smart Contracts",
-                "permalink": "/michelson/smart_contracts"
+                "permalink": "/michelson/smart-contracts"
               },
               "next": {
                 "title": "Instructions Reference",
-                "permalink": "/michelson/instructions"
+                "permalink": "/michelson/instructions-reference"
               }
             },
             {

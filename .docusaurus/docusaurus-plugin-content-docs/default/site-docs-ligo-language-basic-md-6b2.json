@@ -1,0 +1,21 @@
+{
+  "unversionedId": "ligo/language_basics",
+  "id": "ligo/language_basics",
+  "isDocsHomePage": false,
+  "title": "Language basics",
+  "description": "In this chapter, all the following examples will use the PascaLigo syntax.",
+  "source": "@site/docs/ligo/language_basic.md",
+  "slug": "/ligo/language_basics",
+  "permalink": "/ligo/language_basics",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/language_basic.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Installation",
+    "permalink": "/ligo/installation"
+  },
+  "next": {
+    "title": "Introduction",
+    "permalink": "/michelson"
+  }
+}

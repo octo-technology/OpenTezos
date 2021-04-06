@@ -12,10 +12,10 @@
   "sidebar": "docs",
   "previous": {
     "title": "Smart Contracts",
-    "permalink": "/michelson/smart_contracts"
+    "permalink": "/michelson/smart-contracts"
   },
   "next": {
     "title": "Instructions Reference",
-    "permalink": "/michelson/instructions"
+    "permalink": "/michelson/instructions-reference"
   }
 }

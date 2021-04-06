@@ -1,6 +1,6 @@
 ---
-id: unit_testing
-title: Unit Testing (PyTezos)
+id: unit-testing
+title: Unit Testing with PyTezos
 ---
 
 ## Unit Testing
@@ -223,13 +223,13 @@ Remember to recompile after any modification of the contract.
 
 **PyTezos** allows to interpret michelson code, so here are the equivalences:
 
-|   Michelson    |   Python   |
-|:-:             |:---:       |
-|    List, Set   |   []       |
-|    Big_map     |   ()       |
-|    String      |   String   |
-|    Number      |   Integer  |
-|    mutez, tez  |   Interpreted as Integer by `.interpret()`  |
+| Michelson  |                  Python                  |
+| :--------: | :--------------------------------------: |
+| List, Set  |                    []                    |
+|  Big_map   |                    ()                    |
+|   String   |                  String                  |
+|   Number   |                 Integer                  |
+| mutez, tez | Interpreted as Integer by `.interpret()` |
 
 ### Counter Contract Example
 

@@ -1,0 +1,21 @@
+{
+  "unversionedId": "michelson/instructions-reference",
+  "id": "michelson/instructions-reference",
+  "isDocsHomePage": false,
+  "title": "Instructions Reference",
+  "description": "This chapter provides an explicit list of all the most commonly used instructions in Michelson. It is not intended for you to read it as is but to use it as a reference during your developments.",
+  "source": "@site/docs/michelson/instructions-reference.md",
+  "slug": "/michelson/instructions-reference",
+  "permalink": "/michelson/instructions-reference",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/michelson/instructions-reference.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Tutorial",
+    "permalink": "/michelson/tutorial"
+  },
+  "next": {
+    "title": "Examples",
+    "permalink": "/michelson/examples"
+  }
+}

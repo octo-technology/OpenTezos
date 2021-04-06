@@ -1,5 +1,5 @@
 ---
-id: instructions
+id: instructions-reference
 title: Instructions Reference
 ---
 

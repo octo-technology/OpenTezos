@@ -11,11 +11,11 @@
   "version": "current",
   "sidebar": "docs",
   "previous": {
-    "title": "Exam",
-    "permalink": "/ligo/exam"
+    "title": "Take Away",
+    "permalink": "/ligo/take-away"
   },
   "next": {
-    "title": "Language fundamentals",
-    "permalink": "/michelson/fundamentals"
+    "title": "Language Basics",
+    "permalink": "/michelson/language-basics"
   }
 }

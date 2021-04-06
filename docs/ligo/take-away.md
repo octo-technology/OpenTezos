@@ -1,5 +1,5 @@
 ---
-id: take_away
+id: take-away
 title: Take Away
 ---
 

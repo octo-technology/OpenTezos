@@ -3,7 +3,7 @@
   "id": "defi/cross-chain-swaps",
   "isDocsHomePage": false,
   "title": "Cross-chain Swaps",
-  "description": "A cross-chain swap (also referred as Atomic Swap) refers to the action of exchanging two different cryptocurrencies through a peer-to-peer form. This process enable two parties to exchange between each other trustless and w/o third-party moderation. Today, TEZEX is currently in development and will enable cross-chain swaps.",
+  "description": "DEXs as seen previously are limited to exchanges of tokens within the same blockchain. DEXs on Tezos only work with FA1.2 or FA2 tokens. So what if we want to exchange some XTZ against some ETH? One solution is to use wrapped assets as seen in the previous chapter and actually exchange wrapped XTZ (wXTZ) against Wrapped ETH (ETHtz) on a DEX. Another solution is to do a cross-chain swap.",
   "source": "@site/docs/defi/cross-chain-swaps.md",
   "slug": "/defi/cross-chain-swaps",
   "permalink": "/defi/cross-chain-swaps",

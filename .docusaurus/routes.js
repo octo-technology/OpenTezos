@@ -39,7 +39,7 @@ export default [
 },
 {
   path: '/',
-  component: ComponentCreator('/','1ca'),
+  component: ComponentCreator('/','249'),
   
   routes: [
 {
@@ -183,8 +183,38 @@ export default [
   exact: true,
 },
 {
+  path: '/ligo/deploy-a-contract',
+  component: ComponentCreator('/ligo/deploy-a-contract','cc7'),
+  exact: true,
+},
+{
   path: '/ligo/exam',
   component: ComponentCreator('/ligo/exam','85a'),
+  exact: true,
+},
+{
+  path: '/ligo/examples',
+  component: ComponentCreator('/ligo/examples','024'),
+  exact: true,
+},
+{
+  path: '/ligo/installation',
+  component: ComponentCreator('/ligo/installation','d04'),
+  exact: true,
+},
+{
+  path: '/ligo/language-basics',
+  component: ComponentCreator('/ligo/language-basics','c54'),
+  exact: true,
+},
+{
+  path: '/ligo/take-away',
+  component: ComponentCreator('/ligo/take-away','3aa'),
+  exact: true,
+},
+{
+  path: '/ligo/unit-testing',
+  component: ComponentCreator('/ligo/unit-testing','e9e'),
   exact: true,
 },
 {
@@ -203,23 +233,23 @@ export default [
   exact: true,
 },
 {
-  path: '/michelson/fundamentals',
-  component: ComponentCreator('/michelson/fundamentals','de5'),
+  path: '/michelson/instructions-reference',
+  component: ComponentCreator('/michelson/instructions-reference','25f'),
   exact: true,
 },
 {
-  path: '/michelson/instructions',
-  component: ComponentCreator('/michelson/instructions','e1c'),
+  path: '/michelson/language-basics',
+  component: ComponentCreator('/michelson/language-basics','857'),
   exact: true,
 },
 {
-  path: '/michelson/smart_contracts',
-  component: ComponentCreator('/michelson/smart_contracts','24d'),
+  path: '/michelson/smart-contracts',
+  component: ComponentCreator('/michelson/smart-contracts','71a'),
   exact: true,
 },
 {
   path: '/michelson/take-away',
-  component: ComponentCreator('/michelson/take-away','57c'),
+  component: ComponentCreator('/michelson/take-away','477'),
   exact: true,
 },
 {

@@ -3,7 +3,7 @@
   "id": "ligo/introduction",
   "isDocsHomePage": false,
   "title": "Introduction",
-  "description": "Under construction.",
+  "description": "The goal of this module is to allow a developer to install LIGO transpiler on his operating system",
   "source": "@site/docs/ligo/introduction.md",
   "slug": "/ligo",
   "permalink": "/ligo",
@@ -15,7 +15,7 @@
     "permalink": "/smartpy/exam"
   },
   "next": {
-    "title": "Exam",
-    "permalink": "/ligo/exam"
+    "title": "Installation",
+    "permalink": "/ligo/installation"
   }
 }

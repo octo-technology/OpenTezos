@@ -1,5 +1,5 @@
 ---
-id: deploy_a_contract
+id: deploy-a-contract
 title: Deploy a contract
 ---
 

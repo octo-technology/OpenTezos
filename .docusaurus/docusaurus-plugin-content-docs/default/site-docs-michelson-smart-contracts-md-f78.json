@@ -1,0 +1,21 @@
+{
+  "unversionedId": "michelson/smart-contracts",
+  "id": "michelson/smart-contracts",
+  "isDocsHomePage": false,
+  "title": "Smart Contracts",
+  "description": "Smart contracts in Michelson",
+  "source": "@site/docs/michelson/smart-contracts.md",
+  "slug": "/michelson/smart-contracts",
+  "permalink": "/michelson/smart-contracts",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/michelson/smart-contracts.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Language Basics",
+    "permalink": "/michelson/language-basics"
+  },
+  "next": {
+    "title": "Tutorial",
+    "permalink": "/michelson/tutorial"
+  }
+}

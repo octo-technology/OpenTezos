@@ -1,0 +1,21 @@
+{
+  "unversionedId": "ligo/installation",
+  "id": "ligo/installation",
+  "isDocsHomePage": false,
+  "title": "Installation",
+  "description": "There are currently three ways to get started with LIGO. You can choose to use a Docker image, a static Linux binary or to install packages for your Debian Linux distribution.",
+  "source": "@site/docs/ligo/installation.md",
+  "slug": "/ligo/installation",
+  "permalink": "/ligo/installation",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/installation.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Introduction",
+    "permalink": "/ligo"
+  },
+  "next": {
+    "title": "Language basics",
+    "permalink": "/ligo/language-basics"
+  }
+}

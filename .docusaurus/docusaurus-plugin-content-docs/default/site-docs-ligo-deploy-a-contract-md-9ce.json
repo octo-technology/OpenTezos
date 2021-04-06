@@ -1,0 +1,21 @@
+{
+  "unversionedId": "ligo/deploy-a-contract",
+  "id": "ligo/deploy-a-contract",
+  "isDocsHomePage": false,
+  "title": "Deploy a contract",
+  "description": "Smart Contract",
+  "source": "@site/docs/ligo/deploy-a-contract.md",
+  "slug": "/ligo/deploy-a-contract",
+  "permalink": "/ligo/deploy-a-contract",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/deploy-a-contract.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Language basics",
+    "permalink": "/ligo/language-basics"
+  },
+  "next": {
+    "title": "Unit Testing with PyTezos",
+    "permalink": "/ligo/unit-testing"
+  }
+}

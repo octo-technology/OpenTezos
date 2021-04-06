@@ -1,6 +1,5 @@
 ---
-id: full_examples
-disable_pagination: true
+id: examples
 title: Examples
 ---
 

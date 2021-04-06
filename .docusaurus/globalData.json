@@ -141,13 +141,43 @@
               "sidebar": "docs"
             },
             {
+              "id": "ligo/deploy-a-contract",
+              "path": "/ligo/deploy-a-contract",
+              "sidebar": "docs"
+            },
+            {
               "id": "ligo/exam",
               "path": "/ligo/exam",
               "sidebar": "docs"
             },
             {
+              "id": "ligo/examples",
+              "path": "/ligo/examples",
+              "sidebar": "docs"
+            },
+            {
+              "id": "ligo/installation",
+              "path": "/ligo/installation",
+              "sidebar": "docs"
+            },
+            {
               "id": "ligo/introduction",
               "path": "/ligo",
+              "sidebar": "docs"
+            },
+            {
+              "id": "ligo/language-basics",
+              "path": "/ligo/language-basics",
+              "sidebar": "docs"
+            },
+            {
+              "id": "ligo/take-away",
+              "path": "/ligo/take-away",
+              "sidebar": "docs"
+            },
+            {
+              "id": "ligo/unit-testing",
+              "path": "/ligo/unit-testing",
               "sidebar": "docs"
             },
             {
@@ -161,13 +191,8 @@
               "sidebar": "docs"
             },
             {
-              "id": "michelson/fundamentals",
-              "path": "/michelson/fundamentals",
-              "sidebar": "docs"
-            },
-            {
-              "id": "michelson/instructions",
-              "path": "/michelson/instructions",
+              "id": "michelson/instructions-reference",
+              "path": "/michelson/instructions-reference",
               "sidebar": "docs"
             },
             {
@@ -176,8 +201,13 @@
               "sidebar": "docs"
             },
             {
-              "id": "michelson/smart_contracts",
-              "path": "/michelson/smart_contracts",
+              "id": "michelson/language-basics",
+              "path": "/michelson/language-basics",
+              "sidebar": "docs"
+            },
+            {
+              "id": "michelson/smart-contracts",
+              "path": "/michelson/smart-contracts",
               "sidebar": "docs"
             },
             {

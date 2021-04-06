@@ -1,0 +1,12 @@
+{
+  "unversionedId": "ligo/full_examples",
+  "id": "ligo/full_examples",
+  "isDocsHomePage": false,
+  "title": "Examples",
+  "description": "Function",
+  "source": "@site/docs/ligo/full_examples.md",
+  "slug": "/ligo/full_examples",
+  "permalink": "/ligo/full_examples",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/full_examples.md",
+  "version": "current"
+}

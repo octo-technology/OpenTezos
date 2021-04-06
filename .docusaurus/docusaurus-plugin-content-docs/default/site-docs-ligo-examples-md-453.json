@@ -1,0 +1,21 @@
+{
+  "unversionedId": "ligo/examples",
+  "id": "ligo/examples",
+  "isDocsHomePage": false,
+  "title": "Examples",
+  "description": "Function",
+  "source": "@site/docs/ligo/examples.md",
+  "slug": "/ligo/examples",
+  "permalink": "/ligo/examples",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/examples.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Unit Testing with PyTezos",
+    "permalink": "/ligo/unit-testing"
+  },
+  "next": {
+    "title": "Exam",
+    "permalink": "/ligo/exam"
+  }
+}

@@ -154,8 +154,38 @@
           },
           {
             "type": "link",
+            "label": "Installation",
+            "href": "/ligo/installation"
+          },
+          {
+            "type": "link",
+            "label": "Language basics",
+            "href": "/ligo/language-basics"
+          },
+          {
+            "type": "link",
+            "label": "Deploy a contract",
+            "href": "/ligo/deploy-a-contract"
+          },
+          {
+            "type": "link",
+            "label": "Unit Testing with PyTezos",
+            "href": "/ligo/unit-testing"
+          },
+          {
+            "type": "link",
+            "label": "Examples",
+            "href": "/ligo/examples"
+          },
+          {
+            "type": "link",
             "label": "Exam",
             "href": "/ligo/exam"
+          },
+          {
+            "type": "link",
+            "label": "Take Away",
+            "href": "/ligo/take-away"
           }
         ]
       },
@@ -171,13 +201,13 @@
           },
           {
             "type": "link",
-            "label": "Language fundamentals",
-            "href": "/michelson/fundamentals"
+            "label": "Language Basics",
+            "href": "/michelson/language-basics"
           },
           {
             "type": "link",
             "label": "Smart Contracts",
-            "href": "/michelson/smart_contracts"
+            "href": "/michelson/smart-contracts"
           },
           {
             "type": "link",
@@ -187,7 +217,7 @@
           {
             "type": "link",
             "label": "Instructions Reference",
-            "href": "/michelson/instructions"
+            "href": "/michelson/instructions-reference"
           },
           {
             "type": "link",
@@ -394,14 +424,20 @@
     "/explorer": "docs",
     "/formal-verification/exam": "docs",
     "/formal-verification": "docs",
+    "/ligo/deploy-a-contract": "docs",
     "/ligo/exam": "docs",
+    "/ligo/examples": "docs",
+    "/ligo/installation": "docs",
     "/ligo": "docs",
+    "/ligo/language-basics": "docs",
+    "/ligo/take-away": "docs",
+    "/ligo/unit-testing": "docs",
     "/michelson/exam": "docs",
     "/michelson/examples": "docs",
-    "/michelson/fundamentals": "docs",
-    "/michelson/instructions": "docs",
+    "/michelson/instructions-reference": "docs",
     "/michelson": "docs",
-    "/michelson/smart_contracts": "docs",
+    "/michelson/language-basics": "docs",
+    "/michelson/smart-contracts": "docs",
     "/michelson/take-away": "docs",
     "/michelson/tutorial": "docs",
     "/private/exam": "docs",

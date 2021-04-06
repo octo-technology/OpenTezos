@@ -1,5 +1,5 @@
 ---
-id: language_basics
+id: language-basics
 title: Language basics
 ---
 
@@ -367,17 +367,17 @@ const a : bool = True   // Also: true
 const b : bool = False  // Also: false
 ```
 
-|   Operator   |   Example                                         |
-|:-:           |---                                                |
-|    **and**   |   ```const logical_and: bool = True and True;```  |
-|    **or**    |   ```const logical_or: bool = False or True;```   |
-|    **not**   |   ```const logical_not: bool = not False;```      |
-|    **=**     |   ```const eq: bool = 2 = 3;```                   |
-|    **=/=**   |   ```const not_eq: bool = 2 =/= 3;```             |
-|    **>**     |   ```const gt: bool = 4 > 3;```                   |
-|    **<**     |   ```const lt: bool = 4 < 3;```                   |
-|    **>=**    |   ```const gte: bool = 4 >= 3;```                 |
-|    **<=**    |   ```const lte: bool = 4 <= 3;```                 |
+| Operator | Example                                        |
+| :------: | ---------------------------------------------- |
+| **and**  | ```const logical_and: bool = True and True;``` |
+|  **or**  | ```const logical_or: bool = False or True;```  |
+| **not**  | ```const logical_not: bool = not False;```     |
+|  **=**   | ```const eq: bool = 2 = 3;```                  |
+| **=/=**  | ```const not_eq: bool = 2 =/= 3;```            |
+|  **>**   | ```const gt: bool = 4 > 3;```                  |
+|  **<**   | ```const lt: bool = 4 < 3;```                  |
+|  **>=**  | ```const gte: bool = 4 >= 3;```                |
+|  **<=**  | ```const lte: bool = 4 <= 3;```                |
 
 ## Comparing Values
 

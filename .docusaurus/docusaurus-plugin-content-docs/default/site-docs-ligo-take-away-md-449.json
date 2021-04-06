@@ -1,0 +1,12 @@
+{
+  "unversionedId": "ligo/take_away",
+  "id": "ligo/take_away",
+  "isDocsHomePage": false,
+  "title": "Take Away",
+  "description": "- LIGO is a programming language for writing Tezos smart contracts.",
+  "source": "@site/docs/ligo/take_away.md",
+  "slug": "/ligo/take_away",
+  "permalink": "/ligo/take_away",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/take_away.md",
+  "version": "current"
+}
