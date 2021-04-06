@@ -5,19 +5,19 @@ title: Exam
 
 ### Question 1
 
-What is correct about LIGO ?
+What is correct about LIGO?
 
 - [x] LIGO is a programming language for writing Tezos smart contracts.
-- [ ] By default, smart contract are written in LIGO language.
+- [ ] By default, smart contracts are written in LIGO language.
 - [x] LIGO transpiles scripts written in a high-level language into a Michelson script.
 - [ ] The LIGO syntaxe is PascaLigo.
 
 ### Question 2
 
-What notions are defined inside the smart contract ?
+What notions are defined inside the smart contract?
 
-- [x] The type definition of the storage.
-- [ ] The balance of the contract.
+- [x] The type-definition of the storage.
+- [ ] The balance on the contract.
 - [ ] The initial value of the storage.
 - [ ] The value of the entry point and its related parameters.
 - [x] The type definition of the entry point.
@@ -27,7 +27,7 @@ What notions are defined inside the smart contract ?
 
 ### Question 3
 
-What is returned by the execution of a smart contract ?
+What is returned by the execution of a smart contract?
 
 - [ ] The current storage state when invoking the smart contract.
 - [x] The modified storage state after invoking the smart contract.
@@ -41,7 +41,7 @@ What is returned by the execution of a smart contract ?
 
 ### Question 4
 
-What is the right way to define a variable ?
+What is the right way to define a variable?
 
 - [ ] `var int : my_age = 25`
 - [ ] `int my_age = 25`
@@ -52,7 +52,7 @@ What is the right way to define a variable ?
 
 ### Question 5
 
-What is the right way to define a constant ?
+What is the right way to define a constant?
 
 - [ ] `const string : my_name = "Roger"`
 - [ ] `string my_age = "Roger"`
@@ -63,7 +63,7 @@ What is the right way to define a constant ?
 
 ### Question 6
 
-Which of the following operations are correct ?
+Which of the following operations are correct?
 
 - [x] `const a : int = 5 + 10`
 - [x] `const c : tez = 5mutez + 0.000_010tez`
@@ -75,17 +75,17 @@ Which of the following operations are correct ?
 
 ### Question 7
 
-What is correct about type aliasing ?
+What is correct about type aliasing?
 
 - [x] Type aliasing consists of renaming a given type when the context calls for a more precise name.
-- [x] Type aliasing increases readability and maintainability of your smart contracts.
+- [x] Type aliasing increases the readability and maintainability of your smart contracts.
 - [ ] `type name = string` is the correct way to define a type.
 - [x] `type name is string` is the correct way to define a type.
 
 
 ### Question 8
 
-What is a set ?
+What is a set?
 
 - [ ] A linear collection of elements of the same type.
 - [ ] A data structure which associate values of the same type to values of the same type.
@@ -94,7 +94,7 @@ What is a set ?
 
 ### Question 9
 
-What is a record ?
+What is a record?
 
 - [ ] A linear collection of elements of the same type.
 - [ ] A data structure which associate values of the same type to values of the same type.
@@ -139,7 +139,7 @@ Complete the ######## part in the code to give a correct definition to the retur
 - [ ] `type counterReturn is counterEntrypoints`
 - [x] `type counterReturn is list(operation) * int`
 
-What is an entrypoint for this smart contract ?
+What is an entrypoint for this smart contract?
 
 - [ ] `Increment(p)`
 - [ ] `Increment(p) -> increment(p, store)`
@@ -150,7 +150,7 @@ What is an entrypoint for this smart contract ?
 - [ ] `ret`
 - [x] `decrement`
 
-What command lines are correct for this smart contract ?
+What command lines are correct for this smart contract?
 (Assume that the smart contract is stored in a file **counter.ligo**)
 
 - [x] ligo compile-contract counter.ligo main
