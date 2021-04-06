@@ -26,7 +26,6 @@ const getImage = (
   return useBaseUrl(image);
 };
 
-// TODO (oliver): Simplify the passing in of images
 const WithBackgroundImage = ({
   children,
   className,

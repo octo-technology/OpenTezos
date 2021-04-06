@@ -1,0 +1,21 @@
+{
+  "unversionedId": "defi/lending",
+  "id": "defi/lending",
+  "isDocsHomePage": false,
+  "title": "Lending and Flash Loans",
+  "description": "Under construction.",
+  "source": "@site/docs/defi/lending.md",
+  "slug": "/defi/lending",
+  "permalink": "/defi/lending",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/lending.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Synthetics",
+    "permalink": "/defi/synthetics"
+  },
+  "next": {
+    "title": "Exam",
+    "permalink": "/defi/exam"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "unversionedId": "defi/cross-chain-swaps",
+  "id": "defi/cross-chain-swaps",
+  "isDocsHomePage": false,
+  "title": "Cross-chain Swaps",
+  "description": "A cross-chain swap (also referred as Atomic Swap) refers to the action of exchanging two different cryptocurrencies through a peer-to-peer form. This process enable two parties to exchange between each other trustless and w/o third-party moderation. Today, TEZEX is currently in development and will enable cross-chain swaps.",
+  "source": "@site/docs/defi/cross-chain-swaps.md",
+  "slug": "/defi/cross-chain-swaps",
+  "permalink": "/defi/cross-chain-swaps",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/cross-chain-swaps.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Wrapped Assets",
+    "permalink": "/defi/wrapped-assets"
+  },
+  "next": {
+    "title": "On-chain Oracles",
+    "permalink": "/defi/oracles"
+  }
+}

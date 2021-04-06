@@ -31,6 +31,11 @@
             "type": "link",
             "label": "Introduction",
             "href": "/blockchain-basics"
+          },
+          {
+            "type": "link",
+            "label": "Exam",
+            "href": "/blockchain-basics/exam"
           }
         ]
       },
@@ -43,6 +48,46 @@
             "type": "link",
             "label": "Introduction",
             "href": "/tezos-basics"
+          },
+          {
+            "type": "link",
+            "label": "Smart contracts",
+            "href": "/tezos-basics/smart-contracts"
+          },
+          {
+            "type": "link",
+            "label": "Liquid Proof-of-Stake",
+            "href": "/tezos-basics/liquid-proof-of-stake"
+          },
+          {
+            "type": "link",
+            "label": "Operations",
+            "href": "/tezos-basics/operations"
+          },
+          {
+            "type": "link",
+            "label": "CLI and RPC",
+            "href": "/tezos-basics/cli-and-rpc"
+          },
+          {
+            "type": "link",
+            "label": "Governance on-chain",
+            "href": "/tezos-basics/governance-on-chain"
+          },
+          {
+            "type": "link",
+            "label": "History of amendements",
+            "href": "/tezos-basics/history-of-amendements"
+          },
+          {
+            "type": "link",
+            "label": "Economics and rewards",
+            "href": "/tezos-basics/economics-and-rewards"
+          },
+          {
+            "type": "link",
+            "label": "Exam",
+            "href": "/tezos-basics/exam"
           }
         ]
       },
@@ -55,6 +100,11 @@
             "type": "link",
             "label": "Introduction",
             "href": "/deploy-a-node"
+          },
+          {
+            "type": "link",
+            "label": "Exam",
+            "href": "/deploy-a-node/exam"
           }
         ]
       },
@@ -67,6 +117,11 @@
             "type": "link",
             "label": "Introduction",
             "href": "/explorer"
+          },
+          {
+            "type": "link",
+            "label": "Exam",
+            "href": "/explorer/exam"
           }
         ]
       },
@@ -79,6 +134,11 @@
             "type": "link",
             "label": "Introduction",
             "href": "/smartpy"
+          },
+          {
+            "type": "link",
+            "label": "Exam",
+            "href": "/smartpy/exam"
           }
         ]
       },
@@ -91,6 +151,11 @@
             "type": "link",
             "label": "Introduction",
             "href": "/ligo"
+          },
+          {
+            "type": "link",
+            "label": "Exam",
+            "href": "/ligo/exam"
           }
         ]
       },
@@ -116,7 +181,12 @@
           },
           {
             "type": "link",
-            "label": "Instructions",
+            "label": "Tutorial",
+            "href": "/michelson/tutorial"
+          },
+          {
+            "type": "link",
+            "label": "Instructions Reference",
             "href": "/michelson/instructions"
           },
           {
@@ -128,6 +198,11 @@
             "type": "link",
             "label": "Exam",
             "href": "/michelson/exam"
+          },
+          {
+            "type": "link",
+            "label": "Take away",
+            "href": "/michelson/take-away"
           }
         ]
       },
@@ -138,8 +213,13 @@
         "items": [
           {
             "type": "link",
-            "label": "Introduction",
-            "href": "/dapp"
+            "label": "introduction",
+            "href": "/dapp/introduction"
+          },
+          {
+            "type": "link",
+            "label": "Exam",
+            "href": "/dapp/exam"
           }
         ]
       },
@@ -152,6 +232,11 @@
             "type": "link",
             "label": "Introduction",
             "href": "/baking"
+          },
+          {
+            "type": "link",
+            "label": "Exam",
+            "href": "/baking/exam"
           }
         ]
       },
@@ -164,6 +249,11 @@
             "type": "link",
             "label": "Introduction",
             "href": "/baker"
+          },
+          {
+            "type": "link",
+            "label": "Exam",
+            "href": "/baker/exam"
           }
         ]
       },
@@ -176,6 +266,51 @@
             "type": "link",
             "label": "Introduction",
             "href": "/defi"
+          },
+          {
+            "type": "link",
+            "label": "Token Standards",
+            "href": "/defi/token-standards"
+          },
+          {
+            "type": "link",
+            "label": "Decentralized Exchanges",
+            "href": "/defi/dexs"
+          },
+          {
+            "type": "link",
+            "label": "Wrapped Assets",
+            "href": "/defi/wrapped-assets"
+          },
+          {
+            "type": "link",
+            "label": "Cross-chain Swaps",
+            "href": "/defi/cross-chain-swaps"
+          },
+          {
+            "type": "link",
+            "label": "On-chain Oracles",
+            "href": "/defi/oracles"
+          },
+          {
+            "type": "link",
+            "label": "Stablecoins",
+            "href": "/defi/stablecoins"
+          },
+          {
+            "type": "link",
+            "label": "Synthetics",
+            "href": "/defi/synthetics"
+          },
+          {
+            "type": "link",
+            "label": "Lending and Flash Loans",
+            "href": "/defi/lending"
+          },
+          {
+            "type": "link",
+            "label": "Exam",
+            "href": "/defi/exam"
           }
         ]
       },
@@ -188,6 +323,11 @@
             "type": "link",
             "label": "Introduction",
             "href": "/formal-verification"
+          },
+          {
+            "type": "link",
+            "label": "Exam",
+            "href": "/formal-verification/exam"
           }
         ]
       },
@@ -200,6 +340,11 @@
             "type": "link",
             "label": "Introduction",
             "href": "/private"
+          },
+          {
+            "type": "link",
+            "label": "Exam",
+            "href": "/private/exam"
           }
         ]
       },
@@ -212,21 +357,44 @@
             "type": "link",
             "label": "Introduction",
             "href": "/contribute"
+          },
+          {
+            "type": "link",
+            "label": "Exam",
+            "href": "/contribute/exam"
           }
         ]
       }
     ]
   },
   "permalinkToSidebar": {
+    "/baker/exam": "docs",
     "/baker": "docs",
+    "/baking/exam": "docs",
     "/baking": "docs",
+    "/blockchain-basics/exam": "docs",
     "/blockchain-basics": "docs",
+    "/contribute/exam": "docs",
     "/contribute": "docs",
-    "/dapp": "docs",
+    "/dapp/exam": "docs",
+    "/dapp/introduction": "docs",
+    "/defi/cross-chain-swaps": "docs",
+    "/defi/dexs": "docs",
+    "/defi/exam": "docs",
     "/defi": "docs",
+    "/defi/lending": "docs",
+    "/defi/oracles": "docs",
+    "/defi/stablecoins": "docs",
+    "/defi/synthetics": "docs",
+    "/defi/token-standards": "docs",
+    "/defi/wrapped-assets": "docs",
+    "/deploy-a-node/exam": "docs",
     "/deploy-a-node": "docs",
+    "/explorer/exam": "docs",
     "/explorer": "docs",
+    "/formal-verification/exam": "docs",
     "/formal-verification": "docs",
+    "/ligo/exam": "docs",
     "/ligo": "docs",
     "/michelson/exam": "docs",
     "/michelson/examples": "docs",
@@ -234,9 +402,21 @@
     "/michelson/instructions": "docs",
     "/michelson": "docs",
     "/michelson/smart_contracts": "docs",
+    "/michelson/take-away": "docs",
+    "/michelson/tutorial": "docs",
+    "/private/exam": "docs",
     "/private": "docs",
+    "/smartpy/exam": "docs",
     "/smartpy": "docs",
+    "/tezos-basics/cli-and-rpc": "docs",
+    "/tezos-basics/economics-and-rewards": "docs",
+    "/tezos-basics/exam": "docs",
+    "/tezos-basics/governance-on-chain": "docs",
+    "/tezos-basics/history-of-amendements": "docs",
     "/tezos-basics": "docs",
+    "/tezos-basics/liquid-proof-of-stake": "docs",
+    "/tezos-basics/operations": "docs",
+    "/tezos-basics/smart-contracts": "docs",
     "/": "docs",
     "/paths": "docs"
   }

@@ -6,24 +6,24 @@ title: Exam
 
 ### Question 1
 
-What notions are defined inside the smart contract ?
+Which notions are defined inside the smart contract?
 
 - [x] The type definition of the storage
 - [ ] The balance of the contract
 - [ ] The initial value of the storage
-- [ ] The value of the entry point and its related parameters
-- [x] The type definition of the entry point
+- [ ] The value of the entrypoint and its related parameters
+- [x] The type definition of the entrypoint
 - [ ] The size of the storage
 - [x] The code of the smart contract
 - [ ] The list of users allowed to call the smart contract
 
 ### Question 2
 
-What is returned by the execution of a smart contract ?
+What is returned by the execution of a smart contract?
 
 - [ ] The current storage state when invoking the smart contract
 - [x] The modified storage state after invoking the smart contract
-- [ ] The entry point that has been called (and its related parameters)
+- [ ] The entrypoint that has been called (and its related parameters)
 - [x] The list of emitted operations produced by the execution of the smart contract
 - [ ] The balance of the contract
 - [ ] The size of the storage
@@ -32,7 +32,7 @@ What is returned by the execution of a smart contract ?
 
 ### Question 3
 
-Consider the following Michelson smart contract.
+Consider the following Michelson smart contract:
 
 ```js
 parameter nat;
@@ -40,7 +40,7 @@ storage nat;
 code { DUP; CAR; DIP { CDR }; ADD; NIL operation; PAIR }
 ```
 
-What is the stack at the beginning of the execution (considering parameter value is 2 and storage value is 5) ?
+What is the stack at the beginning of the execution (considering parameter value is 2 and storage value is 5)?
  
 Check the right answer.
 
@@ -72,8 +72,7 @@ storage nat;
 code { DUP; CAR; DIP { CDR }; ADD; NIL operation; PAIR }
 ```
 
-Considering that the parameter value is 1 and that the storage value is 1.
-What will be the output of the execution ? 
+Considering that the parameter value is 1 and that the storage value is 1, what will be the output of the execution? 
 
 - [ ] 2
 - [ ] [ PAIR (1 1) ]
@@ -83,7 +82,7 @@ What will be the output of the execution ?
 
 
 ### Question 5
-Consider the following Michelson smart contract.
+Consider the following Michelson smart contract:
 
 ```js
 parameter (or (pair %assign address nat) (nat %global)) ;
@@ -109,7 +108,7 @@ code { DUP ;
             { SWAP ; CAR ; PAIR ; NIL operation ; PAIR } }
 ```
 
-What are the possible invocations of this smart contract ?
+What are the possible invocations of this smart contract?
 
 - [ ] `(Pair (Pair "tz1b7tUupMgCNw2cCLpKTkSD1NZzB5TkP2sv" 7) 23)`
 - [ ] `Left 30`
@@ -125,7 +124,7 @@ What are the possible invocations of this smart contract ?
 
 
 ### Question 6
-Consider the following Michelson smart contract storage.
+Consider the following Michelson smart contract storage:
 
 ```js
 storage (pair (pair  (set %participants nat) (pair (nat %age) (string %name))) (pair (big_map %owners address nat) (nat %value)));
@@ -133,7 +132,7 @@ storage (pair (pair  (set %participants nat) (pair (nat %age) (string %name))) (
 
 Notice that the storage is composed of nested pairs.
 Let's consider that the storage is the top element of the stack.
-Which instruction can be used to retrieve the `big_map` part of the storage ?
+Which instruction can be used to retrieve the `big_map` part of the storage?
 
 - [ ] CDR
 - [ ] CAR
@@ -163,7 +162,7 @@ code {
        PAIR }
 ```
 
-The XXXXX instruction must be replaced by a conditional instruction. Which instruction should be used ?
+The XXXXX instruction must be replaced by a conditional instruction. Which instruction should be used?
 
 - [ ] IF
 - [ ] IF_SOME
@@ -196,9 +195,9 @@ code { DUP ;
 
 Notice that the storage is a _big\_map_ and that the parameter allows two possible invocations: "assign" and "remove".
 
-The "assign" entry point takes two arguments ( a "key" as a _string_ and a "value" as a _nat_) set in a _pair_. The goal of the "assign" entry point is to modify the storage (the _big\_map_) by assigning the given "value" to the given "key". 
+The "assign" entrypoint takes two arguments ( a "key" as a _string_ and a "value" as a _nat_) set in a _pair_. The goal of the "assign" entrypoint is to modify the storage (the _big\_map_) by assigning the given "value" to the given "key". 
 
-The "remove" entry point takes a single argument (a "key" as a _string_). The goal of the "remove" entry point is to modify the storage by removing the given "key" from the _big\_map_. 
+The "remove" entrypoint takes a single argument (a "key" as a _string_). The goal of the "remove" entrypoint is to modify the storage by removing the given "key" from the _big\_map_. 
 
 Complete the missing "XXXXXXX" sequence of instructions according to the previously-mentioned statements.
 
@@ -241,7 +240,7 @@ tezos-client run script QCM_9.tz on storage 'Pair {1;2;3;4} True' and input '5'
 
 Notice that this command defines the initial storage state as `Pair {1;2;3;4} True` and the parameter as `5`.
 
-What is the resulting storage state ?
+What is the resulting storage state?
 
 - [ ] Pair {1;2;3;4;5} True
 - [ ] Pair {5;1;2;3;4} True
@@ -252,7 +251,7 @@ What is the resulting storage state ?
 
 ### Question 10
 
-Consider the following "QCM_10.tz" smart contract.
+Consider the following "QCM_10.tz" smart contract:
 
 ```js
 parameter unit ;

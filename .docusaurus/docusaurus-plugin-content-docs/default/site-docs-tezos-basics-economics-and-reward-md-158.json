@@ -1,0 +1,21 @@
+{
+  "unversionedId": "tezos-basics/economics_and_reward",
+  "id": "tezos-basics/economics_and_reward",
+  "isDocsHomePage": false,
+  "title": "Economics and reward",
+  "description": "Transaction cost",
+  "source": "@site/docs/tezos-basics/economics_and_reward.md",
+  "slug": "/tezos-basics/economics_and_reward",
+  "permalink": "/tezos-basics/economics_and_reward",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/economics_and_reward.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "History of evolutions",
+    "permalink": "/tezos-basics/history_of_evolutions"
+  },
+  "next": {
+    "title": "Exam",
+    "permalink": "/tezos-basics/exam"
+  }
+}
