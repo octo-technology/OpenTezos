@@ -16,7 +16,7 @@ Let's consider the following scenario: Alice has 100 XTZ and want to exchange th
 ![](../../static/img/defi/swap-dex.svg)
 <small className="figure">FIGURE 2: Illustration of non-atomic swap on a decentralized exchange</small>
 
-- A _cross-chain swap_ (also referred as _Atomic Swap_) refers to the action of exchanging two different cryptocurrencies in a peer-to-peer fashion with no third party. This is possible thanks to the ability to code rules in blockchain transactions. Alice and Bob can exchange their coins with one aother without the help of a third-party using **Hash Time Locked Contracts (HTLCs)** that can interact and inform one another’s actions to achieve atomicity. Alice send her XTZ to her HTLC which lock the funds. Bob sends his BTC to his HTLC which also lock the funds. When both HTLC hace received the funds, they send a signal to each other which releases the funds. Alice receives the BTC and Bob receives the XTZ at the same time, thus the atomic aspect of the operation. 
+- A _cross-chain swap_ (also referred as _Atomic Swap_) refers to the action of exchanging two different cryptocurrencies in a peer-to-peer fashion with no third party. This is possible thanks to the ability to code rules in blockchain transactions. Alice and Bob can exchange their coins with one another without the help of a third-party using **Hash Time Locked Contracts (HTLCs)** that can interact and inform one another’s actions to achieve atomicity. Alice send her XTZ to her HTLC which lock the funds. Bob sends his BTC to his HTLC which also lock the funds. When both HTLC have received the funds, they send a signal to each other which releases the funds. Alice receives the BTC and Bob receives the XTZ at the same time, thus the atomic aspect of the operation. 
 
 ![](../../static/img/defi/atomic-swap.svg)
 <small className="figure">FIGURE 3: Illustration of an atomic swap.</small>
@@ -26,7 +26,7 @@ If Bob never sends the funds, Alice's HTLC will time out and refund the funds to
 ![](../../static/img/defi/atomic-swap-fail.svg)
 <small className="figure">FIGURE 4: Illustration of a failed atomic swap (Bob did not send the funds).</small>
 
-To learn more about HTLCs, you can read [this article](https://medium.com/blockchainio/what-are-atomic-swaps-bc1d034634c9).
+As its name denotes, HTLC is a time-bound smart contract between parties that involves the generation of a cryptographic hash function, which can be verified between them. To learn more about HTLCs, you can read [this article](https://medium.com/blockchainio/what-are-atomic-swaps-bc1d034634c9).
 
 ## Cross-chain swaps on Tezos
 Today, [TEZEX](https://tezex.io/) is currently in development and will enable cross-chain swaps. At first, TEZEX Bridge will enable swaps to/from the Ethereum blockchain (ERC-20 tokens), to the Tezos blockchain (FA-1.2, FA-2.0).

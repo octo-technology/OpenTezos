@@ -42,7 +42,7 @@ In this module we are going to learn more about the main areas where DeFi has be
 
 [Synthetics](/defi/synthetics): Synthetics are contracts between two parties that both bet on the opposite outcome of the value of an asset and then split the difference in profit/loss. The actual asset is not purchased in this contract. _SEXP_ is a synthetics exchange on Tezos launching soon.
 
-[Lending and flash loans](/defi/lending): Crypto assets sitting in a wallet don’t accrue interest. The underlying value may increase or decrease, but it is not earning anything for holding that particular cryptocurrency. This is where DeFi loans come in. DeFi allows to lend crypto to someone else and earn interest on the loan. Projects on lending on Tezos are currently in development.
+[Lending and flash loans](/defi/lending): Crypto assets sitting in a wallet don’t accrue interest. The underlying value may increase or decrease, but it is not earning anything for holding that particular cryptocurrency. This is where DeFi loans come in. DeFi allows to lend crypto to someone else and earn interest on the loan. Projects on lending on Tezos are currently in development including [Tezos Finance (aka "Tezfin")](https://tezos.finance/)
 
 ## References
 

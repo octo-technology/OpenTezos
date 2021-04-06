@@ -15,7 +15,7 @@ However, a concert ticket at the front row is obviously not equivalent to a conc
 
 NFTs have additionally been used to represent the right to own, use, and exchange digital art collectibles, multimedia, in-game assets, permissions, insurance, and much more [[1]](/defi/token-standards#references). [ERC-721](https://ethereum.org/en/developers/docs/standards/tokens/) is the most popular NFT token standard on Ethereum.
 
-Within Tezos, the latest token standard is `FA2` and this standard supports a wide range of token types: fungible, non-fungible, non-transferable, as well as multi-asset contracts. 
+Within Tezos, the latest token standard is `FA2` (standing for Financial Application 2) and this standard supports a wide range of token types: fungible, non-fungible, non-transferable, as well as multi-asset contracts. This standard is the successor to FA1.2 that only supports fungible tokens but is still widely used in the Tezos DeFi ecosystem. 
 
 ![](../../static/img/defi/tokens.svg)
 <small className="figure">FIGURE 1: Illustration of the FA2 token standard.</small>
@@ -27,9 +27,6 @@ The FA2 standard aims to provide significant expressivity to contract developers
 A particular FA2 implementation may support either a single token type per contract or multiple tokens per contract, including hybrid implementations where multiple token kinds (fungible, non-fungible, non-transferable etc) can coexist (e.g. in a fractionalized NFT contract) [[2]](/defi/token-standards#references).
 
 To learn more on how to implement FA2 tokens, please refer to the [official documentation](https://gitlab.com/tzip/tzip/-/blob/master/proposals/tzip-12/tzip-12.md).
-
-// TODO : FA1.2
-// TODO : Financial Application (FA)
 
 ## Non-Fungible Tokens on Tezos
 ### Examples [[3]](/defi/token-standards#references)
