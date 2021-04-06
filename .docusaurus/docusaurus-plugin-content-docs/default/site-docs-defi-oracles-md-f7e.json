@@ -3,7 +3,7 @@
   "id": "defi/oracles",
   "isDocsHomePage": false,
   "title": "On-chain Oracles",
-  "description": "Under construction.",
+  "description": "With the rise of DeFi apps, the need to get trusted price data has grown substantially. The only issue is that by default, Tezos smart contracts cannot receive any data from outside the blockchain. Oracles offers to fetch data from off-chain sources. Oracles can aggregate data from multiple sources in order to guarantee the quality of the data. For instance, consider a Dapp that needs the exchange rate of XTZ/BTC. To get that exchange rate, the smart contract of the Dapp needs to contact an oracle that will provide this rate. The oracle can for example fetch the rate from Binance, but what if Binance get hacked? The Dapp would be compromised. The oracle can therefore fetch the price from multiple sources. e.g. Binance, CoinMarketCap, Dexter and Quipuswap, and exclude the rates that seems incorrect (far from the others). The chances that all 4 sources are compromised at the same time is very unlikely. The price provided to the Dapp is therefore very trustworthy and can be used for financially critical operations.",
   "source": "@site/docs/defi/oracles.md",
   "slug": "/defi/oracles",
   "permalink": "/defi/oracles",

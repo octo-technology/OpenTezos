@@ -3,7 +3,7 @@
   "id": "defi/cross-chain-swaps",
   "isDocsHomePage": false,
   "title": "Cross-chain Swaps",
-  "description": "DEXs as seen previously are limited to exchanges of tokens within the same blockchain. DEXs on Tezos only work with FA1.2 or FA2 tokens. So what if we want to exchange some XTZ against some ETH? One solution is to use wrapped assets as seen in the previous chapter and actually exchange wrapped XTZ (wXTZ) against Wrapped ETH (ETHtz) on a DEX. Another solution is to do a cross-chain swap.",
+  "description": "Let's consider the following scenario",
   "source": "@site/docs/defi/cross-chain-swaps.md",
   "slug": "/defi/cross-chain-swaps",
   "permalink": "/defi/cross-chain-swaps",
