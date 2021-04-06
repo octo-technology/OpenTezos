@@ -1,0 +1,21 @@
+{
+  "unversionedId": "tezos-basics/introduction_to_smart_contract",
+  "id": "tezos-basics/introduction_to_smart_contract",
+  "isDocsHomePage": false,
+  "title": "Introduction to smart contract",
+  "description": "General definition of a smart contract",
+  "source": "@site/docs/tezos-basics/introduction_to_smart_contract.md",
+  "slug": "/tezos-basics/introduction_to_smart_contract",
+  "permalink": "/tezos-basics/introduction_to_smart_contract",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/introduction_to_smart_contract.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Introduction",
+    "permalink": "/tezos-basics/introduction"
+  },
+  "next": {
+    "title": "Liquid Proof-of-Stake",
+    "permalink": "/tezos-basics/liquid-proof-of-stake"
+  }
+}

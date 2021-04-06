@@ -1,0 +1,21 @@
+{
+  "unversionedId": "tezos-basics/economics-and-rewards",
+  "id": "tezos-basics/economics-and-rewards",
+  "isDocsHomePage": false,
+  "title": "Economics and rewards",
+  "description": "Transaction cost",
+  "source": "@site/docs/tezos-basics/economics-and-rewards.md",
+  "slug": "/tezos-basics/economics-and-rewards",
+  "permalink": "/tezos-basics/economics-and-rewards",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/economics-and-rewards.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "History of amendements",
+    "permalink": "/tezos-basics/history-of-amendements"
+  },
+  "next": {
+    "title": "Exam",
+    "permalink": "/tezos-basics/exam"
+  }
+}

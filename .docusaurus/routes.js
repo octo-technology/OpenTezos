@@ -39,7 +39,7 @@ export default [
 },
 {
   path: '/',
-  component: ComponentCreator('/','c42'),
+  component: ComponentCreator('/','1ca'),
   
   routes: [
 {
@@ -88,13 +88,13 @@ export default [
   exact: true,
 },
 {
-  path: '/dapp',
-  component: ComponentCreator('/dapp','f74'),
+  path: '/dapp/exam',
+  component: ComponentCreator('/dapp/exam','bb1'),
   exact: true,
 },
 {
-  path: '/dapp/exam',
-  component: ComponentCreator('/dapp/exam','bb1'),
+  path: '/dapp/introduction',
+  component: ComponentCreator('/dapp/introduction','50a'),
   exact: true,
 },
 {
@@ -103,8 +103,13 @@ export default [
   exact: true,
 },
 {
-  path: '/defi/dex',
-  component: ComponentCreator('/defi/dex','65f'),
+  path: '/defi/cross-chain-swaps',
+  component: ComponentCreator('/defi/cross-chain-swaps','a3e'),
+  exact: true,
+},
+{
+  path: '/defi/dexs',
+  component: ComponentCreator('/defi/dexs','252'),
   exact: true,
 },
 {
@@ -113,18 +118,18 @@ export default [
   exact: true,
 },
 {
-  path: '/defi/flash_loans',
-  component: ComponentCreator('/defi/flash_loans','17b'),
-  exact: true,
-},
-{
   path: '/defi/lending',
   component: ComponentCreator('/defi/lending','9c4'),
   exact: true,
 },
 {
-  path: '/defi/stable_coins',
-  component: ComponentCreator('/defi/stable_coins','36a'),
+  path: '/defi/oracles',
+  component: ComponentCreator('/defi/oracles','df5'),
+  exact: true,
+},
+{
+  path: '/defi/stablecoins',
+  component: ComponentCreator('/defi/stablecoins','5fa'),
   exact: true,
 },
 {
@@ -133,8 +138,13 @@ export default [
   exact: true,
 },
 {
-  path: '/defi/tokens',
-  component: ComponentCreator('/defi/tokens','291'),
+  path: '/defi/token-standards',
+  component: ComponentCreator('/defi/token-standards','850'),
+  exact: true,
+},
+{
+  path: '/defi/wrapped-assets',
+  component: ComponentCreator('/defi/wrapped-assets','0fe'),
   exact: true,
 },
 {
@@ -208,6 +218,16 @@ export default [
   exact: true,
 },
 {
+  path: '/michelson/take-away',
+  component: ComponentCreator('/michelson/take-away','57c'),
+  exact: true,
+},
+{
+  path: '/michelson/tutorial',
+  component: ComponentCreator('/michelson/tutorial','865'),
+  exact: true,
+},
+{
   path: '/paths',
   component: ComponentCreator('/paths','7a5'),
   exact: true,
@@ -238,8 +258,28 @@ export default [
   exact: true,
 },
 {
+  path: '/tezos-basics/cli-and-rpc',
+  component: ComponentCreator('/tezos-basics/cli-and-rpc','1ab'),
+  exact: true,
+},
+{
+  path: '/tezos-basics/economics-and-rewards',
+  component: ComponentCreator('/tezos-basics/economics-and-rewards','adc'),
+  exact: true,
+},
+{
   path: '/tezos-basics/exam',
   component: ComponentCreator('/tezos-basics/exam','68b'),
+  exact: true,
+},
+{
+  path: '/tezos-basics/governance-on-chain',
+  component: ComponentCreator('/tezos-basics/governance-on-chain','630'),
+  exact: true,
+},
+{
+  path: '/tezos-basics/history-of-amendements',
+  component: ComponentCreator('/tezos-basics/history-of-amendements','413'),
   exact: true,
 },
 {
@@ -248,8 +288,13 @@ export default [
   exact: true,
 },
 {
-  path: '/tezos-basics/transactions',
-  component: ComponentCreator('/tezos-basics/transactions','49c'),
+  path: '/tezos-basics/operations',
+  component: ComponentCreator('/tezos-basics/operations','752'),
+  exact: true,
+},
+{
+  path: '/tezos-basics/smart-contracts',
+  component: ComponentCreator('/tezos-basics/smart-contracts','a47'),
   exact: true,
 },
 ]

@@ -1,0 +1,21 @@
+{
+  "unversionedId": "michelson/take-away",
+  "id": "michelson/take-away",
+  "isDocsHomePage": false,
+  "title": "Take away",
+  "description": "- Smart contracts in Tezos are implemented in the Michelson language which is a stack-based strongly-typed language.",
+  "source": "@site/docs/michelson/take_away.md",
+  "slug": "/michelson/take-away",
+  "permalink": "/michelson/take-away",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/michelson/take_away.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Exam",
+    "permalink": "/michelson/exam"
+  },
+  "next": {
+    "title": "introduction",
+    "permalink": "/dapp/introduction"
+  }
+}

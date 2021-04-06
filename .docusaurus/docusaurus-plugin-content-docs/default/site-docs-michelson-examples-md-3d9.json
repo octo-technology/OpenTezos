@@ -3,7 +3,7 @@
   "id": "michelson/examples",
   "isDocsHomePage": false,
   "title": "Examples",
-  "description": "Example 1 : Modulo with LOOP and IF",
+  "description": "Example 1: Modulo with LOOP and IF",
   "source": "@site/docs/michelson/examples.md",
   "slug": "/michelson/examples",
   "permalink": "/michelson/examples",
@@ -11,7 +11,7 @@
   "version": "current",
   "sidebar": "docs",
   "previous": {
-    "title": "Instructions",
+    "title": "Instructions Reference",
     "permalink": "/michelson/instructions"
   },
   "next": {
