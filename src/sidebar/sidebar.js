@@ -44,8 +44,7 @@ module.exports = {
       items: [
           'ligo/introduction',
           'ligo/installation',
-          'ligo/language_basics',
-      ],
+          'ligo/language_basics',      ],
     },
     {
       type: 'category',
