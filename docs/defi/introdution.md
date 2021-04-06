@@ -3,6 +3,7 @@ id: introduction
 disable_pagination: true
 title: Introduction
 slug: /defi
+author: Aymeric Bethencourt
 ---
 
 ## What is _DeFi_ ?
@@ -21,7 +22,7 @@ DeFi tools and services are often compared to `Money LEGOs` [[1]](/defi/introduc
 Just like _LEGO_ blocks, DeFi applications can layer on top of each other and build the foundation needed to create a completely decentralized financial layer — cutting out the middle man (banks, insurance companies, etc.) to reduce the costs and make the service more inclusive.
 
 ![](../../static/img/defi/money-legos.svg)
-<small className="figure">FIGURE 1: Illustration of DeFi as <i>Money LEGOs<i>.</small>
+<small className="figure">FIGURE 1: Illustration of DeFi as <i>Money LEGOs</i>.</small>
 
 ## DeFi on Tezos
 
@@ -43,7 +44,7 @@ In this module we are going to learn more about the main areas where DeFi has be
 
 [Lending and flash loans](/defi/lending): Crypto assets sitting in a wallet don’t accrue interest. The underlying value may increase or decrease, but it is not earning anything for holding that particular cryptocurrency. This is where DeFi loans come in. DeFi allows to lend crypto to someone else and earn interest on the loan. Projects on lending on Tezos are currently in development.
 
-## References :
+## References
 
 [1] https://medium.com/coinmonks/the-building-blocks-of-decentralized-exchanges-on-defi-explained-5cd6756bd3e9
 

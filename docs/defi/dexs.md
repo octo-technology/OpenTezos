@@ -1,6 +1,7 @@
 ---
 id: dexs
 title: Decentralized Exchanges
+author: Aymeric Bethencourt
 ---
 
 An exchange is a marketplace where coins and tokens can be traded. The core function of an exchange is to ensure fair and orderly trading and the efficient dissemination of price information for any pair trading on that exchange. Exchanges give companies, traders, and just crypto-enthusiasts a platform from which to publicly sell and buy crypto-currencies.
@@ -23,7 +24,8 @@ Market makers provides liquidity to the exchange by being always willing to buy 
 
 ## Decentralized Exchanges
 ### Replicating the Order Book model
-Following the hacks of multiple centralized exchanges [1] investors started to look for alternatives. The blockchain is decentralized, so shouldn't exchanges be decentralized as well? At first, developers tried to reproduce the order book model [2] into a smart contract. However this model relies heavily of market makers and they have to constantly adjust their buy and sell prices to meet the market. This results in a huge number of orders and order cancellations that are being sent to the exchange.
+Following the hacks of multiple centralized exchanges [[1]](/defi/dexs#references)
+ investors started to look for alternatives. The blockchain is decentralized, so shouldn't exchanges be decentralized as well? At first, developers tried to reproduce the order book model [[2]](/defi/dexs#references) into a smart contract. However this model relies heavily of market makers and they have to constantly adjust their buy and sell prices to meet the market. This results in a huge number of orders and order cancellations that are being sent to the exchange.
 
 Tezos with a current throughput of 40 transactions per second and a 1 minute block time is not really a viable option for an order book exchange. On top of that, every interaction with a smart contract cost a gas fee, so market makers would go bankrupt by just updating their orders.
 

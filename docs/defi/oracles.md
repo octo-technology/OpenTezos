@@ -1,6 +1,7 @@
 ---
 id: oracles
 title: On-chain Oracles
+author: Aymeric Bethencourt
 ---
 
 import NotificationBar from '../../src/components/docs/NotificationBar';
