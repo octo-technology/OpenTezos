@@ -489,7 +489,7 @@ tezos-client run script instruction_string_example.tz on storage '"one"' and inp
 
 
 The `SLICE` instruction provides a way to retrieve a part of a string.
-It expects on top of the stack three elements:
+It requires these three elements at the top of the stack and in this order:
 - an `offset` argument indicating the beginning of the substring 
 - a `length` argument indicating the size of the substring
 - a `string` to slice
