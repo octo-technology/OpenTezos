@@ -1,6 +1,7 @@
 ---
 id: synthetics
 title: Synthetics
+author: Aymeric Bethencourt
 ---
 
 import NotificationBar from '../../src/components/docs/NotificationBar';

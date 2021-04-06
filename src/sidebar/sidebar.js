@@ -13,8 +13,16 @@ module.exports = {
     {
       type: 'category',
       label: 'Tezos Basics',
-      items: ['tezos-basics/introduction', 'tezos-basics/liquid-proof-of-stake', 'tezos-basics/exam'],
-    },
+      items: ['tezos-basics/introduction',
+              'tezos-basics/smart-contracts',
+              'tezos-basics/liquid-proof-of-stake',
+              'tezos-basics/operations',
+              'tezos-basics/cli-and-rpc',
+              'tezos-basics/governance-on-chain',
+              'tezos-basics/history-of-amendements',
+              'tezos-basics/economics-and-rewards',
+              'tezos-basics/exam'
+             ],    },
     {
       type: 'category',
       label: 'Deploy a node',
@@ -33,7 +41,10 @@ module.exports = {
     {
       type: 'category',
       label: 'LIGO',
-      items: ['ligo/introduction', 'ligo/exam', 'ligo/take_away'],
+      items: [
+          'ligo/introduction',
+          'ligo/installation',
+          'ligo/language_basics',      ],
     },
     {
       type: 'category',
@@ -42,9 +53,11 @@ module.exports = {
         'michelson/introduction',
         'michelson/fundamentals',
         'michelson/smart_contracts',
+        'michelson/tutorial',
         'michelson/instructions',
         'michelson/examples',
         'michelson/exam',
+        'michelson/take-away',
       ],
     },
     {
@@ -67,12 +80,14 @@ module.exports = {
       label: 'DeFi',
       items: [
         'defi/introduction',
-        'defi/tokens',
-        'defi/stable_coins',
-        'defi/dex',
-        'defi/lending',
-        'defi/flash_loans',
+        'defi/token-standards',
+        'defi/dexs',
+        'defi/wrapped-assets',
+        'defi/cross-chain-swaps',
+        'defi/oracles',
+        'defi/stablecoins',
         'defi/synthetics',
+        'defi/lending',
         'defi/exam',
       ],
     },

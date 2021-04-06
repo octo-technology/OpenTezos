@@ -1,0 +1,21 @@
+{
+  "unversionedId": "defi/stablecoins",
+  "id": "defi/stablecoins",
+  "isDocsHomePage": false,
+  "title": "Stablecoins",
+  "description": "Under construction.",
+  "source": "@site/docs/defi/stablecoins.md",
+  "slug": "/defi/stablecoins",
+  "permalink": "/defi/stablecoins",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/stablecoins.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "On-chain Oracles",
+    "permalink": "/defi/oracles"
+  },
+  "next": {
+    "title": "Synthetics",
+    "permalink": "/defi/synthetics"
+  }
+}

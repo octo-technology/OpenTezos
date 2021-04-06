@@ -12,7 +12,6 @@ What is correct about LIGO ?
 - [x] LIGO transpiles scripts written in a high-level language into a Michelson script.
 - [ ] The LIGO syntaxe is PascaLigo.
 
-
 ### Question 2
 
 What notions are defined inside the smart contract ?
@@ -164,7 +163,3 @@ What command lines are correct for this smart contract ?
 - [ ] ligo compile-parameter counter.ligo main '0'
 - [x] ligo compile-storage counter.ligo main '0'
 - [ ] ligo compile-storage counter.ligo main 'counterStorage(0)'
-
-
-
-
