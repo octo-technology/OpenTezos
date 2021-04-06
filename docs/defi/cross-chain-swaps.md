@@ -26,7 +26,6 @@ If Bob never sends the funds, Alice's HTLC will time out and refund the funds to
 ![](../../static/img/defi/atomic-swap-fail.svg)
 <small className="figure">FIGURE 4: Illustration of a failed atomic swap (Bob did not send the funds).</small>
 
-
 To learn more about HTLCs, you can read [this article](https://medium.com/blockchainio/what-are-atomic-swaps-bc1d034634c9).
 
 ## Cross-chain swaps on Tezos
