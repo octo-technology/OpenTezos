@@ -21,7 +21,7 @@
   "/__docusaurus/debug/routes-244": {
     "component": "component---theme-debug-routes-946-699"
   },
-  "/-c42": {
+  "/-6c0": {
     "component": "component---theme-doc-page-1-be-9be",
     "versionMetadata": "versionMetadata---935-fcf"
   },
@@ -61,45 +61,53 @@
     "component": "component---theme-doc-item-178-a40",
     "content": "content---contribute-exam-13-b-2d8"
   },
-  "/dapp-f74": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---dapp-0-ea-407"
-  },
   "/dapp/exam-bb1": {
     "component": "component---theme-doc-item-178-a40",
     "content": "content---dapp-exam-5-cf-b69"
+  },
+  "/dapp/introduction-50a": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---dapp-introduction-0-ea-ee2"
   },
   "/defi-d45": {
     "component": "component---theme-doc-item-178-a40",
     "content": "content---defi-437-c33"
   },
-  "/defi/dex-65f": {
+  "/defi/cross-chain-swaps-a3e": {
     "component": "component---theme-doc-item-178-a40",
-    "content": "content---defi-dexf-01-d24"
+    "content": "content---defi-cross-chain-swaps-14-b-8b9"
+  },
+  "/defi/dexs-252": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---defi-dexsc-67-4a5"
   },
   "/defi/exam-a30": {
     "component": "component---theme-doc-item-178-a40",
     "content": "content---defi-examcb-7-5ea"
   },
-  "/defi/flash_loans-17b": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---defi-flash-loans-1-d-3-b35"
-  },
   "/defi/lending-9c4": {
     "component": "component---theme-doc-item-178-a40",
     "content": "content---defi-lendingf-91-9a1"
   },
-  "/defi/stable_coins-36a": {
+  "/defi/oracles-df5": {
     "component": "component---theme-doc-item-178-a40",
-    "content": "content---defi-stable-coins-853-519"
+    "content": "content---defi-oraclesf-7-e-8b9"
+  },
+  "/defi/stablecoins-5fa": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---defi-stablecoins-40-d-7d7"
   },
   "/defi/synthetics-750": {
     "component": "component---theme-doc-item-178-a40",
     "content": "content---defi-synthetics-1-c-8-6ff"
   },
-  "/defi/tokens-291": {
+  "/defi/token-standards-850": {
     "component": "component---theme-doc-item-178-a40",
-    "content": "content---defi-tokens-8-b-5-0c2"
+    "content": "content---defi-token-standardsb-3-d-6aa"
+  },
+  "/defi/wrapped-assets-0fe": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---defi-wrapped-assets-5-a-6-465"
   },
   "/deploy-a-node-fef": {
     "component": "component---theme-doc-item-178-a40",
@@ -157,6 +165,10 @@
     "component": "component---theme-doc-item-178-a40",
     "content": "content---michelson-smart-contracts-162-d06"
   },
+  "/michelson/tutorial-865": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---michelson-tutorial-712-172"
+  },
   "/paths-7a5": {
     "component": "component---theme-doc-item-178-a40",
     "content": "content---pathsfed-263"
@@ -181,16 +193,36 @@
     "component": "component---theme-doc-item-178-a40",
     "content": "content---tezos-basics-3-ac-cbd"
   },
+  "/tezos-basics/cli-and-rpc-1ab": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---tezos-basics-cli-and-rpcdc-9-26e"
+  },
+  "/tezos-basics/economics-and-rewards-adc": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---tezos-basics-economics-and-rewardsb-67-f2e"
+  },
   "/tezos-basics/exam-68b": {
     "component": "component---theme-doc-item-178-a40",
     "content": "content---tezos-basics-exam-1-e-4-fba"
+  },
+  "/tezos-basics/governance-on-chain-630": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---tezos-basics-governance-on-chain-461-7fe"
+  },
+  "/tezos-basics/history-of-amendements-413": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---tezos-basics-history-of-amendementsd-65-84e"
   },
   "/tezos-basics/liquid-proof-of-stake-435": {
     "component": "component---theme-doc-item-178-a40",
     "content": "content---tezos-basics-liquid-proof-of-stake-249-9e6"
   },
-  "/tezos-basics/transactions-49c": {
+  "/tezos-basics/operations-752": {
     "component": "component---theme-doc-item-178-a40",
-    "content": "content---tezos-basics-transactionsfde-f47"
+    "content": "content---tezos-basics-operationse-94-1f3"
+  },
+  "/tezos-basics/smart-contracts-a47": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---tezos-basics-smart-contracts-9-f-2-472"
   }
 }

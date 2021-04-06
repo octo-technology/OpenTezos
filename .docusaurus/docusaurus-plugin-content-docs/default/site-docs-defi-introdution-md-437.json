@@ -3,7 +3,7 @@
   "id": "defi/introduction",
   "isDocsHomePage": false,
   "title": "Introduction",
-  "description": "Under construction.",
+  "description": "What is DeFi ?",
   "source": "@site/docs/defi/introdution.md",
   "slug": "/defi",
   "permalink": "/defi",
@@ -15,7 +15,7 @@
     "permalink": "/baker/exam"
   },
   "next": {
-    "title": "Tokens - FA2 Standards",
-    "permalink": "/defi/tokens"
+    "title": "Token Standards",
+    "permalink": "/defi/token-standards"
   }
 }

@@ -3,7 +3,7 @@
   "id": "defi/exam",
   "isDocsHomePage": false,
   "title": "Exam",
-  "description": "Under construction.",
+  "description": "Question 1",
   "source": "@site/docs/defi/exam.md",
   "slug": "/defi/exam",
   "permalink": "/defi/exam",
@@ -11,8 +11,8 @@
   "version": "current",
   "sidebar": "docs",
   "previous": {
-    "title": "Synthetics",
-    "permalink": "/defi/synthetics"
+    "title": "Lending and Flash Loans",
+    "permalink": "/defi/lending"
   },
   "next": {
     "title": "Introduction",

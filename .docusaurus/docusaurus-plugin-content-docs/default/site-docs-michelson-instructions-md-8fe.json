@@ -2,8 +2,8 @@
   "unversionedId": "michelson/instructions",
   "id": "michelson/instructions",
   "isDocsHomePage": false,
-  "title": "Instructions",
-  "description": "A Tezos smart contract defines storage, entry points, and the code. The code of a smart contract is a sequence of Michelson instructions.",
+  "title": "Instructions Reference",
+  "description": "This chapter provides an explicit list of all the most commonly used instructions in Michelson. It is not intended for you to read it as is but to use it as a reference during your developments.",
   "source": "@site/docs/michelson/instructions.md",
   "slug": "/michelson/instructions",
   "permalink": "/michelson/instructions",
@@ -11,8 +11,8 @@
   "version": "current",
   "sidebar": "docs",
   "previous": {
-    "title": "Smart Contracts",
-    "permalink": "/michelson/smart_contracts"
+    "title": "Tutorial",
+    "permalink": "/michelson/tutorial"
   },
   "next": {
     "title": "Examples",

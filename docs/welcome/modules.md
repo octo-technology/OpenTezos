@@ -29,42 +29,42 @@ Welcome Tezos Developers! Explore the technical and economic concepts behind the
       to="/blockchain-basics"
   />
   <OverlayCard
-      description="What is a Tezos and how it works."
+      description="What is Tezos and how it works."
       icon="img/icons/tezos-big-light.svg"
       iconDark="img/icons/tezos-big-dark.svg"
       title="Tezos Basics"
       to="/tezos-basics"
   />
   <OverlayCard
-      description="What is a Tezos and how it works."
+      description="How to deploy your own Tezos node."
       icon="img/icons/node-big-light.svg"
       iconDark="img/icons/node-big-dark.svg"
       title="Deploy a node"
       to="/deploy-a-node"
   />
   <OverlayCard
-      description="What is an explorer and how it works."
+      description="Learn to use and interact with a Tezos explorer."
       icon="img/icons/explorer-big-light.svg"
       iconDark="img/icons/explorer-big-dark.svg"
       title="How to use an Explorer"
       to="/explorer"
   />
   <OverlayCard
-      description="Learn the basics of SmartPy smart contract language."
+      description="Learn the basics of the SmartPy smart contract language."
       icon="img/icons/smartpy-big-light.svg"
       iconDark="img/icons/smartpy-big-dark.svg"
       title="SmartPy"
       to="/smartpy"
   />
     <OverlayCard
-      description="Learn the basics of LIGO smart contract language."
+      description="Learn the basics of the LIGO smart contract language."
       icon="img/icons/ligo-big-light.svg"
       iconDark="img/icons/ligo-big-dark.svg"
       title="LIGO"
       to="/ligo"
   />
   <OverlayCard
-    description="Learn the basics of the native smart contract language."
+    description="Learn the basics of the native Tezos smart contract language."
     icon="img/icons/michelson-big-light.svg"
     iconDark="img/icons/michelson-big-dark.svg"
     title="Michelson"
@@ -78,7 +78,7 @@ Welcome Tezos Developers! Explore the technical and economic concepts behind the
     to="/dapp"
   />
   <OverlayCard
-    description="How baking works."
+    description="What is baking and how it works."
     icon="img/icons/baking-big-light.svg"
     iconDark="img/icons/baking-big-dark.svg"
     title="Baking"
@@ -92,7 +92,7 @@ Welcome Tezos Developers! Explore the technical and economic concepts behind the
     to="/baker"
   />
   <OverlayCard
-    description="Automated market maker, stable coins, flash loans, synthetics, etc."
+    description="Automated market maker, stablecoins, flash loans, synthetics, etc."
     icon="img/icons/defi-big-light.svg"
     iconDark="img/icons/defi-big-dark.svg"
     title="DeFi"

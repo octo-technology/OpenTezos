@@ -3,7 +3,7 @@
   "id": "tezos-basics/liquid-proof-of-stake",
   "isDocsHomePage": false,
   "title": "Liquid Proof-of-Stake",
-  "description": "Intro",
+  "description": "Introduction",
   "source": "@site/docs/tezos-basics/liquid-proof-of-stake.md",
   "slug": "/tezos-basics/liquid-proof-of-stake",
   "permalink": "/tezos-basics/liquid-proof-of-stake",
@@ -11,11 +11,11 @@
   "version": "current",
   "sidebar": "docs",
   "previous": {
-    "title": "Introduction",
-    "permalink": "/tezos-basics"
+    "title": "Smart contracts",
+    "permalink": "/tezos-basics/smart-contracts"
   },
   "next": {
-    "title": "Exam",
-    "permalink": "/tezos-basics/exam"
+    "title": "Operations",
+    "permalink": "/tezos-basics/operations"
   }
 }

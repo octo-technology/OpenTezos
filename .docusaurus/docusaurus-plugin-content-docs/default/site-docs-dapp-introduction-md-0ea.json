@@ -2,17 +2,17 @@
   "unversionedId": "dapp/introduction",
   "id": "dapp/introduction",
   "isDocsHomePage": false,
-  "title": "Introduction",
-  "description": "Under construction.",
+  "title": "introduction",
+  "description": "",
   "source": "@site/docs/dapp/introduction.md",
-  "slug": "/dapp",
-  "permalink": "/dapp",
+  "slug": "/dapp/introduction",
+  "permalink": "/dapp/introduction",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/dapp/introduction.md",
   "version": "current",
   "sidebar": "docs",
   "previous": {
-    "title": "Exam",
-    "permalink": "/michelson/exam"
+    "title": "Take away",
+    "permalink": "/michelson/take-away"
   },
   "next": {
     "title": "Exam",
