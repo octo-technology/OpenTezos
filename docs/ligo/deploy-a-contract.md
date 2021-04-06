@@ -5,51 +5,51 @@ title: Deploy a contract
 
 # Smart Contract
 
-A smart contract is some code written in Michelson langage (a low-level stack-based turing-complete language).
+A Tezos smart contract is a piece of code written in Michelson language (a low-level stack-based Turing-complete language).
 
 It defines all **entrypoints** (invokable functions) of the smart contract.  
-It defines the prototype of each entry point (e.g. specifies the parameters types of the entry point).  
+It defines the prototype of each entry point (e.g. specifies the types of parameters of the entry point).  
 It defines the **storage** of the smart contract.  
 
 ## Storage
 
-The storage is an allocated memory space associated to a smart contract. 
-The storage is a persistent data store for the smart contract.
+The storage is an allocated memory space associated with a smart contract. 
+The storage is the permanent data store for the smart contract.
 The description of the storage is done by strongly-typing the data structure.
 
 ## Entrypoints
 
-Entry points of a smart contract describe how to mutate a storage.
-Executing an entry point takes some parameters and a state of a storage 
-and returns a new state of storage and some operations.
+Entry points for a smart contract describe how to mutate the storage.
+Executing an entry point takes some parameters and a current state of the storage and returns a new state of storage and some operations.
 
 ![](../../static/img/ligo/smart_contract.svg)
 <small className="figure">FIGURE 1: Smart contract</small>
 
-> Operations are transactions (smart contract invocation) that will be sent to some other contracts. 
-> They will trigger an entry point of the targeted contract, 
+> Operations are transactions (smart contract invocation) that will be sent to other contracts. 
+> They will trigger an entry point at the targeted contract, 
 > or a tez transfer (no invocation of entry point). 
 > If the execution of an entry point produces operations (an ordered list of transactions) 
-> then they are sent and executed following the order of the list of operations.
+> then they are sent and executed according to the order of the operations on the list.
 
 # LIGO Compiler
 
 ## Compiling a contract
 
-In order to deploy a contract to a real Tezos network,
-we'd have to compile it first,
-this can be done with a tool called transpiler (aka LIGO compiler) is used to transform
+In order to deploy a contract in a real Tezos network,
+we have to compile it first,
+this can be done with a tool called transpiler (aka LIGO compiler) used to transform
 LIGO code into Michelson code.
-Michelson smart contract are stored in a file with .tz extension.
 
-Here is how to transform LIGO code into Michelson code using the LIGO compiler in command line.
+Michelson smart contracts are stored in a file with .tz extension.
+
+Here is how to transform LIGO code into Michelson code using the LIGO compiler in the command line.
 
 ```shell
 ligo compile-contract SOURCE_LIGO_FILE MAIN_FUNCTION
 ```
 
 Where:
-- **SOURCE_LIGO_FILE** is the path of your LIGO file containing the main function.
+- **SOURCE_LIGO_FILE** is the path to your LIGO file containing the main function.
 - **MAIN_FUNCTION** is the name of your main function.
 
 > You can store the michelson output of the above command in .tz file 
@@ -85,7 +85,7 @@ Where:
 ## Simulating (Dry-running) a contract
 
 Testing a contract can be quite easy if we utilize LIGO's built-in dry run feature. 
-Dry-run works by simulating the main function execution, as if it were deployed on a real chain.
+Dry-run works by simulating the main execution function, as if it were deployed on a real chain.
 
 ```shell
 ligo dry-run [options] SOURCE_LIGO_FILE MAIN_FUNCTION 'ENTRY_POINT(P)' 'STORAGE_STATE'
@@ -93,7 +93,7 @@ ligo dry-run [options] SOURCE_LIGO_FILE MAIN_FUNCTION 'ENTRY_POINT(P)' 'STORAGE_
 
 - **STORAGE_STATE** state of the storage when simulating the execution of the entry point
 - **ENTRY_POINT(P)** entrypoint of the smart contract that is invoked 
-  (parameter p of this entry point is specified between parentheses).
+  (parameter p of this entry point is specified between brackets).
   
 ## Some specificities for Maps, Tuples and Records
 
@@ -109,8 +109,8 @@ type storage is map (string, coordinates)
 
 ### Maps
 
-Initialization of elements of a map is specified between map `[` and `]` 
-and elements separated by semi-colon `;`.   
+Initialization of the elements of a map is specified between map `[` and `]` 
+and elements are separated by a semi-colon `;`.   
 Each element is a key/value pair separated by `->` and follow the syntax:
 
 ```
@@ -137,7 +137,7 @@ This command returns:
 { Elt "earth" (Pair (Pair 1 1) 1) }
 ```
 
-When specifying an empty map, one must cast the map [] into the expected type.
+When specifying an empty map, one must set the map [] into the expected type.
 
 ```shell
 ligo compile-storage starmap.ligo main '(map []: map(string,coordinates))'
@@ -145,7 +145,7 @@ ligo compile-storage starmap.ligo main '(map []: map(string,coordinates))'
 
 ### Records
 
-Initialization of elements of a record is specified between map `[` and `]`
+Initialization of elements in a record is specified between map `[` and `]`
 and elements separated by semi-colon `;`.  
 Each element is a key/value pair separated by `=` and follow the syntax:
 
@@ -187,9 +187,9 @@ This command returns:
 A smart contract must be deployed on the blockchain in order to be invoked. 
 When deploying a smart contract on the blockchain, one must specify the initial state of the storage.
 
-Deployment of a smart contract in Tezos is called "**origination**".
+Deployment of a smart contract in Tezos is called "**_origination_**".
 
-Here is the syntax of the tezos command line to deploy a smart contract:
+Here is the syntax for the tezos command line to deploy a smart contract:
 
 ```shell
 tezos-client originate contract CONTRACT_NAME for USER transferring AMOUNT_TEZ from FROM_USER \
@@ -199,7 +199,7 @@ tezos-client originate contract CONTRACT_NAME for USER transferring AMOUNT_TEZ f
 
 where:
 - **CONTRACT_NAME** name given to the contract
-- **MICHELSON_FILE** path of the Michelson smart contract code (.tz file).
+- **MICHELSON_FILE** path for the Michelson smart contract code (.tz file).
 - **AMOUNT_TEZ** is the quantity of tez being transferred to the newly deployed contract. 
   If a contract balance reaches 0 then it is deactivated.
 - **FROM_USER** account from which the tez are taken from (and transferred to the new contract).
@@ -209,7 +209,7 @@ where:
 ## Invoke
 
 Once the smart contract has been deployed on the blockchain (contract-origination operation baked into a block), 
-it is possible to invoke an entry point of the smart contract using the command line.
+it is possible to invoke an entry point for the smart contract using the command line.
 
 Here is the syntax of the tezos command line to invoke a smart contract:
 
@@ -307,7 +307,7 @@ ligo compile-storage src/counter.ligo main 5
 
 ### Invocation parameter
 
-Same rules apply for parameters, as apply for translating LIGO storage values to Michelson. 
+Thye same rules apply for parameters, as apply for translating LIGO storage values to Michelson. 
 We will need to use `compile-parameter` to compile our action variant into Michelson, here's how:
 
 ```shell
@@ -319,7 +319,7 @@ Now we can use `(Right 5)` which is a Michelson value, to invoke our contract vi
 
 ### Simulating
 
-To dry-run the counter contract, 
+To dry-run the counter-contract, 
 we will provide the `main` function with a variant parameter of value `Increment (5)` 
 and, an initial storage value of `3`.
 
@@ -335,7 +335,7 @@ Our contract's storage has been successfully incremented to `8`.
 ### Deploy
 
 Now that we have verified that our code compiles well 
-and, was functional we can deploy our contract on the blockchain.
+and that it was functional we can deploy our contract on the blockchain.
 
 ```shell
 tezos-client originate contract counterContract for boostrap1 transferring 1 from boostrap2 \
@@ -359,7 +359,7 @@ tezos-client transfer 5 from boostrap1 to counterContract --arg '(Right 5)'
 
 ### Accessing storage
 
-You can access to the storage value with the following command:
+You can access the stored value with the following command:
 
 ```shell
 tezos-client get contract storage for counterContract
