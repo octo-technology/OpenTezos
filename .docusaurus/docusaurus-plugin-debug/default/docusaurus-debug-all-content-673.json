@@ -704,7 +704,7 @@
               "id": "defi/lending",
               "isDocsHomePage": false,
               "title": "Lending and Flash Loans",
-              "description": "---",
+              "description": "It is likely that in your life you have had to borrow some money, e.g. for a student loan, a car loan or a mortgage. Lending and borrowing are essential services in any financial system. Lenders such as banks provide you with a loan in exchange for a fee in the form of interest rates. Repaying the loan is enforced by legal contracts.",
               "source": "@site/docs/defi/lending.md",
               "slug": "/defi/lending",
               "permalink": "/defi/lending",

@@ -4,44 +4,24 @@ title: Lending and Flash Loans
 author: Aymeric Bethencourt
 ---
 
----
+It is likely that in your life you have had to borrow some money, e.g. for a student loan, a car loan or a mortgage. Lending and borrowing are essential services in any financial system. Lenders such as banks provide you with a loan in exchange for a fee in the form of interest rates. Repaying the loan is enforced by legal contracts. 
 
-## STILL IN PROGRESS
-
----
-
-Lending and borrowing is one of the most important element of any financial system. Most people at some point in their life are exposed to borrowing, usually by taking a student loan, a car loan or a mortgage. 
-
-The whole concept is quite simple. Lenders a.k.a. depositors provide funds to borrowers in return for interest on their deposit. Borrowers or loan takers are willing to pay interest on the amount they borrowed in exchange for having a lump sum of money available immediately.
-
-Traditionally, lending and borrowing is facilitated by a financial institution such as a bank or a peer-to-peer lender. 
-
-When it comes to short term lending & borrowing, the area of traditional finance that specializes in it is called the money market. The money market provides access to multiple instruments such as CDs (certificates of deposits), Repos (repurchase-agreements), Treasury Bills and others. 
-
-## Lending on Tezos
-[Tezos Finance (aka "Tezfin")](https://tezos.finance/) is currently in development and will soon enable lending and borrowing of fungible Tezos crypto-assets, including tez (XTZ) and Tezos-based tokens built to the FA token standards.
+Similar situations can be found on the blockchain as well. A borrower needs some money available immediately for some operation and a lender may agree to provide such loan in exchange for a fee. 
 
 DeFi lending allows users to become lenders or borrowers in a completely decentralized and permissionless way while maintaining full custody over their coins. 
 
-TezFin works by creating money markets for particular tokens such as XTZ, stablecoins like kUSD and USDS or other tokens like wrapped BTC.
-
 Users, who want to become lenders, supply their tokens to a particular money market and start receiving interest on their tokens according to the current supply APY (Annual Percentage Yield). 
 
-The supplied tokens are sent to a smart contract and become available for other users to borrow. In exchange for the supplied tokens, the smart contract issues other tokens that represent the supplied tokens plus interest. These tokens are called fTokens in TezFin and they can be redeemed for the underlying tokens. 
+But how do you enforce the repayment of a loan on the blockchain? 
 
-It’s also worth mentioning that in DeFi, at the moment, pretty much all of the loans are overcollateralized. This means that a user who wants to borrow funds has to supply tokens in the form of collateral that is worth more than the actual loan that they want to take. 
+Each loan on the blockchain need to be collateralized with another token. Even worse, as tokens as very volatile, blockchain loans are actually overcollateralized (often at 133%). For instance, if you want to borrow $1m in kUSD, you need to provide $1.33m in USDS as collateral. 
 
-At this point, you may ask the question: what’s the point of taking a loan if you have to supply tokens that are worth more than the actual amount of the loan taken. Why wouldn’t someone just sell their tokens in the first place? 
+You may then wonder why would anyone take a loan if they need to provide even more as collateral?
 
-There are quite a few reasons for this. Mainly, the users don’t want to sell their tokens but they need funds to cover unexpected expenses. Other reasons include avoiding or delaying paying capital gain taxes on their tokens or using borrowed funds to increase their leverage in a certain position. 
-
-So, is there a limit on how much can be borrowed? 
-
-Yes. The amount that can be borrowed depends on 2 main factors. 
-
-The first one: how much funds are available to be borrowed in a particular market. This is usually not a problem in active markets unless someone is trying to borrow a really big amount of tokens.
-
-The second one: what is the collateral factor of supplied tokens. Collateral factor determines how much can be borrowed based on the quality of the collateral. kUSD and USDS, for example, have a collateral factor of 75% on TezFin. This means that up to 75% of the value of the supplied kUSD or USDS can be used to borrow other tokens. 
+There are multiple reasons:
+- They may not want to sell their original tokens. In the example above, they may not want to sell their USDS tokens (but notice that if the loan is not repaid, their USDS will be automatically liquidated to repay the loan).
+- Avoiding or delaying paying capital gain taxes on their tokens.
+- Using borrowed funds to increase their leverage in a certain position. 
 
 If a user decides to borrow funds, the value of the borrowed amount must always stay lower than the value of their collateral times its collateral factor. If this condition holds there is no limit on how long a user can borrow funds for.
 
@@ -53,17 +33,26 @@ The interest that is paid by borrowers is the interest earned by lenders, so the
 
 The interest APYs are calculated per Tezos block. Calculating APYs per block means that DeFi lending provides variable interest rates that can change quite dramatically depending on the lending and borrowing demand for particular tokens. 
 
-When it comes to borrowing, users lock their fTokens as collateral and borrow other tokens. Collateral earns interest, but users cannot redeem or transfer assets while they are being used as collateral. 
-
-As we mentioned earlier the amount that can be borrowed is determined by the collateral factor of the supplied assets. There is also a smart contract that looks at all the collateral across user’s account and calculates how much can be safely borrowed without getting liquidated immediately. 
-
 If a user decides to repay the borrowed amount and unlock their collateral, they also have to repay the accrued interest on their borrowed assets. The amount of accrued interest is determined by the borrow APY and it is also increased automatically with each Tezos block. 
 
+### Lending on Tezos
+[Tezos Finance (aka "Tezfin")](https://tezos.finance/) is currently in development and will soon enable lending and borrowing of fungible Tezos crypto-assets, including tez (XTZ) and Tezos-based tokens built to the FA token standards.
+
+Tokens supplied by lenders to the smart contract become available for other users to borrow. In exchange for the supplied tokens, the smart contract issues other tokens that represent the supplied tokens plus interest. These tokens are called _fTokens_ in _TezFin_ and they can be redeemed for the underlying tokens. 
+
 ## Flash loans
+Flash loans have been all the rage over the past few months as they allow to **borrow tokens without any collateral**.
+
+### Flash loans on Tezos
+Flash loans are not yet available on Tezos but works are in progress.
+
+
+---
+STILL UNDER DEVELOPMENT
+---
 
 A flash loan is a feature that allows you to borrow any available amount of assets from a designated smart contract pool with no collateral. Flash loans are useful building blocks in DeFi as they can be used for things like arbitrage, swapping collateral and self-liquidation.
 
-Flash loans are not yet available on Tezos but some implementations are in developments.
 
 **A flash loan has to be borrowed and repaid within the same blockchain transaction.** 
 
