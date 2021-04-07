@@ -325,9 +325,9 @@ The `UNPAIR` instruction takes the top element of the stack and ensures it is a 
 ![](../../static/img/michelson/michelson_tutorial_pair_unpair.svg)
 <small className="figure">FIGURE 35: Illustration of the _PAIR_ and _UNPAIR_ instructions</small>
 
-Notice that the `UNPAIR` instructions expects a _pair_ element on top of the stack. If the top element is not a _pair_ type then the type checking of the script would fail, and the execution of the smart contract would stop.
+Notice that the `UNPAIR` instruction expects a _pair_ element on top of the stack. If the top element is not of the _pair_ type then the type checking of the script would fail and the execution of the smart contract would stop.
 
-Similarly, the `PAIR` instruction expects two elements on the stack. The execution of a valid smart contract would stop if the stack does not contain two elements.
+Similarly, the `PAIR` instruction expects two elements in the stack. The execution of a valid smart contract would stop if the stack did not contain two elements.
 
 ##### Accessing to elements of a _PAIR_
 
@@ -1146,7 +1146,7 @@ This section introduces the _address_ type identifying an account or a deployed 
 
 The _address_ type represents an identifier for a user account or a deployed smart contract (e.g. "tz1n2Vm2dvjey...", "KT1faswCTD..." ).
 
-The _address_ type is a comparable type (i.e. _address_ values can be compared between each other). Addresses of implicit accounts are considered strictly less than addresses of originated accounts. Otherwise addresses of the same type are compared lexicographically.
+The _address_ type is a comparable type (i.e. _address_ values can be compared between each other). Addresses of implicit accounts are considered strictly less than addresses of originated accounts. Addresses of the same type are compared lexicographically.
 
 Built-ins macros such as SOURCE or SENDER push an _address_ value on top of the stack. (see "Built-ins" section) 
 
