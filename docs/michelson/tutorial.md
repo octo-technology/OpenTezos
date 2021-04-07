@@ -630,15 +630,16 @@ The Michelson language provides _bytes_ supports with common operators like for 
 
 ##### Serialization
 
-The `PACK` instruction serializes a piece of data to its optimized binary representation.
-
+The `PACK` instruction serializes any value of packable type to its optimized binary representation. All types are packable with the exception of _operation_ and _big_map_ types.
+It consumes the top element of the stack and push back the corresponding _bytes_ value on top of the stack.
+ 
 
 The `UNPACK` instruction de-serializes a piece of data, if valid. It returns an *option* initialized to *None* if the de-serialization is invalid, or an *option* initialized to *Some* if valid.
 
 
 ##### Standard operators
 
-The `CONCAT` instruction concatenates two byte sequences. It can also be applied to a list of byte sequences. It consumes a list of byte sequences and pushes the concatenation of all sequences (in the respective order). 
+The `CONCAT` instruction concatenates two byte sequences. It can also be applied to a list of byte sequences. It consumes a list of byte sequences and pushes the concatenation of all sequences (in the respective order). The _list_ data structure will be explained later in this tutorial.
 
 
 The `SIZE` instruction computes the size of a sequence of bytes. It consumes a byte sequence and pushes the number of bytes of the sequence.
@@ -744,7 +745,9 @@ The `IF_CONS bt bf` instruction inspects a list. It requires two sequences of in
 
 This instruction removes the first element of the list, pushes it on top of the stack and executes the first sequence of instructions (`bt`). If the list is empty, then the second list of instructions is executed (`bf`).
 
-This `IF_CONS` instruction allows you to remove the first element of the list. The following smart contract illustrates this usage.
+This `IF_CONS` instruction allows you to remove the first element of the list. It also allows to relocate elements of a list or to filter elements of a list. 
+
+The following smart contract illustrates the removal of elements from the list.
 
 ```
 parameter unit;
@@ -808,11 +811,12 @@ The `MEM` instruction checks for the existence of an element in a set. It consum
 
 ##### Modify elements of the set
 
-The `UPDATE` instruction inserts or removes an element in a set, replacing a previous value.
+The `UPDATE` instruction allows to insert an element in a set or to remove an element from a set.
 
-It takes the top two elements of the stack:
+It takes the top three elements of the stack:
 - an element whose type corresponds to the _set_ type
 - a boolean representing the existence of this element in the _set_
+- a set to update
 
 If the boolean argument is _False_ then the element will be removed.
 
@@ -823,6 +827,8 @@ If the boolean argument is _True_ then the element will be inserted.
 
 ![](../../static/img/michelson/michelson_instruction_updatesetinsert_example.svg)
 <small className="figure">FIGURE 25: Illustration of the `UPDATE` instruction</small>
+
+An attempt to add a value which already exists in the set will let the _set_ unchanged. Similarly an attempt to remove a value which does not exist in the set will let the _set_ unchanged.
 
 The following smart contract illustrates the `UPDATE` instruction usage. This smart contract stores a set of integers and can be invoked by specifying an integer that will be inserted in the set.
 
@@ -858,7 +864,11 @@ The `SIZE` instruction consumes a set from the top of the stack and pushes to th
 
 A `map` is an associative array. It stores many pairs of key-value elements, i.e. it binds a key and a value. Type definitions of key and value must be defined when instantiating a new `map`.
 
-The `map` data structure can only contain a limited amount of data. When using big and complex types as values, it is recommended to use the `big_map` data structure.
+The `map` data structure can only contain a limited amount of data. When using big and complex types as values, it is recommended to use the `big_map` data structure which is a lazily deserialized map.
+
+Operations on _big_map_ type have higher gas costs than those over standard maps, as data is lazily deserialized. However, a _big_map_ type has a lower storage cost than a standard map of the same size.
+
+
 
 ##### Building a map
 
