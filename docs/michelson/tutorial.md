@@ -200,7 +200,7 @@ Notice that the `DUP; DUG 2; SWAP; DUP; DUG 2; DUG 3` sequence duplicates the to
 
 ##### More stack operator (`DIP`, `CMPLE`)
 
-This principle of duplicating the top two elements of the stack and comparing them to choose one of them is a common pattern. Some syntactic sugar (i.e. a "shortcut" instruction that combines many of the language's basic instructions) or(macros) has been introduced in the Michelson language so as to ease these common patterns. 
+This principle of duplicating the top two elements of the stack and comparing them to choose one of them is a common pattern. Some syntactic sugar (i.e. a "shortcut" instruction that combines many of the language's basic instructions) and macros have been introduced in the Michelson language to ease these common patterns. 
 
 For example the macro `CMPLE` stands for `COMPARE; LE`. A more exhaustive list is available in the "macros" section.
 
@@ -433,7 +433,7 @@ Notice similarly that the multiplication of a natural integer and an integer pro
 
 The `EDIV` instruction computes euclidean divisions on _nat_. The euclidean division computes the quotient and the remainder between two numbers.
 
-If the divisor is equal to zero, it returns an optional-type with the assigned value _None_. Otherwise, it applies the Euclidean division and returns an optional-type containing the result (quotient and remainder). 
+If the divisor is equal to zero, it returns the _option_ type with the assigned value _None_. Otherwise, it applies the Euclidean division and returns the _option_ type containing the result (quotient and remainder). 
 
 ![](../../static/img/michelson/michelson_instruction_ediv_example.svg)
 <small className="figure">FIGURE 19: Illustration of the `EDIV` instruction</small>
@@ -653,6 +653,30 @@ It expects the following elements on top of the stack:
 
 It returns an optional byte sequence because the given offset and length may be out of bound.
 
+The following smart contract illustrates the slicing of bytes. It expects a _bytes_ value as parameter and saves in the storage the first 3 bytes. Otherwise if the offset or length elements do not fit the given bytes value then it fails.
+
+```
+parameter bytes;
+storage bytes;
+code { CAR ;
+       PUSH nat 3;
+       PUSH nat 1;
+       SLICE ;
+       IF_NONE { FAIL } {};
+       NIL operation ;
+       PAIR }
+```
+
+This smart contract can be simulated with the CLI command:
+```
+tezos-client run script instruction_bytes_slice.tz on storage '0x00' and input '0x12a47ef2'
+```
+This command would produce a new storage value `0xa47ef2`.
+
+The following command will fail (out-of-bound access) due to a too short _bytes_ value.  
+```
+tezos-client run script instruction_bytes_slice.tz on storage '0x00' and input '0x12a47e'
+```
 
 ##### Comparing bytes
 
