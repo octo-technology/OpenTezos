@@ -1099,9 +1099,6 @@ tezos-client run script union_example.tz on storage '5' and input 'Left "Hello"'
 ![](../../static/img/michelson/michelson_instruction_ifleft_left_example.svg)
 <small className="figure">FIGURE 31: Illustration of the `IF_LEFT` instruction</small>
 
-
-
-
 ### Contract specific types and operations
 
 Now let's focus on the specific types related to Tezos smart contract such as crypto-currency (mutez), address identifying an account or a contract, delegation.
@@ -1109,7 +1106,6 @@ Now let's focus on the specific types related to Tezos smart contract such as cr
 #### Mutez
 
 Mutez (micro-Tez) are internally represented by a 64-bit, signed integer. There are restrictions to prevent creating a negative amount of mutez. Operations are limited in order to prevent overflow and to avoid mixing with other numerical types by mistake. They are also mandatorily checked for under/overflows.
-
 
 ##### Standard currency operations
 
@@ -1121,20 +1117,14 @@ This operation may fail in case of overflow.
 The `SUB` instruction computes subtractions on mutez. It consumes two _mutez_ elements on top of the stack and pushes back the difference of the two quantities on top of the stack.
 A _mutez_ value cannot be negative so this subtraction may fail if the first value is smaller than the second one.
 
-
 The `MUL` instruction computes multiplications on mutez. It consumes a _mutez_ and a _nat_ elements on top of the stack and pushes back the product of the two quantities on top of the stack.
 The multiplication allows mutez to be multiplied with natural integers.
 Multiplication of 2 `mutez` operands is not allowed. 
 
-
 The `EDIV` instruction computes the euclidean division on mutez. It consumes a _mutez_ and a _nat_ elements on top of the stack and pushes back a `pair` with the quotient and the reminder (of the two elements) on top of the stack.
 The euclidean division allows a mutez to be divided by a natural integer. It is also possible to divide 2 mutez, in this case, it returns a `nat` as a quotient and a mutez as the rest of the euclidean division.
 
-
 The `COMPARE` instruction compares two mutez and returns an integer on top of the stack. It returns 0 if both elements are equal, 1 if the first element is bigger than the second, and -1 otherwise. 
-
-
-
  
 #### Contract communication
 
