@@ -5,21 +5,32 @@ title: Unit Testing with PyTezos
 
 ## Unit Testing
 
-**Why write tests?**
-- To check the correct operation of the code, 
-  in our case for the developer and the user of the smart contract.
-- It is also to make the code robust for future modifications, 
-  i.e. a refactoring of the code or the addition of a breakable functionality 
-  will be quickly detected.
+Just like for any other programming language, writing Ligo code (which will be compiled into Michelson) is not the only task of a developper:
+writing tests is as much as important as writing ligo code.
 
-There is an automated testing strategy, as described in the following figure.
+Writing tests takes extra time, but this effort is mitigated by some great benefits:
+- a test helps to understand the code: a user or a new developer can easily understand the code behaviour.
+  The test name should clearly describe what the code is checking;
+  the test itself shows how the code should be handled.
+- checking the good behaviour of the written code. It benefits both to the developer and the user of a smart contract:
+  both of them want to be sure the smart contract behaves as it should be
+- It also makes the code robust for future modifications, 
+  i.e. code refactoring or new functionalities. 
+  The tests make sure that the behavior has not changed, and if it did, clearly outlines where.
+- test can be easily automated: they can be included in a CI/CD, which runs them after any push
+
+
+
+There are different types of tests, as described below in the an automated testing strategy.
 <br/>
 
 ![](../../static/img/ligo/pyramide_of_tests.svg)
 <small className="figure">FIGURE 1: Pyramide of Tests</small>
 
-Unit tests represent the base of the pyramid and therefore the most important part.
-
+Unit tests are the base of the pyramid and therefore the most important part.
+<!---
+Décrire les autres tests très succinctement
+-->
 **Unit testing** is performed at a very fine granularity 
 by verifying the behavior of a portion of code totally 
 or partially isolated from its dependencies.
@@ -30,19 +41,27 @@ To go further, take a look at **Test Driven Development (TDD)**
 which is a development method emphasizing 
 the writing of automated tests as a tool to guide the implementation of features.
 
+Ligo does not provide a testing framework. But other languages, such as Python, do.
+This chapter details how to write unit tests on Michelson code in Python.
+Two modules are needed:
+- the standard *unittest* module: used to write and run unit tests in Python
+- the *pytezos* module: used to call the entrypoints of a smart contract, without deploying it.
+This module is an interesting option because it is well-maintained and easy-to-use.
 
 ## PyTezos Installation
 
 ### Requirement
 
-- Have python installed, and a text editor ready to use.
-- Have a cryptographic library in your system. 
-  If not, take a look on the requirement section on this [link](https://pytezos.org/quick_start.html#requirements).
+- Python 3
+- Text editor
+- Cryptographic dependencies, detailed here [link](https://pytezos.org/quick_start.html#requirements).
 
 ### Installation
 
 #### Creation of a virtual environment
-
+A virtual environment is a self-contained python installation, separated from the global Python installation.
+It contains its own modules. Hence, it is useful when a specific module version is needed, without affecting the other modules.
+Run this command to create a virtual environment:
 ```shell
 python3 -m venv /path/to/env
 ```
@@ -69,70 +88,107 @@ Verification of the installation:
 
 If the command returns nothing then the installation is successful.
 
+You can find the official documentation here [https://pytezos.org/](https://pytezos.org/) and 
+all the versions on the project github [https://github.com/baking-bad/pytezos](https://github.com/baking-bad/pytezos) in the [Releases part](https://github.com/baking-bad/pytezos/releases).
+
 > The pytezos version used for the following example is `pytezos==3.1.0`.  
 > You can check the version of your package with the `pip freeze` command.    
-> You can install a specific version if needed with `pip install pytezos==3.1.0`.
+> You can install a specific version if needed with `pip install pytezos=={pytezos_version}`.
 
 ## Unittest (Python library)
 
-Before writing tests for smart contracts with **PyTezos** 
-you need to know how to use the **Unittest** test library.
+*Unittest* is the standard unit testing framework for Python.
+Before writing tests for smart contracts with **PyTezos**, 
+you need to know how to use this test library.
 
 Let's see how **Unittest** works through a simple example.
 
-Consider a python file `calculator.py` with two functions: `add` and `sub`
+Consider a python file `calculator.py` with two functions: `multiply` and `divide`
 
 ```python
 #calculator.py
 
-def add(x, y):
-    return x + y
+def multiply(x, y):
+    return x * y
 
 
-def sub(x, y):
-    return x - y
+def divide(x, y):
+    if y != 0:
+        return x / y
 ```
 
 In order to test these two functions 
 let's create a new test file beginning by **test_** : `test_calculator.py`.
 
 In this file you will need to:
-- `import unittest`.
-- import the file you want with the functions you want to test, `import calculator`.
+- import the unittest module
+```python
+import unittest
+```  
+
+- import the file you want with the functions you want to test: `import calculator`
+```python
+import unittest
+
+import calculator
+```  
 - Create a test class that inherits from `unittest.TestCase`.  
   You can name this class whatever you want but try to keep it descriptive.
-- Write your tests by creating methods whose name must start with `test_` 
-  otherwise it will not be recognized.
 
 ```python
 import unittest
 from unittestExample import calculator
 
+class TestCalculator(unittest.TestCase):
+  pass #keyword which tells the class to do nothing
+```  
+- Write your tests. Keep in mind these basic rules:
+   - A test must check one behaviour at the time.
+   - One test = one method
+   - No magic number: all the values used must be declared in variables, with explicit names
+   - There must not be useless variables to make the test pass. If a variable can be removed without making the test fail, it must be removed.
+   - The method name must explicit. Anyone should understand what the test takes as input, what behaviour is checked and wha is expected.
+   - A test can be divided into three parts (as implemented in the tests below):
+      - GIVEN section: input declarations, expected results
+      - WHEN section: the tested method is called with the declared inputs
+      - THEN: assertions checks
+  
+With unittest, a test method must with `test_` otherwise it will not be considered as a test.
 
+```python
 class TestCalculator(unittest.TestCase):
 
-  def test_add_10_and_5_should_return_15(self):
+  def test_multiplying_10_and_5_should_return_(self):
     # GIVEN
     x = 10
     y = 5
-
+    expected_multiplication_result = 50
     # WHEN
-    result = calculator.add(x, y)
+    result = calculator.multiply(x, y)
 
     # THEN
-    self.assertEqual(result, 15)
+    self.assertEqual(result, expected_multiplication_result)
 
-  def test_sub_10_and_5_should_return_5(self):
+  def test_dividing_7_and_3_should_return_a_floating_number_2_33333333(self):
     # GIVEN
-    x = 10
-    y = 5
+    x = 7
+    y = 3
+    expected_division_result = 2.3333333333333335
 
     # WHEN
-    result = calculator.sub(x, y)
+    result = calculator.divide(x, y)
 
     # THEN
-    self.assertEqual(result, 5)
+    self.assertEqual(result, expected_division_result)
 ```
+
+> At the beginning of this chapter, several benefits of unit testing have been raised. 
+> This simple tests suite gives a good example:
+>  - Reading the test name gives a clear idea about the code implementation. 
+> For instance, the second test show that it is not an Euclidean division that is implemented
+>  - The divide method could be the Euclidean division. The test checks that it returns a float number and not a int.
+> If another developer was to change it into an Euclidean division, the test would fail and warn instantly the developer of a breaking change
+> 
 
 > Note that classe names are by convention in **CamelCase** 
 > and test method names are in **snake_case**.
@@ -154,7 +210,7 @@ OK
 ```
 
 Note that the command has executed all the tests in the `test_calculator.py` file, 
-but it is possible to only execute certain tests.
+but it is possible to only execute some specific tests.
 
 Indeed, the unittest module can be used from the command line to execute tests from modules, 
 classes or even individual test methods:
@@ -170,6 +226,13 @@ python -m unittest test_calculator.TestCalculator.test_sub
 **PyTezos** library is a **Python** toolset for **Tezos** blockchain, 
 including work with keys, signatures, contracts, operations, RPC query builder, 
 and a high-level interface for smart contract interaction.
+
+This module is very interesting for smart contracts unit testing:
+- it can test directly the Michelson code with Python scripts, without having to deploy it on a testnet.
+- since it does not have to wait for transactions confirmations, the test are fast to run
+- it can simulate any execution context (sender, amount, storage...)
+- it gives total control on the storage: each test has its own initial storage, and the output storage can be checked.
+- the tests are independant one from another. If the tests were run on a deployed smart contract, the initial storage of a test would be the output storage of the previous one.
 
 In this section we will test entrypoints of a michelson script
 from a smart contract which is compiled but not deployed.
@@ -233,7 +296,7 @@ Remember to recompile after any modification of the contract.
 
 ### Counter Contract Example
 
-Here is an example of **Counter contract** that handle an integer "counter" value and an administrator address
+Here is an example of **Counter contract** that handles an integer "counter" value, and an administrator address
 as storage and allows the administrator **only** to increment or decrement this counter.
 
 ```js
