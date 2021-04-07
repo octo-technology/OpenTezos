@@ -7,14 +7,19 @@ slug: /ligo
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The goal of this module is to allow a developer to install LIGO transpiler on his operating system 
-and give him the essential skills to write and deploy his first smart contract 
-on the Tezos blockchain.
+Tezos smart contracts are written in [Michelson](https://opentezos.com/michelson), which a stack-based language.
+It is the lowest level for a Tezos smart contract: what will be deployed on a Tezos network is Michelson code.
+However, if reading or writing Michelson code is still easy for small smart contracts, 
+it can become very tedious for complex smart contracts:
+- there is no variable nor function
+- no syntactic sugar
+- the Michelson code cannot be broken down into several files
+- stack-based languages are not common when it comes down to web development.
 
-It will include the bases of LIGO language, 
-inspired by the [official documentation](https://ligolang.org/docs/language-basics/types), 
-as well as detailed smart contract examples. 
-You will also be offered an exam to check your understanding.
+LIGO solves these issues. 
+It is a high-level language for smart contracts development.
+Smart contracts are developed in Ligo, then transpiled into a single Michelson code file. 
+This Michelson file is the smart contract that will be deployed on a tezos network.
 
 <br/>
 
@@ -23,20 +28,15 @@ You will also be offered an exam to check your understanding.
 
 <br/>
 
-LIGO is a programming language for writing **[Tezos](https://tezos.com/) smart contracts**.
+As said above, LIGO is a programming language for writing **[Tezos](https://tezos.com/) smart contracts**.
 The diagram helps to contextualize the role of LIGO in the Tezos ecosystem.
 LIGO takes action in the left part as a development tool allowing
 the production of smart contracts (scripts in Michelson),
 which can be deployed on the blockchain.
 Tezos nodes broadcast information through the Tezos network 
-in order to maintain an immutable common ledger (blockchain)
+in order to maintain an immutable common ledger (blockchain) # I would remove this sentence
 
-By default, Tezos smart contracts are written in [Michelson](https://opentezos.com/michelson), 
-but it is hard to learn low level stack-based language. 
-
-LIGO transpiles scripts written in the high-level *LIGO* language into a Michelson script.
-
-LIGO currently offers three syntaxes:
+LIGO currently offers three flavored syntaxes:
 
 - **PascaLIGO**, a syntax inspired by Pascal which provides an imperative developer experience.
 
@@ -127,3 +127,16 @@ let main = ((action, store): (parameter, storage)) : return => {
 This LIGO contract accepts the following LIGO expressions:
 `Increment(n)`, `Decrement(n)` and `Reset`. Those serve as
 `entrypoint` identification.
+
+
+<br/>
+
+The goal of this module is to allow a developer to install the LIGO transpiler on his operating system
+and give him the essential skills to write and deploy his first smart contract
+onto the Tezos blockchain.
+PascaLigo will be used throughout this module.
+
+It will include the bases of LIGO language,
+inspired by the [official documentation](https://ligolang.org/docs/language-basics/types),
+as well as detailed smart contract examples.
+You will also be offered an exam to check your understanding.
