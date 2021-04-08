@@ -47,15 +47,15 @@ patch earth_coordinates with record [z = 5]
 ```
 
 >A patch takes a record to be updated, 
-> and a record with a subset of the fields to update, 
+> a record with a subset of the fields to update, 
 > then applies the latter to the former.
 
 
 ## Main function
 
-In LIGO, the design pattern is to have one main function called main, 
+In LIGO, the design aim is to have one main function called main, 
 that dispatches the control flow according to its parameter. 
-Those functions called for those actions are called entrypoints.
+The functions used for those actions are called entrypoints.
 
 In the example bellow:
 - The functions `set_ship_code` and `go_to` are the entrypoints.
@@ -92,9 +92,9 @@ Notice the weapons mapping which maps the name of each weapon to its correspondi
 We want to increase the power of the Main Laser but mapping returns optional results as they might not be found in the mapping. 
 So we define the constant `main_laser_power` as an optional `int` from selecting "Main Laser" from the weapons mapping.
 
-Then we write a pattern matching for `main_laser_power`.
+Then we write a pattern matching the `main_laser_power`.
 - If it exists, it increases the power of the "Main Laser" by 1 (use i as temporary matching variable).  
-- If it does not exist in the mapping, it fails with "Weapon not found".
+- If it does not exist in the mapping, it the fails with "Weapon not found".
 
 ```js
 type weapon_power is map (string, int)
@@ -120,20 +120,20 @@ function main (const p : unit; const store : unit) : (list(operation) * unit) is
 # Full example - FundAdvisor
 
 This example is meant to illustrate the communication between contracts (with get_entrypoint_opt LIGO function) 
-and lambda pattern which allows to modify a contract already deployed. 
+and lambda pattern which allows you to modify a contract already deployed. 
 It deals with implementing, deploying and interacting with Tezos smart contracts.
 
 ## The Fund and its advisor
 
 The `indice` contract represents a fund value, 
-and the `advisor` contract gives an advice on investing on this fund.
+and the `advisor` contract gives an advice on investing in this fund.
 
 ### Transaction workflow
 
 The `advisor` contract can be invoked to request the fund value to the `indice` contract (via a transaction). 
 The `indice` contract receives the request (transaction) 
-and sends back the requested value. 
-When `advisor` contract receives the fund value it can apply the "algorithm" to check it is worth investing !
+and will sends back the requested value. 
+When the `advisor` contract receives the fund value, it can apply the "algorithm" to check that it is worth investing !
 
 <br/>
 
@@ -144,20 +144,20 @@ The resulting advice is stored in the storage (in result field).
 
 ### Lambda pattern
 
-The real business logic of the `advisor` smart contract lies in the lambda function which is defined in the storage. 
-The storage is vowed to be modified so as for the business logic (lambda).
+The real business logic of the `advisor` smart contract lies in the lambda function, which is defined in the storage. 
+The storage is certified to be modified so as for the business logic (lambda).
 
-So an entrypoint `ChangeAlgorithm` is provided to modify the algorithm that computes the worth of investment.
+So an entrypoint with `ChangeAlgorithm` is provided to modify the algorithm that computes the worth of investment.
 
 > **Lambda**   
-> Changing the behavior of a smart contract can be done by customizing the implementation through lambda functions. 
-> The idea is to implement the smart contract logic in a lambda function that can be modified after the contract deployment.  
+> Changing the behaviour of a smart contract can be done by customizing its implementation through the lambda functions. 
+> The idea is to implement the smart contract logic in a lambda function that can be modified after the contract is deployed.  
 > Find out more about lambda [here](https://tezosacademy.io/pascal/chapter-lambda).
 
 ## Requirement
 
-1. Having the LIGO Compiler, and an code editor installed. 
-   If not go [here](https://opentezos.com/ligo/installation).
+1. Having a LIGO Compiler, and a code editor installed. 
+   If not, go [here](https://opentezos.com/ligo/installation).
 2. Having a sandboxed mode ready.
 
 ## Sandboxed mode
@@ -204,11 +204,11 @@ tezos-activate-alpha
 
 Let's create an `indice_types.ligo` file to put all the needed type definition.
 
-- `indiceStorage` is of integer type which can be the value of an equity.
-- `indiceEntrypoints` that determine how the contract will be invoked:
-  - By increasing the contract storage value with `Increment of int`.
+- `indiceStorage` is an integer type that can have the value of an equity.
+- `indiceEntrypoints` determine how the contract will be invoked:
+  - By increasing the contract storage value using `Increment of int`.
   - By decreasing it with `Decrement of int`.
-  - By sending this value to another contract that would have called it, with `SendValue of unit`.
+  - By sending the value to another contract that has called it, using `SendValue of unit`.
 - `indiceFullReturn`that determines the return type of the main function.
 
 ```js
@@ -277,7 +277,7 @@ block {
 - `param` of type `int` which is the value that will be added to the storage.
 - `s` the initial value of the storage.
 
-This function return type is `indiceFullReturn` and returns:
+This function's return type is `indiceFullReturn` and returns:
 - an empty list of operations.
 - a modified storage with a new value of `s + param`.
 
@@ -290,11 +290,11 @@ block { skip } with ((nil: list(operation)), s + param)
 
 #### Decrement
 
-`decrement` function takes two parameters:
+The `decrement` function takes two parameters:
 - `param` of type `int` which is the value that will be removed from the storage.
 - `s` the initial value of the storage.
 
-This function return type is `indiceFullReturn` and returns:
+This function's return type is `indiceFullReturn` and returns:
 - an empty list of operations.
 - a modified storage with a new value of `s - param`.
 
@@ -311,7 +311,7 @@ block { skip } with ((nil: list(operation)), s - param)
 - `param` of type `unit` which means it takes no parameter.
 - `s` the initial value of the storage.
 
-This function return type is `indiceFullReturn` and returns:
+This function return type is `indiceFullReturn` and it returns:
 - a list of operation containing a transaction.
 - the initial storage that is not modified.
 
@@ -320,9 +320,9 @@ to retrieve the definition of a single entry point.
 `%receiveValue` is the label of the entrypoint that will be defined in the advisor contract.
 
 When the function `get_entrypoint_opt` does not find any contract 
-at a given `address`, or the contract doesn't match the type, then `None` is returned.
+at a given `address`, or if the contract doesn't match the type, then `None` is returned.
 
-> Note that the `Tezos.get_entrypoint_opt` function is a solution of two-way communication 
+> Note that the `Tezos.get_entrypoint_opt` function is a two-way communication solution. 
 > between contract that are already deployed.
 > Find out more on `Tezos.get_entrypoint_opt` [here](https://tezosacademy.io/pascal/chapter-polymorphism).
 
@@ -353,13 +353,13 @@ ligo compile-contract indice.ligo indiceMain
 
 In a new file called `advisor_types.ligo` we define:
 
-- `advisorStorage` is of record type containing three fields:
+- `advisorStorage` which is a record type containing three fields:
     - `indiceAddress` of type `address` to communicate with the indice contract.
     - `algorithm` which takes an `int` of parameter and returns a `bool`, 
       depending on the business logic.
     - `result` which is `True` if the investor should invest and `False` otherwise.
 - `advisorEntrypoints` that determines how the contract will be invoked:
-    - By receiving an integer value from another contract storage with `ReceiveValue of int`.
+    - By receiving an integer value from another contract's storage with `ReceiveValue of int`.
     - By requesting this value with `sendValue of unit`. 
     - By modifying the algorithm that computes the worth of investment with `ChangeAlgorithm of advisorAlgo`.
 - `advisorFullReturn`that determines the return type of the main function.
@@ -403,7 +403,7 @@ block {
 #### ReceiveValue
 
 Symmetrically to the `SendValue` function defined for the indice contract, 
-we define here the `RequestValue` function, so the two-way communication is complete.
+we define here, the `RequestValue` function, so that the two-way communication can be complete.
 
 `request` function takes two parameters:
 - `param` of type `unit` which means it takes no parameter.
@@ -434,7 +434,7 @@ block {
 - `indiceVal` of type `int` which is the value that will be passed in the algorithm.
 - `s` the initial value of the storage.
 
-This function return type is `advisorFullReturn` and returns:
+This function's return type is `advisorFullReturn` and returns:
 - an empty list of operations
 - a modified storage with a new value for `s.result`
   that will be the boolean return of the algorithm.
@@ -454,7 +454,7 @@ block {
 - `p` of type `advisorAlgo` which is the algorithm function corresponding to the wanted business logic.
 - `s` the initial value of the storage.
 
-This function return type is `advisorFullReturn` and returns:
+This function's return type is `advisorFullReturn` and returns:
 - an empty list of operations
 - a modified storage with a new value for `s.algorithm `.
 
@@ -511,7 +511,7 @@ block {
 
 #### Simulation
 
-Let's simulate the indice contract with the increment action with `5` as parameter and an initial storage of `0`.
+Let's simulate the indice contract with the increment action using `5` as parameter and an initial storage of `0`.
 
 ```shell
 ligo dry-run indice.ligo indiceMain 'Increment(5)' '0'
@@ -523,7 +523,7 @@ This should return:
 ( LIST_EMPTY(), 5 )
 ```
 
-As expected there is an empty list of operation, and the storage has been incremented of 5.
+As expected there is an empty list of operation, and the storage has been incremented by 5.
 
 To be sure let's modify the initial value of the storage to `4`.
 
@@ -632,7 +632,7 @@ bootstrap2: tz1faswCTDciRzE4oJ9jn2Vm2dvjeyA9fUzU
 bootstrap1: tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx
 ```
 
-Note that on the sandboxed mode there are already users that are created, and we can reuse later.
+Note that in the sandboxed mode there are already users that are created, that we can reuse later.
 
 It's time to deploy the indice smart contract.
 
@@ -659,7 +659,7 @@ Operation hash is 'opR766cSqn37L8qCjgcEqu4tfGeukCKBezpHjjicAYB4NYf6g2b'
 Waiting for the operation to be included...
 ```
 
-Let's open another terminal in order to bake this transaction with the following command line:
+Let's open another terminal in order to bake this transaction using the following command line:
 
 ```shell
 tezos-client bake for bootstrap1
@@ -729,13 +729,13 @@ Let's simulate the advisor contract with an initial storage of:
 
 Note that we choose a simple algorithm function that is `function(const i : int) is False` therefore the saved result is `False` too.
 
-Let's simulate with `ReceiveValue(5)` as action.
+Let's simulate with `ReceiveValue(5)` as an action.
 
 ```shell
 ligo dry-run advisor.ligo advisorMain 'ReceiveValue(5)' 'record[indiceAddress=("KT1D99kSAsGuLNmT1CAZWx51vgvJpzSQuoZn" : address); algorithm=(function(const i : int) is False); result=False];'
 ```
 
-Let's simulate with `RequestValue(unit)` as action.
+Let's simulate with `RequestValue(unit)` as an action.
 
 ```shell
 ligo dry-run advisor.ligo advisorMain 'RequestValue(unit)' 'record[indiceAddress=("KT1D99kSAsGuLNmT1CAZWx51vgvJpzSQuoZn" : address); algorithm=(function(const i : int) is False); result=False]'
@@ -761,7 +761,7 @@ ligo compile-parameter advisor.ligo advisorMain 'RequestValue(unit)'
 #output: (Right Unit)
 ```
 
-Let's say we want to change the algorithm for a more interesting but still simple business logic : 
+Let's say we want to change the algorithm to a more interesting one but still using a simple business logic : 
 *if the indice of a stock (indice storage) is under 20, one should invest*.
 
 ```shell
@@ -848,8 +848,8 @@ This should return:
 
 #### Deployment
 
-In the same way as for the indice contract, let's run the following command in a `--dry-run` mode.  
-In the `--init` section we put the michelson result of the `compile-storage` we just run above.
+In the same way as the indice contract, let's run the following command in a `--dry-run` mode.  
+In the `--init` section we put the michelson result of the `compile-storage` that we just ran above.
 
 ```shell
 tezos-client originate contract advisor transferring 1 from bootstrap1  running 'advisor.tz' --init '(Pair (Pair { PUSH int 10 ; SWAP ; COMPARE ; LT ; IF { PUSH bool True } { PUSH bool False } } "KT1D99kSAsGuLNmT1CAZWx51vgvJpzSQuoZn") False)' --dry-run
@@ -874,7 +874,7 @@ Operation hash is 'opR766cSqn37L8qCjgcEqu4tfGeukCKBezpHjjicAYB4NYf6g2b'
 Waiting for the operation to be included...
 ```
 
-Let's open another initialized terminal in order to bake this transaction with the following command line:
+Let's open another initialized terminal in order to bake this transaction using the following command line:
 
 ```shell
 tezos-client bake for bootstrap1
@@ -898,7 +898,7 @@ bootstrap1: tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx
 
 ### Use
 
-Now that the two contracts are deployed we will be able to use them.
+Now that the two contracts are deployed we are able to use them.
 
 You can run the following command to access the storage of the indicated contract.
 
@@ -925,11 +925,11 @@ tezos-client get contract storage for indice
 //output: 0
 ```
 
-Now, let's do a transaction !
+Now, let's do a transaction!
 
-Imagine the user **bootstrap3** want to use the advisor smart contract to know if he should invest.
+Imagine the user **bootstrap3** wants to use the advisor smart contract to know if he should invest.
 
-For that he must make a transaction using the action `RequestValue(Unit)` which the michelson expression is `(Right Unit)`.
+For that, he must make a transaction using the action `RequestValue(Unit)` for which the michelson expression is `(Right Unit)`.
 
 ```shell
 tezos-client transfer 0 from bootstrap3 to advisor --arg '(Right Unit)'
@@ -957,12 +957,12 @@ tezos-client get contract storage for advisor
       True) 
 ```
 
-The result pass from `False` to `True` in the result field, so it is worth the investment.
+The result pass from `False` to `True` in the result field, if it is worth the investment.
 
 However, this is the case because the initial value of the indice storage is `0` 
-and our algorithm returns true if this value is under `10`.
+and our algorithm will returns true if this value is under `10`.
 
-So now it is your turn to play with these two smart contracts by incrementing the indice storage or changing the advisor algorithm for example.
+Now it is your turn to play with these two smart contracts by, for example, incrementing the indice storage or changing the advisor algorithm.
 
 > Remember if you are not sure what you are doing add `--dry-run` at the end of the command line to see if everything is ok.
 
