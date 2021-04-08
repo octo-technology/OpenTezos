@@ -801,7 +801,7 @@ The `SIZE` instruction computes the number of elements in the list.
 It consumes a list on the top of the stack and pushes the number of elements of the list back on top of the stack.
 
 
-The `MAP {}` instruction applies a sequence of instructions to each element of a list. The `MAP` instruction requires a sequence of instructions (i.e. called "body") that has access to the stack. 
+The `MAP {}` instruction updates a _list_ data structure by applying a sequence of instructions to each element of the list. The `MAP` instruction requires a sequence of instructions (i.e. called "body") that has access to the stack. 
 
 The following smart contract illustrates the `MAP` usage. This smart contract holds a list of integer in its storage and when invoked it increments each integer of the list by 1.
 
@@ -819,7 +819,7 @@ This smart contract can be simulated with the following CLI command:
 tezos-client run script instruction_list_map.tz on storage '{1;2;5;3}' and input 'Unit'
 ```
 
-The `ITER {}` instruction applies a sequence of instructions to each element of a list. The `ITER` instruction requires a sequence of instructions (called "body") that has access to the stack.
+The `ITER {}` instruction iterates on all elements of a _list_ and applies a sequence of instructions to each element. The `ITER` instruction requires a sequence of instructions (called "body") that has access to the stack.
 
 An example is described in the _Examples_ section (Example 2).
 
@@ -884,12 +884,10 @@ The following diagram illustrates the execution of this command
 
 ##### Apply process on a set
 
-The `ITER` instruction takes a sequence of instructions (called "body") as its argument. It applies a given sequence of instructions to each element of a set. The "body" sequence has access to the stack.
+The `ITER` instruction takes a sequence of instructions (called "body") as its argument. It iterates on all elements of a _set_ and applies a given sequence of instructions to each element. The "body" sequence has access to the stack.
 
 
 The `SIZE` instruction consumes a set from the top of the stack and pushes to the top the number of elements contained in the set.
-
-
 
 
 
@@ -1038,7 +1036,7 @@ tezos-client run script map_map_example.tz on storage '{ Elt "toto" 1 ; Elt "tut
 
 ##### Iterating on a map
 
-The `ITER body` instruction iterates on all elements of a _map_ and applies a sequence of instructions (called "body") for each element. So, the "body" sequence expects an element of the stack (i.e. a _pair_ key-value) on top of the stack. The "body" sequence has access to the underlying stack.
+The `ITER body` instruction iterates on all elements of a _map_ and applies a sequence of instructions (called "body") to each element. So, the "body" sequence expects an element of the stack (i.e. a _pair_ key-value) on top of the stack. The "body" sequence has access to the underlying stack.
 
 An example ("Max list") illustrating `ITER` instruction usage is described in the _Examples_ section. Despite being applied to a list of integers, the `ITER` instruction works in the same way with a map (except at each iteration a _pair_ key-value is pushed on the stack instead of an integer, as in the example "Max list").
 
@@ -1541,7 +1539,7 @@ LAMBDA nat nat { PUSH nat 2 ; ADD }
 
 ### Iterative processing
 
-The Michelson language supports repetitive processing. As seen the previous sections, the collection types (set, list, map) supports the `ITER` instruction allowing to parse each element of the collection and applying a sequence of instruction on each element.
+The Michelson language supports repetitive processing. As seen the previous sections, the collection types (set, list, map) supports the `ITER` instruction allowing to parse each element of the collection and applying a sequence of instruction to each element.
 
 The example ([#2](https://opentezos.com/michelson/examples#example-2--maximum-of-a-list-with-iter-and-cmple) in the "Examples" section illustrates the `ITER` instruction usage on _list_ type.
 
