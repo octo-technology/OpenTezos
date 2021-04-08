@@ -1009,7 +1009,7 @@ The `SIZE` instruction computes the number of elements inside a map. It consumes
 The `SIZE` instruction cannot be applied to `big_map` type. 
 
 
-The `MAP` instruction applies a sequence of instructions to each element of a map. It takes a sequence of instructions as its argument (called "body"). This "body" sequence has access to the stack.
+The `MAP` instruction updates a _map_ data structure by applying a sequence of instructions to each element of a map. It takes a sequence of instructions as its argument (called "body"). This "body" sequence has access to the stack.
 
 The following smart contract (map_map_example.tz) illustrates the `MAP` usage. This smart contract stores a `map string nat` and when invoked it goes through all key-value elements of the map and multiplies by 2 the `nat` value.
 
@@ -1031,13 +1031,7 @@ tezos-client run script map_map_example.tz on storage '{ Elt "toto" 1 ; Elt "tut
 
 ##### Iterating on a map
 
-The `ITER body` instruction applies a sequence of instructions (called "body") to each element of a map. The "body" sequence has access to the stack.
-
-```js
-ITER body / {} : S  =>  S
-ITER body / { Elt k v ; <tl> } : S  =>  ITER body / { <tl> } : S'
-   iff body / (Pair k v) : S  =>  S'
-```
+The `ITER body` instruction iterates on all elements of a _map_ and applies a sequence of instructions (called "body") for each element. So, the "body" sequence expects an element of the stack (i.e. a _pair_ key-value) on top of the stack. The "body" sequence has access to the underlying stack.
 
 An example ("Max list") illustrating `ITER` instruction usage is described in the _Examples_ section. Despite being applied to a list of integers, the `ITER` instruction works in the same way with a map (except at each iteration a _pair_ key-value is pushed on the stack instead of an integer, as in the example "Max list").
 
