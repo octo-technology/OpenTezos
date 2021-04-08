@@ -17,4 +17,4 @@ import NotificationBar from '../../src/components/docs/NotificationBar';
 
 ### Lorem ipsum
 
-Lorem ipsum
+Lorem ipsu
