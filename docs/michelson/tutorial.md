@@ -153,7 +153,7 @@ Since primitive types are different by design, each primitive type is comparable
 
 For _pair_ values such as `(Pair d1 d2)` the comparison is done component-wise, starting with the left component.
 For _option_ values, the `None` value is considered as less than `Some` value and comparing `Some x` and `Some y` is done by comparing `x` and `y`.
-
+These two types (_option_ and _pair_) will be introduced later in this tutorial.
 
 The `COMPARE` instruction compares the top two elements of the stack. It consumes the two top elements and returns an integer at the top of the stack. The outcome value is -1 if the first element is smaller than the second one; 0 if the two first elements are equal; 1 otherwise.
 
@@ -271,11 +271,13 @@ A `FAILWITH` instruction provides a way to reject a transaction by stopping the 
 
 #### Optional
 
-An optional value is a data structure that can hold a value (of a given type). The optional value has two states: it is defined as `NONE` if no value is assigned and can be defined as `SOME` if a value has been assigned.
+An optional value is a data structure that can hold a value (of a given type) which can be not assigned yet. The optional value has two states: it is defined as `NONE` if no value is assigned and can be defined as `SOME` if a value has been assigned.
 
-When defining an optional value, the type of value must be specified.
+When defining an optional value, the type of value must be specified (e.g. `option int`).
 
-The `SOME` instruction packs a value as an optional value.
+The `IF_SOME` instruction allows to check and retrieve the value if it has been assigned.
+
+The `SOME` instruction packs a value as an optional value (i.e. allows to create an _option_ type with an assigned value).
 
 The `NONE` instruction specifies the absence of value. It requires that the type of value that can be held be specified.
 
@@ -556,7 +558,7 @@ The `XOR` instruction consumes the top two boolean elements of the stack and com
 
 The `NOT` instruction consumes a boolean top element of the stack and pushes the logical opposite of the given boolean. 
 
-#### timestamp
+#### Timestamp
 
 The Michelson language supports `timestamp` type. Like in most languages a timestamp represents a numbers of seconds passed since the beginning of year 1970. 
 Timestamps can be used in smart contract to authorize actions on a certain period of time.  
@@ -995,6 +997,11 @@ tezos-client run script map_example.tz on storage '{ Elt "toto" 5 }' and input '
 
 Notice that `{}` represents an empty map and `{ Elt "toto" 5 }` a map containing one element where "toto" is the key and its associated value is 5.
 
+The following diagram illustrates the execution of this command.
+
+![](../../static/img/michelson/michelson_instruction_map_get.svg)
+<small className="figure">FIGURE 28: Illustration of the `GET` and `UPDATE`  instructions</small>
+
 ##### Applying some process on a map
 
 The `SIZE` instruction computes the number of elements inside a map. It consumes a map on top of the stack and places the number of elements on top of the stack.
@@ -1003,13 +1010,6 @@ The `SIZE` instruction cannot be applied to `big_map` type.
 
 
 The `MAP` instruction applies a sequence of instructions to each element of a map. It takes a sequence of instructions as its argument (called "body"). This "body" sequence has access to the stack.
-
-```js
-MAP body / {} : S  =>  {} : S
-MAP body / { Elt k v ; <tl> } : S  =>  { Elt k v' ; <tl'> } : S''
-    where body / Pair k v : S  =>  v' : S'
-    and MAP body / { <tl> } : S'  =>  { <tl'> } : S''
-```
 
 The following smart contract (map_map_example.tz) illustrates the `MAP` usage. This smart contract stores a `map string nat` and when invoked it goes through all key-value elements of the map and multiplies by 2 the `nat` value.
 
