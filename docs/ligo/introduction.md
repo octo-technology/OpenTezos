@@ -7,14 +7,14 @@ slug: /ligo
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Tezos smart contracts are written in [Michelson](https://opentezos.com/michelson), which a stack-based language.
-It is the lowest level for a Tezos smart contract: what will be deployed on a Tezos network is Michelson code.
+Tezos smart contracts are written in [Michelson](https://opentezos.com/michelson), which is a stack-based language.
+It is the lowest level of a Tezos smart contract: what will be deployed on a Tezos network, is Michelson code.
 However, if reading or writing Michelson code is still easy for small smart contracts, 
-it can become very tedious for complex smart contracts:
-- there is no variable nor function
+it can become very tedious for more complex smart contracts:
+- there are no variables nor functions
 - no syntactic sugar
 - the Michelson code cannot be broken down into several files
-- stack-based languages are not common when it comes down to web development.
+- stack-based languages are not commonly used when it comes to web development.
 
 LIGO solves these issues. 
 It is a high-level language for smart contracts development.
@@ -30,13 +30,13 @@ This Michelson file is the smart contract that will be deployed on a tezos netwo
 
 As said above, LIGO is a programming language for writing **[Tezos](https://tezos.com/) smart contracts**.
 The diagram helps to contextualize the role of LIGO in the Tezos ecosystem.
-LIGO takes action in the left part as a development tool allowing
-the production of smart contracts (scripts in Michelson),
+LIGO is active in the left part as a development tool allowing
+for the production of smart contracts (scripts in Michelson),
 which can be deployed on the blockchain.
 Tezos nodes broadcast information through the Tezos network 
 in order to maintain an immutable common ledger (blockchain) # I would remove this sentence
 
-LIGO currently offers three flavored syntaxes:
+LIGO currently offers three flavoured syntaxes:
 
 - **PascaLIGO**, a syntax inspired by Pascal which provides an imperative developer experience.
 
@@ -45,7 +45,7 @@ LIGO currently offers three flavored syntaxes:
 - **ReasonLIGO**, a [ReasonML](https://reasonml.github.io/) inspired syntax that builds on the strong points of OCaml. 
   It aims to be familiar to those coming from JavaScript.
 
-Here is an example of Counter contract that handle a single integer "counter" value 
+Here is an example of a Counter contract that handles a single integer's "counter" value 
 as storage and allows users to increment decrement or reset this counter.
 
 <Tabs
@@ -136,7 +136,7 @@ and give him the essential skills to write and deploy his first smart contract
 onto the Tezos blockchain.
 PascaLigo will be used throughout this module.
 
-It will include the bases of LIGO language,
+It will include the bases of the LIGO language,
 inspired by the [official documentation](https://ligolang.org/docs/language-basics/types),
 as well as detailed smart contract examples.
 You will also be offered an exam to check your understanding.
