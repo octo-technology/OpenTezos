@@ -17,6 +17,8 @@ import NotificationBar from '../../src/components/docs/NotificationBar';
 
 # Introduction to decentralisation and cryptocurrencies
 
+In this chapter, the reader will get a glimpse on the "cryptocurrencies" and "blockchains" global context of emergence. From the first "blockchain" Bitcoin to other systems like Tezos, a brief history of these protocols is pictured.
+
 ## Context
 On **31st October, 2008**, under the "Satoshi Nakamoto" _pseudonym_, the Bitcoin whitepaper is discreetly released. In the title and the "abstract" paragraph, we can understand that the aim of _his_ invention is creating an "electronic cash system", a kind of currency, which is able to disconnect itself from any centralised entity.
 
@@ -53,4 +55,9 @@ The first DAO of Ethereum called "_The DAO_" is created and more than 150 millio
 
 To recover the stolen funds, it has been decided to modify the history of exchanges. This decision was not approved by the entire community and created a split of the history into two different _blockchains_: _Ethereum_ and _Ethereum Classic_.
 
-Today, Bitcoin and Ethereum remain the two main protocols of the kind, but a lot of very interesting alternatives are still created, including Tezos, which leverages and enhances principles, capabilities, and allow new possibilities.
+Today, Bitcoin and Ethereum remain the two main protocols of the kind, but a lot of very interesting alternatives are still created, including Tezos, which leverages and enhances principles, capabilities, and allows new possibilities.
+
+## What have we learned so far?
+In this chapter, we briefly described what are "blockchains", on what ground and when they were created.
+
+In the next chapter _Main components of the first "blockchain"_, we'll use Bitcoin as reference to introduce "blockchains" components and the mechanics that bounds them.
