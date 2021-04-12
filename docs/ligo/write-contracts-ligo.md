@@ -634,37 +634,549 @@ recursive function sum (const n : int; const acc: int) : int is
 
 
 #### Adding the function
+##### LIGO prequisites: If condition
 
+Conditional logic enables forking the control flow depending on the state.
+
+```js
+function isSmall (const n : nat) : bool is
+if n < 10n then true else false
 ```
-function open_raffle (const param : unit; const store : storage) : returnType is
+
+⚠️ When the branches of the conditional are not a single expression, as above, we need a `block`:
+
+```js
+if x < y then
+    block {
+        x := x + 1;
+        y := y - 1
+    }
+else skip;
+```
+
+##### LIGO prequisites: Timestamp
+
+LIGO features timestamps are responsible for providing the given current timestamp for the contract.
+
+```js
+const today : timestamp = Tezos.now
+const one_day : int = 86_400
+const in_24_hrs : timestamp = today + one_day
+const some_date : timestamp = ("2000-01-01T10:10:10Z" : timestamp)
+const one_day_later : timestamp = some_date + one_day
+```
+
+##### LIGO prequisites: Addresses
+
+Addresses are very likely to be used in any smart contract.
+You can define Tezos addresses by casting a string to an address type:
+
+```js
+const my_account : address = ("tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx" : address)
+```
+
+⚠️ You will not see a transpilation error if the address you enter is wrong, but the execution will fail.
+
+
+##### LIGO prequisite: Tezos Module
+
+The Tezos module is a set of LIGO instructions, that query the state of the Tezos blockchain.
+It is useful when the smart contract needs to know is calling an entrypoint, if enough funds are sent...
+
+- `Tezos.balance`: Get the balance for the contract.
+- `Tezos.amount`: Get the amount of tez provided by the sender to complete this transaction.
+- `Tezos.sender`: Get the address that initiated the current transaction.
+- `Tezos.self_address`: Get the address of the currently running contract.
+- `Tezos.source`: Get the originator (address) of the current transaction.
+  That is, if a chain of transactions led to the current execution get the address that began the chain.
+  Not to be confused with Tezos.sender,
+  which gives the address of the contract or user which directly caused the current transaction.
+- `Tezos.chain_id`: Get the identifier of the chain to distinguish between main and test chains.
+
+##### LIGO prequesite: Failwith
+
+The keyword failwith throws an exception and stop the execution of the smart contract.
+
+```js
+failwith(<string_message>)
+```
+
+
+##### OpenRaffle implementation
+Let's create an empty function. This function expects the three needed parameters,
+and returns the standard list of operations and the updated store:
+```js
+function open_raffle (const jackpot_amount : tez; const close_date : timestamp; const description : option(string); const store : storage) : returnType is
     block { skip } with ((nil: list(operation)), store)
 ```
 
-
-# Constants & Variables
-
-## Constants
-
-Constants are immutable by design, which means their values cannot be reassigned. 
-Put in another way, they can be assigned once, at their declaration. 
-When defining a constant you need to provide a name, type and a value:
+The first step is to check was the entrypoints is called by the admnistrator. If not, it should raise an exception.
+The check is performed by an association of an "If" condition and a failwith.
+The address calling the entrypoint should match the address in the storage.
 
 ```js
-const age : int = 25
+function open_raffle (const jackpot_amount : tez; const close_date : timestamp; const description : option(string); const store : storage) : returnType is
+    block {
+      if Tezos.source =/= store.admin then failwith("administrator not recognized")
+      else {
+        skip
+      }
+    } with ((nil: list(operation)), store)
 ```
 
-## Variables
-
-Variables, unlike constants, are mutable. 
-They cannot be declared in a global scope, but they can be declared and used within functions, 
-or as function parameters.
+A second check has to be performed: a raffle cannot be opened if the previous one is not yet closed.
+A boolean gives this piece of information in the storage: lottery_is_open
 
 ```js
-var c: int := 2 + 3
-c := c - 3
+function open_raffle (const jackpot_amount : tez; const close_date : timestamp; const description : option(string); const store : storage) : returnType is
+    block {
+      if Tezos.source =/= store.admin then failwith("administrator not recognized")
+      else {
+        if not store.lottery_is_open then {
+            skip
+        } else {
+          failwith("raffle is already open")
+        }
+      }
+    } with ((nil: list(operation)), store)
 ```
 
-⚠️ Notice the assignment operator := for var, instead of = for constants.
+A third check is performed about the reward: the funds sent must match the raffle reward.
+
+```js
+function open_raffle (const jackpot_amount : tez; const close_date : timestamp; const description : option (string); const winning_ticket_number : nat; const store : storage) : returnType is
+  block {
+    if Tezos.source =/= store.admin
+    then failwith ("administrator not recognized")
+    else {
+      if store.lottery_is_open then {
+        if Tezos.amount < jackpot_amount then failwith ("the contract does not own enough tz")
+        else {
+            skip
+        }
+      }
+      else {
+        failwith ("raffle is not open")
+      }
+    }
+  } with ((nil : list (operation)), store)
+```
+
+One finale check is performed about the raffle closing date: the raffle should last at least a week.
+
+```js
+function open_raffle (const jackpot_amount : tez; const close_date : timestamp; const description : option (string); const winning_ticket_number : nat; const store : storage) : returnType is
+  block {
+    if Tezos.source =/= store.admin
+    then failwith ("administrator not recognized")
+    else {
+      if store.lottery_is_open then {
+        if Tezos.amount < jackpot_amount then failwith ("the contract does not own enough tz")
+        else {
+          const today : timestamp = Tezos.now;
+          const seven_day : int = 7 * 86400;
+          const in_7_day : timestamp = today + seven_day;
+          const is_close_date_not_valid : bool = close_date < in_7_day;
+          if is_close_date_not_valid then failwith("the raffle must remain open for at least 7 days.")
+          else {
+            skip
+          }
+        }
+      }
+      else {
+        failwith ("raffle is not open")
+      }
+    }
+  } with ((nil : list (operation)), store)
+```
+
+The logic is finally implemented. For this entrypoint, the only thing is to store the pieces of information of the raffle:
+the reward, the closing date, the raffle description. In addition, the storage should indicate that there is an ongoing raffle.
+
+
+```js
+function open_raffle (const jackpot_amount : tez; const close_date : timestamp; const description : option (string); const winning_ticket_number : nat; const store : storage) : returnType is
+  block {
+    if Tezos.source =/= store.admin
+    then failwith ("administrator not recognized")
+    else {
+      if not store.lottery_is_open then {
+        if Tezos.amount < jackpot_amount then failwith ("the contract does not own enough tz")
+        else {
+          const today : timestamp = Tezos.now;
+          const seven_day : int = 7 * 86400;
+          const in_7_day : timestamp = today + seven_day;
+          const is_close_date_not_valid : bool = close_date < in_7_day;
+          if is_close_date_not_valid then failwith("the raffle must remain open for at least 7 days.")
+          else {
+            const winning_ticket_number_bytes : bytes = Bytes.pack(winning_ticket_number);
+            patch store with record [
+            jackpot = jackpot_amount;
+            close_date = close_date;
+            lottery_is_open = True;
+            ];
+
+            case description of
+            | Some(d) -> patch store with record [description=d]
+            | None -> {skip}
+            end
+          }
+        }
+      }
+      else {
+        failwith ("raffle is not open")
+      }
+    }
+  } with ((nil : list (operation)), store)
+```
+
+
+> From this simple example:
+> - check entrypoint inputs as much as possible
+> - comparison and mathematical operations are carried out the same way for any type (int, tez, timestamp...)
+> - the storage is used and updated
+
+
+# Smart Contract development : Buy ticket entrypoint
+
+The second entrypoint is open to everyone who wants to buy a ticket.
+In this usecase, each address can only buy one ticket, which cost 1 tz.
+
+Two additional pieces of information have to be kept:
+1. who is taking part to the raffle
+2. who is owning a ticket
+
+The storage has to be updated, and collections are going to be used
+
+## LIGO prequesites: collections
+
+### Lists
+
+Lists are **linear collections of elements of the same type**.
+Linear means that, in order to reach an element in a list,
+we must visit all the elements before (sequential access).
+Elements can be repeated, as only their order in the collection matters.
+The first element is called the head,
+and the sub-list after the head is called the tail.
+
+> 💡 Lists are needed when returning operations from a smart contract's main function.
+
+#### Defining Lists
+
+To define an empty list and a list with values:
+
+```js
+const empty_list : list (int) = list [] // Or nil
+const my_list : list (int) = list [1; 2; 2]
+```
+
+> You can also use `nil` instead of `list []`
+
+#### Adding to Lists
+
+You can add elements to an existing list using the cons operator `#` or `cons(<value>, <list>)`:
+
+```js
+const larger_list : list (int) = 5 # my_list // [5; 1; 2; 2]
+const larger_list_bis : list (int) = cons(5, my_list) // [5; 1; 2; 2]
+```
+
+#### Accessing list element
+
+You cannot access element directly in list,
+but you can access the first element,
+the head or the rest of the list, the tail.
+The two function to access those are `List.head_opt` and `List.tail_opt`.
+
+```js
+const head : option (int) = List.head_opt (my_list) // 1
+const tail : option (list(int)) = List.tail_opt (my_list) // [2;2]
+```
+
+### Sets
+
+Sets are **unordered collections of values of the same type**,
+like lists are ordered collections.
+Like the mathematical sets and lists,
+sets can be empty and, if not,
+elements of sets in LIGO are unique,
+whereas they can be repeated in a list.
+
+#### Defining Sets
+
+```js
+const empty_set : set (int) = set []
+const my_set : set (int) = set [3; 2; 2; 1]
+```
+
+#### Sets tools
+You can test membership with the contains operator:
+
+```js
+const contains_3 : bool = my_set contains 3
+```
+
+You can get the size of a set using the Set.size operator:
+
+```js
+const cardinal : nat = Set.size (my_set)
+```
+
+To update a set:
+
+```js
+const larger_set  : set (int) = Set.add (4, my_set)
+const smaller_set : set (int) = Set.remove (3, my_set)
+```
+
+
+### Maps
+
+Maps are a data structure which associate values of the same type to values of the same type.
+The former are called key and, the latter values.
+Together they make up a binding.
+An additional requirement is that the type of the keys must be comparable,
+in the Michelson sense.
+
+#### Defining a Map
+
+```js
+type balances is map (string, nat)
+
+const empty : balances = map []
+
+const user_balances : balances =
+    map [
+        "tim" -> 5n;
+        "mark" -> 0n
+    ]
+```
+
+#### Accessing Map Bindings
+
+Use the postfix [] operator to read a value of the map:
+
+```js
+const my_balance : option (nat) = user_balances ["tim"]
+```
+
+#### Updating a Map
+
+You can add or modify a value using the usual assignment syntax `:=` :
+
+```js
+user_balances ["tim"] := 2n
+user_balances ["New User"] := 24n
+```
+
+A key-value can be removed from the mapping as follows:
+
+```js
+remove "tim" from map user_balances
+```
+
+> Maps load their entries into the environment,
+> which is fine for small maps,
+> but for maps holding millions of entries,
+> the cost of loading such map would be too expensive.
+> For this we use `big_maps`. Their syntax is the same as for regular maps.
+
+
+## Modifying the storage
+The new two pieces of information will be stored into the contract storage.
+
+> What collection should be used for:
+> 1. the participants (who can only buy one ticket) ?
+> 2. the tickets and their owner ?
+
+For the first point, two collections could be used: a list and a set. 
+Since the participants can only buy one ticket, a set is the right choice (since each element cannot appear twice).
+
+For the second point, each ticket should be mapped to their owner. The number of participants is not limited:
+there might be millions of them. So, a big map seems the right choice.
+
+The set of participants should a set of addresses, while the big map should map a ticket id (a nat) to an address.
+The new storage is:
+```js
+type storage is record [
+    admin : address;
+    close_date : timestamp;
+    jackpot : tez;
+    description : string;
+    lottery_is_open : bool;
+    players : set (address);
+    sold_tickets : map (nat, address);
+  ]
+```
+
+## Adding the BuyTicket Entrypoint
+
+The smart contract needs to expose another entrypoint. 
+The method is the same that has been detailed for the first entrypoint:
+
+1. Defining the type parameter. This type should be unit, since the buyer does not get to choose the ticket id:
+```js
+type buyTicketParameter is unit
+```
+
+2. Adding the entrypoint in the variant:
+```js
+type raffleEntrypoints is
+OpenRaffle of openRaffleParameter
+| BuyTicket of buyTicketParameter
+```
+3. Handling the new entrypoint in the control flow:
+```js
+function main (const action : raffleEntrypoints; const store : storage): returnType is
+block {
+    const return : returnType = case action of
+    OpenRaffle (param) -> open_raffle (param.0, param.1, param.2, param.3, store)
+    | BuyTicket (param) -> buy_ticket(param, store)
+    end;
+} with return
+```
+
+## Implementing the BuyTicket logic
+
+The last step is to implement the logic of this entrypoint. 
+Just as for the first entrypoint, this logic will be implemented in a function, buy_ticket:
+
+```js
+  function buy_ticket (const param: unit; const store : storage) : returnType is
+    block { skip } with ((nil : list (operation)), store)
+```
+
+Two pieces of information have to be checked:
+1. the buyer is sending enough funds
+2. the buyer has not already bought a ticket
+
+For the first point, this is the same check that is done for the first entrypoint.
+Checking if an address is calling the entrypoint for the first time (= a buyer cannot buy more than one ticket) means
+checking if the calling address is already in the players `set`.
+
+```js
+  function buy_ticket (const param: unit; const store : storage) : returnType is
+block {
+    const ticket_price : tez = 1tez;
+    const current_player : address = Tezos.sender;
+    if Tezos.amount < ticket_price then failwith("The sender does not own enough tz to buy a ticket.")
+    else {
+        if store.players contains current_player then failwith("Each player can participate only once.")
+        else {
+            skip
+        }
+    }
+} with ((nil : list (operation)), store)
+
+``` 
+
+Once these two checks have been performed, the buyer can receive a ticket. To do that, the entrypoint needs to:
+1. register the address as a participant: the address must be added into the players set from the storage.
+2. create a ticket number. Since each participant can only buy ticket, the size of the players set give the new ticket number
+3. associate the ticket with its owner: the new ticket id will map to the buyer in the sold_tickets big_map.
+
+These three steps use the methods described in the Collections section.
+
+```js
+  function buy_ticket (const param: unit; const store : storage) : returnType is
+block {
+    const ticket_price : tez = 1tez;
+    const current_player : address = Tezos.sender;
+    if Tezos.amount = ticket_price then failwith("The sender does not own enough tz to buy a ticket.")
+else {
+        if store.players contains current_player then failwith("Each player can participate only once.")
+    else {
+            store.players := Set.add(current_player, store.players);
+            const ticket_id : nat = Set.size(store.players);
+            store.sold_tickets[ticket_id] := current_player;
+        }
+    }
+} with ((nil : list (operation)), store)
+
+``` 
+
+The contract now is:
+
+```js
+type openRaffleParameter is tez * timestamp * option(string) * nat
+type buyTicketParameter is unit
+
+type raffleEntrypoints is 
+  OpenRaffle of openRaffleParameter
+| BuyTicket of buyTicketParameter
+
+
+type storage is record [
+    admin : address;
+    close_date : timestamp;
+    jackpot : tez;
+    description : string;
+    players : set (address);
+    sold_tickets : map (nat, address);
+    raffle_is_open : bool;
+  ]
+
+type returnType is list (operation) * storage
+
+function open_raffle (const jackpot_amount : tez; const close_date : timestamp; const description : option (string); const winning_ticket_number : nat; const store : storage) : returnType is
+  block {
+    if Tezos.source =/= store.admin then failwith("Administrator not recognized.")
+    else {
+      if not store.raffle_is_open then {
+        if Tezos.amount < jackpot_amount then failwith("The administrator does not own enough tz.")
+        else{
+        const today : timestamp = Tezos.now;
+        const seven_day : int = 7 * 86400;
+        const in_7_day : timestamp = today + seven_day;
+        const is_close_date_not_valid : bool = close_date < in_7_day;
+        if is_close_date_not_valid then failwith("The raffle must remain open for at least 7 days.")
+        else {
+          patch store with record [
+          jackpot = jackpot_amount;
+          close_date = close_date;
+          raffle_is_open = True;
+          ];
+
+          case description of
+            Some(d) -> patch store with record [description=d]
+          | None -> {skip}
+          end
+        }
+      }
+    }else {
+      failwith("A raffle is already open.")
+    }
+  }
+} with ((nil : list (operation)), store)
+
+
+  function buy_ticket (const param: unit; const store : storage) : returnType is
+    block {
+      const ticket_price : tez = 1tez;
+      const current_player : address = Tezos.sender;
+      if Tezos.amount = ticket_price then failwith("The sender does not own enough tz to buy a ticket.")
+      else {
+        if store.players contains current_player then failwith("Each player can participate only once.")
+        else {
+          const ticket_id : nat = Set.size(store.players);
+          store.players := Set.add(current_player, store.players);
+          store.sold_tickets[ticket_id] := current_player;
+        }
+      }
+    } with ((nil : list (operation)), store)
+
+
+function main (const action : raffleEntrypoints; const store : storage): returnType is
+block { 
+    const return : returnType = case action of 
+      OpenRaffle (param) -> open_raffle (param.0, param.1, param.2, param.3, store)
+    | BuyTicket (param) -> buy_ticket(param, store)
+    end;
+ } with return
+
+```
+
+**************************************************************
 
 # Maths, Numbers & Tez
 
@@ -786,148 +1298,6 @@ number, and not otherwise.
 const is_a_nat : option (nat) = is_nat (1)
 ```
 
-# Strings
-
-Strings are defined using the built-in `string` as follows:
-
-```js
-const a : string = "Hello Captain Rogers"
-```
-
-## Concatenating Strings
-
-Strings can be concatenated using the `^` operator.
-
-```js
-const name : string = "Captain Rogers"
-const greeting : string = "Hello"
-const full_greeting : string = greeting ^ " " ^ name
-```
-
-## Slicing Strings
-
-Strings can be sliced using a built-in function `String.sub` which takes three parameters:
-- an **offset** describing the index of first character that will be copied
-- the **length** describing the number of characters that will be copied (starting from the given offset)
-- the **string** being sliced
-
-```js
-const name  : string = "Captain Rogers"
-const slice : string = String.sub (0n, 1n, name)
-```
-
-⚠️ Notice that the offset and length of the slice are natural numbers.
-
-## Length of Strings
-
-The length of a string can be found using a built-in function `String.length` as follows:
-
-```js
-const name : string = "Captain Rogers"
-const length : nat = String.length (name) // length = 14
-```
-
-# Functions
-
-LIGO functions are the basic building block of contracts. 
-Each entrypoint of a contract is a function 
-and each smart contract must have at least one function named main 
-that dispatches the control flow to other functions.
-
-When calling a function, 
-LIGO makes a copy of the arguments but also the environment variables. 
-Therefore, any modification to these will not be reflected outside the scope of the function 
-and will be lost if not explicitly returned by the function.
-
-There are 2 types of functions in PascaLIGO, Block Functions and Blockless Functions:
-
-# Block functions
-
-In PascaLIGO, blocks allows for the sequential composition of instructions into an isolated scope. 
-Each block needs to include at least one instruction.
-
-```js
-block { 
-    const b : int = 10
-    a := a + b 
-}
-```
-
-If we need a placeholder, we use the instruction `skip` which leaves
-the state unchanged.  The rationale for `skip` instead of a truly
-empty block is that it prevents you from writing an empty block by
-mistake.
-
-```js
-block { skip }
-```
-
-Functions in PascaLIGO are defined using the following syntax:
-
-```js
-function <name> (<parameters>) : <return_type> is 
-  block {
-   <operations and instructions>
-  } with <returned_value>
-```
-
-For instance :
-
-```js
-function add (const a : int; const b : int) : int is
-  block {
-    const sum : int = a + b
-  } with sum
-```
-
-## Blockless functions
-
-Functions that can contain all of their logic into a single expression can be defined without the need of a block. 
-The add function above can be re-written as a blockless function:
-
-```js
-function add (const a: int; const b : int) : int is a + b
-```
-
-## Anonymous functions (a.k.a. lambdas)
-
-It is possible to define functions without assigning them a name. 
-They are useful when you want to pass them as arguments, 
-or assign them to a key in a record or a map.
-
-```js
-function increment (const b : int) : int is
-   (function (const a : int) : int is a + 1) (b)
-const a : int = increment (1); // a = 2
-```
-
-If the example above seems contrived, here is a more common design pattern for lambdas: 
-to be used as parameters to functions. 
-Consider the use case of having a list of integers and mapping the increment function to all its elements.
-
-```js
-function incr_map (const l : list (int)) : list (int) is
-  List.map (function (const i : int) : int is i + 1, l)
-```
-
-> For the input "list [1;2;3]" the output will be [2;3;4]
-
-## Recursive function
-
-LIGO functions are not recursive by default, 
-the user need to indicate that the function is recursive.
-
-At the moment, 
-recursive function are limited to one (possibly tupled) parameter 
-and recursion is limited to tail recursion (i.e the recursive call should be the last expression of the function)
-
-In PascaLigo recursive functions are defined using the `recursive` keyword.
-
-```js
-recursive function sum (const n : int; const acc: int) : int is
-  if n<1 then acc else sum(n-1,acc+n)
-```
-
 # Booleans & Conditionals
 
 ## Booleans
@@ -951,159 +1321,6 @@ const b : bool = False  // Also: false
 |  **<**   | ```const lt: bool = 4 < 3;```                  |
 |  **>=**  | ```const gte: bool = 4 >= 3;```                |
 |  **<=**  | ```const lte: bool = 4 <= 3;```                |
-
-## Comparing Values
-
-Only values of the same type can be natively compared, 
-i.e. int, nat, string, tez, timestamp, address, etc... 
-However some values of the same type are not natively comparable, 
-i.e. maps, sets or lists. 
-You will have to write your own comparison functions for those.
-
-### Comparing Strings
-
-```js
-const a : string = "Captain Rogers"
-const b : string = "Captain Rogers"
-const c : bool = (a = b) // True
-```
-
-### Comparing numbers
-
-```js
-const a : int  = 5
-const b : int  = 4
-const c : bool = (a = b)
-const d : bool = (a > b)
-const e : bool = (a < b)
-const f : bool = (a <= b)
-const g : bool = (a >= b)
-const h : bool = (a =/= b)
-```
-
-### Comparing tez
-
-```js
-const a : tez  = 5mutez
-const b : tez  = 10mutez
-const c : bool = (a = b) // False
-```
-
-> 💡 Comparing `tez` values is especially useful when dealing with an amount sent in a transaction.
-
-## Conditionals
-
-Conditional logic enables forking the control flow depending on the state.
-
-```js
-function isSmall (const n : nat) : bool is
-if n < 10n then true else false
-```
-
-⚠️ When the branches of the conditional are not a single expression, as above, we need a `block`:
-
-```js
-if x < y then
-block {
-x := x + 1;
-y := y - 1
-}
-else skip;
-```
-
-# Loops
-
-LIGO integrates 2 kinds of loops. General `while` iterations and bounded for `loops`.
-
-## While Loops
-
-While loops are defined as follows:
-
-```js
-while <condition> block {
-    <operations>
-}
-```
-
-For instance, here is how to compute the greatest common divisors of two natural numbers by means of Euclid's algorithm:
-
-```js
-function gcd (var x : nat; var y : nat) : nat is
-  block {
-    if x < y then {
-      const z : nat = x;
-      x := y; y := z
-    }
-    else skip;
-    var r : nat := 0n;
-    while y =/= 0n block {
-      r := x mod y;
-      x := y;
-      y := r
-    }
-  } with x
-```
-
-⚠️ If the while condition is never met, the block will repeatedly be evaluated until the contract run out of gas or fails.
-
-> ℹ️ About gas: The smart contracts interpreter uses the concept of gas. 
-> Each low-level instruction evaluation burns an amount of gas 
-> which is crafted to be proportional to the actual execution time 
-> and if an execution exceeds its allowed gas consumption, 
-> it is stopped immediately and the effects of the execution are rolled back. 
-> The transaction is still included in the block and the fees are taken, 
-> to prevent the nodes from being spammed with failing transactions. 
-> In Tezos, the economic protocol sets the gas limit per block and for each transaction, 
-> and the emitter of the transaction also set an upper bound to the gas consumption for its transaction. 
-> The economic protocol does not require the transaction fee to be proportional to the gas upper bound, 
-> however the default strategy of the baking software (that forges blocks) 
-> provided with Tezos current implementation does require it.
-
-## For Loops
-
-For-loops iterates over bounded intervals and are define as follows:
-
-```js
-for <variable assignment> to <upper bound> block {
-    <operations>
-}
-```
-
-For instance:
-
-```js
-var acc : int := 0;
-for i := 1 to 10 block {
-    acc := acc + i
-}
-```
-
-## Iterations
-
-For-loops can also iterate through the contents of a collection, that is, a list, a set or a map. 
-This is done with:
-
-```js
-for <element var> in <collection type> <collection var> block {
-    <operations>
-}
-```
-
-Here is an example where the integers in a list are summed up.
-
-```js
-function sum_list (var l : list (int)) : int is block {
-  var total : int := 0;
-  for i in list l block {
-    total := total + i
-  }
-} with total
-```
-
-Sets and maps follow the same logics:
-
-- maps with `for key -> value in map m`
-- sets with `for i in set s`
 
 # Tuples, lists, sets
 
@@ -1146,199 +1363,6 @@ You can modify a component of tuple by assigning values as if it were a variable
 ```js
 captain_full_name.1 := "Carter"
 ```
-
-## Lists
-
-Lists are **linear collections of elements of the same type**. 
-Linear means that, in order to reach an element in a list, 
-we must visit all the elements before (sequential access). 
-Elements can be repeated, as only their order in the collection matters. 
-The first element is called the head, 
-and the sub-list after the head is called the tail.
-
-> 💡 Lists are needed when returning operations from a smart contract's main function.
-
-### Defining Lists
-
-To define an empty list and a list with values:
-
-```js
-const empty_list : list (int) = list [] // Or nil
-const my_list : list (int) = list [1; 2; 2]
-```
-
-> You can also use `nil` instead of `list []`
-
-### Adding to Lists
-
-You can add elements to an existing list using the cons operator `#` or `cons(<value>, <list>)`:
-
-```js
-const larger_list : list (int) = 5 # my_list // [5; 1; 2; 2]
-const larger_list_bis : list (int) = cons(5, my_list) // [5; 1; 2; 2]
-```
-
-### Accessing list element
-
-You cannot access element directly in list, 
-but you can access the first element, 
-the head or the rest of the list, the tail. 
-The two function to access those are `List.head_opt` and `List.tail_opt`.
-
-```js
-const head : option (int) = List.head_opt (my_list) // 1
-const tail : option (list(int)) = List.tail_opt (my_list) // [2;2]
-```
-
-## Sets
-
-Sets are **unordered collections of values of the same type**, 
-like lists are ordered collections. 
-Like the mathematical sets and lists, 
-sets can be empty and, if not, 
-elements of sets in LIGO are unique, 
-whereas they can be repeated in a list.
-
-### Defining Sets
-
-```js
-const empty_set : set (int) = set []
-const my_set : set (int) = set [3; 2; 2; 1]
-```
-
-### Sets tools
-You can test membership with the contains operator:
-
-```js
-const contains_3 : bool = my_set contains 3
-```
-
-You can get the size of a set using the Set.size operator:
-
-```js
-const cardinal : nat = Set.size (my_set)
-```
-
-To update a set:
-
-```js
-const larger_set  : set (int) = Set.add (4, my_set)
-const smaller_set : set (int) = Set.remove (3, my_set)
-```
-
-# Records & Maps
-
-## Records
-
-Records are one-way data of different types can be packed into a single type. 
-A record is made of a set of fields, which are made of a field name and a field type.
-
-### Defining records
-
-To instantiate a record, you must first declare its type as follows:
-
-```js
-type user is
-  record [
-    id : nat;
-    is_admin : bool;
-    name : string
-  ]
-```
-
-And here is how to define an associated record value:
-
-```js
-const rogers : user =
-  record [
-    id = 1n;
-    is_admin = true;
-    name = "Rogers"
-  ]
-```
-
-### Accessing Record Fields
-
-You can access the contents of a given field with the `.` infix operator.
-
-```js
-const rogers_admin : bool = roger.is_admin
-```
-
-### Updating a record
-
-You can modify values in a record as follows:
-
-```js
-function change_name (const u : user) : user is
-  block {
-      const u : user = u with record [name = "Mark"]
-  } with u
-```
-
-You can use `patch` to modify the record:
-
-```js
-function change_name (const u : user) : user is
-  block {
-      patch u with record [name = "Mark"]
-  } with u
-```
-
-⚠️ Note that user has not been changed by the function. 
-Rather, the function returned a nameless new version of it with the modified name.
-
-## Maps
-
-Maps are a data structure which associate values of the same type to values of the same type. 
-The former are called key and, the latter values. 
-Together they make up a binding. 
-An additional requirement is that the type of the keys must be comparable, 
-in the Michelson sense.
-
-### Defining a Map
-
-```js
-type balances is map (string, nat)
-
-const empty : balances = map []
-
-const user_balances : balances =
-    map [
-        "tim" -> 5n;
-        "mark" -> 0n
-    ]
-```
-
-### Accessing Map Bindings
-
-Use the postfix [] operator to read a value of the map:
-
-```js
-const my_balance : option (nat) = user_balances ["tim"]
-```
-
-### Updating a Map
-
-You can add or modify a value using the usual assignment syntax `:=` :
-
-```js
-user_balances ["tim"] := 2n
-user_balances ["New User"] := 24n
-```
-
-A key-value can be removed from the mapping as follows:
-
-```js
-remove "tim" from map user_balances
-```
-
-> Maps load their entries into the environment, 
-> which is fine for small maps, 
-> but for maps holding millions of entries, 
-> the cost of loading such map would be too expensive. 
-> For this we use `big_maps`. Their syntax is the same as for regular maps.
-
 
 # Unit, Variant & Option
 
@@ -1417,27 +1441,7 @@ end
 
 # Timestamps, Addresses
 
-## Timestamps
 
-LIGO features timestamps are responsible for providing the given current timestamp for the contract.
-
-```js
-const today : timestamp = Tezos.now
-const one_day : int = 86_400
-const in_24_hrs : timestamp = today + one_day
-const some_date : timestamp = ("2000-01-01T10:10:10Z" : timestamp)
-const one_day_later : timestamp = some_date + one_day
-```
-
-## Addresses
-
-You can define Tezos addresses by casting a string to an address type:
-
-```js
-const my_account : address = ("tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx" : address)
-```
-
-⚠️ You will not see a transpilation error if the address you enter is wrong, but the execution will fail.
 
 # Main function and Entrypoints
 
