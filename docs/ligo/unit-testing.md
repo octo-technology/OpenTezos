@@ -5,23 +5,23 @@ title: Unit Testing with PyTezos
 
 ## Unit Testing
 
-Just like for any other programming language, writing Ligo code (which will be compiled into Michelson) is not the only task of a developper:
-writing tests is as much as important as writing ligo code.
+Just like any other programming language, writing Ligo code (to be compiled into Michelson) is not the only task of a developer:
+writing tests is as important as writing the code.
 
-Writing tests takes extra time, but this effort is mitigated by some great benefits:
+Writing a test may take extra time, but this effort is rewarded by some great benefits:
 - a test helps to understand the code: a user or a new developer can easily understand the code behaviour.
   The test name should clearly describe what the code is checking;
   the test itself shows how the code should be handled.
-- checking the good behaviour of the written code. It benefits both to the developer and the user of a smart contract:
-  both of them want to be sure the smart contract behaves as it should be
+- checking the good behaviour of the written code. It is a benefit to both the developer and the user of a smart contract:
+  both of them want to be sure the smart contract behaves as it should
 - It also makes the code robust for future modifications, 
   i.e. code refactoring or new functionalities. 
-  The tests make sure that the behavior has not changed, and if it did, clearly outlines where.
-- test can be easily automated: they can be included in a CI/CD, which runs them after any push
+  The tests make sure that the behaviour has not changed, and if it did, it clearly outlines where.
+- test can easily be automated: they can be included in a CI/CD, which runs them after any push
 
 
 
-There are different types of tests, as described below in the an automated testing strategy.
+There are different types of tests, as described below in the automated testing strategy.
 <br/>
 
 ![](../../static/img/ligo/pyramide_of_tests.svg)
@@ -32,17 +32,17 @@ Unit tests are the base of the pyramid and therefore the most important part.
 Décrire les autres tests très succinctement
 -->
 **Unit testing** is performed at a very fine granularity 
-by verifying the behavior of a portion of code totally 
+by fully verifying the behaviour of a portion of a code  
 or partially isolated from its dependencies.
-It will then be simple to write and maintain. While an integration test aims to verify that several components work well together: 
+It will then be simpler to write and maintain. While an integration test aims to verify that several components work well together: 
 it checks the assembly.
 
-To go further, take a look at **Test Driven Development (TDD)** 
+To go further, take a look at **Test-Driven Development (TDD)** 
 which is a development method emphasizing 
 the writing of automated tests as a tool to guide the implementation of features.
 
 Ligo does not provide a testing framework. But other languages, such as Python, do.
-This chapter details how to write unit tests on Michelson code in Python.
+This chapter details how to write unit tests in Michelson code in Python.
 Two modules are needed:
 - the standard *unittest* module: used to write and run unit tests in Python
 - the *pytezos* module: used to call the entrypoints of a smart contract, without deploying it.
@@ -60,7 +60,7 @@ This module is an interesting option because it is well-maintained and easy-to-u
 
 #### Creation of a virtual environment
 A virtual environment is a self-contained python installation, separated from the global Python installation.
-It contains its own modules. Hence, it is useful when a specific module version is needed, without affecting the other modules.
+It contains its own modules. Hence, it is most useful when a specific module version is needed, without affecting the other modules.
 Run this command to create a virtual environment:
 ```shell
 python3 -m venv /path/to/env
@@ -89,7 +89,7 @@ Verification of the installation:
 If the command returns nothing then the installation is successful.
 
 You can find the official documentation here [https://pytezos.org/](https://pytezos.org/) and 
-all the versions on the project github [https://github.com/baking-bad/pytezos](https://github.com/baking-bad/pytezos) in the [Releases part](https://github.com/baking-bad/pytezos/releases).
+all the versions on the project's github [https://github.com/baking-bad/pytezos](https://github.com/baking-bad/pytezos) in the [Releases part](https://github.com/baking-bad/pytezos/releases).
 
 > The pytezos version used for the following example is `pytezos==3.1.0`.  
 > You can check the version of your package with the `pip freeze` command.    
@@ -98,8 +98,8 @@ all the versions on the project github [https://github.com/baking-bad/pytezos](h
 ## Unittest (Python library)
 
 *Unittest* is the standard unit testing framework for Python.
-Before writing tests for smart contracts with **PyTezos**, 
-you need to know how to use this test library.
+Before writing a test for smart contracts with **PyTezos**, 
+you need to know how to use the test library.
 
 Let's see how **Unittest** works through a simple example.
 
@@ -142,18 +142,18 @@ from unittestExample import calculator
 class TestCalculator(unittest.TestCase):
   pass #keyword which tells the class to do nothing
 ```  
-- Write your tests. Keep in mind these basic rules:
-   - A test must check one behaviour at the time.
+- Write your tests. Keep in mind these few basic rules:
+   - A test must check one behaviour at a time.
    - One test = one method
    - No magic number: all the values used must be declared in variables, with explicit names
-   - There must not be useless variables to make the test pass. If a variable can be removed without making the test fail, it must be removed.
-   - The method name must explicit. Anyone should understand what the test takes as input, what behaviour is checked and wha is expected.
+   - There can not be useless variables to pass the test. If a variable can be removed without making the test fail, it must be removed.
+   - The method name must be explicit. Anyone should understand what the test takes as input, what behaviour is been checked and what is expected.
    - A test can be divided into three parts (as implemented in the tests below):
       - GIVEN section: input declarations, expected results
       - WHEN section: the tested method is called with the declared inputs
       - THEN: assertions checks
   
-With unittest, a test method must with `test_` otherwise it will not be considered as a test.
+With unittest, a test method must be with `test_` otherwise it will not be considered as a test.
 
 ```python
 class TestCalculator(unittest.TestCase):
@@ -182,12 +182,12 @@ class TestCalculator(unittest.TestCase):
     self.assertEqual(result, expected_division_result)
 ```
 
-> At the beginning of this chapter, several benefits of unit testing have been raised. 
-> This simple tests suite gives a good example:
->  - Reading the test name gives a clear idea about the code implementation. 
-> For instance, the second test show that it is not an Euclidean division that is implemented
->  - The divide method could be the Euclidean division. The test checks that it returns a float number and not a int.
-> If another developer was to change it into an Euclidean division, the test would fail and warn instantly the developer of a breaking change
+> At the beginning of this chapter, several of the benefits of unit testing have been raised. 
+> This simple tests-suite gives a good example:
+>  - Reading the test name gives a clear idea about its code implementation. 
+> For instance, the second test shows that it is not a Euclidean division that is been implemented
+>  - The divide method could be the Euclidean division. The test checks that it returns, a float number and not a int.
+> If another developer was to change it into a Euclidean division, the test would fail and instantly warn the developer of a breaking change
 > 
 
 > Note that classe names are by convention in **CamelCase** 
@@ -210,7 +210,7 @@ OK
 ```
 
 Note that the command has executed all the tests in the `test_calculator.py` file, 
-but it is possible to only execute some specific tests.
+but it is only possible to execute some specific tests.
 
 Indeed, the unittest module can be used from the command line to execute tests from modules, 
 classes or even individual test methods:
@@ -227,19 +227,19 @@ python -m unittest test_calculator.TestCalculator.test_sub
 including work with keys, signatures, contracts, operations, RPC query builder, 
 and a high-level interface for smart contract interaction.
 
-This module is very interesting for smart contracts unit testing:
-- it can test directly the Michelson code with Python scripts, without having to deploy it on a testnet.
-- since it does not have to wait for transactions confirmations, the test are fast to run
+This module is very interesting for testing smart-contracts unit:
+- it can directly test the Michelson code with Python scripts, without having to deploy it on a testnet.
+- since it does not have to wait for transactions confirmations, the tests are fast to run
 - it can simulate any execution context (sender, amount, storage...)
 - it gives total control on the storage: each test has its own initial storage, and the output storage can be checked.
-- the tests are independant one from another. If the tests were run on a deployed smart contract, the initial storage of a test would be the output storage of the previous one.
+- the tests are independent one from another. If the tests were run on a deployed smart contract, the initial storage of a test would be the output storage of the previous one.
 
-In this section we will test entrypoints of a michelson script
-from a smart contract which is compiled but not deployed.
+In this section, we will test the entrypoints of a michelson script
+for a smart contract that is compiled but not deployed.
 
 For this we will need:
 
-- The **Unittest** library which is the standard framework for writing tests in Python.
+- The **Unittest** library is the standard framework for writing tests in Python.
 - Two very useful classes from **PyTezos**:
   - **ContractInterface**: allows interfacing with the entrypoints of a contract 
   and interact with them.
@@ -272,7 +272,7 @@ class TestContract(TestCase):
     pass
 ```
 
-**PyTezos** expects the path to a file containing Michelson code `path_to_michelson_contract`.
+**PyTezos** requires the path to a file containing Michelson code `path_to_michelson_contract`.
 
 The compiled contract is obtained with a command of this type:
 
@@ -284,7 +284,7 @@ Remember to recompile after any modification of the contract.
 
 ### Equivalence between michelson type and python
 
-**PyTezos** allows to interpret michelson code, so here are the equivalences:
+**PyTezos** allows you to interpret michelson code, so here are the equivalences:
 
 | Michelson  |                  Python                  |
 | :--------: | :--------------------------------------: |
@@ -296,7 +296,7 @@ Remember to recompile after any modification of the contract.
 
 ### Counter Contract Example
 
-Here is an example of **Counter contract** that handles an integer "counter" value, and an administrator address
+Here is an example of **Counter contract** that handles an integer of "counter" value, an administrator address
 as storage and allows the administrator **only** to increment or decrement this counter.
 
 ```js
@@ -377,7 +377,7 @@ The output is :
                   PAIR } } } }
 ```
 
-First let's test the **increment** entrypoint when the user is the administrator.
+First, let's test the **increment** entrypoint when the user is the administrator.
 
 >Note that only the administrator is allowed to modify the storage and if another person tries to do it 
 >then the contract will return an error.
@@ -395,7 +395,7 @@ when the administrator performs the `Increment(5)` action.
   you can generate false addresses [here](https://faucet.tzalpha.net/).
 - In the `setUpClass` method we load the contract from the michelson source code stored in the **counter.tz** file,
   with the `ContractInterface.from_file()` method.
-- Note that the name of the test accurately describes the testing intention.
+- Note that the name of the test accurately describes the test's intention.
 
 ```python
 from unittest import TestCase
@@ -451,7 +451,7 @@ OK
 
 ```
 
-Great it worked !
+Great, it worked!
 
 #### Test unauthorized user (MichelsonRuntimeError)
 
@@ -460,8 +460,8 @@ tries to modify the storage by incrementing or decrementing it.
 
 Let's write a test to make sure that this user gets rejected.
 
-First let's add at the beginning of the file, 
-a new user **alice** with a different adresse from the **administrator**.
+First let's add a new user **alice** at the beginning of the file, 
+with a different address from the **administrator**.
 
 ```python
 administrator = "tz1L738ifd66ah69PrmKAZzckvvHnbcSeqjf"
@@ -488,7 +488,7 @@ def test_should_failed_if_the_source_is_not_the_administrator(self):
 - The line `with self.assertRaises(MichelsonRuntimeError) as administrator_error:`
   retrieves and stores the error in the `administrator_error` variable. 
 - The administrator's address is still defined in the initial state of storage 
-  but this time the address of alice is specified in the context source variable: `source=alice`.
+  but this time the address of alice is specified in the context's source variable: `source=alice`.
 - Finally, the string message from the error is stored in the variable `error_message` 
   and it is compared with the original message written in the `failwith()` of the LIGO code. 
   
@@ -505,9 +505,9 @@ OK
 
 ```
 
-Now it's your turn to write tests! 
+Now it's your turn to write your tests! 
 Try to do the same thing for the entrypoint `decrement` for example.  
-The goal of writing tests is to have an optimal coverage of the whole code.  
-This allows you to have a robust and high quality code. 
+The goal of writing tests is to have optimal coverage of the whole code.  
+This allows you to have a robust and high-quality code. 
 Moreover, future developers who will use your code will thank you very much.
 

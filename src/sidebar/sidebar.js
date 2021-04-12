@@ -71,7 +71,8 @@ module.exports = {
     {
       type: 'category',
       label: 'Build a Dapp',
-      items: ['dapp/introduction', 'dapp/exam'],
+      items: ['dapp/introduction',
+      'dapp/truffle_compilation_migration'],
     },
     {
       type: 'category',
