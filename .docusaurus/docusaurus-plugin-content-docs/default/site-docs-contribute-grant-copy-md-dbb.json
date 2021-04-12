@@ -1,0 +1,21 @@
+{
+  "unversionedId": "contribute/grant",
+  "id": "contribute/grant",
+  "isDocsHomePage": false,
+  "title": "Receive a grant",
+  "description": "Under construction.",
+  "source": "@site/docs/contribute/grant copy.md",
+  "slug": "/contribute/grant",
+  "permalink": "/contribute/grant",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/contribute/grant copy.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Contribute to the Tezos Core Protocol",
+    "permalink": "/contribute/tezos-core"
+  },
+  "next": {
+    "title": "Become a baker",
+    "permalink": "/contribute/baker"
+  }
+}

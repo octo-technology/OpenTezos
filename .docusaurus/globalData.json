@@ -41,13 +41,38 @@
               "sidebar": "docs"
             },
             {
+              "id": "contribute/baker",
+              "path": "/contribute/baker",
+              "sidebar": "docs"
+            },
+            {
               "id": "contribute/exam",
               "path": "/contribute/exam",
               "sidebar": "docs"
             },
             {
+              "id": "contribute/grant",
+              "path": "/contribute/grant",
+              "sidebar": "docs"
+            },
+            {
               "id": "contribute/introduction",
               "path": "/contribute",
+              "sidebar": "docs"
+            },
+            {
+              "id": "contribute/opentezos",
+              "path": "/contribute/opentezos",
+              "sidebar": "docs"
+            },
+            {
+              "id": "contribute/report-issue",
+              "path": "/contribute/report-issue",
+              "sidebar": "docs"
+            },
+            {
+              "id": "contribute/tezos-core",
+              "path": "/contribute/tezos-core",
               "sidebar": "docs"
             },
             {

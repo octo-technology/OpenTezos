@@ -19,7 +19,7 @@ The proof consists of instructions in _Coq_ language (called Galina). Theses ins
 
 Before going deeper, let's sum up in the schema below representing the workflow of formal verification of Tezos smart contracts.
 
-![](../../static/img/FormalVerification_overview.svg)
+![](../../static/img/formal-verification/FormalVerification_overview.svg)
 
 ### Theorem
 
@@ -31,7 +31,7 @@ The theorem is based on
 
 Formal verification of a Tezos smart contract consists of verifying formally that the execution of the Michelson script satisfies specific post-conditions.
 
-![](../../static/img/FormalVerification_theorem.svg)
+![](../../static/img/formal-verification/FormalVerification_theorem.svg)
 
 The proof is a sequence of Coq tactics. Will see that part in the end of this section.
 

@@ -1,0 +1,21 @@
+{
+  "unversionedId": "contribute/baker",
+  "id": "contribute/baker",
+  "isDocsHomePage": false,
+  "title": "Become a baker",
+  "description": "Under construction.",
+  "source": "@site/docs/contribute/baker.md",
+  "slug": "/contribute/baker",
+  "permalink": "/contribute/baker",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/contribute/baker.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Receive a grant",
+    "permalink": "/contribute/grant"
+  },
+  "next": {
+    "title": "Exam",
+    "permalink": "/contribute/exam"
+  }
+}
