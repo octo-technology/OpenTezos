@@ -18,7 +18,7 @@ import NotificationBar from '../../src/components/docs/NotificationBar';
 # Introduction to decentralisation and cryptocurrencies
 
 ## Context
-On **31st October, 2008**, under the _pseudonymous_ "Satoshi Nakamoto", the Bitcoin whitepaper is discreetly released. In the title and the "abstract" paragraph, we can understand that the aim of _his_ invention is creating an "electronic cash system", a kind of currency, which is able to disconnect itself from any centralised entity.
+On **31st October, 2008**, under the "Satoshi Nakamoto" _pseudonym_, the Bitcoin whitepaper is discreetly released. In the title and the "abstract" paragraph, we can understand that the aim of _his_ invention is creating an "electronic cash system", a kind of currency, which is able to disconnect itself from any centralised entity.
 
 On **3rd January, 2009**, the first datas of this system are locked inside a _block_, called the "Genesis Block", which actually contains the first exchanges of the created electronic currency in "bitcoins". The Genesis Block also includes a message in English which is _The Times_ newspaper's main title of the same day:
 "_Chancellor on brink of second bailout for banks_".
@@ -41,6 +41,16 @@ From there, countless reflexions on ethics, researchs on technologies, and of co
 
 In 2001, the Bittorent client gave more support for the Peer-2-Peer network trials and researchs, opening the way for more distribution and the decentralisation looked for.
 
-Finally, before Lehman bankruptcy (2008) and the financial crisis (2008), Hal Finney (1956-2014), developper on PGP, released his "_Reusable Proof-of-Work_" (2004), before being one of the first exchanging bitcoins with Satoshi Nakamoto.
+Finally, before Lehman bankruptcy and the financial crisis (2008), Hal Finney (1956-2014), developper on PGP (1991), released his "_Reusable Proof-of-Work_" (2004), before being one of the first exchanging bitcoins with Satoshi Nakamoto.
 
-From 2009
+From 2009, many projects copy Bitcoin, or try to enhance its capabilities: In 2011, Vitalik Buterin discovers Bitcoin and two years later (October, 2013), works on [a proposal for _Mastercoin_](https://web.archive.org/web/20150627031414/http://vbuterin.com/ultimatescripting.html), that would have upgrade the programmable side of the system, compared to Bitcoin, because bitcoins exchanges have scripts, embedded in _transactions_, that set the way funds can be spent. The idea is going beyond the main use-case of a currency.
+
+But the Mastercoin team didn't want to go in this direction, so Vitalik began to re-work his proposal into another project named _Ethereum_ (December, 2013). The need for even more complex scripts was driven by the interest into _**D**ecentralized **A**utonomous **O**rganizations_ (DAO), that other systems couldn't allow. That is also around December, 2013, that Gavin Wood (protocol-side) and Jeffrey Wilcke (client-side) join Vitalik Buterin to work on Ethereum. The white paper is published, and in January, 2014, Ethereum is announced.
+
+Follow the Yellow Paper from Gavin Wood in April, 2014, a crowdfunding in bitcoins during the same summer, and the launch on 30th July, 2015, the next year. Ethereum is now a new system, with its own cryptocurrency called "_Ether_".
+
+The first DAO of Ethereum called "_The DAO_" is created and more than 150 millions of dollars (\$) are  fundraised in June, 2016. But the 16th, 50 millions (\$) are stolen through the famous "_The DAO hack_".
+
+To recover the stolen funds, it has been decided to modify the history of exchanges. This decision was not approved by the entire community and created a split of the history into two different _blockchains_: _Ethereum_ and _Ethereum Classic_.
+
+Today, Bitcoin and Ethereum remain the two main protocols of the kind, but a lot of very interesting alternatives are still created, including Tezos, which leverages and enhances principles, capabilities, and allow new possibilities.
