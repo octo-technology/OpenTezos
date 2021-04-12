@@ -1176,407 +1176,27 @@ block {
 
 ```
 
-**************************************************************
-
-# Maths, Numbers & Tez
-
-LIGO offers three built-in numerical types:
-
-- `int` are integers, such as `10`, `-6` and `0`.
-- `nat` are natural numbers (integral numbers greater than or equal to zero). 
-  They are followed by the suffix **n** such as `3n`, `12n` and `0n` for the natural zero.
-- `tez` are units of measure of Tezos tokens. They can be decimals and are followed by **tez** or **tz** such as `3tz` or `12.4tez`. 
-  You can also type units of millionth of tez, using the suffix **mutez** after a natural literal, such as `1000mutez` or `0mutez`.
-
-⚠️ Notice there are no floating point types in LIGO as they are not determinist in hardware modules.
-
-> Pro tip: you can use underscores for readability when defining large
-> numbers:
->```js
->const sum : tez = 100_000mutez
->```
-
-## Addition
-
-Addition in LIGO is accomplished by means of the `+` infix
-operator. Some type constraints apply, for example you cannot add a
-value of type `tez` to a value of type `nat`.
-
-```js
-// int + int yields int
-const a : int = 5 + 10
-
-// nat + int yields int
-const b : int = 5n + 10
-
-// tez + tez yields tez
-const c : tez = 5mutez + 0.000_010tez
-
-//tez + int or tez + nat is invalid
-// const d : tez = 5mutez + 10n
-
-// two nats yield a nat
-const e : nat = 5n + 10n
-
-// nat + int yields an int: invalid
-// const f : nat = 5n + 10;
-
-const g : int = 1_000_000
-```
-
-## Subtraction
-
-Subtraction looks as follows.
-
-⚠️ Even when subtracting two `nats`, the result is an `int`
-
-```js
-const a : int = 5 - 10
-
-// Subtraction of two nats yields an int
-const b : int = 5n - 2n
-
-// Therefore, the following is invalid
-// const c : nat = 5n - 2n
-
-const d : tez = 5mutez - 1mutez
-```
-
-## Multiplication
-
-You can multiply values of the same type, such as:
-
-```js
-const a : int = 5 * 5
-const b : nat = 5n * 5n
-
-// You can also multiply `nat` and `tez`
-const c : tez = 5n * 5mutez
-```
-
-## Division
-
-In LIGO you can divide `int`, `nat`, and `tez`. Here is how:
-
-⚠️ Remember that there are no floating point numbers in LIGO so dividing 9 by 2 will output 4 and not 4.5
-
-Therefore, division of two `tez` values results into a `nat`
-
-```js
-const a : int = 10 / 3
-const b : nat = 10n / 3n
-const c : nat = 10mutez / 3mutez
-```
-
-## Modulo
-
-LIGO also allows you to compute the remainder of the Euclidean division. In LIGO, it is a natural number.
-
-```js
-const a : int = 120
-const b : int = 9
-const rem1 : nat = a mod b  // 3
-```
-
-## Casting
-
-You can *cast* an `int` to a `nat` and vice versa. Here is how:
-
-```js
-const a : int = int (1n)
-const b : nat = abs (1)
-```
-
-## Checking a nat
-
-You can check if a value is a `nat` by using a predefined cast
-function which accepts an `int` and returns an optional `nat`: if the
-result is not `None`, then the provided integer was indeed a natural
-number, and not otherwise.
-
-```js
-const is_a_nat : option (nat) = is_nat (1)
-```
-
-# Booleans & Conditionals
-
-## Booleans
-
-The type of boolean value is `bool`. Here is how to define a boolean
-value:
-
-```js
-const a : bool = True   // Also: true
-const b : bool = False  // Also: false
-```
-
-| Operator | Example                                        |
-| :------: | ---------------------------------------------- |
-| **and**  | ```const logical_and: bool = True and True;``` |
-|  **or**  | ```const logical_or: bool = False or True;```  |
-| **not**  | ```const logical_not: bool = not False;```     |
-|  **=**   | ```const eq: bool = 2 = 3;```                  |
-| **=/=**  | ```const not_eq: bool = 2 =/= 3;```            |
-|  **>**   | ```const gt: bool = 4 > 3;```                  |
-|  **<**   | ```const lt: bool = 4 < 3;```                  |
-|  **>=**  | ```const gte: bool = 4 >= 3;```                |
-|  **<=**  | ```const lte: bool = 4 <= 3;```                |
-
-# Tuples, lists, sets
-
-## Tuples
-Tuples gather a given number of values in a specific order and those values, 
-called components, 
-can be retrieved by their index (position). 
-Probably the most common tuple is the pair `(x,y)`.
-
-### Defining Tuples
-
-To define a tuple type, use the * operator:
-
-```js
-type full_name is (string * string)
-const captain_full_name : full_name = ("Roger", "Johnson")
-```
-
-> Note that you are not force to give them names by type aliasing, 
-> and you could have done that instead:
-> ```js
-> const captain_full_name : (string * string) = ("Roger", "Johnson")
-> ```
-
-### Accessing Components
-
-You can access each component of a tuple by their position:
-
-```js
-const captain_first_name : string = captain_full_name.0
-const captain_last_name : string = captain_full_name.1
-```
-
-⚠️ Tuple components are zero-indexed, that is, the first component has the index `0`.
-
-### Update Components
-
-You can modify a component of tuple by assigning values as if it were a variable:
-
-```js
-captain_full_name.1 := "Carter"
-```
-
-# Unit, Variant & Option
-
-## Unit Type
-
-The `Unit` type in Michelson or LIGO is a predefined type 
-that contains only one value that carries no information. 
-It is used when no relevant information is required or produced. 
-Here is how it used.
-
-In PascaLIGO, the unique value of the unit type is `Unit`.
-
-```js
-const n : unit = Unit
-```
-
-## Variant type
-
-A variant type is a user-defined or a built-in type (in case of options) that defines a type by cases, 
-so a value of a variant type is either this, or that or... 
-The simplest variant type is equivalent to the enumerated types found in Java, C++, JavaScript etc.
-
-Here is how we define a bit as being either 1 or 0 (and nothing else):
-
-```js
-type bit is One | Zero
-const closed_switch : bit = One
-const open_switch : coin = Zero
-```
-
-## Pattern Matching
-
-Pattern matching is similar to the switch construct in Javascript, 
-and can be used to route the program's control flow based on the value of a variant. 
-Consider for example the definition of a power switch that turn on/off a light.
-
-```js
-type bit is One | Zero
-
-function power_switch (const b : bit) : bit is
-  case b of
-    One -> Zero
-  | Zero -> One
-  end
-```
-
-## Option type
-
-The `option` type is a predefined variant type that is used to express whether 
-there is a value of some type or none. 
-This is especially useful when calling a partial function, 
-that is, a function that is not defined for some inputs. 
-In that case, the value of the option type would be `None`, 
-otherwise `Some (v)`, where `v` is some meaningful value of any type.
-
-```js
-function div (const a : nat; const b : nat) : option (nat) is
-  if b = 0n then (None: option (nat)) else Some (a/b)
-```
-
-The keyword `Some` can be used in a pattern matching to retrieve the value behind the option variable.  
-The keyword `None` can be used in a pattern matching to verify the option variable has no value.
-
-Here is an example of pattern matching resolving an option type directly 
-(useful when we just want to retrieve the value behind the optional) :
-
-```js
-const my_balance : expected_type = case user_balances[1n] of
-  Some (val) -> val
-| None -> (failwith ("Unknown user") : expected_type)
-end
-```
-
-> Notice the cast of failwith instruction into an expected_type
-
-
-# Timestamps, Addresses
-
-
-
-# Main function and Entrypoints
-
-## Main function
-
-Smart contracts are small programs that are stored and executed on the blockchain. 
-They allow people to cooperate and exchange tokens without requiring them to trust one another.
-
-A LIGO contract is made of a series of constant and function declarations. 
-Only functions having a special type can be called when the contract is activated: 
-we call them **main functions**. A main function takes two parameters, 
-the **contract parameter** and the **on-chain storage**, 
-and returns a pair made of a **list of operations** and a **(new) storage**.
-
-<br/>
-
-![](../../static/img/ligo/main_function.svg)
-<small className="figure">FIGURE 1: Main function</small>
-
-<br/>
-
-The type of the contract parameter and the storage are up to the contract designer, 
-but the type for list operations is not.
-
-The return type of a main function is as follows, 
-assuming that the type `storage` has been defined elsewhere.
-
-```js
-type storage is ...  // Any name, any type
-type return is list (operation) * storage
-```
-
-The contract storage can only be modified by activating a main function: 
-given the state of the storage on-chain, 
-a main function specifies how to create another state for it, 
-depending on the contract's parameter.
-
-Here is an example where the storage is a single natural number that is updated by the parameter.
-
-```js
-type parameter is nat
-type storage is nat
-type return is list (operation) * storage
-
-function save (const action : parameter; const store : storage) : return is
-  ((nil : list (operation)), store)
-```
-
-## Entrypoints
-
-In LIGO, the design pattern is to have one main function called `main`, 
-that dispatches the control flow according to its parameter. 
-Those functions called for those actions are called entrypoints.
-
-As an analogy, in the C programming language, 
-the `main` function is the unique main function and any function called from it would be an entrypoint.
-
-The parameter of the contract is then a variant type, 
-and, depending on the constructors of that type, 
-different functions in the contract are called. 
-In other terms, the unique main function dispatches the control flow 
-depending on a pattern matching on the contract parameter.
-
-In the following example, 
-the storage contains a counter of type `nat` and a name of type `string`. 
-Depending on the parameter of the contract, either the counter or the name is updated.
-
-```js
-type parameter is
-  Action_A of nat
-| Action_B of string
-
-type storage is record [
-  counter : nat;
-  name    : string
-]
-
-type return is list (operation) * storage
-
-function entry_A (const n : nat; const store : storage) : return is
-  ((nil : list (operation)), store with record [counter = n])
-
-function entry_B (const s : string; const store : storage) : return is
-  ((nil : list (operation)), store with record [name = s])
-
-function main (const action : parameter; const store : storage): return is
-  case action of
-    Action_A (n) -> entry_A (n, store)
-  | Action_B (s) -> entry_B (s, store)
-  end
-```
-
-# Built-in
-
-## A few Built-ins
-
-A LIGO smart contract can query part of the state of the Tezos blockchain by means of built-in values.
-
-- `Tezos.balance`: Get the balance for the contract.
-- `Tezos.amount`: Get the amount of tez provided by the sender to complete this transaction.
-- `Tezos.sender`: Get the address that initiated the current transaction.
-- `Tezos.self_address`: Get the address of the currently running contract.
-- `Tezos.source`: Get the originator (address) of the current transaction. 
-  That is, if a chain of transactions led to the current execution get the address that began the chain. 
-  Not to be confused with Tezos.sender, 
-  which gives the address of the contract or user which directly caused the current transaction.
-- `Tezos.chain_id`: Get the identifier of the chain to distinguish between main and test chains.
-
-## Failwith
-
-The keyword failwith throws an exception and stop the execution of the smart contract.
-
-```js
-failwith(<string_message>)
-```
-
-## Access Control
-
-This example shows how Tezos.source can be used to deny access to an entrypoint.
-
-```js
-const owner : address = ("tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx": address);
-
-function main (const action : parameter; const store : storage) : return is
-    if Tezos.source =/= owner then (failwith ("Access denied.") : return)
-else ((nil : list (operation)), store)
-```
-
-> **<string_message>** must be a `string value`
-
-# Transactions and Interactions
-
-## Transactions
-
-You can transfer tez to an account, or to a function of another smart contract. 
+# Smart Contract development : Close Raffle Entrypoint
+The last step is to close the raffle, pick a winner and send him the reward.
+This last entrypoint will show how to send a transaction from the contract and some collections manipulations
+
+5 steps are expected:
+1. Check that the calling address is the administrator
+2. Check that the closing date has been reached and the raffle is still open
+3. Pick a winner
+4. Send the reward to the winner
+5. Reset the storage
+
+New pieces of information won't be stored: the storage is not expected to be modified. 
+However, the third step raises a problem: how should be the winner picked ?
+1. the admnistrator chooses the winner when calling this entrypoint: 
+   participants are likely not to buy a ticket since the administrator can choose himself as a winner
+2. the winner is randomly choose when calling this entrypoint
+3. the winner is chosen at the beginning by the administrator, but this piece of information is only revealed at the end of the raffle.
+
+## LIGO prequisites: Transactions
+
+You can transfer tez to an account, or to a function of another smart contract.
 For this, use :
 
 ```js
@@ -1585,97 +1205,197 @@ Tezos.transaction (<parameter>, <mutez>, <contract>);
 
 where :
 
-- **parameter** is the entrypoint of another contract, 
+- **parameter** is the entrypoint of another contract,
   or use `unit` if you are transferring to a wallet address,
 - **mutez** is the amount to transfer,
-- **contract** is the contract interface of the targeted contract. 
+- **contract** is the contract interface of the targeted contract.
   It can be retrieved from address of the other contract or the wallet.
-  
-Here is an example of how to send money to a wallet address.
 
+## About randomness in smart contracts
+The second option is not easily implemented in smart contracts. In any classical programming language (Python, C, Java...),
+a **random** function is directly usable from the standard API. With smart contracts, it is not possible.
+
+Indeed, each smart contract execution has to be verified by any node in the network. 
+But how could this execution be verified if there is a random variable, that would change everytime ?
+
+It might seem to be a good idea to use blockchain events (transaction hash, block timestamp...) as source of randomness.
+However, in the end, all of this are controlled by bakers: there is a slight possibility that they use this to their advantage.
+
+The only solution seems to use an external source of randomness, or a secure cryptographic scheme. 
+This topic goes well beyond this course. 
+For educational purpose, we will at first hardcode a ticket id winner. 
+Then, the smart contract will be refactored, using the Bytes and Crypto modules.
+
+## Adding the CloseRaffle entrypoint
+
+The smart contract needs to expose this last entrypoint.
+The method is the same that has been detailed for the first and second entrypoint:
+
+1. Defining the type parameter. This type should be unit, since the administrator just has to close the raffle without any other piece of information:
 ```js
-function purchase (const purchase_price : tez) : bool is
+type closeRaffleParameter is unit
+```
+
+2. Adding the entrypoint in the variant:
+```js
+type raffleEntrypoints is
+OpenRaffle of openRaffleParameter
+| BuyTicket of buyTicketParameter
+| CloseRaffle of closeRaffleParameter
+```
+3. Handling the new entrypoint in the control flow:
+```js
+function main (const action : raffleEntrypoints; const store : storage): returnType is
 block {
-    const ship_address : address = ("tz1TGu6TN5GSez2ndXXeDX6LgUDvLzPLqgYV" : address);
-    const vendor_address : address = ("tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx" : address);
-
-    if Tezos.source =/= ship_address then failwith ("Access denied");
-    if Tezos.amount =/= purchase_price then failwith ("Incorrect amount");
-
-    const vendor_contract : contract (unit) =
-      case (Tezos.get_contract_opt (vendor_address) : option (contract (unit))) of
-        Some (c) -> c
-      | None -> (failwith ("Contract not found.") : contract (unit))
-      end;
-    Tezos.transaction (unit, purchase_price, vendor_contract)
-} with True
+    const return : returnType = case action of
+    OpenRaffle (param) -> open_raffle (param.0, param.1, param.2, store)
+    | BuyTicket (param) -> buy_ticket(param, store)
+    | CloseRaffle (param) -> close_raffle (param, store)
+    end;
+} with return
 ```
 
-## Interactions
+## Implementing the CloseRaffle logic
+Let's create an empty function for this entrypoint:
+```js
+  function close_raffle (const param: unit; const store : storage) : returnType is
+    block { const operations : list(operation) = nil; } with (operations, store)
+```
 
-It is also possible to use `Tezos.transaction` to call an entrypoint from another contract. 
-In that case, we store the transaction in a type `operation` 
-which is a predefined type representing a contract invocation.
+There is a slight difference with this entrypoint function: it has to return an operation.
+As a result, the list of operations won't be empty, and will be filled with on operation from within the function block.
+
+
+The usual checks have to be implemented:
+1. only the administrator can close the raffle
+2. the closing date must have been reached
+3. the raffle must be open
+
+The winner will be picked thanks to a hardcoded value. 
+However, even if there is only two participants, the raffle must have a winner.
+So, the number of participants must be known, so that the winning id is `hardcoded_number mod number_of_participants`
+Of course, LIGO offers all the arithmetic operations (addition, substraction, multiplication, division, mod). It won't be detailed here, since it exactly the same as other languages.
 
 ```js
-const <operation_name> : operation = Tezos.transaction (<parameter>, <mutez>, <contract>);
+function close_raffle (const param : unit; const store : storage) : returnType is
+      block {
+        const operations : list(operation) = nil;
+        if Tezos.source =/= store.admin then failwith("administrator not recognized.")
+        else {
+          if Tezos.now < store.close_date; then failwith("The raffle must remain open for at least 7 days.")
+          else {
+          const number_of_players : nat = Set.size(store.players);
+          const random_number : nat = 467n; // hardcoded number
+          const winning_ticket_id : nat = random_number mod number_of_players; // modulo expression
+        }
+      } with (operations, store)
 ```
-To get the contract we want to call and its entry points, we can use:
+
+The winning ticket is now chosen. The next step is to find its owner, from the sold_tickets big_map.
+Since a key might not exist in a big map, fetching the value always return an option. 
+This option is handled with a pattern matching as below:
 
 ```js
-Tezos.get_contract_opt(<address>)
+ function close_raffle (const param : unit; const store : storage) : returnType is
+      block {
+        const operations : list(operation) = nil;
+        if Tezos.source =/= store.admin then failwith("administrator not recognized.")
+        else {
+          if Tezos.now < store.close_date; then failwith("The raffle must remain open for at least 7 days.")
+          else {
+          const number_of_players : nat = Set.size(store.players);
+          const random_number : nat = 467n; // Impossibilité d'aléa
+          const winning_ticket_id : nat = random_number mod number_of_players;
+
+          const winner : address = 
+          case (store.sold_tickets[winning_ticket_id]) of
+            Some (a) -> a
+          | None -> (failwith ("winner address not found") : address)
+          end;
+        }
+      } with (operations, store)
 ```
 
-The function take an address and return an **optional contract** (remember to use `option`). 
-When no contract is found, or the contract doesn't match the type, `None` is returned.
-
-Here is an example of how to use it:
+The winner has been found, it has now to be rewarded. 
+First, we need to check that this address does exist, and then create a transaction:
 
 ```js
-type storage is unit
+ function close_raffle (const param : unit; const store : storage) : returnType is
+      block {
+        const operations : list(operation) = nil;
+        if Tezos.source =/= store.admin then failwith("administrator not recognized.")
+        else {
+          if Tezos.now < store.close_date; then failwith("The raffle must remain open for at least 7 days.")
+          else {
+          const number_of_players : nat = Set.size(store.players);
+          const random_number : nat = 467n; // Impossibilité d'aléa
+          const winning_ticket_id : nat = random_number mod number_of_players;
 
-type parameter is
-  Fire of int
-| Stop
+          const winner : address = 
+          case (store.sold_tickets[winning_ticket_id]) of
+            Some (a) -> a
+          | None -> (failwith ("winner address not found") : address)
+          end;
 
-type return is list (operation) * storage
+          const receiver : contract (unit) =
+          case (Tezos.get_contract_opt (winner) : option (contract (unit))) of
+            Some (c) -> c
+          | None -> (failwith ("winner contract not found.") : contract (unit))
+          end;
 
-const right_laser_address : address = ("tz1fND4ejogxWN7HB5JKdz119A48Cp2eYKj9" : address)
-const left_laser_address : address = ("tz1PVWEWDcuow9R6y5EFwcHbFNoZBZ9RjxaB" : address)
+          const op : operation = Tezos.transaction(unit, store.jackpot, receiver);
+          const operations : list(operation) = list [ op; ];
+          
+        }
+      } with (operations, store)
+```
+The operations variable is not empty anymore: this entrypoint does return a transaction, that will be sent by the smart contract.
 
-function orders (const param : unit; const store : storage): return is
-  block {
-    const right_laser : contract (parameter) =
-      case (Tezos.get_contract_opt(right_laser_address) : option (contract (parameter))) of
-        Some (contract) -> contract
-      | None -> (failwith ("Contract not found.") : contract (parameter))
-      end;
-    const left_laser : contract (parameter) =
-      case (Tezos.get_contract_opt(left_laser_address) : option (contract (parameter))) of
-        Some (contract) -> contract
-      | None -> (failwith ("Contract not found.") : contract (parameter))
-      end;
+Finally, the storage need to be reset. All the fields will be filled with empty values:
+```js
+ function close_raffle (const param : unit; const store : storage) : returnType is
+      block {
+        const operations : list(operation) = nil;
+        if Tezos.source =/= store.admin then failwith("administrator not recognized.")
+        else {
+          if Tezos.now < store.close_date; then failwith("The raffle must remain open for at least 7 days.")
+          else {
+          const number_of_players : nat = Set.size(store.players);
+          const random_number : nat = 467n; // Impossibilité d'aléa
+          const winning_ticket_id : nat = random_number mod number_of_players;
 
-    const operations : list (operation) = list [
-        Tezos.transaction (Fire(5), 0tez, right_laser);
-        Tezos.transaction (Stop, 0tez, right_laser);
-        Tezos.transaction (Fire(5), 0tez, left_laser);
-        Tezos.transaction (Stop, 0tez, left_laser);
-    ]
-  } with (operations, store)
+          const winner : address = 
+          case (store.sold_tickets[winning_ticket_id]) of
+            Some (a) -> a
+          | None -> (failwith ("winner address not found") : address)
+          end;
 
-type action is Order | Nothing
+          const receiver : contract (unit) =
+          case (Tezos.get_contract_opt (winner) : option (contract (unit))) of
+            Some (c) -> c
+          | None -> (failwith ("winner contract not found.") : contract (unit))
+          end;
 
-function main (const a : action; const s : storage) : return is
-block { skip } with case a of
-      Order  -> orders(unit, s)
-    | Nothing -> ((nil: list(operation)), s)
-end
+          const op : operation = Tezos.transaction(unit, store.jackpot, receiver);
+          const operations : list(operation) = list [ op; ];
+
+          patch store with record [
+          jackpot = 0tez;
+          close_date = (0 : timestamp);
+          description = ("raffle is currently closed" : string);
+          raffle_is_open = False;
+          players = (set[] : set(address));
+          sold_tickets = (map[] : map (nat, address));
+          ];
+        }
+      } with (operations, store)
 ```
 
+# Smart contract refactoring
 
 
-
+**************************************************************
+`
 
 
 
