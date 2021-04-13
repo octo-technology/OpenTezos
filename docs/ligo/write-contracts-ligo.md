@@ -637,7 +637,7 @@ type storage is record [
     close_date : timestamp;
     jackpot : tez;
     description : string;
-    lottery_is_open : bool;
+    raffle_is_open : bool;
 ]
 
 ```
@@ -658,13 +658,13 @@ type raffleEntrypoint is unit
 Adding the OpenRaffle entrypoint means to define the raffle entrypoint as a variant:
 
 ```js
-type raffleEntrypoints is OpenRaffle of unit
+type raffleEntrypoint is OpenRaffle of unit
 ```
 raffleEntrypoint is now a variant: OpenRaffle (because of `of unit`) does not expect any argument.
 
 In order to be exposed, OpenRaffle needs to be handled in a pattern matching, in the main function:
 ```js
-function main (const action : tombolaEntrypoints; const store : storage):  list (operation) * storage is
+function main (const action : raffleEntrypoint; const store : storage):  list (operation) * storage is
     case action of
         OpenRaffle -> ((nil: list(operation)), store)
     end;
@@ -673,13 +673,13 @@ function main (const action : tombolaEntrypoints; const store : storage):  list 
 
 The smart contract now looks like (and is compiling):
 ```js
-type raffleEntrypoints is OpenRaffle of unit
+type raffleEntrypoint is OpenRaffle of unit
 
 type storage is unit
 
 type returnType is list (operation) * storage
 
-function main (const action : tombolaEntrypoints; const store : storage): returnType is
+function main (const action : raffleEntrypoint; const store : storage): returnType is
     case action of
         OpenRaffle -> ((nil: list(operation)), store)
     end;
@@ -718,7 +718,7 @@ type storage is unit
 
 type returnType is list (operation) * storage
 
-function main (const action : tombolaEntrypoints; const store : storage): returnType is
+function main (const action : raffleEntrypoints; const store : storage): returnType is
     case action of
         OpenRaffle (param) -> ((nil: list(operation)), store)
     end;
@@ -768,7 +768,7 @@ function open_raffle (const jackpot_amount : tez; const close_date : timestamp; 
     block {
       if Tezos.source =/= store.admin then failwith("administrator not recognized")
       else {
-        if not store.lottery_is_open then {
+        if not store.raffle_is_open then {
             skip
         } else {
           failwith("raffle is already open")
@@ -785,7 +785,7 @@ function open_raffle (const jackpot_amount : tez; const close_date : timestamp; 
     if Tezos.source =/= store.admin
     then failwith ("administrator not recognized")
     else {
-      if store.lottery_is_open then {
+      if store.raffle_is_open then {
         if Tezos.amount < jackpot_amount then failwith ("the contract does not own enough tz")
         else {
             skip
@@ -806,7 +806,7 @@ function open_raffle (const jackpot_amount : tez; const close_date : timestamp; 
     if Tezos.source =/= store.admin
     then failwith ("administrator not recognized")
     else {
-      if store.lottery_is_open then {
+      if store.raffle_is_open then {
         if Tezos.amount < jackpot_amount then failwith ("the contract does not own enough tz")
         else {
           const today : timestamp = Tezos.now;
@@ -840,7 +840,7 @@ function open_raffle (const jackpot_amount : tez; const close_date : timestamp; 
     if Tezos.source =/= store.admin
     then failwith ("administrator not recognized")
     else {
-      if not store.lottery_is_open then {
+      if not store.raffle_is_open then {
         if Tezos.amount < jackpot_amount then failwith ("the contract does not own enough tz")
         else {
           const today : timestamp = Tezos.now;
@@ -1046,7 +1046,7 @@ type storage is record [
     close_date : timestamp;
     jackpot : tez;
     description : string;
-    lottery_is_open : bool;
+    raffle_is_open : bool;
     players : set (address);
     sold_tickets : map (nat, address);
   ]
@@ -1354,7 +1354,7 @@ This option is handled with a pattern matching as below:
           if Tezos.now < store.close_date; then failwith("The raffle must remain open for at least 7 days.")
           else {
           const number_of_players : nat = Set.size(store.players);
-          const random_number : nat = 467n; // Impossibilité d'aléa
+          const random_number : nat = 467n;
           const winning_ticket_id : nat = random_number mod number_of_players;
 
           const winner : address = 
@@ -1378,7 +1378,7 @@ First, we need to check that this address does exist, then create a transaction 
           if Tezos.now < store.close_date; then failwith("The raffle must remain open for at least 7 days.")
           else {
           const number_of_players : nat = Set.size(store.players);
-          const random_number : nat = 467n; // Impossibilité d'aléa
+          const random_number : nat = 467n;
           const winning_ticket_id : nat = random_number mod number_of_players;
 
           const winner : address = 
@@ -1411,7 +1411,7 @@ Finally, the storage need to be reset. All the fields will be filled with empty 
           if Tezos.now < store.close_date; then failwith("The raffle must remain open for at least 7 days.")
           else {
           const number_of_players : nat = Set.size(store.players);
-          const random_number : nat = 467n; // Impossibilité d'aléa
+          const random_number : nat = 467n;
           const winning_ticket_id : nat = random_number mod number_of_players;
 
           const winner : address = 
@@ -1452,7 +1452,7 @@ However, **the method that will be used is not security compliant**.
 This refactoring is meant for educational purposes: to show some advanced features of LIGO. Do NOT use for any other usage.
 
 
-In this part, two more modules are going to be used: `Bytes` and `Crypto`.
+This part is an opportunity to put the emphasis on two modules: `Bytes` and `Crypto`.
 
 The `Bytes` module handles binary format for serialization: 
 convert Michelson structures to a binary format (and the reverse), concatenate two bytes... 
