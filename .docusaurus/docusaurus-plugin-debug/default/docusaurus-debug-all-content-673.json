@@ -343,6 +343,26 @@
                   },
                   {
                     "type": "doc",
+                    "id": "contribute/report-issue"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "contribute/opentezos"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "contribute/tezos-core"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "contribute/grant"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "contribute/baker"
+                  },
+                  {
+                    "type": "doc",
                     "id": "contribute/exam"
                   }
                 ]
@@ -356,8 +376,13 @@
             "/baking": "docs",
             "/blockchain-basics/exam": "docs",
             "/blockchain-basics": "docs",
+            "/contribute/baker": "docs",
             "/contribute/exam": "docs",
+            "/contribute/grant": "docs",
             "/contribute": "docs",
+            "/contribute/opentezos": "docs",
+            "/contribute/report-issue": "docs",
+            "/contribute/tezos-core": "docs",
             "/dapp/exam": "docs",
             "/dapp/introduction": "docs",
             "/defi/cross-chain-swaps": "docs",
@@ -536,6 +561,27 @@
               }
             },
             {
+              "unversionedId": "contribute/baker",
+              "id": "contribute/baker",
+              "isDocsHomePage": false,
+              "title": "Become a baker",
+              "description": "Under construction.",
+              "source": "@site/docs/contribute/baker.md",
+              "slug": "/contribute/baker",
+              "permalink": "/contribute/baker",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/contribute/baker.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Receive a grant",
+                "permalink": "/contribute/grant"
+              },
+              "next": {
+                "title": "Exam",
+                "permalink": "/contribute/exam"
+              }
+            },
+            {
               "unversionedId": "contribute/exam",
               "id": "contribute/exam",
               "isDocsHomePage": false,
@@ -548,8 +594,29 @@
               "version": "current",
               "sidebar": "docs",
               "previous": {
-                "title": "Introduction",
-                "permalink": "/contribute"
+                "title": "Become a baker",
+                "permalink": "/contribute/baker"
+              }
+            },
+            {
+              "unversionedId": "contribute/grant",
+              "id": "contribute/grant",
+              "isDocsHomePage": false,
+              "title": "Receive a grant",
+              "description": "Under construction.",
+              "source": "@site/docs/contribute/grant.md",
+              "slug": "/contribute/grant",
+              "permalink": "/contribute/grant",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/contribute/grant.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Contribute to the Tezos Core Protocol",
+                "permalink": "/contribute/tezos-core"
+              },
+              "next": {
+                "title": "Become a baker",
+                "permalink": "/contribute/baker"
               }
             },
             {
@@ -557,7 +624,7 @@
               "id": "contribute/introduction",
               "isDocsHomePage": false,
               "title": "Introduction",
-              "description": "Under construction.",
+              "description": "Tezos is user-centric blockchain. As seen in the governance chapter, the evolution of Tezos is decided by its stakeholders. Anyone can contribute, from reporting a simple issue to coding and developing a whole new platform based on Tezos, there are many opportunities that will benefit you and the ecosystem. In this module we will see how to:",
               "source": "@site/docs/contribute/introduction.md",
               "slug": "/contribute",
               "permalink": "/contribute",
@@ -569,8 +636,71 @@
                 "permalink": "/private/exam"
               },
               "next": {
-                "title": "Exam",
-                "permalink": "/contribute/exam"
+                "title": "report an issue",
+                "permalink": "/contribute/report-issue"
+              }
+            },
+            {
+              "unversionedId": "contribute/opentezos",
+              "id": "contribute/opentezos",
+              "isDocsHomePage": false,
+              "title": "Contribute to OpenTezos",
+              "description": "Under construction.",
+              "source": "@site/docs/contribute/opentezos.md",
+              "slug": "/contribute/opentezos",
+              "permalink": "/contribute/opentezos",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/contribute/opentezos.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "report an issue",
+                "permalink": "/contribute/report-issue"
+              },
+              "next": {
+                "title": "Contribute to the Tezos Core Protocol",
+                "permalink": "/contribute/tezos-core"
+              }
+            },
+            {
+              "unversionedId": "contribute/report-issue",
+              "id": "contribute/report-issue",
+              "isDocsHomePage": false,
+              "title": "report an issue",
+              "description": "The simplest way to contribute is to report issues that you may have encounter while using Tezos or its related platforms.",
+              "source": "@site/docs/contribute/report-issue.md",
+              "slug": "/contribute/report-issue",
+              "permalink": "/contribute/report-issue",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/contribute/report-issue.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Introduction",
+                "permalink": "/contribute"
+              },
+              "next": {
+                "title": "Contribute to OpenTezos",
+                "permalink": "/contribute/opentezos"
+              }
+            },
+            {
+              "unversionedId": "contribute/tezos-core",
+              "id": "contribute/tezos-core",
+              "isDocsHomePage": false,
+              "title": "Contribute to the Tezos Core Protocol",
+              "description": "Under construction.",
+              "source": "@site/docs/contribute/tezos-core.md",
+              "slug": "/contribute/tezos-core",
+              "permalink": "/contribute/tezos-core",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/contribute/tezos-core.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Contribute to OpenTezos",
+                "permalink": "/contribute/opentezos"
+              },
+              "next": {
+                "title": "Receive a grant",
+                "permalink": "/contribute/grant"
               }
             },
             {
@@ -704,7 +834,7 @@
               "id": "defi/lending",
               "isDocsHomePage": false,
               "title": "Lending and Flash Loans",
-              "description": "---",
+              "description": "It is likely that at some point in your life you have had to borrow some money, e.g. for a student loan, a car loan or a mortgage. Lending and borrowing are essential services in any financial system. Lenders such as banks provide you with a loan in exchange for a fee in the form of interest rates. Repaying the loan is enforced by legal contracts.",
               "source": "@site/docs/defi/lending.md",
               "slug": "/defi/lending",
               "permalink": "/defi/lending",
@@ -1040,7 +1170,7 @@
               "id": "ligo/introduction",
               "isDocsHomePage": false,
               "title": "Introduction",
-              "description": "The goal of this module is to allow a developer to install LIGO transpiler on his operating system",
+              "description": "The goal of this module is to allow developers to install a LIGO transpiler on their operating system",
               "source": "@site/docs/ligo/introduction.md",
               "slug": "/ligo",
               "permalink": "/ligo",

@@ -21,7 +21,7 @@
   "/__docusaurus/debug/routes-244": {
     "component": "component---theme-debug-routes-946-699"
   },
-  "/-249": {
+  "/-103": {
     "component": "component---theme-doc-page-1-be-9be",
     "versionMetadata": "versionMetadata---935-fcf"
   },
@@ -57,9 +57,29 @@
     "component": "component---theme-doc-item-178-a40",
     "content": "content---contributebb-1-5ab"
   },
+  "/contribute/baker-1d4": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---baker-8-f-0-f14"
+  },
   "/contribute/exam-210": {
     "component": "component---theme-doc-item-178-a40",
     "content": "content---contribute-exam-13-b-2d8"
+  },
+  "/contribute/grant-616": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---grant-00-b-87b"
+  },
+  "/contribute/opentezos-b1b": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---opentezos-711-32e"
+  },
+  "/contribute/report-issue-321": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---contribute-grant-953-01b"
+  },
+  "/contribute/tezos-core-a02": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---tezos-core-2-cd-fb8"
   },
   "/dapp/exam-bb1": {
     "component": "component---theme-doc-item-178-a40",

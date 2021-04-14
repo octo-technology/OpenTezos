@@ -1,0 +1,21 @@
+{
+  "unversionedId": "contribute/opentezos",
+  "id": "contribute/opentezos",
+  "isDocsHomePage": false,
+  "title": "Contribute to OpenTezos",
+  "description": "Under construction.",
+  "source": "@site/docs/contribute/opentezos.md",
+  "slug": "/contribute/opentezos",
+  "permalink": "/contribute/opentezos",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/contribute/opentezos.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "report an issue",
+    "permalink": "/contribute/report-issue"
+  },
+  "next": {
+    "title": "Contribute to the Tezos Core Protocol",
+    "permalink": "/contribute/tezos-core"
+  }
+}

@@ -1,6 +1,8 @@
-# Website
+# OpenTezos
 
-This website is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern static website generator.
+Welcome Tezos Developers! Explore the technical and economic concepts behind the Tezos Network, experiment with our tutorials, or start building your own Tezos Dapp. Each module will teach you a full concept of Tezos, ending with a quizz that will get you an official completion certification if you succeed.
+
+See an error somewhere? Fix it with a Github Pull Request. OpenTezos is a constantly evolving platform that welcome all readers inputs. You can even add a new chapter or module if wish.
 
 ## Installation
 
@@ -13,21 +15,3 @@ yarn install
 ```console
 yarn start
 ```
-
-This command starts a local development server and open up a browser window. Most changes are reflected live without having to restart the server.
-
-## Build
-
-```console
-yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-## Deployment
-
-```console
-GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.

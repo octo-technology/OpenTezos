@@ -6,7 +6,7 @@ title: Take Away
 - LIGO is a programming language for writing **Tezos smart contracts**.
 - LIGO **transpiles** scripts written in a high-level language into a **Michelson script**.
 
-- A smart contract is some code written in Michelson langage (a low-level stack-based turing-complete language).
+- A smart contract is some code written in Michelson language (a low-level stack-based turing-complete language).
     - It defines all **entrypoints** (invokable functions) of the smart contract.
     - It defines the prototype of each entry point (e.g. specifies the parameters types of the entry point).
     - It defines the **storage** of the smart contract.
@@ -14,8 +14,8 @@ title: Take Away
 - **The storage** is an allocated memory space associated to a smart contract.
   The description of the storage is done by strongly-typing the data structure.
 
-- **Entrypoints** of a smart contract describe how to mutate a storage.
-  Executing an entry point takes some parameters and a state of a storage
+- **Entrypoints** of a smart contract describe how to mutate the storage.
+  Executing an entry point takes some parameters and a state of the storage
   and returns a new state of storage and some operations.
   
 <br/>
@@ -28,12 +28,12 @@ title: Take Away
   and each smart contract must have at least one **main function**
   that dispatches the control flow to other functions.
 
-- The **option type** is a predefined variant type that is used to express whether there is a value of some type or none.
+- The **option type** is a predefined variant type that is used to express whether there is a value, of some type, or none.
   This is especially useful when calling a partial function, that is, a function that is not defined for some inputs.
 
 - The keyword `failwith(<string_message>)` throws an exception and stop the execution of the smart contract.
 
-- You can transfer tez to an account, or to a function of another smart contract, with `Tezos.transaction (<parameter>, <mutez>, <contract>)`
+- You can transfer tez to an account, or to the function of another smart contract, with `Tezos.transaction (<parameter>, <mutez>, <contract>)`
 
 ## To go further
 

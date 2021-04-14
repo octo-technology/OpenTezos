@@ -51,7 +51,7 @@ Once elements are added to the stack, they can be combined using arithmetic oper
 The `ADD` instruction sums the top two elements of the stack. and the `MUL` multiply them. The result is then pushed on top of the stack.
 
 ![](../../static/img/michelson/michelson_instruction_add_example.svg)
-<small className="figure">FIGURE 3: Illustration of the `ADD` instruction</small>
+<small className="figure">FIGURE 4: Illustration of the `ADD` instruction</small>
 
 More complex computation can be done. For example, the mathematical expression `((2 + 3) * 6) + 7` can be written with the following sequence of instructions:
 
@@ -68,7 +68,7 @@ ADD
 The following diagram illustrates the execution of this sequence of instructions.
 
 ![](../../static/img/michelson/michelson_tutorial_arithmetic.svg)
-<small className="figure">FIGURE 4: Illustration of the arithmetic operators</small>
+<small className="figure">FIGURE 5: Illustration of the arithmetic operators</small>
 
 ##### Other basic stack operators (DIG DUG)
 
@@ -77,12 +77,12 @@ Other instructions allow you to change the position of elements in the stack suc
 The `DIG n` instruction moves the n-th element of the stack to the top of the stack.
 
 ![](../../static/img/michelson/michelson_instruction_dig_example.svg)
-<small className="figure">FIGURE 5: Illustration of the `DIG` instruction</small>
+<small className="figure">FIGURE 6: Illustration of the `DIG` instruction</small>
 
 The `DUG n` instruction moves the top element of the stack to the n-th element of the stack.
 
 ![](../../static/img/michelson/michelson_instruction_dug_example.svg)
-<small className="figure">FIGURE 6: Illustration of the `DUG` instruction</small>
+<small className="figure">FIGURE 7: Illustration of the `DUG` instruction</small>
 
 For example, the mathematical expression `((2 + 3) * 6) + 7` can be written also with the following sequence of instructions:
 
@@ -101,7 +101,7 @@ ADD
 The following schema illustrates the execution of this sequence of instructions.
 
 ![](../../static/img/michelson/michelson_tutorial_dug_dig.svg)
-<small className="figure">FIGURE 7: Illustration of the `DUG` and `DIG` instructions</small>
+<small className="figure">FIGURE 8: Illustration of the `DUG` and `DIG` instructions</small>
 
 Now that we have seen the basic of stack operators we are able to reorganize elements of the stack as pleased. These stack operators will be useful to prepare the stack of more complex operators that requires precise elements in a specific order on the top of the stack.
 
@@ -136,12 +136,12 @@ The following diagrams illustrates the modification of the stack while executing
 
 
 ![](../../static/img/michelson/michelson_tutorial_if_true.svg)
-<small className="figure">FIGURE 8: Illustration of the `IF` instruction (true case)</small>
+<small className="figure">FIGURE 9: Illustration of the `IF` instruction (true case)</small>
 
 The following diagrams illustrates the modification of the stack while executing the `IF { SWAP; DROP }` instruction part.
 
 ![](../../static/img/michelson/michelson_tutorial_if_false.svg)
-<small className="figure">FIGURE 9: Illustration of the `IF` instruction (false case)</small>
+<small className="figure">FIGURE 10: Illustration of the `IF` instruction (false case)</small>
 
 Obviously the conditional branching is very useful and can be combined with other instructions that set up conditions such as comparison operators. 
 
@@ -153,12 +153,12 @@ Since primitive types are different by design, each primitive type is comparable
 
 For _pair_ values such as `(Pair d1 d2)` the comparison is done component-wise, starting with the left component.
 For _option_ values, the `None` value is considered as less than `Some` value and comparing `Some x` and `Some y` is done by comparing `x` and `y`.
-
+These two types (_option_ and _pair_) will be introduced later in this tutorial.
 
 The `COMPARE` instruction compares the top two elements of the stack. It consumes the two top elements and returns an integer at the top of the stack. The outcome value is -1 if the first element is smaller than the second one; 0 if the two first elements are equal; 1 otherwise.
 
 ![](../../static/img/michelson/michelson_instruction_compare_example.svg)
-<small className="figure">FIGURE 9: Illustration of the `COMPARE` instruction</small>
+<small className="figure">FIGURE 11: Illustration of the `COMPARE` instruction</small>
 
 The `EQ` instruction consumes the top element and returns a boolean on top of the stack. It returns _True_ if this value is zero, _False_ otherwise. 
 
@@ -171,7 +171,7 @@ EQ
 ```
 
 ![](../../static/img/michelson/michelson_tutorial_compare_example.svg)
-<small className="figure">FIGURE 10: Illustration of number comparison</small>
+<small className="figure">FIGURE 12: Illustration of number comparison</small>
 
 Other comparison instructions are available to check if a number is lower or equal to zero (`LE` instruction) or greater than zero (`GT` instruction). The list of comparison operators is described in the "Generic comparison" section.
 
@@ -196,11 +196,11 @@ IF { DROP } { SWAP; DROP }
 Notice that the `DUP; DUG 2; SWAP; DUP; DUG 2; DUG 3` sequence duplicates the top two elements of the stack. The `COMPARE; LE` sequence determines which is the biggest number and the `IF { DROP } { SWAP; DROP }` sequence removes the smallest number.
 
 ![](../../static/img/michelson/michelson_tutorial_compare_numbers.svg)
-<small className="figure">FIGURE 11: Illustration of conditional branching based on number comparison</small>
+<small className="figure">FIGURE 13: Illustration of conditional branching based on number comparison</small>
 
 ##### More stack operator (`DIP`, `CMPLE`)
 
-This principle of duplicating the top two elements of the stack and comparing them to choose one of them is a common pattern. Some syntactic sugar (i.e. a "shortcut" instruction that combines many of the language's basic instructions) or(macros) has been introduced in the Michelson language so as to ease these common patterns. 
+This principle of duplicating the top two elements of the stack and comparing them to choose one of them is a common pattern. Some syntactic sugar (i.e. a "shortcut" instruction that combines many of the language's basic instructions) and macros have been introduced in the Michelson language to ease these common patterns. 
 
 For example the macro `CMPLE` stands for `COMPARE; LE`. A more exhaustive list is available in the "macros" section.
 
@@ -225,7 +225,7 @@ IF { DROP } { SWAP; DROP }
 ```
 
 ![](../../static/img/michelson/michelson_tutorial_compare_numbers_dip.svg)
-<small className="figure">FIGURE 11: Illustration of conditional branching based on number comparison</small>
+<small className="figure">FIGURE 14: Illustration of conditional branching based on number comparison</small>
 
 ### Primitive types support
 
@@ -271,11 +271,13 @@ A `FAILWITH` instruction provides a way to reject a transaction by stopping the 
 
 #### Optional
 
-An optional value is a data structure that can hold a value (of a given type). The optional value has two states: it is defined as `NONE` if no value is assigned and can be defined as `SOME` if a value has been assigned.
+An optional value is a data structure that can hold a value (of a given type) which can be not assigned yet. The optional value has two states: it is defined as `NONE` if no value is assigned and can be defined as `SOME` if a value has been assigned.
 
-When defining an optional value, the type of value must be specified.
+When defining an optional value, the type of value must be specified (e.g. `option int`).
 
-The `SOME` instruction packs a value as an optional value.
+The `IF_SOME` instruction allows to check and retrieve the value if it has been assigned.
+
+The `SOME` instruction packs a value as an optional value (i.e. allows to create an _option_ type with an assigned value).
 
 The `NONE` instruction specifies the absence of value. It requires that the type of value that can be held be specified.
 
@@ -297,10 +299,10 @@ If the `IF_NONE` instruction encounters a NONE value it consumes it and then sta
 If the `IF_NONE` instruction encounters a SOME value it does not consumes it and then starts executing the second sequence.
 
 ![](../../static/img/michelson/michelson_instruction_ifnone_none_example.svg)
-<small className="figure">FIGURE 25: Illustration of the `IF_NONE` instruction</small>
+<small className="figure">FIGURE 15: Illustration of the `IF_NONE` instruction</small>
 
 ![](../../static/img/michelson/michelson_instruction_ifnone_some_example.svg)
-<small className="figure">FIGURE 26: Illustration of the `IF_NONE` instruction</small>
+<small className="figure">FIGURE 16: Illustration of the `IF_NONE` instruction</small>
 
 Michelson also introduces the `IF_SOME bt bf` instruction which retrieves the value behind an optional and executes the first sequence if it encounters a SOME value. It executes the second sequence if it encounters a NONE value.
 
@@ -312,7 +314,7 @@ The Michelson language introduces the _pair_ type which defines a data structure
 A _pair_ type is a tuple of 2 elements. It is possible to create nested _pair_ in order to create a tuple of more than 2 elements. For example, the following nested _pair_ `PAIR (PAIR nat 5, string "Hello") int 37` contains a natural integer 5, a string "Hello" and an integer 37.
 
 ![](../../static/img/michelson/michelson_tutorial_pair.svg)
-<small className="figure">FIGURE 35: Illustration of the C[AD]+R macro</small>
+<small className="figure">FIGURE 17: Illustration of the C[AD]+R macro</small>
 
 The _pair_ type can embed primitive types (nat, string, int) but also other composite types such as list, map, set, lambda function or union.
 
@@ -323,23 +325,23 @@ The `PAIR` instruction takes the top two elements of the stack and pushes back o
 The `UNPAIR` instruction takes the top element of the stack and ensures it is a _pair_ type. It pushes back on top of the stack the two elements of the _pair_.
 
 ![](../../static/img/michelson/michelson_tutorial_pair_unpair.svg)
-<small className="figure">FIGURE 35: Illustration of the _PAIR_ and _UNPAIR_ instructions</small>
+<small className="figure">FIGURE 18: Illustration of the _PAIR_ and _UNPAIR_ instructions</small>
 
-Notice that the `UNPAIR` instructions expects a _pair_ element on top of the stack. If the top element is not a _pair_ type then the type checking of the script would fail, and the execution of the smart contract would stop.
+Notice that the `UNPAIR` instruction expects a _pair_ element on top of the stack. If the top element is not of the _pair_ type then the type checking of the script would fail and the execution of the smart contract would stop.
 
-Similarly, the `PAIR` instruction expects two elements on the stack. The execution of a valid smart contract would stop if the stack does not contain two elements.
+Similarly, the `PAIR` instruction expects two elements in the stack. The execution of a valid smart contract would stop if the stack did not contain two elements.
 
 ##### Accessing to elements of a _PAIR_
 
 The `CAR` instruction consumes the top element of the stack (which must be a `PAIR`) and pushes back on the top of the stack the left part of the pair.
 
 ![](../../static/img/michelson/michelson_instruction_car_example.svg)
-<small className="figure">FIGURE 22: Illustration of the `CAR` instruction</small>
+<small className="figure">FIGURE 19: Illustration of the `CAR` instruction</small>
 
 The `CDR` instruction consumes the top element of the stack (which must be a `PAIR`) and pushes back on top of the stack the right part of the pair.
 
 ![](../../static/img/michelson/michelson_instruction_cdr_example.svg)
-<small className="figure">FIGURE 23: Illustration of the `CDR` instruction</small>
+<small className="figure">FIGURE 20: Illustration of the `CDR` instruction</small>
 
 These `CDR` and `CAR` instructions are useful to retrieve a part of a _PAIR_. As seen in the "Smart contract" section, when invoking a smart contract, the initial stack is defined by a _PAIR_ containing the parameter of the invoked entrypoint and the current storage value.
 
@@ -354,7 +356,7 @@ code { CDR ;
 ```
 
 ![](../../static/img/michelson/michelson_smartcontract_basics.svg)
-<small className="figure">FIGURE 3: Execution of `CDR ; NIL operation ; PAIR`</small>
+<small className="figure">FIGURE 21: Execution of `CDR ; NIL operation ; PAIR`</small>
 
 Notice that the `CDR` instruction retrieves the right part of the initial _PAIR_. The `NIL operation` pushed an empty list of operations on top of the stack. The _PAIR_ instructions forms a _pair_ type with the empty list of operations and the initial storage.
 
@@ -371,7 +373,7 @@ Similarly, the Michelson language provides the `UNPAPPAIIR` macro for destructur
 Similarly, the Michelson language provides the `C[AD]+R` macro for accessing a specific field inside a _nested pair_. For example, the `CAAR` macro stands for `{ CAR; CAR }` and `CADAR` macro stands for `{ CAR; CDR; CAR }`.
 
 ![](../../static/img/michelson/michelson_macro_C[AD]+R_example.svg)
-<small className="figure">FIGURE 35: Illustration of the C[AD]+R macro</small>
+<small className="figure">FIGURE 22: Illustration of the C[AD]+R macro</small>
 
 
 These macros are described in the "Instructions" section (in the "macros" sub-section).
@@ -414,7 +416,7 @@ Standard arithmetic operations are supported by the Michelson language on _nat_ 
 The `ADD` instruction computes additions on _nat_ and _int_. It consumes the top two elements of the stack and pushes back the addition of the two elements on top of the stack.
 
 ![](../../static/img/michelson/michelson_instruction_add_example.svg)
-<small className="figure">FIGURE 16: Illustration of the `ADD` instruction</small>
+<small className="figure">FIGURE 23: Illustration of the `ADD` instruction</small>
 
 
 The `SUB` instruction computes subtractions on _nat_ and _int_. It consumes the top two elements of the stack and pushes back the difference of the two elements on top of the stack.
@@ -422,21 +424,21 @@ The `SUB` instruction computes subtractions on _nat_ and _int_. It consumes the 
 Notice that the subtraction of two natural integers produces an integer (since the expression `2 - 4` produces a number smaller than 0).
 
 ![](../../static/img/michelson/michelson_instruction_sub_example.svg)
-<small className="figure">FIGURE 17: Illustration of the `SUB` instruction</small>
+<small className="figure">FIGURE 24: Illustration of the `SUB` instruction</small>
 
 The `MUL` instruction computes multiplications on _nat_ and _int_. It consumes the top two elements of the stack and pushes back the product of these two elements on top of the stack.
 
 Notice similarly that the multiplication of a natural integer and an integer produces an integer.
 
 ![](../../static/img/michelson/michelson_instruction_mul_example.svg)
-<small className="figure">FIGURE 18: Illustration of the `MUL` instruction</small>
+<small className="figure">FIGURE 25: Illustration of the `MUL` instruction</small>
 
 The `EDIV` instruction computes euclidean divisions on _nat_. The euclidean division computes the quotient and the remainder between two numbers.
 
-If the divisor is equal to zero, it returns an optional-type with the assigned value _None_. Otherwise, it applies the Euclidean division and returns an optional-type containing the result (quotient and remainder). 
+If the divisor is equal to zero, it returns the _option_ type with the assigned value _None_. Otherwise, it applies the Euclidean division and returns the _option_ type containing the result (quotient and remainder). 
 
 ![](../../static/img/michelson/michelson_instruction_ediv_example.svg)
-<small className="figure">FIGURE 19: Illustration of the `EDIV` instruction</small>
+<small className="figure">FIGURE 26: Illustration of the `EDIV` instruction</small>
 
 ##### Conversions `int` <-> `nat`
 
@@ -445,7 +447,7 @@ The Michelson language also provides instructions to cast an integer into a natu
 The `ABS` instruction consumes an integer on top of the stack and pushes back the absolute value of this integer as a _nat_ value. 
 
 ![](../../static/img/michelson/michelson_instruction_abs_example.svg)
-<small className="figure">FIGURE 19: Illustration of the `ABS` instruction</small>
+<small className="figure">FIGURE 27: Illustration of the `ABS` instruction</small>
 
 The following smart contract illustrates the `ABS` usage. It receives an integer as an input parameter, computes the absolute value and adds it to the storage.
 
@@ -507,7 +509,7 @@ It requires these three elements at the top of the stack and in this order:
 It returns an optional string because the given offset may be out of bound. 
 
 ![](../../static/img/michelson/michelson_instruction_slice_example.svg)
-<small className="figure">FIGURE 20: Illustration of the `SLICE` instruction</small>
+<small className="figure">FIGURE 28: Illustration of the `SLICE` instruction</small>
 
 
 For example, the following smart contract retrieves the first 5 characters of a given string and store them in the storage.
@@ -541,22 +543,22 @@ These boolean operators are useful mixed with `IF` instruction for creating comp
 The `OR` instruction consumes the top two boolean elements of the stack and pushes back on top of the stack a logical _OR_ of both elements.
 
 ![](../../static/img/michelson/michelson_instruction_or_example.svg)
-<small className="figure">FIGURE 13: Illustration of the `OR` instruction</small>
+<small className="figure">FIGURE 29: Illustration of the `OR` instruction</small>
 
 The `AND` instruction consumes the top two boolean elements of the stack and computes a logical _AND_ of the two elements.
 
 ![](../../static/img/michelson/michelson_instruction_and_example.svg)
-<small className="figure">FIGURE 14: Illustration of the `AND` instruction</small>
+<small className="figure">FIGURE 30: Illustration of the `AND` instruction</small>
 
 
 The `XOR` instruction consumes the top two boolean elements of the stack and computes an exclusive logical _OR_ of the two elements.
 
 ![](../../static/img/michelson/michelson_instruction_xor_example.svg)
-<small className="figure">FIGURE 15: Illustration of the `XOR` instruction</small>
+<small className="figure">FIGURE 31: Illustration of the `XOR` instruction</small>
 
 The `NOT` instruction consumes a boolean top element of the stack and pushes the logical opposite of the given boolean. 
 
-#### timestamp
+#### Timestamp
 
 The Michelson language supports `timestamp` type. Like in most languages a timestamp represents a numbers of seconds passed since the beginning of year 1970. 
 Timestamps can be used in smart contract to authorize actions on a certain period of time.  
@@ -630,15 +632,16 @@ The Michelson language provides _bytes_ supports with common operators like for 
 
 ##### Serialization
 
-The `PACK` instruction serializes a piece of data to its optimized binary representation.
-
+The `PACK` instruction serializes any value of packable type to its optimized binary representation. All types are packable with the exception of _operation_ and _big_map_ types.
+It consumes the top element of the stack and push back the corresponding _bytes_ value on top of the stack.
+ 
 
 The `UNPACK` instruction de-serializes a piece of data, if valid. It returns an *option* initialized to *None* if the de-serialization is invalid, or an *option* initialized to *Some* if valid.
 
 
 ##### Standard operators
 
-The `CONCAT` instruction concatenates two byte sequences. It can also be applied to a list of byte sequences. It consumes a list of byte sequences and pushes the concatenation of all sequences (in the respective order). 
+The `CONCAT` instruction concatenates two byte sequences. It can also be applied to a list of byte sequences. It consumes a list of byte sequences and pushes the concatenation of all sequences (in the respective order). The _list_ data structure will be explained later in this tutorial.
 
 
 The `SIZE` instruction computes the size of a sequence of bytes. It consumes a byte sequence and pushes the number of bytes of the sequence.
@@ -652,6 +655,30 @@ It expects the following elements on top of the stack:
 
 It returns an optional byte sequence because the given offset and length may be out of bound.
 
+The following smart contract illustrates the slicing of bytes. It expects a _bytes_ value as parameter and saves in the storage the first 3 bytes. Otherwise if the offset or length elements do not fit the given bytes value then it fails.
+
+```
+parameter bytes;
+storage bytes;
+code { CAR ;
+       PUSH nat 3;
+       PUSH nat 1;
+       SLICE ;
+       IF_NONE { FAIL } {};
+       NIL operation ;
+       PAIR }
+```
+
+This smart contract can be simulated with the CLI command:
+```
+tezos-client run script instruction_bytes_slice.tz on storage '0x00' and input '0x12a47ef2'
+```
+This command would produce a new storage value `0xa47ef2`.
+
+The following command will fail (out-of-bound access) due to a too short _bytes_ value.  
+```
+tezos-client run script instruction_bytes_slice.tz on storage '0x00' and input '0x12a47e'
+```
 
 ##### Comparing bytes
 
@@ -707,14 +734,14 @@ The `list` type represents an ordered collection of elements of the same type. A
 The `NIL 'a` instruction pushes an empty list on the top of the stack. When creating a _list_ the type of list elements must be specified. For example, `NIL operation` pushes an empty list of operations on the top of the stack. Similarly `NIL int` pushes an empty list of integers on top of the stack.
 
 ![](../../static/img/michelson/michelson_instruction_nillist_example.svg)
-<small className="figure">FIGURE 33: Illustration of the `NIL` instruction</small>
+<small className="figure">FIGURE 32: Illustration of the `NIL` instruction</small>
 
 ##### Adding an element in the list
 
 The `CONS` instruction allows you to add an element at the beginning of a list. It expects an element and a list on top of the stack, consumes them and pushes back the updated _list_ on top of the stack.
 
 ![](../../static/img/michelson/michelson_instruction_cons_example.svg)
-<small className="figure">FIGURE 32: Illustration of the `CONS` instruction</small>
+<small className="figure">FIGURE 33: Illustration of the `CONS` instruction</small>
 
 So as to illustrate the _list_ type usage take a look at the following smart contract.
 
@@ -744,7 +771,9 @@ The `IF_CONS bt bf` instruction inspects a list. It requires two sequences of in
 
 This instruction removes the first element of the list, pushes it on top of the stack and executes the first sequence of instructions (`bt`). If the list is empty, then the second list of instructions is executed (`bf`).
 
-This `IF_CONS` instruction allows you to remove the first element of the list. The following smart contract illustrates this usage.
+This `IF_CONS` instruction allows you to remove the first element of the list. It also allows to relocate elements of a list or to filter elements of a list. 
+
+The following smart contract illustrates the removal of elements from the list.
 
 ```
 parameter unit;
@@ -772,7 +801,7 @@ The `SIZE` instruction computes the number of elements in the list.
 It consumes a list on the top of the stack and pushes the number of elements of the list back on top of the stack.
 
 
-The `MAP {}` instruction applies a sequence of instructions to each element of a list. The `MAP` instruction requires a sequence of instructions (i.e. called "body") that has access to the stack. 
+The `MAP {}` instruction updates a _list_ data structure by applying a sequence of instructions to each element of the list. The `MAP` instruction requires a sequence of instructions (i.e. called "body") that has access to the stack. 
 
 The following smart contract illustrates the `MAP` usage. This smart contract holds a list of integer in its storage and when invoked it increments each integer of the list by 1.
 
@@ -790,7 +819,7 @@ This smart contract can be simulated with the following CLI command:
 tezos-client run script instruction_list_map.tz on storage '{1;2;5;3}' and input 'Unit'
 ```
 
-The `ITER {}` instruction applies a sequence of instructions to each element of a list. The `ITER` instruction requires a sequence of instructions (called "body") that has access to the stack.
+The `ITER {}` instruction iterates on all elements of a _list_ and applies a sequence of instructions to each element. The `ITER` instruction requires a sequence of instructions (called "body") that has access to the stack.
 
 An example is described in the _Examples_ section (Example 2).
 
@@ -808,21 +837,24 @@ The `MEM` instruction checks for the existence of an element in a set. It consum
 
 ##### Modify elements of the set
 
-The `UPDATE` instruction inserts or removes an element in a set, replacing a previous value.
+The `UPDATE` instruction allows to insert an element in a set or to remove an element from a set.
 
-It takes the top two elements of the stack:
+It takes the top three elements of the stack:
 - an element whose type corresponds to the _set_ type
 - a boolean representing the existence of this element in the _set_
+- a set to update
 
 If the boolean argument is _False_ then the element will be removed.
 
 ![](../../static/img/michelson/michelson_instruction_updatesetremove_example.svg)
-<small className="figure">FIGURE 24: Illustration of the `UPDATE` instruction</small>
+<small className="figure">FIGURE 34: Illustration of the `UPDATE` instruction</small>
 
 If the boolean argument is _True_ then the element will be inserted.
 
 ![](../../static/img/michelson/michelson_instruction_updatesetinsert_example.svg)
-<small className="figure">FIGURE 25: Illustration of the `UPDATE` instruction</small>
+<small className="figure">FIGURE 35: Illustration of the `UPDATE` instruction</small>
+
+An attempt to add a value which already exists in the set will let the _set_ unchanged. Similarly an attempt to remove a value which does not exist in the set will let the _set_ unchanged.
 
 The following smart contract illustrates the `UPDATE` instruction usage. This smart contract stores a set of integers and can be invoked by specifying an integer that will be inserted in the set.
 
@@ -843,14 +875,19 @@ You can test the smart contract with the following command:
 tezos-client run script set_example.tz on storage '{1; 2; 3; 9}' and input '7'
 ```
 
+The following diagram illustrates the execution of this command
+
+![](../../static/img/michelson/michelson_instruction_set_insert.svg)
+<small className="figure">FIGURE 36: Illustration of the `UPDATE` instruction on a _set_ type</small>
+
+
+
 ##### Apply process on a set
 
-The `ITER` instruction takes a sequence of instructions (called "body") as its argument. It applies a given sequence of instructions to each element of a set. The "body" sequence has access to the stack.
+The `ITER` instruction takes a sequence of instructions (called "body") as its argument. It iterates on all elements of a _set_ and applies a given sequence of instructions to each element. The "body" sequence has access to the stack.
 
 
 The `SIZE` instruction consumes a set from the top of the stack and pushes to the top the number of elements contained in the set.
-
-
 
 
 
@@ -858,7 +895,11 @@ The `SIZE` instruction consumes a set from the top of the stack and pushes to th
 
 A `map` is an associative array. It stores many pairs of key-value elements, i.e. it binds a key and a value. Type definitions of key and value must be defined when instantiating a new `map`.
 
-The `map` data structure can only contain a limited amount of data. When using big and complex types as values, it is recommended to use the `big_map` data structure.
+The `map` data structure can only contain a limited amount of data. When using big and complex types as values, it is recommended to use the `big_map` data structure which is a lazily deserialized map.
+
+Operations on _big_map_ type have higher gas costs than those over standard maps, as data is lazily deserialized. However, a _big_map_ type has a lower storage cost than a standard map of the same size.
+
+
 
 ##### Building a map
 
@@ -901,7 +942,7 @@ tezos-client run script map_remove_example.tz on storage '{ Elt "toto" 1 }' and 
 ```
 
 ![](../../static/img/michelson/michelson_instruction_mapremove_example.svg)
-<small className="figure">FIGURE 27: Illustration of the `UPDATE` instruction</small>
+<small className="figure">FIGURE 37: Illustration of the `UPDATE` instruction</small>
 
 If the optional value is defined as `Some` then the element is inserted into the map. The following smart contract (map_insert_example.tz) illustrates the `UPDATE` usage while inserting an element into the map.
 
@@ -924,7 +965,7 @@ tezos-client run script map_insert_example.tz on storage '{ Elt "toto" 1 }' and 
 ```
 
 ![](../../static/img/michelson/michelson_instruction_mapinsert_example.svg)
-<small className="figure">FIGURE 28: Illustration of the `UPDATE` instruction</small>
+<small className="figure">FIGURE 38: Illustration of the `UPDATE` instruction</small>
 
 #### Accessing element of a map
 
@@ -961,6 +1002,11 @@ tezos-client run script map_example.tz on storage '{ Elt "toto" 5 }' and input '
 
 Notice that `{}` represents an empty map and `{ Elt "toto" 5 }` a map containing one element where "toto" is the key and its associated value is 5.
 
+The following diagram illustrates the execution of this command.
+
+![](../../static/img/michelson/michelson_instruction_map_get.svg)
+<small className="figure">FIGURE 39: Illustration of the `GET` and `UPDATE`  instructions</small>
+
 ##### Applying some process on a map
 
 The `SIZE` instruction computes the number of elements inside a map. It consumes a map on top of the stack and places the number of elements on top of the stack.
@@ -968,14 +1014,7 @@ The `SIZE` instruction computes the number of elements inside a map. It consumes
 The `SIZE` instruction cannot be applied to `big_map` type. 
 
 
-The `MAP` instruction applies a sequence of instructions to each element of a map. It takes a sequence of instructions as its argument (called "body"). This "body" sequence has access to the stack.
-
-```js
-MAP body / {} : S  =>  {} : S
-MAP body / { Elt k v ; <tl> } : S  =>  { Elt k v' ; <tl'> } : S''
-    where body / Pair k v : S  =>  v' : S'
-    and MAP body / { <tl> } : S'  =>  { <tl'> } : S''
-```
+The `MAP` instruction updates a _map_ data structure by applying a sequence of instructions to each element of a map. It takes a sequence of instructions as its argument (called "body"). This "body" sequence has access to the stack.
 
 The following smart contract (map_map_example.tz) illustrates the `MAP` usage. This smart contract stores a `map string nat` and when invoked it goes through all key-value elements of the map and multiplies by 2 the `nat` value.
 
@@ -997,13 +1036,7 @@ tezos-client run script map_map_example.tz on storage '{ Elt "toto" 1 ; Elt "tut
 
 ##### Iterating on a map
 
-The `ITER body` instruction applies a sequence of instructions (called "body") to each element of a map. The "body" sequence has access to the stack.
-
-```js
-ITER body / {} : S  =>  S
-ITER body / { Elt k v ; <tl> } : S  =>  ITER body / { <tl> } : S'
-   iff body / (Pair k v) : S  =>  S'
-```
+The `ITER body` instruction iterates on all elements of a _map_ and applies a sequence of instructions (called "body") to each element. So, the "body" sequence expects an element of the stack (i.e. a _pair_ key-value) on top of the stack. The "body" sequence has access to the underlying stack.
 
 An example ("Max list") illustrating `ITER` instruction usage is described in the _Examples_ section. Despite being applied to a list of integers, the `ITER` instruction works in the same way with a map (except at each iteration a _pair_ key-value is pushed on the stack instead of an integer, as in the example "Max list").
 
@@ -1039,7 +1072,7 @@ The top element is placed in the right branch of the `or` structure and the left
 It consumes a type definition on top of the stack and pushes a union where the left part is defined as the consumed type definition.
 
 ![](../../static/img/michelson/michelson_instruction_left.svg)
-<small className="figure">FIGURE 28: Illustration of the `LEFT` instruction</small>
+<small className="figure">FIGURE 40: Illustration of the `LEFT` instruction</small>
 
 Usage of the `LEFT` instruction is illustrated in the example section.
 
@@ -1049,7 +1082,7 @@ The top-element is placed in the left branch of the `or` structure and the right
 It consumes a type definition on top of the stack and pushes a union where the right part is defined as the consumed type definition.
 
 ![](../../static/img/michelson/michelson_instruction_right.svg)
-<small className="figure">FIGURE 28: Illustration of the `RIGHT` instruction</small>
+<small className="figure">FIGURE 41: Illustration of the `RIGHT` instruction</small>
 
 Usage of the `RIGHT` instruction is illustrated in the example section.
 
@@ -1088,7 +1121,7 @@ tezos-client run script union_example.tz on storage '5' and input 'Right 1'
 ```
 
 ![](../../static/img/michelson/michelson_instruction_ifleft_right_example.svg)
-<small className="figure">FIGURE 30: Illustration of the `IF_LEFT` instruction</small>
+<small className="figure">FIGURE 42: Illustration of the `IF_LEFT` instruction</small>
 
 The following command simulates the execution of the smart contract when called with a string.
 
@@ -1097,10 +1130,7 @@ tezos-client run script union_example.tz on storage '5' and input 'Left "Hello"'
 ```
 
 ![](../../static/img/michelson/michelson_instruction_ifleft_left_example.svg)
-<small className="figure">FIGURE 31: Illustration of the `IF_LEFT` instruction</small>
-
-
-
+<small className="figure">FIGURE 43: Illustration of the `IF_LEFT` instruction</small>
 
 ### Contract specific types and operations
 
@@ -1109,7 +1139,6 @@ Now let's focus on the specific types related to Tezos smart contract such as cr
 #### Mutez
 
 Mutez (micro-Tez) are internally represented by a 64-bit, signed integer. There are restrictions to prevent creating a negative amount of mutez. Operations are limited in order to prevent overflow and to avoid mixing with other numerical types by mistake. They are also mandatorily checked for under/overflows.
-
 
 ##### Standard currency operations
 
@@ -1121,20 +1150,14 @@ This operation may fail in case of overflow.
 The `SUB` instruction computes subtractions on mutez. It consumes two _mutez_ elements on top of the stack and pushes back the difference of the two quantities on top of the stack.
 A _mutez_ value cannot be negative so this subtraction may fail if the first value is smaller than the second one.
 
-
 The `MUL` instruction computes multiplications on mutez. It consumes a _mutez_ and a _nat_ elements on top of the stack and pushes back the product of the two quantities on top of the stack.
 The multiplication allows mutez to be multiplied with natural integers.
 Multiplication of 2 `mutez` operands is not allowed. 
 
-
 The `EDIV` instruction computes the euclidean division on mutez. It consumes a _mutez_ and a _nat_ elements on top of the stack and pushes back a `pair` with the quotient and the reminder (of the two elements) on top of the stack.
 The euclidean division allows a mutez to be divided by a natural integer. It is also possible to divide 2 mutez, in this case, it returns a `nat` as a quotient and a mutez as the rest of the euclidean division.
 
-
 The `COMPARE` instruction compares two mutez and returns an integer on top of the stack. It returns 0 if both elements are equal, 1 if the first element is bigger than the second, and -1 otherwise. 
-
-
-
  
 #### Contract communication
 
@@ -1146,7 +1169,7 @@ This section introduces the _address_ type identifying an account or a deployed 
 
 The _address_ type represents an identifier for a user account or a deployed smart contract (e.g. "tz1n2Vm2dvjey...", "KT1faswCTD..." ).
 
-The _address_ type is a comparable type (i.e. _address_ values can be compared between each other). Addresses of implicit accounts are considered strictly less than addresses of originated accounts. Otherwise addresses of the same type are compared lexicographically.
+The _address_ type is a comparable type (i.e. _address_ values can be compared between each other). Addresses of implicit accounts are considered strictly less than addresses of originated accounts. Addresses of the same type are compared lexicographically.
 
 Built-ins macros such as SOURCE or SENDER push an _address_ value on top of the stack. (see "Built-ins" section) 
 
@@ -1232,7 +1255,7 @@ tezos-client run script countercaller.tz on storage '"KT1HUbVyf62ZAp7BRqwQaDueb6
 ```
 
 ![](../../static/img/michelson/michelson_example_transfertoken_execution.svg)
-<small className="figure">FIGURE 34: Illustration of the `TRANSFER_TOKENS` instruction</small>
+<small className="figure">FIGURE 44: Illustration of the `TRANSFER_TOKENS` instruction</small>
 
 ##### Delegation with `SET_DELEGATE`
 
@@ -1401,10 +1424,6 @@ Notice that the `tezos-client run script` command provides an optional argument 
 
 
 
-
-
-
-
 ### Lambda functions
 
 The Michelson language supports anonymous functions, also called **lambda**. Lambda functions are strongly typed and when called it executes a sequence of instructions.
@@ -1510,7 +1529,7 @@ LAMBDA nat nat { PUSH nat 2 ; ADD }
 
 ### Iterative processing
 
-The Michelson language supports repetitive processing. As seen the previous sections, the collection types (set, list, map) supports the `ITER` instruction allowing to parse each element of the collection and applying a sequence of instruction on each element.
+The Michelson language supports repetitive processing. As seen the previous sections, the collection types (set, list, map) supports the `ITER` instruction allowing to parse each element of the collection and applying a sequence of instruction to each element.
 
 The example ([#2](https://opentezos.com/michelson/examples#example-2--maximum-of-a-list-with-iter-and-cmple) in the "Examples" section illustrates the `ITER` instruction usage on _list_ type.
 

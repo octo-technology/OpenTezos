@@ -39,7 +39,7 @@ export default [
 },
 {
   path: '/',
-  component: ComponentCreator('/','249'),
+  component: ComponentCreator('/','103'),
   
   routes: [
 {
@@ -83,8 +83,33 @@ export default [
   exact: true,
 },
 {
+  path: '/contribute/baker',
+  component: ComponentCreator('/contribute/baker','1d4'),
+  exact: true,
+},
+{
   path: '/contribute/exam',
   component: ComponentCreator('/contribute/exam','210'),
+  exact: true,
+},
+{
+  path: '/contribute/grant',
+  component: ComponentCreator('/contribute/grant','616'),
+  exact: true,
+},
+{
+  path: '/contribute/opentezos',
+  component: ComponentCreator('/contribute/opentezos','b1b'),
+  exact: true,
+},
+{
+  path: '/contribute/report-issue',
+  component: ComponentCreator('/contribute/report-issue','321'),
+  exact: true,
+},
+{
+  path: '/contribute/tezos-core',
+  component: ComponentCreator('/contribute/tezos-core','a02'),
   exact: true,
 },
 {

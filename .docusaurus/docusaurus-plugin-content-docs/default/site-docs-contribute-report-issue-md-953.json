@@ -1,0 +1,21 @@
+{
+  "unversionedId": "contribute/report-issue",
+  "id": "contribute/report-issue",
+  "isDocsHomePage": false,
+  "title": "report an issue",
+  "description": "The simplest way to contribute is to report issues that you may have encounter while using Tezos or its related platforms.",
+  "source": "@site/docs/contribute/report-issue.md",
+  "slug": "/contribute/report-issue",
+  "permalink": "/contribute/report-issue",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/contribute/report-issue.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Introduction",
+    "permalink": "/contribute"
+  },
+  "next": {
+    "title": "Contribute to OpenTezos",
+    "permalink": "/contribute/opentezos"
+  }
+}

@@ -13,16 +13,18 @@ module.exports = {
     {
       type: 'category',
       label: 'Tezos Basics',
-      items: ['tezos-basics/introduction',
-              'tezos-basics/smart-contracts',
-              'tezos-basics/liquid-proof-of-stake',
-              'tezos-basics/operations',
-              'tezos-basics/cli-and-rpc',
-              'tezos-basics/governance-on-chain',
-              'tezos-basics/history-of-amendements',
-              'tezos-basics/economics-and-rewards',
-              'tezos-basics/exam'
-             ],    },
+      items: [
+        'tezos-basics/introduction',
+        'tezos-basics/smart-contracts',
+        'tezos-basics/liquid-proof-of-stake',
+        'tezos-basics/operations',
+        'tezos-basics/cli-and-rpc',
+        'tezos-basics/governance-on-chain',
+        'tezos-basics/history-of-amendements',
+        'tezos-basics/economics-and-rewards',
+        'tezos-basics/exam',
+      ],
+    },
     {
       type: 'category',
       label: 'Deploy a node',
@@ -45,11 +47,12 @@ module.exports = {
           'ligo/introduction',
           'ligo/installation',
           'ligo/language-basics',
-          'ligo/deploy-a-contract',   
-          'ligo/unit-testing',   
-          'ligo/examples',   
-          'ligo/exam',   
-          'ligo/take-away',   
+          'ligo/deploy-a-contract',
+          'ligo/unit-testing',
+          'ligo/examples',
+          'ligo/exam',
+          'ligo/take-away',
+          'ligo/contracts-ligo',
         ],
     },
     {
@@ -69,7 +72,8 @@ module.exports = {
     {
       type: 'category',
       label: 'Build a Dapp',
-      items: ['dapp/introduction', 'dapp/exam'],
+      items: ['dapp/introduction',
+      'dapp/truffle_compilation_migration'],
     },
     {
       type: 'category',
@@ -110,7 +114,15 @@ module.exports = {
     {
       type: 'category',
       label: 'How to contribute',
-      items: ['contribute/introduction', 'contribute/exam'],
+      items: [
+        'contribute/introduction',
+        'contribute/report-issue',
+        'contribute/opentezos',
+        'contribute/tezos-core',
+        'contribute/grant',
+        'contribute/baker',
+        'contribute/exam',
+      ],
     },
   ],
 }

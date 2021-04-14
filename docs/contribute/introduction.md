@@ -5,16 +5,14 @@ title: Introduction
 slug: /contribute
 ---
 
-import NotificationBar from '../../src/components/docs/NotificationBar';
+Tezos is user-centric blockchain. As seen in the [governance chapter](/tezos-basics/governance-on-chain), the evolution of Tezos is decided by its stakeholders. Anyone can contribute, from reporting a simple issue to coding and developing a whole new platform based on Tezos, there are many opportunities that will benefit you and the ecosystem. In this module we will see how to:
 
-<h1 className="p">Under construction.</h1>
+- [report an issue](/contribute/report-issue)
 
-<NotificationBar>
-  <p>
-    Lorem ipsum
-  </p>
-</NotificationBar>
+- [modify or add new content to OpenTezos](/contribute/opentezos)
 
-### Lorem ipsum
+- [contribute to the Tezos Core Protocol](/contribute/tezos-core)
 
-Lorem ipsum
+- [apply for a grant](/contribute/grant)
+
+- [become a baker](/contribute/baker)

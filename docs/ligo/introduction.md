@@ -30,11 +30,13 @@ This Michelson file is the smart contract that will be deployed on a tezos netwo
 
 As said above, LIGO is a programming language for writing **[Tezos](https://tezos.com/) smart contracts**.
 The diagram helps to contextualize the role of LIGO in the Tezos ecosystem.
+
 LIGO is active in the left part as a development tool allowing
 for the production of smart contracts (scripts in Michelson),
 which can be deployed on the blockchain.
 Tezos nodes broadcast information through the Tezos network 
 in order to maintain an immutable common ledger (blockchain) # I would remove this sentence
+
 
 LIGO currently offers three flavoured syntaxes:
 
@@ -46,6 +48,7 @@ LIGO currently offers three flavoured syntaxes:
   It aims to be familiar to those coming from JavaScript.
 
 Here is an example of a Counter contract that handles a single integer's "counter" value 
+
 as storage and allows users to increment decrement or reset this counter.
 
 <Tabs
@@ -128,7 +131,6 @@ This LIGO contract accepts the following LIGO expressions:
 `Increment(n)`, `Decrement(n)` and `Reset`. Those serve as
 `entrypoint` identification.
 
-
 <br/>
 
 The goal of this module is to allow a developer to install the LIGO transpiler on his operating system
@@ -140,3 +142,4 @@ It will include the bases of the LIGO language,
 inspired by the [official documentation](https://ligolang.org/docs/language-basics/types),
 as well as detailed smart contract examples.
 You will also be offered an exam to check your understanding.
+

@@ -3,7 +3,7 @@
   "id": "ligo/introduction",
   "isDocsHomePage": false,
   "title": "Introduction",
-  "description": "The goal of this module is to allow a developer to install LIGO transpiler on his operating system",
+  "description": "The goal of this module is to allow developers to install a LIGO transpiler on their operating system",
   "source": "@site/docs/ligo/introduction.md",
   "slug": "/ligo",
   "permalink": "/ligo",

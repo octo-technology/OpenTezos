@@ -390,6 +390,31 @@
           },
           {
             "type": "link",
+            "label": "report an issue",
+            "href": "/contribute/report-issue"
+          },
+          {
+            "type": "link",
+            "label": "Contribute to OpenTezos",
+            "href": "/contribute/opentezos"
+          },
+          {
+            "type": "link",
+            "label": "Contribute to the Tezos Core Protocol",
+            "href": "/contribute/tezos-core"
+          },
+          {
+            "type": "link",
+            "label": "Receive a grant",
+            "href": "/contribute/grant"
+          },
+          {
+            "type": "link",
+            "label": "Become a baker",
+            "href": "/contribute/baker"
+          },
+          {
+            "type": "link",
             "label": "Exam",
             "href": "/contribute/exam"
           }
@@ -404,8 +429,13 @@
     "/baking": "docs",
     "/blockchain-basics/exam": "docs",
     "/blockchain-basics": "docs",
+    "/contribute/baker": "docs",
     "/contribute/exam": "docs",
+    "/contribute/grant": "docs",
     "/contribute": "docs",
+    "/contribute/opentezos": "docs",
+    "/contribute/report-issue": "docs",
+    "/contribute/tezos-core": "docs",
     "/dapp/exam": "docs",
     "/dapp/introduction": "docs",
     "/defi/cross-chain-swaps": "docs",
