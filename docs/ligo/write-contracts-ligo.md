@@ -225,7 +225,7 @@ A smart contracts generally have one or several entrypoints, but it is not manda
 At this point, the parameter definition will be skipped. They will be defined later in this chapter.
 To define a smart contract without any entrypoint:
 ```js
-type raffleEntrypoint is unit
+type raffleEntrypoints is unit
 ```
 
 
@@ -242,9 +242,9 @@ It does not have to be named that way. In this chapter, the "main" function will
 
 ```js
 type storage is unit
-type raffleEntrypoint is unit
+type raffleEntrypoints is unit
 
-function main (const action : raffleEntrypoint; const store : storage): list (operation) * storage is
+function main (const action : raffleEntrypoints; const store : storage): list (operation) * storage is
     ((nil: list(operation)), store)
 ```
 
@@ -639,11 +639,10 @@ type storage is record [
     description : string;
     raffle_is_open : bool;
 ]
-
 ```
 
-
 ## Creating a raffle session: entrypoint definition
+
 The contract storage can now hold a raffle session. 
 The contract has to provide the users with a way of creating a raffle session.
 To do that, it needs an entrypoint that perform such an action: 
@@ -652,19 +651,19 @@ this new entrypoint should be named "OpenRaffle" and would allow the administrat
 So far, there is no entrypoint in this smart contract:
 
 ```js
-type raffleEntrypoint is unit
+type raffleEntrypoints is unit
 ```
 
 Adding the OpenRaffle entrypoint means to define the raffle entrypoint as a variant:
 
 ```js
-type raffleEntrypoint is OpenRaffle of unit
+type raffleEntrypoints is OpenRaffle of unit
 ```
-raffleEntrypoint is now a variant: OpenRaffle (because of `of unit`) does not expect any argument.
+raffleEntrypoints is now a variant: OpenRaffle (because of `of unit`) does not expect any argument.
 
 In order to be exposed, OpenRaffle needs to be handled in a pattern matching, in the main function:
 ```js
-function main (const action : raffleEntrypoint; const store : storage):  list (operation) * storage is
+function main (const action : raffleEntrypoints; const store : storage):  list (operation) * storage is
     case action of
         OpenRaffle -> ((nil: list(operation)), store)
     end;
@@ -673,19 +672,25 @@ function main (const action : raffleEntrypoint; const store : storage):  list (o
 
 The smart contract now looks like (and is compiling):
 ```js
-type raffleEntrypoint is OpenRaffle of unit
+type raffleEntrypoints is OpenRaffle of unit
 
-type storage is unit
+type storage is record [
+    admin : address;
+    close_date : timestamp;
+    jackpot : tez;
+    description : string;
+    raffle_is_open : bool;
+    ]
 
 type returnType is list (operation) * storage
 
-function main (const action : raffleEntrypoint; const store : storage): returnType is
+function main (const action : raffleEntrypoints; const store : storage): returnType is
     case action of
         OpenRaffle -> ((nil: list(operation)), store)
     end;
 
 ```
-However, the ouput Michelson code is still the same and still does nothing. The smart contract should at least expect some parameters.
+However, the output Michelson code is still the same and still does nothing. The smart contract should at least expect some parameters.
 
 
 To open a raffle, several pieces of information have to be sent: 
@@ -714,7 +719,13 @@ And finally, the parameters must be added in the control flow from the main func
 type openRaffleParameter is tez * timestamp * option(string)
 type raffleEntrypoints is OpenRaffle of openRaffleParameter
 
-type storage is unit
+type storage is record [
+    admin : address;
+    close_date : timestamp;
+    jackpot : tez;
+    description : string;
+    raffle_is_open : bool;
+    ]
 
 type returnType is list (operation) * storage
 
@@ -747,7 +758,7 @@ function open_raffle (const jackpot_amount : tez; const close_date : timestamp; 
 ```
 
 The first step is to check if the entrypoint is called by the administrator. If not, it should raise an exception.
-The check is performed by an association of an `ìf` condition and a `failwith`.
+The check is performed by an association of an `if` condition and a `failwith`.
 The address calling the entrypoint should match the address in the storage. It is called access control:
 
 ```js
@@ -761,17 +772,17 @@ function open_raffle (const jackpot_amount : tez; const close_date : timestamp; 
 ```
 
 A second check has to be performed: a raffle cannot be opened if the previous one is not yet closed.
-A boolean gives this piece of information in the storage: lottery_is_open
+A boolean gives this piece of information in the storage: raffle_is_open
 
 ```js
 function open_raffle (const jackpot_amount : tez; const close_date : timestamp; const description : option(string); const store : storage) : returnType is
     block {
-      if Tezos.source =/= store.admin then failwith("administrator not recognized")
+      if Tezos.source =/= store.admin then failwith("Administrator not recognized.")
       else {
         if not store.raffle_is_open then {
             skip
         } else {
-          failwith("raffle is already open")
+          failwith("A raffle is already open.")
         }
       }
     } with ((nil: list(operation)), store)
@@ -780,19 +791,19 @@ function open_raffle (const jackpot_amount : tez; const close_date : timestamp; 
 A third check is performed about the reward: the funds sent must match the raffle reward.
 
 ```js
-function open_raffle (const jackpot_amount : tez; const close_date : timestamp; const description : option (string); const winning_ticket_number : nat; const store : storage) : returnType is
+function open_raffle (const jackpot_amount : tez; const close_date : timestamp; const description : option (string); const store : storage) : returnType is
   block {
     if Tezos.source =/= store.admin
-    then failwith ("administrator not recognized")
+    then failwith ("Administrator not recognized.")
     else {
-      if store.raffle_is_open then {
-        if Tezos.amount < jackpot_amount then failwith ("the contract does not own enough tz")
+      if not store.raffle_is_open then {
+        if Tezos.amount < jackpot_amount then failwith ("The administrator does not own enough tz.")
         else {
             skip
         }
       }
       else {
-        failwith ("raffle is not open")
+        failwith ("A raffle is already open.")
       }
     }
   } with ((nil : list (operation)), store)
@@ -801,26 +812,26 @@ function open_raffle (const jackpot_amount : tez; const close_date : timestamp; 
 One finale check is performed about the raffle closing date: the raffle should last at least a week.
 
 ```js
-function open_raffle (const jackpot_amount : tez; const close_date : timestamp; const description : option (string); const winning_ticket_number : nat; const store : storage) : returnType is
+function open_raffle (const jackpot_amount : tez; const close_date : timestamp; const description : option (string); const store : storage) : returnType is
   block {
     if Tezos.source =/= store.admin
-    then failwith ("administrator not recognized")
+    then failwith ("Administrator not recognized.")
     else {
-      if store.raffle_is_open then {
-        if Tezos.amount < jackpot_amount then failwith ("the contract does not own enough tz")
+      if not store.raffle_is_open then {
+        if Tezos.amount < jackpot_amount then failwith ("The administrator does not own enough tz.")
         else {
           const today : timestamp = Tezos.now;
           const seven_day : int = 7 * 86400;
           const in_7_day : timestamp = today + seven_day;
           const is_close_date_not_valid : bool = close_date < in_7_day;
-          if is_close_date_not_valid then failwith("the raffle must remain open for at least 7 days.")
+          if is_close_date_not_valid then failwith("The raffle must remain open for at least 7 days.")
           else {
             skip
           }
         }
       }
       else {
-        failwith ("raffle is not open")
+        failwith ("A raffle is already open.")
       }
     }
   } with ((nil : list (operation)), store)
@@ -835,36 +846,35 @@ Take a look at the description is added to the storage (it is an `option`).
 
 
 ```js
-function open_raffle (const jackpot_amount : tez; const close_date : timestamp; const description : option (string); const winning_ticket_number : nat; const store : storage) : returnType is
+function open_raffle (const jackpot_amount : tez; const close_date : timestamp; const description : option (string); const store : storage) : returnType is
   block {
     if Tezos.source =/= store.admin
-    then failwith ("administrator not recognized")
+    then failwith ("Administrator not recognized.")
     else {
       if not store.raffle_is_open then {
-        if Tezos.amount < jackpot_amount then failwith ("the contract does not own enough tz")
+        if Tezos.amount < jackpot_amount then failwith ("The administrator does not own enough tz.")
         else {
           const today : timestamp = Tezos.now;
           const seven_day : int = 7 * 86400;
           const in_7_day : timestamp = today + seven_day;
           const is_close_date_not_valid : bool = close_date < in_7_day;
-          if is_close_date_not_valid then failwith("the raffle must remain open for at least 7 days.")
+          if is_close_date_not_valid then failwith("The raffle must remain open for at least 7 days.")
           else {
-            const winning_ticket_number_bytes : bytes = Bytes.pack(winning_ticket_number);
             patch store with record [
             jackpot = jackpot_amount;
             close_date = close_date;
-            lottery_is_open = True;
+            raffle_is_open = True;
             ];
 
             case description of
-            | Some(d) -> patch store with record [description=d]
+              Some(d) -> patch store with record [description=d]
             | None -> {skip}
             end
           }
         }
       }
       else {
-        failwith ("raffle is not open")
+        failwith ("A raffle is already open.")
       }
     }
   } with ((nil : list (operation)), store)
@@ -1073,7 +1083,7 @@ OpenRaffle of openRaffleParameter
 function main (const action : raffleEntrypoints; const store : storage): returnType is
 block {
     const return : returnType = case action of
-    OpenRaffle (param) -> open_raffle (param.0, param.1, param.2, param.3, store)
+    OpenRaffle (param) -> open_raffle (param.0, param.1, param.2, store)
     | BuyTicket (param) -> buy_ticket(param, store)
     end;
 } with return
@@ -1098,19 +1108,22 @@ Checking if an address is calling the entrypoint for the first time (= a buyer c
 checking if the calling address is already in the players `set`.
 
 ```js
-  function buy_ticket (const param: unit; const store : storage) : returnType is
-block {
-    const ticket_price : tez = 1tez;
-    const current_player : address = Tezos.sender;
-    if Tezos.amount < ticket_price then failwith("The sender does not own enough tz to buy a ticket.")
-    else {
+function buy_ticket (const param: unit; const store : storage) : returnType is
+  block {
+    if store.raffle_is_open then {
+      const ticket_price : tez = 1tez;
+      const current_player : address = Tezos.sender;
+      if Tezos.amount = ticket_price then failwith("The sender does not own enough tz to buy a ticket.")
+      else {
         if store.players contains current_player then failwith("Each player can participate only once.")
         else {
             skip
         }
+      }
+    } else {
+      failwith("The raffle is closed.")
     }
-} with ((nil : list (operation)), store)
-
+  } with ((nil : list (operation)), store)
 ``` 
 
 Once these two checks have been performed, the buyer can receive a ticket. To do that, the entrypoint needs to:
@@ -1121,80 +1134,9 @@ Once these two checks have been performed, the buyer can receive a ticket. To do
 These three steps use the methods described in the collections section.
 
 ```js
-  function buy_ticket (const param: unit; const store : storage) : returnType is
-block {
-    const ticket_price : tez = 1tez;
-    const current_player : address = Tezos.sender;
-    if Tezos.amount = ticket_price then failwith("The sender does not own enough tz to buy a ticket.")
-else {
-        if store.players contains current_player then failwith("Each player can participate only once.")
-    else {
-            store.players := Set.add(current_player, store.players);
-            const ticket_id : nat = Set.size(store.players);
-            store.sold_tickets[ticket_id] := current_player; //addind a new entry in a map
-        }
-    }
-} with ((nil : list (operation)), store)
-
-``` 
-
-The contract now is:
-
-```js
-type openRaffleParameter is tez * timestamp * option(string) * nat
-type buyTicketParameter is unit
-
-type raffleEntrypoints is 
-  OpenRaffle of openRaffleParameter
-| BuyTicket of buyTicketParameter
-
-
-type storage is record [
-    admin : address;
-    close_date : timestamp;
-    jackpot : tez;
-    description : string;
-    players : set (address);
-    sold_tickets : map (nat, address);
-    raffle_is_open : bool;
-  ]
-
-type returnType is list (operation) * storage
-
-function open_raffle (const jackpot_amount : tez; const close_date : timestamp; const description : option (string); const winning_ticket_number : nat; const store : storage) : returnType is
+function buy_ticket (const param: unit; const store : storage) : returnType is
   block {
-    if Tezos.source =/= store.admin then failwith("Administrator not recognized.")
-    else {
-      if not store.raffle_is_open then {
-        if Tezos.amount < jackpot_amount then failwith("The administrator does not own enough tz.")
-        else{
-        const today : timestamp = Tezos.now;
-        const seven_day : int = 7 * 86400;
-        const in_7_day : timestamp = today + seven_day;
-        const is_close_date_not_valid : bool = close_date < in_7_day;
-        if is_close_date_not_valid then failwith("The raffle must remain open for at least 7 days.")
-        else {
-          patch store with record [
-          jackpot = jackpot_amount;
-          close_date = close_date;
-          raffle_is_open = True;
-          ];
-
-          case description of
-            Some(d) -> patch store with record [description=d]
-          | None -> {skip}
-          end
-        }
-      }
-    }else {
-      failwith("A raffle is already open.")
-    }
-  }
-} with ((nil : list (operation)), store)
-
-
-  function buy_ticket (const param: unit; const store : storage) : returnType is
-    block {
+    if store.raffle_is_open then {
       const ticket_price : tez = 1tez;
       const current_player : address = Tezos.sender;
       if Tezos.amount = ticket_price then failwith("The sender does not own enough tz to buy a ticket.")
@@ -1206,17 +1148,93 @@ function open_raffle (const jackpot_amount : tez; const close_date : timestamp; 
           store.sold_tickets[ticket_id] := current_player;
         }
       }
-    } with ((nil : list (operation)), store)
+    } else {
+      failwith("The raffle is closed.")
+    }
+  } with ((nil : list (operation)), store)
+``` 
 
+The contract now is:
+
+```js
+type openRaffleParameter is tez * timestamp * option(string)
+type buyTicketParameter is unit
+
+type raffleEntrypoints is
+OpenRaffle of openRaffleParameter
+| BuyTicket of buyTicketParameter
+
+type storage is record [
+    admin : address;
+    close_date : timestamp;
+    jackpot : tez;
+    description : string;
+    raffle_is_open : bool;
+    players : set (address);
+    sold_tickets : map (nat, address);
+    ]
+
+type returnType is list (operation) * storage
+
+function open_raffle (const jackpot_amount : tez; const close_date : timestamp; const description : option (string); const store : storage) : returnType is
+  block {
+    if Tezos.source =/= store.admin
+    then failwith ("Administrator not recognized.")
+    else {
+      if not store.raffle_is_open then {
+        if Tezos.amount < jackpot_amount then failwith ("The administrator does not own enough tz.")
+        else {
+          const today : timestamp = Tezos.now;
+          const seven_day : int = 7 * 86400;
+          const in_7_day : timestamp = today + seven_day;
+          const is_close_date_not_valid : bool = close_date < in_7_day;
+          if is_close_date_not_valid then failwith("The raffle must remain open for at least 7 days.")
+          else {
+            patch store with record [
+            jackpot = jackpot_amount;
+            close_date = close_date;
+            raffle_is_open = True;
+            ];
+
+            case description of
+              Some(d) -> patch store with record [description=d]
+            | None -> {skip}
+            end
+          }
+        }
+      }
+      else {
+        failwith ("A raffle is already open.")
+      }
+    }
+  } with ((nil : list (operation)), store)
+
+function buy_ticket (const param: unit; const store : storage) : returnType is
+  block {
+    if store.raffle_is_open then {
+      const ticket_price : tez = 1tez;
+      const current_player : address = Tezos.sender;
+      if Tezos.amount = ticket_price then failwith("The sender does not own enough tz to buy a ticket.")
+      else {
+        if store.players contains current_player then failwith("Each player can participate only once.")
+        else {
+          const ticket_id : nat = Set.size(store.players);
+          store.players := Set.add(current_player, store.players);
+          store.sold_tickets[ticket_id] := current_player;
+        }
+      }
+    } else {
+      failwith("The raffle is closed.")
+    }
+  } with ((nil : list (operation)), store)
 
 function main (const action : raffleEntrypoints; const store : storage): returnType is
-block { 
-    const return : returnType = case action of 
-      OpenRaffle (param) -> open_raffle (param.0, param.1, param.2, param.3, store)
+block {
+    const return : returnType = case action of
+    OpenRaffle (param) -> open_raffle (param.0, param.1, param.2, store)
     | BuyTicket (param) -> buy_ticket(param, store)
     end;
- } with return
-
+} with return
 ```
 
 # Smart Contract development : Close Raffle Entrypoint
@@ -1328,17 +1346,22 @@ Of course, LIGO offers all the arithmetic operations (addition, substraction, mu
 
 ```js
 function close_raffle (const param : unit; const store : storage) : returnType is
-      block {
-        const operations : list(operation) = nil;
-        if Tezos.source =/= store.admin then failwith("administrator not recognized.")
-        else {
-          if Tezos.now < store.close_date; then failwith("The raffle must remain open for at least 7 days.")
-          else {
+  block {
+    const operations : list(operation) = nil;
+    if Tezos.source =/= store.admin then failwith("administrator not recognized.")
+    else {
+      if store.raffle_is_open then {
+        if Tezos.now < store.close_date then failwith("The raffle must remain open for at least 7 days.")
+        else{
           const number_of_players : nat = Set.size(store.players);
           const random_number : nat = 467n; // hardcoded number
           const winning_ticket_id : nat = random_number mod number_of_players; // modulo expression
         }
-      } with (operations, store)
+      } else {
+        failwith("The raffle is closed.")
+      }
+    }
+  } with (operations, store)
 ```
 
 The winning ticket is now chosen. The next step is to find its owner from the `sold_tickets big_map`.
@@ -1346,13 +1369,14 @@ Since a key might not exist in a big map, fetching the value always return an op
 This option is handled with a pattern matching as below:
 
 ```js
- function close_raffle (const param : unit; const store : storage) : returnType is
-      block {
-        const operations : list(operation) = nil;
-        if Tezos.source =/= store.admin then failwith("administrator not recognized.")
-        else {
-          if Tezos.now < store.close_date; then failwith("The raffle must remain open for at least 7 days.")
-          else {
+function close_raffle (const param : unit; const store : storage) : returnType is
+  block {
+    const operations : list(operation) = nil;
+    if Tezos.source =/= store.admin then failwith("administrator not recognized.")
+    else {
+      if store.raffle_is_open then {
+        if Tezos.now < store.close_date then failwith("The raffle must remain open for at least 7 days.")
+        else{
           const number_of_players : nat = Set.size(store.players);
           const random_number : nat = 467n;
           const winning_ticket_id : nat = random_number mod number_of_players;
@@ -1363,53 +1387,25 @@ This option is handled with a pattern matching as below:
           | None -> (failwith ("winner address not found") : address)
           end;
         }
-      } with (operations, store)
+      } else {
+        failwith("The raffle is closed.")
+      }
+    }
+  } with (operations, store)
 ```
 
 The winner has been found, it has now to be rewarded. 
 First, we need to check that this address does exist, then create a transaction which will be added to the operations list:
 
 ```js
- function close_raffle (const param : unit; const store : storage) : returnType is
-      block {
-        const operations : list(operation) = nil;
-        if Tezos.source =/= store.admin then failwith("administrator not recognized.")
-        else {
-          if Tezos.now < store.close_date; then failwith("The raffle must remain open for at least 7 days.")
-          else {
-          const number_of_players : nat = Set.size(store.players);
-          const random_number : nat = 467n;
-          const winning_ticket_id : nat = random_number mod number_of_players;
-
-          const winner : address = 
-          case (store.sold_tickets[winning_ticket_id]) of
-            Some (a) -> a
-          | None -> (failwith ("winner address not found") : address)
-          end;
-
-          const receiver : contract (unit) =
-          case (Tezos.get_contract_opt (winner) : option (contract (unit))) of
-            Some (c) -> c
-          | None -> (failwith ("winner contract not found.") : contract (unit))
-          end;
-
-          const op : operation = Tezos.transaction(unit, store.jackpot, receiver); // operation creation (rewarding the winner)
-          const operations : list(operation) = list [ op; ]; // the operation is added to the operation list
-          
-        }
-      } with (operations, store) //the operation is returned
-```
-The operations variable is not empty anymore: this entrypoint does return a transaction, that will be sent by the smart contract.
-
-Finally, the storage need to be reset. All the fields will be filled with empty values:
-```js
- function close_raffle (const param : unit; const store : storage) : returnType is
-      block {
-        const operations : list(operation) = nil;
-        if Tezos.source =/= store.admin then failwith("administrator not recognized.")
-        else {
-          if Tezos.now < store.close_date; then failwith("The raffle must remain open for at least 7 days.")
-          else {
+function close_raffle (const param : unit; const store : storage) : returnType is
+  block {
+    const operations : list(operation) = nil;
+    if Tezos.source =/= store.admin then failwith("administrator not recognized.")
+    else {
+      if store.raffle_is_open then {
+        if Tezos.now < store.close_date then failwith("The raffle must remain open for at least 7 days.")
+        else{
           const number_of_players : nat = Set.size(store.players);
           const random_number : nat = 467n;
           const winning_ticket_id : nat = random_number mod number_of_players;
@@ -1428,7 +1424,45 @@ Finally, the storage need to be reset. All the fields will be filled with empty 
 
           const op : operation = Tezos.transaction(unit, store.jackpot, receiver);
           const operations : list(operation) = list [ op; ];
+        }
+      } else {
+        failwith("The raffle is closed.")
+      }
+    }
+  } with (operations, store)
+```
+The operations variable is not empty anymore: this entrypoint does return a transaction, that will be sent by the smart contract.
 
+Finally, the storage need to be reset. All the fields will be filled with empty values:
+
+```js
+function close_raffle (const param : unit; const store : storage) : returnType is
+  block {
+    const operations : list(operation) = nil;
+    if Tezos.source =/= store.admin then failwith("administrator not recognized.")
+    else {
+      if store.raffle_is_open then {
+        if Tezos.now < store.close_date then failwith("The raffle must remain open for at least 7 days.")
+        else{
+          const number_of_players : nat = Set.size(store.players);
+          const random_number : nat = 467n;
+          const winning_ticket_id : nat = random_number mod number_of_players;
+
+          const winner : address = 
+          case (store.sold_tickets[winning_ticket_id]) of
+            Some (a) -> a
+          | None -> (failwith ("winner address not found") : address)
+          end;
+
+          const receiver : contract (unit) =
+          case (Tezos.get_contract_opt (winner) : option (contract (unit))) of
+            Some (c) -> c
+          | None -> (failwith ("winner contract not found.") : contract (unit))
+          end;
+
+          const op : operation = Tezos.transaction(unit, store.jackpot, receiver);
+          const operations : list(operation) = list [ op; ];
+          
           patch store with record [
           jackpot = 0tez;
           close_date = (0 : timestamp);
@@ -1438,7 +1472,11 @@ Finally, the storage need to be reset. All the fields will be filled with empty 
           sold_tickets = (map[] : map (nat, address));
           ];
         }
-      } with (operations, store)
+      } else {
+        failwith("The raffle is closed.")
+      }
+    }
+  } with (operations, store)
 ```
 
 # Smart contract refactoring
@@ -1569,11 +1607,10 @@ type openRaffleParameter is tez * timestamp * option(string) * bytes
 type buyTicketParameter is unit
 type closeRaffleParameter is nat
 
-type raffleEntrypoints is 
-  OpenRaffle of openRaffleParameter
+type raffleEntrypoints is
+OpenRaffle of openRaffleParameter
 | BuyTicket of buyTicketParameter
 | CloseRaffle of closeRaffleParameter
-
 
 type storage is record [
     admin : address;
@@ -1590,36 +1627,37 @@ type returnType is list (operation) * storage
 
 function open_raffle (const jackpot_amount : tez; const close_date : timestamp; const description : option (string); const winning_ticket_number_hash : bytes; const store : storage) : returnType is
   block {
-    if Tezos.source =/= store.admin then failwith("Administrator not recognized.")
+    if Tezos.source =/= store.admin
+    then failwith ("Administrator not recognized.")
     else {
       if not store.raffle_is_open then {
-        if Tezos.amount < jackpot_amount then failwith("The administrator does not own enough tz.")
-        else{
-        const today : timestamp = Tezos.now;
-        const seven_day : int = 7 * 86400;
-        const in_7_day : timestamp = today + seven_day;
-        const is_close_date_not_valid : bool = close_date < in_7_day;
-        if is_close_date_not_valid then failwith("The raffle must remain open for at least 7 days.")
+        if Tezos.amount < jackpot_amount then failwith ("The administrator does not own enough tz.")
         else {
-          patch store with record [
-          jackpot = jackpot_amount;
-          close_date = close_date;
-          raffle_is_open = True;
-          winning_ticket_number_hash = winning_ticket_number_hash;
-          ];
+          const today : timestamp = Tezos.now;
+          const seven_day : int = 7 * 86400;
+          const in_7_day : timestamp = today + seven_day;
+          const is_close_date_not_valid : bool = close_date < in_7_day;
+          if is_close_date_not_valid then failwith("The raffle must remain open for at least 7 days.")
+          else {
+            patch store with record [
+            jackpot = jackpot_amount;
+            close_date = close_date;
+            raffle_is_open = True;
+            winning_ticket_number_hash = winning_ticket_number_hash; // the hash is saved into the storage
+            ];
 
-          case description of
-            Some(d) -> patch store with record [description=d]
-          | None -> {skip}
-          end
+            case description of
+              Some(d) -> patch store with record [description=d]
+            | None -> {skip}
+            end
+          }
         }
       }
-    } else {
-        failwith("A raffle is already open.")
+      else {
+        failwith ("A raffle is already open.")
+      }
     }
-  }
-} with ((nil : list (operation)), store)
-
+  } with ((nil : list (operation)), store)
 
 function buy_ticket (const param: unit; const store : storage) : returnType is
   block {
@@ -1646,35 +1684,39 @@ function close_raffle (const winning_ticket_number : nat; const store : storage)
     if Tezos.source =/= store.admin then failwith("administrator not recognized.")
     else {
       if store.raffle_is_open then {
-        const winning_ticket_number_bytes : bytes = Bytes.pack(winning_ticket_number);
-        const winning_ticket_number_hash : bytes = Crypto.sha256(winning_ticket_number_bytes);
-        if winning_ticket_number_hash =/= store.winning_ticket_number_hash then failwith("the hash does not match the hash of the winning ticket.")
+        if Tezos.now < store.close_date then failwith("The raffle must remain open for at least 7 days.")
         else{
-          const number_of_players : nat = Set.size(store.players);
-          const winning_ticket_id : nat = winning_ticket_number mod number_of_players;
-          const winner : address = 
-          case (store.sold_tickets[winning_ticket_id]) of
-            Some (a) -> a
-          | None -> (failwith ("winner address not found") : address)
-          end;
+          const winning_ticket_number_bytes : bytes = Bytes.pack(winning_ticket_number);
+          const winning_ticket_number_hash : bytes = Crypto.sha256(winning_ticket_number_bytes);
+          if winning_ticket_number_hash =/= store.winning_ticket_number_hash then failwith("the hash does not match the hash of the winning ticket.")
+          else{
+            const number_of_players : nat = Set.size(store.players);
+            const winning_ticket_id : nat = winning_ticket_number mod number_of_players;
 
-          const receiver : contract (unit) =
-          case (Tezos.get_contract_opt (winner) : option (contract (unit))) of
-            Some (c) -> c
-          | None -> (failwith ("winner contract not found.") : contract (unit))
-          end;
+            const winner : address = 
+            case (store.sold_tickets[winning_ticket_id]) of
+                Some (a) -> a
+            | None -> (failwith ("winner address not found") : address)
+            end;
 
-          const op : operation = Tezos.transaction(unit, store.jackpot, receiver);
-          const operations : list(operation) = list [ op; ];
+            const receiver : contract (unit) =
+            case (Tezos.get_contract_opt (winner) : option (contract (unit))) of
+                Some (c) -> c
+            | None -> (failwith ("winner contract not found.") : contract (unit))
+            end;
 
-          patch store with record [
-          jackpot = 0tez;
-          close_date = (0 : timestamp);
-          description = ("raffle is currently closed" : string);
-          raffle_is_open = False;
-          players = (set[] : set(address));
-          sold_tickets = (map[] : map (nat, address));
-          ];
+            const op : operation = Tezos.transaction(unit, store.jackpot, receiver);
+            const operations : list(operation) = list [ op; ];
+
+            patch store with record [
+            jackpot = 0tez;
+            close_date = (0 : timestamp);
+            description = ("raffle is currently closed" : string);
+            raffle_is_open = False;
+            players = (set[] : set(address));
+            sold_tickets = (map[] : map (nat, address));
+            ];
+          }
         }
       } else {
         failwith("The raffle is closed.")
@@ -1683,13 +1725,13 @@ function close_raffle (const winning_ticket_number : nat; const store : storage)
   } with (operations, store)
 
 function main (const action : raffleEntrypoints; const store : storage): returnType is
-block { 
-    const return : returnType = case action of 
-      OpenRaffle (param) -> open_raffle (param.0, param.1, param.2, param.3, store)
+block {
+    const return : returnType = case action of
+    OpenRaffle (param) -> open_raffle (param.0, param.1, param.2, param.3, store)
     | BuyTicket (param) -> buy_ticket(param, store)
     | CloseRaffle (param) -> close_raffle (param, store)
     end;
- } with return
+} with return
 
 ```
 
