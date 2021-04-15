@@ -401,7 +401,7 @@ There are 2 types of functions in PascaLIGO, Block Functions and Blockless Funct
 
 #### Block functions
 
-In PascaLIGO, blocks allows for the sequential composition of instructions into an isolated scope.
+In PascaLIGO, blocks allow for the sequential composition of instructions into an isolated scope.
 Each block needs to include at least one instruction.
 
 ```js
@@ -1261,7 +1261,7 @@ However, the third step raises a problem: how should be the winner picked ?
 2. the winner is randomly choose when calling this entrypoint
 3. the winner is chosen at the beginning by the administrator, but this piece of information is only revealed at the end of the raffle.
 
-## LIGO prequisites: Transactions
+## LIGO prerequisites: Transactions
 
 You can transfer tez to an account, or to a function of another smart contract.
 For this, use :

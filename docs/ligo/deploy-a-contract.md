@@ -7,7 +7,7 @@ title: Deploy a contract
 
 A Tezos smart contract is a piece of code written in Michelson language (a low-level stack-based Turing-complete language).
 
-It defines all **entrypoints** (invokable functions) of the smart contract.  
+It defines all **entrypoints** (invocable functions) of the smart contract.  
 It defines the prototype of each entry point (e.g. specifies the types of parameters of the entry point).  
 It defines the **storage** of the smart contract.  
 

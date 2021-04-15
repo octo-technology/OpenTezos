@@ -46,9 +46,9 @@ var earth_coordinates : coordinates :=
 patch earth_coordinates with record [z = 5]
 ```
 
->A patch takes a record to be updated, 
-> a record with a subset of the fields to update, 
-> then applies the latter to the former.
+>A `patch with` instruction takes a `record` data structure to be updated, 
+> and (a record with) a subset of fields to update, 
+> then modifies the record data structure accordingly to the new specified subset of fields.
 
 
 ## Main function
@@ -149,7 +149,7 @@ The storage is certified to be modified so as for the business logic (lambda).
 
 So an entrypoint with `ChangeAlgorithm` is provided to modify the algorithm that computes the worth of investment.
 
-> **Lambda**   
+> **Lambda pattern**   
 > Changing the behaviour of a smart contract can be done by customizing its implementation through the lambda functions. 
 > The idea is to implement the smart contract logic in a lambda function that can be modified after the contract is deployed.  
 > Find out more about lambda [here](https://tezosacademy.io/pascal/chapter-lambda).
