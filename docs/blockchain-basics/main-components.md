@@ -1,7 +1,7 @@
 ---
-id: introduction
+id: main-components
 disable_pagination: true
-title: Introduction
+title: Main components of the first "blockchain"
 slug: /blockchain-basics
 ---
 
