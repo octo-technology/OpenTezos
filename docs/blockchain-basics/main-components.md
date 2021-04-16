@@ -85,7 +85,7 @@ Because miners find blocks containing valid transactions that are chained togeth
 
 To get these rewards they must _work_, and then _proove they worked_. In Bitcoin, they work using electricity. So to make this activity profitable, miners have to find efficient calculators, and low-cost electricity.
 
-Over time, miners group more and more powerfull machines together, and more people begin this activity. This increases the number of attempts (the number of tickets) of the global network to find a valid block. Because of the hash function used, this is called "**hashing power**".
+Over time, miners group more and more powerful machines together, and more people begin this activity. This increases the number of attempts (the number of tickets) of the global network to find a valid block. Because of the hash function used, this is called "**hashing power**".
 
 While the network gains more hashing power, constraints stay the same. Each block still has to appear around every 10 minutes. To maintain this and adapt, the protocol calculates the "_Difficulty_". If the hashing power is too high, Difficulty increases. If the hashing power is too low, Difficulty decreases.
 
