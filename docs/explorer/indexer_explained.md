@@ -5,21 +5,25 @@ title: How Indexers Work?
 
 ## Traditional Blockchain Explorer Backends
 
-An indexer extracts,
-transforms and loads on-chain data into the SQL database by mapping the data
-into a pre-defined schema of tables with referential integrity.
-Indexers are optimized for simplicity and fast implementation time.
-The hope is that anything interesting can later be extracted using complex SQL queries.
+Indexers are node operators. They extract, transform and load data (**ETL job**) into the **SQL database**
+in order to provide indexing and query processing services via the **API**.
+
+<br/>
+<p align ="center">
 
 ![](../../static/img/explorer/traditional_indexer.svg)
-<small className="figure">FIGURE 1: Traditional Blockchain Explorer Backends</small>
+
+<small align = "center" className="figure">FIGURE 1: Traditional Blockchain Explorer Backends</small>
+</p>
+<br/>
 
 It turns out that this one-way data extraction model has a couple of problems:
-- extracting complex state from a blockchain-node is expensive (especially things like listing balances across all accounts)
-- SQL stores optimize for transactional workloads like finding individal rows, but are bad for analytical workloads that aggregate across columns (because full rows are loaded from disk)
-- raw data storage requirements and I/O loads are extremely high since SQL data is stored row-wise
-- some queries are even so expensive, they have to run offline (i.e. once a night or once a cycle) and their results have to be stored in extra tables
-- most online queries to lists or joins across tables are limited by available main memory and I/O bandwidth and the only way to speed them up is replicating the database or using larger instances.
+- Expensive States Queries
+- One-way-data flow
+- Slow Queries
+- Inefficient Storage Layout
+- Limited Throughput
+
 
 ## Focus on BlockWatch Indexer (TzIndex)
 
@@ -36,4 +40,12 @@ and the indexer will follow chain reorganizations in real-time.
 
 ![](../../static/img/explorer/blockwatch_indexer.svg)
 <small className="figure">FIGURE 2: Blockwatch Indexer</small>
+
+## Find out more
+
+To learn more about the subject, 
+I invite you to read this [blog post](https://tzstats.com/blog/next-gen-blockchain-indexing-for-tezos/) 
+and watch this [video](https://www.youtube.com/watch?v=2I9mmA0GzMk) that explains the new generation of indexer.
+
+
 
