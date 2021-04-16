@@ -3,6 +3,9 @@ id: introduction
 title: Introduction
 ---
 
+This module will explain the notion of blockchain **explorer** and **indexer**, 
+then see how it works and finally how to use it.
+
 ## What is a blockchain explorer ?
 
 A blockchain explorer, also known as a block explorer, is a website for tracking activity on the blockchain. 
@@ -38,10 +41,6 @@ Then there's less technical user groups like auditors and
 regulators with strict requirements on data quality and 
 the need to access a trusted copy of the full on-chain history 
 in a format that's easy to digest for their spreadsheets and compliance tools.
-
-Many people think it's the web frontend which matters, 
-but what's actually important is a powerful API geared towards a diverse set of users 
-which helps them achieve their individual goals with minimal effort.
 
 
 ## What is an indexer ?
