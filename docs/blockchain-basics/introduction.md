@@ -77,6 +77,10 @@ Today, Bitcoin and Ethereum remain the two main protocols of the kind, but a lot
 
 Tezos white paper was published on September 2nd, 2014. Tezos leverages and enhances principles, capabilities, and allows new possibilities.
 
+![A non-hexaustive timeline](../../static/img/../../docs/blockchain-basics/timeline.svg "A non-hexaustive timeline")
+
+<div style="text-align: right"><small className="figure">FIGURE 1: A non-hexaustive timeline.</small></div>
+
 ## What have we learned so far?
 In this chapter, we briefly described what are "blockchains", on what ground and when they were created.
 
