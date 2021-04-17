@@ -186,6 +186,11 @@
             "type": "link",
             "label": "Take Away",
             "href": "/ligo/take-away"
+          },
+          {
+            "type": "link",
+            "label": "Smart contract development in Pascaligo",
+            "href": "/ligo/contracts-ligo"
           }
         ]
       },
@@ -454,6 +459,7 @@
     "/explorer": "docs",
     "/formal-verification/exam": "docs",
     "/formal-verification": "docs",
+    "/ligo/contracts-ligo": "docs",
     "/ligo/deploy-a-contract": "docs",
     "/ligo/exam": "docs",
     "/ligo/examples": "docs",

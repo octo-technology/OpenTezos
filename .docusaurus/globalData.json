@@ -170,6 +170,11 @@
               "sidebar": "docs"
             },
             {
+              "id": "ligo/contracts-ligo",
+              "path": "/ligo/contracts-ligo",
+              "sidebar": "docs"
+            },
+            {
               "id": "ligo/deploy-a-contract",
               "path": "/ligo/deploy-a-contract",
               "sidebar": "docs"

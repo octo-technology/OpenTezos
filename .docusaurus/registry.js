@@ -57,6 +57,7 @@ export default {
   'cb77ab9d': [() => import(/* webpackChunkName: 'cb77ab9d' */ "@site/docs/defi/exam.md"), "@site/docs/defi/exam.md", require.resolveWeak("@site/docs/defi/exam.md")],
   'd59298da': [() => import(/* webpackChunkName: 'd59298da' */ "@site/docs/baking/introduction.md"), "@site/docs/baking/introduction.md", require.resolveWeak("@site/docs/baking/introduction.md")],
   'd65ace88': [() => import(/* webpackChunkName: 'd65ace88' */ "@site/docs/tezos-basics/history-of-amendements.md"), "@site/docs/tezos-basics/history-of-amendements.md", require.resolveWeak("@site/docs/tezos-basics/history-of-amendements.md")],
+  'd78a7bab': [() => import(/* webpackChunkName: 'd78a7bab' */ "@site/docs/ligo/write-contracts-ligo.md"), "@site/docs/ligo/write-contracts-ligo.md", require.resolveWeak("@site/docs/ligo/write-contracts-ligo.md")],
   'd8698a02': [() => import(/* webpackChunkName: 'd8698a02' */ "@site/docs/dapp/truffle_compilation_migration.md"), "@site/docs/dapp/truffle_compilation_migration.md", require.resolveWeak("@site/docs/dapp/truffle_compilation_migration.md")],
   'dc900be6': [() => import(/* webpackChunkName: 'dc900be6' */ "@site/docs/tezos-basics/cli-and-rpc.md"), "@site/docs/tezos-basics/cli-and-rpc.md", require.resolveWeak("@site/docs/tezos-basics/cli-and-rpc.md")],
   'e949fdff': [() => import(/* webpackChunkName: 'e949fdff' */ "@site/docs/tezos-basics/operations.md"), "@site/docs/tezos-basics/operations.md", require.resolveWeak("@site/docs/tezos-basics/operations.md")],

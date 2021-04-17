@@ -3,16 +3,4 @@ id: baker
 title: Become a baker
 ---
 
-import NotificationBar from '../../src/components/docs/NotificationBar';
-
-<h1 className="p">Under construction.</h1>
-
-<NotificationBar>
-  <p>
-    Lorem ipsum
-  </p>
-</NotificationBar>
-
-### Lorem ipsum
-
-Lorem ipsum
+OpenTezos has dedicated modules on [How baking works](/baking) and [How to setup your own baker](/baker). 
