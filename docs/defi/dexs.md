@@ -81,6 +81,8 @@ The concepts behind liquidity pools and automated market making are quite simple
 - [Dexter](https://dexter.exchange/)
 - [Quipuswap](https://quipuswap.com/)
 
+//todo: test
+
 ## References
 
 [1] https://selfkey.org/list-of-cryptocurrency-exchange-hacks/
