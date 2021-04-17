@@ -21,7 +21,7 @@
   "/__docusaurus/debug/routes-244": {
     "component": "component---theme-debug-routes-946-699"
   },
-  "/-103": {
+  "/-008": {
     "component": "component---theme-doc-page-1-be-9be",
     "versionMetadata": "versionMetadata---935-fcf"
   },
@@ -81,13 +81,17 @@
     "component": "component---theme-doc-item-178-a40",
     "content": "content---tezos-core-2-cd-fb8"
   },
+  "/dapp-f74": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---dapp-introduction-0-ea-ee2"
+  },
   "/dapp/exam-bb1": {
     "component": "component---theme-doc-item-178-a40",
     "content": "content---dapp-exam-5-cf-b69"
   },
-  "/dapp/introduction-50a": {
+  "/dapp/truffle_compilation_migration-cc7": {
     "component": "component---theme-doc-item-178-a40",
-    "content": "content---dapp-introduction-0-ea-ee2"
+    "content": "content---dapp-truffle-compilation-migrationd-86-a88"
   },
   "/defi-d45": {
     "component": "component---theme-doc-item-178-a40",

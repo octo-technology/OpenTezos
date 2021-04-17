@@ -39,7 +39,7 @@ export default [
 },
 {
   path: '/',
-  component: ComponentCreator('/','103'),
+  component: ComponentCreator('/','008'),
   
   routes: [
 {
@@ -113,13 +113,18 @@ export default [
   exact: true,
 },
 {
+  path: '/dapp',
+  component: ComponentCreator('/dapp','f74'),
+  exact: true,
+},
+{
   path: '/dapp/exam',
   component: ComponentCreator('/dapp/exam','bb1'),
   exact: true,
 },
 {
-  path: '/dapp/introduction',
-  component: ComponentCreator('/dapp/introduction','50a'),
+  path: '/dapp/truffle_compilation_migration',
+  component: ComponentCreator('/dapp/truffle_compilation_migration','cc7'),
   exact: true,
 },
 {

@@ -2,11 +2,10 @@
   "unversionedId": "dapp/introduction",
   "id": "dapp/introduction",
   "isDocsHomePage": false,
-  "title": "introduction",
-  "description": "",
+  "title": "Introduction",
   "source": "@site/docs/dapp/introduction.md",
-  "slug": "/dapp/introduction",
-  "permalink": "/dapp/introduction",
+  "slug": "/dapp",
+  "permalink": "/dapp",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/dapp/introduction.md",
   "version": "current",
   "sidebar": "docs",
@@ -15,7 +14,7 @@
     "permalink": "/michelson/take-away"
   },
   "next": {
-    "title": "Exam",
-    "permalink": "/dapp/exam"
+    "title": "Smart contract deployment with Truffle",
+    "permalink": "/dapp/truffle_compilation_migration"
   }
 }

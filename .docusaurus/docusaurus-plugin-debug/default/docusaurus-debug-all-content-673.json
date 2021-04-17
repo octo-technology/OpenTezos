@@ -221,7 +221,7 @@
                   },
                   {
                     "type": "doc",
-                    "id": "dapp/exam"
+                    "id": "dapp/truffle_compilation_migration"
                   }
                 ]
               },
@@ -383,8 +383,8 @@
             "/contribute/opentezos": "docs",
             "/contribute/report-issue": "docs",
             "/contribute/tezos-core": "docs",
-            "/dapp/exam": "docs",
-            "/dapp/introduction": "docs",
+            "/dapp": "docs",
+            "/dapp/truffle_compilation_migration": "docs",
             "/defi/cross-chain-swaps": "docs",
             "/defi/dexs": "docs",
             "/defi/exam": "docs",
@@ -510,8 +510,8 @@
               "version": "current",
               "sidebar": "docs",
               "previous": {
-                "title": "Exam",
-                "permalink": "/dapp/exam"
+                "title": "Smart contract deployment with Truffle",
+                "permalink": "/dapp/truffle_compilation_migration"
               },
               "next": {
                 "title": "Exam",
@@ -636,7 +636,7 @@
                 "permalink": "/private/exam"
               },
               "next": {
-                "title": "report an issue",
+                "title": "Report an issue",
                 "permalink": "/contribute/report-issue"
               }
             },
@@ -645,7 +645,7 @@
               "id": "contribute/opentezos",
               "isDocsHomePage": false,
               "title": "Contribute to OpenTezos",
-              "description": "Under construction.",
+              "description": "The great website you are currently browsing is called OpenTezos and will later be merged with the upcoming wiki.tezos.com. It is therefore important that all the content is up to date and error-free. If you see an error, you can either submit an issue or go a step further and actually correct the error yourself! Here is how to proceed:",
               "source": "@site/docs/contribute/opentezos.md",
               "slug": "/contribute/opentezos",
               "permalink": "/contribute/opentezos",
@@ -653,7 +653,7 @@
               "version": "current",
               "sidebar": "docs",
               "previous": {
-                "title": "report an issue",
+                "title": "Report an issue",
                 "permalink": "/contribute/report-issue"
               },
               "next": {
@@ -665,7 +665,7 @@
               "unversionedId": "contribute/report-issue",
               "id": "contribute/report-issue",
               "isDocsHomePage": false,
-              "title": "report an issue",
+              "title": "Report an issue",
               "description": "The simplest way to contribute is to report issues that you may have encounter while using Tezos or its related platforms.",
               "source": "@site/docs/contribute/report-issue.md",
               "slug": "/contribute/report-issue",
@@ -713,26 +713,16 @@
               "slug": "/dapp/exam",
               "permalink": "/dapp/exam",
               "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/dapp/exam.md",
-              "version": "current",
-              "sidebar": "docs",
-              "previous": {
-                "title": "introduction",
-                "permalink": "/dapp/introduction"
-              },
-              "next": {
-                "title": "Introduction",
-                "permalink": "/baking"
-              }
+              "version": "current"
             },
             {
               "unversionedId": "dapp/introduction",
               "id": "dapp/introduction",
               "isDocsHomePage": false,
-              "title": "introduction",
-              "description": "",
+              "title": "Introduction",
               "source": "@site/docs/dapp/introduction.md",
-              "slug": "/dapp/introduction",
-              "permalink": "/dapp/introduction",
+              "slug": "/dapp",
+              "permalink": "/dapp",
               "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/dapp/introduction.md",
               "version": "current",
               "sidebar": "docs",
@@ -741,8 +731,29 @@
                 "permalink": "/michelson/take-away"
               },
               "next": {
-                "title": "Exam",
-                "permalink": "/dapp/exam"
+                "title": "Smart contract deployment with Truffle",
+                "permalink": "/dapp/truffle_compilation_migration"
+              }
+            },
+            {
+              "unversionedId": "dapp/truffle_compilation_migration",
+              "id": "dapp/truffle_compilation_migration",
+              "isDocsHomePage": false,
+              "title": "Smart contract deployment with Truffle",
+              "description": "Introduction",
+              "source": "@site/docs/dapp/truffle_compilation_migration.md",
+              "slug": "/dapp/truffle_compilation_migration",
+              "permalink": "/dapp/truffle_compilation_migration",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/dapp/truffle_compilation_migration.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Introduction",
+                "permalink": "/dapp"
+              },
+              "next": {
+                "title": "Introduction",
+                "permalink": "/baking"
               }
             },
             {
@@ -1392,8 +1403,8 @@
                 "permalink": "/michelson/exam"
               },
               "next": {
-                "title": "introduction",
-                "permalink": "/dapp/introduction"
+                "title": "Introduction",
+                "permalink": "/dapp"
               }
             },
             {

@@ -3,7 +3,7 @@
   "id": "contribute/opentezos",
   "isDocsHomePage": false,
   "title": "Contribute to OpenTezos",
-  "description": "Under construction.",
+  "description": "The great website you are currently browsing is called OpenTezos and will later be merged with the upcoming wiki.tezos.com. It is therefore important that all the content is up to date and error-free. If you see an error, you can either submit an issue or go a step further and actually correct the error yourself! Here is how to proceed:",
   "source": "@site/docs/contribute/opentezos.md",
   "slug": "/contribute/opentezos",
   "permalink": "/contribute/opentezos",
@@ -11,7 +11,7 @@
   "version": "current",
   "sidebar": "docs",
   "previous": {
-    "title": "report an issue",
+    "title": "Report an issue",
     "permalink": "/contribute/report-issue"
   },
   "next": {

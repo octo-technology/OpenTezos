@@ -243,13 +243,13 @@
         "items": [
           {
             "type": "link",
-            "label": "introduction",
-            "href": "/dapp/introduction"
+            "label": "Introduction",
+            "href": "/dapp"
           },
           {
             "type": "link",
-            "label": "Exam",
-            "href": "/dapp/exam"
+            "label": "Smart contract deployment with Truffle",
+            "href": "/dapp/truffle_compilation_migration"
           }
         ]
       },
@@ -390,7 +390,7 @@
           },
           {
             "type": "link",
-            "label": "report an issue",
+            "label": "Report an issue",
             "href": "/contribute/report-issue"
           },
           {
@@ -436,8 +436,8 @@
     "/contribute/opentezos": "docs",
     "/contribute/report-issue": "docs",
     "/contribute/tezos-core": "docs",
-    "/dapp/exam": "docs",
-    "/dapp/introduction": "docs",
+    "/dapp": "docs",
+    "/dapp/truffle_compilation_migration": "docs",
     "/defi/cross-chain-swaps": "docs",
     "/defi/dexs": "docs",
     "/defi/exam": "docs",

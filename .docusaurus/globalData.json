@@ -77,12 +77,16 @@
             },
             {
               "id": "dapp/exam",
-              "path": "/dapp/exam",
-              "sidebar": "docs"
+              "path": "/dapp/exam"
             },
             {
               "id": "dapp/introduction",
-              "path": "/dapp/introduction",
+              "path": "/dapp",
+              "sidebar": "docs"
+            },
+            {
+              "id": "dapp/truffle_compilation_migration",
+              "path": "/dapp/truffle_compilation_migration",
               "sidebar": "docs"
             },
             {

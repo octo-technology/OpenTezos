@@ -5,231 +5,255 @@
   "origins": {
     "styles": [
       1,
-      6,
-      9,
-      14,
-      19,
-      27,
+      2,
+      7,
+      10,
+      15,
+      18,
+      21,
+      29,
       34,
-      35,
-      42,
-      43,
-      46,
-      51,
-      60,
-      61,
-      62,
-      63,
+      37,
+      38,
+      39,
+      47,
+      48,
+      56,
+      66,
+      67,
+      68,
+      69,
       0
     ],
     "@theme/NotFound": [
       0,
-      63,
+      69,
       1
     ],
-    "@site/docs/smartpy/exam.md": [
+    "@site/docs/contribute/grant.md": [
+      0,
       2
     ],
-    "@site/docs/michelson/language-basics.md": [
+    "@site/docs/smartpy/exam.md": [
       3
     ],
-    "@site/docs/dapp/introduction.md": [
+    "@site/docs/michelson/language-basics.md": [
       4
     ],
-    "@site/docs/contribute/exam.md": [
+    "@site/docs/dapp/introduction.md": [
       5
+    ],
+    "@site/docs/contribute/exam.md": [
+      6
     ],
     "@site/docs/blockchain-basics/introduction.md": [
       0,
-      6
-    ],
-    "@site/docs/defi/cross-chain-swaps.md": [
       7
     ],
-    "@site/docs/ligo/take-away.md": [
+    "@site/docs/defi/cross-chain-swaps.md": [
       8
+    ],
+    "@site/docs/ligo/take-away.md": [
+      9
     ],
     "@site/docs/deploy-a-node/introduction.md": [
       0,
-      9
-    ],
-    "@site/docs/explorer/exam.md": [
       10
     ],
-    "@site/docs/defi/synthetics.md": [
+    "@site/docs/explorer/exam.md": [
       11
     ],
-    "@site/docs/tezos-basics/exam.md": [
+    "@site/docs/defi/synthetics.md": [
       12
     ],
-    "@site/docs/tezos-basics/liquid-proof-of-stake.md": [
+    "@site/docs/tezos-basics/exam.md": [
       13
+    ],
+    "@site/docs/tezos-basics/liquid-proof-of-stake.md": [
+      14
     ],
     "@site/docs/explorer/introduction.md": [
       0,
-      14
-    ],
-    "@site/docs/ligo/unit-testing.md": [
       15
     ],
-    "@site/docs/blockchain-basics/exam.md": [
+    "@site/docs/ligo/unit-testing.md": [
       16
     ],
-    "@site/docs/formal-verification/introduction.md": [
+    "@site/docs/blockchain-basics/exam.md": [
       17
     ],
-    "@site/docs/tezos-basics/introduction.md": [
+    "@site/docs/contribute/tezos-core.md": [
+      0,
       18
+    ],
+    "@site/docs/formal-verification/introduction.md": [
+      19
+    ],
+    "@site/docs/tezos-basics/introduction.md": [
+      20
     ],
     "@site/docs/welcome/modules.md": [
       0,
-      19
-    ],
-    "@site/docs/michelson/examples.md": [
-      20
-    ],
-    "@site/docs/defi/stablecoins.md": [
       21
     ],
-    "@site/docs/michelson/introduction.md": [
+    "@site/docs/michelson/examples.md": [
       22
     ],
-    "@site/docs/defi/introdution.md": [
+    "@site/docs/defi/stablecoins.md": [
       23
     ],
-    "@site/docs/michelson/take-away.md": [
+    "@site/docs/michelson/introduction.md": [
       24
     ],
-    "@site/docs/ligo/examples.md": [
+    "@site/docs/defi/introdution.md": [
       25
     ],
-    "@site/docs/tezos-basics/governance-on-chain.md": [
+    "@site/docs/michelson/take-away.md": [
       26
+    ],
+    "@site/docs/ligo/examples.md": [
+      27
+    ],
+    "@site/docs/tezos-basics/governance-on-chain.md": [
+      28
     ],
     "@site/docs/private/introduction.md": [
       0,
-      27
-    ],
-    "@site/docs/baker/exam.md": [
-      28
-    ],
-    "@site/docs/defi/wrapped-assets.md": [
       29
     ],
-    "@site/docs/dapp/exam.md": [
+    "@site/docs/baker/exam.md": [
       30
     ],
-    "@site/docs/ligo/installation.md": [
+    "@site/docs/defi/wrapped-assets.md": [
       31
     ],
-    "@site/docs/michelson/tutorial.md": [
+    "@site/docs/dapp/exam.md": [
       32
     ],
-    "@site/docs/ligo/exam.md": [
+    "@site/docs/ligo/installation.md": [
       33
     ],
-    "@site/docs/baker/introduction.md": [
+    "@site/docs/contribute/opentezos.md": [
       0,
       34
     ],
-    "@site/docs/ligo/introduction.md": [
-      0,
+    "@site/docs/michelson/tutorial.md": [
       35
     ],
-    "~docs/default/version-current-metadata-prop-751.json": [
+    "@site/docs/ligo/exam.md": [
       36
     ],
-    "@site/docs/ligo/deploy-a-contract.md": [
+    "@site/docs/baker/introduction.md": [
+      0,
       37
     ],
-    "@site/docs/tezos-basics/smart-contracts.md": [
+    "@site/docs/contribute/baker.md": [
+      0,
       38
     ],
-    "@site/docs/michelson/exam.md": [
+    "@site/docs/ligo/introduction.md": [
+      0,
       39
     ],
-    "@site/docs/ligo/language-basics.md": [
+    "~docs/default/version-current-metadata-prop-751.json": [
       40
     ],
-    "@site/docs/private/exam.md": [
+    "@site/docs/contribute/report-issue.md": [
       41
+    ],
+    "@site/docs/ligo/deploy-a-contract.md": [
+      42
+    ],
+    "@site/docs/tezos-basics/smart-contracts.md": [
+      43
+    ],
+    "@site/docs/michelson/exam.md": [
+      44
+    ],
+    "@site/docs/ligo/language-basics.md": [
+      45
+    ],
+    "@site/docs/private/exam.md": [
+      46
     ],
     "@site/docs/smartpy/introduction.md": [
       0,
-      42
+      47
     ],
     "@site/docs/defi/token-standards.md": [
       0,
-      43
-    ],
-    "@site/docs/baking/exam.md": [
-      44
-    ],
-    "@site/docs/tezos-basics/economics-and-rewards.md": [
-      45
-    ],
-    "@site/docs/contribute/introduction.md": [
-      0,
-      46
-    ],
-    "@site/docs/michelson/instructions-reference.md": [
-      47
-    ],
-    "@site/docs/defi/dexs.md": [
       48
     ],
-    "@site/docs/deploy-a-node/exam.md": [
+    "@site/docs/baking/exam.md": [
       49
     ],
-    "@site/docs/defi/exam.md": [
+    "@site/docs/tezos-basics/economics-and-rewards.md": [
       50
+    ],
+    "@site/docs/contribute/introduction.md": [
+      51
+    ],
+    "@site/docs/michelson/instructions-reference.md": [
+      52
+    ],
+    "@site/docs/defi/dexs.md": [
+      53
+    ],
+    "@site/docs/deploy-a-node/exam.md": [
+      54
+    ],
+    "@site/docs/defi/exam.md": [
+      55
     ],
     "@site/docs/baking/introduction.md": [
       0,
-      51
-    ],
-    "@site/docs/tezos-basics/history-of-amendements.md": [
-      52
-    ],
-    "@site/docs/tezos-basics/cli-and-rpc.md": [
-      53
-    ],
-    "@site/docs/tezos-basics/operations.md": [
-      54
-    ],
-    "@site/docs/formal-verification/exam.md": [
-      55
-    ],
-    "@site/docs/michelson/smart-contracts.md": [
       56
     ],
-    "@site/docs/defi/oracles.md": [
+    "@site/docs/tezos-basics/history-of-amendements.md": [
       57
     ],
-    "@site/docs/defi/lending.md": [
+    "@site/docs/dapp/truffle_compilation_migration.md": [
       58
     ],
-    "@site/docs/welcome/paths.md": [
+    "@site/docs/tezos-basics/cli-and-rpc.md": [
       59
+    ],
+    "@site/docs/tezos-basics/operations.md": [
+      60
+    ],
+    "@site/docs/formal-verification/exam.md": [
+      61
+    ],
+    "@site/docs/michelson/smart-contracts.md": [
+      62
+    ],
+    "@site/docs/defi/oracles.md": [
+      63
+    ],
+    "@site/docs/defi/lending.md": [
+      64
+    ],
+    "@site/docs/welcome/paths.md": [
+      65
     ],
     "main": [
       0,
-      61,
-      60
+      67,
+      66
     ],
     "runtime~main": [
       0,
-      60,
-      61
+      66,
+      67
     ],
     "@theme/DocItem": [
       0,
-      62
+      68
     ],
     "@theme/DocPage": [
       0,
       1,
-      63
+      69
     ]
   },
   "assets": {
@@ -237,582 +261,636 @@
       "css": [
         {
           "file": "styles.5b37ca24.css",
-          "hash": "31e367270ec256489b56",
+          "hash": "652e573563294dd1db9c",
           "publicPath": "/styles.5b37ca24.css"
         }
       ],
       "js": [
         {
-          "file": "styles.bcc9124a.js",
-          "hash": "31e367270ec256489b56",
-          "publicPath": "/styles.bcc9124a.js"
+          "file": "styles.92e17a6d.js",
+          "hash": "652e573563294dd1db9c",
+          "publicPath": "/styles.92e17a6d.js"
         }
       ]
     },
     "1": {
       "js": [
         {
-          "file": "1.cd249e00.js",
-          "hash": "5cc0de67a36ef5051e31",
-          "publicPath": "/1.cd249e00.js"
+          "file": "1.37ae2643.js",
+          "hash": "d38d5ca656ae6a971518",
+          "publicPath": "/1.37ae2643.js"
         }
       ]
     },
     "2": {
       "js": [
         {
-          "file": "0319aecb.5b88d1eb.js",
-          "hash": "a34892b179cbef601071",
-          "publicPath": "/0319aecb.5b88d1eb.js"
+          "file": "00b1dcd3.0785d612.js",
+          "hash": "ed9724bf36ebe931f4be",
+          "publicPath": "/00b1dcd3.0785d612.js"
         }
       ]
     },
     "3": {
       "js": [
         {
-          "file": "08b1621a.5ad79f84.js",
-          "hash": "e93bf6399aa1b6536f62",
-          "publicPath": "/08b1621a.5ad79f84.js"
+          "file": "0319aecb.9d043133.js",
+          "hash": "0ce652745ca86eb52d55",
+          "publicPath": "/0319aecb.9d043133.js"
         }
       ]
     },
     "4": {
       "js": [
         {
-          "file": "0eafec62.9b1d1b62.js",
-          "hash": "5a6ade7a91826b146ea9",
-          "publicPath": "/0eafec62.9b1d1b62.js"
+          "file": "08b1621a.1b26a357.js",
+          "hash": "87626bc0862df6c87064",
+          "publicPath": "/08b1621a.1b26a357.js"
         }
       ]
     },
     "5": {
       "js": [
         {
-          "file": "13b27404.a083c23f.js",
-          "hash": "7abcd364e691176a2fb2",
-          "publicPath": "/13b27404.a083c23f.js"
+          "file": "0eafec62.21e10a61.js",
+          "hash": "816c09f1e26a44e5e774",
+          "publicPath": "/0eafec62.21e10a61.js"
         }
       ]
     },
     "6": {
       "js": [
         {
-          "file": "14056b2e.3c500b3c.js",
-          "hash": "95e6eaebb164b5a7140d",
-          "publicPath": "/14056b2e.3c500b3c.js"
+          "file": "13b27404.7aa24528.js",
+          "hash": "ff9672ea42e58f6619b4",
+          "publicPath": "/13b27404.7aa24528.js"
         }
       ]
     },
     "7": {
       "js": [
         {
-          "file": "14bdd128.e8b7342c.js",
-          "hash": "317c3c7c92c205bc76b7",
-          "publicPath": "/14bdd128.e8b7342c.js"
+          "file": "14056b2e.3fb6b920.js",
+          "hash": "66b68bc3d395cc47362d",
+          "publicPath": "/14056b2e.3fb6b920.js"
         }
       ]
     },
     "8": {
       "js": [
         {
-          "file": "15117723.1e1a2e58.js",
-          "hash": "cf714f7a6bd531f62de6",
-          "publicPath": "/15117723.1e1a2e58.js"
+          "file": "14bdd128.58abae7e.js",
+          "hash": "59dfb1f40ada36153a7a",
+          "publicPath": "/14bdd128.58abae7e.js"
         }
       ]
     },
     "9": {
       "js": [
         {
-          "file": "1745024d.3443be98.js",
-          "hash": "be7da6e100aac8c98cab",
-          "publicPath": "/1745024d.3443be98.js"
+          "file": "15117723.65c032fa.js",
+          "hash": "8c8715239ccb8d586b37",
+          "publicPath": "/15117723.65c032fa.js"
         }
       ]
     },
     "10": {
       "js": [
         {
-          "file": "188b7f87.793853ee.js",
-          "hash": "b8f6e489fa75589f8957",
-          "publicPath": "/188b7f87.793853ee.js"
+          "file": "1745024d.a36846e4.js",
+          "hash": "0c4dfc16a69b825d24f0",
+          "publicPath": "/1745024d.a36846e4.js"
         }
       ]
     },
     "11": {
       "js": [
         {
-          "file": "1c88c030.110f7a1a.js",
-          "hash": "c897f7da78d23595ef34",
-          "publicPath": "/1c88c030.110f7a1a.js"
+          "file": "188b7f87.6c2fb247.js",
+          "hash": "9276d64aca5303e7dde2",
+          "publicPath": "/188b7f87.6c2fb247.js"
         }
       ]
     },
     "12": {
       "js": [
         {
-          "file": "1e4ddc07.23e0d703.js",
-          "hash": "f6c84203f95e6c8c52a6",
-          "publicPath": "/1e4ddc07.23e0d703.js"
+          "file": "1c88c030.4c3bc853.js",
+          "hash": "02a5384a0a543f9a556c",
+          "publicPath": "/1c88c030.4c3bc853.js"
         }
       ]
     },
     "13": {
       "js": [
         {
-          "file": "2491d0d9.68fda53e.js",
-          "hash": "0c1b74f64eef535c3858",
-          "publicPath": "/2491d0d9.68fda53e.js"
+          "file": "1e4ddc07.e6dac371.js",
+          "hash": "f27a349b549be1821018",
+          "publicPath": "/1e4ddc07.e6dac371.js"
         }
       ]
     },
     "14": {
       "js": [
         {
-          "file": "28de5552.a12c50b9.js",
-          "hash": "9fbb228bb3e86ebff6cc",
-          "publicPath": "/28de5552.a12c50b9.js"
+          "file": "2491d0d9.e0f32cfb.js",
+          "hash": "179262c89aa349b62063",
+          "publicPath": "/2491d0d9.e0f32cfb.js"
         }
       ]
     },
     "15": {
       "js": [
         {
-          "file": "2a921290.f545cb73.js",
-          "hash": "8615cdc3da69a4a0812a",
-          "publicPath": "/2a921290.f545cb73.js"
+          "file": "28de5552.bd82cfd3.js",
+          "hash": "c180e9c791b4a306fb17",
+          "publicPath": "/28de5552.bd82cfd3.js"
         }
       ]
     },
     "16": {
       "js": [
         {
-          "file": "2b43537d.871910f3.js",
-          "hash": "8f17c2472b51026385fa",
-          "publicPath": "/2b43537d.871910f3.js"
+          "file": "2a921290.fb94ee38.js",
+          "hash": "4c2f2e88eda6440f24e5",
+          "publicPath": "/2a921290.fb94ee38.js"
         }
       ]
     },
     "17": {
       "js": [
         {
-          "file": "39218319.15ca5f53.js",
-          "hash": "c57690e2d13e0cc24f69",
-          "publicPath": "/39218319.15ca5f53.js"
+          "file": "2b43537d.4ecb151d.js",
+          "hash": "c199ae52efac25228730",
+          "publicPath": "/2b43537d.4ecb151d.js"
         }
       ]
     },
     "18": {
       "js": [
         {
-          "file": "3ac224be.08d0d89c.js",
-          "hash": "f22141a319a9b1e33f90",
-          "publicPath": "/3ac224be.08d0d89c.js"
+          "file": "2cd7dee3.4d303259.js",
+          "hash": "38ebcc25823984cbae62",
+          "publicPath": "/2cd7dee3.4d303259.js"
         }
       ]
     },
     "19": {
       "js": [
         {
-          "file": "3c0291d6.b2c66dae.js",
-          "hash": "a8b243e453e1f4a935f6",
-          "publicPath": "/3c0291d6.b2c66dae.js"
+          "file": "39218319.f9c1b3a5.js",
+          "hash": "ab2929218aa0fe31fad3",
+          "publicPath": "/39218319.f9c1b3a5.js"
         }
       ]
     },
     "20": {
       "js": [
         {
-          "file": "3d9f340d.28a2f04e.js",
-          "hash": "c8efece2e39d3d82d4d1",
-          "publicPath": "/3d9f340d.28a2f04e.js"
+          "file": "3ac224be.990120dd.js",
+          "hash": "fd48474ed3128e596811",
+          "publicPath": "/3ac224be.990120dd.js"
         }
       ]
     },
     "21": {
       "js": [
         {
-          "file": "40deb340.4848205c.js",
-          "hash": "f4031d04a1569d0830bb",
-          "publicPath": "/40deb340.4848205c.js"
+          "file": "3c0291d6.02a3e181.js",
+          "hash": "412eed047d4aaf1d27a3",
+          "publicPath": "/3c0291d6.02a3e181.js"
         }
       ]
     },
     "22": {
       "js": [
         {
-          "file": "416e4355.e2e872cd.js",
-          "hash": "2a451cac3f11cad42cba",
-          "publicPath": "/416e4355.e2e872cd.js"
+          "file": "3d9f340d.6bef457c.js",
+          "hash": "0b00a944fed5d00218c5",
+          "publicPath": "/3d9f340d.6bef457c.js"
         }
       ]
     },
     "23": {
       "js": [
         {
-          "file": "437452c5.8b569392.js",
-          "hash": "74185a612fd1710e6bed",
-          "publicPath": "/437452c5.8b569392.js"
+          "file": "40deb340.4f7499da.js",
+          "hash": "36ce31669d0f8f359261",
+          "publicPath": "/40deb340.4f7499da.js"
         }
       ]
     },
     "24": {
       "js": [
         {
-          "file": "44f5e60e.3d88230d.js",
-          "hash": "e01b5f7faba82e40c888",
-          "publicPath": "/44f5e60e.3d88230d.js"
+          "file": "416e4355.4d0b18ae.js",
+          "hash": "4ed5b5ce9e4e06fe5315",
+          "publicPath": "/416e4355.4d0b18ae.js"
         }
       ]
     },
     "25": {
       "js": [
         {
-          "file": "4536c837.12d2d07c.js",
-          "hash": "01867d04c78a070f60a0",
-          "publicPath": "/4536c837.12d2d07c.js"
+          "file": "437452c5.c2564fc5.js",
+          "hash": "56346af157e226e2ab44",
+          "publicPath": "/437452c5.c2564fc5.js"
         }
       ]
     },
     "26": {
       "js": [
         {
-          "file": "4613f71c.cda65924.js",
-          "hash": "da84626d711fceef2200",
-          "publicPath": "/4613f71c.cda65924.js"
+          "file": "44f5e60e.1e424778.js",
+          "hash": "a9b3ed8ba0f1ede29943",
+          "publicPath": "/44f5e60e.1e424778.js"
         }
       ]
     },
     "27": {
       "js": [
         {
-          "file": "533966e6.2d597e71.js",
-          "hash": "a1991894f7ea298120c1",
-          "publicPath": "/533966e6.2d597e71.js"
+          "file": "4536c837.41fd5c24.js",
+          "hash": "11ca751723d0c6f0df0b",
+          "publicPath": "/4536c837.41fd5c24.js"
         }
       ]
     },
     "28": {
       "js": [
         {
-          "file": "588652d4.11c40630.js",
-          "hash": "43dfd2f45852c83d0f93",
-          "publicPath": "/588652d4.11c40630.js"
+          "file": "4613f71c.81839e85.js",
+          "hash": "20f92c91c4d0f3e106bd",
+          "publicPath": "/4613f71c.81839e85.js"
         }
       ]
     },
     "29": {
       "js": [
         {
-          "file": "5a66baac.ef64ff38.js",
-          "hash": "758b31e3c5a16ea5810f",
-          "publicPath": "/5a66baac.ef64ff38.js"
+          "file": "533966e6.21497d13.js",
+          "hash": "f3d752eebb4c2a02684f",
+          "publicPath": "/533966e6.21497d13.js"
         }
       ]
     },
     "30": {
       "js": [
         {
-          "file": "5cfbf023.5d250535.js",
-          "hash": "19692cfac9b7c59687cc",
-          "publicPath": "/5cfbf023.5d250535.js"
+          "file": "588652d4.414e2d1b.js",
+          "hash": "d41442d20aa8992ac89a",
+          "publicPath": "/588652d4.414e2d1b.js"
         }
       ]
     },
     "31": {
       "js": [
         {
-          "file": "655a3197.a0159620.js",
-          "hash": "c0cdee39708780555810",
-          "publicPath": "/655a3197.a0159620.js"
+          "file": "5a66baac.710a9d5d.js",
+          "hash": "22b356b8080c1656feef",
+          "publicPath": "/5a66baac.710a9d5d.js"
         }
       ]
     },
     "32": {
       "js": [
         {
-          "file": "712b48dc.c82f5577.js",
-          "hash": "5e582a334d72a0fa6bcc",
-          "publicPath": "/712b48dc.c82f5577.js"
+          "file": "5cfbf023.c6b0b5ac.js",
+          "hash": "ca60b53186997af78e7c",
+          "publicPath": "/5cfbf023.c6b0b5ac.js"
         }
       ]
     },
     "33": {
       "js": [
         {
-          "file": "881479f8.69ad186a.js",
-          "hash": "ebb686460b6959eb9915",
-          "publicPath": "/881479f8.69ad186a.js"
+          "file": "655a3197.0266dd6d.js",
+          "hash": "1fb820788a61ef43f46e",
+          "publicPath": "/655a3197.0266dd6d.js"
         }
       ]
     },
     "34": {
       "js": [
         {
-          "file": "8ec71dac.eb321056.js",
-          "hash": "31230b0ac762318bba3e",
-          "publicPath": "/8ec71dac.eb321056.js"
+          "file": "711265a9.16b00481.js",
+          "hash": "a9c28d12692be951548b",
+          "publicPath": "/711265a9.16b00481.js"
         }
       ]
     },
     "35": {
       "js": [
         {
-          "file": "90f37560.4212d9e8.js",
-          "hash": "e702e92e2b58a96fda70",
-          "publicPath": "/90f37560.4212d9e8.js"
+          "file": "712b48dc.f6ef2422.js",
+          "hash": "6517dd63d91addc68c20",
+          "publicPath": "/712b48dc.f6ef2422.js"
         }
       ]
     },
     "36": {
       "js": [
         {
-          "file": "935f2afb.e5b05398.js",
-          "hash": "ecd738cab13082231ed0",
-          "publicPath": "/935f2afb.e5b05398.js"
+          "file": "881479f8.e0a199af.js",
+          "hash": "afe63c3c00ee6ee75ce6",
+          "publicPath": "/881479f8.e0a199af.js"
         }
       ]
     },
     "37": {
       "js": [
         {
-          "file": "9cea2bcd.fe4b148d.js",
-          "hash": "c9ecb7bf6ede2d05085b",
-          "publicPath": "/9cea2bcd.fe4b148d.js"
+          "file": "8ec71dac.6e75d254.js",
+          "hash": "b01c1dfb624cf932d88e",
+          "publicPath": "/8ec71dac.6e75d254.js"
         }
       ]
     },
     "38": {
       "js": [
         {
-          "file": "9f28657b.5cfc5ea2.js",
-          "hash": "c23b641dd4182df6bcfc",
-          "publicPath": "/9f28657b.5cfc5ea2.js"
+          "file": "8f047c43.2bdee3ee.js",
+          "hash": "34c94bc9dcca2df74284",
+          "publicPath": "/8f047c43.2bdee3ee.js"
         }
       ]
     },
     "39": {
       "js": [
         {
-          "file": "a7751fda.c44450b0.js",
-          "hash": "5dde4400714d1b2dc690",
-          "publicPath": "/a7751fda.c44450b0.js"
+          "file": "90f37560.66ffa9f9.js",
+          "hash": "38c3fb2a2782188ceb47",
+          "publicPath": "/90f37560.66ffa9f9.js"
         }
       ]
     },
     "40": {
       "js": [
         {
-          "file": "aa32c400.755ccf8a.js",
-          "hash": "faf98df135944a9bd7a8",
-          "publicPath": "/aa32c400.755ccf8a.js"
+          "file": "935f2afb.abad789b.js",
+          "hash": "a81c9c16ed3bd116eed2",
+          "publicPath": "/935f2afb.abad789b.js"
         }
       ]
     },
     "41": {
       "js": [
         {
-          "file": "aa4fddc1.62b54854.js",
-          "hash": "e0bdf9d8ee09e92af8d2",
-          "publicPath": "/aa4fddc1.62b54854.js"
+          "file": "953990b0.5969967c.js",
+          "hash": "746d589af073606fb6b9",
+          "publicPath": "/953990b0.5969967c.js"
         }
       ]
     },
     "42": {
       "js": [
         {
-          "file": "ad123792.f3269995.js",
-          "hash": "845277aedde2ec9d6f4c",
-          "publicPath": "/ad123792.f3269995.js"
+          "file": "9cea2bcd.daf63e14.js",
+          "hash": "a23c69cdaf306e987667",
+          "publicPath": "/9cea2bcd.daf63e14.js"
         }
       ]
     },
     "43": {
       "js": [
         {
-          "file": "b3d80657.f574c66d.js",
-          "hash": "25cfbd989432af235e66",
-          "publicPath": "/b3d80657.f574c66d.js"
+          "file": "9f28657b.1650e8eb.js",
+          "hash": "4bf496b6df6c5e5748ea",
+          "publicPath": "/9f28657b.1650e8eb.js"
         }
       ]
     },
     "44": {
       "js": [
         {
-          "file": "b65a8641.be030338.js",
-          "hash": "177ea6471ac24fc96269",
-          "publicPath": "/b65a8641.be030338.js"
+          "file": "a7751fda.6a102718.js",
+          "hash": "b287f7b8f8a7ea5f10fc",
+          "publicPath": "/a7751fda.6a102718.js"
         }
       ]
     },
     "45": {
       "js": [
         {
-          "file": "b67bde24.97214ff7.js",
-          "hash": "b69c00b6957a4e689441",
-          "publicPath": "/b67bde24.97214ff7.js"
+          "file": "aa32c400.ef4be207.js",
+          "hash": "e0483f6c5a0559b317c3",
+          "publicPath": "/aa32c400.ef4be207.js"
         }
       ]
     },
     "46": {
       "js": [
         {
-          "file": "bb1a7bb2.941c8b92.js",
-          "hash": "f75448b13945f9f56ba7",
-          "publicPath": "/bb1a7bb2.941c8b92.js"
+          "file": "aa4fddc1.c113b2ab.js",
+          "hash": "d47b2e2e66a5bb0c6216",
+          "publicPath": "/aa4fddc1.c113b2ab.js"
         }
       ]
     },
     "47": {
       "js": [
         {
-          "file": "c24c15aa.4ff8951b.js",
-          "hash": "9a914bf40a9c059bdfd8",
-          "publicPath": "/c24c15aa.4ff8951b.js"
+          "file": "ad123792.7cff661f.js",
+          "hash": "e69d34769eeda635228a",
+          "publicPath": "/ad123792.7cff661f.js"
         }
       ]
     },
     "48": {
       "js": [
         {
-          "file": "c67f201a.0935faee.js",
-          "hash": "6bbfc9b716f06ef9ec04",
-          "publicPath": "/c67f201a.0935faee.js"
+          "file": "b3d80657.036e4c59.js",
+          "hash": "d348aada4f9d1ae426a8",
+          "publicPath": "/b3d80657.036e4c59.js"
         }
       ]
     },
     "49": {
       "js": [
         {
-          "file": "c94eaf45.726086e8.js",
-          "hash": "d4929cf84f69dfd62b44",
-          "publicPath": "/c94eaf45.726086e8.js"
+          "file": "b65a8641.b573821f.js",
+          "hash": "5c5d4fa305a306a29c58",
+          "publicPath": "/b65a8641.b573821f.js"
         }
       ]
     },
     "50": {
       "js": [
         {
-          "file": "cb77ab9d.e08bb14d.js",
-          "hash": "e0a49ffc1c61e7076763",
-          "publicPath": "/cb77ab9d.e08bb14d.js"
+          "file": "b67bde24.91b446a2.js",
+          "hash": "925a12344edf8ff2db1e",
+          "publicPath": "/b67bde24.91b446a2.js"
         }
       ]
     },
     "51": {
       "js": [
         {
-          "file": "d59298da.24112980.js",
-          "hash": "fe3c11284ccbfed339ab",
-          "publicPath": "/d59298da.24112980.js"
+          "file": "bb1a7bb2.a46d0f26.js",
+          "hash": "610d79f4618ffb6c6f90",
+          "publicPath": "/bb1a7bb2.a46d0f26.js"
         }
       ]
     },
     "52": {
       "js": [
         {
-          "file": "d65ace88.462ad639.js",
-          "hash": "2366aed52bc43db7a07a",
-          "publicPath": "/d65ace88.462ad639.js"
+          "file": "c24c15aa.824ec326.js",
+          "hash": "a394c2d4b026b175a691",
+          "publicPath": "/c24c15aa.824ec326.js"
         }
       ]
     },
     "53": {
       "js": [
         {
-          "file": "dc900be6.934e0538.js",
-          "hash": "e7a76b1404ae8286bd94",
-          "publicPath": "/dc900be6.934e0538.js"
+          "file": "c67f201a.0ba13ebe.js",
+          "hash": "6c42bd8cdcb62c7e5ec9",
+          "publicPath": "/c67f201a.0ba13ebe.js"
         }
       ]
     },
     "54": {
       "js": [
         {
-          "file": "e949fdff.2d8a371c.js",
-          "hash": "6e5c47085103ac0588a1",
-          "publicPath": "/e949fdff.2d8a371c.js"
+          "file": "c94eaf45.07557c48.js",
+          "hash": "e46c98bad4abd1376453",
+          "publicPath": "/c94eaf45.07557c48.js"
         }
       ]
     },
     "55": {
       "js": [
         {
-          "file": "ec2c4156.4c74fc89.js",
-          "hash": "ead6b74b8f10fda9b2c0",
-          "publicPath": "/ec2c4156.4c74fc89.js"
+          "file": "cb77ab9d.83f1ef5e.js",
+          "hash": "6a1c9a8ea46a7aadfc08",
+          "publicPath": "/cb77ab9d.83f1ef5e.js"
         }
       ]
     },
     "56": {
       "js": [
         {
-          "file": "f785f217.f39fb3ec.js",
-          "hash": "31cffdc4841076cd02ca",
-          "publicPath": "/f785f217.f39fb3ec.js"
+          "file": "d59298da.34f83761.js",
+          "hash": "e0f9cfc5a44fbb0ee3de",
+          "publicPath": "/d59298da.34f83761.js"
         }
       ]
     },
     "57": {
       "js": [
         {
-          "file": "f7e669aa.8a15b5ba.js",
-          "hash": "ef426a8751a07dd6daa8",
-          "publicPath": "/f7e669aa.8a15b5ba.js"
+          "file": "d65ace88.821d05c3.js",
+          "hash": "77c574e021bc35b88700",
+          "publicPath": "/d65ace88.821d05c3.js"
         }
       ]
     },
     "58": {
       "js": [
         {
-          "file": "f91eaf27.492f2a4e.js",
-          "hash": "85f64a814b06631a16aa",
-          "publicPath": "/f91eaf27.492f2a4e.js"
+          "file": "d8698a02.13aeffd8.js",
+          "hash": "415a2bf22f9f4d6ce882",
+          "publicPath": "/d8698a02.13aeffd8.js"
         }
       ]
     },
     "59": {
       "js": [
         {
-          "file": "feda3973.85e9be14.js",
-          "hash": "51cff6dbb3237a5c7764",
-          "publicPath": "/feda3973.85e9be14.js"
+          "file": "dc900be6.8238ff3b.js",
+          "hash": "c25ba4b3e132cf6a2b50",
+          "publicPath": "/dc900be6.8238ff3b.js"
         }
       ]
     },
     "60": {
       "js": [
         {
-          "file": "main.2bf7a92a.js",
-          "hash": "407b69a7216c5b7cf9a4",
-          "publicPath": "/main.2bf7a92a.js"
+          "file": "e949fdff.67071adc.js",
+          "hash": "77539db255e2b21f87c9",
+          "publicPath": "/e949fdff.67071adc.js"
         }
       ]
     },
     "61": {
       "js": [
         {
-          "file": "runtime~main.ee14b385.js",
-          "hash": "e159d64cb897aad7aee1",
-          "publicPath": "/runtime~main.ee14b385.js"
+          "file": "ec2c4156.15d121ae.js",
+          "hash": "4d3c2d55976d2ce9b8d6",
+          "publicPath": "/ec2c4156.15d121ae.js"
         }
       ]
     },
     "62": {
       "js": [
         {
-          "file": "62.c48d393b.js",
-          "hash": "2743fe2a0b9245f3fd19",
-          "publicPath": "/62.c48d393b.js"
+          "file": "f785f217.c756d49a.js",
+          "hash": "82397938f139db7521ef",
+          "publicPath": "/f785f217.c756d49a.js"
         }
       ]
     },
     "63": {
       "js": [
         {
-          "file": "63.43024b07.js",
-          "hash": "2fb01001cd99d6d1fb6d",
-          "publicPath": "/63.43024b07.js"
+          "file": "f7e669aa.92a57b5b.js",
+          "hash": "bd30c6e92db42e40d492",
+          "publicPath": "/f7e669aa.92a57b5b.js"
+        }
+      ]
+    },
+    "64": {
+      "js": [
+        {
+          "file": "f91eaf27.11acf729.js",
+          "hash": "a018fd05a53624c30f03",
+          "publicPath": "/f91eaf27.11acf729.js"
+        }
+      ]
+    },
+    "65": {
+      "js": [
+        {
+          "file": "feda3973.47735747.js",
+          "hash": "d401a6c99f0550fd9ce6",
+          "publicPath": "/feda3973.47735747.js"
+        }
+      ]
+    },
+    "66": {
+      "js": [
+        {
+          "file": "main.65bda933.js",
+          "hash": "f2cb81e3e50f2f1b770d",
+          "publicPath": "/main.65bda933.js"
+        }
+      ]
+    },
+    "67": {
+      "js": [
+        {
+          "file": "runtime~main.52e1a90a.js",
+          "hash": "c9b88001591014cc1944",
+          "publicPath": "/runtime~main.52e1a90a.js"
+        }
+      ]
+    },
+    "68": {
+      "js": [
+        {
+          "file": "68.6c10b65d.js",
+          "hash": "618b5fac1cb416f578c1",
+          "publicPath": "/68.6c10b65d.js"
+        }
+      ]
+    },
+    "69": {
+      "js": [
+        {
+          "file": "69.9a72eb7d.js",
+          "hash": "af1d19ecf7e54e2ba060",
+          "publicPath": "/69.9a72eb7d.js"
         }
       ]
     }
