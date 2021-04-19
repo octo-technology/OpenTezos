@@ -928,7 +928,7 @@ Two additional pieces of information have to be kept:
 
 The storage has to be modified. Collections are going to come in handy for the modification of the storage
 
-## LIGO prequesites: collections
+## LIGO prequisites: collections
 
 ### Lists
 
@@ -939,7 +939,7 @@ Elements can be repeated, as only their order in the collection matters.
 The first element is called the head,
 and the sub-list after the head is called the tail.
 
-> 💡 Lists are needed when returning operations from a smart contract's main function.
+> 💡 Lists are needed for example when returning operations from a smart contract's main function.
 
 #### Defining Lists
 
@@ -1012,9 +1012,9 @@ const smaller_set : set (int) = Set.remove (3, my_set)
 
 ### Maps
 
-Maps are a data structure which associate a value to a key. All values have the same type and all keys of the same type.
-The former are called key and, the latter values.
-Together they make up a binding.
+Maps are a data structure which associate a value to a key. All values have the same type and all keys of the same type. It contains key-value bindings. 
+//TODO ... à supprimer ? => The former are called key and, the latter values. Together they make up a binding.
+
 An additional requirement is that the type of the keys must be comparable,
 in the Michelson sense.
 
@@ -1063,6 +1063,8 @@ remove "tim" from map user_balances
 
 
 ## Modifying the storage
+//TODO Now that we have seen composite types of Pascaligo syntax, let's illustrates all this with the Raffle example. Let's modify our existing Raffle contract to design the participant's tickets.
+
 The new two pieces of information will be stored into the contract storage.
 
 > What collection should be used for:
@@ -1369,7 +1371,7 @@ The winner will be picked thanks to a hardcoded value.
 However, even if there is only two participants, the raffle must have a winner.
 So, the number of participants must be known, so that the winning id does match an id ticket. For this, a modulo will be used:
 `hardcoded_number mod number_of_participants`
-Of course, LIGO offers all the arithmetic operations (addition, substraction, multiplication, division, mod). It won't be detailed here, since it exactly the same as other languages.
+Of course, LIGO offers all the arithmetic operations (addition, subtraction, multiplication, division, mod). It won't be detailed here, since it exactly the same as other languages.
 
 ```js
 function close_raffle (const param : unit; const store : storage) : returnType is
@@ -1769,11 +1771,11 @@ block {
 Ligo is meant for smart contract development and always yield Michelson code.
 The method for developing such smart contracts is pretty much always the same, 
 and follows an order very close to the smart contract structure in Michelson:
-1. the parameter (or entrypoints): the entrypoints are defined into a variant, a type is defined for the input entrypoints, 
-2. the storage: the storage is defined as a type. Usually, it is a record.
-3. the code: the main function dispatches the actions with a pattern matching. The logic for each entrypoint is implemented in a function
+1. the **parameter** (or entrypoints): the entrypoints are defined into a variant, a type is defined for the input entrypoints, 
+2. the **storage**: the storage is defined as a type. Usually, it is a record.
+3. the **code**: the main function dispatches the actions with a pattern matching. The logic for each entrypoint is implemented in a function
 
-There has to be a *main* function, which dispatches the actions of the smart contract.
+There has to be a **main** function, which dispatches the actions of the smart contract.
 
 LIGO syntax was designed to help developers to build smart contracts by providing them with a syntax they are familiar with:
 the main difference with other languages is the way the code is built, and few technical limitations due to the blockchain particularities (randomness for instance).
