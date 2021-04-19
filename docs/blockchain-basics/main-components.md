@@ -57,6 +57,8 @@ The number of transactions inside a block is only limited by its space available
 
 Each new block is linked to the previous one: they are chained. The more blocks there are, the more difficult it is to modify anything in the ledger. They are cryptographically chained. That means, that if you want to cheat (basically lying about the bitcoins you have), you would need to modify everything until the Genesis Block.
 
+![Chain of blocks](../../static/img/blockchain-basics/blocks-chain.svg "Chain of blocks")
+
 ### Introduction to Mining
 The blocks validators are called the "**miners**" (see below "_Consensus: Nakamoto and the Proof-of-Work’s account units issuance_" for more about this word).
 
