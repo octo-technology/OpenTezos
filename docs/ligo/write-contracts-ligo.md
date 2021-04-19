@@ -351,6 +351,15 @@ function change_name (const u : user) : user is
 Rather, the function returned a nameless new version of it with the modified name.
 
 ### Tuples
+
+//TODO 
+Tuples gather multiple fields in a single structure. Tuple definition combines multiple types into a single type. A tuple data structure is ordered which means we can access to each element of the tuple by its position. Unlike `record` type, the tuple fields are unnamed.
+
+
+
+
+
+
 Tuples gather a given number of values in a specific order and those values,
 called components,
 can be retrieved by their index (position).
