@@ -5,26 +5,27 @@ title: Exam
 
 ### Question 1
 
-What notions are defined inside the smart contract ?
+I see an error on _OpenTezos_, what should I do ?
 
-- [x] The type definition of the storage
-- [ ] The balance of the contract
-- [ ] The initial value of the storage
-- [ ] The value of the entrypoint and its related parameters
-- [x] The type definition of the entrypoint
-- [ ] The size of the storage
-- [x] The code of the smart contract
-- [ ] The list of users allowed to call the smart contract
+- [ ] Nothing
+- [ ] Complain on _StackOverflow_
+- [x] Open a Github issue on [github.com/octo-technology/OpenTezos](https://github.com/octo-technology/OpenTezos)
+- [x] Optionally fix the error in the source code and submit a pull request
 
 ### Question 2
 
-What is returned by the execution of a smart contract ?
+In order to receive a _Tezos Foundation_ grant one has to:
 
-- [ ] The current storage state when invoking the smart contract
-- [x] The modified storage state after invoking the smart contract
-- [ ] The entrypoint that has been called (and its related parameters)
-- [x] The list of emitted operations produced by the execution of the smart contract
-- [ ] The balance of the contract
-- [ ] The size of the storage
-- [ ] The code of the smart contract
-- [ ] The list of users allowed to call the smart contract
+- [x] devise a project idea
+- [x] apply for a grant
+- [x] wait for the application to be reviewed
+- [x] react to the review’s findings
+
+### Question 3
+
+In order to receive a _Tezos Foundation_ grant one has to:
+
+- [x] devise a project idea
+- [x] apply for a grant
+- [x] wait for the application to be reviewed
+- [x] react to the review’s findings

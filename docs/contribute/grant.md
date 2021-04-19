@@ -10,19 +10,19 @@ In order to receive a _Tezos Foundation_ grant one has to devise a project idea,
 ## Devise a project
 Anyone can apply for a _Tezos Foundation_ grant if they have an idea that would boost the development of Tezos. The foundation accepts applications in the following areas:
 
-- Baking: solutions aimed at improving baker UX; tools and apps enabling the use of cloud platforms for baking; and baking guidelines lowering the entry threshold of the area.
+- *Baking*: Tezos has a growing number of bakers in its ecosystem that help secure the network by signing and publishing blocks. The foundation's goal is to empower bakers by supporting the development of standardized tools, tutorials and cloud applications.
   
-- UX for developers: tools and infrastructural solution making the development on Tezos more convenient and efficient, as well as guidelines for developers covering the most popular tools, apps, and standards found in Tezos.
+- *Developer Experience*: The foundation's goal is to make Tezos easy to build on and onboard new developers to the ecosystem. The foundation is looking to support tools, tutorials and documentation to improve user experience for all Tezos developers.
   
-- End-user apps: decentralized finance, tokenization, crowdfunding, collectibles, gaming, payment solutions, and other apps tackling the problems of end-users.
+- *Education and Training*: The growth and success of Tezos is heavily linked to the Tezos community. To grow and support the community, the foundation want to enable all ecosystem members around the world.
 
-- Privacy: Tezos scientific research in cryptography and the development of privacy-ensuring solutions for Tezos transactions.
+- *End-User Applications*: Tezos enables new types of applications, which can address problems that have been traditionally difficult to solve using legacy software stacks. The foundation is looking to support new applications that drive wide adoption and benefit standardization, censorship-resistance, or user control on the Tezos protocol.
 
-- Security: key management and formal verification, i.e. everything ensuring the security of Tezos for end-users and developers.
+- *Privacy*: Censorship-resistance is key for all developments on Tezos. The foundation's goal is to support research and development of infrastructure to build on Tezos’ strengths and enhance privacy-preserving solutions.
 
-- Education and training: Tezos aims to accelerate the rate of global acceptance of Tezos as well as educational resources aimed at supporting and expanding the Tezos community.
-  
-- Others: projects that can help the further development of the Tezos ecosystem but don’t fit in any of the categories above.
+- *Security*: Tezos has the assurance required for high value use cases and a focus on formal methods. Given this strength the foundation aims to support projects building security solutions for Tezos.
+
+- *Other*: Projects targeting categories not listed here that may advance the Tezos ecosystem!
 
 ## Apply for a grant
 First, you have to register at the [Tezos Foundation’s platform for grants](https://grants.tezos.foundation/). Then you choose the area that corresponds to your project and make an offer by clicking the respective button. Now you can fill in your application.
