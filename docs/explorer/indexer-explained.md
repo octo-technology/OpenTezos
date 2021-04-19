@@ -1,5 +1,5 @@
 ---
-id: indexer_explained
+id: indexer-explained
 title: How Indexers Work?
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: available_tezos_indexer
+id: available-tezos-indexers
 title: Available Tezos Indexers
 ---
 

@@ -3,30 +3,33 @@ id: introduction
 title: Introduction
 ---
 
-This module will explain the notion of blockchain **explorer** and **indexer**, 
-then see how it works and finally how to use it.
+This module focuses on **blockchain explorers** and **blockchain indexers** for Tezos, how they work and how to use them.
 
-## What is a blockchain explorer ?
+## What is a blockchain explorer?
 
-A blockchain explorer, also known as a block explorer, is a website for tracking activity on the blockchain. 
-All transactions ever performed on a network can be viewed using this tool.
+A _blockchain explorer_, also known as a _block explorer_, is an app tracking activity on the blockchain. All transactions ever performed on a network can be viewed using such tool.
 
-Blockchain explorers are like blockchain search engines. 
-Cryptocurrency users and developer depend on this tool to view the status of past and present transactions. 
-Some of the most basic information available on blockchain explorers include, but are not limited to:
+**Blockchain explorers are like search engines for blockchains.**
+
+Cryptocurrency users and developers use such tool to view the status of past or present transactions. 
+
+Some of the most basic information available on blockchain explorers includes (but is not limited to):
 
 - **Block feeds**: This allows you to view all the latest mined and pending blocks on the blockchain.
+  
 - **Transaction feeds**: The transaction feed displays all of the most recent and upcoming transactions.
-- **Sending and receiving** addresses: Each transaction can be viewed individually to reveal the public addresses of the sending and receiving parties.
-- **Transaction history**: All past and present transactions of an individual wallet address can also be viewed on the explorer.
+
+- **Sending and receiving addresses**: Each transaction can be viewed individually to reveal the public addresses of the sending and receiving parties.
+  
+- **Wallet history**: All past and present transactions of an individual wallet address.
 
 ### Blockchain explorer use cases
 
 ![](../../static/img/explorer/use_cases.svg)
-<small className="figure">FIGURE 1: Use Cases</small>
+<small className="figure">FIGURE 1: Typical use cases of a block explorer</small>
 
 Block explorers are not only made for casual users 
-to check if their coins are still safe or for delegators who are afraid their bakers cheat on them.
+to check if their coins are still safe or for delegators who are afraid their bakers may cheat on them.
 
 First, there are blockchain engineers who develop and debug new features in sandboxes every day. 
 Also DApp developers need debugging tools and 
@@ -41,7 +44,6 @@ Then there's less technical user groups like auditors and
 regulators with strict requirements on data quality and 
 the need to access a trusted copy of the full on-chain history 
 in a format that's easy to digest for their spreadsheets and compliance tools.
-
 
 ## What is an indexer ?
 
