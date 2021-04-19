@@ -5,7 +5,7 @@ title: Smart contract development in Pascaligo
 import NotificationBar from '../../src/components/docs/NotificationBar';
 
 
-The Language of smart contracts is Michelson, a stack-based language. 
+The language of smart contracts is Michelson, a stack-based language. 
 However, this kind of language is not commonly used by developers. 
 Besides, the more smart contract grows, the more tedious it becomes to keep the code readable and clean.
 As a result, it can deter many developers from trying to develop smart contracts for the Tezos Blockchain.
