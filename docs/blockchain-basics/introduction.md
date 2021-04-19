@@ -15,6 +15,10 @@ import NotificationBar from '../../src/components/docs/NotificationBar';
   </p>
 </NotificationBar>
 
+This module introduces the basics of cryptocurrencies and blockchains. It runs briefly through the history of the first blockchain *Bitcoin*. Discribing the main Bitcoin's components, it shows how it laid the foundation of newer systems. Bitcoin's smart contracts basics are explained, as well as how Ethereum was born to lift its limitations.
+
+This module is useful to understand Tezos principles and how it pushes the borders even more.
+
 # Introduction to decentralisation and cryptocurrencies
 
 In this chapter, the reader will get a glimpse on the "cryptocurrencies" and "blockchains" global context of emergence. From the first "blockchain" _Bitcoin_ to other systems like _Tezos_, a brief history of these protocols is pictured.
@@ -37,6 +41,8 @@ These _bitcoins exchanges_ are called **transactions**, but are not as usual as 
 In Bitcoin's whitepaper, we can find what "blocks" or "chains" are, but they are "just" arranged in a _chain of blocks_.
 
 Hence, the polysemy to take into account: "Blockchain" could refer the entire system; or the chained data-structure.
+
+![Blockchain polysemy](../../static/img/blockchain-basics/blockchain-polysemy.svg "Blockchain polysemy")
 
 ## A brief history of the "Blockchain"
 New systems directly copied Bitcoin or implemented their own similar mechanics. On the other hand, Bitcoin relies on a lot of pretty old Information Technologies (IT). From as far as 1973, and until the Genesis Block from 2009.
