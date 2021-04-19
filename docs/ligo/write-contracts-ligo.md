@@ -288,7 +288,6 @@ Each one of these actions can be coded into an entrypoint.
 
 ### Records
 //TODO: The `record` type is a structure that holds a set of named fields.
-The `record` type is a structure that holds a set of key/data pairs.
 It is extremely useful for the storage definition and for any object that should hold different types of information.
 
 #### Defining records
@@ -304,7 +303,7 @@ type user is
   ]
 ```
 
-The number and type of fields is defined at the record definition. It cannot be changed afterwards.
+The name and type of fields are defined at the record definition. It cannot be changed afterwards.
 
 And here is how to define an associated record value:
 
@@ -327,7 +326,7 @@ const rogers_admin : bool = roger.is_admin
 
 #### Updating a record
 
-You can modify values in a record as follows:
+You can modify values in a `record` as follows:
 
 ```js
 const rogersNotAdmin : user = u with record [is_admin = False]
@@ -338,7 +337,7 @@ After this update, the pieces of information held by the _rogers_ record are:
 - is_admin: false
 - name: "Rogers"
 
-You can use `patch` to modify the record:
+You can use `patch` to modify the `record` value:
 
 ```js
 function change_name (const u : user) : user is
@@ -347,7 +346,7 @@ function change_name (const u : user) : user is
   } with u
 ```
 
-//TODO
+//TODO ??? user ??? 
 ⚠️ Note that user has not been changed by the function.
 Rather, the function returned a nameless new version of it with the modified name.
 
@@ -991,7 +990,7 @@ const smaller_set : set (int) = Set.remove (3, my_set)
 
 ### Maps
 
-Maps are a data structure which associate values of the same type to values of the same type.
+Maps are a data structure which associate a value to a key. All values have the same type and all keys of the same type.
 The former are called key and, the latter values.
 Together they make up a binding.
 An additional requirement is that the type of the keys must be comparable,

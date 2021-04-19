@@ -712,8 +712,8 @@ You can modify values in a record as follows:
 ```js
 function change_name (const u : user) : user is
   block {
-      const u : user = u with record [name = "Mark"]
-  } with u
+      const my_user : user = u with record [name = "Mark"]
+  } with my_user
 ```
 
 You can use `patch` to modify the record:
@@ -725,6 +725,7 @@ function change_name (const u : user) : user is
   } with u
 ```
 
+//TODO user, has not been changed ... pas clair 
 ⚠️ Note that user, has not been changed by the function. 
 Rather, the function returned a nameless new version of it with the modified name.
 
@@ -732,7 +733,7 @@ Rather, the function returned a nameless new version of it with the modified nam
 
 //TODO revoir definition map .. pas clair 
 
-Maps are a data structure which associates, values of the same type to values of the same type. 
+Maps are a data structure which associates a value to a key. All keys have the same type and all values have the same type. 
 The former are called key and, the latter values. 
 Together they make up a binding. 
 An additional requirement is that the type of the keys must be comparable, 
