@@ -33,7 +33,7 @@ module.exports = {
     {
       type: 'category',
       label: 'How to use an Explorer',
-      items: ['explorer/introduction', 'explorer/exam','explorer/private-indexer'],
+      items: ['explorer/introduction', 'explorer/exam', 'explorer/available_tezos_indexer', 'explorer/indexer_explained', 'explorer/private-indexer'],
     },
     {
       type: 'category',
