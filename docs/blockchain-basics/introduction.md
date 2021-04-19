@@ -44,6 +44,8 @@ Hence, the polysemy to take into account: "Blockchain" could refer the entire sy
 
 ![Blockchain polysemy](../../static/img/blockchain-basics/blockchain-polysemy.svg "Blockchain polysemy")
 
+<div style="text-align: right"><small className="figure">FIGURE 1: "Blockchain" polysemy</small></div>
+
 ## A brief history of the "Blockchain"
 New systems directly copied Bitcoin or implemented their own similar mechanics. On the other hand, Bitcoin relies on a lot of pretty old Information Technologies (IT). From as far as 1973, and until the Genesis Block from 2009.
 
@@ -83,9 +85,9 @@ Today, Bitcoin and Ethereum remain the two main protocols of the kind, but a lot
 
 Tezos white paper was published on September 2nd, 2014. Tezos leverages and enhances principles, capabilities, and allows new possibilities.
 
-![A non-hexaustive timeline](../../static/img/../../docs/blockchain-basics/timeline.svg "A non-hexaustive timeline")
+![A non-hexaustive timeline](../../static/img/blockchain-basics/timeline.svg "A non-hexaustive timeline")
 
-<div style="text-align: right"><small className="figure">FIGURE 1: A non-hexaustive timeline.</small></div>
+<div style="text-align: right"><small className="figure">FIGURE 2: A non-hexaustive timeline</small></div>
 
 ## What have we learned so far?
 In this chapter, we briefly described what are "blockchains", on what ground and when they were created.
