@@ -1292,7 +1292,7 @@ However, the third step raises a problem: how should be the winner picked ?
 
 ## LIGO prerequisites: Transactions
 
-You can transfer tez to an account, or to a function of another smart contract.
+You can transfer tez to an account, and invoke a function of another smart contract.
 For this, use :
 
 ```js
@@ -1305,7 +1305,23 @@ where :
   or use `unit` if you are transferring to a wallet address,
 - **mutez** is the amount to transfer,
 - **contract** is the contract interface of the targeted contract.
-  It can be retrieved from address of the other contract or the wallet.
+  It can be retrieved (with `Tezos.get_contract_opt` built-in function) from address of the other contract or the wallet.
+
+//TODO (plus d'info sur les transaxctions..comme par un exemple de get_onctract): Qu'en penses-tu?
+Here is an example of retrieving the contract interface from the _winner_ `address`:
+```js
+const receiver : contract (unit) = 
+    case (Tezos.get_contract_opt (winner) : option (contract (unit))) of
+          Some (c) -> c
+        | None -> (failwith ("winner contract not found.") : contract (unit))
+        end;
+
+const op : operation = Tezos.transaction(unit, store.jackpot, receiver);
+```
+
+Notice that the `Tezos.get_contract_opt` built-in function call returns a `option (contract (unit))`; thus allowing to verify that the _winner_ address is valid.
+
+
 
 ## About randomness in smart contracts
 The second option is not easily implemented in smart contracts. In any classical programming language (Python, C, Java...),
@@ -1543,7 +1559,7 @@ As warned above, this method is still rife with loopholes:
 
 
 ## Refactoring the OpenRaffle entrypoint
-The OpenRaffle expects a new input: the number hash, that should be saved into the storage.
+The OpenRaffle entrypoint expects a new input: the number hash, that should be saved into the storage.
 Both the storage and entrypoint have to be modified.
 The method is very similar to what has been done before:
 
