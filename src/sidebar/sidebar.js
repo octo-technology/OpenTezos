@@ -33,7 +33,7 @@ module.exports = {
     {
       type: 'category',
       label: 'How to use an Explorer',
-      items: ['explorer/introduction', 'explorer/exam'],
+      items: ['explorer/introduction', 'explorer/exam','explorer/private-indexer'],
     },
     {
       type: 'category',

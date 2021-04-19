@@ -1,22 +1,26 @@
 ---
 id: private-indexer
 disable_pagination: true
-title: Private indexer for private and public
-slug: /explorer
+title: Private indexer for private and public networks
 ---
 
-import NotificationBar from '../../src/components/docs/NotificationBar';
-
 The tools that have been presented in this module are public: everyone can use it.
-However, they are meant for public networks, and the user is dependent on the infrastructure and configuration of these services.
+However, they are meant for public networks, 
+and the user is dependent on the infrastructure and configuration of these services.
 
 As seen in the **Dapp module**, these tools are extremely useful to get all the pieces of information of what is going on in the network.
-Private networks are used in many use cases: foregoing such tools and remaining blind to what is going on in a private network is a deterrent.
+Private networks are used in many use cases.
+Therefore, it must be possible to use such tools on private networks, otherwise the users would be blind.
 
-Hopefully, all those tools are open-source and be installed and used on a private server.
-The user can configure the indexer as he likes, and can set it to watch private networks
+Hopefully, all those tools are open-source and can be used on a private server.
+The user can configure the indexer as he likes, and can set it to watch any private network.
 
-In this chapter, _tzindex_ will be used as a private indexer, for both private and public network
+In this chapter, _tzindex_  and _tzstats_ will be used as a private indexer, for both private and public networks.
+
+This chapter is divided into three parts:
+- how to quickly set up a private network.
+- how to install and configure these tools
+- how to use them
 
 # Prerequisites
 To index a private network, a few things are needed:
@@ -27,32 +31,33 @@ To index a private network, a few things are needed:
 
 
 First, a private network has to be set up. 
-The quickest way to set up a private Tezos network is to use Ganache (see ??? for more details).
+The quickest way to set up a private Tezos network is to use Ganache (see Dapp module for more details).
 Ganache is a npm module, that can set up a personal private network.
-Ganache provides 10 accounts when it starts
+Ganache provides 10 accounts when it starts, displayed in the logs.
 
 The raffle smart contract, developed in the LIGO module, will be used. 
-It will be migrated onto our private network with the truffle configuration detailed in the Dapp module.
+It will be migrated onto our private network with the _Truffle_ configuration detailed in the Dapp module.
 
 ## Installing the prerequisites
 A github repository is available here:
-lien
-It contains a ganache configuration (with predefined accounts), three smart contracts, and the associated migration:
+[https://github.com/bepi-octo/raffle-smart-contract.git](https://github.com/bepi-octo/raffle-smart-contract.git)
+
+It contains a ganache configuration (with predefined accounts), three smart contracts, and their associated migration:
 1. a dummy smart contract, with a big map as storage
 2. a raffle smart contract, using a big map
 3. a raffle smart contract, using a map
 
 ```shell
-$ git clone
+$ git clone https://github.com/bepi-octo/raffle-smart-contract.git
 $ cd 
 $ npm install -g truffle@tezos
 $ npm install 
 ```
 
-tzindex is written in Go. You can install go by following the instructions at:
+_Tzindex_ is written in Go. It can be installed go by following the instructions at:
 [https://golang.org/doc/install](https://golang.org/doc/install)
 
-There are also docker images. You can install Docker by following the instruction at:
+There are also docker images. It can be installed Docker by following the instruction at:
 [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/)
 ## Launching a private tezos network
 In the package.json, one script is defined:
@@ -63,8 +68,8 @@ In the package.json, one script is defined:
 ```
 
 > There are several versions of the ganache-cli. 
-> Only the version suffixed by '-tezos' support tezos blockchain.
-> You can find the version used by the project in the  "devDependencies" section, in the package.json file.
+> Only the version suffixed by '-tezos' supports tezos blockchain.
+> The version used by the project can be found in the  "devDependencies" section, in the package.json file.
 
 
 
@@ -115,10 +120,10 @@ A private network has started, with funded accounts that will be used in this ar
 ## Migrating the raffle contract
 
 The contract can be migrated onto the private network. 
-More details can be found about the Truffle tool in the Dapp section (link to chapter).
+More details can be found about the _Truffle_ tool in the Dapp section (link to chapter).
 
-First, the private network should be defined in the _truffle-config.js_ file.
-A development subsection should be found under the networks section:
+First, the private network has to be defined in the _truffle-config.js_ file.
+A `development` subsection should be found under the `networks` section:
 ```json
     development: {
       host: "http://localhost",
@@ -130,29 +135,31 @@ A development subsection should be found under the networks section:
 ```
 <br/>
 The used account is defined in the scripts/sandbox/account.js file.
-The contracts can be migrated:
+The contracts can now be migrated:
 
 ```shell
 $ truffle migrate --network development
 ```
 
-The contracts are deployed onto our private network:
+Three contracts are deployed onto our private network:
 1. the first contract holds a big map, and does not do anything.
-This dummy contract is deployed to bypass a tzstat bug regarding big maps: 
-the first big map (whose index is 0) are not fetched by the frontend
+This dummy contract is deployed to bypass a _tzstats_ bug regarding big maps: 
+the first big map (whose index is 0) is not fetched by the frontend.
 2. a raffle contract using map
 3. a raffle using big map
 
 For the second and third migrations, a raffle is opened (given the storage definition), 
 and the account used for the migration has bought a ticket.
 
+> The same smart contract is deployed twice: one with maps, and the other with big maps.
+> Later on, these two smart contracts will a highlight the difference between the processing of maps and big maps by _tzstats_.
 
-# Setting up a private tzindex (backend)
+# Setting up a private _tzindex_ (backend)
 
-tzstat is an open-source indexer: it can freely be used and modified.
+_Tzindex_ is an open-source indexer: it can freely be used and modified.
 The source code is available here: [https://github.com/blockwatch-cc/tzindex](https://github.com/blockwatch-cc/tzindex)
 
-The application will be built:
+The application is built this way:
 ```shell
 $ git clone https://github.com/blockwatch-cc/tzindex
 $ cd tzindex
@@ -161,31 +168,31 @@ $ ls tzindex
 tzindex
 
 ```
-A tzindex binary is created into the directory.
-The indexer can now watch the private network with:
+A _tzindex_ binary is created into the directory.
+The indexer can now watch the private network with this command:
 ```shell
 $ ./tzindex run --rpcurl 127.0.0.1:8732 --notls --enable-cors
 ```
 
 - --rpcurl: url of the ganache private network rpc node
 - --notls: this option is used since ganache is exposing with http
-- --enable-cors: used for the frontend
+- --enable-cors: used for the frontend (_tzstats_)
 
-tzindex will expose its API over http://localhost:8000.
+_Tzindex_ will expose its API over http://localhost:8000.
 
-A db/ folder is created when launching tzindex for the first time: 
+A db/ folder is created when launching _tzindex_ for the first time: 
 it contains all the data indexed about the private network. 
 
 > When restarting ganache, a blank new network is created. 
-> The db/ folder have to be removed, in order to make tzindex index the new network.
+> The db/ folder, containing the old date, have to be removed, in order to make _tzindex_ index the new network.
 
-# Setting up a private tzstat (frontend)
+# Setting up a private _tzstats_ (frontend)
 
-tzstat is an open-source indexer: it can freely be used and modified.
+_Tzstats_ is an open-source frontend, meant to display data from _tzindex_.
 The source code is available here: [https://github.com/blockwatch-cc/tzstats](https://github.com/blockwatch-cc/tzstats)
 
-This frontend works with tzindex: 
-tzstat can interact with tzindex by setting the TZSTATS_API_URL variable
+This frontend works with _tzindex_: 
+_Tzstats_ can interact with _tzindex_ by setting the TZSTATS_API_URL variable
 The application can be launched with:
 ```shell
 $ git clone https://github.com/blockwatch-cc/tzstats
@@ -196,13 +203,13 @@ $ yarn start
 ```
 
 > An error might occur during the npm install. 
-> If so, modify the `sass` field under the `scripts` in the package.json file:
+> If so, modifying the `sass` field under the `scripts` in the package.json file solves the issue:
 > ```json
 > "sass": "npx sass src/styles/scss/index.scss:src/styles/css/index.css"
 > ```
-> Run again the `npm install` command
+> The `npm install` command has to be run again
 
-A new page should open in your default web browser.
+A new page should open in a web browser.
 
 # Interactions with the private explorer
 
@@ -210,24 +217,28 @@ At this point, the  working context is:
 - a private network running, through Ganache
 - three migrated contracts
 - two contract calls 
-- tzindex, indexing the private network
-- tzstat, connected to tzindex, and running
+- _tzindex_, indexing the private network
+- _tzstats_, connected to _tzindex_, and running
 
 So, there has already been some activity within the private network. 
 
-## Watch activity from tzstats
+## Watch activity from _tzstats_
 
-Go to http://localhost:3000 with your web browser.
+_Tzstats_ is running at http://localhost:3000: 
 
-![](../../static/img/explorer/tzstat-1.png "Welcome page of a private tzstat")
+![](../../static/img/explorer/tzstat-1.png "Welcome page of a private tzstats")
+
+The frontend is different from the public [tzstats.com](https://tzstats.com/), but the same pieces of information are displayed
+
 
 In the top-center, there is a search bar where anything can be looked for:
 transactions, blocks, addresses...
 
 On the left panel, various pieces of information are displayed.
-One of them is going through each baked block. The number of block can be clicked.
+One of them is going through each baked block. 
+The number of block can be clicked.
 
-So far, four blocks should have been baked:
+So far, four blocks have been baked:
 ![](../../static/img/explorer/tzstat-2.png "Block details page")
 
 All block details are displayed, many of them can be clicked.
@@ -236,46 +247,44 @@ The hash can be clicked, the operation page opens up.
 
 ![](../../static/img/explorer/tzstat-3.png "Smart contract call details page")
 
-The sender does match alice pkh from the scripts/sandbox/account.js (in the truffle project).
+The sender does match alice pkh from the scripts/sandbox/account.js (in the _Truffle_ project).
 The contract address does also match the returned address from the migration.
 
 The contract can be inspected by clicking on its address:
 ![](../../static/img/explorer/tzstat-4.png "Smart contract details page")
 
 All the pieces of information can be found here: the history of calls, the entrypoints, the storage...
-The two calls made by Truffle are displayed: the origination of the contract, and the purchase of a ticket.
+The two calls made by _Truffle_ are displayed: the origination of the contract, and the purchase of a ticket.
 
 The storage page displays all the pieces of data of the smart contract: the storage definition, the type of each field,
-the data held in each field.
+the data held in each one of them.
 Below is the smart contract storage after the migration: one participant is registered, 
 and the contract holds one XTZ (ticket price).
 ![](../../static/img/explorer/tzstat-5.png "Smart contract storage page")
 
 ### About big maps
-However, the *sold_tickets* big map should hold addresses as values, but it displays 1 in the storage.
-Since big maps are meant to hold unbounded lists of data, it is not loaded directly into the storage.
-Each big map is indexed: the number 1 that is seen is the big map number.
+However, the *sold_tickets* big map should hold an `address` as value, but it displays `1` in the storage.
+Since big maps are meant to hold unbounded lists of data, it is not loaded directly into the storage, out of performance concern.
+Each big map is indexed: the number `1` that is seen is the big map number.
 The data can be accessed by clicking on the "Bigmap 1" section.
 
 ![](../../static/img/explorer/tzstat-6.png "Big map section")
 
 If maps (meant for limited data size) are used, the data is directly retrieved in the storage section.
-You can go and watch the second migrated data storage for instance (baked in the fourth block):
+It can be seen in the second migrated data storage for instance (baked in the fourth block):
 
 ![](../../static/img/explorer/tzstat-7.png "Storage page")
 
-The tzstat interface is very user-friendly, all kind of information can be easily read by clicking on element.
-All these pieces of information are of course retrieved from the indexer: tzstat just displays them.
+The _tzstats_ interface is very user-friendly, all kind of information can be easily read by clicking on element.
+All these pieces of information are of course retrieved from the indexer: _tzstats_ just displays them.
 
+## Watch activity from _tzindex_
 
-
-## Watch activity from tzindex
-
-In this part, the same pieces of information will be retrieved by just using the API, without the frontend.
+The same pieces of information can be retrieved by just using the API, without the frontend.
 On each page, an API call is made: each one of these API calls can be seen in the network explorer.
 The network explorer can be opened by pressing F12, in the network section
 
-![](../../static/img/explorer/tzstat-7.png "Retrieving the API call")
+![](../../static/img/explorer/tzstat-8.png "Retrieving the API call")
 
 The _request URL_ gives the API endpoint to call:
 
@@ -336,8 +345,8 @@ $ GET http://127.0.0.1:8000/explorer/contract/KT1HJ8VJ9rHkoi4FfzHPburSe1VdYn8AU4
 
 ```
 
-It gives a lot of information: some of them are displayed on the page (such as the address).
-However, some others are missing. For instance, the storage data is not fetched.
+It gives a lot of information: some pieces are displayed on the page (such as the address).
+However, others are missing. For instance, the storage data is not fetched.
 Another API call has to be made:
 
 ```shell
@@ -366,7 +375,7 @@ $ GET http://127.0.0.1:8000/explorer/contract/KT1HJ8VJ9rHkoi4FfzHPburSe1VdYn8AU4
 
 ```
 
-You can find all the available endpoints here: [https://tzstats.com/docs/api#explorer-endpoints](https://tzstats.com/docs/api#explorer-endpoints)
+All the available endpoints can be found here: [https://tzstats.com/docs/api#explorer-endpoints](https://tzstats.com/docs/api#explorer-endpoints)
 
 # Setting up a private indexer for a public network
 
@@ -382,15 +391,17 @@ There are three operations operation modes, which retrieve more or less data:
 - Light light-weight: consensus and governance indexes are not built (CLI: --light)
 - Validate: state validation mode for checking accounts and balances each block/cycle (CLI: --validate)
 
-Whatever the operation mode is, the indexing of a public network will much more time than the example above.
+Whatever the operation mode is, the indexing of a public network will take much more time than the example above.
+
 # Conclusion
 
 Running a private network does not mean being blind to what is going on the network:
 private indexers and explorers can be set up to monitor what is going on a private network.
 
-Tools are already set up for public networks, but private tools are also be used to that purpose.
+These private tools can also be used to monitor public networks, 
+even if public tools are already set up to that purpose.
 
-Finally, indexers can come in handy as additional tools to taquito or wallet (as described in the Dapp module).
+Finally, indexers can come in handy as additional tools to librairies (such as [Taquito](https://tezostaquito.io/)) or wallet (as described in the Dapp module).
 Indeed, big maps are not easily handled with those tools.
 For instance, it is not possible to retrieve all the keys of a big map.
 However, indexers solve this issue with a simple REST call.
