@@ -47,18 +47,38 @@ Because *Bitcoin Script* is stack-based, the complete code that would be execute
 ```
 So, the solution has to be provided here before the problem.
 
-The fact that *Bitcoin Script* is a low-level and stack-based language is already a kind of limitation: it is pretty hard to code. It is also hard to optimise (scripts size and fees to pay).
+The fact that *Bitcoin Script* is a low-level and stack-based language do not actually limit coding possibilities. It is only hard to optimise (scripts size and fees to pay). For instance, at the same low-level, *Ethereum* also uses OP_codes and a stack[[5]](/blockchain-basics/smart-contracts#references).
+
+One first limitation is simply the number and types of usable OP_codes. For security purposes, various OP_codes are either totally absent, or have been disabled[[1]](/blockchain-basics/smart-contracts#references) following the discovery of vulnerabilities.
+
+Certain OP_codes absence is voluntary. They could lead to errors and out of control operations. This actually means *Bitcoin Script* is **willingly non-Turing complete**. For example, it is impossible to create a **loop** with *Bitcoin Script*.
+
+The transactions structure is also limiting possibilities. Two very important points should be understood programming with Bitcoin:
+- a Bitcoin script is unable to know and handle the **transaction's amount** inside which it is
+- a Bitcoin script is **unaware of anything happening outside the stack**. It **can't access the blockchain's data**.
+
+Finally, because of the "*vaults*" system, knowing the balance of someone means checking all the vaults[[6]](/blockchain-basics/smart-contracts#references). This is a major difference with system like Ethereum, which have *accounts* point of view.
 
 ## Definition of a "smart" contract
+The very first definition of "*Smart Contracts*" is originally from Nick Szabo[[7]](/blockchain-basics/smart-contracts#references) in 1996[[8]](/blockchain-basics/smart-contracts#references):
 
+> A smart contract is a set of promises, specified in digital form, including protocols within which the parties perform on these promises.
+
+Strictly speaking, a Bitcoin transaction is a smart contract. The promise to open the *vault* from one party is fulfilled, given the other party has the right solution.
 
 ## Halting problem of Turing-complete machines and Gas
+To be able to increase the possibilities of smart contracts, more OP_codes had to be incorporated inside "blockchain" systems. With systems like Ethereum, adding these OP_codes made the low-level language Turing-complete. This meant that from this moment on, one could program a *jump* or a *loop*.
 
+A loop is a problem for a Turing-complete machine, especially one which uses a currency to function: an halting problem. If we can't control the halt of the machine in an endless loop, we can't control the endless spending of the currency either.
+
+So the idea of Ethereum was to introduce another variable to stop the machine: **_Gas_**. A machine running on gas can't move endlessly without enough gas. That's exactly what's happening with Ethereum's smart contracts. Gas, which is a sub-unit of the *Ether* currency, is consumed with each operation.
+
+Gas consumption isn't the same for all operations, because certain operations are more complex than others.
 
 ## What have we learned so far?
-In this chapter, we briefly described 10 consensuses that can be used for public blockchains. There are many other consensus algorithms.
+In this chapter, we learned what are "*Smart Contracts*", what are the limiting factors of Bitcoin's smart contracts, and how "*Gas*" was introduced to lift them.
 
-In the next chapter "_Smart Contracts_", we'll define what they are, what are some of the Bitcoin's limitations in that matter, and how Ethereum first proposed to lift those limitations.
+This chapter concludes the "*Blockchain Basics*" module. The next chapter will then be the "*Blockchain Basics*" MCQ.
 
 ## References
 [1] https://en.bitcoin.it/wiki/Script
@@ -69,8 +89,10 @@ In the next chapter "_Smart Contracts_", we'll define what they are, what are so
 
 [4] https://en.bitcoin.it/wiki/Transaction#Pay-to-PubkeyHash
 
-[] https://en.wikipedia.org/wiki/Nick_Szabo
+[5] https://ethereum.org/en/developers/docs/evm/
 
-[] [Nick Szabo: *Smart Contracts: Building Blocks for Digital Markets*](https://www.fon.hum.uva.nl/rob/Courses/InformationInSpeech/CDROM/Literature/LOTwinterschool2006/szabo.best.vwh.net/smart_contracts_2.html)
+[6] https://en.bitcoin.it/wiki/UTXO
 
-[] [Nick Szabo: *The Idea of Smart Contracts*](https://www.fon.hum.uva.nl/rob/Courses/InformationInSpeech/CDROM/Literature/LOTwinterschool2006/szabo.best.vwh.net/smart_contracts_idea.html)
+[7] https://en.wikipedia.org/wiki/Nick_Szabo
+
+[8] [Nick Szabo: *Smart Contracts: Building Blocks for Digital Markets*](https://www.fon.hum.uva.nl/rob/Courses/InformationInSpeech/CDROM/Literature/LOTwinterschool2006/szabo.best.vwh.net/smart_contracts_2.html)
