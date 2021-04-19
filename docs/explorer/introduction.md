@@ -3,22 +3,27 @@ id: introduction
 title: Introduction
 ---
 
+Accessing the blockchain data can be done through a Tezos Node. 
+However, the retrieved data will be raw; it can quickly become useful to reorganize those data.
+It can be done with **explorers** and **indexers**.
+
 This module will explain the notion of blockchain **explorer** and **indexer**, 
 then see how it works and finally how to use it.
 
 ## What is a blockchain explorer ?
 
-A blockchain explorer, also known as a block explorer, is a website for tracking activity on the blockchain. 
+A blockchain explorer, also known as a block explorer, is a service for tracking activity on the blockchain. 
 All transactions ever performed on a network can be viewed using this tool.
 
 Blockchain explorers are like blockchain search engines. 
-Cryptocurrency users and developer depend on this tool to view the status of past and present transactions. 
+Cryptocurrency users and developers depend on this tool to view the status of past and present transactions. 
 Some of the most basic information available on blockchain explorers include, but are not limited to:
 
-- **Block feeds**: This allows you to view all the latest mined and pending blocks on the blockchain.
-- **Transaction feeds**: The transaction feed displays all of the most recent and upcoming transactions.
+- **Block feeds**: all the latest mined and pending blocks on the blockchain.
+- **Transaction feeds**: The transaction feed displays the most recent and upcoming transactions.
 - **Sending and receiving** addresses: Each transaction can be viewed individually to reveal the public addresses of the sending and receiving parties.
 - **Transaction history**: All past and present transactions of an individual wallet address can also be viewed on the explorer.
+- **Smart contracts**: All calls to the smart contract (entrypoint inputs, storage modifications), actual storage
 
 ### Blockchain explorer use cases
 
@@ -33,11 +38,11 @@ Also DApp developers need debugging tools and
 visibility into the current and 
 past state of their contracts who run on internal testnets and on mainnet.
 
-Then there's bakers and staking services who need reliable data about delegation and 
+Then there are bakers and staking services who need reliable data about delegation and 
 earnings history for calculating correct payouts and 
 also reliably planning their bond pools and operations.
 
-Then there's less technical user groups like auditors and 
+Finally, there are less technical user groups like auditors and 
 regulators with strict requirements on data quality and 
 the need to access a trusted copy of the full on-chain history 
 in a format that's easy to digest for their spreadsheets and compliance tools.
@@ -54,13 +59,13 @@ For example, getting operations by hash, or getting all operations of a particul
 
 ### When to use an indexer ?
 
-- Use the node RPC to access transactions and context data when:
-    - you need **trusted** data and **signatures**.
-    - you'r risk profile requires a lower number of moving parts and 
+- a RPC Tezos node can be used to access transactions and context data when:
+    - **trusted** data and **signatures** are required.
+    - your risk profile requires a lower number of moving parts and 
       less potential sources of errors (node may be audited, indexer may be not).
     - trust outweighs performance.
 
-- Use an indexer when you need:
+- an indexer is used for:
     - **bulk access** to current and historic state (large tables, time-series).
     - account, transaction, block lists with **filter capabilities** 
       (eg. all transactions in the past day with volume > N tez, all accounts with balance > N tez).
