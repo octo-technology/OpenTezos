@@ -8,14 +8,5 @@
   "slug": "/dapp/exam",
   "permalink": "/dapp/exam",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/dapp/exam.md",
-  "version": "current",
-  "sidebar": "docs",
-  "previous": {
-    "title": "introduction",
-    "permalink": "/dapp/introduction"
-  },
-  "next": {
-    "title": "Introduction",
-    "permalink": "/baking"
-  }
+  "version": "current"
 }
