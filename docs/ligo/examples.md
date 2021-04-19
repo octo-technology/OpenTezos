@@ -88,6 +88,7 @@ function main (const action : parameter; const store : storage): return is
 
 ## Option
 
+//TODO In the code below , we can notice that the _weapons_ variable is defined as a mapping between the name of each weapon and its corresponding input of power.
 Notice the weapons mapping which maps the name of each weapon to its corresponding input of power. 
 We want to increase the power of the Main Laser but mapping returns optional results as they might not be found in the mapping. 
 So we define the constant `main_laser_power` as an optional `int` from selecting "Main Laser" from the weapons mapping.

@@ -68,10 +68,10 @@ errors will be found early and will more easily addressed.
 > - ligo compilation
  
 A Michelson smart contract can be broken down into three parts:
-1. a storage: persistent data structure, on chain. 
+1. a **storage**: persistent data structure, on chain. 
    It can be read by everyone, but can only be changed by the contract itself.
-2. entrypoints: possible invocations of the smart contract
-3. code: a sequence of instructions to be executed when invoking the smart contract
+2. **entrypoints**: possible invocations of the smart contract
+3. **code**: a sequence of instructions to be executed when invoking the smart contract
 
 These three pieces of information must also be defined in the Ligo code, in order to compile.
 
@@ -90,7 +90,8 @@ LIGO types are built on top of Michelson's type system.
 
 ### Built-in types
 
-LIGO comes with all basic types built-in like string, int or tez for account balance or monetary transactions.
+LIGO comes with all basic primitive types built-in like `string` or `int` and with a contract-specific type `address` or `tez` for account balance or monetary transactions.
+LIGO also introduces composite types like `option`, `list` or `map` allowing to create complex data structures.
 You can find all built-in types on the [LIGO gitlab](https://gitlab.com/ligolang/ligo/-/tree/dev#L35).
 
 Below is a table of the most used built-in types. Most of them will be used in the raffle smart contract:
@@ -123,6 +124,9 @@ this will allow us to communicate our intent with added clarity.
 type breed is string
 const dog_breed : breed = "Saluki"
 ```
+
+//TODO composite type for complex data structures
+
 ### Constants & Variables
 
 #### Constants
@@ -150,7 +154,7 @@ c := c - 3
 
 
 ### Introduction to function
-Just as any other language, functions can be defined in Ligo
+Just as any other language, functions can be defined in Ligo.
 There several ways to define a function, but the header is always the same:
 ```js
 function <functionName> (const param1 : <param2Type>, const param2 : <param2Type>...): <returnType> is
@@ -158,7 +162,7 @@ function <functionName> (const param1 : <param2Type>, const param2 : <param2Type
 ```
 
 Functions will be detailed below. At this point, since this main function does nothing,
-it will be a blockless function definition
+it will be a blockless function definition.
 
 ### Main function
 A main function takes two parameters,
@@ -283,8 +287,9 @@ Each one of these actions can be coded into an entrypoint.
 ## LIGO prerequisites
 
 ### Records
+//TODO: The `record` type is a structure that holds a set of named fields.
 The `record` type is a structure that holds a set of key/data pairs.
-It is extremely useful for the storage definition and for any object that should hold different types of informations.
+It is extremely useful for the storage definition and for any object that should hold different types of information.
 
 #### Defining records
 
@@ -328,7 +333,7 @@ You can modify values in a record as follows:
 const rogersNotAdmin : user = u with record [is_admin = False]
 ```
 
-After this update, the pieces of information held by the rogers record are:
+After this update, the pieces of information held by the _rogers_ record are:
 - id: 1n
 - is_admin: false
 - name: "Rogers"
@@ -342,6 +347,7 @@ function change_name (const u : user) : user is
   } with u
 ```
 
+//TODO
 ⚠️ Note that user has not been changed by the function.
 Rather, the function returned a nameless new version of it with the modified name.
 
