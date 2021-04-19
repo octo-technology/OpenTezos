@@ -402,16 +402,19 @@ captain_full_name.1 := "Carter"
 ### Functions in ligo
 
 LIGO functions are the basic building block of contracts.
-Each entrypoint of a contract is a function
-and each smart contract must have at least one function named main
+Each entrypoint of a contract executes a function
+and each smart contract must have at least one **main** function 
 that dispatches the control flow to other functions.
 
+//TODO pas sur que ca fasse une copie des variables (enfin je sais pas comment fonctionne la gestion du scope de la fonction), ... 
 When calling a function,
-LIGO makes a copy of the arguments but also the environment variables.
+LIGO makes a copy of the arguments but also of the environment variables.
+
+//TODO modification ?? tu parles de création de nouvelle variable ? qu'elles ne seront pas prise en compte sauf si elles modifient le storage ?
 Therefore, any modification to these will not be reflected outside the scope of the function
 and will be lost if not explicitly returned by the function.
 
-There are 2 types of functions in PascaLIGO, Block Functions and Blockless Functions:
+There are two syntaxes for functions in PascaLIGO, Block Functions and Blockless Functions:
 
 #### Block functions
 
@@ -532,7 +535,7 @@ const open_switch : coin = Zero
 
 #### Pattern Matching
 
-Pattern matching is similar to the switch construct in Javascript,
+Pattern matching is similar to the `switch` construct in Javascript,
 and can be used to route the program's control flow based on the value of a variant.
 Consider for example the definition of a power switch that turn on/off a light.
 
@@ -568,7 +571,7 @@ else skip;
 
 ### Failwith
 
-The keyword failwith throws an exception and stop the execution of the smart contract.
+The keyword `failwith` throws an exception and stop the execution of the smart contract.
 
 ```js
 failwith(<string_message>)
@@ -590,7 +593,7 @@ const one_day_later : timestamp = some_date + one_day
 ### Addresses
 
 Addresses are very likely to be used in any smart contract.
-You can define Tezos addresses by casting a string to an address type:
+You can define Tezos addresses by casting a `string` value to an `address` type:
 
 ```js
 const my_account : address = ("tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx" : address)
@@ -602,7 +605,7 @@ const my_account : address = ("tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx" : address)
 ### Tezos Module
 
 The Tezos module is a set of LIGO instructions, that query the state of the Tezos blockchain.
-It is useful when the smart contract needs to know is calling an entrypoint, if enough funds are sent...
+It is useful when the smart contract needs to know who is calling an entrypoint, if enough funds have been transferred...
 
 - `Tezos.balance`: Get the balance for the contract.
 - `Tezos.amount`: Get the amount of tez provided by the sender to complete this transaction.
@@ -615,8 +618,12 @@ It is useful when the smart contract needs to know is calling an entrypoint, if 
 - `Tezos.chain_id`: Get the identifier of the chain to distinguish between main and test chains.
 
 
-
 ## Modifying the storage
+
+//TODO une phrase d'intro serait bien !! ... Now that we have seen the basics of Pascaligo syntax, let's illustrates all this with the Raffle example.
+
+//TODO first action ??? (j'ai besoin de plus de context pour comprendre de quoi tu parles !)
+
 Before coding the logic of the first action, the storage has to be modified.
 The contract needs an **administrator**: he will launch a raffle session, with a **description**.
 When the raffle is **opened**, it should be clearly noted in the storage.
@@ -640,7 +647,7 @@ For each piece of information, the corresponding type is:
 
 So far, the storage was empty, thanks to the `unit` type. 
 The storage now needs to hold five pieces of information, of different types. 
-Several values can be held in a map, but they must have the same type. Besides, map are not meant to keep the same number of elements.
+Several values can be held in a `map`, but they must have the same type. Besides, `map` are not meant to keep the same number of elements.
 
 The correct way to define a storage is to use the `record` type.
 
@@ -684,6 +691,11 @@ function main (const action : raffleEntrypoints; const store : storage):  list (
 
 ```
 
+//TODO Notice that the contract **parameter** (_raffleEntrypoints_ variant) is requiring no parameter (`unit`).For now, this smart contract has only a single default entrypoint with no argument. 
+//TODO: Notice that the _storage_ type is used as the second parameter of the _main_ function. 
+
+
+
 The smart contract now looks like (and is compiling):
 ```js
 type raffleEntrypoints is OpenRaffle of unit
@@ -704,6 +716,7 @@ function main (const action : raffleEntrypoints; const store : storage): returnT
     end;
 
 ```
+//TODO Despite the definition of a more complex storage, the execution of the smart contract still does nothing. The smart contract should at least modify his storage.
 However, the output Michelson code is still the same and still does nothing. The smart contract should at least expect some parameters.
 
 
