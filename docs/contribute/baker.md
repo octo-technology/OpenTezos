@@ -24,7 +24,7 @@ Delegation in Tezos is absolutely safe! Your funds are not locked or frozen and 
 In short, delegation is much better for an average user. Yes, Tezos bakers get slightly more staking rewards, because they don’t pay the fee (but charge fee), but also, they pay for hosting, they spend time maintaining a node and moreover they have a risk of losing money on double baking (e.g. if the node was configured incorrectly). Thus, for an average user delegation is the most preferred and safe way to participate in Tezos staking.
 
 ## How to delegate?
-Most wallet (e.g. [Atomex](https://atomex.me/), [Exodus](https://www.exodus.com/)) offers built-in delegation, making the whole process very simple. Just open the wallet, select your XTZ balance, click delegate and choose a baker from the list. 
+Most wallet (e.g. [Atomex](https://atomex.me/), [Exodus](https://www.exodus.com/), etc.) offer built-in delegation, making the whole process very simple. Just open the wallet, select your XTZ balance, click delegate and choose a baker from the list. 
 
 ![](../../static/img/contribute/delegate.gif)
 <small className="figure">FIGURE 1: Delegating your XTZ on _Atomex_.</small>
