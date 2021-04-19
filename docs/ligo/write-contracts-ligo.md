@@ -7,23 +7,23 @@ import NotificationBar from '../../src/components/docs/NotificationBar';
 
 The language of smart contracts is Michelson, a stack-based language. 
 However, this kind of language is not commonly used by developers. 
-Besides, the more smart contract grows, the more tedious it becomes to keep the code readable and clean.
+Besides, the more a smart contract grows, the more tedious it becomes to keep the code readable and clean.
 As a result, it can deter many developers from trying to develop smart contracts for the Tezos Blockchain.
-Hopefully, some high-level languages have been developed, in order to make it easier for developers to write smart contracts for the the Tezos Blockchain.
-LIGO is one of theses languages.
+Luckily, some high-level languages have been developed, to make it easier for developers to write smart contracts on the Tezos Blockchain.
+LIGO is one of these languages.
 
 
-In this chapter, Pascaligo will be taught, throughout the development of a raffle smart contract.
-The most important aspects of Ligo will be covered, however it is not a full reference.
+In this chapter, Pascaligo will be taught, based on the development of a raffle smart contract.
+The most important aspects of Ligo will be covered, however, it is not a full development reference.
 This chapter focuses on the way to develop a smart contract, each step introducing a new notion of the language.
 For a full reference of the ligo language, see:
 1. [Official Ligolang documentation](https://ligolang.org/docs/intro/introduction)
 2. [Tezos academy](https://tezosacademy.io/)
 
-If you are interested to learn LIGO syntax from scratch, the best is to start with some of the Tezos academy courses (the first 10 chapters are a good start).
+If you are interested to learn the LIGO syntax from scratch, the best way is to start with some of the Tezos academy courses (the first 10 chapters are a good start).
 This chapter is driven by a smart contract development approach. 
 Every LIGO syntax needed for the example is explained in the LIGO prerequisite sections. 
-Then, these LIGO notion will be used in the smart contract development.
+Then, these LIGO notions will be used in the development of the smart contract.
 
 If you are already familiar with Pascaligo, you can skip all the "LIGO prerequisite" parts.
 
@@ -44,7 +44,7 @@ After a given time, defined at the beginning of the raffle, the administrator cl
 This raffle can be divided into 3 steps:
 1. a raffle is opened, with a reward, for a given time
 2. during the raffle time, anyone can buy a raffle ticket.
-3. the raffle is closed, the winner is randomly picked and rewarded with the prize.
+3. the raffle is closed, the winner is randomly selected and rewarded with the prize.
 
 Only one raffle session can be ongoing.
 
@@ -52,12 +52,12 @@ Only one raffle session can be ongoing.
 
 # Prerequisites for smart contracts development
 When developing smart contracts, two tools are extremely useful:
-1. Ligo syntax support for your IDE
-2. ligo compiler
+1. a Ligo syntax support for your IDE
+2. a ligo compiler
 
 These two tools will point out syntax errors and type errors. 
 It is recommended to compile a ligo smart contract as often as possible: 
-errors will be found early and will more easily addressed.
+errors will be found early and will more easily be addressed.
 
 # Smart contract initialization
 > LIGO prerequisites in this part: everything that is required to create an empty smart contract.
@@ -68,15 +68,15 @@ errors will be found early and will more easily addressed.
 > - ligo compilation
  
 A Michelson smart contract can be broken down into three parts:
-1. a storage: persistent data structure, on chain. 
+1. a storage: persistent data structure, on-chain. 
    It can be read by everyone, but can only be changed by the contract itself.
 2. entrypoints: possible invocations of the smart contract
-3. code: a sequence of instructions to be executed when invoking the smart contract
+3. code: a sequence of instructions to be executed when invoking a smart contract
 
 These three pieces of information must also be defined in the Ligo code, in order to compile.
 
 The first step is to create a .ligo file. It can be named anything.
-Let's create a raffle.ligo file, which would compile to the minimum viable contract.
+Let's create a file called raffle.ligo, which would compile a 'minimum' but viable contract.
 
 
 ## Ligo Prerequisites
@@ -127,8 +127,8 @@ const dog_breed : breed = "Saluki"
 
 #### Constants
 
-Constants are immutable by design, which means their values cannot be reassigned.
-Put in another way, they can be assigned once, at their declaration.
+Constants are by design immutable, which means their values cannot be reassigned.
+Put in another way, they can only be assigned once, at their declaration.
 When defining a constant you need to provide a name, type and a value:
 
 ```js
@@ -151,14 +151,14 @@ c := c - 3
 
 ### Introduction to function
 Just as any other language, functions can be defined in Ligo
-There several ways to define a function, but the header is always the same:
+There are several ways to define a function, but the header is always the same:
 ```js
 function <functionName> (const param1 : <param2Type>, const param2 : <param2Type>...): <returnType> is
     <code>
 ```
 
 Functions will be detailed below. At this point, since this main function does nothing,
-it will be a blockless function definition
+it will use a blockless function definition
 
 ### Main function
 A main function takes two parameters,
@@ -173,7 +173,7 @@ and returns a pair made of a **list of operations** and a **(new) storage**.
 <br/>
 
 The type of the contract parameter and the storage are up to the contract designer,
-but the type for list operations is not.
+but the type for the list operations is not.
 
 The return type of a main function is as follows,
 assuming that the type `storage` has been defined elsewhere.
@@ -213,7 +213,7 @@ It is recommended to run this command as often as possible, to check both code s
 ## Storage definition
 
 The first step is to define the storage.
-A contract storage holds the contract data: it can be a single value, or a complex structure.
+Contract storage holds the contract data: it can be a single value or a complex structure.
 The storage definition is a `type` instruction. First, the storage will be as simple as possible: empty
 
 ```js
@@ -221,8 +221,8 @@ type storage is unit
 ```
 
 ## Parameter definition
-A smart contracts generally have one or several entrypoints, but it is not mandatory.
-At this point, the parameter definition will be skipped. They will be defined later in this chapter.
+Smart contracts generally have one or several entrypoints, but it is not mandatory.
+At this point, the parameter definition will be skipped. They will be defined later on, in this chapter.
 To define a smart contract without any entrypoint:
 ```js
 type raffleEntrypoints is unit
@@ -276,7 +276,7 @@ there is no storage, no entrypoint, and the smart contract returns an empty list
 As detailed in the [Raffle smart contract](#raffle-smart-contract) section, 
 the smart contract should perform three actions:
 1. launch a raffle
-2. buy a ticket
+2. sell tickets
 3. close the raffle, and reward the winner
 
 Each one of these actions can be coded into an entrypoint.
@@ -299,7 +299,7 @@ type user is
   ]
 ```
 
-The number and type of fields is defined at the record definition. It cannot be changed afterwards.
+The number and type of fields are defined at the record definition. It cannot be changed afterwards.
 
 And here is how to define an associated record value:
 
@@ -342,7 +342,7 @@ function change_name (const u : user) : user is
   } with u
 ```
 
-⚠️ Note that user has not been changed by the function.
+⚠️ Note that the user has not been changed by the function.
 Rather, the function returned a nameless new version of it with the modified name.
 
 ### Tuples
@@ -360,7 +360,7 @@ type full_name is (string * string)
 const captain_full_name : full_name = ("Roger", "Johnson")
 ```
 
-> Note that you are not force to give them names by type aliasing,
+> Note that you are not forced to give them names by type aliasing,
 > and you could have done that instead:
 > ```js
 > const captain_full_name : (string * string) = ("Roger", "Johnson")
@@ -491,7 +491,7 @@ recursive function sum (const n : int; const acc: int) : int is
 
 In LIGO, the design pattern is to have one main function called `main`,
 that dispatches the control flow according to its parameter.
-Those functions called for those actions are called entrypoints.
+The functions called for by those actions are called entrypoints.
 
 As an analogy, in the C programming language,
 the `main` function is the unique main function and any function called from it would be an entrypoint.
@@ -534,7 +534,7 @@ function power_switch (const b : bit) : bit is
 
 ### If condition
 
-Conditional logic enables forking the control flow depending on the state.
+Conditional logic enables to _fork_ the control flow depending on the state.
 
 ```js
 function isSmall (const n : nat) : bool is
@@ -588,14 +588,14 @@ const my_account : address = ("tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx" : address)
 ### Tezos Module
 
 The Tezos module is a set of LIGO instructions, that query the state of the Tezos blockchain.
-It is useful when the smart contract needs to know is calling an entrypoint, if enough funds are sent...
+It is useful when the smart contract needs to know when calling an entrypoint, if enough funds are sent...
 
 - `Tezos.balance`: Get the balance for the contract.
 - `Tezos.amount`: Get the amount of tez provided by the sender to complete this transaction.
 - `Tezos.sender`: Get the address that initiated the current transaction.
 - `Tezos.self_address`: Get the address of the currently running contract.
 - `Tezos.source`: Get the originator (address) of the current transaction.
-  That is, if a chain of transactions led to the current execution get the address that began the chain.
+  That is, if a chain of transactions, led to an execution, you get the address that began the chain.
   Not to be confused with Tezos.sender,
   which gives the address of the contract or user which directly caused the current transaction.
 - `Tezos.chain_id`: Get the identifier of the chain to distinguish between main and test chains.
@@ -604,29 +604,29 @@ It is useful when the smart contract needs to know is calling an entrypoint, if 
 
 ## Modifying the storage
 Before coding the logic of the first action, the storage has to be modified.
-The contract needs an **administrator**: he will launch a raffle session, with a **description**.
+The contract needs an **administrator**: that will launch a raffle session, with a **description**.
 When the raffle is **opened**, it should be clearly noted in the storage.
 This raffle will need a **reward** and will be ongoing for a given **time**.
 
 So, 5 pieces of information are needed:
 - the raffle administrator
 - a description about the raffle
-- is the raffle opened ?
+- is the raffle opened?
 - the reward in tz
 - the raffle end date.
 
-> What would the types for each piece of information ?
+> What would be the types for each piece of information?
 
 For each piece of information, the corresponding type is:
 - raffle administrator: address
 - raffle description: string
-- raffle opened ? : boolean
+- raffle opened? : boolean
 - reward: tez
 - raffle end date: timestamp
 
 So far, the storage was empty, thanks to the `unit` type. 
 The storage now needs to hold five pieces of information, of different types. 
-Several values can be held in a map, but they must have the same type. Besides, map are not meant to keep the same number of elements.
+Several values can be held in a map, but they must be of the same type. Besides, map are not meant to keep the same number of elements.
 
 The correct way to define a storage is to use the `record` type.
 
@@ -648,7 +648,7 @@ The contract has to provide the users with a way of creating a raffle session.
 To do that, it needs an entrypoint that perform such an action: 
 this new entrypoint should be named "OpenRaffle" and would allow the administrator to open a raffle.
 
-So far, there is no entrypoint in this smart contract:
+So far, there is no entrypoint into this smart contract:
 
 ```js
 type raffleEntrypoints is unit
@@ -736,7 +736,7 @@ function main (const action : raffleEntrypoints; const store : storage): returnT
 
 ```
 
-It output a Michelson code which does nothing, but there is slight change in the parameter section:
+It output a Michelson code, which does nothing, but there is slight change in the parameter section:
 ```
 { parameter (pair (pair mutez timestamp) (option string)) ;
   storage int ;
@@ -842,7 +842,7 @@ For this entrypoint, the only thing to do is to store the pieces of information 
 the reward, the closing date, the raffle description. 
 In addition, the storage should indicate that there is an ongoing raffle.
 The storage needs to be updated with these pieces of information. 
-Take a look at the description is added to the storage (it is an `option`).
+Take a look at the description that is added to the storage (it is an `option`).
 
 
 ```js
@@ -887,7 +887,7 @@ function open_raffle (const jackpot_amount : tez; const close_date : timestamp; 
 > - the storage is used and updated in an entrypoint
 
 
-# Smart Contract development : Buy ticket entrypoint
+# Smart Contract development: Buy ticket entrypoint
 > LIGO prerequisites in this part: you will learn how to use collections with this second entrypoint.
 > It will also be the opportunity for you to use again functions and performs checks
 
@@ -896,7 +896,7 @@ The second entrypoint is open to everyone who wants to buy a ticket.
 In this use case, each address can only buy one ticket, which costs 1 tz.
 
 Two additional pieces of information have to be kept:
-1. who is taking part to the raffle
+1. who is taking part in the raffle
 2. who is owning a ticket
 
 The storage has to be modified. Collections are going to come in handy for the modification of the storage
@@ -985,7 +985,7 @@ const smaller_set : set (int) = Set.remove (3, my_set)
 
 ### Maps
 
-Maps are a data structure which associate values of the same type to values of the same type.
+Maps are a data structure that associate values of the same type to values of the same type.
 The former are called key and, the latter values.
 Together they make up a binding.
 An additional requirement is that the type of the keys must be comparable,
@@ -1036,16 +1036,16 @@ remove "tim" from map user_balances
 
 
 ## Modifying the storage
-The new two pieces of information will be stored into the contract storage.
+The new two pieces of information will be stored in the contract storage.
 
 > What collection should be used for:
-> 1. the participants (who can only buy one ticket) ?
-> 2. the tickets and their owner ?
+> 1. the participants (who can only buy one ticket)?
+> 2. the tickets and their owner?
 
 For the first point, two collections could be used: a list and a set. 
 Since the participants can only buy one ticket, a set is the right choice (since each element cannot appear twice).
 
-For the second point, each ticket should be mapped to their owner. The number of participants is not limited:
+For the second point, each ticket should be mapped to its owner. The number of participants is not limited:
 there might be millions of them. So, a big map seems the right choice.
 
 The set of participants should a set of addresses, while the big map should map a ticket id (a nat) to an address.
@@ -1067,7 +1067,7 @@ type storage is record [
 The smart contract needs to expose another entrypoint. 
 The method is the same that has been detailed for the first entrypoint:
 
-1. Defining the type parameter. This type should be unit, since the buyer does not get to choose the ticket id:
+1. Defining the type parameter. This type should be a unit, since the buyer does not get to choose the ticket id:
 ```js
 type buyTicketParameter is unit
 ```
@@ -1100,8 +1100,8 @@ Just as for the first entrypoint, this logic will be implemented in a function, 
 ```
 
 Two pieces of information have to be checked:
-1. is the buyer sending enough funds ?
-2. has the buyer not already bought a ticket ?
+1. is the buyer sending enough funds?
+2. has the buyer not already bought a ticket?
 
 For the first point, this is the same check that is done for the first entrypoint.
 Checking if an address is calling the entrypoint for the first time (= a buyer cannot buy more than one ticket) means
@@ -1128,7 +1128,7 @@ function buy_ticket (const param: unit; const store : storage) : returnType is
 
 Once these two checks have been performed, the buyer can receive a ticket. To do that, the entrypoint needs to:
 1. register the address as a participant: the address must be added into the players set from the storage.
-2. create a ticket id. Since each participant can only buy ticket, the size of the players set give the new ticket id.
+2. create a ticket id. Since each participant can only buy a ticket, the size of the players set gives the new ticket id.
 3. associate the ticket with its owner: the new ticket id will map to the buyer in the sold_tickets big_map.
 
 These three steps use the methods described in the collections section.
@@ -1237,7 +1237,7 @@ block {
 } with return
 ```
 
-# Smart Contract development : Close Raffle Entrypoint
+# Smart Contract development: Close Raffle Entrypoint
 > LIGO prerequisites in this part: you will learn how to use transactions, be warned about some limitations of the language
 > and manipulate a little more collections.
 > In addition, this entrypoint sums up a lof of what has been done before:
@@ -1247,21 +1247,21 @@ block {
 The last step is to close the raffle, pick a winner and send him the reward.
 This last entrypoint will show how to send a transaction from the contract and some collections manipulations
 
-5 steps are expected:
+5 steps are required:
 1. Check that the calling address is the administrator
-2. Check that the closing date has been reached, and the raffle is still open
+2. Check that the closing date has been reached, and that the raffle is still open
 3. Pick a winner
 4. Send the reward to the winner
 5. Reset the storage
 
 New pieces of information won't be stored: the storage is not expected to be modified. 
-However, the third step raises a problem: how should be the winner picked ?
+However, the third step raises a problem: how should the winner be picked ?
 1. the administrator chooses the winner when calling this entrypoint: 
    participants are likely not to buy a ticket since the administrator can choose himself as a winner
-2. the winner is randomly choose when calling this entrypoint
+2. the winner is randomly choosen when calling this entrypoint
 3. the winner is chosen at the beginning by the administrator, but this piece of information is only revealed at the end of the raffle.
 
-## LIGO prequisites: Transactions
+## LIGO prerequisites: Transactions
 
 You can transfer tez to an account, or to a function of another smart contract.
 For this, use :
@@ -1276,19 +1276,19 @@ where :
   or use `unit` if you are transferring to a wallet address,
 - **mutez** is the amount to transfer,
 - **contract** is the contract interface of the targeted contract.
-  It can be retrieved from address of the other contract or the wallet.
+  It can be retrieved from the address of the other contract or the wallet.
 
 ## About randomness in smart contracts
 The second option is not easily implemented in smart contracts. In any classical programming language (Python, C, Java...),
 a **random** function is directly usable from the standard API. With smart contracts, it is not possible.
 
 Indeed, each smart contract execution has to be verified by any node in the network. 
-However, how could this execution be verified if there is a random variable (that would change every time) ?
+However, how could this execution be verified if there is a random variable (that would change every time)?
 
 It might seem to be a good idea to use blockchain events (transaction hash, block timestamp...) as source of randomness.
 However, in the end, bakers which create blocks could use this to their advantage.
 
-The only solution seems to use an external source of randomness, or a secure cryptographic scheme. 
+The only solution seems to use an external source of randomness or a secure cryptographic scheme. 
 This topic goes well beyond this course. 
 For educational purpose, we will at first hardcode a ticket id winner. 
 Then, the smart contract will be refactored, using the Bytes and Crypto modules.
@@ -1330,7 +1330,7 @@ Let's create an empty function for this entrypoint:
 ```
 
 There is a slight difference with this entrypoint function: it has to return an operation.
-As a result, the list of operations won't be empty, and will be filled with one operation from within the function block.
+As a result, the list of operations won't be empty and will be filled with one operation from within the function block.
 
 
 The usual checks have to be implemented:
@@ -1339,10 +1339,10 @@ The usual checks have to be implemented:
 3. the raffle must be open
 
 The winner will be picked thanks to a hardcoded value. 
-However, even if there is only two participants, the raffle must have a winner.
+However, even if there are only two participants, the raffle must have a winner.
 So, the number of participants must be known, so that the winning id does match an id ticket. For this, a modulo will be used:
 `hardcoded_number mod number_of_participants`
-Of course, LIGO offers all the arithmetic operations (addition, substraction, multiplication, division, mod). It won't be detailed here, since it exactly the same as other languages.
+Of course, LIGO offers all the arithmetic operations (addition, subtraction, multiplication, division, mod). It won't be detailed here, since it exactly the same as other languages.
 
 ```js
 function close_raffle (const param : unit; const store : storage) : returnType is
@@ -1394,7 +1394,7 @@ function close_raffle (const param : unit; const store : storage) : returnType i
   } with (operations, store)
 ```
 
-The winner has been found, it has now to be rewarded. 
+The winner has been found and now has to be rewarded. 
 First, we need to check that this address does exist, then create a transaction which will be added to the operations list:
 
 ```js
@@ -1481,7 +1481,7 @@ function close_raffle (const param : unit; const store : storage) : returnType i
 
 # Smart contract refactoring
 Just as any other project, smart contracts will need refactoring during their development.
-In this part, we will refactor the way the winner is chosen. 
+In this part, we will see how to refactor the way the winner is chosen. 
 
 Everyone, by reading the code, knows that the winning ticket is `407 mod Set.size(store.players)`.
 By tampering with the number of bought tickets, it is easy for everyone to get the winning ticket. 
@@ -1496,21 +1496,21 @@ The `Bytes` module handles binary format for serialization:
 convert Michelson structures to a binary format (and the reverse), concatenate two bytes... 
 You can find a full reference [here](https://ligolang.org/docs/reference/bytes-reference/)
 
-The `Crypto` module perform a few basic operations: hashing and signature verification.
+The `Crypto` module performs a few basic operations: hashing and signature verification.
 You can find a full reference [here](https://ligolang.org/docs/reference/crypto-reference).
 
 ## Winner selection scheme
 
-1. The administrator will choose a large random number, and keeps it to himself. 
+1. The administrator will choose a large random number and keeps it to himself. 
 2. He hashes it and sends the hash when calling the OpenRaffle entrypoint.
 3. This hash is saved into the storage.
-4. The administrator reveals his secret random large number, when calling the CloseRaffle entrypoint.
+4. The administrator reveals his secret random large number when calling the CloseRaffle entrypoint.
 5. The smart contract hashes this number and checks that it matches the storage hash.
 If it does, it uses this number to pick the winner just as before.
    
 As warned above, this method is still rife with loopholes: 
-- the administrator knows the secret number and can tamper with the number of bought ticket into order get the winning one
-- everyone can try to bruteforce the hash in order to find what number yielded this hash. This method just makes it a little harder to guess the number.
+- the administrator knows the secret number and can tamper with the number of bought tickets in order to get the winning one
+- everyone can try to bruteforce the hash in order to find what number yielded this hash. But this method just makes it a little harder to guess the number.
 
 
 ## Refactoring the OpenRaffle entrypoint
@@ -1532,7 +1532,7 @@ type storage is record [
     winning_ticket_number_hash : bytes;
 ]
 ```
-2. Adding the new input in the openRaffleParameter. The type bytes is added in the tuple:
+2. Adding the new input in the openRaffleParameter. The type bytes are added in the tuple:
 ```js
 type openRaffleParameter is tez * timestamp * option(string) * bytes
 ```
@@ -1739,20 +1739,20 @@ block {
 
 # Conclusion
 
-Ligo is meant for smart contract development and always yield Michelson code.
+Ligo is meant for smart contract development and always yields a Michelson code.
 The method for developing such smart contracts is pretty much always the same, 
-and follows an order very close to the smart contract structure in Michelson:
+and follows an order very close to the Michelson smart contract structure:
 1. the parameter (or entrypoints): the entrypoints are defined into a variant, a type is defined for the input entrypoints, 
 2. the storage: the storage is defined as a type. Usually, it is a record.
 3. the code: the main function dispatches the actions with a pattern matching. The logic for each entrypoint is implemented in a function
 
 There has to be a *main* function, which dispatches the actions of the smart contract.
 
-LIGO syntax was designed to help developers to build smart contracts by providing them with a syntax they are familiar with:
-the main difference with other languages is the way the code is built, and few technical limitations due to the blockchain particularities (randomness for instance).
+LIGO syntax was designed to help developers to build smart contracts by providing them with a syntax familiar to them, with:
+the main difference from other languages been the way the code is built, and a few technical limitations due to the particularities of blockchain (randomness for instance).
 
 LIGO is only a part of the tools that make the smart contract development experience easier for developers.
-Another part is unit testing, and will be introduced later in this module.
+Another part is unit testing, and it will be introduced later in this module.
 
 
 
