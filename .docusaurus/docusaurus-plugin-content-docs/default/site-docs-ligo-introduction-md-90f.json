@@ -3,7 +3,7 @@
   "id": "ligo/introduction",
   "isDocsHomePage": false,
   "title": "Introduction",
-  "description": "The goal of this module is to allow developers to install a LIGO transpiler on their operating system",
+  "description": "Tezos smart contracts are written in Michelson, which is a stack-based language.",
   "source": "@site/docs/ligo/introduction.md",
   "slug": "/ligo",
   "permalink": "/ligo",

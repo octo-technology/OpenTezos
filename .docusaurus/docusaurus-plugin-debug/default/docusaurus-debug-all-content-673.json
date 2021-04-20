@@ -168,6 +168,10 @@
                   {
                     "type": "doc",
                     "id": "ligo/take-away"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "ligo/contracts-ligo"
                   }
                 ]
               },
@@ -221,7 +225,7 @@
                   },
                   {
                     "type": "doc",
-                    "id": "dapp/exam"
+                    "id": "dapp/truffle_compilation_migration"
                   }
                 ]
               },
@@ -383,8 +387,8 @@
             "/contribute/opentezos": "docs",
             "/contribute/report-issue": "docs",
             "/contribute/tezos-core": "docs",
-            "/dapp/exam": "docs",
-            "/dapp/introduction": "docs",
+            "/dapp": "docs",
+            "/dapp/truffle_compilation_migration": "docs",
             "/defi/cross-chain-swaps": "docs",
             "/defi/dexs": "docs",
             "/defi/exam": "docs",
@@ -401,6 +405,7 @@
             "/explorer": "docs",
             "/formal-verification/exam": "docs",
             "/formal-verification": "docs",
+            "/ligo/contracts-ligo": "docs",
             "/ligo/deploy-a-contract": "docs",
             "/ligo/exam": "docs",
             "/ligo/examples": "docs",
@@ -510,8 +515,8 @@
               "version": "current",
               "sidebar": "docs",
               "previous": {
-                "title": "Exam",
-                "permalink": "/dapp/exam"
+                "title": "Smart contract deployment with Truffle",
+                "permalink": "/dapp/truffle_compilation_migration"
               },
               "next": {
                 "title": "Exam",
@@ -636,7 +641,7 @@
                 "permalink": "/private/exam"
               },
               "next": {
-                "title": "report an issue",
+                "title": "Report an issue",
                 "permalink": "/contribute/report-issue"
               }
             },
@@ -645,7 +650,7 @@
               "id": "contribute/opentezos",
               "isDocsHomePage": false,
               "title": "Contribute to OpenTezos",
-              "description": "Under construction.",
+              "description": "The great website you are currently browsing is called OpenTezos and will later be merged with the upcoming wiki.tezos.com. It is therefore important that all the content here is up to date and error-free. If you see an error, you can either submit an issue or go a step further by actually correcting the error yourself and submitting it for review. Here is how to proceed:",
               "source": "@site/docs/contribute/opentezos.md",
               "slug": "/contribute/opentezos",
               "permalink": "/contribute/opentezos",
@@ -653,7 +658,7 @@
               "version": "current",
               "sidebar": "docs",
               "previous": {
-                "title": "report an issue",
+                "title": "Report an issue",
                 "permalink": "/contribute/report-issue"
               },
               "next": {
@@ -665,7 +670,7 @@
               "unversionedId": "contribute/report-issue",
               "id": "contribute/report-issue",
               "isDocsHomePage": false,
-              "title": "report an issue",
+              "title": "Report an issue",
               "description": "The simplest way to contribute is to report issues that you may have encounter while using Tezos or its related platforms.",
               "source": "@site/docs/contribute/report-issue.md",
               "slug": "/contribute/report-issue",
@@ -713,26 +718,16 @@
               "slug": "/dapp/exam",
               "permalink": "/dapp/exam",
               "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/dapp/exam.md",
-              "version": "current",
-              "sidebar": "docs",
-              "previous": {
-                "title": "introduction",
-                "permalink": "/dapp/introduction"
-              },
-              "next": {
-                "title": "Introduction",
-                "permalink": "/baking"
-              }
+              "version": "current"
             },
             {
               "unversionedId": "dapp/introduction",
               "id": "dapp/introduction",
               "isDocsHomePage": false,
-              "title": "introduction",
-              "description": "",
+              "title": "Introduction",
               "source": "@site/docs/dapp/introduction.md",
-              "slug": "/dapp/introduction",
-              "permalink": "/dapp/introduction",
+              "slug": "/dapp",
+              "permalink": "/dapp",
               "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/dapp/introduction.md",
               "version": "current",
               "sidebar": "docs",
@@ -741,8 +736,29 @@
                 "permalink": "/michelson/take-away"
               },
               "next": {
-                "title": "Exam",
-                "permalink": "/dapp/exam"
+                "title": "Smart contract deployment with Truffle",
+                "permalink": "/dapp/truffle_compilation_migration"
+              }
+            },
+            {
+              "unversionedId": "dapp/truffle_compilation_migration",
+              "id": "dapp/truffle_compilation_migration",
+              "isDocsHomePage": false,
+              "title": "Smart contract deployment with Truffle",
+              "description": "Introduction",
+              "source": "@site/docs/dapp/truffle_compilation_migration.md",
+              "slug": "/dapp/truffle_compilation_migration",
+              "permalink": "/dapp/truffle_compilation_migration",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/dapp/truffle_compilation_migration.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Introduction",
+                "permalink": "/dapp"
+              },
+              "next": {
+                "title": "Introduction",
+                "permalink": "/baking"
               }
             },
             {
@@ -771,7 +787,7 @@
               "id": "defi/dexs",
               "isDocsHomePage": false,
               "title": "Decentralized Exchanges",
-              "description": "An exchange is a marketplace where coins and tokens can be traded. The core function of an exchange is to ensure fair and orderly trading and the efficient dissemination of price information for any pair trading on that exchange. Exchanges give companies, traders, and just crypto-enthusiasts a platform from which to publicly sell and buy crypto-currencies.",
+              "description": "An exchange is a marketplace where coins and tokens are traded. The core function of an exchange is to ensure fair and orderly trading and the efficient dissemination of price information for any pair trading on that exchange. Exchanges give companies, traders, and crypto-enthusiasts a platform from which to publicly sell and buy crypto-currencies.",
               "source": "@site/docs/defi/dexs.md",
               "slug": "/defi/dexs",
               "permalink": "/defi/dexs",
@@ -834,7 +850,7 @@
               "id": "defi/lending",
               "isDocsHomePage": false,
               "title": "Lending and Flash Loans",
-              "description": "It is likely that at some point in your life you have had to borrow some money, e.g. for a student loan, a car loan or a mortgage. Lending and borrowing are essential services in any financial system. Lenders such as banks provide you with a loan in exchange for a fee in the form of interest rates. Repaying the loan is enforced by legal contracts.",
+              "description": "It is likely that at some point in your life you have had to borrow some money, e.g. for a student loan, a car loan or a mortgage. Lending and borrowing are essential services in any financial system. Traditionally, lenders such as, banks provide you with a loan in exchange for a fee, in the form of interest rates. Repaying the loan the said loan is enforced by legal contracts.",
               "source": "@site/docs/defi/lending.md",
               "slug": "/defi/lending",
               "permalink": "/defi/lending",
@@ -855,7 +871,7 @@
               "id": "defi/oracles",
               "isDocsHomePage": false,
               "title": "On-chain Oracles",
-              "description": "With the rise of DeFi apps, the need to get trusted price data has grown substantially. The only issue is that by default, Tezos smart contracts cannot receive any data from outside the blockchain. Oracles offers to fetch data from off-chain sources. Oracles can aggregate data from multiple sources in order to guarantee the quality of the data. For instance, consider a Dapp that needs the exchange rate of XTZ/BTC. To get that exchange rate, the smart contract of the Dapp needs to contact an oracle that will provide this rate. The oracle can for example fetch the rate from Binance, but what if Binance get hacked? The Dapp would be compromised. The oracle can therefore fetch the price from multiple sources. e.g. Binance, CoinMarketCap, Dexter and Quipuswap, and exclude outliers (rates too far from the others) and compute an average. The chances that all 4 sources are compromised at the same time is very unlikely. The price provided to the Dapp is therefore very trustworthy and can be used for financially critical operations.",
+              "description": "With the rise of DeFi apps, the need to get trusted price data has grown substantially. The only issue is that by default, a Tezos smart contract cannot receive any data from outside the blockchain. Oracles therefore offers to fetch data from off-chain sources. Oracles can aggregate data from multiple sources in order to guarantee the quality of the data. For instance, consider a Dapp (decentralised app), that needs the exchange rate for XTZ/BTC. To get that exchange rate, the smart contract of the Dapp needs to contact an oracle that can provide this rate. The oracle can for example fetch the rate from Binance, but as a single point of failure, what happens if Binance gets hacked? The Dapp would then be compromised. The oracle can therefore fetch the price from multiple sources. e.g. Binance, CoinMarketCap, Dexter and Quipuswap, and exclude outliers (rates too far from the others) and compute an average. The chances that all 4 sources are compromised at the same time become very unlikely. The price provided to the Dapp is therefore very trustworthy and can be used for financially critical operations.",
               "source": "@site/docs/defi/oracles.md",
               "slug": "/defi/oracles",
               "permalink": "/defi/oracles",
@@ -876,7 +892,7 @@
               "id": "defi/stablecoins",
               "isDocsHomePage": false,
               "title": "Stablecoins",
-              "description": "A stablecoin is a cryptocurrency which price is fixed compared to another asset. Most stablecoins are pegged (fixed) to fiat currencies like the US Dollar.",
+              "description": "A stablecoin is a cryptocurrency whose price is fixed to another asset. Most stablecoins are pegged (fixed) to fiat currencies (currencies issued by a central bank) like the US Dollar.",
               "source": "@site/docs/defi/stablecoins.md",
               "slug": "/defi/stablecoins",
               "permalink": "/defi/stablecoins",
@@ -897,7 +913,7 @@
               "id": "defi/synthetics",
               "isDocsHomePage": false,
               "title": "Synthetics",
-              "description": "Synthetics are contracts between two parties that both bet on the opposite outcome of the value of an asset and then split the difference in profit/loss. The actual asset is not purchased in this contract. Both parties simply bet on the opposite future value appreciation.",
+              "description": "Synthetics are contracts between two parties that both bet on the opposite outcome of the value of an asset and then split the difference in profit/loss. The actual asset is not purchased in this contract. Both parties simply bet on the value appreciating or depreciating.",
               "source": "@site/docs/defi/synthetics.md",
               "slug": "/defi/synthetics",
               "permalink": "/defi/synthetics",
@@ -1082,6 +1098,27 @@
               }
             },
             {
+              "unversionedId": "ligo/contracts-ligo",
+              "id": "ligo/contracts-ligo",
+              "isDocsHomePage": false,
+              "title": "Smart contract development in Pascaligo",
+              "description": "The language of smart contracts is Michelson, a stack-based language.",
+              "source": "@site/docs/ligo/write-contracts-ligo.md",
+              "slug": "/ligo/contracts-ligo",
+              "permalink": "/ligo/contracts-ligo",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/write-contracts-ligo.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Take Away",
+                "permalink": "/ligo/take-away"
+              },
+              "next": {
+                "title": "Introduction",
+                "permalink": "/michelson"
+              }
+            },
+            {
               "unversionedId": "ligo/deploy-a-contract",
               "id": "ligo/deploy-a-contract",
               "isDocsHomePage": false,
@@ -1170,7 +1207,7 @@
               "id": "ligo/introduction",
               "isDocsHomePage": false,
               "title": "Introduction",
-              "description": "The goal of this module is to allow developers to install a LIGO transpiler on their operating system",
+              "description": "Tezos smart contracts are written in Michelson, which is a stack-based language.",
               "source": "@site/docs/ligo/introduction.md",
               "slug": "/ligo",
               "permalink": "/ligo",
@@ -1224,8 +1261,8 @@
                 "permalink": "/ligo/exam"
               },
               "next": {
-                "title": "Introduction",
-                "permalink": "/michelson"
+                "title": "Smart contract development in Pascaligo",
+                "permalink": "/ligo/contracts-ligo"
               }
             },
             {
@@ -1325,8 +1362,8 @@
               "version": "current",
               "sidebar": "docs",
               "previous": {
-                "title": "Take Away",
-                "permalink": "/ligo/take-away"
+                "title": "Smart contract development in Pascaligo",
+                "permalink": "/ligo/contracts-ligo"
               },
               "next": {
                 "title": "Language Basics",
@@ -1392,8 +1429,8 @@
                 "permalink": "/michelson/exam"
               },
               "next": {
-                "title": "introduction",
-                "permalink": "/dapp/introduction"
+                "title": "Introduction",
+                "permalink": "/dapp"
               }
             },
             {

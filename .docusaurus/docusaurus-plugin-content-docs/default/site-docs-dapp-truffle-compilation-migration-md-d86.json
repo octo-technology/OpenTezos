@@ -1,0 +1,21 @@
+{
+  "unversionedId": "dapp/truffle_compilation_migration",
+  "id": "dapp/truffle_compilation_migration",
+  "isDocsHomePage": false,
+  "title": "Smart contract deployment with Truffle",
+  "description": "Introduction",
+  "source": "@site/docs/dapp/truffle_compilation_migration.md",
+  "slug": "/dapp/truffle_compilation_migration",
+  "permalink": "/dapp/truffle_compilation_migration",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/dapp/truffle_compilation_migration.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Introduction",
+    "permalink": "/dapp"
+  },
+  "next": {
+    "title": "Introduction",
+    "permalink": "/baking"
+  }
+}

@@ -2,7 +2,7 @@
   "unversionedId": "contribute/report-issue",
   "id": "contribute/report-issue",
   "isDocsHomePage": false,
-  "title": "report an issue",
+  "title": "Report an issue",
   "description": "The simplest way to contribute is to report issues that you may have encounter while using Tezos or its related platforms.",
   "source": "@site/docs/contribute/report-issue.md",
   "slug": "/contribute/report-issue",

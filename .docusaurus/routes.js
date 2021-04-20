@@ -3,43 +3,8 @@ import React from 'react';
 import ComponentCreator from '@docusaurus/ComponentCreator';
 export default [
 {
-  path: '/__docusaurus/debug',
-  component: ComponentCreator('/__docusaurus/debug','3d6'),
-  exact: true,
-},
-{
-  path: '/__docusaurus/debug/config',
-  component: ComponentCreator('/__docusaurus/debug/config','914'),
-  exact: true,
-},
-{
-  path: '/__docusaurus/debug/content',
-  component: ComponentCreator('/__docusaurus/debug/content','c28'),
-  exact: true,
-},
-{
-  path: '/__docusaurus/debug/globalData',
-  component: ComponentCreator('/__docusaurus/debug/globalData','3cf'),
-  exact: true,
-},
-{
-  path: '/__docusaurus/debug/metadata',
-  component: ComponentCreator('/__docusaurus/debug/metadata','31b'),
-  exact: true,
-},
-{
-  path: '/__docusaurus/debug/registry',
-  component: ComponentCreator('/__docusaurus/debug/registry','0da'),
-  exact: true,
-},
-{
-  path: '/__docusaurus/debug/routes',
-  component: ComponentCreator('/__docusaurus/debug/routes','244'),
-  exact: true,
-},
-{
   path: '/',
-  component: ComponentCreator('/','103'),
+  component: ComponentCreator('/','1cf'),
   
   routes: [
 {
@@ -113,13 +78,18 @@ export default [
   exact: true,
 },
 {
+  path: '/dapp',
+  component: ComponentCreator('/dapp','f74'),
+  exact: true,
+},
+{
   path: '/dapp/exam',
   component: ComponentCreator('/dapp/exam','bb1'),
   exact: true,
 },
 {
-  path: '/dapp/introduction',
-  component: ComponentCreator('/dapp/introduction','50a'),
+  path: '/dapp/truffle_compilation_migration',
+  component: ComponentCreator('/dapp/truffle_compilation_migration','cc7'),
   exact: true,
 },
 {
@@ -205,6 +175,11 @@ export default [
 {
   path: '/ligo',
   component: ComponentCreator('/ligo','f43'),
+  exact: true,
+},
+{
+  path: '/ligo/contracts-ligo',
+  component: ComponentCreator('/ligo/contracts-ligo','e46'),
   exact: true,
 },
 {

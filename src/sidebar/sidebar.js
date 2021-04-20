@@ -33,7 +33,14 @@ module.exports = {
     {
       type: 'category',
       label: 'How to use an Explorer',
-      items: ['explorer/introduction', 'explorer/how_to_use_a_block_indexer','explorer/exam'],
+      items: [
+        'explorer/introduction',
+        'explorer/available-tezos-indexers',
+        'explorer/indexer-explained',
+      'explorer/how_to_use_a_block_indexer',
+        'explorer/private-indexer',
+        'explorer/exam',
+      ],
     },
     {
       type: 'category',
@@ -52,6 +59,7 @@ module.exports = {
         'ligo/examples',
         'ligo/exam',
         'ligo/take-away',
+        'ligo/contracts-ligo',
       ],
     },
     {
@@ -71,8 +79,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Build a Dapp',
-      items: ['dapp/introduction',
-      'dapp/truffle_compilation_migration'],
+      items: ['dapp/introduction', 'dapp/truffle_compilation_migration'],
     },
     {
       type: 'category',
