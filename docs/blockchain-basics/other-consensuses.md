@@ -16,98 +16,98 @@ import NotificationBar from '../../src/components/docs/NotificationBar';
 </NotificationBar>
 
 # Introduction to other consensuses
-In this chapter, we'll introduce 10 of the existing *public* consensus mechanisms.
+In this chapter, we will introduce 10 *public* consensus mechanisms.
 
 ## Proof-of-Burn (PoB)
-Instead of buying a lot of powerful nodes like in PoW, **validators** "*burn*" their coins. "Burning" coins means sending them to a locking address where they are irretrievable. They are destroyed, or "burnt".
+Instead of buying a lot of powerful nodes like in PoW, **validators** "*burn*" their coins. "Burning" coins means sending them to a locking address where they are irretrievable. Thereby destroying or "burning" them.
 
 The more miners burn coins, the more they are likely to validate a block and win rewards.
 
-This mimics the mining process, where miners have to upgrade their nodes: As their reserves of coins decrease, they need to burn more to have more chances to win.
+This mimics the process of mining, where miners have to invest energy and mining power to solve a mathematical equation
 
-Example: *Slimcoin*
+An example of this would be: *Slimcoin*
 
 ## Proof-of-Capacity (PoC)
-The system first generates large data sets called "*Plots*". The more plots a *miner* records, the more lottery's tickets he owns. Hence, the more hard drive space (*capacity*) he can obtain, the more chances he's to win the rewards.
+The system first generates large data sets called "*Plots*". The more plots a *miner* records, the more lottery's tickets he owns. Hence, the more hard-drive space (*capacity*) he can obtain, the more chances he has to win the rewards.
 
-Variants: *Proof-of-Storage, Proof-of-Space*
+Variants would be: *Proof-of-Storage, Proof-of-Space*
 
-Examples: *Burstcoin, Storj, Filecoin, BitcoinHD...*
+An example of this would be: *Burstcoin, Storj, Filecoin, BitcoinHD...*
 
 ## Leader-Based Consensus (LBC)
-Nodes elect a temporary leader node. This leader is then responsible for validating transactions, and order them. There are not necessarily blocks (i.e. more than one transaction).
+Nodes elect a temporary leader node. This leader is then responsible for validating transactions, and for ordering them. There are not necessarily made in blocks (i.e. is more than one transaction).
 
-Examples: *BigChainDB*
+An example of this would be: *BigChainDB*
 
 ## Practical Byzantine Fault Tolerance (PBFT)
-Each node of the network awaits messages. Each node receiving a message runs a program on this message using its own data. According to its data and the message received, each node produces a result and broadcasts it to the other nodes.
+In this structure of consensus, each node of the network awaits messages. Each node receiving a message runs a program on this message using its own data. According to its data and the message received, each node produces a result and broadcasts it to the other nodes.
 
-The total of results determines the consensus.
+The sum total of these broadcast-results determines the consensus.
 
-Examples: *Evernym, Chain...*
+An example of this would be: *Evernym, Chain...*
 
 ## Federated​ ​Byzantine​ ​Agreement​ ​(FBA)
-*Sets of enough nodes* to validate data are established. A single *set* is called a "*quorum*".
+There a *Sets of enough nodes* to validate the data is established. A single *set* is called a "*quorum*".
 
-With FBA, a *subset* of a quorum is able to aggregate another node, which then approves data *to form a complete quorum*. This *subset* is called a "*quorum slice*".
+With FBA, a *subset* of a quorum is able to aggregate another node, which in turn approves data *to form a complete quorum*. This *subset* is called a "*quorum slice*".
 
 Each node chooses its own multiple quorum slices to trust.
 
-The aim is avoiding **separated divergent quorums**, and assuring **all quorums convergence**.  
+The aim of this is to avoid **separated divergent quorums**, and to ensure that **all quorums converge**.  
 Quorum slices must be large enough to have **intersections** (shared nodes).
 
-Examples: *Stellar, Ripple*.
+An example of this would be: *Stellar, Ripple*.
 
 ## Avalanche
-Each **validator** randomly selects N nodes among all other validators. The more a validator has coins, the more chances it's to be selected (*see also PoS below*).
+Each **validator** randomly selects N nodes among all the other validators. The more a validator has coins, the more chances it has to be selected (*see also PoS below*).
 
 Each queried validator responds with its decision.
 
-If the majority of responses differs from the asking node's decision, then it will change its own answer to others.
+If the majority of responses differs from the asking node's decision, then it will change its own answer to that of the others.
 
-Example: *Avalanche*
+An example of this would be: *Avalanche*
 
 ## Proof-of-Stake (PoS)
-Blocks are *validated* by **validators** that invested in coins of the system. It means they *normally do not create coins*, so their rewards should *only be provided by transactions fees*. It also means all the coins are created at the launch of the system.
+Requires a system where _validators_  *do not create coins*, so that their rewards should *only be provided by transactions fees*. It also means that all the coins are created at the launch of the system.
 
-The more a validator has coins in an escrow, the more he is likely to validate a block and earn rewards.
+The first set of this consensus is for Blocks to be  *validated* by **validators** that invested coins in the system. The more a validator has coins in an escrow, the more he is likely to validate a block and earn rewards.
 
-Valid blocks pushed from validators are always verified afterwards by the network. If a validator tries to cheat, he looses all his funds in his collateral.
+Valid blocks pushed from validators are always verified afterwards by the network. If a validator has tried to cheat, he loses all his funds in his collateral.
 
-Examples: *Ethereum 2.0, Peercoin, Blackcoin, NXT...*
+An example of this would be: *Ethereum 2.0, Peercoin, Blackcoin, NXT...*
 
 ## Proof-of-Activity (PoA)
 Proof-of-Activity is split into 2 ordered phases:
 1. PoW phase
 
-    Miners race to find enough zeros in the result of the hash function. But this time, the block they validate is _usually_ empty of transactions. Only where they can receive a reward and their result are present.
+    Miners race to find enough zeros in the result of the hash function. But this time, the block they validate is _usually_ empty of transactions. Only where they can receive a reward and their results are present.
 
 2. PoS phase
 
-    Then, a random group of validators is chosen to sign the new block. The more coins a validator owns, the more likely he is to be chosen. When all the validators signed, the block is filled with transactions.
+    Then, a random group of validators is chosen to sign the new block. The more coins a validator owns, the more likely he has to be chosen. When all the validators signed, the block is filled with transactions.
 
     If there are not enough validators for a valid block signing, another valid block and another group of validators are chosen.
 
-Fees rewards are split between miners and validators.
+Fees-rewards are then split between miners and validators.
 
-Example: *Decred*.
+An example of this would be: *Decred*.
 
 ## Delegated Proof-of-Stake (DPoS)
-DPoS is PoS with an added *delegation* phase. During this phase, decentralized *votes* are realised by *witnesses*, choosing validators. Parameters like fees, rewards, or witnesses number are decided by a *commitee* group. This commitee *do not receive any reward*. The parameters can only be changed during a *maintenance phase by vote*.
+DPoS is PoS system with an added *delegation* phase. During this phase, decentralized *votes* are made by *witnesses*, choosing validators. Parameters like fees, rewards, or witnesses number are decided by a *committee* group. This committee *do not receive any reward*. The parameters can only be changed during a *maintenance phase by vote*.
 
-Examples: *Steem, Graphene, BitShares...*
+An example of this would be: *Steem, Graphene, BitShares...*
 
 ## Liquid Proof-of-Stake (LPoS)
 Tezos has developed LPoS, an evolution of the DPoS.
 
-In LPoS, a validator is called a **baker**. Any user owning anough coins can become a baker. In case a user would like to be a baker but doesn't own enough coins, he can _delegate_ coins.
+In LPoS, a validator is called a **baker**. Any user owning enough coins can become a baker. If a user would like to become a baker but doesn't own enough coins, he can _delegate_ his coins. Thereby benefiting from a portion of the fee share.
 
 The probability to win a bake is proportional to the amount invested. The baking time is organized in cycles and coins are locked during this time.
 
-## What have we learned so far?
-In this chapter, we briefly described 10 consensuses that can be used for public blockchains. There are many other consensus algorithms.
+## What have we covered so far?
+In this chapter, we briefly described 10 consensuses that can be used for public blockchains from the many other consensus algorithms.
 
-In the next chapter "_Smart Contracts_", we'll define what they are, what are some of the Bitcoin's limitations in that matter, and how Ethereum first proposed to lift those limitations.
+In the next chapter "_Smart Contracts_", we'll define what they are, what are some of the limitations of Bitcoin's in that matter, and how Ethereum first proposed to lift those limitations.
 
 ## References
 [1] https://
