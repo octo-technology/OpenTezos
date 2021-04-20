@@ -4,27 +4,137 @@ title: Exam
 ---
 
 ### Question 1
+Which year Nick Szabo invented *Smart Contracts*?
 
-What notions are defined inside the smart contract ?
-
-- [x] The type definition of the storage
-- [ ] The balance of the contract
-- [ ] The initial value of the storage
-- [ ] The value of the entrypoint and its related parameters
-- [x] The type definition of the entrypoint
-- [ ] The size of the storage
-- [x] The code of the smart contract
-- [ ] The list of users allowed to call the smart contract
+- [ ] 1995
+- [x] 1996
+- [ ] 1997
+- [ ] 1998
 
 ### Question 2
+At which date was released the *Bitcoin's White Paper*?
 
-What is returned by the execution of a smart contract ?
+- [ ] October 31st, 2006
+- [ ] October 31st, 2007
+- [x] October 31st, 2008
+- [ ] October 31st, 2009
 
-- [ ] The current storage state when invoking the smart contract
-- [x] The modified storage state after invoking the smart contract
-- [ ] The entrypoint that has been called (and its related parameters)
-- [x] The list of emitted operations produced by the execution of the smart contract
-- [ ] The balance of the contract
-- [ ] The size of the storage
-- [ ] The code of the smart contract
-- [ ] The list of users allowed to call the smart contract
+### Question 3
+Which year, *Ethereum's Yellow Paper* and *Tezeos White Paper* were released?
+
+- [ ] 2013
+- [x] 2014
+- [ ] 2015
+- [ ] 2016
+
+### Question 4
+How many bitcoins should ever be issued (in millions)?
+
+- [ ] 20
+- [x] 21
+- [ ] 50
+- [ ] 150
+
+### Question 5
+How many dollars were fundraised for *The DAO* (in millions)?
+
+- [ ] 20
+- [ ] 21
+- [ ] 50
+- [x] 150
+
+### Question 6
+How many dollars were stolen from "*The DAO Hack*" (in millions)?
+
+- [ ] 20
+- [ ] 21
+- [x] 50
+- [ ] 150
+
+### Question 7
+Which type of consensus is used in *Bitcoin*?
+
+- [ ] PoA
+- [ ] PoS
+- [x] PoW
+- [ ] PoC
+- [ ] PoB
+
+### Question 8
+Which type of consensus is used at *Ethereum*'s launch?
+
+- [ ] PoA
+- [ ] PoS
+- [x] PoW
+- [ ] PoC
+- [ ] PoB
+
+### Question 9
+Which type of consensus is used in Tezos?
+
+- [ ] DPoS
+- [ ] APoS
+- [ ] PoS
+- [x] LPoS
+
+### Question 10
+A Bitcoin's miner validates a block when:
+
+- [x] he finds a value lesser than the *Target*
+- [ ] he finds a value greater than the *Target*
+
+### Question 11
+A new Bitcoin's block is added every:
+
+- [ ] 1 minute
+- [x] 10 minutes
+- [ ] 60 minutes
+
+### Question 12
+Bitcoin's *Difficulty* is calculated every:
+
+- [x] 2016 blocks
+- [ ] day
+- [ ] 144 blocks
+- [x] 2 weeks
+
+### Question 11
+If two miners find a valid block, The winner is the one:
+
+- [x] adding his block to the longest chain
+- [x] adding his block to the chain with the most of work
+
+### Question 12
+At Bitcoin's launch the blocks reward was:
+
+- [ ] 100 bitcoins
+- [x] 50 bitcoins
+- [ ] 25 bitcoins
+- [ ] 10 bitcoins
+
+### Question 13
+The Bitcoin's "*Halving*" happens every:
+
+- [ ] 21,000,000 blocks
+- [ ] 21,000 blocks
+- [ ] 2,100 blocks
+- [x] 210,000 blocks
+- [ ] 2,100,000 blocks
+
+### Question 14
+In 2016, the block's reward was:
+
+- [x] 12.5 bitcoins
+- [ ] 10 bitcoins
+- [ ] 6.25 bitcoins
+- [ ] 5 bitcoins
+- [ ] 3.125 bitcoins
+- [ ] 2.5 bitcoins
+
+### Question 15
+The low-level language used for Ethereum is Turing-complete because:
+
+- [ ] it is based on *Forth*
+- [ ] you can operate on the amounts
+- [x] it has enough OP_codes
+- [ ] it uses "*vaults*"
