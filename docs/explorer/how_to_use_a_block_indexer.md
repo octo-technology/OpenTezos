@@ -51,7 +51,7 @@ Here is a list of TzStats features:
   On top, it shows the date, 1 day volume, and overall market capitalization.
 - [Protocols](https://tzstats.com/protocols) 
   page shows the current protocol by default. 
-  On top you can see its name, e.g. v006 Carthage, and the overall age of the Tezos blockchain.
+  On top, you can see its name, e.g. v006 Carthage, and the overall age of the Tezos blockchain.
 - [Voting](https://tzstats.com/election/head) 
   page shows the currently open election and indicates when it ends. 
   On top, there is a timeline of the currently active election progress.
@@ -70,7 +70,7 @@ It contains two smart contracts, and their associated migration:
 1. a raffle smart contract, using a big map
 2. a raffle smart contract, using a map
 
-The edonet network and the used account are already defined, as described in the Dapp module.
+The edonet network, and the used account are already defined, as described in the Dapp module.
 These commands set up the project:
 ```shell
 $ git clone https://github.com/bepi-octo/raffle-smart-contract.git
