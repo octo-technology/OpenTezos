@@ -121,13 +121,226 @@ Here you have access to the content of your storage with the type of each variab
 #### Big map
 // TODO: Explain the Big map tab with an example
 
-### (Optional) Step 3: Get data via API Call
+### API Calls
 
-All this information above can also be retrieved by API call. For more information go [here](https://tzstats.com/docs/api#tezos-api).
+The same pieces of information can be retrieved by API calls, without using the frontend.
+A full documentation is available [here](https://tzstats.com/docs/api#tezos-api).
 
-// TODO: Show an example with CURL (or other)
+First, let's get the contract information.
+The "explorer" endpoints will be used (full reference [here](https://tzstats.com/docs/api#explorer-endpoints))
 
-// TODO: Chapter conclusion?
+In this example, one of the contracts has been migrated on edonet to KT1Vcj7ij2fP28MGuCstVGdGRTVafSTECyMV.
+
+Let's retrieve the contract details:
+```shell
+$ GET https://api.edo.tzstats.com/explorer/contract/KT1Vcj7ij2fP28MGuCstVGdGRTVafSTECyMV
+{
+  "address": "KT1Vcj7ij2fP28MGuCstVGdGRTVafSTECyMV",
+  "creator": "tz1cGftgD3FuBmBhcwY24RaMm5D2UXLr5LHW",
+  "delegate": "",
+  "storage_size": 2817,
+  "storage_paid": 2817,
+  "first_seen": 186527,
+  "last_seen": 186528,
+  "first_seen_time": "2021-04-19T13:42:35Z",
+  "last_seen_time": "2021-04-19T13:43:17Z",
+  "n_ops": 1,
+  "n_ops_failed": 0,
+  "bigmaps": {
+    "sold_tickets": 67645
+  },
+  "iface_hash": "d30a2146",
+  "code_hash": "783617a0",
+  "call_stats": {
+    "buyTicket": 1,
+    "closeRaffle": 0,
+    "openRaffle": 0
+  },
+  "features": [
+    "transfer_tokens"
+  ],
+  "interfaces": []
+}
+
+```
+The pieces of information do match those from the web interface: address, creator, first_seen_time, last_seen_time...
+
+The call to the entrypoint "buyTicket" can be seen in the `call_stats` field: one call has indeed been made to this entrypoint.
+
+More details can be fetched about those calls:
+```shell
+$ GET https://api.edo.tzstats.com/explorer/contract/KT1Vcj7ij2fP28MGuCstVGdGRTVafSTECyMV/calls
+[
+  {
+    "row_id": 2631678,
+    "hash": "oobsftb8GALb7DhZwirQTxQQWL1V1qzgHHjc4rjrzAy2f8yE1Qp",
+    "type": "origination",
+    "block": "BLAVCZHSZqnpk2ixJN2jzFkMCVe91CVruSVcBxvxyut59gDAYv3",
+    "time": "2021-04-19T13:42:35Z",
+    "height": 186527,
+    "cycle": 91,
+    "counter": 620082,
+    "op_l": 3,
+    "op_p": 7,
+    "op_c": 0,
+    "op_i": 0,
+    "status": "applied",
+    "is_success": true,
+    "is_contract": true,
+    "gas_limit": 13878,
+    "gas_used": 13778,
+    "gas_price": 0.31543,
+    "storage_limit": 2955,
+    "storage_size": 2698,
+    "storage_paid": 2698,
+    "volume": 0,
+    "fee": 0.004346,
+    "burned": 0.73875,
+    "has_data": true,
+    "days_destroyed": 0,
+    "big_map_diff": [
+      {
+        "action": "alloc",
+        "key_encoding": "int",
+        "key_type": "nat",
+        "value_type": "address"
+      }
+    ],
+    "sender": "tz1cGftgD3FuBmBhcwY24RaMm5D2UXLr5LHW",
+    "receiver": "KT1Vcj7ij2fP28MGuCstVGdGRTVafSTECyMV"
+  },
+  {
+    "row_id": 2631692,
+    "hash": "oogemcdA84ukD1BhJ4evi8fQWTo4boBeaVZ8B534HSa7JVnvUPb",
+    "type": "transaction",
+    "block": "BMB96mJZnLrGVVMkNJWUa7kpLVaeGMJ6JzNwDT1xaYzdT8wh4Gr",
+    "time": "2021-04-19T13:43:17Z",
+    "height": 186528,
+    "cycle": 91,
+    "counter": 620083,
+    "op_l": 3,
+    "op_p": 3,
+    "op_c": 0,
+    "op_i": 0,
+    "status": "applied",
+    "is_success": true,
+    "is_contract": true,
+    "gas_limit": 14911,
+    "gas_used": 14811,
+    "gas_price": 0.12146,
+    "storage_limit": 119,
+    "storage_size": 2817,
+    "storage_paid": 119,
+    "volume": 1,
+    "fee": 0.001799,
+    "burned": 0.02975,
+    "has_data": true,
+    "days_destroyed": 0.032986,
+    "parameters": {
+      "entrypoint": "buyTicket",
+      "call": "buyTicket",
+      "branch": "LL",
+      "id": 0,
+      "value": {
+        "buyTicket": "Unit"
+      }
+    },
+    "storage": {
+      "value": {
+        "admin": "tz1cGftgD3FuBmBhcwY24RaMm5D2UXLr5LHW",
+        "close_date": "1618839716722",
+        "contract_name": "Raffle smart contract with big map",
+        "description": "",
+        "jackpot": "100",
+        "players": [
+          "tz1cGftgD3FuBmBhcwY24RaMm5D2UXLr5LHW"
+        ],
+        "raffle_is_open": "true",
+        "sold_tickets": "67645",
+        "winning_ticket_number_hash": "00"
+      }
+    },
+    "big_map_diff": [
+      {
+        "key": "0",
+        "key_hash": "exprtZBwZUeYYYfUs9B9Rg2ywHezVHnCCnmF9WsDQVrs582dSK63dC",
+        "key_binary": "0",
+        "value": "tz1cGftgD3FuBmBhcwY24RaMm5D2UXLr5LHW",
+        "action": "update"
+      }
+    ],
+    "sender": "tz1cGftgD3FuBmBhcwY24RaMm5D2UXLr5LHW",
+    "receiver": "KT1Vcj7ij2fP28MGuCstVGdGRTVafSTECyMV",
+    "entrypoint_id": 0
+  }
+]
+```
+
+The response holds the details about two calls:
+1. the contract origination
+2. the call to buy a ticket
+
+It details the inputs used for this entrypoint, the storage after the call, the differences in the big map that changed after the call...
+
+The current storage can be fetched, with this endpoint:
+```shell
+$ GET https://api.edo.tzstats.com/explorer/contract/KT1Vcj7ij2fP28MGuCstVGdGRTVafSTECyMV/storage
+{
+  "value": {
+    "admin": "tz1cGftgD3FuBmBhcwY24RaMm5D2UXLr5LHW",
+    "close_date": "1618839716722",
+    "contract_name": "Raffle smart contract with big map",
+    "description": "",
+    "jackpot": "100",
+    "players": [
+      "tz1cGftgD3FuBmBhcwY24RaMm5D2UXLr5LHW"
+    ],
+    "raffle_is_open": "true",
+    "sold_tickets": "67645",
+    "winning_ticket_number_hash": "00"
+  }
+}
+
+```
+The storage returns by the API does match the one displayed in the web interface.
+The `sold_tickets` big map holds a big map id, instead of the values.  
+Indeed, a big map is meant to hold unbounded data size: thus, fetching the storage could become quickly expensive, if the big maps hold a lot of values.
+
+
+The values of a big map have to be retrieved from a separate endpoint, thanks to its id (`67645` in this case):
+```shell
+$ GET https://api.edo.tzstats.com/explorer/bigmap/67645/values
+[
+  {
+    "key": "0",
+    "key_hash": "exprtZBwZUeYYYfUs9B9Rg2ywHezVHnCCnmF9WsDQVrs582dSK63dC",
+    "key_binary": "0",
+    "value": "tz1cGftgD3FuBmBhcwY24RaMm5D2UXLr5LHW"
+  }
+]
+
+```
+
+
+All the pieces of information displayed in the web interface can be retrieved from the API.
+All these API calls can of course be made by any librairies, and thus can be automated in any program.
+
+
+# Conclusion
+
+tzstats.com is extremely useful to monitor what is going on the mainnet and public testnets.
+All the pieces of information regarding the cycles, the blocks, the transactions, the smarts contracts... can be quickly found,
+thanks to a user-friendly interface.
+
+In addition, tzstats provides a complete and free REST API, that can be called without restriction.
+Those calls can be performed by any library: the pieces of information retrieved about a public Tezos network can be used in another monitoring tool, or even in Dapps.
+
+Indeed, the handling of big maps can be troublesome with some libraries.
+For instance, _taquito_ (a typescript library to interact with a tezos node) is not able to retrieved all the values (and even the keys) of a big map with a simple call.
+A call to the tzstats API solves this issue.
+
+Those tools are also available for private networks.
+That is what will be detailed in the next chapter, where a private tzstats is set up to monitor a private network.
 
 ## References
 // TODO: references?
