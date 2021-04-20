@@ -1,6 +1,6 @@
 ---
-id: how-to-use-a-block-indexer
-title: How to use the tzStats blockchain indexer?
+id: how-to-use-a-block-explorer
+title: How to use the tzStats blockchain explorer?
 ---
 
 In the previous chapter, we saw that there is different block indexers for different uses in block explorers for the Tezos Blockchain. In this chapter we will focus on [TzStats](https://tzstats.com/) which is the most popular and complete Tezos explorer.
