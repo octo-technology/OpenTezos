@@ -3,12 +3,23 @@ id: introduction
 title: Introduction
 ---
 
-This module focuses on **blockchain explorers** and **blockchain indexers** for Tezos, how they work and how to use them.
+This module focuses on **blockchain explorers** and **blockchain indexers** for Tezos, 
+how they work and how to use them. 
+More precisely it will be explained how to observe the different information
+(storage, entrypoint, bigmap etc.) of a **smart contract** deployed on the Tezos blockchain.
+
+Blockchain is meant to be transparent, meaning that everyone has access to the information, 
+however the accessibility and readability of its information was not always easy and intuitive. 
+The block explorer was designed to remedy this problem.
 
 ## What is a blockchain explorer?
-A _blockchain explorer_, also known as a _block explorer_, is an app or website tracking activity on the blockchain. All transactions ever performed on a network can be viewed using such tool.
 
-**Blockchain explorers are like search engines for blockchains.**
+A _blockchain explorer_, also known as a _block explorer_, is an app tracking activity on the blockchain. 
+All transactions ever performed on a network can be viewed using such tool.
+
+**Blockchain explorers are like search engines for blockchains.**  
+You can think of it as a window into the blockchain world,
+giving you the opportunity to observe what’s happening on it.
 
 Cryptocurrency users and developers use such tool to view the status of past or present transactions. 
 
@@ -16,7 +27,7 @@ Some of the most basic information available on blockchain explorers includes (b
 
 - **Block feeds**: This allows you to view all the latest mined and pending blocks on the blockchain.
   
-- **Transaction feeds**: The transaction feed displays all of the most recent and upcoming transactions.
+- **Transaction feeds**: The transaction feed displays all the most recent and upcoming transactions.
 
 - **Sending and receiving addresses**: Each transaction can be viewed individually to reveal the public addresses of the sending and receiving parties.
   
@@ -64,4 +75,3 @@ Use an indexer when you need:
 // TODO: So all these are not possible from the node RPC?
 
 // TODO: Conclusion + what we will see in the rest of this module/next chapters?
-    

@@ -35,8 +35,8 @@ module.exports = {
       label: 'How to use an Explorer',
       items: [
         'explorer/introduction',
-        'explorer/available-tezos-indexers',
         'explorer/indexer-explained',
+        'explorer/available-tezos-indexers',
         'explorer/how-to-use-a-block-explorer',
         'explorer/private-indexer',
         'explorer/exam',
