@@ -37,6 +37,7 @@ module.exports = {
         'explorer/introduction',
         'explorer/available-tezos-indexers',
         'explorer/indexer-explained',
+      'explorer/how_to_use_a_block_indexer',
         'explorer/private-indexer',
         'explorer/exam',
       ],
