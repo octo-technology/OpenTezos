@@ -36,3 +36,4 @@ Today, [TEZEX](https://tezex.io/) is currently in development and will enable cr
 [1] https://medium.com/tezosexchange/the-changemakers-of-tezex-bridge-fd73bb1d8da2
 
 [2] https://liquality.io/blog/atomic-swaps-explained/
+
