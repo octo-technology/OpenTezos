@@ -142,4 +142,5 @@ It will include the bases of the LIGO language,
 inspired by the [official documentation](https://ligolang.org/docs/language-basics/types),
 as well as detailed smart contract examples.
 You will also be offered an exam to check your understanding.
+//TODO: rephrasing proposal: You will also take an exam...
 
