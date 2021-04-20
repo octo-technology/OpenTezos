@@ -70,11 +70,11 @@ That's exactly why we have now 2 new terminologies:
 - Private Blockchains
 
 Actually, these terminologies make it now possible to respectively distinguish:
-- Public and programmable DLT with anti-duplication consensus.
-- Private and programmable DLT with optimised data protection.
+- Public and programmable DLT with anti-duplication consensus
+- Private and programmable DLT with optimised data protection
 
 ## A brief history of "Blockchain"
-As Bitcoin proved viable, new systems directly copied its technological structure or implemented their own similar mechanics. As the "public blockchain" and "cryptocurrency", Bitcoin relies on a lot of now old Information Technologies (IT). Some from as far as 1973, and up until the Genesis Block from 2009.
+As Bitcoin proved viable, new systems directly copied its technological structure or implemented their own similar mechanics. As the first "public blockchain" and "cryptocurrency", Bitcoin relies on a lot of now old Information Technologies (IT). Some from as far as 1973, and up until the Genesis Block from 2009.
 
 Bitcoin's system actually spans across 36 years of research, trials and experiments, and failures.
 
