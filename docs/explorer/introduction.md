@@ -54,24 +54,5 @@ A block explorers is typically made of:
 - an API that queries the database
 - a frontend that displays the data
 
-The indexer is the part of the explorer that fetches the raw data from the Tezos node, then processes it and stores it in the database in an efficient way to provide quick access to the blockchain data. 
-
-Some requests would be quite difficult to run without an indexer and using only the Tezos node RPC, typically fetching an operation from an hash, getting all operations of a particular account, or getting detailed baking rewards.
-// TODO : I changed this sentence to make more sense but it that correct? Is it really more difficult to use the Node RPC rather than indexer for such operation?
-
-### When to use the node RPC and when to use an indexer ?
-Use the node RPC to access transactions and context data when:
-  - you need **trusted** data and **signatures**. // TODO: Does that mean that data from an indexer is not trusted?
-  - your risk profile requires a lower number of moving parts and less potential sources of errors (i.e. a node may be audited, an indexer may not).
-  - trust outweighs performance
-// TODO: What about difficultly of use? Cf first TODO above.
-
-Use an indexer when you need:
-  - **bulk access** to current and historic state (large tables, time-series)
-  - accounts, transactions, block lists with **filter capabilities** (e.g. all transactions in the past days with volume > _n_ tez, or all accounts with balance > _n_ tez).
-  - aggregate data and **statistics** (e.g. baker income, rights utilization) // TODO: what is rights utilization?
-  - **data relations** (transactions by account, contract storage updates referencing a specific account)
-  - **data export** capabilities (CSV export)
-// TODO: So all these are not possible from the node RPC?
-
-// TODO: Conclusion + what we will see in the rest of this module/next chapters?
+So, the indexer is the part of the explorer that fetches the raw data from the node, then processes it and stores it in the database in an efficient way to provide quick access to the blockchain data.  
+The next chapter will describe how an indexer works, and a special focus will be made on one of the explorers for the Tezos blockchain, [TzStats.com](https://tzstats.com/).
