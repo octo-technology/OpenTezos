@@ -4,7 +4,8 @@ title: Lending and Flash Loans
 author: Aymeric Bethencourt
 ---
 
-It is likely that at some point in your life you have had to borrow some money, e.g. for a student loan, a car loan or a mortgage. Lending and borrowing are essential services in any financial system. Traditionally, lenders such as, banks provide you with a loan in exchange for a fee, in the form of interest rates. Repaying the loan the said loan is enforced by legal contracts. 
+It is likely that at some point in your life you have had to borrow some money, e.g. for a student loan, a car loan or a mortgage. Lending and borrowing are essential services in any financial system. Traditionally, lenders such as, banks provide you with a loan in exchange for a fee, in the form of interest rates. Repaying the loan the said loan is enforced by legal contracts.
+//TODO: rephrasing: In order to repay the loan the said loan...
 
 Similar situations can be found on the blockchain as well. A borrower needs some money immediately available for some operation and a lender may agree to provide such a loan in exchange for a fee. 
 
