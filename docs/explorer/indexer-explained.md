@@ -10,6 +10,13 @@ Indexers are node operators. They extract, transform and load data (**ETL job**)
 // TODO: What is a node operator? What is an ETL job?
 // TODO: How do they extract the data? Are they going through each block one by one? Big for-loop?
 
+- **Tezos Node** is the heart of the blockchain, it manages the protocol.
+- **ETL** stands for *extract, transform, and load* 
+  The process of ETL plays a key role in data integration strategies. 
+  ETL allows businesses to gather data from multiple sources and consolidate it into a single, centralized location.
+- **API** is the acronym for *Application Programming Interface*,
+  which is a software intermediary that allows two applications to talk to each other.
+
 <br/>
 <p align="center">
 

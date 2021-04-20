@@ -23,6 +23,12 @@ title: Available Tezos Indexers
 - requires a Postgres database
 - limited data, no contracts // TODO: No contract what? No contract data? What does limited mean here?
 
+> **Postgre server impacts speed performance**.
+> The trade off of Postgres server is that for each index 
+> you have you will insert data at a slower pace. 
+> Essentially when you insert your data with an index 
+> it must write data to two places as well as maintain the sort on the index as you insert data
+
 ## Cryptonomic Conseil
 
 // TODO: Intro. When was it build? Is it up to date?
@@ -34,7 +40,8 @@ title: Available Tezos Indexers
 - Explorer website : [Arronax.io](https://arronax.io/)
 
 **Pros**
-- indexer and API server full-text search in contracts & storage // TODO: I don't understand this phrase
+- indexer and API server
+- full-text search in contracts & storage and smart filter
 
 **Cons**
 - requires a Postgres database
