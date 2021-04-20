@@ -5,11 +5,11 @@ title: Deploy a contract
 
 # Smart Contract
 
-A Tezos smart contract is a piece of code written in Michelson language (a low-level stack-based Turing-complete language).
+A Tezos smart contract is a piece of **code** written in Michelson language (a low-level stack-based Turing-complete language).
 
-It defines all **entrypoints** (invokable functions) of the smart contract.  
-It defines the prototype of each entry point (e.g. specifies the types of parameters of the entry point).  
-It defines the **storage** of the smart contract.  
+It also defines all **entrypoints** (invocable functions) of the smart contract. In other words it defines the prototype of each entry point (e.g. specifies the types of parameters of the entry point).  
+
+It also defines the **storage** of the smart contract (i.e. the data structure of the persistent memory associated to the smart contract).  
 
 ## Storage
 
@@ -109,9 +109,10 @@ type storage is map (string, coordinates)
 
 ### Maps
 
-Initialization of the elements of a map is specified between map `[` and `]` 
-and elements are separated by a semi-colon `;`.   
-Each element is a key/value pair separated by `->` and follow the syntax:
+Initialization of the elements of a map is specified between `map [` and `]` 
+and elements are separated by a semi-colon `;`. Each element is a key/value pair separated by `->`.
+
+Initialization of the elements of a map follows the syntax:
 
 ```
 map[ KEY1 -> VALUE1; KEY2 -> VALUE2 ]
@@ -307,7 +308,8 @@ ligo compile-storage src/counter.ligo main 5
 
 ### Invocation parameter
 
-Thye same rules apply for parameters, as apply for translating LIGO storage values to Michelson. 
+//TODO 
+The same rules apply for parameters, as apply for translating LIGO storage values to Michelson. 
 We will need to use `compile-parameter` to compile our action variant into Michelson, here's how:
 
 ```shell

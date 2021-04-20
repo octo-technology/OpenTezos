@@ -16,15 +16,14 @@ LIGO types are built on top of the Michelson's type system.
 
 ## Built-in types
 
-LIGO comes with all basic types built-in like string, int or tez for account balance or monetary transactions. 
+LIGO comes with all basic types built-in like _string_, _int_ or _tez_ (for account balance or monetary transactions). 
 You can find all the built-in types on the [LIGO gitlab](https://gitlab.com/ligolang/ligo/-/tree/dev#L35).
 
 ## Type aliases
 
 Type aliasing consists of renaming a given type when the context calls for a more precise name. 
 This increases the readability and maintainability of your smart contracts. 
-For example, we can choose to alias a string type as an animal breed - 
-this will allow us to communicate our intent with added clarity.
+For example, we can choose to alias a _string_ type as an animal breed; this will allow us to communicate our intent with added clarity.
 
 ```js
 type breed is string
@@ -32,6 +31,10 @@ const dog_breed : breed = "Saluki"
 ```
 
 ## Simple types (Map example)
+
+The keyword `type` also allows to manipulate complex data structures by defining new types. New _type_ definitions are composed of primitive types (e.g. `string`, `int`) and composite types (e.g. `map`, `list`, `option`).
+
+For example, the following snippet of code defines a new type `account_balances` which is a `map` (collection containing key-value pairs) where the _key_ is typed `address` and the _value_ typed `tez`.
 
 ```js
 // The type account_balances denotes maps from addresses to tez
@@ -41,7 +44,7 @@ type account_balances is map (address, tez)
 const ledger : account_balances =
   map [("tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx" : address) -> 10mutez]
 ```
-We will look more deeply into the map construct in the following chapters.
+We will look more deeply into the `map` construct in the following chapters.
 
 ## Structured types (Record example)
 
@@ -66,7 +69,7 @@ const my_account : account = record [
   ]
 ```
 
-We will look more deeply into the record construct in the following chapters.
+We will look more deeply into the `record` construct in the following chapters.
 
 # Constants & Variables
 
@@ -91,9 +94,11 @@ var c: int := 2 + 3
 c := c - 3
 ```
 
-⚠️ Notice the assignment operator:= for var, instead of = for constants.
+⚠️ Notice the assignment operator **:=** for `var`, instead of **=** for `const`.
 
 # Maths, Numbers & Tez
+
+//TODO (??three built-in?? what about timestamp=number of seconds, bytes=hex numeric)
 
 LIGO offers three built-in numerical types:
 
@@ -143,7 +148,7 @@ const g : int = 1_000_000
 
 Subtraction looks as follows.
 
-⚠️ Even when subtracting two `nats`, the result is an `int`
+⚠️ Even when subtracting two `nat` values, the result is an `int` value.
 
 ```js
 const a : int = 5 - 10
@@ -175,7 +180,10 @@ In LIGO you can divide `int`, `nat`, and `tez`. Here is how:
 
 ⚠️ Remember that there are no floating point numbers in LIGO so dividing 9 by 2 will output 4 and not 4.5
 
-Therefore, the division of two `tez` values results in a `nat`
+Therefore, the division of two `tez` values results in a `nat` value.
+
+//TODO The division of a `tez` value by a `nat` value results in a `tez` value.
+
 
 ```js
 const a : int = 10 / 3
@@ -205,13 +213,15 @@ const b : nat = abs (1)
 ## Checking a nat
 
 You can check if a value is a `nat` by using a predefined cast
-function which accepts an `int` and returns an optional `nat`: if the
+function `is_nat` which accepts an `int` value and returns an optional `nat`: if the
 result is not `None`, then the provided integer was indeed a natural
 number.
 
 ```js
 const is_a_nat : option (nat) = is_nat (1)
 ```
+
+The `option` type expresses whether there is a value of some type or none. The `option` type will be explained later in this chapter.
 
 # Strings
 
@@ -247,7 +257,7 @@ const slice : string = String.sub (0n, 1n, name)
 
 ## Length of Strings
 
-The length of a string can be found using a built-in function `String.length` as follows:
+The length of a `string` value can be found using a built-in function `String.length` as follows:
 
 ```js
 const name : string = "Captain Rogers"
@@ -633,8 +643,11 @@ const empty_set : set (int) = set []
 const my_set : set (int) = set [3; 2; 2; 1]
 ```
 
+//TODO const my_set : set (int) = set [3; 2; 5; 1]
+
+
 ### Sets tools
-You can test membership with the contains operator:
+You can test membership with the `contains` operator:
 
 ```js
 const contains_3 : bool = my_set contains 3
@@ -699,8 +712,8 @@ You can modify values in a record as follows:
 ```js
 function change_name (const u : user) : user is
   block {
-      const u : user = u with record [name = "Mark"]
-  } with u
+      const my_user : user = u with record [name = "Mark"]
+  } with my_user
 ```
 
 You can use `patch` to modify the record:
@@ -712,12 +725,15 @@ function change_name (const u : user) : user is
   } with u
 ```
 
+//TODO user, has not been changed ... pas clair 
 ⚠️ Note that user, has not been changed by the function. 
 Rather, the function returned a nameless new version of it with the modified name.
 
 ## Maps
 
-Maps are a data structure which associate, values of the same type to values of the same type. 
+//TODO revoir definition map .. pas clair 
+
+Maps are a data structure which associates a value to a key. All keys have the same type and all values have the same type. 
 The former are called key and, the latter values. 
 Together they make up a binding. 
 An additional requirement is that the type of the keys must be comparable, 
@@ -771,12 +787,12 @@ remove "tim" from map user_balances
 
 ## Unit Type
 
-The `Unit` type in Michelson or LIGO is a predefined type 
+The `unit` type in Michelson or LIGO is a predefined type 
 that contains only one value, that carries no information. 
 It is used when no relevant information is required or produced. 
 Here is how it used.
 
-In PascaLIGO, the unique value of the unit type is `Unit`.
+In PascaLIGO, the unique value of the `unit` type is `Unit`.
 
 ```js
 const n : unit = Unit
@@ -815,7 +831,7 @@ function power_switch (const b : bit) : bit is
 ## Option type
 
 The `option` type is a predefined variant type that is used to express whether 
-there is a value in some type or none. 
+there is a value of some type or none. 
 This is especially useful when calling a partial function, 
 that is, a function that is not defined for some inputs. 
 In that case, the value of the option type would be `None`, 
@@ -839,7 +855,7 @@ const my_balance : expected_type = case user_balances[1n] of
 end
 ```
 
-> Notice the cast of failwith instruction into an expected_type
+> Notice the cast of the `failwith` instruction into an expected_type.
 
 
 # Timestamps, Addresses
@@ -975,7 +991,7 @@ A LIGO smart contract can query part of the state of the Tezos blockchain by mea
 
 ## Failwith
 
-The keyword failwith throws an exception and stop the execution of the smart contract.
+The keyword `failwith` throws an exception and stop the execution of the smart contract.
 
 ```js
 failwith(<string_message>)
@@ -999,7 +1015,7 @@ else ((nil : list (operation)), store)
 
 ## Transactions
 
-You can transfer tez to an account, or to the function of another smart contract. 
+You can transfer an amount of `tez` to an account, or to the function of another smart contract. 
 For this, use :
 
 ```js
