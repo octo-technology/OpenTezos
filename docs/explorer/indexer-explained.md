@@ -12,7 +12,6 @@ in order to provide indexing and query processing services via the **API**.
 <p align ="center">
 
 ![](../../static/img/explorer/traditional_indexer.svg)
-
 <small align = "center" className="figure">FIGURE 1: Traditional Blockchain Explorer Backends</small>
 </p>
 <br/>

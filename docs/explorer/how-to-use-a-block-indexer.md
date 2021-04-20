@@ -1,6 +1,6 @@
 ---
-id: how_to_use_a_block_indexer
-title: How to use the tzStats blockchain indexer ?
+id: how-to-use-a-block-indexer
+title: How to use the tzStats blockchain indexer?
 ---
 
 In the previous chapter, we have seen the existence of different block indexer 
