@@ -1,0 +1,12 @@
+{
+  "unversionedId": "blockchain-basics/smart-contracts",
+  "id": "blockchain-basics/smart-contracts",
+  "isDocsHomePage": false,
+  "title": "Smart Contracts",
+  "description": "Under construction.",
+  "source": "@site/docs/blockchain-basics/smart-contracts.md",
+  "slug": "/blockchain-basics",
+  "permalink": "/blockchain-basics",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/blockchain-basics/smart-contracts.md",
+  "version": "current"
+}

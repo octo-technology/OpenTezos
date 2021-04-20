@@ -1,0 +1,12 @@
+{
+  "unversionedId": "blockchain-basics/main-components",
+  "id": "blockchain-basics/main-components",
+  "isDocsHomePage": false,
+  "title": "Main components of the first \"blockchain\"",
+  "description": "Under construction.",
+  "source": "@site/docs/blockchain-basics/main-components.md",
+  "slug": "/blockchain-basics",
+  "permalink": "/blockchain-basics",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/blockchain-basics/main-components.md",
+  "version": "current"
+}

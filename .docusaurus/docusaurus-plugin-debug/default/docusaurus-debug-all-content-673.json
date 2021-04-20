@@ -113,6 +113,22 @@
                   },
                   {
                     "type": "doc",
+                    "id": "explorer/available-tezos-indexers"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "explorer/indexer-explained"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "explorer/how-to-use-a-block-indexer"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "explorer/private-indexer"
+                  },
+                  {
+                    "type": "doc",
                     "id": "explorer/exam"
                   }
                 ]
@@ -401,8 +417,12 @@
             "/defi/wrapped-assets": "docs",
             "/deploy-a-node/exam": "docs",
             "/deploy-a-node": "docs",
+            "/explorer/available-tezos-indexers": "docs",
             "/explorer/exam": "docs",
-            "/explorer": "docs",
+            "/explorer/how-to-use-a-block-indexer": "docs",
+            "/explorer/indexer-explained": "docs",
+            "/explorer/introduction": "docs",
+            "/explorer/private-indexer": "docs",
             "/formal-verification/exam": "docs",
             "/formal-verification": "docs",
             "/ligo/contracts-ligo": "docs",
@@ -566,11 +586,47 @@
               }
             },
             {
+              "unversionedId": "blockchain-basics/main-components",
+              "id": "blockchain-basics/main-components",
+              "isDocsHomePage": false,
+              "title": "Main components of the first \"blockchain\"",
+              "description": "Under construction.",
+              "source": "@site/docs/blockchain-basics/main-components.md",
+              "slug": "/blockchain-basics",
+              "permalink": "/blockchain-basics",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/blockchain-basics/main-components.md",
+              "version": "current"
+            },
+            {
+              "unversionedId": "blockchain-basics/other-consensuses",
+              "id": "blockchain-basics/other-consensuses",
+              "isDocsHomePage": false,
+              "title": "Introduction to other consensuses",
+              "description": "Under construction.",
+              "source": "@site/docs/blockchain-basics/other-consensuses.md",
+              "slug": "/blockchain-basics",
+              "permalink": "/blockchain-basics",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/blockchain-basics/other-consensuses.md",
+              "version": "current"
+            },
+            {
+              "unversionedId": "blockchain-basics/smart-contracts",
+              "id": "blockchain-basics/smart-contracts",
+              "isDocsHomePage": false,
+              "title": "Smart Contracts",
+              "description": "Under construction.",
+              "source": "@site/docs/blockchain-basics/smart-contracts.md",
+              "slug": "/blockchain-basics",
+              "permalink": "/blockchain-basics",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/blockchain-basics/smart-contracts.md",
+              "version": "current"
+            },
+            {
               "unversionedId": "contribute/baker",
               "id": "contribute/baker",
               "isDocsHomePage": false,
-              "title": "Become a baker",
-              "description": "Under construction.",
+              "title": "Become a baker or a delegator",
+              "description": "Becoming a baker or a delegate on Tezos is a great way to contribute to the ecosystem while earning some profits. Baking (also called staking) is the process of forming new blocks on Tezos. This process is part of the Proof-of-Stake consensus (more on that in the Tezos basics module). The more bakers, the more decentralized and statistically safe this process is.",
               "source": "@site/docs/contribute/baker.md",
               "slug": "/contribute/baker",
               "permalink": "/contribute/baker",
@@ -599,7 +655,7 @@
               "version": "current",
               "sidebar": "docs",
               "previous": {
-                "title": "Become a baker",
+                "title": "Become a baker or a delegator",
                 "permalink": "/contribute/baker"
               }
             },
@@ -608,7 +664,7 @@
               "id": "contribute/grant",
               "isDocsHomePage": false,
               "title": "Receive a grant",
-              "description": "Under construction.",
+              "description": "The goal of the Tezos Foundation is to develop the Tezos ecosystem, which includes offering grant programs. In this chapter, we’ll take a closer look at how it works.",
               "source": "@site/docs/contribute/grant.md",
               "slug": "/contribute/grant",
               "permalink": "/contribute/grant",
@@ -620,7 +676,7 @@
                 "permalink": "/contribute/tezos-core"
               },
               "next": {
-                "title": "Become a baker",
+                "title": "Become a baker or a delegator",
                 "permalink": "/contribute/baker"
               }
             },
@@ -692,7 +748,7 @@
               "id": "contribute/tezos-core",
               "isDocsHomePage": false,
               "title": "Contribute to the Tezos Core Protocol",
-              "description": "Under construction.",
+              "description": "The full source code of Tezos is available on gitlab.com/tezos. Tezos is written in OCaml, an industrial-strength programming language supporting functional, imperative and object-oriented styles [1]. OCaml is a functional programming language that offers speed, an unambiguous syntax and semantics, and formal proofs of correctness.",
               "source": "@site/docs/contribute/tezos-core.md",
               "slug": "/contribute/tezos-core",
               "permalink": "/contribute/tezos-core",
@@ -934,7 +990,7 @@
               "id": "defi/token-standards",
               "isDocsHomePage": false,
               "title": "Token Standards",
-              "description": "Tokens are the basis of Decentralized Finance, just like Fiat currencies (e.g. USD, EUR) are the basis of traditional finance. They represents a way to exchange value. However contrary to traditional finance, tokens can represent much more than a simple currency. Tokens can represent any type of virtual or physical asset or value. For instance, real-estate which has so far always been a illiquid market can now be tokenized and traded on exchanges. Tokens can also enclose collectibles or luxury items such as art. They can enclose traditional finance products like equity, stocks, bonds, etc. In this chapter, we will see the implementation of tokens in Tezos and how they are the future of finance.",
+              "description": "Tokens are the basis of Decentralized Finance, just like Fiat currencies (e.g. USD, EUR) are the basis of traditional finance. They represent a way to exchange value. However, contrarily to traditional finance, tokens can represent much more than a simple currency. Tokens can represent any type of virtual or physical asset or value. For instance, real-estate which has so far always been an illiquid market can now be tokenized and traded on exchanges. Tokens can also enclose collectibles or luxury items such as art. They can enclose traditional finance products like equity, stocks, bonds, etc. In this chapter, we will see the implementation of tokens in Tezos and how they are the future of finance.",
               "source": "@site/docs/defi/token-standards.md",
               "slug": "/defi/token-standards",
               "permalink": "/defi/token-standards",
@@ -989,7 +1045,7 @@
               },
               "next": {
                 "title": "Introduction",
-                "permalink": "/explorer"
+                "permalink": "/explorer/introduction"
               }
             },
             {
@@ -1014,6 +1070,27 @@
               }
             },
             {
+              "unversionedId": "explorer/available-tezos-indexers",
+              "id": "explorer/available-tezos-indexers",
+              "isDocsHomePage": false,
+              "title": "Available Tezos Indexers",
+              "description": "Nomadic Labs Indexer",
+              "source": "@site/docs/explorer/available-tezos-indexers.md",
+              "slug": "/explorer/available-tezos-indexers",
+              "permalink": "/explorer/available-tezos-indexers",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/explorer/available-tezos-indexers.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Introduction",
+                "permalink": "/explorer/introduction"
+              },
+              "next": {
+                "title": "How Indexers Work?",
+                "permalink": "/explorer/indexer-explained"
+              }
+            },
+            {
               "unversionedId": "explorer/exam",
               "id": "explorer/exam",
               "isDocsHomePage": false,
@@ -1026,8 +1103,8 @@
               "version": "current",
               "sidebar": "docs",
               "previous": {
-                "title": "Introduction",
-                "permalink": "/explorer"
+                "title": "Private indexer for private and public networks",
+                "permalink": "/explorer/private-indexer"
               },
               "next": {
                 "title": "Introduction",
@@ -1035,20 +1112,83 @@
               }
             },
             {
+              "unversionedId": "explorer/how-to-use-a-block-indexer",
+              "id": "explorer/how-to-use-a-block-indexer",
+              "isDocsHomePage": false,
+              "title": "How to use the tzStats blockchain indexer?",
+              "description": "In the previous chapter, we have seen the existence of different block indexer",
+              "source": "@site/docs/explorer/how-to-use-a-block-indexer.md",
+              "slug": "/explorer/how-to-use-a-block-indexer",
+              "permalink": "/explorer/how-to-use-a-block-indexer",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/explorer/how-to-use-a-block-indexer.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "How Indexers Work?",
+                "permalink": "/explorer/indexer-explained"
+              },
+              "next": {
+                "title": "Private indexer for private and public networks",
+                "permalink": "/explorer/private-indexer"
+              }
+            },
+            {
+              "unversionedId": "explorer/indexer-explained",
+              "id": "explorer/indexer-explained",
+              "isDocsHomePage": false,
+              "title": "How Indexers Work?",
+              "description": "Traditional Blockchain Explorer Backends",
+              "source": "@site/docs/explorer/indexer-explained.md",
+              "slug": "/explorer/indexer-explained",
+              "permalink": "/explorer/indexer-explained",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/explorer/indexer-explained.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Available Tezos Indexers",
+                "permalink": "/explorer/available-tezos-indexers"
+              },
+              "next": {
+                "title": "How to use the tzStats blockchain indexer?",
+                "permalink": "/explorer/how-to-use-a-block-indexer"
+              }
+            },
+            {
               "unversionedId": "explorer/introduction",
               "id": "explorer/introduction",
               "isDocsHomePage": false,
               "title": "Introduction",
-              "description": "Under construction.",
+              "description": "This module focuses on blockchain explorers and blockchain indexers for Tezos, how they work and how to use them.",
               "source": "@site/docs/explorer/introduction.md",
-              "slug": "/explorer",
-              "permalink": "/explorer",
+              "slug": "/explorer/introduction",
+              "permalink": "/explorer/introduction",
               "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/explorer/introduction.md",
               "version": "current",
               "sidebar": "docs",
               "previous": {
                 "title": "Exam",
                 "permalink": "/deploy-a-node/exam"
+              },
+              "next": {
+                "title": "Available Tezos Indexers",
+                "permalink": "/explorer/available-tezos-indexers"
+              }
+            },
+            {
+              "unversionedId": "explorer/private-indexer",
+              "id": "explorer/private-indexer",
+              "isDocsHomePage": false,
+              "title": "Private indexer for private and public networks",
+              "description": "The tools that have been presented in this module are public: everyone can use it.",
+              "source": "@site/docs/explorer/private-indexer.md",
+              "slug": "/explorer/private-indexer",
+              "permalink": "/explorer/private-indexer",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/explorer/private-indexer.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "How to use the tzStats blockchain indexer?",
+                "permalink": "/explorer/how-to-use-a-block-indexer"
               },
               "next": {
                 "title": "Exam",

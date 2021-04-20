@@ -3,8 +3,43 @@ import React from 'react';
 import ComponentCreator from '@docusaurus/ComponentCreator';
 export default [
 {
+  path: '/__docusaurus/debug',
+  component: ComponentCreator('/__docusaurus/debug','3d6'),
+  exact: true,
+},
+{
+  path: '/__docusaurus/debug/config',
+  component: ComponentCreator('/__docusaurus/debug/config','914'),
+  exact: true,
+},
+{
+  path: '/__docusaurus/debug/content',
+  component: ComponentCreator('/__docusaurus/debug/content','c28'),
+  exact: true,
+},
+{
+  path: '/__docusaurus/debug/globalData',
+  component: ComponentCreator('/__docusaurus/debug/globalData','3cf'),
+  exact: true,
+},
+{
+  path: '/__docusaurus/debug/metadata',
+  component: ComponentCreator('/__docusaurus/debug/metadata','31b'),
+  exact: true,
+},
+{
+  path: '/__docusaurus/debug/registry',
+  component: ComponentCreator('/__docusaurus/debug/registry','0da'),
+  exact: true,
+},
+{
+  path: '/__docusaurus/debug/routes',
+  component: ComponentCreator('/__docusaurus/debug/routes','244'),
+  exact: true,
+},
+{
   path: '/',
-  component: ComponentCreator('/','1cf'),
+  component: ComponentCreator('/','d18'),
   
   routes: [
 {
@@ -35,6 +70,21 @@ export default [
 {
   path: '/blockchain-basics',
   component: ComponentCreator('/blockchain-basics','783'),
+  exact: true,
+},
+{
+  path: '/blockchain-basics',
+  component: ComponentCreator('/blockchain-basics','4d7'),
+  exact: true,
+},
+{
+  path: '/blockchain-basics',
+  component: ComponentCreator('/blockchain-basics','621'),
+  exact: true,
+},
+{
+  path: '/blockchain-basics',
+  component: ComponentCreator('/blockchain-basics','db6'),
   exact: true,
 },
 {
@@ -153,13 +203,33 @@ export default [
   exact: true,
 },
 {
-  path: '/explorer',
-  component: ComponentCreator('/explorer','9c5'),
+  path: '/explorer/available-tezos-indexers',
+  component: ComponentCreator('/explorer/available-tezos-indexers','fba'),
   exact: true,
 },
 {
   path: '/explorer/exam',
   component: ComponentCreator('/explorer/exam','a71'),
+  exact: true,
+},
+{
+  path: '/explorer/how-to-use-a-block-indexer',
+  component: ComponentCreator('/explorer/how-to-use-a-block-indexer','3b1'),
+  exact: true,
+},
+{
+  path: '/explorer/indexer-explained',
+  component: ComponentCreator('/explorer/indexer-explained','791'),
+  exact: true,
+},
+{
+  path: '/explorer/introduction',
+  component: ComponentCreator('/explorer/introduction','3d2'),
+  exact: true,
+},
+{
+  path: '/explorer/private-indexer',
+  component: ComponentCreator('/explorer/private-indexer','f11'),
   exact: true,
 },
 {

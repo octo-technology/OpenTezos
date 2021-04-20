@@ -116,7 +116,27 @@
           {
             "type": "link",
             "label": "Introduction",
-            "href": "/explorer"
+            "href": "/explorer/introduction"
+          },
+          {
+            "type": "link",
+            "label": "Available Tezos Indexers",
+            "href": "/explorer/available-tezos-indexers"
+          },
+          {
+            "type": "link",
+            "label": "How Indexers Work?",
+            "href": "/explorer/indexer-explained"
+          },
+          {
+            "type": "link",
+            "label": "How to use the tzStats blockchain indexer?",
+            "href": "/explorer/how-to-use-a-block-indexer"
+          },
+          {
+            "type": "link",
+            "label": "Private indexer for private and public networks",
+            "href": "/explorer/private-indexer"
           },
           {
             "type": "link",
@@ -415,7 +435,7 @@
           },
           {
             "type": "link",
-            "label": "Become a baker",
+            "label": "Become a baker or a delegator",
             "href": "/contribute/baker"
           },
           {
@@ -455,8 +475,12 @@
     "/defi/wrapped-assets": "docs",
     "/deploy-a-node/exam": "docs",
     "/deploy-a-node": "docs",
+    "/explorer/available-tezos-indexers": "docs",
     "/explorer/exam": "docs",
-    "/explorer": "docs",
+    "/explorer/how-to-use-a-block-indexer": "docs",
+    "/explorer/indexer-explained": "docs",
+    "/explorer/introduction": "docs",
+    "/explorer/private-indexer": "docs",
     "/formal-verification/exam": "docs",
     "/formal-verification": "docs",
     "/ligo/contracts-ligo": "docs",

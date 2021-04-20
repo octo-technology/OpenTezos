@@ -41,6 +41,18 @@
               "sidebar": "docs"
             },
             {
+              "id": "blockchain-basics/main-components",
+              "path": "/blockchain-basics"
+            },
+            {
+              "id": "blockchain-basics/other-consensuses",
+              "path": "/blockchain-basics"
+            },
+            {
+              "id": "blockchain-basics/smart-contracts",
+              "path": "/blockchain-basics"
+            },
+            {
               "id": "contribute/baker",
               "path": "/contribute/baker",
               "sidebar": "docs"
@@ -150,13 +162,33 @@
               "sidebar": "docs"
             },
             {
+              "id": "explorer/available-tezos-indexers",
+              "path": "/explorer/available-tezos-indexers",
+              "sidebar": "docs"
+            },
+            {
               "id": "explorer/exam",
               "path": "/explorer/exam",
               "sidebar": "docs"
             },
             {
+              "id": "explorer/how-to-use-a-block-indexer",
+              "path": "/explorer/how-to-use-a-block-indexer",
+              "sidebar": "docs"
+            },
+            {
+              "id": "explorer/indexer-explained",
+              "path": "/explorer/indexer-explained",
+              "sidebar": "docs"
+            },
+            {
               "id": "explorer/introduction",
-              "path": "/explorer",
+              "path": "/explorer/introduction",
+              "sidebar": "docs"
+            },
+            {
+              "id": "explorer/private-indexer",
+              "path": "/explorer/private-indexer",
               "sidebar": "docs"
             },
             {

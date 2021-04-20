@@ -3,7 +3,7 @@
   "id": "contribute/grant",
   "isDocsHomePage": false,
   "title": "Receive a grant",
-  "description": "Under construction.",
+  "description": "The goal of the Tezos Foundation is to develop the Tezos ecosystem, which includes offering grant programs. In this chapter, we’ll take a closer look at how it works.",
   "source": "@site/docs/contribute/grant.md",
   "slug": "/contribute/grant",
   "permalink": "/contribute/grant",
@@ -15,7 +15,7 @@
     "permalink": "/contribute/tezos-core"
   },
   "next": {
-    "title": "Become a baker",
+    "title": "Become a baker or a delegator",
     "permalink": "/contribute/baker"
   }
 }

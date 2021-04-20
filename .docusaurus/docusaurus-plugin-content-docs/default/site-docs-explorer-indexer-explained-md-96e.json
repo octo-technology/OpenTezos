@@ -1,0 +1,21 @@
+{
+  "unversionedId": "explorer/indexer-explained",
+  "id": "explorer/indexer-explained",
+  "isDocsHomePage": false,
+  "title": "How Indexers Work?",
+  "description": "Traditional Blockchain Explorer Backends",
+  "source": "@site/docs/explorer/indexer-explained.md",
+  "slug": "/explorer/indexer-explained",
+  "permalink": "/explorer/indexer-explained",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/explorer/indexer-explained.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Available Tezos Indexers",
+    "permalink": "/explorer/available-tezos-indexers"
+  },
+  "next": {
+    "title": "How to use the tzStats blockchain indexer?",
+    "permalink": "/explorer/how-to-use-a-block-indexer"
+  }
+}

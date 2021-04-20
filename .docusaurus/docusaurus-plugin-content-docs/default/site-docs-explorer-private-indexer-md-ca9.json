@@ -1,0 +1,21 @@
+{
+  "unversionedId": "explorer/private-indexer",
+  "id": "explorer/private-indexer",
+  "isDocsHomePage": false,
+  "title": "Private indexer for private and public networks",
+  "description": "The tools that have been presented in this module are public: everyone can use it.",
+  "source": "@site/docs/explorer/private-indexer.md",
+  "slug": "/explorer/private-indexer",
+  "permalink": "/explorer/private-indexer",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/explorer/private-indexer.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "How to use the tzStats blockchain indexer?",
+    "permalink": "/explorer/how-to-use-a-block-indexer"
+  },
+  "next": {
+    "title": "Exam",
+    "permalink": "/explorer/exam"
+  }
+}

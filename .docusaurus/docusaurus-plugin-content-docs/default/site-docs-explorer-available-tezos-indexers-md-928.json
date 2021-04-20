@@ -1,0 +1,21 @@
+{
+  "unversionedId": "explorer/available-tezos-indexers",
+  "id": "explorer/available-tezos-indexers",
+  "isDocsHomePage": false,
+  "title": "Available Tezos Indexers",
+  "description": "Nomadic Labs Indexer",
+  "source": "@site/docs/explorer/available-tezos-indexers.md",
+  "slug": "/explorer/available-tezos-indexers",
+  "permalink": "/explorer/available-tezos-indexers",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/explorer/available-tezos-indexers.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Introduction",
+    "permalink": "/explorer/introduction"
+  },
+  "next": {
+    "title": "How Indexers Work?",
+    "permalink": "/explorer/indexer-explained"
+  }
+}

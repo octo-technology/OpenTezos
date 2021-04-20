@@ -3,10 +3,10 @@
   "id": "explorer/introduction",
   "isDocsHomePage": false,
   "title": "Introduction",
-  "description": "Under construction.",
+  "description": "This module focuses on blockchain explorers and blockchain indexers for Tezos, how they work and how to use them.",
   "source": "@site/docs/explorer/introduction.md",
-  "slug": "/explorer",
-  "permalink": "/explorer",
+  "slug": "/explorer/introduction",
+  "permalink": "/explorer/introduction",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/explorer/introduction.md",
   "version": "current",
   "sidebar": "docs",
@@ -15,7 +15,7 @@
     "permalink": "/deploy-a-node/exam"
   },
   "next": {
-    "title": "Exam",
-    "permalink": "/explorer/exam"
+    "title": "Available Tezos Indexers",
+    "permalink": "/explorer/available-tezos-indexers"
   }
 }

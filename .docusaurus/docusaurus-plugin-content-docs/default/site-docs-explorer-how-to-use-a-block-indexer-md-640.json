@@ -1,0 +1,21 @@
+{
+  "unversionedId": "explorer/how-to-use-a-block-indexer",
+  "id": "explorer/how-to-use-a-block-indexer",
+  "isDocsHomePage": false,
+  "title": "How to use the tzStats blockchain indexer?",
+  "description": "In the previous chapter, we have seen the existence of different block indexer",
+  "source": "@site/docs/explorer/how-to-use-a-block-indexer.md",
+  "slug": "/explorer/how-to-use-a-block-indexer",
+  "permalink": "/explorer/how-to-use-a-block-indexer",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/explorer/how-to-use-a-block-indexer.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "How Indexers Work?",
+    "permalink": "/explorer/indexer-explained"
+  },
+  "next": {
+    "title": "Private indexer for private and public networks",
+    "permalink": "/explorer/private-indexer"
+  }
+}
