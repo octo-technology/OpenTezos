@@ -11,7 +11,7 @@ Instead of buying a lot of powerful nodes like in PoW, **validators** "*burn*" t
 
 The more miners burn coins, the more they are likely to validate a block and win rewards.
 
-This mimics the process of mining, where miners have to invest energy and mining power to solve a mathematical equation
+This mimics the process of mining, where miners have to invest energy and mining power to solve a mathematical inequality.
 
 An example of this would be: *Slimcoin*
 
@@ -35,7 +35,7 @@ The sum total of these broadcast-results determines the consensus.
 An example of this would be: *Evernym, Chain...*
 
 ## Federated​ ​Byzantine​ ​Agreement​ ​(FBA)
-There a *Sets of enough nodes* to validate the data is established. A single *set* is called a "*quorum*".
+There *sets of enough nodes* to validate data are established. A single *set* is called a "*quorum*".
 
 With FBA, a *subset* of a quorum is able to aggregate another node, which in turn approves data *to form a complete quorum*. This *subset* is called a "*quorum slice*".
 
@@ -58,7 +58,7 @@ An example of this would be: *Avalanche*
 ## Proof-of-Stake (PoS)
 Requires a system where _validators_  *do not create coins*, so that their rewards should *only be provided by transactions fees*. It also means that all the coins are created at the launch of the system.
 
-The first set of this consensus is for Blocks to be  *validated* by **validators** that invested coins in the system. The more a validator has coins in an escrow, the more he is likely to validate a block and earn rewards.
+The first set of this consensus is for blocks to be  *validated* by **validators** that invested coins in the system. The more a validator has coins in an escrow, the more he is likely to validate a block and earn rewards.
 
 Valid blocks pushed from validators are always verified afterwards by the network. If a validator has tried to cheat, he loses all his funds in his collateral.
 
