@@ -3,7 +3,7 @@
   "id": "explorer/introduction",
   "isDocsHomePage": false,
   "title": "Introduction",
-  "description": "This module focuses on blockchain explorers and blockchain indexers for Tezos, how they work and how to use them.",
+  "description": "This module focuses on blockchain explorers and blockchain indexers for Tezos,",
   "source": "@site/docs/explorer/introduction.md",
   "slug": "/explorer/introduction",
   "permalink": "/explorer/introduction",
@@ -15,7 +15,7 @@
     "permalink": "/deploy-a-node/exam"
   },
   "next": {
-    "title": "Available Tezos Indexers",
-    "permalink": "/explorer/available-tezos-indexers"
+    "title": "How Indexers Work?",
+    "permalink": "/explorer/indexer-explained"
   }
 }

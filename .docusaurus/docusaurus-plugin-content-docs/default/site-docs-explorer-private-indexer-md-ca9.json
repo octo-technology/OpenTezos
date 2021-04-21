@@ -2,8 +2,8 @@
   "unversionedId": "explorer/private-indexer",
   "id": "explorer/private-indexer",
   "isDocsHomePage": false,
-  "title": "Private indexer for private and public networks",
-  "description": "The tools that have been presented in this module are public: everyone can use it.",
+  "title": "Private indexer",
+  "description": "The tools presented in this module so far are fully public, meaning that everyone can use them. However, they are meant for public networks, and the user is dependent on the infrastructure and configuration of these services. Some organizations are more interrested in deploying their own private Tezos network, either for private testing before going public, or for entirely private use. Refer to the Private blockchain module for more info. Therefore, it must be possible to use an indexer on private networks.",
   "source": "@site/docs/explorer/private-indexer.md",
   "slug": "/explorer/private-indexer",
   "permalink": "/explorer/private-indexer",
@@ -11,8 +11,8 @@
   "version": "current",
   "sidebar": "docs",
   "previous": {
-    "title": "How to use the tzStats blockchain indexer?",
-    "permalink": "/explorer/how-to-use-a-block-indexer"
+    "title": "Checkout your smart contract on TzStats",
+    "permalink": "/explorer/tzstats-smart-contract"
   },
   "next": {
     "title": "Exam",

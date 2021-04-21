@@ -34,6 +34,21 @@
           },
           {
             "type": "link",
+            "label": "Main components of the first \"blockchain\"",
+            "href": "/blockchain-basics/main-components"
+          },
+          {
+            "type": "link",
+            "label": "Introduction to other consensuses",
+            "href": "/blockchain-basics/other-consensuses"
+          },
+          {
+            "type": "link",
+            "label": "Smart Contracts",
+            "href": "/blockchain-basics/smart-contracts"
+          },
+          {
+            "type": "link",
             "label": "Exam",
             "href": "/blockchain-basics/exam"
           }
@@ -120,22 +135,27 @@
           },
           {
             "type": "link",
-            "label": "Available Tezos Indexers",
-            "href": "/explorer/available-tezos-indexers"
-          },
-          {
-            "type": "link",
             "label": "How Indexers Work?",
             "href": "/explorer/indexer-explained"
           },
           {
             "type": "link",
-            "label": "How to use the tzStats blockchain indexer?",
-            "href": "/explorer/how-to-use-a-block-indexer"
+            "label": "Available Tezos Indexers",
+            "href": "/explorer/available-tezos-indexers"
           },
           {
             "type": "link",
-            "label": "Private indexer for private and public networks",
+            "label": "How to use the tzStats blockchain explorer?",
+            "href": "/explorer/tzstats-main-features"
+          },
+          {
+            "type": "link",
+            "label": "Checkout your smart contract on TzStats",
+            "href": "/explorer/tzstats-smart-contract"
+          },
+          {
+            "type": "link",
+            "label": "Private indexer",
             "href": "/explorer/private-indexer"
           },
           {
@@ -179,6 +199,11 @@
           },
           {
             "type": "link",
+            "label": "Smart contract development in Pascaligo",
+            "href": "/ligo/write-contracts-ligo"
+          },
+          {
+            "type": "link",
             "label": "Language basics",
             "href": "/ligo/language-basics"
           },
@@ -206,11 +231,6 @@
             "type": "link",
             "label": "Take Away",
             "href": "/ligo/take-away"
-          },
-          {
-            "type": "link",
-            "label": "Smart contract development in Pascaligo",
-            "href": "/ligo/contracts-ligo"
           }
         ]
       },
@@ -454,6 +474,9 @@
     "/baking": "docs",
     "/blockchain-basics/exam": "docs",
     "/blockchain-basics": "docs",
+    "/blockchain-basics/main-components": "docs",
+    "/blockchain-basics/other-consensuses": "docs",
+    "/blockchain-basics/smart-contracts": "docs",
     "/contribute/baker": "docs",
     "/contribute/exam": "docs",
     "/contribute/grant": "docs",
@@ -477,13 +500,13 @@
     "/deploy-a-node": "docs",
     "/explorer/available-tezos-indexers": "docs",
     "/explorer/exam": "docs",
-    "/explorer/how-to-use-a-block-indexer": "docs",
     "/explorer/indexer-explained": "docs",
     "/explorer/introduction": "docs",
     "/explorer/private-indexer": "docs",
+    "/explorer/tzstats-main-features": "docs",
+    "/explorer/tzstats-smart-contract": "docs",
     "/formal-verification/exam": "docs",
     "/formal-verification": "docs",
-    "/ligo/contracts-ligo": "docs",
     "/ligo/deploy-a-contract": "docs",
     "/ligo/exam": "docs",
     "/ligo/examples": "docs",
@@ -492,6 +515,7 @@
     "/ligo/language-basics": "docs",
     "/ligo/take-away": "docs",
     "/ligo/unit-testing": "docs",
+    "/ligo/write-contracts-ligo": "docs",
     "/michelson/exam": "docs",
     "/michelson/examples": "docs",
     "/michelson/instructions-reference": "docs",

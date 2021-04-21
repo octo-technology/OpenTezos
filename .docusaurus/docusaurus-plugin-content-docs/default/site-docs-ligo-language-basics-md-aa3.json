@@ -11,8 +11,8 @@
   "version": "current",
   "sidebar": "docs",
   "previous": {
-    "title": "Installation",
-    "permalink": "/ligo/installation"
+    "title": "Smart contract development in Pascaligo",
+    "permalink": "/ligo/write-contracts-ligo"
   },
   "next": {
     "title": "Deploy a contract",

@@ -39,7 +39,7 @@ export default [
 },
 {
   path: '/',
-  component: ComponentCreator('/','d18'),
+  component: ComponentCreator('/','456'),
   
   routes: [
 {
@@ -73,23 +73,23 @@ export default [
   exact: true,
 },
 {
-  path: '/blockchain-basics',
-  component: ComponentCreator('/blockchain-basics','4d7'),
-  exact: true,
-},
-{
-  path: '/blockchain-basics',
-  component: ComponentCreator('/blockchain-basics','621'),
-  exact: true,
-},
-{
-  path: '/blockchain-basics',
-  component: ComponentCreator('/blockchain-basics','db6'),
-  exact: true,
-},
-{
   path: '/blockchain-basics/exam',
   component: ComponentCreator('/blockchain-basics/exam','ffe'),
+  exact: true,
+},
+{
+  path: '/blockchain-basics/main-components',
+  component: ComponentCreator('/blockchain-basics/main-components','de8'),
+  exact: true,
+},
+{
+  path: '/blockchain-basics/other-consensuses',
+  component: ComponentCreator('/blockchain-basics/other-consensuses','cf5'),
+  exact: true,
+},
+{
+  path: '/blockchain-basics/smart-contracts',
+  component: ComponentCreator('/blockchain-basics/smart-contracts','e70'),
   exact: true,
 },
 {
@@ -213,11 +213,6 @@ export default [
   exact: true,
 },
 {
-  path: '/explorer/how-to-use-a-block-indexer',
-  component: ComponentCreator('/explorer/how-to-use-a-block-indexer','3b1'),
-  exact: true,
-},
-{
   path: '/explorer/indexer-explained',
   component: ComponentCreator('/explorer/indexer-explained','791'),
   exact: true,
@@ -233,6 +228,16 @@ export default [
   exact: true,
 },
 {
+  path: '/explorer/tzstats-main-features',
+  component: ComponentCreator('/explorer/tzstats-main-features','927'),
+  exact: true,
+},
+{
+  path: '/explorer/tzstats-smart-contract',
+  component: ComponentCreator('/explorer/tzstats-smart-contract','c7c'),
+  exact: true,
+},
+{
   path: '/formal-verification',
   component: ComponentCreator('/formal-verification','c07'),
   exact: true,
@@ -245,11 +250,6 @@ export default [
 {
   path: '/ligo',
   component: ComponentCreator('/ligo','f43'),
-  exact: true,
-},
-{
-  path: '/ligo/contracts-ligo',
-  component: ComponentCreator('/ligo/contracts-ligo','e46'),
   exact: true,
 },
 {
@@ -285,6 +285,11 @@ export default [
 {
   path: '/ligo/unit-testing',
   component: ComponentCreator('/ligo/unit-testing','e9e'),
+  exact: true,
+},
+{
+  path: '/ligo/write-contracts-ligo',
+  component: ComponentCreator('/ligo/write-contracts-ligo','3af'),
   exact: true,
 },
 {

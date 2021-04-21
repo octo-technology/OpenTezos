@@ -3,7 +3,7 @@
   "id": "blockchain-basics/introduction",
   "isDocsHomePage": false,
   "title": "Introduction",
-  "description": "Under construction.",
+  "description": "Welcome to OpenTezos, the most complete and open-source documentation on Tezos.",
   "source": "@site/docs/blockchain-basics/introduction.md",
   "slug": "/blockchain-basics",
   "permalink": "/blockchain-basics",
@@ -15,7 +15,7 @@
     "permalink": "/paths"
   },
   "next": {
-    "title": "Exam",
-    "permalink": "/blockchain-basics/exam"
+    "title": "Main components of the first \"blockchain\"",
+    "permalink": "/blockchain-basics/main-components"
   }
 }

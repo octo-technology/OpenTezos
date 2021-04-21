@@ -21,7 +21,7 @@
   "/__docusaurus/debug/routes-244": {
     "component": "component---theme-debug-routes-946-699"
   },
-  "/-d18": {
+  "/-456": {
     "component": "component---theme-doc-page-1-be-9be",
     "versionMetadata": "versionMetadata---935-fcf"
   },
@@ -49,21 +49,21 @@
     "component": "component---theme-doc-item-178-a40",
     "content": "content---blockchain-basics-140-a89"
   },
-  "/blockchain-basics-4d7": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---blockchain-basics-5-eb-5fe"
-  },
-  "/blockchain-basics-621": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---blockchain-basics-4-d-5-49e"
-  },
-  "/blockchain-basics-db6": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---blockchain-basicsdd-7-ecf"
-  },
   "/blockchain-basics/exam-ffe": {
     "component": "component---theme-doc-item-178-a40",
     "content": "content---blockchain-basics-exam-2-b-4-e05"
+  },
+  "/blockchain-basics/main-components-de8": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---blockchain-basics-main-components-5-eb-339"
+  },
+  "/blockchain-basics/other-consensuses-cf5": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---blockchain-basics-other-consensuses-4-d-5-bdd"
+  },
+  "/blockchain-basics/smart-contracts-e70": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---blockchain-basics-smart-contractsdd-7-c80"
   },
   "/contribute-41f": {
     "component": "component---theme-doc-item-178-a40",
@@ -161,10 +161,6 @@
     "component": "component---theme-doc-item-178-a40",
     "content": "content---explorer-exam-188-54f"
   },
-  "/explorer/how-to-use-a-block-indexer-3b1": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---explorer-how-to-use-a-block-indexer-640-7cb"
-  },
   "/explorer/indexer-explained-791": {
     "component": "component---theme-doc-item-178-a40",
     "content": "content---explorer-indexer-explained-96-e-1e9"
@@ -177,6 +173,14 @@
     "component": "component---theme-doc-item-178-a40",
     "content": "content---explorer-private-indexerca-9-373"
   },
+  "/explorer/tzstats-main-features-927": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---explorer-tzstats-main-features-26-e-a5a"
+  },
+  "/explorer/tzstats-smart-contract-c7c": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---explorer-tzstats-smart-contract-485-762"
+  },
   "/formal-verification-c07": {
     "component": "component---theme-doc-item-178-a40",
     "content": "content---formal-verification-392-cff"
@@ -188,10 +192,6 @@
   "/ligo-f43": {
     "component": "component---theme-doc-item-178-a40",
     "content": "content---ligo-90-f-7cd"
-  },
-  "/ligo/contracts-ligo-e46": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---ligo-contracts-ligod-78-aec"
   },
   "/ligo/deploy-a-contract-cc7": {
     "component": "component---theme-doc-item-178-a40",
@@ -220,6 +220,10 @@
   "/ligo/unit-testing-e9e": {
     "component": "component---theme-doc-item-178-a40",
     "content": "content---ligo-unit-testing-2-a-9-480"
+  },
+  "/ligo/write-contracts-ligo-3af": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---ligo-write-contracts-ligod-78-d58"
   },
   "/michelson-e49": {
     "component": "component---theme-doc-item-178-a40",

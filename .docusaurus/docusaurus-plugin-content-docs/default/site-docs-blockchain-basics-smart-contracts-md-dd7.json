@@ -3,10 +3,19 @@
   "id": "blockchain-basics/smart-contracts",
   "isDocsHomePage": false,
   "title": "Smart Contracts",
-  "description": "Under construction.",
+  "description": "In this chapter, we'll explain how and why Bitcoin's programming features are limited. We'll define what are \"Smart Contracts\" and how they are already present on Bitcoin. And finally, why the concept of \"Gas\" was introduced on Ethereum and what it means.",
   "source": "@site/docs/blockchain-basics/smart-contracts.md",
-  "slug": "/blockchain-basics",
-  "permalink": "/blockchain-basics",
+  "slug": "/blockchain-basics/smart-contracts",
+  "permalink": "/blockchain-basics/smart-contracts",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/blockchain-basics/smart-contracts.md",
-  "version": "current"
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Introduction to other consensuses",
+    "permalink": "/blockchain-basics/other-consensuses"
+  },
+  "next": {
+    "title": "Exam",
+    "permalink": "/blockchain-basics/exam"
+  }
 }

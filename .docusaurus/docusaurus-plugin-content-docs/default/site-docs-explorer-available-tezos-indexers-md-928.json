@@ -3,7 +3,7 @@
   "id": "explorer/available-tezos-indexers",
   "isDocsHomePage": false,
   "title": "Available Tezos Indexers",
-  "description": "// TODO: Intro. What is this chapter about?",
+  "description": "The purpose of this chapter is to list the main explorers of the Tezos blockchain with their pros and cons.",
   "source": "@site/docs/explorer/available-tezos-indexers.md",
   "slug": "/explorer/available-tezos-indexers",
   "permalink": "/explorer/available-tezos-indexers",
@@ -11,11 +11,11 @@
   "version": "current",
   "sidebar": "docs",
   "previous": {
-    "title": "Introduction",
-    "permalink": "/explorer/introduction"
-  },
-  "next": {
     "title": "How Indexers Work?",
     "permalink": "/explorer/indexer-explained"
+  },
+  "next": {
+    "title": "How to use the tzStats blockchain explorer?",
+    "permalink": "/explorer/tzstats-main-features"
   }
 }

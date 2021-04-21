@@ -40,6 +40,18 @@
                   },
                   {
                     "type": "doc",
+                    "id": "blockchain-basics/main-components"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "blockchain-basics/other-consensuses"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "blockchain-basics/smart-contracts"
+                  },
+                  {
+                    "type": "doc",
                     "id": "blockchain-basics/exam"
                   }
                 ]
@@ -113,15 +125,19 @@
                   },
                   {
                     "type": "doc",
-                    "id": "explorer/available-tezos-indexers"
-                  },
-                  {
-                    "type": "doc",
                     "id": "explorer/indexer-explained"
                   },
                   {
                     "type": "doc",
-                    "id": "explorer/how-to-use-a-block-indexer"
+                    "id": "explorer/available-tezos-indexers"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "explorer/tzstats-main-features"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "explorer/tzstats-smart-contract"
                   },
                   {
                     "type": "doc",
@@ -163,6 +179,10 @@
                   },
                   {
                     "type": "doc",
+                    "id": "ligo/write-contracts-ligo"
+                  },
+                  {
+                    "type": "doc",
                     "id": "ligo/language-basics"
                   },
                   {
@@ -184,10 +204,6 @@
                   {
                     "type": "doc",
                     "id": "ligo/take-away"
-                  },
-                  {
-                    "type": "doc",
-                    "id": "ligo/contracts-ligo"
                   }
                 ]
               },
@@ -396,6 +412,9 @@
             "/baking": "docs",
             "/blockchain-basics/exam": "docs",
             "/blockchain-basics": "docs",
+            "/blockchain-basics/main-components": "docs",
+            "/blockchain-basics/other-consensuses": "docs",
+            "/blockchain-basics/smart-contracts": "docs",
             "/contribute/baker": "docs",
             "/contribute/exam": "docs",
             "/contribute/grant": "docs",
@@ -419,13 +438,13 @@
             "/deploy-a-node": "docs",
             "/explorer/available-tezos-indexers": "docs",
             "/explorer/exam": "docs",
-            "/explorer/how-to-use-a-block-indexer": "docs",
             "/explorer/indexer-explained": "docs",
             "/explorer/introduction": "docs",
             "/explorer/private-indexer": "docs",
+            "/explorer/tzstats-main-features": "docs",
+            "/explorer/tzstats-smart-contract": "docs",
             "/formal-verification/exam": "docs",
             "/formal-verification": "docs",
-            "/ligo/contracts-ligo": "docs",
             "/ligo/deploy-a-contract": "docs",
             "/ligo/exam": "docs",
             "/ligo/examples": "docs",
@@ -434,6 +453,7 @@
             "/ligo/language-basics": "docs",
             "/ligo/take-away": "docs",
             "/ligo/unit-testing": "docs",
+            "/ligo/write-contracts-ligo": "docs",
             "/michelson/exam": "docs",
             "/michelson/examples": "docs",
             "/michelson/instructions-reference": "docs",
@@ -556,8 +576,8 @@
               "version": "current",
               "sidebar": "docs",
               "previous": {
-                "title": "Introduction",
-                "permalink": "/blockchain-basics"
+                "title": "Smart Contracts",
+                "permalink": "/blockchain-basics/smart-contracts"
               },
               "next": {
                 "title": "Introduction",
@@ -569,7 +589,7 @@
               "id": "blockchain-basics/introduction",
               "isDocsHomePage": false,
               "title": "Introduction",
-              "description": "Under construction.",
+              "description": "Welcome to OpenTezos, the most complete and open-source documentation on Tezos.",
               "source": "@site/docs/blockchain-basics/introduction.md",
               "slug": "/blockchain-basics",
               "permalink": "/blockchain-basics",
@@ -581,8 +601,8 @@
                 "permalink": "/paths"
               },
               "next": {
-                "title": "Exam",
-                "permalink": "/blockchain-basics/exam"
+                "title": "Main components of the first \"blockchain\"",
+                "permalink": "/blockchain-basics/main-components"
               }
             },
             {
@@ -590,36 +610,63 @@
               "id": "blockchain-basics/main-components",
               "isDocsHomePage": false,
               "title": "Main components of the first \"blockchain\"",
-              "description": "Under construction.",
+              "description": "In this chapter, we will go a little bit deeper into details of the main components of the Bitcoin protocol. The developers, who are the builders part of the community; The network with the distributed ledger and the miners who validate it; A few Economy basics on which Bitcoin was created; And finally, the consensus and the Proof-of-Work.",
               "source": "@site/docs/blockchain-basics/main-components.md",
-              "slug": "/blockchain-basics",
-              "permalink": "/blockchain-basics",
+              "slug": "/blockchain-basics/main-components",
+              "permalink": "/blockchain-basics/main-components",
               "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/blockchain-basics/main-components.md",
-              "version": "current"
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Introduction",
+                "permalink": "/blockchain-basics"
+              },
+              "next": {
+                "title": "Introduction to other consensuses",
+                "permalink": "/blockchain-basics/other-consensuses"
+              }
             },
             {
               "unversionedId": "blockchain-basics/other-consensuses",
               "id": "blockchain-basics/other-consensuses",
               "isDocsHomePage": false,
               "title": "Introduction to other consensuses",
-              "description": "Under construction.",
+              "description": "In this chapter, we will introduce 10 public consensus mechanisms.",
               "source": "@site/docs/blockchain-basics/other-consensuses.md",
-              "slug": "/blockchain-basics",
-              "permalink": "/blockchain-basics",
+              "slug": "/blockchain-basics/other-consensuses",
+              "permalink": "/blockchain-basics/other-consensuses",
               "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/blockchain-basics/other-consensuses.md",
-              "version": "current"
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Main components of the first \"blockchain\"",
+                "permalink": "/blockchain-basics/main-components"
+              },
+              "next": {
+                "title": "Smart Contracts",
+                "permalink": "/blockchain-basics/smart-contracts"
+              }
             },
             {
               "unversionedId": "blockchain-basics/smart-contracts",
               "id": "blockchain-basics/smart-contracts",
               "isDocsHomePage": false,
               "title": "Smart Contracts",
-              "description": "Under construction.",
+              "description": "In this chapter, we'll explain how and why Bitcoin's programming features are limited. We'll define what are \"Smart Contracts\" and how they are already present on Bitcoin. And finally, why the concept of \"Gas\" was introduced on Ethereum and what it means.",
               "source": "@site/docs/blockchain-basics/smart-contracts.md",
-              "slug": "/blockchain-basics",
-              "permalink": "/blockchain-basics",
+              "slug": "/blockchain-basics/smart-contracts",
+              "permalink": "/blockchain-basics/smart-contracts",
               "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/blockchain-basics/smart-contracts.md",
-              "version": "current"
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Introduction to other consensuses",
+                "permalink": "/blockchain-basics/other-consensuses"
+              },
+              "next": {
+                "title": "Exam",
+                "permalink": "/blockchain-basics/exam"
+              }
             },
             {
               "unversionedId": "contribute/baker",
@@ -1074,7 +1121,7 @@
               "id": "explorer/available-tezos-indexers",
               "isDocsHomePage": false,
               "title": "Available Tezos Indexers",
-              "description": "// TODO: Intro. What is this chapter about?",
+              "description": "The purpose of this chapter is to list the main explorers of the Tezos blockchain with their pros and cons.",
               "source": "@site/docs/explorer/available-tezos-indexers.md",
               "slug": "/explorer/available-tezos-indexers",
               "permalink": "/explorer/available-tezos-indexers",
@@ -1082,12 +1129,12 @@
               "version": "current",
               "sidebar": "docs",
               "previous": {
-                "title": "Introduction",
-                "permalink": "/explorer/introduction"
-              },
-              "next": {
                 "title": "How Indexers Work?",
                 "permalink": "/explorer/indexer-explained"
+              },
+              "next": {
+                "title": "How to use the tzStats blockchain explorer?",
+                "permalink": "/explorer/tzstats-main-features"
               }
             },
             {
@@ -1103,7 +1150,7 @@
               "version": "current",
               "sidebar": "docs",
               "previous": {
-                "title": "Private indexer for private and public networks",
+                "title": "Private indexer",
                 "permalink": "/explorer/private-indexer"
               },
               "next": {
@@ -1112,32 +1159,11 @@
               }
             },
             {
-              "unversionedId": "explorer/how-to-use-a-block-indexer",
-              "id": "explorer/how-to-use-a-block-indexer",
-              "isDocsHomePage": false,
-              "title": "How to use the tzStats blockchain indexer?",
-              "description": "In the previous chapter, we have seen the existence of different block indexer",
-              "source": "@site/docs/explorer/how-to-use-a-block-indexer.md",
-              "slug": "/explorer/how-to-use-a-block-indexer",
-              "permalink": "/explorer/how-to-use-a-block-indexer",
-              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/explorer/how-to-use-a-block-indexer.md",
-              "version": "current",
-              "sidebar": "docs",
-              "previous": {
-                "title": "How Indexers Work?",
-                "permalink": "/explorer/indexer-explained"
-              },
-              "next": {
-                "title": "Private indexer for private and public networks",
-                "permalink": "/explorer/private-indexer"
-              }
-            },
-            {
               "unversionedId": "explorer/indexer-explained",
               "id": "explorer/indexer-explained",
               "isDocsHomePage": false,
               "title": "How Indexers Work?",
-              "description": "// TODO: intro. quick recap about what is an indexer. What are we going to talk about in this chapter?",
+              "description": "This chapter aims to describe the functioning of a traditional indexer and its components.",
               "source": "@site/docs/explorer/indexer-explained.md",
               "slug": "/explorer/indexer-explained",
               "permalink": "/explorer/indexer-explained",
@@ -1145,12 +1171,12 @@
               "version": "current",
               "sidebar": "docs",
               "previous": {
-                "title": "Available Tezos Indexers",
-                "permalink": "/explorer/available-tezos-indexers"
+                "title": "Introduction",
+                "permalink": "/explorer/introduction"
               },
               "next": {
-                "title": "How to use the tzStats blockchain indexer?",
-                "permalink": "/explorer/how-to-use-a-block-indexer"
+                "title": "Available Tezos Indexers",
+                "permalink": "/explorer/available-tezos-indexers"
               }
             },
             {
@@ -1158,7 +1184,7 @@
               "id": "explorer/introduction",
               "isDocsHomePage": false,
               "title": "Introduction",
-              "description": "This module focuses on blockchain explorers and blockchain indexers for Tezos, how they work and how to use them.",
+              "description": "This module focuses on blockchain explorers and blockchain indexers for Tezos,",
               "source": "@site/docs/explorer/introduction.md",
               "slug": "/explorer/introduction",
               "permalink": "/explorer/introduction",
@@ -1170,16 +1196,16 @@
                 "permalink": "/deploy-a-node/exam"
               },
               "next": {
-                "title": "Available Tezos Indexers",
-                "permalink": "/explorer/available-tezos-indexers"
+                "title": "How Indexers Work?",
+                "permalink": "/explorer/indexer-explained"
               }
             },
             {
               "unversionedId": "explorer/private-indexer",
               "id": "explorer/private-indexer",
               "isDocsHomePage": false,
-              "title": "Private indexer for private and public networks",
-              "description": "The tools that have been presented in this module are public: everyone can use it.",
+              "title": "Private indexer",
+              "description": "The tools presented in this module so far are fully public, meaning that everyone can use them. However, they are meant for public networks, and the user is dependent on the infrastructure and configuration of these services. Some organizations are more interrested in deploying their own private Tezos network, either for private testing before going public, or for entirely private use. Refer to the Private blockchain module for more info. Therefore, it must be possible to use an indexer on private networks.",
               "source": "@site/docs/explorer/private-indexer.md",
               "slug": "/explorer/private-indexer",
               "permalink": "/explorer/private-indexer",
@@ -1187,12 +1213,54 @@
               "version": "current",
               "sidebar": "docs",
               "previous": {
-                "title": "How to use the tzStats blockchain indexer?",
-                "permalink": "/explorer/how-to-use-a-block-indexer"
+                "title": "Checkout your smart contract on TzStats",
+                "permalink": "/explorer/tzstats-smart-contract"
               },
               "next": {
                 "title": "Exam",
                 "permalink": "/explorer/exam"
+              }
+            },
+            {
+              "unversionedId": "explorer/tzstats-main-features",
+              "id": "explorer/tzstats-main-features",
+              "isDocsHomePage": false,
+              "title": "How to use the tzStats blockchain explorer?",
+              "description": "In the previous chapter, we saw that there is different block indexers for different uses in block explorers for the Tezos Blockchain. In this chapter we will focus on TzStats which is the most popular and complete Tezos explorer.",
+              "source": "@site/docs/explorer/tzstats-main-features.md",
+              "slug": "/explorer/tzstats-main-features",
+              "permalink": "/explorer/tzstats-main-features",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/explorer/tzstats-main-features.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Available Tezos Indexers",
+                "permalink": "/explorer/available-tezos-indexers"
+              },
+              "next": {
+                "title": "Checkout your smart contract on TzStats",
+                "permalink": "/explorer/tzstats-smart-contract"
+              }
+            },
+            {
+              "unversionedId": "explorer/tzstats-smart-contract",
+              "id": "explorer/tzstats-smart-contract",
+              "isDocsHomePage": false,
+              "title": "Checkout your smart contract on TzStats",
+              "description": "As a developer, you will often want to check the state of your deployed smart contracts. Using a blockchain explorer is a fast and easy way to do so. In this section, we'll deploy a smart contract and check it out on TzStats.",
+              "source": "@site/docs/explorer/tzstats-smart-contract.md",
+              "slug": "/explorer/tzstats-smart-contract",
+              "permalink": "/explorer/tzstats-smart-contract",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/explorer/tzstats-smart-contract.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "How to use the tzStats blockchain explorer?",
+                "permalink": "/explorer/tzstats-main-features"
+              },
+              "next": {
+                "title": "Private indexer",
+                "permalink": "/explorer/private-indexer"
               }
             },
             {
@@ -1235,27 +1303,6 @@
               "next": {
                 "title": "Exam",
                 "permalink": "/formal-verification/exam"
-              }
-            },
-            {
-              "unversionedId": "ligo/contracts-ligo",
-              "id": "ligo/contracts-ligo",
-              "isDocsHomePage": false,
-              "title": "Smart contract development in Pascaligo",
-              "description": "The language of smart contracts is Michelson, a stack-based language.",
-              "source": "@site/docs/ligo/write-contracts-ligo.md",
-              "slug": "/ligo/contracts-ligo",
-              "permalink": "/ligo/contracts-ligo",
-              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/write-contracts-ligo.md",
-              "version": "current",
-              "sidebar": "docs",
-              "previous": {
-                "title": "Take Away",
-                "permalink": "/ligo/take-away"
-              },
-              "next": {
-                "title": "Introduction",
-                "permalink": "/michelson"
               }
             },
             {
@@ -1338,8 +1385,8 @@
                 "permalink": "/ligo"
               },
               "next": {
-                "title": "Language basics",
-                "permalink": "/ligo/language-basics"
+                "title": "Smart contract development in Pascaligo",
+                "permalink": "/ligo/write-contracts-ligo"
               }
             },
             {
@@ -1376,8 +1423,8 @@
               "version": "current",
               "sidebar": "docs",
               "previous": {
-                "title": "Installation",
-                "permalink": "/ligo/installation"
+                "title": "Smart contract development in Pascaligo",
+                "permalink": "/ligo/write-contracts-ligo"
               },
               "next": {
                 "title": "Deploy a contract",
@@ -1401,8 +1448,8 @@
                 "permalink": "/ligo/exam"
               },
               "next": {
-                "title": "Smart contract development in Pascaligo",
-                "permalink": "/ligo/contracts-ligo"
+                "title": "Introduction",
+                "permalink": "/michelson"
               }
             },
             {
@@ -1424,6 +1471,27 @@
               "next": {
                 "title": "Examples",
                 "permalink": "/ligo/examples"
+              }
+            },
+            {
+              "unversionedId": "ligo/write-contracts-ligo",
+              "id": "ligo/write-contracts-ligo",
+              "isDocsHomePage": false,
+              "title": "Smart contract development in Pascaligo",
+              "description": "The language of smart contracts is Michelson, a stack-based language.",
+              "source": "@site/docs/ligo/write-contracts-ligo.md",
+              "slug": "/ligo/write-contracts-ligo",
+              "permalink": "/ligo/write-contracts-ligo",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/write-contracts-ligo.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Installation",
+                "permalink": "/ligo/installation"
+              },
+              "next": {
+                "title": "Language basics",
+                "permalink": "/ligo/language-basics"
               }
             },
             {
@@ -1502,8 +1570,8 @@
               "version": "current",
               "sidebar": "docs",
               "previous": {
-                "title": "Smart contract development in Pascaligo",
-                "permalink": "/ligo/contracts-ligo"
+                "title": "Take Away",
+                "permalink": "/ligo/take-away"
               },
               "next": {
                 "title": "Language Basics",

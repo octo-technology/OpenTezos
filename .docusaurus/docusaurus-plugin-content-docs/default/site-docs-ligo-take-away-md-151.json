@@ -15,7 +15,7 @@
     "permalink": "/ligo/exam"
   },
   "next": {
-    "title": "Smart contract development in Pascaligo",
-    "permalink": "/ligo/contracts-ligo"
+    "title": "Introduction",
+    "permalink": "/michelson"
   }
 }

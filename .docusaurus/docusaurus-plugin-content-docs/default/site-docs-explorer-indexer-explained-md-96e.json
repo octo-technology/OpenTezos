@@ -3,7 +3,7 @@
   "id": "explorer/indexer-explained",
   "isDocsHomePage": false,
   "title": "How Indexers Work?",
-  "description": "// TODO: intro. quick recap about what is an indexer. What are we going to talk about in this chapter?",
+  "description": "This chapter aims to describe the functioning of a traditional indexer and its components.",
   "source": "@site/docs/explorer/indexer-explained.md",
   "slug": "/explorer/indexer-explained",
   "permalink": "/explorer/indexer-explained",
@@ -11,11 +11,11 @@
   "version": "current",
   "sidebar": "docs",
   "previous": {
-    "title": "Available Tezos Indexers",
-    "permalink": "/explorer/available-tezos-indexers"
+    "title": "Introduction",
+    "permalink": "/explorer/introduction"
   },
   "next": {
-    "title": "How to use the tzStats blockchain indexer?",
-    "permalink": "/explorer/how-to-use-a-block-indexer"
+    "title": "Available Tezos Indexers",
+    "permalink": "/explorer/available-tezos-indexers"
   }
 }

@@ -6,6 +6,7 @@ title: Exam
 ### Question 1
 
 What is true about a block indexer?
+
 - [x] Indexers are node operators.
 - [ ] It enables cryptocurrency transaction.
 - [x] It provides fast and readable access to the blockchain data.
@@ -16,10 +17,10 @@ What is true about a block indexer?
 
 What is a block indexer made of?
 
-- [x] API Layer
-- [ ] Block node
-- [x] Database
-- [x] ETL
+- [x] An API Layer
+- [ ] A Block Node
+- [x] A Database
+- [x] An ETL
 
 ### Question 3
 
@@ -35,13 +36,13 @@ Which of the following block explorers is designed for the Tezos Blockchain?
 
 ### Question 4
 
-What does the tzStats explorer allow you to do?
+What does the _TzStats_ explorer allows you to do?
 
 - [x] Get an overview of the main activity on the Tezos network, e.g. staking activity, gas price, XTZ offer, transaction volume, etc.
 - [x] Get general information about a specific block number.
 - [ ] Delete a block.
 - [x] Get an overview of the Tezos baker landscape.
-- [x] Make API calls from DApps.
+- [x] Make API calls from a DApp to get storage data, e.g. the values in a _big map_.
 - [ ] Modify a transaction in which you were mistaken.
 - [x] Find a smart contract by its address and view its calls, entrypoints, storage etc
 - [ ] Deploy your smart contract.
@@ -51,10 +52,10 @@ What does the tzStats explorer allow you to do?
 
 What is true about private indexers?
 
-- [x] Private networks are used in many use cases.
-- [ ] Running a private network means being blind to what is going on the network.
-- [ ] The public indexers allow you to visualize the private networks without any customization.
-- [x] Private indexers and explorers can be set up to monitor what is going on a private network.
+- [ ] They can only be run on private networks.
+- [ ] They need a private explorer to access the data.
+- [ ] They cannot be customized.
+- [x] They can be run on public networks and provide an API access to its data.
 
 
 

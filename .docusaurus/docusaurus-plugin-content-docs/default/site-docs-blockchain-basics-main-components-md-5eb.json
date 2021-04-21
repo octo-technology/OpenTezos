@@ -3,10 +3,19 @@
   "id": "blockchain-basics/main-components",
   "isDocsHomePage": false,
   "title": "Main components of the first \"blockchain\"",
-  "description": "Under construction.",
+  "description": "In this chapter, we will go a little bit deeper into details of the main components of the Bitcoin protocol. The developers, who are the builders part of the community; The network with the distributed ledger and the miners who validate it; A few Economy basics on which Bitcoin was created; And finally, the consensus and the Proof-of-Work.",
   "source": "@site/docs/blockchain-basics/main-components.md",
-  "slug": "/blockchain-basics",
-  "permalink": "/blockchain-basics",
+  "slug": "/blockchain-basics/main-components",
+  "permalink": "/blockchain-basics/main-components",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/blockchain-basics/main-components.md",
-  "version": "current"
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Introduction",
+    "permalink": "/blockchain-basics"
+  },
+  "next": {
+    "title": "Introduction to other consensuses",
+    "permalink": "/blockchain-basics/other-consensuses"
+  }
 }

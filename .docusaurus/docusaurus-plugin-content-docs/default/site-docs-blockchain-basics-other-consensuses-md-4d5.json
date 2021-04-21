@@ -3,10 +3,19 @@
   "id": "blockchain-basics/other-consensuses",
   "isDocsHomePage": false,
   "title": "Introduction to other consensuses",
-  "description": "Under construction.",
+  "description": "In this chapter, we will introduce 10 public consensus mechanisms.",
   "source": "@site/docs/blockchain-basics/other-consensuses.md",
-  "slug": "/blockchain-basics",
-  "permalink": "/blockchain-basics",
+  "slug": "/blockchain-basics/other-consensuses",
+  "permalink": "/blockchain-basics/other-consensuses",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/blockchain-basics/other-consensuses.md",
-  "version": "current"
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Main components of the first \"blockchain\"",
+    "permalink": "/blockchain-basics/main-components"
+  },
+  "next": {
+    "title": "Smart Contracts",
+    "permalink": "/blockchain-basics/smart-contracts"
+  }
 }

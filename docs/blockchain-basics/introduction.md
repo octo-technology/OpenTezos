@@ -3,119 +3,94 @@ id: introduction
 disable_pagination: true
 title: Introduction
 slug: /blockchain-basics
+authors: Thomas Zoughebi and Aymeric Bethencourt
 ---
 
-This module introduces the basics of blockchains and cryptocurrencies. It briefly runs through the history of the first blockchain *Bitcoin*. Describing the main Bitcoin's components and shows how it laid the foundation for newer systems. The basics of Bitcoin's smart contracts are explained, as well as how Ethereum was born to lift these limitations.
+Welcome to _OpenTezos_, the most complete and open-source documentation on Tezos.
 
-This module is useful to understand Tezos principles and how it pushes the borders even more.
+Before we start digging into Tezos itself, let's review the basics of blockchain and cryptocurrencies. This module will first present you a brief history of the blockchain, then its main components and consensuses and finally introduce the notion of _smart contract_. All these notions will later be useful for you in the next modules to understand how Tezos works and how it builds up on Bitcoin and Ethereum to become pat of the new generation of blockchains.
 
-# Introduction to decentralisation and cryptocurrencies
+## A brief history of Blockchain
+### The tipping point
+In 2005, Greece imposed restrictions on the amount people could withdraw from their bank account in an attempt to prevent banks from failing as talks between the government and bailout creditors appeared to be on the verge of collapse.
 
-In this chapter, the reader will get a glimpse of the global context of "cryptocurrencies" and "blockchains" when they emerged.
+In 2008, the [subprime mortgage crisis](https://en.wikipedia.org/wiki/Subprime_mortgage_crisis) triggered a global financial crisis. _Lehman Brothers_ went bankrupt many other banks and financial institutions across the world failed to the point that they had to be bailed out by governments. 
 
-## Context of Bitcoin's appearance
-On **October 31st, 2008**, under the _pseudonym_ "Satoshi Nakamoto", the Bitcoin whitepaper was discreetly released. From its very title and abstract, we could understand that the aim of _his_ invention was to create an "electronic cash system", a kind of alternative currency, able to disconnect itself and function free from any centralised entity.
+This events and many other of the same kind exposed the fragility of the modern financial system and that banks and other financial institutions could not be trusted with the money people give them.
 
-On **January 3rd, 2009**, the first lot of data were locked inside a _block_, called the "Genesis Block". It contained the first exchanges of the newly created electronic currency in "bitcoins". The Genesis Block also included a message in English with the main title of _The Times_ newspaper of the day:
-"_Chancellor on brink of second bailout for banks_".
+[Fractional reserve banking](https://en.wikipedia.org/wiki/Fractional-reserve_banking), the most common form of banking practiced by commercial banks worldwide, is the embodiment of such issue. When you give a bank $1,000, the bank does not keep that amount in reserve for you. It legally only need to keep $100 in reserves (generally around 10%), and is allowed to spend $900 of your money in various investments. At this point, not only are you not able to withdraw your $1,000 if the bank doesn't have enough reserves from other depositors, but they risk loosing your money altogether if the bank goes bankrupt. If a bank has net deposits of a billion dollars, it only needs to keep around 100 million on hand at any given time. This usually works fine when bank customers generally don't withdraw all their money altogether at once. However, the moment customers start to question the bank‘s financial stability and decide to withdraw their money, the bank can quickly empty its reserve and things can go south very quickly.
 
-As the global financial crisis was striking the world's economy at the time, it is easy to forge the conclusion that Bitcoin was created to allow for the **de-centralisation of money**. To achieve this aim, Bitcoin used various cryptographic techniques and tools (_e.g. Public-Key Cryptography_). This is the reason Bitcoin or new systems based on the same mechanics are referred to as **crypto-currencies**.
+One of the solution to a crisis often used by governments is to create more of their national [fiat currency](https://en.wikipedia.org/wiki/Fiat_money) (e.g. US Dollar, Euro, etc.) to pay for recovery plans. This leads to [hyperinflation](https://en.wikipedia.org/wiki/Hyperinflation) of the currency and devaluation of people's holdings. Fiat currencies are entirely controlled in their supply and creation by a national government, and are backed by nothing but faith in that government. Many countries such as Venezuela have experienced hyperinflation to the point that their currency is only now worth a small fraction of their past value.
 
-## Terminology: important notes
-As we will see in "*A brief history of "Blockchain"*" below, Bitcoin is based on many technologies. In particular, Bitcoin is a special type of _**D**istributed **L**edger **T**echnology_ (DLT)[[1]](/blockchain-basics/introduction#references).
+All this factors, the lack of faith in governments to protect their fiat currency, the lack of trust in banks to protect people's holdings, and so on led to new questioning about the modern financial system: Is there a better alternative?
 
-DLT is :
->a consensus of replicated, shared, and synchronized digital data geographically spread across multiple sites[[1]](/blockchain-basics/introduction#references)
+### "And then there was light"
+On **October 31st, 2008**, under the _pseudonym_ of "Satoshi Nakamoto", the [Bitcoin whitepaper](https://bitcoin.org/bitcoin.pdf) was discreetly released. From its very title and abstract, one could understand that the aim of _his_ invention was to create an "electronic cash system", an alternative to fiat currency, able function free of control or manipulation from a centralised entity.
 
-"Consensus" refers implicitly to the absence of central entity.
+On **January 3rd, 2009**, the blockchain went live and the first _block_ was created, called the "Genesis Block". (You will learn about what is a _block_ in the next chapter). The Genesis block contained the first few exchanges of this newly created electronic currency called Bitcoin and some data. It is indeed possible to store some raw data inside a block, and Satoshi Nakamoto included in the first block a message saying "_Chancellor on brink of second bailout for banks_", the title of _The Times_ newspaper of the day describing the second bank bailout following the subprime crisis.
 
-You can see Distributed Ledger Technologies as Bitcoin's ancestors.
+This message clearly showed the intention of Satoshi Nakamoto and his Bitcoin to trigger the so called **de-centralisation of money**.
 
-So, from "DLT" terminology we ended up to "cryptocurrency" terminology.
+![](../../static/img/blockchain-basics/the-times.png)
+<small className="figure">FIGURE 1: _The Times_ newspaper from January 3rd, 2009</small>
 
-With time, the word "cryptocurrency" has partly been replaced by "blockchain", the name of its enabling **data pattern**. It's important to note that **originally** the "blockchain" **is not** a technology. It's a data-structure only (more details in next chapter). 
+### What is Bitcoin?
+Bitcoin is a computer program made of various cryptographic components (e.g. asymmetric cryptography, hash functions, proof-of-work, etc.) ensuring its functionality and security. This is why Bitcoin and other coins are referred as **crypto-currencies**.
 
-As other systems were created to lift Bitcoin's limitations or to propose other phylosophies, new use-cases exceeded the "currency" one into a myriad of technological possibilities.
+Contrary to popular belief, Bitcoin wasn't the first attempt at creating a crypto-currency. _Digicash_ (1989), _CyberCash_ (1994), _E-gold_ (1996), _HashCash_ (1997), _Bit Gold_ (1998) and _B-money_ (from Wei Dai in 1998) were all very close to such goal but all failed because of technical or security issues. _Bit Gold_ and _B-money_ even used a decentralized database for transactions and an older version of Bitcoin's _Proof-of-Work_. Bitcoin was actually the first to have components assembled in such a way that made it viable.
 
-The exact word "blockchain" does not appear anywhere in Bitcoin's whitepaper but reflects the technique to arrange and chain data for the purpose of validation and to ensure the _immutability_ of _bitcoins transactions_ (more details in next chapter).
+Bitcoin's components were not new either, and were based of technologies used for year before that. Bitcoin relies on a lot of "old" Information Technologies (IT). Some from as far as 1973, and up until the Genesis Block in 2009.
 
-In Bitcoin's whitepaper, we can find the terms "blocks" or "chains", but they are "just" arranged in a _chain of blocks_.
+Bitcoin's system actually spans across 36 years of research, trials, experiments, and failures.
 
-Hence, the polysemy to take into account: "Blockchain" must refer to the entire system; or the structure of chained-data.
+First of all, Bitcoin relies on the Internet, which itself has been relying on _TCP/IP_ since 1974.
 
-![Blockchain polysemy](../../static/img/blockchain-basics/blockchain-polysemy.svg "Blockchain polysemy")
+Bitcoin also relies heavily on so-called _Modern Cryptography_, e.g. the Diffie-Hellman protocol (1976), the Merkel Tree (1979) and the RSA (Rivest–Shamir–Adleman) public-key cryptosystem (1977).
 
-<small className="figure">FIGURE 1: "Blockchain" polysemy</small>
+The blocks of data are cryptographically chained with [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_block_chaining_(CBC)) from 1976, meaning that chains of blocks are actually that old.
 
-Currencies have 2 important characteristics:
-- They are public
-- There is no double-spending
+From there, countless reflections on ethics, research on technologies, and of course cryptography have taken place: Mails traceability and privacy in 1981, Elliptic Curve Cryptography in 1985 (used for _Public Key Cryptography_ in most blockchain), PGP in 1991 (developed for privacy providing authentication and encryption), etc. Even smart contracts were first conceptualized by Nick Szabo in 1997.
 
-Set up a global public network with DLT seems pretty easy. Preventing **public digital informations** being duplicated is a very hard problem. Its name is "the Double-spending problem". It appears in the Bitcoin's white paper from the abstract.
+In 2001, the _Bittorent_ client provided more support to the peer-to-peer networks experimental research. An important opening towards more decentralisation.
 
-To create a distributed currency without central authority, Satoshi Nakamoto had to solve the Double-spending problem **in a public environment**.
+Finally, before the bankruptcy of Lehman Brothers and the global financial crisis in 2008, Hal Finney (1956-2014) had developed on PGP (1991) his "Reusable Proof-of-Work" in 2004. Later, he became one of the first persons exchanging Bitcoins with Satoshi Nakamoto.
 
-That's exactly why we have now 2 new terminologies:
-- Public Blockchains
-- Private Blockchains
+### The 2nd generation of blockchain
+Following the success of Bitcoin, many forked its code and started creating new blockchain with differencing new features or capabilities.
 
-Actually, these terminologies make it now possible to respectively distinguish:
-- Public and programmable DLT with anti-duplication consensus
-- Private and programmable DLT with optimised data protection
+Note that Bitcoin's transactions are programmable. One can program how funds are spent using scripts. However, going beyond these basic uses are quite difficult as Bitcoin's scripting language is very limited.
 
-## A brief history of "Blockchain"
-As Bitcoin proved viable, new systems directly copied its technological structure or implemented their own similar mechanics. As the first "public blockchain" and "cryptocurrency", Bitcoin relies on a lot of now old Information Technologies (IT). Some from as far as 1973, and up until the Genesis Block from 2009.
+In 2011, Vitalik Buterin encountered Bitcoin, and two years later (October 2013) worked on a proposal for [_Mastercoin_](https://web.archive.org/web/20150627031414/http://vbuterin.com/ultimatescripting.html) a protocol with more programmable capabilities than Bitcoin.
 
-Bitcoin's system actually spans across 36 years of research, trials and experiments, and failures.
+However the team at _Mastercoin_ didn't want to go in this direction, and Vitalik Buterin began to re-work his proposal into another project named _Ethereum_ (December 2013). The need for even more complex scripts was driven by the interest into _**D**ecentralized **A**utonomous **O**rganizations_ (or DAO), a form of investor-directed venture capital fund that no blockchain could so far implement. It was also in December 2013 that Gavin Wood (protocol-side) and Jeffrey Wilcke (client-side) joined forces with Vitalik Buterin to work on Ethereum, and a [white paper was first published in January 2014](https://ethereum.org/en/whitepaper/).
 
-First of all, Bitcoin relies on Internet, which itself relies on _TCP/IP_ from 1974.
+In April 2014, Gavin Wood published a [Yellow paper](https://ethereum.github.io/yellowpaper/paper.pdf). (A yellow paper is a document containing research that has not yet been formally accepted or published in an academic journal, and usually contains unannotated statements, with sufficient detail to implement the idea.)
 
-Bitcoin and newer systems also use _Modern Cryptography_ and research in modern Mathematics. Very important research like Diffie, Hellman, and Merkle protocol, or RSA (_Rivest, Shamir, Adleman_), are respectively from 1976 and 1977.
+A crowdfunding in bitcoins during the same summer took place, and Ethereum was launched on July 30th, 2015 with its own cryptocurrency called "_Ether_".
 
-The blocks of data are cryptographically chained with _Cipher Block Chaining_ (CBC)[[2]](/blockchain-basics/introduction#references) from 1976. Chains of blocks are actually as old.
+Ethereum was a revolution, a new generation of blockchain, thanks to its EVM (Ethreum Virtual Machine), a [Turing Complete](https://en.wikipedia.org/wiki/Turing_completeness) system able to solve any computation problem using its new scripting language called _Solidity_.
 
-From there, countless reflections on ethics, research on technologies, and of course Cryptography have taken place.
+The first DAO of Ethereum, simply called [_The DAO_](https://en.wikipedia.org/wiki/The_DAO_(organization)) was created and more than 150 millions of US Dollars in Ethers were raised in June 2016. However, an error in the smart contract [permitted an hacker to steal 50 millions](https://www.nytimes.com/2016/06/18/business/dealbook/hacker-may-have-removed-more-than-50-million-from-experimental-cybercurrency-project.html). To recover the stolen funds, it was decided to modify the history of transactions. This decision was not approved by the entire community and created a split of the history into two different chains: _Ethereum_ and _Ethereum Classic_.
 
-Mails traceability in (1981): research on mails privacy on Internet;
-
-Elliptic Curve Cryptography (1985): used for Public Key Cryptography in Bitcoin or Ethereum;
-
-PGP (1991): developped for privacy providing authentication and encryption;
-
-Digicash (1989); CyberCash (1994); E-gold (1996); HashCash (1997, with early Proof-of-Work consensus): first attempts of digital cash.
-
-Smart Contracts (1997, defined by Nick Szabo): used as programs on public and private blockchains today.
-
-Even _Bit Gold_ and _B-money_ (from Wei Dai) are digital cash attempts from 1998. The latter already used a decentralized database for transactions and an older version of Bitcoin's _Proof-of-Work_ (more details in the next chapters on this matter).
-
-In 2001, the Bittorent 'client' provided more support to the Peer-to-Peer networks experimental research. An important opening towards more decentralisation.
-
-Finally, before the bankruptcy of Lehman Brothers and the global financial crisis (2008), Hal Finney (1956-2014), had developed on PGP (1991), released his "_Reusable Proof-of-Work_" (2004). Later, he became one of the first exchanging bitcoins with Satoshi Nakamoto.
-
-From 2009, many projects copied Bitcoin, or tried to enhance its capabilities.
-
-Bitcoin's transactions are also programmable. They can define how funds will be spent using scripts. However, the idea of going beyond its main use-case of a currency is restricted as Bitcoin's scripts are too limited.
-
-In 2011, Vitalik Buterin encountered Bitcoin, and two years later (October 2013), worked on a proposal for _Mastercoin_[[3]](/blockchain-basics/introduction#references), that would have upgraded the programmable side of this system.
-
-But the team at Mastercoin didn't want to go in this direction, so Vitalik began to re-work his proposal into another project named _Ethereum_ (December 2013). The need for even more complex scripts was driven by the interest into _**D**ecentralized **A**utonomous **O**rganizations_ (DAO), that other systems didn't allow. It was also in December 2013, that Gavin Wood (protocol-side) and Jeffrey Wilcke (client-side) joined Vitalik Buterin to work on Ethereum with a white paper published in January 2014.
-
-Followed the _Yellow Paper_ from Gavin Wood in April, 2014, a crowdfunding in bitcoins during the same summer, and the launch on July 30th of the next year. Ethereum was then a new system, with its own cryptocurrency called "_Ether_".
-
-The first DAO of Ethereum, simply called, "_The DAO_"[[4]](/blockchain-basics/introduction#references) was created and more than 150 millions of dollars (\$) were fundraised in June, 2016. But on the 16th, 50 million (\$) were stolen through the famous "_The DAO hack_"[[5]](/blockchain-basics/introduction#references).
-
-To recover the stolen funds, it was decided to modify the history of transactions. This decision was not approved by the entire community and created a split of the history into two different _blockchains_: _Ethereum_ and _Ethereum Classic_.
-
-Today, Bitcoin and Ethereum remain the two main protocols, but a lot of very interesting alternatives are been created, notably Tezos.
+Today, Bitcoin and Ethereum remain the two main protocols, but a lot of very interesting alternatives have been created, notably Tezos in 2018.
 
 ![A non-hexaustive timeline](../../static/img/blockchain-basics/timeline.svg "A non-hexaustive timeline")
-
 <small className="figure">FIGURE 2: A non-hexaustive timeline</small>
 
-## What have we learned so far?
-In this chapter, we briefly described what are "blockchains", on what ground and when they were created.
+## Terminology
+A blockchain is a special type of _**D**istributed **L**edger **T**echnology_ (DLT)[[1]](/blockchain-basics/introduction#references), a consensus of replicated, shared, and synchronized digital data geographically spread across multiple sites.
 
-In the next chapter _Main components of the first "blockchain"_, we'll use Bitcoin as a reference to introduce "blockchains" components and the mechanics that bounds them.
+Not all blockchains are cryptocurrencies. [Corda](https://www.corda.net/) and [Fabric](https://www.hyperledger.org/use/fabric) are blockchains often used for immutable and cryptographically verified storage of data in various domains: Secure sharing of medical data, Music royalties tracking, Personal identity security, Supply chain and logistics monitoring, Voting mechanism, etc.
+
+It is important not to confuse a cryptocurrency (made for exchanging money) with its supporting technology: the blockchain. Note that **originally** the word blockchain was not even a technology but the name of the data-structure used to store the data.
+
+The exact word "blockchain" does not even appear in the Bitcoin white whitepaper but now reflects the technology used to arrange and chain data insuring _immutability_ and _cryptographic verifiability_.
+
+Crypto-currencies have 2 important characteristics:
+- They are public
+- There is no _double-spending_, meaning that you cannot spend the same coins twice.
+
+To create a distributed currency without central authority, Satoshi Nakamoto had to solve the double-spending problem **in a distributed environment** which is no easy task as we will see in the next chapters.
 
 ## References
 [1] https://en.wikipedia.org/wiki/Distributed_ledger
@@ -127,3 +102,13 @@ In the next chapter _Main components of the first "blockchain"_, we'll use Bitco
 [4] https://en.wikipedia.org/wiki/The_DAO_(organization)
 
 [5] https://www.nytimes.com/2016/06/18/business/dealbook/hacker-may-have-removed-more-than-50-million-from-experimental-cybercurrency-project.html
+
+[6] https://medium.com/@noogin/the-financial-crisis-and-history-of-bitcoin-27ebdb932b99
+
+[7] https://en.wikipedia.org/wiki/Subprime_mortgage_crisis
+
+[8] https://en.wikipedia.org/wiki/Fractional-reserve_banking
+
+[9] https://bitcoin.org/bitcoin.pdf
+
+[10] https://ethereum.org/en/whitepaper/

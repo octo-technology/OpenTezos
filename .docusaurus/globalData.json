@@ -42,15 +42,18 @@
             },
             {
               "id": "blockchain-basics/main-components",
-              "path": "/blockchain-basics"
+              "path": "/blockchain-basics/main-components",
+              "sidebar": "docs"
             },
             {
               "id": "blockchain-basics/other-consensuses",
-              "path": "/blockchain-basics"
+              "path": "/blockchain-basics/other-consensuses",
+              "sidebar": "docs"
             },
             {
               "id": "blockchain-basics/smart-contracts",
-              "path": "/blockchain-basics"
+              "path": "/blockchain-basics/smart-contracts",
+              "sidebar": "docs"
             },
             {
               "id": "contribute/baker",
@@ -172,11 +175,6 @@
               "sidebar": "docs"
             },
             {
-              "id": "explorer/how-to-use-a-block-indexer",
-              "path": "/explorer/how-to-use-a-block-indexer",
-              "sidebar": "docs"
-            },
-            {
               "id": "explorer/indexer-explained",
               "path": "/explorer/indexer-explained",
               "sidebar": "docs"
@@ -192,6 +190,16 @@
               "sidebar": "docs"
             },
             {
+              "id": "explorer/tzstats-main-features",
+              "path": "/explorer/tzstats-main-features",
+              "sidebar": "docs"
+            },
+            {
+              "id": "explorer/tzstats-smart-contract",
+              "path": "/explorer/tzstats-smart-contract",
+              "sidebar": "docs"
+            },
+            {
               "id": "formal-verification/exam",
               "path": "/formal-verification/exam",
               "sidebar": "docs"
@@ -199,11 +207,6 @@
             {
               "id": "formal-verification/introduction",
               "path": "/formal-verification",
-              "sidebar": "docs"
-            },
-            {
-              "id": "ligo/contracts-ligo",
-              "path": "/ligo/contracts-ligo",
               "sidebar": "docs"
             },
             {
@@ -244,6 +247,11 @@
             {
               "id": "ligo/unit-testing",
               "path": "/ligo/unit-testing",
+              "sidebar": "docs"
+            },
+            {
+              "id": "ligo/write-contracts-ligo",
+              "path": "/ligo/write-contracts-ligo",
               "sidebar": "docs"
             },
             {
