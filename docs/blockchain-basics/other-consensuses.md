@@ -94,22 +94,25 @@ The probability to win a bake is proportional to the amount invested. The baking
 
 ## Pros & Cons
 
-| #    | Consensus | Advantages                                | Disadvantages                                     |
-| :--- | :-------- | :---------------------------------------- | :------------------------------------------------ |
-| *0*  | *PoW*     | *Extreme robustness (MAD + SHA256 + CBC)* | *Energy consumption*                              |
-| ◼    | -◼-◼-◼-◼  | -◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼      | -◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼      |
-| 1    | PoB       | Robustness similar to PoW                 | Energy consumption; Mining power to money burners |
-| 2    | PoC       | Less energy consumption; mimic mining     | Nothing at Stake (no MAD)                         |
-| 3    | LBC       | Less energy consumption                   | Leader centralized                                |
-| 4    | PBFT      | Very easy to implement                    | Absence of privacy; less robust                   |
-| 5    | FBA       | Modest computing & financial requirements | Quorum slices centralization                      |
-| 6    | Avalanche | Fast; highly distributed (lots of nodes)  | Groups of nodes centralization                    |
-| 7    | PoS       | Less energy consumption                   | Coins owners centralization                       |
-| 8    | PoA       | Combines PoW & PoS                        | Combines PoW & PoS                                |
-| 9    | DPoS      | Mitigating PoS centralization             | Coins owners & witnesses centralization           |
-| 10   | LPoS      | Mitigating even more PoS centraliszation  | Coins owners centralization                       |
+| #    | Consensus | Advantages                                | Disadvantages                                                                                               |
+| :--- | :-------- | :---------------------------------------- | :---------------------------------------------------------------------------------------------------------- |
+| *0*  | *PoW*     | *Extreme robustness (MAD + SHA256 + CBC)* | *Energy consumption*                                                                                        |
+| ◼    | -◼-◼-◼-◼  | -◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼      | -◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼                                                                |
+| 1    | PoB       | Robustness similar to PoW                 | Energy consumption; Mining power to money burners                                                           |
+| 2    | PoC       | Less energy consumption; mimic mining     | Nothing at Stake (no MAD)                                                                                   |
+| 3    | LBC       | Less energy consumption                   | Leader centralized                                                                                          |
+| 4    | PBFT      | Very easy to implement                    | Absence of privacy; less robust                                                                             |
+| 5    | FBA       | Modest computing & financial requirements | Quorum slices centralization; Sybil Attack[[1]](/blockchain-basics/other-consensuses#references) weakness   |
+| 6    | Avalanche | Fast; highly distributed (lots of nodes)  | Groups of nodes centralization; Sybil Attack[[1]](/blockchain-basics/other-consensuses#references) weakness |
+| 7    | PoS       | Less energy consumption                   | Coins owners centralization                                                                                 |
+| 8    | PoA       | Combines PoW & PoS                        | Combines PoW & PoS                                                                                          |
+| 9    | DPoS      | Mitigating PoS centralization             | Coins owners & witnesses centralization                                                                     |
+| 10   | LPoS      | Mitigating even more PoS centraliszation  | Coins owners centralization                                                                                 |
 
 ## What have we learned so far?
 In this chapter, we briefly described 10 consensuses that can be used for public blockchains. There are many other consensus algorithms.
 
 In the next chapter "_Smart Contracts_", we'll define what they are, what are some of the Bitcoin's limitations in that matter, and how Ethereum first proposed to lift those limitations.
+
+## References
+[1] https://en.wikipedia.org/wiki/Sybil_attack
