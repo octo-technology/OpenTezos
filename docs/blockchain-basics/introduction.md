@@ -45,7 +45,7 @@ Hence, the polysemy to take into account: "Blockchain" must refer to the entire 
 
 ![Blockchain polysemy](../../static/img/blockchain-basics/blockchain-polysemy.svg "Blockchain polysemy")
 
-<div style="text-align: right"><small className="figure">FIGURE 1: "Blockchain" polysemy</small></div>
+<small className="figure">FIGURE 1: "Blockchain" polysemy</small>
 
 Currencies have 2 important characteristics:
 - They are public
@@ -110,7 +110,7 @@ Today, Bitcoin and Ethereum remain the two main protocols, but a lot of very int
 
 ![A non-hexaustive timeline](../../static/img/blockchain-basics/timeline.svg "A non-hexaustive timeline")
 
-<div style="text-align: right"><small className="figure">FIGURE 2: A non-hexaustive timeline</small></div>
+<small className="figure">FIGURE 2: A non-hexaustive timeline</small>
 
 ## What have we learned so far?
 In this chapter, we briefly described what are "blockchains", on what ground and when they were created.
