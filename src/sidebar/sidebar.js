@@ -8,7 +8,11 @@ module.exports = {
     {
       type: 'category',
       label: 'Blockchain Basics',
-      items: ['blockchain-basics/introduction', 'blockchain-basics/exam'],
+      items: ['blockchain-basics/introduction',
+              'blockchain-basics/main-components',
+              'blockchain-basics/other-consensuses',
+              'blockchain-basics/smart-contracts',
+              'blockchain-basics/exam'],
     },
     {
       type: 'category',
@@ -35,9 +39,10 @@ module.exports = {
       label: 'How to use an Explorer',
       items: [
         'explorer/introduction',
-        'explorer/available-tezos-indexers',
         'explorer/indexer-explained',
-        'explorer/how-to-use-a-block-explorer',
+        'explorer/available-tezos-indexers',
+        'explorer/tzstats-main-features',
+        'explorer/tzstats-smart-contract',
         'explorer/private-indexer',
         'explorer/exam',
       ],
@@ -53,13 +58,13 @@ module.exports = {
       items: [
         'ligo/introduction',
         'ligo/installation',
+        'ligo/write-contracts-ligo',
         'ligo/language-basics',
         'ligo/deploy-a-contract',
         'ligo/unit-testing',
         'ligo/examples',
         'ligo/exam',
         'ligo/take-away',
-        'ligo/contracts-ligo',
       ],
     },
     {

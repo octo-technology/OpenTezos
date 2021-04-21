@@ -3,12 +3,23 @@ id: indexer-explained
 title: How Indexers Work?
 ---
 
-// TODO: intro. quick recap about what is an indexer. What are we going to talk about in this chapter?
+This chapter aims to describe the functioning of a traditional indexer and its components. 
+It will highlight the problems that most indexers can encounter 
+and will describe the innovative solution proposed 
+by the **BlockWatch Indexer** used for the **TzStats explorer**.
 
 ## Traditional Blockchain Explorer Backends
-Indexers are node operators. They extract, transform and load data (**ETL job**) into the **SQL database** in order to provide indexing and query processing services via the **API**.
-// TODO: What is a node operator? What is an ETL job?
-// TODO: How do they extract the data? Are they going through each block one by one? Big for-loop?
+Indexers are node operators. 
+The **ETL** extract, transform and load data 
+into the **SQL database** by mapping the data into a pre-defined schema of tables with referential integrity 
+in order to provide indexing and query processing services via the **API**.
+
+- **Tezos Node** is the heart of the blockchain, it manages the protocol.
+- **ETL** stands for *extract, transform, and load* 
+  The process of ETL plays a key role in data integration strategies. 
+  ETL allows businesses to gather data from multiple sources and consolidate it into a single, centralized location.
+- **API** is the acronym for *Application Programming Interface*,
+  which is a software intermediary that allows two applications to talk to each other.
 
 <br/>
 <p align="center">
@@ -19,27 +30,36 @@ Indexers are node operators. They extract, transform and load data (**ETL job**)
 <br/>
 
 It turns out that this one-way data extraction model has a couple of problems:
-- Expensive States Queries // TODO: Why?
-- One-way-data flow // TODO: Why is this an issue?
-- Slow Queries // TODO: Why?
-- Inefficient Storage Layout // TODO: Why?
-- Limited Throughput // TODO: Why?
+- **Expensive States Queries**: extracting complex state from a blockchain-node is expensive.
+- **One-way-data flow**: SQL stores optimize for transactional workloads like finding individual rows, 
+  but are bad for analytical workloads that aggregate across columns (because full rows are loaded from disk).
+- **Slow Queries**: some queries are even so expensive,
+  they have to run offline (i.e. once a night or once a cycle)
+  and their results have to be stored in extra tables.
+- **Inefficient Storage Layout and Limited Throughput**: 
+  most online queries to join across tables are limited by available main memory 
+  and I/O bandwidth and the only way to speed them up is replicating the database or using larger instances.
 
 
 ## Focus on BlockWatch Indexer (TzIndex)
 The Blockwatch Indexer [TzIndex](https://github.com/blockwatch-cc/tzindex) is used for the [TzStats explorer](https://tzstats.com/).
 
-The **Blockwatch indexer** replaces the slow and expensive SQL datastore with a high-performance columnar data store that allows for extremely fast analytical queries.
-// TODO: What is a columnar data store? Why is this faster that SQL?
+The **Blockwatch indexer** replaces the slow and expensive SQL datastore with a high-performance columnar database that allows for extremely fast analytical queries.
+> **Columnar database** is a column-oriented storage for database.
+> It is optimized for fast retrieval of data columns, 
+> for example for analytical applications.
+> It significantly reduces the overall disk I/O requirements 
+> and limits the amount of data you need to load from disk.
+
 It's a custom-made database for blockchain analytics. Avoiding the storage bottleneck allows for more complex data processing.
-// TODO: What storage bottleneck ?
+> **Storage bottleneck** is a situation where the flow of data gets impaired 
+> or stopped completely due to bad performance or lack of resources.
+
 State updates happen at each block, which means all balance updates are always verified,
 and the indexer will follow chain reorganizations in real-time.
-// TODO: Isn't that true for all indexers?
 
 ![](../../static/img/explorer/blockwatch_indexer.svg)
 <small className="figure">FIGURE 2: Blockwatch Indexer</small>
-// TODO: Can you explain this schema a little more ? What no include the bottlenecks on the schema like on https://youtu.be/2I9mmA0GzMk?t=246 ?
 
 ## To go further
 To learn more on the subject, please refer to the official [TzStats blog post](https://tzstats.com/blog/next-gen-blockchain-indexing-for-tezos/) and this [video](https://www.youtube.com/watch?v=2I9mmA0GzMk) that illustrates the inner workings of an indexer.
