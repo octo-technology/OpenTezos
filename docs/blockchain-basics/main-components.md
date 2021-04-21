@@ -2,20 +2,7 @@
 id: main-components
 disable_pagination: true
 title: Main components of the first "blockchain"
-slug: /blockchain-basics
 ---
-
-import NotificationBar from '../../src/components/docs/NotificationBar';
-
-<h1 className="p">Under construction.</h1>
-
-<NotificationBar>
-  <p>
-    Lorem ipsum
-  </p>
-</NotificationBar>
-
-# Main components of the first "blockchain"
 
 In this chapter, we will go a little bit deeper into details of the main components of the Bitcoin protocol. The developers, who are the builders part of the community; The network with the distributed ledger and the miners who validate it; A few Economy basics on which Bitcoin was created; And finally, the consensus and the Proof-of-Work.
 

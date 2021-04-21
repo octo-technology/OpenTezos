@@ -5,16 +5,6 @@ title: Introduction
 slug: /blockchain-basics
 ---
 
-import NotificationBar from '../../src/components/docs/NotificationBar';
-
-<h1 className="p">Under construction.</h1>
-
-<NotificationBar>
-  <p>
-    Lorem ipsum
-  </p>
-</NotificationBar>
-
 This module introduces the basics of blockchains and cryptocurrencies. It briefly runs through the history of the first blockchain *Bitcoin*. Describing the main Bitcoin's components and shows how it laid the foundation for newer systems. The basics of Bitcoin's smart contracts are explained, as well as how Ethereum was born to lift these limitations.
 
 This module is useful to understand Tezos principles and how it pushes the borders even more.

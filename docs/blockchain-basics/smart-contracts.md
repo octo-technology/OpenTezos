@@ -2,7 +2,6 @@
 id: smart-contracts
 disable_pagination: true
 title: Smart Contracts
-slug: /blockchain-basics
 ---
 
 import NotificationBar from '../../src/components/docs/NotificationBar';

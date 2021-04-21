@@ -2,7 +2,6 @@
 id: other-consensuses
 disable_pagination: true
 title: Introduction to other consensuses
-slug: /blockchain-basics
 ---
 
 import NotificationBar from '../../src/components/docs/NotificationBar';
