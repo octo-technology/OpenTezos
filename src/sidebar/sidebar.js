@@ -8,7 +8,11 @@ module.exports = {
     {
       type: 'category',
       label: 'Blockchain Basics',
-      items: ['blockchain-basics/introduction', 'blockchain-basics/exam'],
+      items: ['blockchain-basics/introduction',
+              'blockchain-basics/main-components',
+              'blockchain-basics/other-consensuses',
+              'blockchain-basics/smart-contracts',
+              'blockchain-basics/exam'],
     },
     {
       type: 'category',
