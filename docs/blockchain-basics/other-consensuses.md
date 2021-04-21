@@ -2,20 +2,8 @@
 id: other-consensuses
 disable_pagination: true
 title: Introduction to other consensuses
-slug: /blockchain-basics
 ---
 
-import NotificationBar from '../../src/components/docs/NotificationBar';
-
-<h1 className="p">Under construction.</h1>
-
-<NotificationBar>
-  <p>
-    Lorem ipsum
-  </p>
-</NotificationBar>
-
-# Introduction to other consensuses
 In this chapter, we'll introduce 10 of the existing *public* consensus mechanisms.
 
 ## Proof-of-Burn (PoB)
@@ -104,10 +92,24 @@ In LPoS, a validator is called a **baker**. Any user owning anough coins can bec
 
 The probability to win a bake is proportional to the amount invested. The baking time is organized in cycles and coins are locked during this time.
 
+## Pros & Cons
+
+| Consensus          | Advantages                                | Disadvantages      |
+| :----------------- | :---------------------------------------- | :----------------- |
+| PoW                | b                                         | Energy consumption |
+| ------------------ | ------------------                        | ------------------ |
+| PoB                | b                                         | c                  |
+| PoC                | b                                         | c                  |
+| LBC                | b                                         | Leader centralized |
+| PBFT               | b                                         | c                  |
+| FBA                | Modest computing & financial requirements | c                  |
+| Avalanche          | b                                         | c                  |
+| PoS                | b                                         | c                  |
+| PoS                | b                                         | c                  |
+| DPoS               | Mitigating centralization                 | c                  |
+| LPoS               | b                                         | c                  |
+
 ## What have we learned so far?
 In this chapter, we briefly described 10 consensuses that can be used for public blockchains. There are many other consensus algorithms.
 
 In the next chapter "_Smart Contracts_", we'll define what they are, what are some of the Bitcoin's limitations in that matter, and how Ethereum first proposed to lift those limitations.
-
-## References
-[1] https://
