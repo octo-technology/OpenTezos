@@ -1,59 +1,14 @@
 ---
-id: how-to-use-a-block-explorer
-title: How to use the tzStats blockchain explorer?
+id: tzstats-smart-contract
+title: Checkout your smart contract on TzStats
 ---
 
-In the previous chapter, we saw that there is different block indexers for different uses in block explorers for the Tezos Blockchain. In this chapter we will focus on [TzStats](https://tzstats.com/) which is the most popular and complete Tezos explorer.
-
-![](../../static/img/explorer/tzStats_first_page.png)
-<small className="figure">FIGURE 1: TzStats Main Dashboard</small>
-
-[TzStats](https://tzstats.com/) is developed by _Blockwatch Data Inc._ It is a block explorer for public and private Tezos networks and is based on the [TzIndex indexer](https://github.com/blockwatch-cc/tzindex). 
-
-Each Tezos network has its own _TzStats_ version:
-- **Mainnet** : [tzstats.com](https://tzstats.com)
-- **Mainnet Staging**: [staging.tzstats.com](https://staging.tzstats.com)
-- **Delphinet** : [delphi.tzstats.com](https://delphi.tzstats.com)
-- **Edonet** : [edo.tzstats.com](https://edo.tzstats.com)
-
-// TODO: What is mainnet staging used for?
-
-## TzStats' main features
-TzStats is a very intuitive platform but has a complete guide available [here](https://tzstats.com/docs/guide).
-
-Here are _TzStats_' main features:
-
-- [Main Dashboard](https://tzstats.com/): This page provides a quick view of all the main activity on the Tezos network, e.g. staking activity, gas price, XTZ supply, transaction volume, etc.
-
-- [Network Activity](https://tzstats.com/activity): This page provides a world map with the location where new blocks are being baked. There is also the list of _whales_ (i.e list of high-value transfers >= $100,000).
-
-- [Bakers](https://tzstats.com/bakers): This page provides the total amount of Tezos bakers. Several lists are also available to gain an overview of the Tezos baker landscape. You can choose between the tabs Public, Top 20, Gainers, Losers, Newcomers etc.
-  
-- [Block](https://tzstats.com/1435766): This page provides general information about a specific block number along with technical details such as gas used, block health, etc.
-  // TODO: What is block health?
-
-- [Cycle](https://tzstats.com/cycle/350): This page provides general information about a specific cycle number.
-// TODO: What is a cycle?
-
-- [Markets](https://tzstats.com/markets): This page provides an overview of the current market activity, e.g. list of exchanges, 1 day volume, overall market capitalization, etc.
-
-- [Protocols](https://tzstats.com/protocols): This page shows the past and current protocol used by Tezos and the overall age of the Tezos blockchain. Refer to chapter on the [history of amendements](/tezos-basics/history-of-amendements) to understand each protocol.
-
-- [Voting](https://tzstats.com/election/head): This page shows the past and current elections and indicates when it ends. Refer to chapter on the [governance on chain](/tezos-basics/governance-on-chain) to understand voting.
-
-// TODO: Some screenshots of each page would be nice, maybe with added caption of each area. 
-
-// TODO: I would separate TzStats' main features and Checkout your smart contract on TzStats in two different chapters.
-
-## Checkout your smart contract on TzStats
 As a developer, you will often want to check the state of your deployed smart contracts. Using a blockchain explorer is a fast and easy way to do so. In this section, we'll deploy a smart contract and check it out on _TzStats_.
 
-### Step 1: Deploy your smart contract deployment
+## Step 1: Deploy your smart contract
 We are going to re-use the [raffle smart contract from the LIGO module](/ligo/contracts-ligo) and deploy it on a testnet.
 
 The complete source code of the raffle contract can be found [here](https://github.com/bepi-octo/raffle-smart-contract.git).
-
-// TODO: Move code to OpenTezos repo. I suggest creating a new folder in root called 'examples' then 'raffle-smart-contract' and put everything there.
 
 It contains two smart contracts and their associated migrations:
 1. a raffle smart contract, using a _big map_
@@ -82,9 +37,83 @@ Note that the migration files also include calling a few entrypoints after deplo
 
 The contract addresses can be found in the command logs, or in `build/contracts/bigRaffle.json}` (respectively _littleRaffle.json_) in the `address` field under `network`.
 
-// TODO: Add screenshot of command log showing the contract address.
+The output of the above command is:
 
-### Step 2: Find your smart contract on _TzStats_
+```shell
+Compiling your contracts...
+===========================
+> Everything is up to date, there is nothing to compile.
+
+
+
+Starting migrations...
+======================
+> Network name:    'edonet'
+> Network id:      NetXSgo1ZT2DRUG
+> Block gas limit: 10400000 (0x9eb100)
+
+
+1_deploy_empty_contract.js
+==========================
+   -------------------------------------
+   > Total cost:                   0 XTZ
+
+
+2_deploy_little_raffle.js
+=========================
+
+   Replacing 'littleRaffle'
+   ------------------------
+   > operation hash:      ooaFkcMSez2KRTdej5PrqxggisSZn7ZLLWtdTkFQjUv3gRLw3jt
+   > Blocks: 0            Seconds: 12
+   > contract address:    KT1UaxtG4XJd4ExiXkJ7YzcUHQVkvMaFRw7o
+   > block number:        191514
+   > block timestamp:     2021-04-21T08:34:09Z
+   > account:             tz1cGftgD3FuBmBhcwY24RaMm5D2UXLr5LHW
+   > balance:             28394.619643
+   > gas used:            13797
+   > storage used:        2666 bytes
+   > fee spent:           4.348 mtz
+   > burn cost:           0.73075 tez
+   > value sent:          0 XTZ
+   > total cost:          0.735098 XTZ
+
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:            0.735098 XTZ
+
+
+3_deploy_big_raffle.js
+======================
+
+   Replacing 'bigRaffle'
+   ---------------------
+   > operation hash:      ooGPJxzB3isLVCkuNqE2YLoPh9gmJqPpjTuZd6Rzt197veev3Hw
+   > Blocks: 0            Seconds: 32
+   > contract address:    KT1CMP7p7wzV64qpUYSVL7pBUZ4zxbEvRmdi
+   > block number:        191516
+   > block timestamp:     2021-04-21T08:35:09Z
+   > account:             tz1cGftgD3FuBmBhcwY24RaMm5D2UXLr5LHW
+   > balance:             28392.86028
+   > gas used:            13778
+   > storage used:        2698 bytes
+   > fee spent:           4.346 mtz
+   > burn cost:           0.73875 tez
+   > value sent:          0 XTZ
+   > total cost:          0.743096 XTZ
+
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:            0.743096 XTZ
+
+
+Summary
+=======
+> Total deployments:   2
+> Final cost:          1.478194 XTZ
+```
+
+## Step 2: Find your smart contract on _TzStats_
 Once you have the address of your smart contract, go to the _TzStats_ website associated with the network you deployed your contract on. In our case it is the [Edo TzStats](https://edo.tzstats.com).
 
 Copy/paste your address in the search bar:
@@ -102,26 +131,32 @@ Below the general information, you have a list of tabs allowing you to see:
 - the storage
 - the different _big maps_ of your smart contract (if there are any)
 
-#### Calls
-// TODO: Explain the calls tab
+### Calls
+Here you have the history of all transactions related to your smart contract.
 
-#### Entrypoints
+![](../../static/img/explorer/tzStats_smart_contract_calls.png)
+
+### Entrypoints
 Here you have a list of all your entrypoints and their parameters. Furthermore you can see how many calls each entrypoint has received.
 
 ![](../../static/img/explorer/tzStats_smart_contract_entrypoints.png)
 
-#### Calls
-// TODO: Explain the contract code tab
+### Contract Code
+Here you have the michelson code of your smart contract.
 
-#### Storage
+![](../../static/img/explorer/tzStats_smart_contract_code.png)
+
+### Storage
 Here you have access to the content of your storage with the type of each variables and their current value. Notice that the content excludes big maps as they have specific tabs for them.
 
 ![](../../static/img/explorer/tzStats_smart_contract_storage.png)
 
-#### Big map
-// TODO: Explain the Big map tab with an example
+### Big map
+Here you have the content of your bigmap.
 
-### API Calls
+![](../../static/img/explorer/tzStats_smart_contract_bigmap.png)
+
+## API Calls
 
 The same pieces of information can be retrieved by API calls, without using the frontend.
 A full documentation is available [here](https://tzstats.com/docs/api#tezos-api).
@@ -343,7 +378,14 @@ Those tools are also available for private networks.
 That is what will be detailed in the next chapter, where a private tzstats is set up to monitor a private network.
 
 ## References
-// TODO: references?
+
+[1] https://edo.tzstats.com/
+
+[2] https://github.com/bepi-octo/raffle-smart-contract
+
+[3] https://tzstats.com/docs/api#tezos-api
+
+[4] https://tzstats.com/docs/api#explorer-endpoints
 
 
 
