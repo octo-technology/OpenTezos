@@ -92,7 +92,6 @@ In LPoS, a validator is called a **baker**. Any user owning enough coins can bec
 
 The probability to win a bake is proportional to the amount invested. The baking time is organized in cycles and coins are locked during this time.
 
-<<<<<<< HEAD
 ## Pros & Cons
 
 | Consensus          | Advantages                                | Disadvantages      |
@@ -114,12 +113,3 @@ The probability to win a bake is proportional to the amount invested. The baking
 In this chapter, we briefly described 10 consensuses that can be used for public blockchains. There are many other consensus algorithms.
 
 In the next chapter "_Smart Contracts_", we'll define what they are, what are some of the Bitcoin's limitations in that matter, and how Ethereum first proposed to lift those limitations.
-=======
-## What have we covered so far?
-In this chapter, we briefly described 10 consensuses that can be used for public blockchains from the many other consensus algorithms.
-
-In the next chapter "_Smart Contracts_", we'll define what they are, what are some of the limitations of Bitcoin's in that matter, and how Ethereum first proposed to lift those limitations.
-
-## References
-[1] https://
->>>>>>> 931c0cfc035233432d026d6f4c0c296a3f7552ff
