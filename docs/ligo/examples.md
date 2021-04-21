@@ -57,7 +57,7 @@ In LIGO, the design aim is to have one main function called main,
 that dispatches the control flow according to its parameter. 
 The functions used for those actions are called entrypoints.
 
-In the example bellow:
+In the example below:
 - The functions `set_ship_code` and `go_to` are the entrypoints.
 - `Set_ship_code` and `Go_to` are the associated actions.
 
@@ -132,7 +132,7 @@ and the `advisor` contract gives an advice on investing in this fund.
 
 The `advisor` contract can be invoked to request the fund value to the `indice` contract (via a transaction). 
 The `indice` contract receives the request (transaction) 
-and will sends back the requested value. 
+and will send back the requested value. 
 When the `advisor` contract receives the fund value, it can apply the "algorithm" to check that it is worth investing !
 
 <br/>
@@ -579,7 +579,7 @@ ligo compile-parameter indice.ligo indiceMain 'SendValue(unit)'
 > **Reminder:** `0`, `(Left (Right 5))`, `(Left (Left 5))`, `(Right Unit)` are Michelson expressions that 
 > can be used as parameter in `tezos-client` command lines.
 
-Once everything's looks ok, we can compile the main function and save the output in a `indice.tz` file.
+Once everything looks ok, we can compile the main function and save the output in a `indice.tz` file.
 
 ```shell
 ligo compile-contract indice.ligo indiceMain > indice.tz
