@@ -5,7 +5,9 @@ title: Deploy a contract
 
 # Smart Contract
 
-A Tezos smart contract is a piece of code written in Michelson language (a low-level stack-based Turing-complete language).
+A Tezos smart contract is a piece of code written in Michelson language
+//TODO : add a link to the Michelson module 
+(a low-level stack-based Turing-complete language).
 
 It defines all **entrypoints** (invokable functions) of the smart contract.  
 It defines the prototype of each entry point (e.g. specifies the types of parameters of the entry point).  
@@ -307,7 +309,7 @@ ligo compile-storage src/counter.ligo main 5
 
 ### Invocation parameter
 
-Thye same rules apply for parameters, as apply for translating LIGO storage values to Michelson. 
+The same rules apply for parameters, as apply for translating LIGO storage values to Michelson. 
 We will need to use `compile-parameter` to compile our action variant into Michelson, here's how:
 
 ```shell
