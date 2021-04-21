@@ -58,13 +58,13 @@ module.exports = {
       items: [
         'ligo/introduction',
         'ligo/installation',
+        'ligo/write-contracts-ligo',
         'ligo/language-basics',
         'ligo/deploy-a-contract',
         'ligo/unit-testing',
         'ligo/examples',
         'ligo/exam',
         'ligo/take-away',
-        'ligo/contracts-ligo',
       ],
     },
     {

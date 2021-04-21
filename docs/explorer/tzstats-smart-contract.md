@@ -5,7 +5,7 @@ title: Checkout your smart contract on TzStats
 
 As a developer, you will often want to check the state of your deployed smart contracts. Using a blockchain explorer is a fast and easy way to do so. In this section, we'll deploy a smart contract and check it out on _TzStats_.
 
-## Step 1: Deploy your smart contract deployment
+## Step 1: Deploy your smart contract
 We are going to re-use the [raffle smart contract from the LIGO module](/ligo/contracts-ligo) and deploy it on a testnet.
 
 The complete source code of the raffle contract can be found [here](https://github.com/bepi-octo/raffle-smart-contract.git).
