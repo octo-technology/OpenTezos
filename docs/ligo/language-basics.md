@@ -98,15 +98,14 @@ c := c - 3
 
 # Maths, Numbers & Tez
 
-//TODO (??three built-in?? what about timestamp=number of seconds, bytes=hex numeric)
-
-LIGO offers three built-in numerical types:
+LIGO offers four built-in numerical types:
 
 - `int` are integers, such as `10`, `-6` and `0`.
 - `nat` are natural numbers (integral numbers greater than or equal to zero). 
   They are followed by the suffix **n** such as `3n`, `12n` and `0n` for the natural zero.
 - `tez` are units of measure of Tezos tokens. They can be decimals and are followed by **tez** or **tz** such as `3tz` or `12.4tez`. 
   You can also type units of millionths of tez, using the suffix **mutez** after a natural literal, such as `1000mutez` or `0mutez`.
+- `bytes` are sequence of bytes, such as `0x12e4`.
 
 ⚠️ Notice there are no floating point types in LIGO as they are not determinist in hardware modules.
 
@@ -182,13 +181,14 @@ In LIGO you can divide `int`, `nat`, and `tez`. Here is how:
 
 Therefore, the division of two `tez` values results in a `nat` value.
 
-//TODO The division of a `tez` value by a `nat` value results in a `tez` value.
+The division of a `tez` value by a `nat` value results in a `tez` value.
 
 
 ```js
 const a : int = 10 / 3
 const b : nat = 10n / 3n
 const c : nat = 10mutez / 3mutez
+const d : tez = 10mutez / 2n
 ```
 
 ## Modulo
@@ -640,10 +640,8 @@ whereas they can be repeated in a list.
 
 ```js
 const empty_set : set (int) = set []
-const my_set : set (int) = set [3; 2; 2; 1]
+const my_set : set (int) = set [3; 2; 2; 1]   // resulting set is [3; 2; 1] 
 ```
-
-//TODO const my_set : set (int) = set [3; 2; 5; 1]
 
 
 ### Sets tools
@@ -716,6 +714,8 @@ function change_name (const u : user) : user is
   } with my_user
 ```
 
+⚠️ Note that `user` value _u_ (given as argument) has not been changed by the function. 
+
 You can use `patch` to modify the record:
 
 ```js
@@ -725,19 +725,11 @@ function change_name (const u : user) : user is
   } with u
 ```
 
-//TODO user, has not been changed ... pas clair 
-⚠️ Note that user, has not been changed by the function. 
-Rather, the function returned a nameless new version of it with the modified name.
 
 ## Maps
 
-//TODO revoir definition map .. pas clair 
-
-Maps are a data structure which associates a value to a key. All keys have the same type and all values have the same type. 
-The former are called key and, the latter values. 
-Together they make up a binding. 
-An additional requirement is that the type of the keys must be comparable, 
-in the Michelson sense.
+Maps are a data structure which associates a value to a key, thus creating a key-value binding. All keys have the same type and all values have the same type. 
+An additional requirement is that the type of the keys must be comparable.
 
 ### Defining a Map
 

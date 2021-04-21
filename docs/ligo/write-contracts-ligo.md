@@ -1,5 +1,5 @@
 ---
-id: contracts-ligo
+id: write-contracts-ligo
 title: Smart contract development in Pascaligo
 ---
 import NotificationBar from '../../src/components/docs/NotificationBar';
@@ -110,13 +110,14 @@ Below is a table of the most used built-in types. Most of them will be used in t
 | -----------       | -----------     | -----------|
 | `unit`            | carries no information           | `Unit`|
 | `option`          | value of some type or none           | `Some ("this string is defined")`, `(None: option string)`|
-| `string`          | String           | `"This is a string"`|
+| `string`          | Sequence of character        | `"This is a string"`|
 | `address`         | Address of an implicit account           | `("tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx" : address)`|
 | `int`             | Positive or negative integer             | `-5`, `int (1n)`|
 | `nat`             | Positive integer             | `0n`, `abs (1)`|
 | `tez`, `tz`, `mutez`      | Amount in tz or mutez             | `5mutez`, `10tez`|
 | `bool`             | Boolean: true or false             | `True`, `False` |
 | `timestamp`        | Timestamp (bakers are responsible for providing the given current timestamp) | `("2000-01-01T10:10:10Z" : timestamp)`, `Tezos.now` |
+| `bytes`            | Sequence of bytes | 0x12e4 |
 | `list (type)`      | List definition. The same element can be found several times in a list | `list [1; 2; 2]`, `nil` |
 | `set (type)`       | Set definition. The same element cannot be found several times in a list | `set []`, `set [3; 2; 2; 1]` |
 | `type1 * type2 ... * typeN`        | Tuple definition | `("Alice", 5n, True)` |
@@ -928,7 +929,7 @@ Two additional pieces of information have to be kept:
 
 The storage has to be modified. Collections are going to come in handy for the modification of the storage
 
-## LIGO prequisites: collections
+## LIGO prerequisites: collections
 
 ### Lists
 
@@ -1012,12 +1013,8 @@ const smaller_set : set (int) = Set.remove (3, my_set)
 
 ### Maps
 
-Maps are a data structure that associate a value to a key. 
-All values have the same type and all keys of the same type.
-The former are called key and, the latter values. Together they make up a binding.
-
-An additional requirement is that the type of the keys must be comparable,
-in the Michelson sense.
+Maps are a data structure which associates a value to a key, thus creating a key-value binding. All keys have the same type and all values have the same type. 
+An additional requirement is that the type of the keys must be comparable.
 
 #### Defining a Map
 
@@ -1290,7 +1287,7 @@ New pieces of information won't be stored: the storage is not expected to be mod
 However, the third step raises a problem: how should the winner be picked ?
 1. the administrator chooses the winner when calling this entrypoint: 
    participants are likely not to buy a ticket since the administrator can choose himself as a winner
-2. the winner is randomly choosen when calling this entrypoint
+2. the winner is randomly chosen when calling this entrypoint
 3. the winner is chosen at the beginning by the administrator, but this piece of information is only revealed at the end of the raffle.
 
 ## LIGO prerequisites: Transactions
