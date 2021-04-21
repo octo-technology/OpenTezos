@@ -59,7 +59,7 @@ It contains two smart contracts and their associated migrations:
 1. a raffle smart contract, using a _big map_
 2. a raffle smart contract, using a _map_
 
-The current testnet at the time of writing is _Edonet_. The account used for deployment is defined in the _truffle_ config (refer to the [How to build a Dapp module](/dapp) for more info).
+The current testnet at the time of writing is _Edonet_. The account used for deployment is defined in the _truffle_ config (refer to the [Build a Dapp module](/dapp) for more info).
 
 To setup the project, run the following commands:
 

@@ -13,7 +13,7 @@ In many cases, smart contracts remove middle-men and drastically reduce intermed
 
 Notice that a smart contract can only run on the Tezos network and send transactions to other accounts or to smart contracts, but cannot interact with the internet. That's where decentralized applications (_Dapps_) come into play.
 
-To deploy your own Dapp, please refer to the [Dapp Module](/dapp).
+To deploy your own Dapp, please refer to the [Build a Dapp Module](/dapp).
 
 ## Lifecycle of a Tezos smart contract
 

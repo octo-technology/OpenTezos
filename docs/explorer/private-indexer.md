@@ -1,21 +1,14 @@
 ---
 id: private-indexer
 disable_pagination: true
-title: Private indexer for private and public networks
+title: Private indexer
 ---
 
-The tools that have been presented in this module are public: everyone can use it.
-However, they are meant for public networks, 
-and the user is dependent on the infrastructure and configuration of these services.
+The tools presented in this module so far are fully public, meaning that everyone can use them. However, they are meant for public networks, and the user is dependent on the infrastructure and configuration of these services. Some organizations are more interrested in deploying their own private Tezos network, either for private testing before going public, or for entirely private use. Refer to the [Private blockchain module](/private) for more info. Therefore, it must be possible to use an indexer on private networks.
 
-As seen in the **Dapp module**, these tools are extremely useful to get all the pieces of information of what is going on in the network.
-Private networks are used in many use cases.
-Therefore, it must be possible to use such tools on private networks, otherwise the users would be blind.
+Fortunately, all public developments on Tezos are open-source and can easily be adapted for a private network, e.g. an indexer can be deployed and configured to watch a private network.
 
-Hopefully, all those tools are open-source and can be used on a private server.
-The user can configure the indexer as he likes, and can set it to watch any private network.
-
-In this chapter, _tzindex_  and _tzstats_ will be used as a private indexer, for both private and public networks.
+In this chapter, we will see how the source code of _TzIndex_ and _TzStats_ can be used to make a private indexer, either for use on a private network or a public network.
 
 This chapter is divided into three parts:
 - how to quickly set up a private network.
@@ -31,12 +24,12 @@ To index a private network, a few things are needed:
 
 
 First, a private network has to be set up. 
-The quickest way to set up a private Tezos network is to use Ganache (see Dapp module for more details).
+The quickest way to set up a private Tezos network is to use Ganache (see the [Build a Dapp module](/dapp) for more details).
 Ganache is a npm module, that can set up a personal private network.
 Ganache provides 10 accounts when it starts, displayed in the logs.
 
 The raffle smart contract, developed in the LIGO module, will be used. 
-It will be migrated onto our private network with the _Truffle_ configuration detailed in the Dapp module.
+It will be migrated onto our private network with the _Truffle_ configuration detailed in the [Build a Dapp module](/dapp).
 
 ## Installing the prerequisites
 A github repository is available here:
@@ -401,7 +394,7 @@ private indexers and explorers can be set up to monitor what is going on a priva
 These private tools can also be used to monitor public networks, 
 even if public tools are already set up to that purpose.
 
-Finally, indexers can come in handy as additional tools to librairies (such as [Taquito](https://tezostaquito.io/)) or wallet (as described in the Dapp module).
+Finally, indexers can come in handy as additional tools to librairies (such as [Taquito](https://tezostaquito.io/)) or wallet (as described in the [Build a Dapp module](/dapp)).
 Indeed, big maps are not easily handled with those tools.
 For instance, it is not possible to retrieve all the keys of a big map.
 However, indexers solve this issue with a simple REST call.
