@@ -14,7 +14,7 @@ What is true about a block indexer?
 
 ### Question 2
 
-What is a block indexer made of ?
+What is a block indexer made of?
 
 - [x] API Layer
 - [ ] Block node
@@ -41,6 +41,7 @@ What does the tzStats explorer allow you to do?
 - [x] Get general information about a specific block number.
 - [ ] Delete a block.
 - [x] Get an overview of the Tezos baker landscape.
+- [x] Make API calls from DApps.
 - [ ] Modify a transaction in which you were mistaken.
 - [x] Find a smart contract by its address and view its calls, entrypoints, storage etc
 - [ ] Deploy your smart contract.
