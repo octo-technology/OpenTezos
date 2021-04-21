@@ -4,7 +4,7 @@ title: Exam
 ---
 
 ### Question 1
-Which year Nick Szabo invented *Smart Contracts*?
+Which year did Nick Szabo invent *Smart Contracts*?
 
 - [ ] 1995
 - [x] 1996
@@ -12,7 +12,7 @@ Which year Nick Szabo invented *Smart Contracts*?
 - [ ] 1998
 
 ### Question 2
-At which date was released the *Bitcoin's White Paper*?
+When was the *Bitcoin's White Paper* released?
 
 - [ ] October 31st, 2006
 - [ ] October 31st, 2007
@@ -20,7 +20,7 @@ At which date was released the *Bitcoin's White Paper*?
 - [ ] October 31st, 2009
 
 ### Question 3
-Which year, *Ethereum's Yellow Paper* and *Tezeos White Paper* were released?
+Which year was the *Ethereum Yellow Paper* and the *Tezeos White Paper* released?
 
 - [ ] 2013
 - [x] 2014
@@ -28,7 +28,7 @@ Which year, *Ethereum's Yellow Paper* and *Tezeos White Paper* were released?
 - [ ] 2016
 
 ### Question 4
-How many bitcoins should ever be issued (in millions)?
+How many bitcoins will ever be issued (in millions)?
 
 - [ ] 20
 - [x] 21
@@ -61,7 +61,7 @@ Which type of consensus is used in *Bitcoin*?
 - [ ] PoB
 
 ### Question 8
-Which type of consensus is used at *Ethereum*'s launch?
+Which type of consensus was used at *Ethereum*'s launch?
 
 - [ ] PoA
 - [ ] PoS
@@ -102,7 +102,7 @@ Bitcoin's *Difficulty* is calculated every:
 If two miners find a valid block, The winner is the one:
 
 - [x] adding his block to the longest chain
-- [x] adding his block to the chain with the most of work
+- [x] adding his block to the chain with the most work
 
 ### Question 12
 At Bitcoin's launch the blocks reward was:
