@@ -12,11 +12,8 @@ In the previous chapter, we saw that there is different block indexers for diffe
 
 Each Tezos network has its own _TzStats_ version:
 - **Mainnet** : [tzstats.com](https://tzstats.com)
-- **Mainnet Staging**: [staging.tzstats.com](https://staging.tzstats.com)
 - **Delphinet** : [delphi.tzstats.com](https://delphi.tzstats.com)
 - **Edonet** : [edo.tzstats.com](https://edo.tzstats.com)
-
-// TODO: What is mainnet staging used for?
 
 ## TzStats' main features
 TzStats is a very intuitive platform but has a complete guide available [here](https://tzstats.com/docs/guide).
