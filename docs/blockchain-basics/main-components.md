@@ -45,7 +45,7 @@ This is achieved through [Cipher Block Chaining (CBC)](https://en.wikipedia.org/
 
 ![Chain of blocks](../../static/img/blockchain-basics/blocks-chain.svg "Chain of blocks")
 
-SHA256 is special type of [one-way function](https://en.wikipedia.org/wiki/One-way_function) called [hash function](https://en.wikipedia.org/wiki/Hash_function). The same function is also used (twice) for mining.
+SHA256 is a special type of [one-way function](https://en.wikipedia.org/wiki/One-way_function) called [hash function](https://en.wikipedia.org/wiki/Hash_function). The same function is also used (twice) for mining.
 
 ### Introduction to Mining
 The blocks validators are called the "**miners**" (see below "_Consensus: Nakamoto and the Proof-of-Work’s account units issuance_" for more about this word).
@@ -56,7 +56,7 @@ They put _valid_ transactions inside a block, and then try to _validate that blo
 
 The fees are simply **the sum of the transactions values** ($S_v$) minus **the sum of the amounts really sent** ($S_a$).
 
-For "T" transations in a block. Let "v" a transaction's value, and "a" the amount sent:
+For "T" transactions in a block, let "v" a transaction's value, and "a" the amount really sent:
 $$
 \text{Fees} = \sum_{i=1}^{T} v_i - \sum_{i=1}^{T} a_i
 $$
@@ -64,17 +64,15 @@ Or more simply:
 $$
 \text{Fees} = S_v - S_a
 $$
-That means **a sender actually chooses the fees given to the miner**. The more he gives, the faster the transaction is included in a block. Yes, in case you wonder, a transaction could actually have zero fees, but it could take months or years to be included in a block (or never).
+That means **a sender actually chooses the fees given to the miner**. The more he gives, the faster the transaction is included in a block. Yes, in case you wonder, a transaction could actually have zero fees, but it could take months or years to be included in a block (if never).
 
-The block reward is sent through a special transaction called a "_Coinbase Transaction_" directly to the miner.
+The block reward is sent through a special transaction called a "_Coinbase Transaction_" directly to the miner. It's always the first transaction of a validated ("*mined*") block.
 
-To get these two rewards, a miner basically plays a lottery, a game of chance.
+To get these two rewards, a miner basically plays a lottery, a game of chance. This game is to find a binary number lesser than a target (called "_Target_") with the specific hash function _SHA256_. The fact is a miner can't guess in advance the result of this function. He **must** try values (by [*Brute Force*](https://en.wikipedia.org/wiki/Brute-force_attack)). He must *hash* the previous block header (twice) with the number of the attempt called the "*nounce*".
 
-This game is to find a binary number lesser than a target (called "_Target_") with a specific cryptographic function (_SHA256_). It is a **hash function**. The fact is a miner can't guess in advance the result of this function. He must try values.
+The more a miner tries values (the more he has lottery tickets), the more he uses energy to make his computers work.
 
-The more a miner tries values (the more he has lottery tickets), the more he uses energy to make his computers work. For each try, the miner increase a counter, which is included in the function.
-
-When a miner finds a number that is valid, he finally finds a valid block. His node tells to the network its discovery with the final count of attempts.
+When a miner finds a number that is valid, he finally finds a valid block. His node tells to the network its discovery with the final nounce (so anyone can verify!).
 
 If two miners find a valid number, then two valid blocks are possible. The winner is the one adding his block to the chain with the most of _work_ done (we also say "_the longest chain_").
 
@@ -83,7 +81,7 @@ Because miners find blocks containing valid transactions that are chained togeth
 
 To get these rewards they must _work_, and then _proove they worked_. In Bitcoin, they work using electricity. So to make this activity profitable, miners have to find efficient calculators, and low-cost electricity.
 
-Over time, miners group more and more powerful machines together, and more people begin this activity. This increases the number of attempts (the number of tickets) of the global network to find a valid block. Because of the hash function used, this is called "**hashing power**".
+Over time, miners group more and more powerful machines together, and more people begin this activity. This increases the number of attempts (the number of tickets) of the global network to find a valid block. Because of the SHA256 hash function used, this is called "**hashing power**".
 
 While the network gains more hashing power, constraints stay the same. Each block still has to appear around every 10 minutes. To maintain this and adapt, the protocol calculates the "_Difficulty_". If the hashing power is too high, Difficulty increases. If the hashing power is too low, Difficulty decreases.
 
@@ -91,11 +89,11 @@ The Difficulty modifies the binary Target. To increase the difficulty for miners
 
 The Difficulty is calculated every 2016 blocks (~2 weeks).
 
-Economically, this is more and more difficult to get rewards. This is also the sign that more and more people try to find bitcoins. So the demand increases.
+Economically, this is more and more difficult to get rewards. This is also the sign that more and more people try to find bitcoins. So the *demand* increases.
 
-Bitcoin relies on the simple free market law of supply and demand. It is intrinsically deflationary. The more bitcoins are hard to get, the heigher their price. The rarest they are, the hardest they are to find, the higher their price. And vice versa.
+Bitcoin relies on the simple free market law of *supply* and *demand*. It is intrinsically **deflationary**. The more bitcoins are hard to get, the heigher their price. The rarest they are, the hardest they are to find, the higher their price. And vice versa.
 
-The total theoric limited supply of bitcoins is pre-determined and hardcoded in the protocol: 21,000,000 (21 millions).
+The total theoric limited *supply* of bitcoins is pre-determined and hardcoded in the protocol: 21,000,000 (21 millions).
 
 ## Consensus: Nakamoto and the Proof-of-Work’s account units issuance
 Relying only on hashing power and the law of supply and demand wouldn't quite be enough to assure deflation.
@@ -104,24 +102,19 @@ Another rule is coded in the Bitcoin protocol that increases scarcity of bitcoin
 
 At the very beginning (2008 / 2009), the block reward was 50 bitcoins. These days (2021), the reward is 6.25 bitcoins until 2024[[3]](/blockchain-basics/main-components#references).
 
-Block reward is how the currency's issuance is produced. So the Halving has a strong economical impact. Usually, this event leads to an increasing price phase, namely "Bull Market"[[3]](/blockchain-basics/main-components#references).
-
-It's worth noting it's also an event that federates the community, the adoption, and in return, makes the network stronger, and the price higher[[4]](/blockchain-basics/main-components#references).
+Block reward is how the currency's issuance is produced. So the Halving has a strong economical impact. Usually, this event leads to an increasing price phase, namely "Bull Market"[[3]](/blockchain-basics/main-components#references). It's worth noting it's also an event that federates the community, the adoption, and in return, makes the network stronger, and the price higher[[4]](/blockchain-basics/main-components#references).
 
 The numbers chosen by Satoshi Nakamoto for the total supply or the Halving are inspired by _gold mining_. The more you dig to find gold, the less there is, and the harder it is to dig. That's exactly why the blocks validators are called the "Miners".
 
 The Nakamoto Consensus which allows Bitcoin is driven by:
 - The decentralization
 - The Proof-of-Work
-- A probabilistic solution to the Byzantin's General Problem
+- A probabilistic solution to the Byzantin General Problem
 - The _MAD_ property
 
-In Bitcoin's mesh network, the rewards make it possible to support until 50% of bad actors. The network is said to be "Byzantin Fault Tolerant" (BFT).
+In Bitcoin's mesh network, the rewards make it possible to support until 50% of bad actors. The network is said to be "Byzantin Fault Tolerant" (BFT). Probalistically, Bitcoin's solution is more efficient than the actual strict solution. The actual strict solution needs less than one third (1/3) of bad actors.
 
-Probalistically, Bitcoin solution is more efficient than the actual strict solution. The actual solution needs less than one third (1/3) of bad actors.
-
-The _**M**utual **A**ssured **D**estruction_ (**_MAD_**) property reinforce this BFT solution:
-
+The _**M**utual **A**ssured **D**estruction_ (**_MAD_**) property reinforce this BFT solution:  
 _It is more profitable to earn bitcoins participating to the procotol than to attack it. If you want to attack it, you'd have to invest a lot of ressources. In the extreme case your attack would be effective, you'd loose your investment..._
 
 You would also face the community, which can detect the attack and adapt.

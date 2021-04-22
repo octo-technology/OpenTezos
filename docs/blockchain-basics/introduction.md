@@ -37,7 +37,7 @@ This message clearly showed the intention of Satoshi Nakamoto and his Bitcoin to
 ### What is Bitcoin?
 Bitcoin is a computer program made of various cryptographic components (e.g. asymmetric cryptography, hash functions, proof-of-work, etc.) ensuring its functionality and security. This is why Bitcoin and other coins are referred to as **crypto-currencies**.
 
-Contrary to popular belief, Bitcoin wasn't the first attempt at creating a crypto-currency. _Digicash_ (1989), _CyberCash_ (1994), _E-gold_ (1996), _HashCash_ (1997), _Bit Gold_ (1998) and _B-money_ (from Wei Dai in 1998) were all very close to such goal but all failed because of technical or security issues. _Bit Gold_ and _B-money_ even used a decentralized database for transactions and an older version of Bitcoin's _Proof-of-Work_. Bitcoin was actually the first to have components assembled in such a way that made it viable.
+Contrary to popular belief, Bitcoin wasn't the first attempt at creating a crypto-currency. _Digicash_ (1989), _CyberCash_ (1994), _E-gold_ (1996), _HashCash_ (from Adam Back in 1997), _Bit Gold_ (1998) and _B-money_ (from Wei Dai in 1998) were all very close to such goal but all failed because of technical or security issues. _Bit Gold_ and _B-money_ even used a decentralized database for transactions and an older version of Bitcoin's _Proof-of-Work_. Bitcoin was actually the first to have components assembled in such a way that made it viable.
 
 Bitcoin's components were not new either and were based on technologies used for years before that. Bitcoin relies on a lot of "old" Information Technologies (IT). Some from as far as 1973, and up until the Genesis Block in 2009.
 
