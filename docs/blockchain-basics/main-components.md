@@ -64,7 +64,7 @@ Or more simply:
 $$
 \text{Fees} = S_v - S_a
 $$
-That means **a sender actually chooses the fees given to the miner**. The more he gives, the faster the transaction is included in a block. Yes, in case you wonder, a transaction could actually have zero fees, but it could take months or years to be included in a block (if never).
+That means **a sender actually chooses the fees given to the miner**. The more he gives, the faster the transaction is included in a block. Yes, in case you wonder, a transaction could actually have zero fees, but it could take months or years to be included in a block (if ever).
 
 The block reward is sent through a special transaction called a "_Coinbase Transaction_" directly to the miner. It's always the first transaction of a validated ("*mined*") block.
 
