@@ -35,7 +35,7 @@ Because *Bitcoin Script* is stack-based, the complete code that would be execute
 ```
 So, the solution has to be provided here before the problem.
 
-The fact that *Bitcoin Script* is a low-level and stack-based language do not actually limit coding possibilities. It is only hard to optimise (scripts size and fees to pay). For instance, at the same low-level, *Ethereum* also uses OP_codes and a stack[[5]](/blockchain-basics/smart-contracts#references).
+The fact that *Bitcoin Script* is a low-level and stack-based language do not actually limit coding possibilities. It is only hard to optimise (scripts size and fees to pay). For instance, at the same low-level, *Ethereum* also uses [OP_codes](https://www.ethervm.io/) and a stack[[5]](/blockchain-basics/smart-contracts#references). EVM Code is Ethereum's Bitcoin Script.
 
 One first limitation is simply the number and types of usable OP_codes. For security purposes, various OP_codes are either totally absent, or have been disabled[[1]](/blockchain-basics/smart-contracts#references) following the discovery of vulnerabilities.
 
