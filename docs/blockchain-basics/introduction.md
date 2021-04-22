@@ -8,26 +8,26 @@ authors: Thomas Zoughebi and Aymeric Bethencourt
 
 Welcome to _OpenTezos_, the most complete and open-source documentation on Tezos.
 
-Before we start digging into Tezos itself, let's review the basics of blockchain and cryptocurrencies. This module will first present you a brief history of the blockchain, then its main components and consensuses and finally introduce the notion of _smart contract_. All these notions will later be useful for you in the next modules to understand how Tezos works and how it builds upon Bitcoin and Ethereum to become part of the new generation of blockchains.
+Before we start digging into Tezos itself, let's review the basics of blockchain and cryptocurrencies. This module will first present you a brief history of the blockchain, then its main components and consensuses and finally introduce the notion of _smart contract_. All these notions will later be useful for you in the next modules to understand how Tezos works, and how it builds upon Bitcoin and Ethereum to become part of the new generation of blockchains.
 
 ## A brief history of Blockchain
 ### The tipping point
-In 2005, Greece imposed restrictions on the amount people could withdraw from their bank account in an attempt to prevent banks from failing as talks between the government and bailout creditors appeared to be on the verge of collapse.
+In 2005, Greece imposed restrictions on the amount people could withdraw from their bank account, in an attempt to prevent banks from failing, as talks between the government and bailout creditors appeared to be on the verge of collapse.
 
-In 2008, the [subprime mortgage crisis](https://en.wikipedia.org/wiki/Subprime_mortgage_crisis) triggered a global financial crisis. _Lehman Brothers_ went bankrupt many other banks and financial institutions across the world failed to the point that they had to be bailed out by governments. 
+In 2008, the [subprime mortgage crisis](https://en.wikipedia.org/wiki/Subprime_mortgage_crisis) triggered a *global* financial crisis. _Lehman Brothers_ went bankrupt, and many other banks and financial institutions across the world failed to the point that they had to be bailed out by governments. 
 
-These events and many other of the same kind exposed the fragility of the modern financial system and that banks and other financial institutions could not be trusted with the money people give them.
+These events and many others of the same kind exposed the fragility of the modern financial system, and that banks and other financial institutions could not be trusted with the money people give them.
 
-[Fractional reserve banking](https://en.wikipedia.org/wiki/Fractional-reserve_banking), the most common form of banking practised by commercial banks worldwide, is the embodiment of such issue. When you give a bank $1,000, the bank does not keep that amount in reserve for you. It legally only need to keep $100 in reserves (generally around 10%), and is allowed to spend $900 of your money in various investments. At this point, not only are you not able to withdraw your $1,000 if the bank doesn't have enough reserves from other depositors, but they risk losing your money altogether if the bank goes bankrupt. If a bank has net deposits of a billion dollars, it only needs to keep around 100 million on hand at any given time. This usually works fine when bank customers generally don't withdraw all their money altogether at once. However, the moment customers start to question the bank‘s financial stability and decide to withdraw their money, the bank can quickly empty its reserve and things can go south very quickly.
+[Fractional reserve banking](https://en.wikipedia.org/wiki/Fractional-reserve_banking), the most common form of banking practised by commercial banks worldwide, is the embodiment of such issue. When you give a bank $1,000, the bank does not keep that amount in reserve for you. It legally only needs to keep $100 in reserves (generally around 10%), and is allowed to spend $900 of your money in various investments. At this point, not only are you not able to withdraw your $1,000 if the bank doesn't have enough reserves from other depositors, but they risk losing your money altogether if the bank goes bankrupt. If a bank has net deposits of a billion dollars, it only needs to keep around 100 million on hand at any given time. This usually works fine when bank customers don't withdraw all their money altogether at once. However, the moment customers start to question the bank‘s financial stability and decide to withdraw their money, the bank can rapidily empty its reserve and things can go south very quickly.
 
-On another note, one of the solutions to a crisis often used by governments is to create more of their national [fiat currency](https://en.wikipedia.org/wiki/Fiat_money) (e.g. US Dollar, Euro, etc.) to pay for recovery plans. This leads to [hyperinflation](https://en.wikipedia.org/wiki/Hyperinflation) of the currency and devaluation of people's holdings. Fiat currencies are entirely controlled in their supply and creation by a national government and are backed by nothing but faith in the government. Many countries such as Venezuela have experienced hyperinflation to the point that their currency is only now worth a small fraction of its past value.
+On another note, one of the solutions to a crisis often used by governments is to create more of their national [fiat currency](https://en.wikipedia.org/wiki/Fiat_money) (e.g. US Dollar, Euro, etc.) to pay for recovery plans. This leads to [hyperinflation](https://en.wikipedia.org/wiki/Hyperinflation) of the fiat currency and devaluation of people's holdings. Fiat currencies are entirely controlled in their supply and creation by a national government, and are backed by nothing but faith in the government. Many countries such as Venezuela have experienced hyperinflation to the point that their fiat currency is only now worth a small fraction of its past value.
 
-All these factors, the lack of faith in governments to protect their fiat currency, the lack of trust in banks to protect people's holdings, and so on, led to a new questioning about the modern financial system: Is there a better alternative?
+All these factors, the lack of faith in governments to protect their fiat currencies, the lack of trust in banks to protect people's holdings, and so on, led to a new questioning about the modern financial system: *Is there a better alternative?*
 
 ### "And then there was light"
 On **October 31st, 2008**, under the _pseudonym_ of "Satoshi Nakamoto", the [Bitcoin whitepaper](https://bitcoin.org/bitcoin.pdf) was discreetly released. From its very title and abstract, one could understand that the aim of _his_ invention was to create an "electronic cash system", an alternative to fiat currency, able to function free of control or manipulation from a centralised entity.
 
-On **January 3rd, 2009**, the blockchain went live and the first _block_ was created, called the "Genesis Block". (You will learn about what is a _block_ in the next chapter). The Genesis block contained the first few exchanges of this newly created electronic currency called Bitcoin and some data. It is indeed possible to store some raw data inside a block, and Satoshi Nakamoto included in the first block a message saying "_Chancellor on brink of second bailout for banks_", the title of _The Times_ newspaper of the day describing the second bank bailout following the subprime crisis.
+On **January 3rd, 2009**, this "blockchain" went live and the first _block_ was created, called the "Genesis Block" (you will learn about what is a _block_ in the next chapter). The Genesis block contained the first few exchanges of this newly created electronic currency called Bitcoin, and some data. It is indeed possible to store some raw data inside a block, and Satoshi Nakamoto included in the first block a message saying: "_Chancellor on brink of second bailout for banks_", the title of _The Times_ newspaper of the day describing the second bank bailout following the subprime crisis.
 
 This message clearly showed the intention of Satoshi Nakamoto and his Bitcoin to trigger the so-called **de-centralisation of money**.
 
@@ -45,7 +45,7 @@ Bitcoin's system actually spans across 36 years of research, trials, experiments
 
 First of all, Bitcoin relies on the Internet, which itself has been relying on _TCP/IP_ since 1974.
 
-Bitcoin also relies heavily on so-called _Modern Cryptography_, e.g. the Diffie-Hellman protocol (1976), the Merkel Tree (1979) and the RSA (Rivest–Shamir–Adleman) public-key cryptosystem (1977).
+Bitcoin also relies heavily on so-called _Modern Cryptography_, e.g. the Diffie-Hellman protocol (1976, in collaboration with Ralph Merkle), the Merkle Tree (1979), and the RSA (Rivest–Shamir–Adleman) public-key cryptosystem (1977).
 
 The blocks of data are cryptographically chained with [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_block_chaining_(CBC)) from 1976, meaning that chains of blocks are actually that old.
 
@@ -53,10 +53,10 @@ From there, countless reflections on ethics, research on technologies, and of co
 
 In 2001, the _Bittorent_ client provided more support to the peer-to-peer networks experimental research. An important opening towards more decentralisation.
 
-Finally, before the bankruptcy of Lehman Brothers and the global financial crisis in 2008, Hal Finney (1956-2014) had developed on PGP (1991) his "Reusable Proof-of-Work" in 2004. Later, he became one of the first persons exchanging Bitcoins with Satoshi Nakamoto.
+Finally, before the bankruptcy of Lehman Brothers and the global financial crisis in 2008, Hal Finney (1956-2014), who had developed on PGP, released his "Reusable Proof-of-Work" in 2004. Later, he became one of the first persons exchanging Bitcoins with Satoshi Nakamoto.
 
-### The 2nd generation of blockchain
-Following the success of Bitcoin, many forked its code and started creating a new blockchain with differentiating new features or capabilities.
+### The 2nd generation of blockchains
+Following the success of Bitcoin, many forked its code and started creating new blockchains with differentiating new features or capabilities.
 
 Note that Bitcoin's transactions are programmable. One can program how funds are spent using scripts. However, going beyond these basic uses are quite difficult as Bitcoin's scripting language is very limited.
 
