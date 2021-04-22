@@ -1,20 +1,43 @@
 ---
 id: introduction
-disable_pagination: true
 title: Introduction
-slug: /smartpy
 ---
 
-import NotificationBar from '../../src/components/docs/NotificationBar';
+// TODO PRESENTATION DU MODULE
 
-<h1 className="p">Under construction.</h1>
+Tezos smart contracts are written in [Michelson](https://opentezos.com/michelson), which is a stack-based language.
+It is the lowest level of a Tezos smart contract: what will be deployed on a Tezos network, is Michelson code.
+However, if reading or writing Michelson code is still easy for small smart contracts,
+it can become very tedious for more complex smart contracts:
+- there are no variables nor functions
+- no syntactic sugar
+- the Michelson code cannot be broken down into several files
+- stack-based languages are not commonly used when it comes to web development.
 
-<NotificationBar>
-  <p>
-    Lorem ipsum
-  </p>
-</NotificationBar>
+SmartPy solves these issues.
+It is a high-level smart contracts library
+and comes with related tools in the form of [SmartPy.io](https://smartpy.io/) to greatly ease
+the accessibility, understandability and provability of smart contracts on Tezos.
+- Use a popular programming language Python
+- A set of high-level primitives, SmartML, written in OCaml for a new smart contracts virtual machine 
+  that can be translated into Michelson.
+- A compiler to translate SmartML contracts to Michelson.
+- Analytics are elements of the user interface that provide some automatic procedures in SmartPy.io 
+  to analyze and prove properties of smart contracts
 
-### Lorem ipsum
+//TODO REMPLACER SCHEMA
 
-Lorem ipsum
+![](../../static/img/ligo/intro_schema.svg)
+<small className="figure">FIGURE 1: Ligo contextualisation </small>
+
+Once built, SmartPy contracts become SmartML contracts 
+and are handled in an OCaml library called SmartEngine,
+then it can be transpiled into a single Michelson code file.
+This Michelson file is the smart contract that will be deployed on a tezos network.
+
+
+## References
+
+[1] https://tzstats.com/blog/next-gen-blockchain-indexing-for-tezos/https://smartpy.io/
+
+[2] https://smartpy-io.medium.com/introducing-smartpy-and-smartpy-io-d4013bee7d4e
