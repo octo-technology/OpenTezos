@@ -97,10 +97,10 @@ The probability to win a bake is proportional to the amount invested. The baking
 | #    | Consensus | Advantages                                | Disadvantages                                                                                               |
 | :--- | :-------- | :---------------------------------------- | :---------------------------------------------------------------------------------------------------------- |
 | *0*  | *PoW*     | *Extreme robustness (MAD + SHA256 + CBC)* | *Energy consumption*                                                                                        |
-| ◼    | -◼-◼-◼-◼  | -◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼      | -◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼-◼                                                                |
+| ◼    | ◼         | ◼                                         | ◼                                                                                                           |
 | 1    | PoB       | Robustness similar to PoW                 | Energy consumption; Mining power to money burners                                                           |
 | 2    | PoC       | Less energy consumption; mimic mining     | Nothing at Stake (no MAD)                                                                                   |
-| 3    | LBC       | Less energy consumption                   | Leader centralized                                                                                          |
+| 3    | LBC       | Less energy consumption                   | Leader centralized; Sybil Attack[[1]](/blockchain-basics/other-consensuses#references) weakness             |
 | 4    | PBFT      | Very easy to implement                    | Absence of privacy; less robust                                                                             |
 | 5    | FBA       | Modest computing & financial requirements | Quorum slices centralization; Sybil Attack[[1]](/blockchain-basics/other-consensuses#references) weakness   |
 | 6    | Avalanche | Fast; highly distributed (lots of nodes)  | Groups of nodes centralization; Sybil Attack[[1]](/blockchain-basics/other-consensuses#references) weakness |
