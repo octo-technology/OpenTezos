@@ -49,7 +49,7 @@ Bitcoin also relies heavily on so-called _Modern Cryptography_, e.g. the Diffie-
 
 The blocks of data are cryptographically chained with [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_block_chaining_(CBC)) from 1976, meaning that chains of blocks are actually that old.
 
-From there, countless reflections on ethics, research on technologies, and of course cryptography have taken place: Mails traceability and privacy in 1981, Elliptic Curve Cryptography in 1985 (used for _Public Key Cryptography_ in most blockchains), PGP in 1991 (developed for privacy providing authentication and encryption), etc. Even smart contracts were first conceptualized by Nick Szabo in 1997.
+From there, countless reflections on ethics, research on technologies, and of course cryptography have taken place: Mails traceability and privacy in 1981, Elliptic Curve Cryptography in 1985 (used for _Public Key Cryptography_ in most blockchains), PGP in 1991 (developed for privacy providing authentication and encryption), etc. Even "smart contracts" were first conceptualized by Nick Szabo in 1997.
 
 In 2001, the _Bittorent_ client provided more support to the peer-to-peer networks experimental research. An important opening towards more decentralisation.
 
@@ -62,15 +62,15 @@ Note that Bitcoin's transactions are programmable. One can program how funds are
 
 In 2011, Vitalik Buterin encountered Bitcoin, and two years later (October 2013) worked on a proposal for [_Mastercoin_](https://web.archive.org/web/20150627031414/http://vbuterin.com/ultimatescripting.html) a protocol with more programmable capabilities than Bitcoin.
 
-However the team at _Mastercoin_ didn't want to go in this direction, and Vitalik Buterin began to re-work his proposal into another project named _Ethereum_ (December 2013). The need for even more complex scripts was driven by the interest into _**D**ecentralized **A**utonomous **O**rganizations_ (or DAO), a form of investor-directed venture capital fund that no blockchain could so far implement. It was also in December 2013 that Gavin Wood (protocol-side) and Jeffrey Wilcke (client-side) joined forces with Vitalik Buterin to work on Ethereum, and a [white paper was first published in January 2014](https://ethereum.org/en/whitepaper/).
+However the team at _Mastercoin_ didn't want to go in this direction, and Vitalik Buterin began to re-work his proposal into another project named _Ethereum_ (December 2013). The need for even more complex scripts was driven by the interest into [_**D**ecentralized **A**utonomous **O**rganizations_](https://en.wikipedia.org/wiki/Decentralized_autonomous_organization) (or DAO), a form of investor-directed venture capital fund that no blockchain could so far implement. It was also in December 2013 that Gavin Wood (protocol-side) and Jeffrey Wilcke (client-side) joined forces with Vitalik Buterin to work on Ethereum, and a [white paper was first published in January 2014](https://ethereum.org/en/whitepaper/).
 
-In April 2014, Gavin Wood published a [Yellow paper](https://ethereum.github.io/yellowpaper/paper.pdf). (A yellow paper is a document containing research that has not yet been formally accepted or published in an academic journal, and usually contains unannotated statements, with sufficient detail to implement the idea.)
+In April 2014, Gavin Wood published a [Yellow paper](https://ethereum.github.io/yellowpaper/paper.pdf) (a yellow paper is a document containing research that has not yet been formally accepted or published in an academic journal. It usually contains unannotated statements, with sufficient details to implement the idea).
 
 Crowdfunding in bitcoins during the same summer took place, and Ethereum was launched on July 30th, 2015 with its own cryptocurrency called "_Ether_".
 
-Ethereum was a revolution, a new generation of blockchain, thanks to its EVM (Ethreum Virtual Machine), a [Turing Complete](https://en.wikipedia.org/wiki/Turing_completeness) system able to solve any computation problem using its new scripting language called _Solidity_.
+Ethereum was a revolution, a new generation of blockchain, thanks to its **EVM** ([Ethereum Virtual Machine](https://ethereum.org/en/developers/docs/evm/)), a [Turing Complete](https://en.wikipedia.org/wiki/Turing_completeness) system able to solve any computation problem using its new low-level scripting language called "[_EVM Code_](https://ethereum.org/en/whitepaper/#code-execution)". On top was also provided one of the most used high-level languages called "[_Solidity_](https://soliditylang.org/)".
 
-The first DAO of Ethereum, simply called [_The DAO_](https://en.wikipedia.org/wiki/The_DAO_(organization)) was created and more than 150 millions of US Dollars in Ethers were raised in June 2016. However, an error in the smart contract [permitted a hacker to steal 50 million](https://www.nytimes.com/2016/06/18/business/dealbook/hacker-may-have-removed-more-than-50-million-from-experimental-cybercurrency-project.html). To recover the stolen funds, it was decided to modify the history of transactions. This decision was not approved by the entire community and created a split of the history into two different chains: _Ethereum_ and _Ethereum Classic_.
+The first DAO of Ethereum, simply called [_The DAO_](https://en.wikipedia.org/wiki/The_DAO_(organization)) was created and more than 150 millions of US Dollars in Ethers were raised in June 2016. However, an error in the a *smart contract* (high-level Solidity code) [permitted a hacker to steal 50 million](https://www.nytimes.com/2016/06/18/business/dealbook/hacker-may-have-removed-more-than-50-million-from-experimental-cybercurrency-project.html). To recover the stolen funds, it was decided to modify the history of transactions. This decision was not approved by the entire community and created a split of the history into two different blockchains: _Ethereum_ and _Ethereum Classic_.
 
 Today, Bitcoin and Ethereum remain the two main protocols, but a lot of very interesting alternatives have been created, notably Tezos in 2018.
 
@@ -78,13 +78,13 @@ Today, Bitcoin and Ethereum remain the two main protocols, but a lot of very int
 <small className="figure">FIGURE 2: A non-hexaustive timeline</small>
 
 ## Terminology
-A blockchain is a special type of _**D**istributed **L**edger **T**echnology_ (DLT)[[1]](/blockchain-basics/introduction#references), a consensus of replicated, shared, and synchronized digital data geographically spread across multiple sites.
+A *blockchain* is a special type of [_**D**istributed **L**edger **T**echnology_](https://en.wikipedia.org/wiki/Distributed_ledger) (DLT), a consensus of replicated, shared, and synchronized digital data geographically spread across multiple sites.
 
-Not all blockchains are cryptocurrencies. [Corda](https://www.corda.net/) and [Fabric](https://www.hyperledger.org/use/fabric) are blockchains often used for immutable and cryptographically verified storage of data in various domains: Secure sharing of medical data, Music royalties tracking, Personal identity security, Supply chain and logistics monitoring, Voting mechanism, etc.
+Not all blockchains are then cryptocurrencies. For instance, [Corda](https://www.corda.net/) and [Fabric](https://www.hyperledger.org/use/fabric) are blockchains often used for immutable and cryptographically verified storage of data in various domains: Secure sharing of medical data, Music royalties tracking, Personal identity security, Supply chain and logistics monitoring, Voting mechanism, etc.
 
-It is important not to confuse a cryptocurrency (made for exchanging money) with its supporting technology: the blockchain. Note that **originally** the word blockchain was not even a technology but the name of the data-structure used to store the data.
+It is important not to confuse a cryptocurrency (first made for exchanging money) with its supporting component: a *blockchain*. Note that **originally** the word "*blockchain*" did **not** designate a technology, but the name of the **data-structure** used to store the data.
 
-The exact word "blockchain" does not even appear in the Bitcoin white whitepaper but now reflects the technology used to arrange and chain data ensuring _immutability_ and _cryptographic verifiability_.
+The exact word "blockchain" does not even appear in the Bitcoin white whitepaper but **now reflects the technology** used to arrange and chain data ensuring _immutability_ and _cryptographic verifiability_.
 
 Crypto-currencies have 2 important characteristics:
 - They are public
@@ -93,22 +93,13 @@ Crypto-currencies have 2 important characteristics:
 To create a distributed currency without a central authority, Satoshi Nakamoto had to solve the double-spending problem **in a distributed environment** which is no easy task as we will see in the next chapters.
 
 ## References
-[1] https://en.wikipedia.org/wiki/Distributed_ledger
 
-[2] https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_block_chaining_(CBC)
+[1] https://medium.com/@noogin/the-financial-crisis-and-history-of-bitcoin-27ebdb932b99
 
-[3] https://web.archive.org/web/20150627031414/http://vbuterin.com/ultimatescripting.html
+[2] https://en.wikipedia.org/wiki/Subprime_mortgage_crisis
 
-[4] https://en.wikipedia.org/wiki/The_DAO_(organization)
+[3] https://en.wikipedia.org/wiki/Fractional-reserve_banking
 
-[5] https://www.nytimes.com/2016/06/18/business/dealbook/hacker-may-have-removed-more-than-50-million-from-experimental-cybercurrency-project.html
+[4] https://bitcoin.org/bitcoin.pdf
 
-[6] https://medium.com/@noogin/the-financial-crisis-and-history-of-bitcoin-27ebdb932b99
-
-[7] https://en.wikipedia.org/wiki/Subprime_mortgage_crisis
-
-[8] https://en.wikipedia.org/wiki/Fractional-reserve_banking
-
-[9] https://bitcoin.org/bitcoin.pdf
-
-[10] https://ethereum.org/en/whitepaper/
+[5] https://ethereum.org/en/whitepaper/
