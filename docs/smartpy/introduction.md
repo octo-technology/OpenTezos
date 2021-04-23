@@ -3,7 +3,9 @@ id: introduction
 title: Introduction
 ---
 
-// TODO PRESENTATION DU MODULE
+The goal of this module is to allow a developer to use the smartpy library to write his own smart contracts.
+In the form of a pedagogical course illustrated with an example of smart contract,
+the developer will have acquired the essentials to write, test and analyze his smart contract.
 
 Tezos smart contracts are written in [Michelson](https://opentezos.com/michelson), which is a stack-based language.
 It is the lowest level of a Tezos smart contract: what will be deployed on a Tezos network, is Michelson code.
@@ -24,17 +26,14 @@ the accessibility, understandability and provability of smart contracts on Tezos
 - A compiler to translate SmartML contracts to Michelson.
 - Analytics are elements of the user interface that provide some automatic procedures in SmartPy.io 
   to analyze and prove properties of smart contracts
-
-//TODO REMPLACER SCHEMA
-
-![](../../static/img/ligo/intro_schema.svg)
-<small className="figure">FIGURE 1: Ligo contextualisation </small>
+  
+![](../../static/img/smartpy/smartpy_intro.svg)
+<small className="figure">FIGURE 1: From SmartPy to Michelson, Tests, and Analytics </small>
 
 Once built, SmartPy contracts become SmartML contracts 
 and are handled in an OCaml library called SmartEngine,
 then it can be transpiled into a single Michelson code file.
-This Michelson file is the smart contract that will be deployed on a tezos network.
-
+This Michelson file is the smart contract that will be deployed on a Tezos network.
 
 ## References
 
