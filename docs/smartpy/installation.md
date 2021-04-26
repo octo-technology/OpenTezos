@@ -6,6 +6,9 @@ title: Installation
 This chapter aims at preparing your working environment in order to be ready to code, 
 test and compile your smart contracts.
 
+You can code locally on your favorite ide and/or use the [online editor](https://smartpy.io/ide) 
+which is designed with interesting features to facilitate the developer's work.
+
 ## Write, test and compile from your IDE
 
 ### Prerequisite
@@ -102,7 +105,6 @@ Once your run your code you can visualize the result on the right screen, which 
 
 ![](../../static/img/smartpy/screenshot_online_editor_michelson_contract_code.png)
 <small className="figure">FIGURE 5: Smartpy.io Online Editor Result Michelson Contract Code </small>
-
 
 
 ## Reference
