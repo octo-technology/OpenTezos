@@ -41,7 +41,7 @@ wXTZ has been developed by [Stove Labs](https://github.com/stove-labs) with the 
 
 - **Secure**: The suite of wXTZ contracts is audited by _Trail of Bits_ and managed by _StakerDAO_.
 
-- **Fees**: Interacting with wXTZ has no fees by _StakerDAO_ during the launch phase (contracts interaction requires only the standard network fees on the Tezos network). Changes to the fee structure will be managed by the _StakerDAO_ governance process.
+- **Fees**: Interacting with wXTZ has no fee by _StakerDAO_ during the launch phase (contracts interaction requires only the standard network fees on the Tezos network). Changes to the fee structure will be managed by the _StakerDAO_ governance process.
 
 - **Non-custodial**: XTZ used to collateralize wXTZ is managed by the user’s private keys. Only the user has access to their XTZ vault.
 
