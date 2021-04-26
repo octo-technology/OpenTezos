@@ -7,7 +7,7 @@ title: Deploy a contract
 
 A Tezos smart contract is a piece of **code** written in Michelson language (a low-level stack-based Turing-complete language).
 
-It also defines all **entrypoints** (invocable functions) of the smart contract. In other words it defines the prototype of each entry point (e.g. specifies the types of parameters of the entry point).  
+It also defines all **entrypoints** (invocable functions) of the smart contract. In other words it defines the prototype of each entrypoint (e.g. specifies the types of parameters of the entrypoint).  
 
 It also defines the **storage** of the smart contract (i.e. the data structure of the persistent memory associated to the smart contract).  
 
@@ -19,23 +19,23 @@ The description of the storage is done by strongly-typing the data structure.
 
 ## Entrypoints
 
-Entry points for a smart contract describe how to mutate the storage.
-Executing an entry point takes some parameters and a current state of the storage and returns a new state of storage and some operations.
+Entrypoints are invokable function for a smart contract.
+Executing an entrypoint takes some parameters and a current state of the storage and returns a new state of storage and some operations.
 
 ![](../../static/img/ligo/smart_contract.svg)
 <small className="figure">FIGURE 1: Smart contract</small>
 
 > Operations are transactions (smart contract invocation) that will be sent to other contracts. 
-> They will trigger an entry point at the targeted contract, 
-> or a tez transfer (no invocation of entry point). 
-> If the execution of an entry point produces operations (an ordered list of transactions) 
+> They will trigger an entrypoint at the targeted contract, 
+> or a tez transfer (no invocation of entrypoint). 
+> If the execution of an entrypoint produces operations (an ordered list of transactions) 
 > then they are sent and executed according to the order of the operations on the list.
 
 # LIGO Compiler
 
 ## Compiling a contract
 
-In order to deploy a contract in a real Tezos network,
+In order to deploy a contract in a Tezos network,
 we have to compile it first,
 this can be done with a tool called compiler (aka LIGO compiler) used to transform
 LIGO code into Michelson code.
@@ -52,6 +52,14 @@ Where:
 - **SOURCE_LIGO_FILE** is the path to your LIGO file containing the main function.
 - **MAIN_FUNCTION** is the name of your main function.
 
+Example:
+
+```shell
+ligo compile-contract examples/counter.ligo main 
+```
+
+The examples are detailed later in the chapter, [here](#example).
+
 > You can store the michelson output of the above command in .tz file 
 > in order to use it later when deploying the contract:
 > ```
@@ -60,7 +68,7 @@ Where:
 
 ## Defining the initial storage
 
-The output of the following command can be used to init the storage 
+The michelson output of the following command can be used to init the storage 
 when deploying the contract.
 
 ```shell
@@ -68,19 +76,33 @@ ligo compile-storage SOURCE_LIGO_FILE MAIN_FUNCTION 'STORAGE_STATE'
 ```
 
 Where:
-- **STORAGE_STATE** is a LIGO expression to defining the state of the storage.
+- **STORAGE_STATE** is a LIGO expression that defines the initial state of the storage.
+
+Example:
+
+```shell
+ligo compile-storage src/counter.ligo main 5
+// Outputs: 5
+```
 
 ## Invoking the contract with a parameter
 
-The output of the following command can be used as the entrypoint name 
+The michelson output of the following command can be used as the entrypoint name 
 when invoking an entrypoint of the smart contract.
 
 ```shell
-ligo compile-parameter SOURCE_LIGO_FILE MAIN_FUNCTION 'ENTRY_POINT(P)'
+ligo compile-parameter SOURCE_LIGO_FILE MAIN_FUNCTION 'ACTION(P)'
 ```
 
 Where:
-- **ENTRY_POINT(P)** is a LIGO expression to specify the name of the entrypoint and the corresponding parameter p.
+- **ACTION(P)** is a LIGO expression used to specify the action that triggers the associated entrypoint with the corresponding parameter p.
+
+Example:
+
+```shell
+ligo compile-parameter src/counter.ligo main 'Increment(5)'
+// Outputs: (Right 5)
+```
 
 ## Simulating (Dry-running) a contract
 
@@ -88,12 +110,19 @@ Testing a contract can be quite easy if we utilize LIGO's built-in dry run featu
 Dry-run works by simulating the main execution function, as if it were deployed on a real chain.
 
 ```shell
-ligo dry-run [options] SOURCE_LIGO_FILE MAIN_FUNCTION 'ENTRY_POINT(P)' 'STORAGE_STATE'
+ligo dry-run [options] SOURCE_LIGO_FILE MAIN_FUNCTION 'ACTION(P)' 'STORAGE_STATE'
 ```
 
-- **STORAGE_STATE** state of the storage when simulating the execution of the entry point
-- **ENTRY_POINT(P)** entrypoint of the smart contract that is invoked 
-  (parameter p of this entry point is specified between brackets).
+- **STORAGE_STATE** state of the storage when simulating the execution of the entrypoint.
+
+Example:
+
+```shell
+ligo dry-run src/counter.ligo main "Increment(5)" 3
+// tuple[   list[]
+//          8
+// ]
+```
   
 ## Some specificities for Maps, Tuples and Records
 
@@ -120,7 +149,7 @@ map[ KEY1 -> VALUE1; KEY2 -> VALUE2 ]
 
 ### Tuples
 
-Initialization of elements of a tuple is specified between `(` and `)` separated by comma `,` .
+Initialization of elements of a tuple is specified between `(` and `)`, and separated by comma `,` .
 
 ```
 (VALUE1, VALUE2, VALUE3)
@@ -148,7 +177,7 @@ ligo compile-storage starmap.ligo main '(map []: map(string,coordinates))'
 
 Initialization of elements in a record is specified between map `[` and `]`
 and elements separated by semi-colon `;`.  
-Each element is a key/value pair separated by `=` and follow the syntax:
+Each element is a key/value pair separated by `=` and follows the syntax:
 
 ```
 record[ KEY1 = VALUE1; KEY2 = VALUE2 ]
@@ -210,7 +239,7 @@ where:
 ## Invoke
 
 Once the smart contract has been deployed on the blockchain (contract-origination operation baked into a block), 
-it is possible to invoke an entry point for the smart contract using the command line.
+it is possible to invoke an entrypoint for the smart contract using the command line.
 
 Here is the syntax of the tezos command line to invoke a smart contract:
 
@@ -221,16 +250,16 @@ tezos-client transfer AMOUNT_TEZ from USER to CONTRACT_NAME --arg 'ENTRYPOINT_IN
 where:
 - **AMOUNT_TEZ** is the quantity of tez being transferred to the contract.
 - **CONTRACT_NAME** name given to the contract
-- **ENTRYPOINT_INVOCATION** is a Michelson expression of the entry point and the corresponding parameter. 
-  The --arg parameter specifies an entry point call.
+- **ENTRYPOINT_INVOCATION** is a Michelson expression of the entrypoint and the corresponding parameter. 
+  The --arg parameter specifies an entrypoint call.
 
-⚠️ Notice that the --dry-run parameter simulate the invocation of the entry point.
+⚠️ Notice that the --dry-run parameter simulate the invocation of the entrypoint.
 
 ## Example
 
 Let's consider the counter contract for our example.
 
-Our counter contract will store a single `int` as it's storage, 
+Our counter contract will store a single `int` as its storage, 
 and will accept an `action` variant in order to re-route 
 our single `main` function to two entrypoints for `add` (addition) and `sub` (subtraction).
 
@@ -332,7 +361,7 @@ ligo dry-run src/counter.ligo main "Increment(5)" 3
 // ]
 ```
 
-Our contract's storage has been successfully incremented to `8`.
+The simulation shows that our storage would have been incremented to 8.
 
 ### Deploy
 
@@ -345,8 +374,10 @@ tezos-client originate contract counterContract for boostrap1 transferring 1 fro
              --init '0' --burn-cap 0.12525
 ```
 
-> note that you can simulate the deployment by adding the `--dry-run` parameter to the above command.  
-> note that boostrap1 and boostrap2 are users from the sandbox of tezos
+> Note that you can simulate the deployment by adding the `--dry-run` parameter to the above command.  
+> Note that boostrap1 and boostrap2 are users from the sandbox of tezos.  
+> Sandboxed mode is a way to run a ‘localhost-only’ instance of a Tezos network.  
+> Find more about sandboxed mode [here](examples#sandboxed-mode).
 
 ### Invoke
 
