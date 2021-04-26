@@ -16,7 +16,7 @@ LIGO types are built on top of the Michelson's type system.
 
 ## Built-in types
 
-LIGO comes with all basic types built-in like _string_, _int_ or _tez_ (for account balance or monetary transactions). 
+LIGO comes with some basic types built-in like _string_, _int_ or _tez_ (for account balance or monetary transactions). 
 You can find all the built-in types on the [LIGO gitlab](https://gitlab.com/ligolang/ligo/-/tree/dev#L35).
 
 ## Type aliases
@@ -29,22 +29,6 @@ For example, we can choose to alias a _string_ type as an animal breed; this wil
 type breed is string
 const dog_breed : breed = "Saluki"
 ```
-
-## Simple types (Map example)
-
-The keyword `type` also allows to manipulate complex data structures by defining new types. New _type_ definitions are composed of primitive types (e.g. `string`, `int`) and composite types (e.g. `map`, `list`, `option`).
-
-For example, the following snippet of code defines a new type `account_balances` which is a `map` (collection containing key-value pairs) where the _key_ is typed `address` and the _value_ typed `tez`.
-
-```js
-// The type account_balances denotes maps from addresses to tez
-
-type account_balances is map (address, tez)
-
-const ledger : account_balances =
-  map [("tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx" : address) -> 10mutez]
-```
-We will look more deeply into the `map` construct in the following chapters.
 
 ## Structured types (Record example)
 
@@ -107,7 +91,7 @@ LIGO offers four built-in numerical types:
   You can also type units of millionths of tez, using the suffix **mutez** after a natural literal, such as `1000mutez` or `0mutez`.
 - `bytes` are sequence of bytes, such as `0x12e4`.
 
-⚠️ Notice there are no floating point types in LIGO as they are not determinist in hardware modules.
+⚠️ Note that there are no floating point types in LIGO because they are not deterministic in hardware modules.
 
 > Pro tip: you can use underscores for readability when defining large
 > numbers:
@@ -177,7 +161,7 @@ const c : tez = 5n * 5mutez
 
 In LIGO you can divide `int`, `nat`, and `tez`. Here is how:
 
-⚠️ Remember that there are no floating point numbers in LIGO so dividing 9 by 2 will output 4 and not 4.5
+⚠️ Remember that there are no floating point numbers in LIGO so the `/` operator stands for integer division.
 
 Therefore, the division of two `tez` values results in a `nat` value.
 
@@ -221,11 +205,11 @@ number.
 const is_a_nat : option (nat) = is_nat (1)
 ```
 
-The `option` type expresses whether there is a value of some type or none. The `option` type will be explained later in this chapter.
+The `option` type expresses whether there is a value of some type or none. The `option` type will be explained later in this chapter [here](#option-type).
 
 # Strings
 
-Strings are defined using the built-in `string` as follows:
+Strings are defined using the built-in `string` type as follows:
 
 ```js
 const a : string = "Hello Captain Rogers"
@@ -244,13 +228,14 @@ const full_greeting : string = greeting ^ " " ^ name
 ## Slicing Strings
 
 Strings can be sliced using a built-in function `String.sub` which takes three parameters:
-- an **offset** describing the index of the first character that will be copied
+- an **offset** describing the index of the first character that will be copied. The index starts at `0n`
 - the **length** describing the number of characters that will be copied (starting from the given offset)
 - the **string** being sliced
 
 ```js
 const name  : string = "Captain Rogers"
-const slice : string = String.sub (0n, 1n, name)
+const rank : string = String.sub (0n, 7n, name) //Captain
+const family_name : string = String.sub (8n, 6n, name) //Rogers
 ```
 
 ⚠️ Notice that the offset and length of the slice are natural numbers.
@@ -369,7 +354,7 @@ recursive function sum (const n : int; const acc: int) : int is
 
 ## Booleans
 
-The type of boolean value is `bool`. Here is how to define a boolean
+The type of a boolean value is `bool`. Here is how to define a boolean
 value:
 
 ```js
@@ -392,7 +377,7 @@ const b : bool = False  // Also: false
 ## Comparing Values
 
 Only values of the same type can be natively compared, 
-i.e. int, nat, string, tez, timestamp, address, etc... 
+i.e. int, nat, string, tez, timestamp, address, etc.
 However some values of the same type are not natively comparable, 
 i.e. maps, sets or lists. 
 You will have to write your own comparison functions for those values.
@@ -448,6 +433,238 @@ y := y - 1
 else skip;
 ```
 
+# Tuples, lists, sets
+
+## Tuples
+Tuples gather a given number of values in a specific order and those values,
+called components,
+can be retrieved by their index (position).
+Probably the most common tuple is the pair `(x,y)`.
+
+### Defining Tuples
+
+To define a tuple type, use the * operator:
+
+```js
+type full_name is (string * string)
+const captain_full_name : full_name = ("Roger", "Johnson")
+```
+
+> Note that you are not forced to give them names by type aliasing,
+> and can do this instead:
+> ```js
+> const captain_full_name : (string * string) = ("Roger", "Johnson")
+> ```
+
+### Accessing Components
+
+You can access each component of a tuple by their position:
+
+```js
+const captain_first_name : string = captain_full_name.0
+const captain_last_name : string = captain_full_name.1
+```
+
+⚠️ Tuple components are zero-indexed, that is, the first component has the index `0`.
+
+### Update Components
+
+You can modify a component of a tuple by assigning values as if it were a variable:
+
+```js
+captain_full_name.1 := "Carter"
+```
+
+## Lists
+
+Lists are **linear collections of elements of the same type**.
+Linear means that, in order to reach an element in a list,
+we must visit all the elements before (sequential access).
+Elements can be repeated, as only their order in the collection matters.
+The first element is called the head,
+and the sub-list after the head is called the tail.
+
+> 💡 Lists are needed when returning operations from a smart contract's main function.
+
+### Defining Lists
+
+To define an empty list and a list with values:
+
+```js
+const empty_list : list (int) = list [] // Or nil
+const my_list : list (int) = list [1; 2; 2]
+```
+
+> You can also use `nil` instead of `list []`
+
+### Adding to Lists
+
+You can add elements to an existing list using the cons operator `#` or `cons(<value>, <list>)`:
+
+```js
+const larger_list : list (int) = 5 # my_list // [5; 1; 2; 2]
+const larger_list_bis : list (int) = cons(5, my_list) // [5; 1; 2; 2]
+```
+
+### Accessing list element
+
+You cannot access an element directly in a list,
+but you can access the first element,
+the head or the rest of the list, the tail.
+The two functions to access those are `List.head_opt` and `List.tail_opt`.
+
+```js
+const head : option (int) = List.head_opt (my_list) // 1
+const tail : option (list(int)) = List.tail_opt (my_list) // [2;2]
+```
+
+## Sets
+
+Sets are **unordered collections of values of the same type**,
+unlike lists, which are ordered collections.
+Like the mathematical sets and lists,
+sets can be empty and, if not,
+elements of the sets in LIGO are unique,
+whereas they can be repeated in a list.
+
+### Defining Sets
+
+```js
+const empty_set : set (int) = set []
+const my_set : set (int) = set [3; 2; 2; 1]   // resulting set is [3; 2; 1] 
+```
+
+
+### Sets tools
+You can test membership with the `contains` operator:
+
+```js
+const contains_3 : bool = my_set contains 3
+```
+
+You can get the size of a set using the Set.size operator:
+
+```js
+const cardinal : nat = Set.size (my_set)
+```
+
+To update a set:
+
+```js
+const larger_set  : set (int) = Set.add (4, my_set)
+const smaller_set : set (int) = Set.remove (3, my_set)
+```
+
+# Records & Maps
+
+## Records
+
+Records are a one-way data of different types that can be packed into a single type.
+A record is made of a set of fields, which are made of a field name and a field type.
+
+### Defining records
+
+To instantiate a record, you must first declare its type as follows:
+
+```js
+type user is
+  record [
+    id : nat;
+    is_admin : bool;
+    name : string
+  ]
+```
+
+And here is how to define an associated record value:
+
+```js
+const rogers : user =
+  record [
+    id = 1n;
+    is_admin = true;
+    name = "Rogers"
+  ]
+```
+
+### Accessing Record Fields
+
+You can access the contents of a given field with the `.` infix operator.
+
+```js
+const rogers_admin : bool = roger.is_admin
+```
+
+### Updating a record
+
+You can modify values in a record as follows:
+
+```js
+function change_name (const u : user) : user is
+  block {
+      const my_user : user = u with record [name = "Mark"]
+  } with my_user
+```
+
+⚠️ Note that `user` value _u_ (given as argument) has not been changed by the function.
+
+You can use `patch` to modify the record:
+
+```js
+function change_name (const u : user) : user is
+  block {
+      patch u with record [name = "Mark"]
+  } with u
+```
+
+
+## Maps
+
+Maps are a data structure which associates a value to a key, thus creating a key-value binding. All keys have the same type and all values have the same type.
+An additional requirement is that the type of the keys must be comparable.
+
+### Defining a Map
+
+```js
+type balances is map (string, nat)
+
+const empty : balances = map []
+
+const user_balances : balances =
+    map [
+        "tim" -> 5n;
+        "mark" -> 0n
+    ]
+```
+
+### Accessing Map Bindings
+
+Use the postfix [] operator to read a value of the map:
+
+```js
+const my_balance : option (nat) = user_balances ["tim"]
+```
+
+### Updating a Map
+
+You can add or modify a value using the usual assignment syntax `:=` :
+
+```js
+user_balances ["tim"] := 2n
+user_balances ["New User"] := 24n
+```
+
+A key-value can be removed from the mapping as follows:
+
+```js
+remove "tim" from map user_balances
+```
+
+> Maps load their entries into the environment,
+> which is fine for small maps,
+> but for maps holding millions of entries,
+> the cost of loading such map would be too expensive.
+> For this we use `big_maps`. Their syntax is the same as those of regular maps.
+
 # Loops
 
 LIGO integrates 2 kinds of loops. General `while` iterations and bounded for `loops`.
@@ -481,7 +698,7 @@ function gcd (var x : nat; var y : nat) : nat is
   } with x
 ```
 
-⚠️ If the 'while' condition is never met, the block will repeatedly be evaluated until the contract run out of gas or fails.
+⚠️ If the 'while' condition is never met, the block will repeatedly be evaluated until the contract runs out of gas or fails.
 
 > ℹ️ About gas: The smart contracts interpreter uses the concept of gas. 
 > Each low-level instruction evaluation burns an amount of gas 
@@ -542,239 +759,6 @@ Sets and maps follow the same logics:
 - maps with `for key -> value in map m`
 - sets with `for i in set s`
 
-# Tuples, lists, sets
-
-## Tuples
-Tuples gather a given number of values in a specific order and those values, 
-called components, 
-can be retrieved by their index (position). 
-Probably the most common tuple is the pair `(x,y)`.
-
-### Defining Tuples
-
-To define a tuple type, use the * operator:
-
-```js
-type full_name is (string * string)
-const captain_full_name : full_name = ("Roger", "Johnson")
-```
-
-> Note that you are not force to give them names by type aliasing, 
-> and can do this instead:
-> ```js
-> const captain_full_name : (string * string) = ("Roger", "Johnson")
-> ```
-
-### Accessing Components
-
-You can access each component of a tuple by their position:
-
-```js
-const captain_first_name : string = captain_full_name.0
-const captain_last_name : string = captain_full_name.1
-```
-
-⚠️ Tuple components are zero-indexed, that is, the first component has the index `0`.
-
-### Update Components
-
-You can modify a component of a tuple by assigning values as if it were a variable:
-
-```js
-captain_full_name.1 := "Carter"
-```
-
-## Lists
-
-Lists are **linear collections of elements of the same type**. 
-Linear means that, in order to reach an element in a list, 
-we must visit all the elements before (sequential access). 
-Elements can be repeated, as only their order in the collection matters. 
-The first element is called the head, 
-and the sub-list after the head is called the tail.
-
-> 💡 Lists are needed when returning operations from a smart contract's main function.
-
-### Defining Lists
-
-To define an empty list and a list with values:
-
-```js
-const empty_list : list (int) = list [] // Or nil
-const my_list : list (int) = list [1; 2; 2]
-```
-
-> You can also use `nil` instead of `list []`
-
-### Adding to Lists
-
-You can add elements to an existing list using the cons operator `#` or `cons(<value>, <list>)`:
-
-```js
-const larger_list : list (int) = 5 # my_list // [5; 1; 2; 2]
-const larger_list_bis : list (int) = cons(5, my_list) // [5; 1; 2; 2]
-```
-
-### Accessing list element
-
-You cannot access the element directly in list, 
-but you can access the first element, 
-the head or the rest of the list, the tail. 
-The two function to access those are `List.head_opt` and `List.tail_opt`.
-
-```js
-const head : option (int) = List.head_opt (my_list) // 1
-const tail : option (list(int)) = List.tail_opt (my_list) // [2;2]
-```
-
-## Sets
-
-Sets are **unordered collections of values of the same type**, 
-unlike lists, which are ordered collections. 
-Like the mathematical sets and lists, 
-sets can be empty and, if not, 
-elements of the sets in LIGO are unique, 
-whereas they can be repeated in a list.
-
-### Defining Sets
-
-```js
-const empty_set : set (int) = set []
-const my_set : set (int) = set [3; 2; 2; 1]   // resulting set is [3; 2; 1] 
-```
-
-
-### Sets tools
-You can test membership with the `contains` operator:
-
-```js
-const contains_3 : bool = my_set contains 3
-```
-
-You can get the size of a set using the Set.size operator:
-
-```js
-const cardinal : nat = Set.size (my_set)
-```
-
-To update a set:
-
-```js
-const larger_set  : set (int) = Set.add (4, my_set)
-const smaller_set : set (int) = Set.remove (3, my_set)
-```
-
-# Records & Maps
-
-## Records
-
-Records are a one-way data of different types that can be packed into a single type. 
-A record is made of a set of fields, which are made of a field name and a field type.
-
-### Defining records
-
-To instantiate a record, you must first declare its type as follows:
-
-```js
-type user is
-  record [
-    id : nat;
-    is_admin : bool;
-    name : string
-  ]
-```
-
-And here is how to define an associated record value:
-
-```js
-const rogers : user =
-  record [
-    id = 1n;
-    is_admin = true;
-    name = "Rogers"
-  ]
-```
-
-### Accessing Record Fields
-
-You can access the contents of a given field with the `.` infix operator.
-
-```js
-const rogers_admin : bool = roger.is_admin
-```
-
-### Updating a record
-
-You can modify values in a record as follows:
-
-```js
-function change_name (const u : user) : user is
-  block {
-      const my_user : user = u with record [name = "Mark"]
-  } with my_user
-```
-
-⚠️ Note that `user` value _u_ (given as argument) has not been changed by the function. 
-
-You can use `patch` to modify the record:
-
-```js
-function change_name (const u : user) : user is
-  block {
-      patch u with record [name = "Mark"]
-  } with u
-```
-
-
-## Maps
-
-Maps are a data structure which associates a value to a key, thus creating a key-value binding. All keys have the same type and all values have the same type. 
-An additional requirement is that the type of the keys must be comparable.
-
-### Defining a Map
-
-```js
-type balances is map (string, nat)
-
-const empty : balances = map []
-
-const user_balances : balances =
-    map [
-        "tim" -> 5n;
-        "mark" -> 0n
-    ]
-```
-
-### Accessing Map Bindings
-
-Use the postfix [] operator to read a value of the map:
-
-```js
-const my_balance : option (nat) = user_balances ["tim"]
-```
-
-### Updating a Map
-
-You can add or modify a value using the usual assignment syntax `:=` :
-
-```js
-user_balances ["tim"] := 2n
-user_balances ["New User"] := 24n
-```
-
-A key-value can be removed from the mapping as follows:
-
-```js
-remove "tim" from map user_balances
-```
-
-> Maps load their entries into the environment, 
-> which is fine for small maps, 
-> but for maps holding millions of entries, 
-> the cost of loading such map would be too expensive. 
-> For this we use `big_maps`. Their syntax is the same as those of regular maps.
-
-
 # Unit, Variant & Option
 
 ## Unit Type
@@ -808,7 +792,7 @@ const open_switch : coin = Zero
 
 Pattern matching is similar to the switch construct in Javascript, 
 and can be used to route the program's controled flow based on the value of a variant. 
-Consider for example the definition of a power switch that turn on/off a light.
+Consider for example the definition of a power switch that turns on/off a light.
 
 ```js
 type bit is One | Zero
@@ -847,14 +831,15 @@ const my_balance : expected_type = case user_balances[1n] of
 end
 ```
 
-> Notice the cast of the `failwith` instruction into an expected_type.
+> Notice the cast of the `failwith` instruction into an expected_type.  
+> The keyword `failwith` will be explained later in this chapter [here](#failwith).
 
 
 # Timestamps, Addresses
 
 ## Timestamps
 
-LIGO features timestamps are responsible for providing the current given timestamp for a contract.
+Timestamps are responsible for providing the current given timestamp for a contract.
 
 ```js
 const today : timestamp = Tezos.now
@@ -1057,7 +1042,7 @@ To get the contract we want to call and its entry points, we can use:
 Tezos.get_contract_opt(<address>)
 ```
 
-The function take an address and return an **optional contract** (remember to use `option`). 
+The function takes an address and returns an **optional contract** (remember to use `option`). 
 When no contract is found, or if the contract doesn't match the type, `None` is returned.
 
 Here is an example of how to use it:
