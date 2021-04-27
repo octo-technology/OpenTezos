@@ -11,7 +11,10 @@ Like in Ethereum, Tezos uses 2 types of accounts:
 1. Classic accounts with a primary address, simply storing tez (ꜩ) coins
 2. Smart contract accounts with an address, storing code and  tez (ꜩ) coins
 
-Smart contracts can achieve different kinds of operations with coins and *other smart contracts*. They're comparable to *automatic* **sealed** food and drink dispensers from the same company: Each machine has a contract saying "*Give me cryptocurrency and I give you food or drink*". Each machine can have a different smart contract for different foods or drinks, and there could be another smart contract gathering the cryptocurrency total for the company. Each machine doesn't operate until enough currency is delivered (*Gas*). Note that the **quantities** of foods or drinks change while their **types** can't (ever).
+In Tezos vocabulary though, "*contracts*" refers to both types in general. So, actually, each *contract* has a "**_manager_**". Precisely, a classic account has an "**_owner_**". If a contract is flagged as "*spendable*", the manager is the entity allowed to spend funds from it.
+
+Smart contracts can achieve different kinds of operations with coins and *other smart contracts*. They're comparable to *automatic* **sealed** food and drink dispensers from the same company:  
+Each machine has a contract saying "*Give me cryptocurrency and I give you food or drink*". Each machine can have a different smart contract for different foods or drinks, and there could be another smart contract gathering the cryptocurrency total for the company. Each machine doesn't operate until enough currency is delivered (*Gas*). Note that the **quantities** of foods or drinks change while their **types** can't (ever).
 
 Of course, smart contracts like the Tezos ones go beyond this metaphor. Thanks to *transparency* and *immutability*, they allow an **agreement** to be secured between two or more parties. In this context, the concept of "[Code is Law](https://en.wikipedia.org/wiki/Lawrence_Lessig#%22Code_is_law%22)" from [_Lawrence Lessig_](https://en.wikipedia.org/wiki/Lawrence_Lessig) is very appropriate.
 
@@ -21,22 +24,22 @@ In most cases, smart contracts remove *intermediate* and drastically reduce cost
 
 Notice that like any other, a Tezos smart contract can only run on and interact with the blockchain it's stored. It can't interact with the outside world. That's where *decentralized applications* or "_Dapps_" come in.
 
-To build your own Dapp, please refer to the [Build a Dapp Module](/dapp).
+To build your own Dapp, please refer to the [*Build a Dapp*](/dapp) module.
 
 ## Lifecycle of a Tezos smart contract
-As we saw, a smart contract can only be deployed once but can be called many times.
-
-
+As we saw, a smart contract can only be deployed once but can be called many times. The Tezos smart contract lifecycle steps are basically two:
+1. Deployment
+2. Interactions through calls
 
 ### Deployment of a Tezos smart contract
-The deployment of a Tezos smart contract is named **origination**.
+The deployment of a Tezos smart contract is named "**origination**".
 
 When a smart contract is deployed, an **address** and a corresponding *persistent space* called **storage** are allocated to this smart contract. The smart contract's address is like its *identity* and *where* it lives on the ledger, while its storage is its *usable space* inside the ledger.
 
-Once deployed, the smart contract can be called by anyone or *anything* with a transaction sent to its address. This triggers the execution of the set of pre-defined instructions (promises).
+Once deployed, the smart contract can be called by anyone or *anything* (e.g. other contracts) with a transaction sent to its address. This triggers the execution of the set of pre-defined instructions (promises).
 
 The origination of a Tezos smart contract must define its:
-* Entrypoints, which are *entries* where it receives calls
+* Entrypoints, which are *entries* where it *receives calls*
 * Storage
 * Sequence of instructions in the low-level *Michelson* language
 
