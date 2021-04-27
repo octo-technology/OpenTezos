@@ -77,7 +77,7 @@ Which of the following operations are correct?
 
 What is correct about type aliasing?
 
-- [x] Type aliasing consists of renaming a given type when the context calls for a more precise name.
+- [x] Type aliasing consists of naming a given type when the context calls for a more precise name.
 - [x] Type aliasing increases the readability and maintainability of your smart contracts.
 - [ ] `type name = string` is the correct way to define a type.
 - [x] `type name is string` is the correct way to define a type.
@@ -88,18 +88,18 @@ What is correct about type aliasing?
 What is a set?
 
 - [ ] A linear collection of elements of the same type.
-- [ ] A data structure which associate values of the same type to values of the same type.
+- [ ] A data structure which associates values of the same type to values of the same type.
 - [x] An unordered collection of values of the same type.
-- [ ] One-way data of different types can be packed into a single type, which is made of a field name and a field type.
+- [ ] One way data of different types can be packed into a single type, which is made of a field name and a field type.
 
 ### Question 9
 
 What is a record?
 
 - [ ] A linear collection of elements of the same type.
-- [ ] A data structure which associate values of the same type to values of the same type.
+- [ ] A data structure which associates values of the same type to values of the same type.
 - [ ] An unordered collection of values of the same type.
-- [x] One-way data of different types can be packed into a single type, which is made of a field name and a field type.
+- [x] One way data of different types can be packed into a single type, which is made of a field name and a field type.
 
 ###
 
@@ -131,6 +131,7 @@ block {
 ```
 
 Complete the ######## part in the code to give a correct definition to the return type of the main function.
+(More than one answers can be considered valid)
 
 - [ ] `type counterReturn is list(operation) * counterEntrypoints`
 - [ ] `type counterReturn is counterEntrypoints * counterStorage`
@@ -139,7 +140,7 @@ Complete the ######## part in the code to give a correct definition to the retur
 - [ ] `type counterReturn is counterEntrypoints`
 - [x] `type counterReturn is list(operation) * int`
 
-What is an entrypoint for this smart contract?
+Which of the following proposals is called an entrypoint for this smart contract?
 
 - [ ] `Increment(p)`
 - [ ] `Increment(p) -> increment(p, store)`
