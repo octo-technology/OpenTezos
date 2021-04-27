@@ -25,9 +25,8 @@ Executing an entrypoint takes some parameters and a current state of the storage
 ![](../../static/img/ligo/smart_contract.svg)
 <small className="figure">FIGURE 1: Smart contract</small>
 
-> Operations are transactions (smart contract invocation) that will be sent to other contracts. 
-> They will trigger an entrypoint at the targeted contract, 
-> or a tez transfer (no invocation of entrypoint). 
+> An operation results from the invocation of a smart contract and represents the side effects on the tezos network.
+> The storage resulting from the invocation of a smart contract represents the side effects on the data related to the invoked contract.
 > If the execution of an entrypoint produces operations (an ordered list of transactions) 
 > then they are sent and executed according to the order of the operations on the list.
 
@@ -107,7 +106,9 @@ ligo compile-parameter src/counter.ligo main 'Increment(5)'
 ## Simulating (Dry-running) a contract
 
 Testing a contract can be quite easy if we utilize LIGO's built-in dry run feature. 
-Dry-run works by simulating the main execution function, as if it were deployed on a real chain.
+Dry-running is a simulated execution of the smart contract, as if it were deployed on a real chain.
+It works by simulating the main execution function, based on a mock storage value and a parameter.
+
 
 ```shell
 ligo dry-run [options] SOURCE_LIGO_FILE MAIN_FUNCTION 'ACTION(P)' 'STORAGE_STATE'
@@ -147,6 +148,18 @@ Initialization of the elements of a map follows the syntax:
 map[ KEY1 -> VALUE1; KEY2 -> VALUE2 ]
 ```
 
+Here is an example of a command line `ligo compile-storage` for transpiling a map.
+
+```shell
+ligo compile-storage starmap.ligo main 'map [ "earth" -> (2,7,1); "sun" -> (0,0,0) ]'
+```
+
+This command returns:
+
+```shell
+{ Elt "earth" (Pair (Pair 2 7) 1) ; Elt "sun" (Pair (Pair 0 0) 0) }
+```
+
 ### Tuples
 
 Initialization of elements of a tuple is specified between `(` and `)`, and separated by comma `,` .
@@ -158,13 +171,13 @@ Initialization of elements of a tuple is specified between `(` and `)`, and sepa
 Here is an example of a command line `ligo compile-storage` for compiling a map containing a tuple.
 
 ```shell
-ligo compile-storage starmap.ligo main 'map [ "earth" -> (1,1,1) ]'
+ligo compile-storage starmap.ligo main 'map [ "earth" -> (2,7,1) ]'
 ```
 
 This command returns:
 
 ```shell
-{ Elt "earth" (Pair (Pair 1 1) 1) }
+{ Elt "earth" (Pair (Pair 2 7) 1) }
 ```
 
 When specifying an empty map, one must set the map [] into the expected type.
@@ -200,15 +213,14 @@ type storage is map (string, coordinates)
 we will compile the storage as follows:
 
 ```shell
-ligo compile-storage code.ligo main 'map [ "earth" -> record [x=1;y=1;z=1] ]'
+ligo compile-storage code.ligo main 'map [ "earth" -> record [x=2;y=7;z=1] ]'
 ```
 
 This command returns:
 
 ```shell
-{ Elt "earth" (Pair (Pair 1 1) 1) }
+{ Elt "earth" (Pair (Pair 2 7) 1) }
 ```
-
 
 # Deploy and Invoke
 
