@@ -90,7 +90,7 @@ Crypto-currencies have 2 important characteristics:
 - They are public
 - There is no _double-spending_, meaning that you cannot spend the same coins twice.
 
-To create a distributed currency without a central authority, Satoshi Nakamoto had to solve the double-spending problem **in a distributed environment** which is no easy task as we will see in the next chapters.
+To create a distributed currency without a central authority, Satoshi Nakamoto had to solve the double-spending problem **in a distributed environment** which was no easy task as we will see in the next chapters.
 
 ## References
 [1] https://en.wikipedia.org/wiki/Distributed_ledger
