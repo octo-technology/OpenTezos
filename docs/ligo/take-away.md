@@ -28,7 +28,7 @@ title: Take Away
   and each smart contract must have at least one **main function**
   that dispatches the control flow to other functions.
 
-- The **option type** is a predefined variant type that is used to express whether there is a value, of some type, or none.
+- The **option type** is used to express whether there is a value, of some type, or none.
   This is especially useful when calling a partial function, that is, a function that is not defined for some inputs.
 
 - The keyword `failwith(<string_message>)` throws an exception and stop the execution of the smart contract.
