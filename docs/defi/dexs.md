@@ -5,6 +5,7 @@ author: Aymeric Bethencourt
 ---
 
 An exchange is a marketplace where coins and tokens are traded. The core function of an exchange is to ensure fair and orderly trading and the efficient dissemination of price information for any pair trading on that exchange. Exchanges give companies, traders, and crypto-enthusiasts a platform from which to publicly sell and buy crypto-currencies.
+//TODO new wording proposition: Exchanges give companies, traders, and crypto-enthusiasts a platform from which they can publicly sell and buy crypto-currencies.
 
 ## Centralized Exchanges and Order Book
 Before the DeFi movement, the order book model was the usual way of doing exchanges. All centralized exchanges like Coinbase and Binance are still currently based on this model. This is also the way traditional stock exchanges such as NYSE or Nasdaq work.
@@ -20,7 +21,7 @@ For a trade to happen, both buyers and sellers have to converge on a price, know
 
 But what happens if the gap between sellers and buyers is too large to meet at a fair market price? And what if there are not enough coins on sale to meet your demand? This is where market makers intervene.
 
-Market makers provide liquidity to the exchange by always being willing to buy or sell a the mid-market price. Market makers essentially act as wholesalers to satisfy the market. Market makers make money with the _spread_ which is the difference between their selling price and their buying price. Spread is kept low by setting the market makers in competition with each other. Market makers also earn commissions from the exchange for providing liquidity.
+Market makers provide liquidity to the exchange by always being willing to buy or sell at the mid-market price. Market makers essentially act as wholesalers to satisfy the market. Market makers make money with the _spread_ which is the difference between their selling price and their buying price. Spread is kept low by setting the market makers in competition with each other. Market makers also earn commissions from the exchange for providing liquidity.
 
 ## Decentralized Exchanges
 ### Replicating the Order Book model
