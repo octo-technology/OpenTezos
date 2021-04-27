@@ -12,7 +12,7 @@ In this chapter, the reader will learn the Tezos creation's context and how it w
 
 ## Tezos Creation
 _Arthur Breitman_ had seen the main weaknesses of early blockchains like Bitcoin and Ethereum:
-* their "hard forks", highly complex and risky processes to update blockchains by splitting them in two
+* their "*hard forks*", highly complex and risky processes to update blockchains by splitting them in two
 * the heavy uses of _Proof-of-Work_ consensus, highly energy consuming and reserved to mining pools
 * and finally the lack of verifiability in main smart contracts languages, reducing trust in reliable code
 
@@ -31,12 +31,14 @@ This is especially important in the case of blockchains using _Proof-of-Stake_: 
 
 The Tezos ICO was a complete success: it stayed live for only 13 days and gathered 66,000 bitcoins and 361,000 Ethers. At the time, this valued 232 million dollars ($230,000,000). Currently, with cryptocurrencies success, this value is much higher.
 
+Initially aimed at 10,000,000,000 (10 billion) coins, the total supply was actually the number of coins issued during the crowdsale. Unlike for example Bitcoin, the total supply of Tezos coins isn't capped. The Tezos coins are called "**tez**" and their symbol "**ꜩ**" (\ua729, "Latin small letter tz"). The symbol "**XTZ**" is also used, specially on markets.
+
 To promote the Tezos currency's growth, the founders created the **_Tezos Foundation_**. Based in Switzerland, its role is to help the network expand. It has no control over the blockchain and doesn't manage the Tezos network. Since the ICO, it gradually traded its bitcoins and ethers for Swiss francs granting Tezos community's beneficial projects[[2]](https://opentezos.com/tezos-basics/introduction#references).
 
 ## Tezos key points
 Compared to previous blockchains generation (mainly *Bitcoin* and *Ethereum*), *Tezos* stands out by 3 main characteristics:
 
-* **[TODO: Hard Forks]**
+* Self-amending governance avoiding *hard forks* (e.g. *Ethereum / Ethereum Classic*)
 * LPoS consensus mechanism consumes far less energy
 * Smart contracts codes can be written with "*Michelson*" language, which allows [Formal Verification](https://en.wikipedia.org/wiki/Formal_verification)
 

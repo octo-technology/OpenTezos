@@ -5,11 +5,15 @@ title: Smart contracts
 In this chapter, 
 
 ## General definition of a Tezos smart contract
-A smart contract is a code stored in the *blockchain* which executes a set of pre-defined instructions (promises). Once deployed (stored), it becomes **immutable**. A smart contract is deployed using a **transaction**, so we embed spending conditions inside it, which are **immutable**. Though, for smart contracts, the key difference is a user *can trigger the execution of the code without modifying it, and without moving it to another transaction or block*. It stays where it has been stored **forever**.
+A smart contract is a code stored inside the *blockchain* which executes a set of pre-defined instructions (promises). Once deployed (stored), it becomes **immutable**. A smart contract is deployed using a **transaction**, so we embed spending conditions inside it, which are **immutable**. Though, for smart contracts, the key difference is a user *can trigger the execution of the code without modifying it, and without moving it to another transaction or block*. It stays where it has been stored **forever**. Tezos doesn't use an [UTXO model](https://en.wikipedia.org/wiki/Unspent_transaction_output) (no "*vaults*") but a **stateful accounts** one.
+
+Like in Ethereum, Tezos uses 2 types of accounts:
+1. Classic accounts with a primary address, simply storing tez (ꜩ) coins
+2. Smart contract accounts with an address, storing code and  tez (ꜩ) coins
 
 Smart contracts can achieve different kinds of operations with coins and *other smart contracts*. They're comparable to *automatic* **sealed** food and drink dispensers from the same company: Each machine has a contract saying "*Give me cryptocurrency and I give you food or drink*". Each machine can have a different smart contract for different foods or drinks, and there could be another smart contract gathering the cryptocurrency total for the company. Each machine doesn't operate until enough currency is delivered (*Gas*). Note that the **quantities** of foods or drinks change while their **types** can't (ever).
 
-Of course, smart contracts like the Tezos ones go beyond this metaphor. Thanks to *transparency* and , they allow an **agreement** to be secured between two or more parties. In this context, the concept of "[Code is Law](https://en.wikipedia.org/wiki/Lawrence_Lessig#%22Code_is_law%22)" from [_Lawrence Lessig_](https://en.wikipedia.org/wiki/Lawrence_Lessig) is very appropriate.
+Of course, smart contracts like the Tezos ones go beyond this metaphor. Thanks to *transparency* and *immutability*, they allow an **agreement** to be secured between two or more parties. In this context, the concept of "[Code is Law](https://en.wikipedia.org/wiki/Lawrence_Lessig#%22Code_is_law%22)" from [_Lawrence Lessig_](https://en.wikipedia.org/wiki/Lawrence_Lessig) is very appropriate.
 
 For example, it is common to create financial instruments like various *tokens* (usually worth a fraction of the blockchain's *coin*) with different usability and characteristics inside a multiple smart contracts system. Other more or less complex projects can propose *lending*, *stablecoins*, or *crowdfundings*.
 
@@ -22,6 +26,8 @@ To build your own Dapp, please refer to the [Build a Dapp Module](/dapp).
 ## Lifecycle of a Tezos smart contract
 As we saw, a smart contract can only be deployed once but can be called many times.
 
+
+
 ### Deployment of a Tezos smart contract
 The deployment of a Tezos smart contract is named **origination**.
 
@@ -30,7 +36,7 @@ When a smart contract is deployed, an **address** and a corresponding *persisten
 Once deployed, the smart contract can be called by anyone or *anything* with a transaction sent to its address. This triggers the execution of the set of pre-defined instructions (promises).
 
 The origination of a Tezos smart contract must define its:
-* Entrypoints, which are *endpoints* to call it
+* Entrypoints, which are *entries* where it receives calls
 * Storage
 * Sequence of instructions in the low-level *Michelson* language
 
