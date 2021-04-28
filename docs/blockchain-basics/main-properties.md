@@ -5,61 +5,62 @@ title: Main properties of the first "blockchain"
 authors: Thomas Zoughebi
 ---
 
-In this chapter, we will go a little bit deeper into details of the main components of the Bitcoin protocol. The developers, who are the builders part of the community. The P2P network with the distributed ledger and the miners who validate it. A few Economy basics on which Bitcoin was created. And finally, the consensus and the Proof-of-Work, crux of the system.
+In this chapter, we will dig deeper into the main properties of the Bitcoin protocol, its developers, its P2P network and few basics of the economy it has created.
 
-## Open-Source developers
-An important part of the community is made from all the developers who write the code of the protocol. Everyone can verify the code, correct it, and make proposals. This openness is essential in a public blockchain to ensure trust. It is common to hear this famous phrase in the Bitcoin community: "*Don't trust, verify!*".
+## Open-Source
+Most, if not all, public blockchain developments are made open-source. Anyone can verify the code, correct it, and make proposals. This openness is essential in a environment that is essentially trustless. It is common to hear community members say: "*Don't trust, verify!*".
 
-The code written defines the validation rules of all the transactions and their scripts. This code is also used to create the software that runs a node of the network, and how data are recorded, or explored.
+The most hardcore blockchain developers also go by the catch phrase "*Code is law*", meaning that the code defines the validation rules of all the transactions and their interactions. This code is also used to create the software that runs on the network, and how data is recorded, explored and so on.
 
-"*Code is law*" 
+There are different implementations of the Bitcoin protocol, on different operating systems and devices. There are implementations in almost every programming language (e.g. _C++, Python, Java, Go, Scala_...).
 
-There are different implementations, on different operating systems and devices. The code can be written in almost any programming language (e.g. _C++, Python, Java, Go, Scala_...).
+The original implementation from _Satoshi Nakamoto_ is in C++ and is called [_Bitcoin Core_](https://bitcoincore.org/). Most of the nodes of the network use this version.
 
-The original implementation from Satoshi Nakamoto in C++ is [_Bitcoin Core_](https://bitcoincore.org/). Most of the nodes of the network use this software today.
-
-The openness of the code, the permissionless access to the network, the free software, all allow freedom and trust. Although, this induces a responsibility transfer to the user, encouraged to verify what he uses.
+The openness of the code, the permissionless access to the network, the free software, all bring intoxicating freedom and appeal to community. Note however that this induces a transfer of responsibility to the user. Not all developers in the community are driven by the best intentions and many blockchain application are pure scams. To prevent this we encourage users to always check the sources of the apps and blockchain they use.
 
 ## Peer-to-Peer network and shared ledger
-One could think that all the power and influence is in the hand of the developers, but the rules they code still have to be accepted and used. The P2P network of Bitcoin has a mesh design spread over the planet (or space[[1]](/blockchain-basics/main-properties#references)). The more nodes enforce the rules, the more the protocol is distributed and secured.
+Developers have a lot of power but the rules they code still have to be accepted and used. The P2P network of most blockchains has a mesh design spread all over the planet (and space[[1]](/blockchain-basics/main-properties#references)). The more nodes enforcing the rules, the more the protocol is distributed and secured.
 
-There are different types of nodes, but for the sake of simplicity, let's only quickly describe two categories: Full nodes and Lightweight nodes.
+There are different types of nodes, but for the sake of simplicity, let's only quickly describe two categories: _Full nodes_ and _Lightweight nodes_.
 
-- Full nodes enforce the rules no matter what happens and validate transactions. They _usually_[[2]](/blockchain-basics/main-properties#references) also record all transactions in a distributed ledger. This ledger is shared by all the full nodes of the network.
+- _Full nodes_ enforce the rules no matter what happens and validate transactions. They _usually_ [[2]](/blockchain-basics/main-properties#references) also record all transactions in a distributed ledger. This ledger is shared by all the full nodes of the network.
 
-- Lightweight nodes are used for devices with limited space capacity, limited calculating speed, or limited connectivity. They usually refer to little devices like smartphones. They don't record the ledger and ask full nodes.
+- _Lightweight nodes_ are used for devices with limited space capacity, calculating speed, or connectivity (e.g. smartphones, tablets, IoT, etc.). They don't record transactions in the ledger and ask full nodes for info when needed.
 
 From now on, "node" refers to a full node. 
 
 ### Chained Data-structure
-The ledger's structure must be very special because of the following constraints:
-- The ledger is distributed across Earth, and everyone should be able to agree on its state around the same time
-- Transactions are grouped inside packages named "**blocks**" to ease management. Most of the time, blocks shouldn't be too little (e.g. zero or one transaction only), or too big
+The ledger's structure has to be very special to meet the following constraints:
+
+- The ledger is distributed over the planet, and everyone should be able to agree on its state at the same time (minus lag)
+  
+- Transactions are grouped inside packages named "**blocks**" to ease management. Blocks shouldn't be too small (//TODO: why?), nor too big (//TODO: why?)
+  
 - The history must not be modified (immutability) so the difficulty to attack the network and modify the ledger must increase over time (as computers become more powerful)
+  
 - Verifying the history, or picking a specific information inside the ledger has to be fast (e.g. check a balance)
-- The part of the community securing the blocks must be rewarded; enough and not too much (more details in "_Introduction to Mining_" below)
+  
+- The part of the community validating the blocks (i.e. the miners) must be rewarded in a fair way
 
 The data-structure which permits all of the above is a chain of blocks aka "blockchain".
 
-Valid transactions are grouped and enclosed inside a block. Every 10 minutes on Bitcoin, each block can be verified by the maximum of available nodes across Earth. The number of transactions inside a block is only limited by its space available (in bytes). Same time, the more transactions in a block, the more rewarding it is for the blocks validators (see below "_Introduction to Mining_").
+Valid transactions are grouped and enclosed inside a block. Every 10 minutes on Bitcoin, a new block must be mined. The number of transactions inside a block is only limited by its available space (e.g. 1 MB for Bitcoin, 32 MB for _Bitcoin Cash_). However, the more transactions in a block (and thus transaction fees), the more rewarding it is for the blocks validators.
 
-Each new block is linked to the previous one: they are chained. The more blocks there are, the more difficult it is to modify anything in the ledger. They are cryptographically chained. That means, that if you want to cheat (basically double-spending), you would need to modify everything until the Genesis Block. This is like *Matryoshka dolls* with an enormous number of dolls.
-This is achieved through [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_block_chaining_(CBC)), where instead of a "XOR" function, the "SHA256" function is used. Twice:
+Each new block is linked to the previous one: they are chained. The more blocks there are, the more difficult it is to modify anything in the ledger. They are cryptographically chained. That means, that if you want to cheat (e.g. make a double-spend or spend money you don't have), you would need to modify everything until the first block ever created (called the _Genesis Block_). This is like *Matryoshka dolls* with an enormous number of dolls.
+This is achieved through [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_block_chaining_(CBC)), where instead of a _XOR_ function, the _SHA256_ function is used. Twice:
 
 ![Chain of blocks](../../static/img/blockchain-basics/blocks-chain.svg "Chain of blocks")
 
-SHA256 is a special type of [one-way function](https://en.wikipedia.org/wiki/One-way_function) called [hash function](https://en.wikipedia.org/wiki/Hash_function). The same function is also used (twice) for mining.
+More on that in the [next chapter on Proof-of-Work](/blockchain-basics/proof-of-work).
 
 ### Introduction to Mining
-The blocks validators are called the "**miners**" (see below "_Consensus: Nakamoto and the Proof-of-Work’s account units issuance_" for more about this word).
-
-They put _valid_ transactions inside a block, and then try to _validate that block_. When the block _is found valid_, they get two types of rewards:
+The blocks validators are called the **miners**. They put valid transactions inside a block, and then try to validate that block. When the block is found valid, they get two types of rewards:
 - Fees in bitcoins from each transaction, that each **sender** chose
-- **Pre-determined** quantity of bitcoins for the valid block found
+- **Pre-determined** quantity of bitcoins for the valid block found (called the coinbase)
 
 The fees are simply **the sum of the transactions values** ($S_v$) minus **the sum of the amounts really sent** ($S_a$).
 
-For "T" transactions in a block, let "v" a transaction's value, and "a" the amount really sent:
+For $T$ transactions in a block, let $v$ be a transaction value, and $a$ be the amount really sent:
 $$
 \text{Fees} = \sum_{i=1}^{T} v_i - \sum_{i=1}^{T} a_i
 $$
@@ -67,7 +68,8 @@ Or more simply:
 $$
 \text{Fees} = S_v - S_a
 $$
-That means **a sender actually chooses the fees given to the miner**. The more he gives, the faster the transaction is included in a block. Yes, in case you wonder, a transaction could actually have zero fees, but it could take months or years to be included in a block (if ever).
+
+Senders actually choose the fee they want to pay. The more they give, the faster the transaction is included in a block. As block size is limited, miners obviously only choose transactions with the highest fees. A transaction could actually have zero fee, but it would take months or years until a miner decides to include it in a block (if ever). 
 
 The block reward is sent through a special transaction called a "_Coinbase Transaction_" directly to the miner. It's always the first transaction of a validated ("*mined*") block.
 
@@ -75,59 +77,67 @@ To get these two rewards, a miner basically plays a lottery, a game of chance. T
 
 The more a miner tries values (the more he has lottery tickets), the more he uses energy to make his computers work.
 
-When a miner finds a number that is valid, he finally finds a valid block. His node tells to the network its discovery with the final nounce (so anyone can verify!).
+When a miner finds a number that is valid, he finally finds a valid block. His node tells to the network its discovery with the final _nounce_ (so anyone can verify it).
 
-If two miners find a valid number, then two valid blocks are possible. The winner is the one adding his block to the chain with the most of _work_ done (we also say "_the longest chain_").
+If two miners find a valid number at the same time (within lag and network propagation delays), then two valid blocks are possible. Miners are then split in two: those mining from the block of the first miner, and those mining from the block of the second miner. If someone find a block following th block of the second miner, then both of them become the "winners" as they form "the longest chain" [[5]](/blockchain-basics/main-properties#references).
 
-## Account unit and Economy basics
-Because miners find blocks containing valid transactions that are chained together, they secure the system. That's why they are rewarded for it. The rewards are in the account unit. Bitcoin uses bitcoins, while Ethereum uses ethers.
+More on that in the [next chapter on Proof-of-Work](/blockchain-basics/proof-of-work).
+
+## Account Unit and Economy Basics
+Miners use their computational power and electricity to mine. That's why they are rewarded for it. The rewards are in the account unit. Bitcoin uses bitcoins, while Ethereum uses ethers.
 
 To get these rewards they must _work_, and then _proove they worked_. In Bitcoin, they work using electricity. So to make this activity profitable, miners have to find efficient calculators, and low-cost electricity.
 
-Over time, miners group more and more powerful machines together, and more people begin this activity. This increases the number of attempts (the number of tickets) of the global network to find a valid block. Because of the SHA256 hash function used, this is called "**hashing power**".
+Over time, miners group more and more powerful machines together, and more people begin this activity. This increases the number of attempts (the number of lottery tickets) of the global network to find a valid block. Because the function used for that is called th _SHA256_ hash function, this is called "**hashing power**".
 
-While the network gains more hashing power, constraints stay the same. Each block still has to appear around every 10 minutes. To maintain this and adapt, the protocol calculates the "_Difficulty_". If the hashing power is too high, Difficulty increases. If the hashing power is too low, Difficulty decreases.
+While the network gains more hashing power, constraints stay the same. Each block still has to appear around every 10 minutes. To maintain this and adapt, the protocol calculates the _Difficulty_. If the hashing power is too high, the _Difficulty_ increases. If the hashing power is too low, the _Difficulty_ decreases.
 
-The Difficulty modifies the binary Target. To increase the difficulty for miners to find a valid block, the Target becomes smaller and smaller. This means the leading zeros of this binary number are more and more.
+The _Difficulty_ modifies the binary _Target_. To increase the difficulty for miners to find a valid block, the _Target_ becomes smaller and smaller. This means the leading zeros of this binary number are more and more.
 
-The Difficulty is calculated every 2016 blocks (~2 weeks).
+The _Difficulty_ is calculated every 2016 blocks (~2 weeks).
 
-Economically, this is more and more difficult to get rewards. This is also the sign that more and more people try to find bitcoins. So the *demand* increases.
+Economically, it is more and more difficult to get rewards. This is also the sign that more and more people try to find bitcoins, so the *demand* increases.
 
-Bitcoin relies on the simple free market law of *supply* and *demand*. It is intrinsically **deflationary**. The more bitcoins are hard to get, the heigher their price. The rarest they are, the hardest they are to find, the higher their price. And vice versa.
+Bitcoin relies on the simple free market of *supply* and *demand*. It is intrinsically **deflationary**. The more bitcoins are hard to get, the higher their price. The rarest they are, the hardest they are to find. And vice versa.
 
-The total theoric limited *supply* of bitcoins is pre-determined and hardcoded in the protocol: 21,000,000 (21 millions).
+The total theoric limited *supply* of bitcoins is pre-determined and hardcoded in the protocol at 21 millions.
 
 ## Consensus: Nakamoto and the Proof-of-Work’s account units issuance
-Relying only on hashing power and the law of supply and demand wouldn't quite be enough to assure deflation.
 
-Another rule is coded in the Bitcoin protocol that increases scarcity of bitcoins. Its name is the "**Halving**". Every 210,000 blocks (~4 years), the block reward is simply cut in half.
+// TODO: Define the word consensus like in my Duckonf pres
 
-At the very beginning (2008 / 2009), the block reward was 50 bitcoins. These days (2021), the reward is 6.25 bitcoins until 2024[[3]](/blockchain-basics/main-properties#references).
+Relying only supply and demand, Bitcoin  wouldn't be deflationary.
 
-Block reward is how the currency's issuance is produced. So the Halving has a strong economical impact. Usually, this event leads to an increasing price phase, namely "Bull Market"[[3]](/blockchain-basics/main-properties#references). It's worth noting it's also an event that federates the community, the adoption, and in return, makes the network stronger, and the price higher[[4]](/blockchain-basics/main-properties#references).
+Another rule is coded in the Bitcoin protocol that increases scarcity of bitcoins. Its name is the _Halving_. Every 210,000 blocks (~4 years), the block reward (coinbase) is simply cut in half.
 
-The numbers chosen by Satoshi Nakamoto for the total supply or the Halving are inspired by _gold mining_. The more you dig to find gold, the less there is, and the harder it is to dig. That's exactly why the blocks validators are called the "Miners".
+At the very beginning (2008 / 2009), the block reward was 50 bitcoins. These days (2021), the reward is 6.25 bitcoins and will stay the same until 2024[[3]](/blockchain-basics/main-properties#references).
 
-The Nakamoto Consensus which allows Bitcoin is driven by:
+Block reward is how the currency's issuance is produced. So the _Halving_ has a strong economical impact. Usually, this event leads to an increasing price phase, namely "Bull Market"[[3]](/blockchain-basics/main-properties#references). It's worth noting that it is also an event that federates the community, the adoption, and in return, makes the network stronger, and the price higher[[4]](/blockchain-basics/main-properties#references).
+
+The numbers chosen by Satoshi Nakamoto for the total supply and the _Halving_ are inspired by _gold mining_. The more you dig to find gold, the less there is, and the harder it is to dig. That's exactly why the blocks validators are called the "Miners".
+
+The _Nakamoto Consensus_, which Bitcoin is based on, is driven by:
 - The decentralization
 - The Proof-of-Work
 - A probabilistic solution to the Byzantin General Problem
-- The _MAD_ property
+- The _MAD_ property (defined below)
 
-In Bitcoin's mesh network, the rewards make it possible to support until 50% of bad actors. The network is said to be "Byzantin Fault Tolerant" (BFT). Probalistically, Bitcoin's solution is more efficient than the actual strict solution. The actual strict solution needs less than one third (1/3) of bad actors.
+In the Bitcoin mesh network, the rewards make it possible to support up to 50% of bad actors. The network is said to be "Byzantin Fault Tolerant" (BFT). Probabilistically, Bitcoin's solution is more efficient than the actual strict solution. The actual strict solution requires less than one third (1/3) of bad actors. 
+
+// TODO: what do you mean by "the actual strict solution" ?
 
 The _**M**utual **A**ssured **D**estruction_ (**_MAD_**) property reinforce this BFT solution:  
-_It is more profitable to earn bitcoins participating to the procotol than to attack it. If you want to attack it, you'd have to invest a lot of ressources. In the extreme case your attack would be effective, you'd loose your investment..._
+
+_It is more profitable to earn bitcoins participating to the protocol than to attack it. If you want to attack it, you'd have to invest an unreasonable amount of resources. Even in the improbable case that your attack would be successful, you'd still loose money on your investment..._
 
 You would also face the community, which can detect the attack and adapt.
 
 ## What have we learned so far?
 In this chapter, we described the pillars of the Bitcoin protocol, and how they articulate around the Nakamoto Consensus.
 
-They are now the ones used in the new systems with variations and adaptations. By example, new systems try different consensuses to reduce energy consumption.
+// TODO: What are the differences between the Nakamoto Consensus and the Proof-of-Work consensus
 
-In the next chapter "_Introduction to other consensuses_", we'll describe a few other important consensuses.
+In the next chapter, we'll dig into the the Proof-of-Work consensus to understand how it actually works.
 
 ## References
 [1] https://blockstream.com/satellite/
@@ -137,3 +147,5 @@ In the next chapter "_Introduction to other consensuses_", we'll describe a few 
 [3] http://bitcoinhalvingdates.com/
 
 [4] https://www.bitcoinhalving.com/
+
+[5] https://learnmeabitcoin.com/technical/longest-chain

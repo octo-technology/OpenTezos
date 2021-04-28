@@ -9,7 +9,7 @@ authors: Thomas Zoughebi and Aymeric Bethencourt
 In this chapter, we will briefly introduce a few other *public* consensuses.
 
 ## Proof-of-Stake (PoS)
-_PoS_ requires a system where _validators_  *do not create coins*, so that their rewards should *only be provided by transactions fees*. It also means that all the coins are created at the launch of the system.
+_PoS_ requires a system where _validators_  do not create coins, so that their rewards should only be provided by transactions fees. It also means that all the coins are either created at the launch of the blockchain or created another way.
 
 The first set of this consensus is for blocks to be  *validated* by **validators** that invested coins in the system. The more a validator has coins in an escrow, the more he is likely to validate a block and earn rewards.
 
