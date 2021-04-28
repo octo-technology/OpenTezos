@@ -21,7 +21,7 @@
   "/__docusaurus/debug/routes-244": {
     "component": "component---theme-debug-routes-946-699"
   },
-  "/-456": {
+  "/-3bc": {
     "component": "component---theme-doc-page-1-be-9be",
     "versionMetadata": "versionMetadata---935-fcf"
   },
@@ -53,13 +53,17 @@
     "component": "component---theme-doc-item-178-a40",
     "content": "content---blockchain-basics-exam-2-b-4-e05"
   },
-  "/blockchain-basics/main-components-de8": {
+  "/blockchain-basics/main-properties-83f": {
     "component": "component---theme-doc-item-178-a40",
-    "content": "content---blockchain-basics-main-components-5-eb-339"
+    "content": "content---blockchain-basics-main-properties-4-c-6-eca"
   },
   "/blockchain-basics/other-consensuses-cf5": {
     "component": "component---theme-doc-item-178-a40",
     "content": "content---blockchain-basics-other-consensuses-4-d-5-bdd"
+  },
+  "/blockchain-basics/proof-of-work-606": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---blockchain-basics-proof-of-work-462-186"
   },
   "/blockchain-basics/smart-contracts-e70": {
     "component": "component---theme-doc-item-178-a40",

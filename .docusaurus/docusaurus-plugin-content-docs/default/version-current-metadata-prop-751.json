@@ -34,8 +34,13 @@
           },
           {
             "type": "link",
-            "label": "Main components of the first \"blockchain\"",
-            "href": "/blockchain-basics/main-components"
+            "label": "Main properties of the first \"blockchain\"",
+            "href": "/blockchain-basics/main-properties"
+          },
+          {
+            "type": "link",
+            "label": "Proof-of-work",
+            "href": "/blockchain-basics/proof-of-work"
           },
           {
             "type": "link",
@@ -474,8 +479,9 @@
     "/baking": "docs",
     "/blockchain-basics/exam": "docs",
     "/blockchain-basics": "docs",
-    "/blockchain-basics/main-components": "docs",
+    "/blockchain-basics/main-properties": "docs",
     "/blockchain-basics/other-consensuses": "docs",
+    "/blockchain-basics/proof-of-work": "docs",
     "/blockchain-basics/smart-contracts": "docs",
     "/contribute/baker": "docs",
     "/contribute/exam": "docs",

@@ -39,7 +39,7 @@ export default [
 },
 {
   path: '/',
-  component: ComponentCreator('/','456'),
+  component: ComponentCreator('/','3bc'),
   
   routes: [
 {
@@ -78,13 +78,18 @@ export default [
   exact: true,
 },
 {
-  path: '/blockchain-basics/main-components',
-  component: ComponentCreator('/blockchain-basics/main-components','de8'),
+  path: '/blockchain-basics/main-properties',
+  component: ComponentCreator('/blockchain-basics/main-properties','83f'),
   exact: true,
 },
 {
   path: '/blockchain-basics/other-consensuses',
   component: ComponentCreator('/blockchain-basics/other-consensuses','cf5'),
+  exact: true,
+},
+{
+  path: '/blockchain-basics/proof-of-work',
+  component: ComponentCreator('/blockchain-basics/proof-of-work','606'),
   exact: true,
 },
 {

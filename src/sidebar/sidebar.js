@@ -10,7 +10,8 @@ module.exports = {
       label: 'Blockchain Basics',
       items: [
         'blockchain-basics/introduction',
-        'blockchain-basics/main-components',
+        'blockchain-basics/main-properties',
+        'blockchain-basics/proof-of-work',
         'blockchain-basics/other-consensuses',
         'blockchain-basics/smart-contracts',
         'blockchain-basics/exam',

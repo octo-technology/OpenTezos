@@ -2,9 +2,33 @@
 id: other-consensuses
 disable_pagination: true
 title: Introduction to other consensuses
+authors: Thomas Zoughebi and Aymeric Bethencourt
+
 ---
 
-In this chapter, we will introduce 10 *public* consensus mechanisms.
+In this chapter, we will briefly introduce a few other *public* consensuses.
+
+## Proof-of-Stake (PoS)
+_PoS_ requires a system where _validators_  *do not create coins*, so that their rewards should *only be provided by transactions fees*. It also means that all the coins are created at the launch of the system.
+
+The first set of this consensus is for blocks to be  *validated* by **validators** that invested coins in the system. The more a validator has coins in an escrow, the more he is likely to validate a block and earn rewards.
+
+Valid blocks pushed from validators are always verified afterwards by the network. If a validator has tried to cheat, he loses all his funds in his collateral.
+
+An example of this would be: *Ethereum 2.0, Peercoin, Blackcoin, NXT...*
+
+## Delegated Proof-of-Stake (DPoS)
+DPoS is PoS system with an added *delegation* phase. During this phase, decentralized *votes* are made by *witnesses*, choosing validators. Parameters like fees, rewards, or witnesses number are decided by a *committee* group. This committee *do not receive any reward*. The parameters can only be changed during a *maintenance phase by vote*.
+
+An example of this would be: *Steem, Graphene, BitShares...*
+
+## Liquid Proof-of-Stake (LPoS)
+Tezos has developed LPoS, an evolution of the DPoS.
+
+In LPoS, a validator is called a **baker**. Any user owning enough coins can become a baker. If a user would like to become a baker but doesn't own enough coins, he can _delegate_ his coins. Thereby benefiting from a portion of the fee share.
+
+The probability to win a bake is proportional to the amount invested. The baking time is organized in cycles and coins are locked during this time.
+
 
 ## Proof-of-Burn (PoB)
 Instead of buying a lot of powerful nodes like in PoW, **validators** "*burn*" their coins. "Burning" coins means sending them to a locking address where they are irretrievable. Thereby destroying or "burning" them.
@@ -55,15 +79,6 @@ If the majority of responses differs from the asking node's decision, then it wi
 
 An example of this would be: *Avalanche*
 
-## Proof-of-Stake (PoS)
-Requires a system where _validators_  *do not create coins*, so that their rewards should *only be provided by transactions fees*. It also means that all the coins are created at the launch of the system.
-
-The first set of this consensus is for blocks to be  *validated* by **validators** that invested coins in the system. The more a validator has coins in an escrow, the more he is likely to validate a block and earn rewards.
-
-Valid blocks pushed from validators are always verified afterwards by the network. If a validator has tried to cheat, he loses all his funds in his collateral.
-
-An example of this would be: *Ethereum 2.0, Peercoin, Blackcoin, NXT...*
-
 ## Proof-of-Activity (PoA)
 Proof-of-Activity is split into 2 ordered phases:
 1. PoW phase
@@ -79,18 +94,6 @@ Proof-of-Activity is split into 2 ordered phases:
 Fees-rewards are then split between miners and validators.
 
 An example of this would be: *Decred*.
-
-## Delegated Proof-of-Stake (DPoS)
-DPoS is PoS system with an added *delegation* phase. During this phase, decentralized *votes* are made by *witnesses*, choosing validators. Parameters like fees, rewards, or witnesses number are decided by a *committee* group. This committee *do not receive any reward*. The parameters can only be changed during a *maintenance phase by vote*.
-
-An example of this would be: *Steem, Graphene, BitShares...*
-
-## Liquid Proof-of-Stake (LPoS)
-Tezos has developed LPoS, an evolution of the DPoS.
-
-In LPoS, a validator is called a **baker**. Any user owning enough coins can become a baker. If a user would like to become a baker but doesn't own enough coins, he can _delegate_ his coins. Thereby benefiting from a portion of the fee share.
-
-The probability to win a bake is proportional to the amount invested. The baking time is organized in cycles and coins are locked during this time.
 
 ## Pros & Cons
 

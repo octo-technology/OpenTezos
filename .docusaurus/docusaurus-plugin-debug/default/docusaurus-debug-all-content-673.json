@@ -40,7 +40,11 @@
                   },
                   {
                     "type": "doc",
-                    "id": "blockchain-basics/main-components"
+                    "id": "blockchain-basics/main-properties"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "blockchain-basics/proof-of-work"
                   },
                   {
                     "type": "doc",
@@ -412,8 +416,9 @@
             "/baking": "docs",
             "/blockchain-basics/exam": "docs",
             "/blockchain-basics": "docs",
-            "/blockchain-basics/main-components": "docs",
+            "/blockchain-basics/main-properties": "docs",
             "/blockchain-basics/other-consensuses": "docs",
+            "/blockchain-basics/proof-of-work": "docs",
             "/blockchain-basics/smart-contracts": "docs",
             "/contribute/baker": "docs",
             "/contribute/exam": "docs",
@@ -601,20 +606,20 @@
                 "permalink": "/paths"
               },
               "next": {
-                "title": "Main components of the first \"blockchain\"",
-                "permalink": "/blockchain-basics/main-components"
+                "title": "Main properties of the first \"blockchain\"",
+                "permalink": "/blockchain-basics/main-properties"
               }
             },
             {
-              "unversionedId": "blockchain-basics/main-components",
-              "id": "blockchain-basics/main-components",
+              "unversionedId": "blockchain-basics/main-properties",
+              "id": "blockchain-basics/main-properties",
               "isDocsHomePage": false,
-              "title": "Main components of the first \"blockchain\"",
-              "description": "In this chapter, we will go a little bit deeper into details of the main components of the Bitcoin protocol. The developers, who are the builders part of the community; The network with the distributed ledger and the miners who validate it; A few Economy basics on which Bitcoin was created; And finally, the consensus and the Proof-of-Work.",
-              "source": "@site/docs/blockchain-basics/main-components.md",
-              "slug": "/blockchain-basics/main-components",
-              "permalink": "/blockchain-basics/main-components",
-              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/blockchain-basics/main-components.md",
+              "title": "Main properties of the first \"blockchain\"",
+              "description": "In this chapter, we will go a little bit deeper into details of the main components of the Bitcoin protocol. The developers, who are the builders part of the community. The P2P network with the distributed ledger and the miners who validate it. A few Economy basics on which Bitcoin was created. And finally, the consensus and the Proof-of-Work, crux of the system.",
+              "source": "@site/docs/blockchain-basics/main-properties.md",
+              "slug": "/blockchain-basics/main-properties",
+              "permalink": "/blockchain-basics/main-properties",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/blockchain-basics/main-properties.md",
               "version": "current",
               "sidebar": "docs",
               "previous": {
@@ -622,8 +627,8 @@
                 "permalink": "/blockchain-basics"
               },
               "next": {
-                "title": "Introduction to other consensuses",
-                "permalink": "/blockchain-basics/other-consensuses"
+                "title": "Proof-of-work",
+                "permalink": "/blockchain-basics/proof-of-work"
               }
             },
             {
@@ -631,7 +636,7 @@
               "id": "blockchain-basics/other-consensuses",
               "isDocsHomePage": false,
               "title": "Introduction to other consensuses",
-              "description": "In this chapter, we will introduce 10 public consensus mechanisms.",
+              "description": "In this chapter, we will briefly introduce a few other public consensuses.",
               "source": "@site/docs/blockchain-basics/other-consensuses.md",
               "slug": "/blockchain-basics/other-consensuses",
               "permalink": "/blockchain-basics/other-consensuses",
@@ -639,12 +644,33 @@
               "version": "current",
               "sidebar": "docs",
               "previous": {
-                "title": "Main components of the first \"blockchain\"",
-                "permalink": "/blockchain-basics/main-components"
+                "title": "Proof-of-work",
+                "permalink": "/blockchain-basics/proof-of-work"
               },
               "next": {
                 "title": "Smart Contracts",
                 "permalink": "/blockchain-basics/smart-contracts"
+              }
+            },
+            {
+              "unversionedId": "blockchain-basics/proof-of-work",
+              "id": "blockchain-basics/proof-of-work",
+              "isDocsHomePage": false,
+              "title": "Proof-of-work",
+              "description": "Proof-of-work was the first fully functional blockchain consensus ever created. It is still in use by Bitcoin and many other blockchains. It requires its users to mine for getting a chance earning a reward for validating transactions. In this chapter, we are going to look into the technical side of things and how mining works.",
+              "source": "@site/docs/blockchain-basics/proof-of-work.md",
+              "slug": "/blockchain-basics/proof-of-work",
+              "permalink": "/blockchain-basics/proof-of-work",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/blockchain-basics/proof-of-work.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Main properties of the first \"blockchain\"",
+                "permalink": "/blockchain-basics/main-properties"
+              },
+              "next": {
+                "title": "Introduction to other consensuses",
+                "permalink": "/blockchain-basics/other-consensuses"
               }
             },
             {
@@ -1856,7 +1882,7 @@
               "id": "tezos-basics/introduction",
               "isDocsHomePage": false,
               "title": "Introduction",
-              "description": "Tezos Creation",
+              "description": "Tezos is a public, open-source blockchain protocol relying on a low power consumption and energy-efficient consensus.",
               "source": "@site/docs/tezos-basics/introduction.md",
               "slug": "/tezos-basics",
               "permalink": "/tezos-basics",
@@ -1919,7 +1945,7 @@
               "id": "tezos-basics/smart-contracts",
               "isDocsHomePage": false,
               "title": "Smart contracts",
-              "description": "General definition of a smart contract",
+              "description": "In this chapter, you'll learn the Tezos smart contracts basics. Their components and the workflow to record and use them on the Tezos blockchain.",
               "source": "@site/docs/tezos-basics/smart-contracts.md",
               "slug": "/tezos-basics/smart-contracts",
               "permalink": "/tezos-basics/smart-contracts",
