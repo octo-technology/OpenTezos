@@ -3,7 +3,7 @@
   "id": "blockchain-basics/smart-contracts",
   "isDocsHomePage": false,
   "title": "Smart Contracts",
-  "description": "In this chapter, we'll explain how and why Bitcoin's programming features are limited. We'll define what are \"Smart Contracts\" and how they are already present on Bitcoin. And finally, why the concept of \"Gas\" was introduced on Ethereum and what it means.",
+  "description": "In this chapter, we're going to explain how and why Bitcoin's programming features are limited. We'll define what are Smart Contracts and how they are already present on Bitcoin. And finally, what is Gas and why it was introduced on Ethereum.",
   "source": "@site/docs/blockchain-basics/smart-contracts.md",
   "slug": "/blockchain-basics/smart-contracts",
   "permalink": "/blockchain-basics/smart-contracts",

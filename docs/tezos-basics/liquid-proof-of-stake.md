@@ -14,8 +14,8 @@ Let's first review these latter.
 ## Proof-of-Stake (PoS)
 In _Proof-of-Stake_, the miner is replaced by a validator. A validator gathers transactions and creates blocks. Several methods exist to select a validator, which will be reviewed in the next chapter (i.e. Delegated-proof-of-stake, Liquid-proof-of-stake). In this consensus, they must invest their own funds to have a chance to be selected as a validator, which makes it Sybil resilient. This mechanism represents a low energy cost alternative to _PoW_. Moreover, a 51% attack would not be profitable for a hacker, as validators bet their own money [[6]](/tezos-basics/liquid-proof-of-stake#references) and risk losing it if detected. Validators would therefore not benefit from making a decision against the general opinion of the network. In addition, holding 51% of the token would demand enormous amounts of liquidity, making this scenario very unlikely.
 
-![](../../static/img/tezos-basics/PoS.svg)
-<small className="figure">FIGURE 1: PoS</small>
+<!-- ![](../../static/img/tezos-basics/PoS.svg)
+<small className="figure">FIGURE 1: PoS</small> -->
 
 ## Delegated Proof-of-Stake (DPoS)
 In a Delegated-proof-of-stake model, the users of this consensus, called delegates, delegate their votes to a validator. The number of eligible validators is fixed, usually between 20 and 100. If a validator is selected to forge a block, they receive a reward which is then shared with all of their delegates [[7]](/tezos-basics/liquid-proof-of-stake#references).

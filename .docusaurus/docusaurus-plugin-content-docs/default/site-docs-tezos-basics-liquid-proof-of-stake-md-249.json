@@ -3,7 +3,7 @@
   "id": "tezos-basics/liquid-proof-of-stake",
   "isDocsHomePage": false,
   "title": "Liquid Proof-of-Stake",
-  "description": "Introduction",
+  "description": "In \"Blockchain Basics\" module, you understood the main objective of a consensus mechanism is maintaining a common history throughout the whole peer-to-peer network. There are countless consensus algorithms and they all have pros and cons. Notably, the Bitcoin's Proof-of-Work has two flaws:",
   "source": "@site/docs/tezos-basics/liquid-proof-of-stake.md",
   "slug": "/tezos-basics/liquid-proof-of-stake",
   "permalink": "/tezos-basics/liquid-proof-of-stake",
