@@ -14,10 +14,10 @@ The **ETL** extract, transform and load data
 into the **SQL database** by mapping the data into a pre-defined schema of tables with referential integrity 
 in order to provide indexing and query processing services via the **API**.
 
-- **Tezos Node** is the heart of the blockchain, it manages the protocol.
+- A **Tezos Node** is the heart of the blockchain, it manages the protocol.
 - **ETL** stands for *extract, transform, and load* 
   The process of ETL plays a key role in data integration strategies. 
-  ETL allows businesses to gather data from multiple sources and consolidate it into a single, centralized location.
+  ETL allow businesses to gather data from multiple sources and consolidate it into a single, centralized location.
 - **API** is the acronym for *Application Programming Interface*,
   which is a software intermediary that allows two applications to talk to each other.
 
@@ -29,16 +29,16 @@ in order to provide indexing and query processing services via the **API**.
 </p>
 <br/>
 
-It turns out that this one-way data extraction model has a couple of problems:
-- **Expensive States Queries**: extracting complex state from a blockchain-node is expensive.
-- **One-way-data flow**: SQL stores optimize for transactional workloads like finding individual rows, 
-  but are bad for analytical workloads that aggregate across columns (because full rows are loaded from disk).
-- **Slow Queries**: some queries are even so expensive,
+It turns out that this one-way data-extraction model has a couple of problems:
+- **Expensive States Queries**: extracting complex state from a blockchain's node is expensive.
+- **One-way-data flow**: SQL stores are optimized for transactional workloads like finding individual rows, 
+  but are bad for analytical workloads that aggregate across columns (because full rows are loaded from the disk).
+- **Slow Queries**: some queries are so expensive,
   they have to run offline (i.e. once a night or once a cycle)
   and their results have to be stored in extra tables.
 - **Inefficient Storage Layout and Limited Throughput**: 
-  most online queries to join across tables are limited by available main memory 
-  and I/O bandwidth and the only way to speed them up is replicating the database or using larger instances.
+  most online queries to join across tables, are limited by available main memory 
+  and I/O bandwidth and the only way to speed them up is by replicating the database or using larger instances.
 
 
 ## Focus on BlockWatch Indexer (TzIndex)
@@ -49,13 +49,13 @@ The **Blockwatch indexer** replaces the slow and expensive SQL datastore with a 
 > It is optimized for fast retrieval of data columns, 
 > for example for analytical applications.
 > It significantly reduces the overall disk I/O requirements 
-> and limits the amount of data you need to load from disk.
+> and limits the amount of data you need to load from the disk.
 
 It's a custom-made database for blockchain analytics. Avoiding the storage bottleneck allows for more complex data processing.
 > **Storage bottleneck** is a situation where the flow of data gets impaired 
 > or stopped completely due to bad performance or lack of resources.
 
-State updates happen at each block, which means all balance updates are always verified,
+State updates happen at each block, which means all the balance updates are always verified,
 and the indexer will follow chain reorganizations in real-time.
 
 ![](../../static/img/explorer/blockwatch_indexer.svg)
