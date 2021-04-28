@@ -3,28 +3,19 @@ id: liquid-proof-of-stake
 title: Liquid Proof-of-Stake
 ---
 
-## Introduction
-A blockchain network is composed of millions of users. To maintain network availability and prevent _Sybil attacks_ [[1]](/tezos-basics/liquid-proof-of-stake#references) (attacks made by creating multiple fake accounts in a network), a blockchain needs a consensus mechanism. A consensus mechanism allows the network to agree on the validity of transactions, the creation of a new block, a protocol update, etc. The main objective of a consensus mechanism is to maintain a common history of the chain throughout the whole network.
+In ["*Blockchain Basics*"](/blockchain-basics/) module, you understood the main objective of a consensus mechanism is maintaining a common history throughout the whole peer-to-peer network. There are countless consensus algorithms and they all have pros and cons. Notably, the Bitcoin's *Proof-of-Work* has two flaws:
+- Energy consumption
+- Common users excluded from mining activity
 
-Since the creation of Bitcoin, many kinds of consensus have appeared. To understand the Tezos consensus, this chapter will focus first on the classical _Proof-of-work_ (e.g. Bitcoin, Ethereum 1.0), then on the _delegated-proof-of-stake_ (e.g EOS, Lisk, Tron, Bitshare) and finally on the _liquid Proof-of-stake_ from Tezos [[2]](/tezos-basics/liquid-proof-of-stake#references).
+In this chapter, we will go into more details about the Tezos' "**_Liquid Proof-of-Stake_**", created to lift those flaws and the ones from its predecessors "**_Proof-of-Stake_**" and "**_Delegated Proof-of-Stake_**"
 
-In a word, Proof-of-work is based on computation power and Proof-of-stake is based on token staking.
-
-All these consensuses have the same goal: selecting a user who will be responsible for the creation of a new block, by selecting, verifying, and inserting transactions into a potential new block. This user will then receive a reward if his block is validated. This reward is usually a fixed amount of coins created by the blockchain protocol or collected from the transactions-cost.
-
-## Proof-of-Work (PoW)
-The _Proof-of-work_ was the first blockchain consensus ever created [[3]](/tezos-basics/liquid-proof-of-stake#references). It relies solely on its users, or miners. A miner uses his computation power to solve an arbitrary mathematical problem. The difficulty of this mathematical problem is adapted according to the resolution time of the previous blocks. The difficulty then increases if the resolution time decreases. The first miner to solve this mathematical problem earns the right to write a transaction into a new block. If several branches are available, he must choose the right one otherwise he will lose his reward. This model of building blockchains ensures their security.
-For more information about _PoW_, please refer to the [consensus chapter](/blockchain-basics/consensus). 
-
-This consensus has two major flaws. The first is its energy consumption; due to the power required to solve the mathematical problems, multiplied by the competition between miners (all miners compete for the next block). Consequently, this makes transaction costs very high as the network needs to reward the miner for their job (and electricity bill).
-
-The second flaw is the lack of security in small networks. In a blockchain such as Bitcoin or Ethereum that has a lot of miners, the problem is less important because the strength of _PoW_ is based on the number of miners. However, in small networks, the number of miners might not be large enough to prevent a _51% attack_ [[4]](/tezos-basics/liquid-proof-of-stake#references) (when a user can get more than half of the total mining power on a blockchain ). With the current simplicity of buying short-term computation power [[5]](/tezos-basics/liquid-proof-of-stake#references), it is really easy to achieve this kind of attack on a small network.
-
-![](../../static/img/tezos-basics/PoW.svg)
-<small className="figure">FIGURE 1: PoW</small>
+Let's first review these latter.
 
 ## Proof-of-Stake (PoS)
 In _Proof-of-Stake_, the miner is replaced by a validator. A validator gathers transactions and creates blocks. Several methods exist to select a validator, which will be reviewed in the next chapter (i.e. Delegated-proof-of-stake, Liquid-proof-of-stake). In this consensus, they must invest their own funds to have a chance to be selected as a validator, which makes it Sybil resilient. This mechanism represents a low energy cost alternative to _PoW_. Moreover, a 51% attack would not be profitable for a hacker, as validators bet their own money [[6]](/tezos-basics/liquid-proof-of-stake#references) and risk losing it if detected. Validators would therefore not benefit from making a decision against the general opinion of the network. In addition, holding 51% of the token would demand enormous amounts of liquidity, making this scenario very unlikely.
+
+![](../../static/img/tezos-basics/PoS.svg)
+<small className="figure">FIGURE 1: PoS</small>
 
 ## Delegated Proof-of-Stake (DPoS)
 In a Delegated-proof-of-stake model, the users of this consensus, called delegates, delegate their votes to a validator. The number of eligible validators is fixed, usually between 20 and 100. If a validator is selected to forge a block, they receive a reward which is then shared with all of their delegates [[7]](/tezos-basics/liquid-proof-of-stake#references).

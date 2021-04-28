@@ -97,8 +97,8 @@ This way the business logic can be upgraded with a regular call of the smart con
 
 ------ ODOT
 
-## High-level languages for Tezos smart contract implementation
-Michelson is a low-level stack-based language. Therefore its adoption is quite limited because most developers won't take time to learn it. To avoid this friction, many Michelson *transpilers* have been developed and led to many high-level languages closer to developers habits: [*SmartPy*](/smartpy) (inspired by *Python*); [*LIGO*](/ligo) (inspired by *Camel* and *Pascal*); or [*Morley*](https://serokell.io/project-morley) (framework).
+## High-level languages for Tezos smart contracts implementations
+Michelson is a low-level stack-based language. Therefore its adoption is quite limited because most developers won't take time to learn it. To avoid this friction, many Michelson *compilers* have been developed and led to many high-level languages closer to developers habits: [*SmartPy*](/smartpy) (inspired by *Python*); [*LIGO*](/ligo) (inspired by *Camel* and *Pascal*); or [*Morley*](https://serokell.io/project-morley) (framework).
 
 ![](../../static/img/tezos-basics/tezos_smart_contract_deploy_invoke.svg)
 <small className="figure">FIGURE 3: Deployment and call of a Tezos smart contract with high-level languages.</small>
