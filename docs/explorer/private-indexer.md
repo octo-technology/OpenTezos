@@ -6,7 +6,7 @@ title: Private indexer
 
 import NotificationBar from '../../src/components/docs/NotificationBar';
 
-The tools presented in this module so far are fully public, meaning that everyone can use them. However, they are meant for public networks, and the user is dependent on the infrastructure and configuration of these services. Some organizations are more interrested in deploying their own private Tezos network, either for private testing before going public, or for entirely private use. Refer to the [Private blockchain module](/private) for more info. Therefore, it must be possible to use an indexer on private networks.
+The tools presented in this module so far, are fully public, meaning that everyone can use them. However, they are meant for public networks, and who the user is, is dependent on the infrastructure and configuration of these services. Some organizations are more interested in deploying their own private Tezos network, either for private testing before going public, or for entirely private use. Refer to the [Private blockchain module](/private) for more info. Therefore, it is possible to use an indexer on private networks.
 
 Fortunately, all public developments on Tezos are open-source and can easily be adapted for a private network, i.e. an indexer can be deployed and configured to watch a private network.
 
@@ -24,11 +24,11 @@ To index a private network, a few things are required:
 - a smart contract
 - some operations
 
-Let's start by setting up a private network. The process is quite difficult as it implies starting and configuring Tezos nodes (please refer to the [Private Blockchain module](/private) for more info). Instead, let's choose an easier way by only simulating a private network using _Ganache_, a node module used for tests and simulations of Tezos and Ethereum blockchains. _Ganache_ provides also 10 funded accounts when at start.
+Let's start by setting up a private network. The process is quite difficult as it requires starting and configuring Tezos nodes (please refer to the [Private Blockchain module](/private) for more info). Instead, let's choose an easier way by only simulating a private network using _Ganache_, a node module used for tests and simulations of Tezos and Ethereum blockchains. _Ganache_ provides also 10 funded accounts to start.
 
 // TODO: I changed the paragraph abov to refer to the future Private Blockchain module, and only mention Ganache as a `simulation` of a private network and not a real private network. Please look into it and make sure this is true or not.
 
-Let's use the _Raffle_ smart contract from the [LIGO module](/ligo/contracts-ligo) and migrate it onto our private network with the _Truffle_ configuration from the [Build a Dapp module](/dapp).
+Let's use the _Raffle_ smart contract from the [LIGO module](/ligo/contracts-ligo) and migrate it onto our private network using the _Truffle_ configuration from the [Build a Dapp module](/dapp).
 
 ## Installing the prerequisites
 The complete source code of the raffle contract can be found [here](https://github.com/bepi-octo/raffle-smart-contract.git).
@@ -51,7 +51,7 @@ $ npm install
 
 _TzIndex_ is written in _Go_, a statically typed compiled programming language developed by _Google_. Install it using the instructions at [golang.org/doc/install](https://golang.org/doc/install).
 
-Next is to install the docker images of _TzIndex_. Install _Docker_ using the instructions at [docs.docker.com/get-docker/](https://docs.docker.com/get-docker/).
+Next action is to install the docker images of _TzIndex_. Install _Docker_ using the instructions at [docs.docker.com/get-docker/](https://docs.docker.com/get-docker/).
 
 ## Launching Ganache
 In `package.json`, one script is defined:
@@ -235,12 +235,12 @@ _TzStats_ is running at http://localhost:3000:
 
 Notice that the frontend is different from its public version on [TzStats.com](https://tzstats.com/) but the inner workings are the same.
 
-On top, the search bar allows you to search for transactions, blocks, addresses, etc. The left panel contains various information are displayed such as the number of baked blocks.
+On top, the search bar allows you to search for transactions, blocks, addresses, etc. The left panel contains various information displayed such as the number of baked blocks.
 
 Click on it to get more info on that block:
 ![](../../static/img/explorer/tzstat-2.png "Block details page")
 
-Many block details are displayed, most of them can be clicked for even more info. The block above only contains one operation, which is a cl to our smart contracts. Click the hash to open the operation page:
+Many block details are displayed, most of them can be clicked on for even more info. The block above only contains one operation, which is a cl to our smart contracts. Click the hash to open the operation page:
 
 ![](../../static/img/explorer/tzstat-3.png "Smart contract call details page")
 
@@ -257,11 +257,11 @@ The storage page displays the storage definition, the type of each field and the
 ![](../../static/img/explorer/tzstat-5.png "Smart contract storage page")
 
 ### About big maps
-Note that the *sold_tickets* _big map_ should hold an `address` as value, but it displays `1` in the storage. Indeed, since _big maps_ are meant to hold unbounded lists of data, it cannot be loaded directly into the storage (out of performance concerns). Each _big map_ is indexed and the number `1` being displayed is the index number of the _big map_. Its data can actually be accessed by clicking on the `Bigmap 1` section.
+Note that the *sold_tickets* _big map_ should hold an `address` as value, but it displays `1` in the storage. Indeed, since _big maps_ are meant to hold unbounded lists of data, they cannot be loaded directly into the storage (out of performance concerns). Each _big map_ is indexed and the number `1` being displayed is the index number of the _big map_. Its data can actually be accessed by clicking on the `Bigmap 1` section.
 
 ![](../../static/img/explorer/tzstat-6.png "Big map section")
 
-Regular _maps_ are meant to be used with limited data size as the data is directly retrieved from the storage section. You can see an example of such _map_ in the second migrated smart contract (baked in the fourth block):
+Regular _maps_ are meant to be used with limited data size as the data is directly retrieved from the storage section. You can see an example of such a _map_ in the second migrated smart contract (baked in the fourth block):
 
 ![](../../static/img/explorer/tzstat-7.png "Storage page")
 
@@ -331,7 +331,7 @@ $ GET http://127.0.0.1:8000/explorer/contract/KT1HJ8VJ9rHkoi4FfzHPburSe1VdYn8AU4
 
 ```
 
-A lot of information are displayed, such as the address of the contract, but some data is missing like the storage. Another API call has to be made for that:
+A lot of information is displayed, such as the address of the contract, but some data is also missing like the storage. Another API call has to be made for that:
 
 ```shell
 $ GET http://127.0.0.1:8000/explorer/contract/KT1HJ8VJ9rHkoi4FfzHPburSe1VdYn8AU4AF/storage?
@@ -380,9 +380,9 @@ Note that whichever mode your choose, indexing a public network will take a long
 ## Conclusion
 Running a private network does not condemn its user to be blind to whatever is happening on their network: private indexers and explorers can be set up to index and monitor a private network.
 
-These private tools can also be used to monitor public networks, even if public tools are already set up to that purpose.
+These private tools can also be used to monitor public networks, even if public tools are already set up for that purpose.
 
-Finally, indexers can come in handy as additional tools to librairies (such as [Taquito](https://tezostaquito.io/)) or wallets. Indeed, _big maps_ are not easily handled with these tools. For instance, it is not possible to retrieve all the keys of a _big map_. However, indexers solve this issue with a simple REST call. You can learn more in the [Build a Dapp module](/dapp)).
+Finally, indexers can come in handy as additional tools to libraries (such as [Taquito](https://tezostaquito.io/)) or wallets. Indeed, _big maps_ are not easily handled with these tools. For instance, it is not possible to retrieve all the keys of a _big map_. However, indexers solve this issue with a simple REST call. You can learn more in the [Build a Dapp module](/dapp)).
 
 ## References
 // TODO: References?

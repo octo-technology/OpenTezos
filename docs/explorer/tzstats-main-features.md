@@ -3,12 +3,12 @@ id: tzstats-main-features
 title: How to use the tzStats blockchain explorer?
 ---
 
-In the previous chapter, we saw that there is different block indexers for different uses in block explorers for the Tezos Blockchain. In this chapter we will focus on [TzStats](https://tzstats.com/) which is the most popular and complete Tezos explorer.
+In the previous chapter, we saw that there are different block indexers for different uses in the block explorers for the Tezos Blockchain. In this chapter, we will focus on [TzStats](https://tzstats.com/) which is the most popular and complete Tezos explorer.
 
 ![](../../static/img/explorer/tzStats_first_page.png)
 <small className="figure">TzStats Main Dashboard</small>
 
-[TzStats](https://tzstats.com/) is developed by _Blockwatch Data Inc._ It is a block explorer for public and private Tezos networks and is based on the [TzIndex indexer](https://github.com/blockwatch-cc/tzindex). 
+[TzStats](https://tzstats.com/) is developed by _Blockwatch Data Inc._ Is a block explorer for public and private Tezos networks and is based on the [TzIndex indexer](https://github.com/blockwatch-cc/tzindex). 
 
 Each Tezos network has its own _TzStats_ version:
 - **Mainnet** : [tzstats.com](https://tzstats.com)
@@ -16,21 +16,21 @@ Each Tezos network has its own _TzStats_ version:
 - **Edonet** : [edo.tzstats.com](https://edo.tzstats.com)
 
 ## TzStats' main features
-TzStats is a very intuitive platform but has a complete guide available [here](https://tzstats.com/docs/guide).
+TzStats is a very intuitive platform and has a complete guide available [here](https://tzstats.com/docs/guide).
 
 - [Main Dashboard](https://tzstats.com/): This page provides a quick view of all the main activity on the Tezos network, e.g. staking activity, gas price, XTZ supply, transaction volume, etc.
   ![](../../static/img/explorer/tzStats_first_page.png)
   <small className="figure">TzStats Main Dashboard</small>
 
-- [Cycle](https://tzstats.com/cycle/350): This page provides general information about a specific cycle number. A cycle is a way of measuring time, every cycle equals to 4096 blocks.
+- [Cycle](https://tzstats.com/cycle/350): This page provides general information about a specific cycle number. A cycle is a way of measuring time, every cycle is equal to 4096 blocks.
   ![](../../static/img/explorer/tzStats_cycle.png)
   <small className="figure">TzStats Cycle Page</small>
   
-- [Block](https://tzstats.com/1435766): This page provides general information about a specific block number along with technical details such as gas used, block health (Endorsed Slots, Missed Priorities and Missed Endorsements), etc.
+- [Block](https://tzstats.com/1435766): This page provides general information about a specific block number along with its technical details such as gas used, block health (Endorsed Slots, Missed Priorities and Missed Endorsements), etc.
   ![](../../static/img/explorer/tzStats_block.png)
   <small className="figure">TzStats Block Page</small>
   
-- [Network Activity](https://tzstats.com/activity): This page provides a world map with the location where new blocks are being baked. There is also the list of _whales_ (i.e list of high-value transfers >= $100,000).
+- [Network Activity](https://tzstats.com/activity): This page provides a world map with the location of where new blocks are being baked. There is also the list of _whales_ (i.e list of high-value transfers >= $100,000).
   ![](../../static/img/explorer/tzStats_activity.png)
   <small className="figure">TzStats Activity Page</small>
 
@@ -38,7 +38,7 @@ TzStats is a very intuitive platform but has a complete guide available [here](h
   ![](../../static/img/explorer/tzStats_bakers.png)
   <small className="figure">TzStats Bakers Page</small>
   
-- [Protocols](https://tzstats.com/protocols): This page shows the past and current protocol used by Tezos and the overall age of the Tezos blockchain. Refer to chapter on the [history of amendements](/tezos-basics/history-of-amendements) to understand each protocol.
+- [Protocols](https://tzstats.com/protocols): This page shows the past and current protocol used by Tezos and the overall age of the Tezos blockchain. Refer to the chapter on the [history of amendments](/tezos-basics/history-of-amendements) to understand each protocol.
   ![](../../static/img/explorer/tzStats_protocols.png)
   <small className="figure">TzStats Protocols Page</small>
 
@@ -46,11 +46,11 @@ TzStats is a very intuitive platform but has a complete guide available [here](h
   ![](../../static/img/explorer/tzStats_voting.png)
   <small className="figure">TzStats Voting Page</small>
   
-- [Markets](https://tzstats.com/markets): This page provides an overview of the current market activity, e.g. list of exchanges, 1 day volume, overall market capitalization, etc.
+- [Markets](https://tzstats.com/markets): This page provides an overview of the current market activity, e.g. list of exchanges, 1 day's volume, overall market capitalization, etc.
   ![](../../static/img/explorer/tzStats_markets.png)
   <small className="figure">TzStats Markets Page</small>
 
-As you can see, tzStats is an easy tool to learn. Here the main features have been presented and in the next chapter we will see how to checkout your smart contract.
+As you can see, tzStats is an easy tool to learn. Here the main features have been presented and in the next chapter, we will see how to check out your smart contract.
 
 ## References
 
