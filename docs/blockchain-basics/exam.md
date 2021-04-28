@@ -1,6 +1,7 @@
 ---
 id: exam
 title: Exam
+authors: Thomas Zoughebi
 ---
 
 ### Question 1

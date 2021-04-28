@@ -3,7 +3,7 @@
   "id": "tezos-basics/introduction",
   "isDocsHomePage": false,
   "title": "Introduction",
-  "description": "Tezos Creation",
+  "description": "Tezos is a public, open-source blockchain protocol relying on a low power consumption and energy-efficient consensus.",
   "source": "@site/docs/tezos-basics/introduction.md",
   "slug": "/tezos-basics",
   "permalink": "/tezos-basics",

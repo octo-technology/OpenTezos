@@ -1,7 +1,8 @@
 ---
-id: main-components
+id: main-properties
 disable_pagination: true
-title: Main components of the first "blockchain"
+title: Main properties of the first "blockchain"
+authors: Thomas Zoughebi
 ---
 
 In this chapter, we will go a little bit deeper into details of the main components of the Bitcoin protocol. The developers, who are the builders part of the community. The P2P network with the distributed ledger and the miners who validate it. A few Economy basics on which Bitcoin was created. And finally, the consensus and the Proof-of-Work, crux of the system.
@@ -11,6 +12,8 @@ An important part of the community is made from all the developers who write the
 
 The code written defines the validation rules of all the transactions and their scripts. This code is also used to create the software that runs a node of the network, and how data are recorded, or explored.
 
+"*Code is law*" 
+
 There are different implementations, on different operating systems and devices. The code can be written in almost any programming language (e.g. _C++, Python, Java, Go, Scala_...).
 
 The original implementation from Satoshi Nakamoto in C++ is [_Bitcoin Core_](https://bitcoincore.org/). Most of the nodes of the network use this software today.
@@ -18,11 +21,11 @@ The original implementation from Satoshi Nakamoto in C++ is [_Bitcoin Core_](htt
 The openness of the code, the permissionless access to the network, the free software, all allow freedom and trust. Although, this induces a responsibility transfer to the user, encouraged to verify what he uses.
 
 ## Peer-to-Peer network and shared ledger
-One could think that all the power and influence is in the hand of the developers, but the rules they code still have to be accepted and used. The P2P network of Bitcoin has a mesh design spread over the planet (or space[[1]](/blockchain-basics/main-components#references)). The more nodes enforce the rules, the more the protocol is distributed and secured.
+One could think that all the power and influence is in the hand of the developers, but the rules they code still have to be accepted and used. The P2P network of Bitcoin has a mesh design spread over the planet (or space[[1]](/blockchain-basics/main-properties#references)). The more nodes enforce the rules, the more the protocol is distributed and secured.
 
 There are different types of nodes, but for the sake of simplicity, let's only quickly describe two categories: Full nodes and Lightweight nodes.
 
-- Full nodes enforce the rules no matter what happens and validate transactions. They _usually_[[2]](/blockchain-basics/main-components#references) also record all transactions in a distributed ledger. This ledger is shared by all the full nodes of the network.
+- Full nodes enforce the rules no matter what happens and validate transactions. They _usually_[[2]](/blockchain-basics/main-properties#references) also record all transactions in a distributed ledger. This ledger is shared by all the full nodes of the network.
 
 - Lightweight nodes are used for devices with limited space capacity, limited calculating speed, or limited connectivity. They usually refer to little devices like smartphones. They don't record the ledger and ask full nodes.
 
@@ -100,9 +103,9 @@ Relying only on hashing power and the law of supply and demand wouldn't quite be
 
 Another rule is coded in the Bitcoin protocol that increases scarcity of bitcoins. Its name is the "**Halving**". Every 210,000 blocks (~4 years), the block reward is simply cut in half.
 
-At the very beginning (2008 / 2009), the block reward was 50 bitcoins. These days (2021), the reward is 6.25 bitcoins until 2024[[3]](/blockchain-basics/main-components#references).
+At the very beginning (2008 / 2009), the block reward was 50 bitcoins. These days (2021), the reward is 6.25 bitcoins until 2024[[3]](/blockchain-basics/main-properties#references).
 
-Block reward is how the currency's issuance is produced. So the Halving has a strong economical impact. Usually, this event leads to an increasing price phase, namely "Bull Market"[[3]](/blockchain-basics/main-components#references). It's worth noting it's also an event that federates the community, the adoption, and in return, makes the network stronger, and the price higher[[4]](/blockchain-basics/main-components#references).
+Block reward is how the currency's issuance is produced. So the Halving has a strong economical impact. Usually, this event leads to an increasing price phase, namely "Bull Market"[[3]](/blockchain-basics/main-properties#references). It's worth noting it's also an event that federates the community, the adoption, and in return, makes the network stronger, and the price higher[[4]](/blockchain-basics/main-properties#references).
 
 The numbers chosen by Satoshi Nakamoto for the total supply or the Halving are inspired by _gold mining_. The more you dig to find gold, the less there is, and the harder it is to dig. That's exactly why the blocks validators are called the "Miners".
 

@@ -3,7 +3,7 @@
   "id": "tezos-basics/smart-contracts",
   "isDocsHomePage": false,
   "title": "Smart contracts",
-  "description": "General definition of a smart contract",
+  "description": "In this chapter, you'll learn the Tezos smart contracts basics. Their components and the workflow to record and use them on the Tezos blockchain.",
   "source": "@site/docs/tezos-basics/smart-contracts.md",
   "slug": "/tezos-basics/smart-contracts",
   "permalink": "/tezos-basics/smart-contracts",

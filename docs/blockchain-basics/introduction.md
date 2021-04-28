@@ -3,7 +3,7 @@ id: introduction
 disable_pagination: true
 title: Introduction
 slug: /blockchain-basics
-authors: Thomas Zoughebi and Aymeric Bethencourt
+authors: Aymeric Bethencourt and Thomas Zoughebi
 ---
 
 Welcome to _OpenTezos_, the most complete and open-source documentation on Tezos.

@@ -48,7 +48,7 @@ in a format that's easy to digest for their spreadsheets and compliance tools.
 <small className="figure">FIGURE 1: Typical use cases of a block explorer</small>
 
 ## What is an indexer ?
-A block's explorer is typically made of:
+A block explorer is typically made of:
 - an indexer that extracts the on-chain data and stores it into a database
 - an API that queries the database
 - a frontend that displays the data

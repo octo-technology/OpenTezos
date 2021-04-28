@@ -3,7 +3,7 @@
   "id": "blockchain-basics/other-consensuses",
   "isDocsHomePage": false,
   "title": "Introduction to other consensuses",
-  "description": "In this chapter, we will introduce 10 public consensus mechanisms.",
+  "description": "In this chapter, we will briefly introduce a few other public consensuses.",
   "source": "@site/docs/blockchain-basics/other-consensuses.md",
   "slug": "/blockchain-basics/other-consensuses",
   "permalink": "/blockchain-basics/other-consensuses",
@@ -11,8 +11,8 @@
   "version": "current",
   "sidebar": "docs",
   "previous": {
-    "title": "Main components of the first \"blockchain\"",
-    "permalink": "/blockchain-basics/main-components"
+    "title": "Proof-of-work",
+    "permalink": "/blockchain-basics/proof-of-work"
   },
   "next": {
     "title": "Smart Contracts",

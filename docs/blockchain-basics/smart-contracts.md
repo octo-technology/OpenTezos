@@ -2,6 +2,8 @@
 id: smart-contracts
 disable_pagination: true
 title: Smart Contracts
+authors: Thomas Zoughebi
+
 ---
 
 In this chapter, we'll explain how and why Bitcoin's programming features are limited. We'll define what are "Smart Contracts" and how they are already present on Bitcoin. And finally, why the concept of "Gas" was introduced on Ethereum and what it means.

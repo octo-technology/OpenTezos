@@ -41,13 +41,18 @@
               "sidebar": "docs"
             },
             {
-              "id": "blockchain-basics/main-components",
-              "path": "/blockchain-basics/main-components",
+              "id": "blockchain-basics/main-properties",
+              "path": "/blockchain-basics/main-properties",
               "sidebar": "docs"
             },
             {
               "id": "blockchain-basics/other-consensuses",
               "path": "/blockchain-basics/other-consensuses",
+              "sidebar": "docs"
+            },
+            {
+              "id": "blockchain-basics/proof-of-work",
+              "path": "/blockchain-basics/proof-of-work",
               "sidebar": "docs"
             },
             {
