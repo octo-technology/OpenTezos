@@ -9,7 +9,7 @@ The purpose of this chapter is to list the main explorers of the Tezos blockchai
 
 TzStats was the first Tezos Analytics Explorer, 
 extending the functionality of traditional block explorers with comprehensive data analytics.   
-It is the now the most complete and intuitive Tezos blockchain explorer.
+It is now the most complete and intuitive Tezos blockchain explorer.
 
 ![](../../static/img/explorer/screenshot_TzStats_explorer.png)
 <small className="figure">FIGURE 1: TzStats Explorer</small>
@@ -40,7 +40,7 @@ Nomadic Labs Indexer is the first indexer made by the Tezos team in July 2019.
 
 **Pros**
 - made by the Tezos core team
-- same data structures as Tezos node
+- same data structures as a Tezos node
 
 **Cons**
 - ETL only, no API server
@@ -48,10 +48,10 @@ Nomadic Labs Indexer is the first indexer made by the Tezos team in July 2019.
 - no smart contract support
 
 > **Postgre server impacts speed performance**.
-> The trade off of Postgres server is that for each index 
-> you have you will insert data at a slower pace. 
-> Essentially when you insert your data with an index 
-> it must write data to two places as well as maintain the sort on the index as you insert data
+> The trade-off of the Postgres server is that for every index 
+> you have to insert data at a slower pace. 
+> Essentially when you insert your data using an index 
+> it must write data to two places as well as maintain the sort on the index as you insert the data
 
 ## Cryptonomic Conseil
 
