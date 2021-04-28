@@ -104,7 +104,7 @@ The total theoric limited *supply* of bitcoins is pre-determined and hardcoded i
 
 ## Consensus: Nakamoto and the Proof-of-Work’s account units issuance
 
-// TODO: Define the word consensus like in my Duckonf pres
+//TODO: Define the word consensus like in my Duckonf pres
 
 Relying only supply and demand, Bitcoin  wouldn't be deflationary.
 
@@ -124,7 +124,7 @@ The _Nakamoto Consensus_, which Bitcoin is based on, is driven by:
 
 In the Bitcoin mesh network, the rewards make it possible to support up to 50% of bad actors. The network is said to be "Byzantin Fault Tolerant" (BFT). Probabilistically, Bitcoin's solution is more efficient than the actual strict solution. The actual strict solution requires less than one third (1/3) of bad actors. 
 
-// TODO: what do you mean by "the actual strict solution" ?
+//TODO: what do you mean by "the actual strict solution" ?
 
 The _**M**utual **A**ssured **D**estruction_ (**_MAD_**) property reinforce this BFT solution:  
 
@@ -135,7 +135,7 @@ You would also face the community, which can detect the attack and adapt.
 ## What have we learned so far?
 In this chapter, we described the pillars of the Bitcoin protocol, and how they articulate around the Nakamoto Consensus.
 
-// TODO: What are the differences between the Nakamoto Consensus and the Proof-of-Work consensus
+//TODO: What are the differences between the Nakamoto Consensus and the Proof-of-Work consensus
 
 In the next chapter, we'll dig into the the Proof-of-Work consensus to understand how it actually works.
 

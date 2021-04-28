@@ -26,7 +26,7 @@ To index a private network, a few things are required:
 
 Let's start by setting up a private network. The process is quite difficult as it requires starting and configuring Tezos nodes (please refer to the [Private Blockchain module](/private) for more info). Instead, let's choose an easier way by only simulating a private network using _Ganache_, a node module used for tests and simulations of Tezos and Ethereum blockchains. _Ganache_ provides also 10 funded accounts to start.
 
-// TODO: I changed the paragraph abov to refer to the future Private Blockchain module, and only mention Ganache as a `simulation` of a private network and not a real private network. Please look into it and make sure this is true or not.
+//TODO: I changed the paragraph abov to refer to the future Private Blockchain module, and only mention Ganache as a `simulation` of a private network and not a real private network. Please look into it and make sure this is true or not.
 
 Let's use the _Raffle_ smart contract from the [LIGO module](/ligo/contracts-ligo) and migrate it onto our private network using the _Truffle_ configuration from the [Build a Dapp module](/dapp).
 
@@ -38,9 +38,9 @@ It contains a ganache configuration (with predefined accounts), three smart cont
 2. a raffle smart contract, using a big map
 3. a raffle smart contract, using a map
 
-// TODO: In tzstats-smart-contracts line 13, you are only mentioning 2 smart contracts and here 3, why?
+//TODO: In tzstats-smart-contracts line 13, you are only mentioning 2 smart contracts and here 3, why?
 
-// TODO: Move the raffle-smart-contract repo into opentezos/examples/ligo/raffle
+//TODO: Move the raffle-smart-contract repo into opentezos/examples/ligo/raffle
 
 ```shell
 $ git clone https://github.com/bepi-octo/raffle-smart-contract.git
@@ -70,7 +70,7 @@ In `package.json`, one script is defined:
 
 This script starts a simulated private Tezos blockchain with _ganache_:
 
-// TODO: simulated or not?
+//TODO: simulated or not?
 
 ```shell
 $ npm run start-sandox
@@ -129,7 +129,7 @@ First, the private network has to be defined in the _truffle-config.js_ file. A 
     }
 ```
 
-// TODO: Add some small explations about this code above
+//TODO: Add some small explations about this code above
 
 We're going to used the accounts from the `scripts/sandbox/account.js` file.
 The contracts can now be migrated as follows:
@@ -144,7 +144,7 @@ This dummy contract is used to bypass a _TzStats_ bug regarding big maps:
 the first big map (whose index is 0) is not fetched by the frontend.
 2. a raffle contract using map
 3. a raffle using big map
-// TODO: Repetition with line 36
+//TODO: Repetition with line 36
 
 The migration files also include some operations to open a raffle and buy a ticket automatically once the contracts are deployed.
 
@@ -166,7 +166,7 @@ $ ls tzindex
 tzindex
 
 ```
-// TODO: Is the last 'tzindex' above correct? Isn't it missing a $ or some ./ ?
+//TODO: Is the last 'tzindex' above correct? Isn't it missing a $ or some ./ ?
 
 A _TzIndex_ binary is created in the same directory. The indexer can now watch the private network with this command:
 
@@ -178,7 +178,7 @@ Note the following options:
 - _--rpcurl_: url of the ganache private network rpc node
 - _--notls_: option to use _http_ instead of _https_
 - _--enable-cors_: used for the frontend (_TzStats_)
-// TODO: "used for the frontend" is not a sufficient explanation...
+//TODO: "used for the frontend" is not a sufficient explanation...
 
 _TzIndex_ now exposes its API on http://localhost:8000. 
 
@@ -207,7 +207,7 @@ $ yarn start
 
 <NotificationBar>
   <p>An error might occur during the npm install. 
-  // TODO: What error exactly? (User may get different errors)
+  //TODO: What error exactly? (User may get different errors)
   If so, modify the `sass` field under `scripts` in the `package.json` file as follows:
   ```json
   "sass": "npx sass src/styles/scss/index.scss:src/styles/css/index.css"
@@ -245,7 +245,7 @@ Many block details are displayed, most of them can be clicked on for even more i
 ![](../../static/img/explorer/tzstat-3.png "Smart contract call details page")
 
 The sender does match Alice's _pkh_ from _scripts/sandbox/account.js_.
-// TODO: You haven't defined what a pkh is in this module so far
+//TODO: You haven't defined what a pkh is in this module so far
 Notice the contract address matches the returned address from the migration output logs.
 
 Click on the address to inspect the smart contract:
@@ -364,7 +364,7 @@ All the available endpoints can be found here: [tzstats.com/docs/api#explorer-en
 # Setting up a private indexer for a public network
 Public networks can also be monitored with a local indexer. It just has to monitor a node: either a local node, or a public node (listed at [tezostaquito.io/docs/rpc_nodes](https://tezostaquito.io/docs/rpc_nodes/)).
 
-// TODO: use cases? Why would someone use a private indexer on a public network?
+//TODO: use cases? Why would someone use a private indexer on a public network?
 
 ```shell
 $ ./tzindex run --rpcurl <node_url> --notls --enable-cors
@@ -385,4 +385,4 @@ These private tools can also be used to monitor public networks, even if public 
 Finally, indexers can come in handy as additional tools to libraries (such as [Taquito](https://tezostaquito.io/)) or wallets. Indeed, _big maps_ are not easily handled with these tools. For instance, it is not possible to retrieve all the keys of a _big map_. However, indexers solve this issue with a simple REST call. You can learn more in the [Build a Dapp module](/dapp)).
 
 ## References
-// TODO: References?
+//TODO: References?
