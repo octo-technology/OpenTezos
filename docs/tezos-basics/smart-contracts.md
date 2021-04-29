@@ -81,27 +81,31 @@ The CLI command "`tezos-client originate`" is used to deploy a Tezos smart contr
 
 The command returns the newly deployed contract's address (more detail in the ["*RPC and CLI*"](/tezos-basics/introduction_to_cli_and_rpc) chapter).
 
-### Evolution of a deployed smart contract
-You need to remember the code of a smart contract is **immutable**. Only evolve the storage's size and state. Hence, to handle smart contracts versioning, you should keep in mind implementations structures allowing transfers of informations from old contracts to new contracts.
-
------- TODO
-
-* For data model extension, the "**map**" data structure can be used
-* To change the logic of a smart contract, the "**lambda**" pattern can be used
- 
-(i.e. the logic of the smart contract can be coded in a 'lambda' function inside the storage).
-
-This way the business logic can be upgraded with a regular call of the smart contract to modify the 'lambda' function in storage
-
-(this call must specify the new logic).
-
------- ODOT
-
 ## High-level languages for Tezos smart contracts implementations
 Michelson is a low-level stack-based language. Therefore its adoption is quite limited because most developers won't take time to learn it. To avoid this friction, many Michelson *compilers* have been developed and led to many high-level languages closer to developers habits: [*SmartPy*](/smartpy) (inspired by *Python*); [*LIGO*](/ligo) (inspired by *Camel* and *Pascal*); or [*Morley*](https://serokell.io/project-morley) (framework).
 
 ![](../../static/img/tezos-basics/tezos_smart_contract_deploy_invoke.svg)
 <small className="figure">FIGURE 3: Deployment and call of a Tezos smart contract with high-level languages.</small>
+
+## Smart contracts versioning
+You need to remember the code of a smart contract is **immutable**. Only evolve the storage's size and state. Hence, to handle smart contracts versioning, you should keep in mind implementations structures allowing transfers of informations from old contracts to new contracts.
+
+Hopefully, the above high-level languages make this kind of complex implementations easier. We will present you here three patterns to build evolutive smart contracts or *Dapps*.
+
+### Map pattern
+The idea of this pattern is making a smart contract's storage more dynamic by putting key informations inside a table or "data mapping". This mapping or "map" makes a classic "Key / Value" association between two data types. What's interesting here, like in an *array*, is that it's evolutive, even in the storage. Of course, the data types are fixed, but it is possible to add or remove pairs, or change a *value* assocaited with a *key*.
+
+For example, it is common to define a *map* of users in a DAO, so the users list can change following various organization's rules. The same users aren't carved in stone forever.
+
+Note that, even if a value or an association is deleted from a map, the blockchain ledger keep the complete history of its state.
+
+In the DAO example, a user would be able to quit, but exploring the past blocks, you'd still find his trace.
+
+### Lambda pattern
+
+
+### Data-Proxy pattern
+
 
 ## What have we learned so far?
 In this chapter,
