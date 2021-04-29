@@ -9,13 +9,15 @@ The Tezos blockchain brings several improvements including the formal verificati
 
 ### Overview
 
-The Tezos blockchain implements smart contracts using the Michelson language (see module _Michelson_). Michelson is a low-level stack-based turing-complete language which have been proven; the proof of Michelson language is compiled in a library called *Mi-cho-coq*. 
+The Tezos blockchain implements smart contracts using the Michelson language (see module _Michelson_). Michelson is a low-level stack-based turing-complete language which have been proven; the proof of Michelson language is compiled in a library called **Mi-cho-coq** (check the official documentation [2]). 
 
-Based on the Curry-Howard isomorphism which ensures the correspondence between a program and a theorem, Mi-cho-coq can be used in a proof assistant called *Coq* to translate a Michelson script into a theorem (i.e. into its logical equivalent form). 
+Based on the Curry-Howard isomorphism ([5],[6],[7]) which ensures the correspondence between a program and a theorem, Mi-cho-coq can be used in a proof assistant called **Coq** to translate a Michelson script into a theorem (i.e. into its logical equivalent form). The official documentation of Coq can be found here [1], but we recommend easy access documentation such as this introduction to Coq [3].
+
+> The Coq proof assistant is built upon the paradigm of **calculus of constructions** (as described by Thierry Coquand [16]).
 
 The formal verification of a smart contract is done by providing a proof for this theorem. *Coq* (the proof assistant) will perform the verification of a given proof (and its related theorem) based on the *Mi-cho-coq* (Michelson proof).
 
-The proof consists of instructions in _Coq_ language (called Galina). Theses instructions called _tactics_ manipulate formal expressions (following logical laws (_Coq_ univers) and _Mi-cho-coq_) and logical implications in order to formally assert truth of a given theorem.
+The proof consists of instructions in _Coq_ language (called Galina [4]). Theses instructions called _tactics_ manipulate formal expressions (following logical laws (_Coq_ universe) and _Mi-cho-coq_) and logical implications in order to formally assert truth of a given theorem.
 
 Before going deeper, let's sum up in the schema below representing the workflow of formal verification of Tezos smart contracts.
 
@@ -34,7 +36,7 @@ Formal verification of a Tezos smart contract consists of verifying formally tha
 ![](../../static/img/formal-verification/FormalVerification_theorem.svg)
 
 In the next sub-sections we will detail how to formulate formally the execution of a Michelson script and how to define post-conditions.
-The proof is a sequence of Coq tactics. Will see that part in the end of this chapter.
+The proof is a sequence of Coq tactics (see the Vernacular part of the Gallina language). We will see that part in the end of this chapter.
 
 #### Transaction execution (recall) WIP
 
@@ -292,17 +294,15 @@ Notice that the `vote_spec` definition is used as post condition and requires 4 
 
 Now that the intent of our smart contract has been modeled into post conditions and that our smart contract has been translated into a theorem (which combines evaluation of a sequence of Michelson instruction and those logical post-conditions), we need to prove this theorem is true.
 
-The demonstration or proof can be expressed with a sequence of Coq tactics.
+The demonstration or proof of the theorem can be expressed with a sequence of Coq tactics.
 
+Since the theorem is a complex logical proposition, it is suggested to decompose it into simpler propositions easily provable. This decomposition is done by applying reductions (//TODO see Coq/Galina vernacular).  
 
-//TODO
-En utilisant des Tactics (du Vernacular de Gallina), il est possible de démontrer le théorème. Pour faire avancer la preuve, il faut décomposer le problème en sous propositions logiques qui seront plus simples à prouver séparément.
-Ce script de preuve s’appuie sur:
-les commandes du Vernacular de Gallina,
-des types induits et des théorèmes (prouvés) de mi-cho-coq concernant les propriétés liées aux contrat Tezos (fuel, par exemple)
-L’univers de coq qui définit les domaines/ensembles des nombres et divers théorèmes associés. Par exemple, l’ensemble des entiers naturels est défini sur l’arithmétique de Peano [12].
-
-
+The following proof script is rely on 
+- tactics (commands of the Vernacular of Gallina) 
+- induced types (Mi-cho-coq)
+- proven theorem of Mi-cho-coq dealing with Tezos smart contract properties (e.g. gas)
+- the Coq univers which defines sets of numbers and related theorem. For example, natural integers are defined upon the Peano arithmetic.
 
 
 ```
@@ -386,6 +386,42 @@ Proof.
         simpl in H1. rewrite H1 in mapget. discriminate mapget.
 Qed.
 ```
+
+This section is not intended to be a Coq tutorial so we will not deep dive into this script. We recommand the
+
+
+# References
+
+[1] Coq - https://coq.inria.fr/distrib/current/refman/index.html
+
+[2] Mi-cho-coq repository - https://gitlab.com/nomadic-labs/mi-cho-coq
+
+[3] Introduction to Coq - http://www-sop.inria.fr/members/Yves.Bertot/courses/introcoq.pdf
+
+[4] Gallina - https://coq.inria.fr/distrib/current/refman/language/gallina-specification-language.html
+
+
+[5] Lambda-Calculus and Isomorphism Curry-Howard - http://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
+
+[6] Isomorphism Curry-Howard for Dummies - https://www.pédrot.fr/slides/inria-junior-02-15.pdf
+
+[7] Isomorphism Curry-Howard (small) - https://www.seas.harvard.edu/courses/cs152/2015sp/lectures/lec15-curryhoward.pdf
+
+
+
+
+[9] Michelson - https://www.michelson-lang.com/why-michelson.html
+
+[10] Logique formelle - https://www.irif.fr/~roziere/2ord/2ndordre.pdf
+
+[12] Axomes de Peano - https://fr.wikipedia.org/wiki/Axiomes_de_Peano
+
+
+[14] Mini-guide Coq - https://www.lri.fr/~paulin/MathInfo/coq-survey.pdf
+
+[15] Coq’Art - https://www.labri.fr/perso/casteran/CoqArt/coqartF.pdf
+
+[16] The calculus of constructions (1988) by Thierry Coquand - https://www.sciencedirect.com/science/article/pii/0890540188900053
 
 
 

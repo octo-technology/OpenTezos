@@ -5,16 +5,13 @@ title: Exam
 
 ### Question 1
 
-What notions are defined inside the smart contract ?
+What make the bridge between the Tezos world and the formal world of Coq ?
 
-- [x] The type definition of the storage
-- [ ] The balance of the contract
-- [ ] The initial value of the storage
-- [ ] The value of the entrypoint and its related parameters
-- [x] The type definition of the entrypoint
-- [ ] The size of the storage
-- [x] The code of the smart contract
-- [ ] The list of users allowed to call the smart contract
+- [ ] The Michelson language
+- [ ] The Coq univers
+- [x] The Mi-cho-coq module
+- [ ] The Tezos protocol
+
 
 ### Question 2
 
@@ -28,3 +25,4 @@ What is returned by the execution of a smart contract ?
 - [ ] The size of the storage
 - [ ] The code of the smart contract
 - [ ] The list of users allowed to call the smart contract
+
