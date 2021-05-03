@@ -5,7 +5,7 @@ title: Smart contracts
 In this chapter, you'll learn the Tezos smart contracts basics. Their components and the workflow to record and use them on the Tezos *blockchain*.
 
 ## General definition of a Tezos smart contract
-A smart contract is a code stored inside the *blockchain* which executes a set of pre-defined instructions (promises). Once deployed (stored), it becomes **immutable**. A smart contract is deployed using a **transaction**, so we embed spending conditions inside it, which are **immutable**. Though, for smart contracts, the key difference is a user *can trigger the execution of the code without modifying it, and without moving it to another transaction or block*. It stays where it has been stored **forever**. Tezos doesn't use an [UTXO model](https://en.wikipedia.org/wiki/Unspent_transaction_output) (no "*vaults*") but a **stateful accounts** one.
+A smart contract is a code stored inside the *blockchain* which executes a set of pre-defined instructions (promises). Once deployed (stored), it becomes **immutable**. A smart contract is deployed using a **transaction**, so we embed spending conditions inside it, which are **immutable**. Though, for smart contracts, the key difference is a user *can trigger the execution of the code without modifying it, and without moving it to another transaction or block*. It stays where it has been stored **forever**. Tezos doesn't use an [UTXO model](https://en.wikipedia.org/wiki/Unspent_transaction_output) (no "*vaults*", see *Blockchain Basics*) but a **stateful accounts** one.
 
 Like in Ethereum, Tezos uses 2 types of accounts:
 1. Classic accounts with a primary address, simply storing tez (ꜩ) coins
@@ -60,7 +60,7 @@ If needed for operations, the allocation of extra storage space is paid with cal
 For more details, check out the ["*Fees and Rewards*"](/tezos-basics/economics_and_reward) chapter.
 
 ### Call of a Tezos smart contract
-A smart contract can be called by a classic account whose address starts with "**tz1**", or by a smart contract's account which address starts with "**KT1**". The transaction specifies *arguments* to use, and to which *entrypoint* they are sent.
+A smart contract can be called by a classic account whose address starts with "**tz1**", or by a smart contract's account whose address starts with "**KT1**". The transaction specifies *arguments* to use, and to which *entrypoint* they are sent.
 
 ![](../../static/img/tezos-basics/invoke_smart_contract.svg)
 <small className="figure">FIGURE 2: Call of a smart contract triggering its code and modifying its storage's state</small>
