@@ -21,7 +21,7 @@ slug: /formal-verification
 
 [7] Isomorphism Curry-Howard (small) - https://www.seas.harvard.edu/courses/cs152/2015sp/lectures/lec15-curryhoward.pdf
 
-
+[8] Higher-order abstract syntax in Coq - https://web.archive.org/web/20060830033826/http://www.site.uottawa.ca/~afelty/dist/tlca95.ps
 
 
 [9] Michelson - https://www.michelson-lang.com/why-michelson.html
