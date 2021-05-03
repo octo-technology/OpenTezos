@@ -5,7 +5,7 @@ title: Smart contracts
 In this chapter, you'll learn the Tezos smart contracts basics. Their components and the workflow to record and use them on the Tezos *blockchain*.
 
 ## General definition of a Tezos smart contract
-A smart contract is a code stored inside the *blockchain* which executes a set of pre-defined instructions (promises). Once deployed (stored), it becomes **immutable**. A smart contract is deployed using a **transaction**, so we embed spending conditions inside it, which are **immutable**. Though, for smart contracts, the key difference is a user *can trigger the execution of the code without modifying it, and without moving it to another transaction or block*. It stays where it has been stored **forever**. Tezos doesn't use an [UTXO model](https://en.wikipedia.org/wiki/Unspent_transaction_output) (no "*vaults*") but a **stateful accounts** one.
+A smart contract is a code stored inside the *blockchain* which executes a set of pre-defined instructions (promises). Once deployed (stored), it becomes **immutable**. A smart contract is deployed using a **transaction**, so we embed spending conditions inside it, which are **immutable**. Though, for smart contracts, the key difference is a user *can trigger the execution of the code without modifying it, and without moving it to another transaction or block*. It stays where it has been stored **forever**. Tezos doesn't use an [UTXO model](https://en.wikipedia.org/wiki/Unspent_transaction_output) (no "*vaults*", see *Blockchain Basics*) but a **stateful accounts** one.
 
 Like in Ethereum, Tezos uses 2 types of accounts:
 1. Classic accounts with a primary address, simply storing tez (ꜩ) coins
@@ -22,7 +22,7 @@ For example, it is common to create financial instruments like various *tokens* 
 
 In most cases, smart contracts remove *intermediate* and drastically reduce costs compared to classic paper contracts and their validations.
 
-Notice that like any other, a Tezos smart contract can only run on and interact with the blockchain it's stored. It can't interact with the outside world. That's where *decentralized applications* or "_Dapps_" come in.
+Notice that like any other, a Tezos smart contract can only run on and interact with the blockchain it's stored in (Bitcoin's smart contracts are exceptions here). It can't interact with the outside world. That's where *decentralized applications* or "_Dapps_" come in, because they provide interfaces for the outside world.
 
 To build your own Dapp, please refer to the [*Build a Dapp*](/dapp) module.
 
@@ -60,14 +60,14 @@ If needed for operations, the allocation of extra storage space is paid with cal
 For more details, check out the ["*Fees and Rewards*"](/tezos-basics/economics_and_reward) chapter.
 
 ### Call of a Tezos smart contract
-A smart contract can be called by a classic account whose address starts with "**tz1**", or by a smart contract's account which address starts with "**KT1**". The transaction specifies *arguments* to use, and to which *entrypoint* they are sent.
+A smart contract can be called by a classic account whose address starts with "**tz1**", or by a smart contract's account whose address starts with "**KT1**". The transaction specifies *arguments* to use, and to which *entrypoint* they are sent.
 
 ![](../../static/img/tezos-basics/invoke_smart_contract.svg)
 <small className="figure">FIGURE 2: Call of a smart contract triggering its code and modifying its storage's state</small>
 
-One can use the Command Line Interface (CLI) provided by Tezos to interact with a node an make calls. The "`tezos-client`" application allows anyone to deploy and call Tezos smart contracts.
+One can use the Command Line Interface (CLI) provided by Tezos to interact with a node and make calls. The "`tezos-client`" application allows anyone to deploy and call Tezos smart contracts.
 
-The Remote Procedure Call (RPC) also provides ways to send requests to a Tezos node via HTTP (more details in ["*RPC and CLI*"](/tezos-basics/introduction_to_cli_and_rpc) chapter.
+The Remote Procedure Call (RPC) also provides ways to send requests to a Tezos node via HTTP (more details in ["*RPC and CLI*"](/tezos-basics/introduction_to_cli_and_rpc) chapter).
 
 The CLI command "`tezos-client originate`" is used to deploy a Tezos smart contract. Arguments are the following:
 - Name of the smart contract
@@ -81,29 +81,66 @@ The CLI command "`tezos-client originate`" is used to deploy a Tezos smart contr
 
 The command returns the newly deployed contract's address (more detail in the ["*RPC and CLI*"](/tezos-basics/introduction_to_cli_and_rpc) chapter).
 
-### Evolution of a deployed smart contract
-You need to remember the code of a smart contract is **immutable**. Only evolve the storage's size and state. Hence, to handle smart contracts versioning, you should keep in mind implementations structures allowing transfers of informations from old contracts to new contracts.
-
------- TODO
-
-* For data model extension, the "**map**" data structure can be used
-* To change the logic of a smart contract, the "**lambda**" pattern can be used
- 
-(i.e. the logic of the smart contract can be coded in a 'lambda' function inside the storage).
-
-This way the business logic can be upgraded with a regular call of the smart contract to modify the 'lambda' function in storage
-
-(this call must specify the new logic).
-
------- ODOT
-
 ## High-level languages for Tezos smart contracts implementations
 Michelson is a low-level stack-based language. Therefore its adoption is quite limited because most developers won't take time to learn it. To avoid this friction, many Michelson *compilers* have been developed and led to many high-level languages closer to developers habits: [*SmartPy*](/smartpy) (inspired by *Python*); [*LIGO*](/ligo) (inspired by *Camel* and *Pascal*); or [*Morley*](https://serokell.io/project-morley) (framework).
 
 ![](../../static/img/tezos-basics/tezos_smart_contract_deploy_invoke.svg)
 <small className="figure">FIGURE 3: Deployment and call of a Tezos smart contract with high-level languages.</small>
 
-## What have we learned so far?
-In this chapter,
+## Smart contracts versioning
+You need to remember the code of a smart contract is **immutable**. Only evolve the storage's size and state. Hence, to handle smart contracts versioning, you should keep in mind **implementations structures** allowing transfers of informations **from old contracts to new contracts**.
 
-In next chapter, 
+Hopefully, the above high-level languages make this kind of complex implementations easier. We will present you here three patterns to build evolutive smart contracts or *Dapps*.
+
+### Map pattern
+The idea of this pattern is making a smart contract's storage more dynamic by putting key informations inside a table or "data mapping". This mapping or "map" makes a classic "Key / Value" association between two data types. What's interesting here, like in an *array*, is that it's evolutive, even in the storage. Of course, the data types are fixed, but it is possible to add or remove pairs, or change a *value* associated with the same *key*.
+
+For example, it is common to define a *map* of users in a DAO, so the users list can change following various organization's rules. The same users aren't carved in stone forever.
+
+Note that, even if a value or an association is deleted from a map, the blockchain ledger keep the complete history of its state.  
+In the DAO example, a user would be able to quit, but exploring the past blocks, you'd still find his trace.
+
+### Lambda pattern
+The Lambda pattern is based on *lambda functions*. These functions are anonymous, they litteraly have *no name* and only a mandatory *type* (function!), non-mandatory *parameters*, and non-mandatory *return values*. The idea is to exchange the **body** of a classic *named* function with a **lambda function**.
+
+Instead of simply sealing the classic function's body inside the storage as an immutable structure, you make it a modifiable *variable*. For instance, you could put its body inside a dynamic map (using a *map pattern*). In a very simplified high-level language:
+
+```d
+function doSomething(p1, ... , pP) return (v1, ... , vR) {
+    @storage.map.key
+}
+```
+
+To execute the function's instructions, the smart contract would look in the map. At the **key** "*@storage.map.key*", it would find the lambda function as an associated **value**. The associated value would look like this:
+
+```d
+function (p1, ... , pQ) return (Body) {
+    return actual_instructions;
+}
+```
+
+This lambda function returns the  **body** of the "*doSomething*" function as a result.
+
+Later, in an upgrading process, it would be possible to **modify the lambda function** in **just changing** the **_value_** in the map for the **_same key_**!
+
+### Data-Proxy pattern
+We are not forced to use the above patterns all in the same smart contract's storage. It would actually be an even better idea to use [modular programming](https://en.wikipedia.org/wiki/Modular_programming). In a "*Data-Proxy pattern*", the idea is to separate the data (*Data*) from the rules (via a *Proxy*). So, you would basicaly have a smart contract containing data and the rules in another one (functions...).
+
+Once the Data-Proxy architecture is in place, we can make the Data smart contract more dynamic with a Map pattern, and the Proxy smart contract upgradable with a Lambda pattern:
+
+![](../../static/img/tezos-basics/data-proxy.svg)  
+<small className="figure">FIGURE 6: Data-Proxy, Map, and Lambda patterns combination.</small>
+
+As you can deduce, what really immutable here are:
+- The "*Get*" and "*Set*" functions of the Data smart contract. These are *functions* to **read** and **write** data in the storage's map.  
+  Note that these functions are asynchrone in a [Continuation-Passing Style (CPS)](https://en.wikipedia.org/wiki/Continuation-passing_style) way. They are nor direct, nor public, and still have to be called through **entrypoints**.
+- The named functions in the Proxy smart contract (you could actually change the names with a *map pattern* here too...)
+
+This pattern isn't limited to 2 smart contracts only. You can imagine various architectures, combining various patterns. For instance, you can imagine a central Data smart contract, and multiple upgradable other smart contracts revolving around it. This example implies a single point of failure in the Data smart contract, but there are other questions you should keep in mind, like access rights (getters, setters...).
+
+These patterns aren't magical, they just allow more flexibility. You still need to think about the best architecture for your *dapp*. Notably, patterns can increase the deployment and using *gaz* fees.
+
+## What have we learned so far?
+In this chapter, we discribed the Tezos smart contract's main components and properties and how they live themselves in its lifecycle. We also discribed how to construct Tezos smart contracts using different patterns to make evolving *dapps* and handle efficient *versioning*.
+
+In next chapter, we will detail the Tezos consensus "*Liquid Proof-of-Stake*".
