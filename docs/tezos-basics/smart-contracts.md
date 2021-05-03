@@ -132,7 +132,8 @@ Once the Data-Proxy architecture is in place, we can make the Data smart contrac
 <small className="figure">FIGURE 6: Data-Proxy, Map, and Lambda patterns combination.</small>
 
 As you can deduce, what really immutable here are:
-- The **getters** and the **setters** of the Data smart contract. These are *functions* to **read** and **write** data in the storage's map
+- The "*Get*" and "*Set*" functions of the Data smart contract. These are *functions* to **read** and **write** data in the storage's map.  
+  Note that these functions are asynchrone in a [Continuation-Passing Style (CPS)](https://en.wikipedia.org/wiki/Continuation-passing_style) way. They are nor direct, nor public, and still have to be called through **entrypoints**.
 - The named functions in the Proxy smart contract (you could actually change the names with a *map pattern* here too...)
 
 This pattern isn't limited to 2 smart contracts only. You can imagine various architectures, combining various patterns. For instance, you can imagine a central Data smart contract, and multiple upgradable other smart contracts revolving around it. This example implies a single point of failure in the Data smart contract, but there are other questions you should keep in mind, like access rights (getters, setters...).
