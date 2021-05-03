@@ -30,9 +30,12 @@ slug: /formal-verification
 
 [12] Axomes de Peano - https://fr.wikipedia.org/wiki/Axiomes_de_Peano
 
+[13] Calculus of constructions - https://fr.wikipedia.org/wiki/Calcul_des_constructions
 
 [14] Mini-guide Coq - https://www.lri.fr/~paulin/MathInfo/coq-survey.pdf
 
 [15] Coq’Art - https://www.labri.fr/perso/casteran/CoqArt/coqartF.pdf
 
 [16] The calculus of constructions (1988) by Thierry Coquand - https://www.sciencedirect.com/science/article/pii/0890540188900053
+
+[17] Lambda-calcul - https://fr.wikipedia.org/wiki/Lambda-calcul
