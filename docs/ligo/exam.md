@@ -9,7 +9,7 @@ What is correct about LIGO?
 
 - [x] LIGO is a programming language for writing Tezos smart contracts.
 - [ ] By default, smart contracts are written in LIGO language.
-- [x] LIGO transpiles scripts written in a high-level language into a Michelson script.
+- [x] LIGO compiles scripts written in a high-level language into a Michelson script.
 - [ ] The LIGO syntax is PascaLigo.
 
 ### Question 2

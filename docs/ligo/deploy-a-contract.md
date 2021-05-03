@@ -37,7 +37,7 @@ Executing an entry point takes some parameters and a current state of the storag
 
 In order to deploy a contract in a real Tezos network,
 we have to compile it first,
-this can be done with a tool called transpiler (aka LIGO compiler) used to transform
+this can be done with a tool called compiler (aka LIGO compiler) used to transform
 LIGO code into Michelson code.
 
 Michelson smart contracts are stored in a file with .tz extension.
@@ -126,7 +126,7 @@ Initialization of elements of a tuple is specified between `(` and `)` separated
 (VALUE1, VALUE2, VALUE3)
 ```
 
-Here is an example of a command line `ligo compile-storage` for transpiling a map containing a tuple.
+Here is an example of a command line `ligo compile-storage` for compiling a map containing a tuple.
 
 ```shell
 ligo compile-storage starmap.ligo main 'map [ "earth" -> (1,1,1) ]'

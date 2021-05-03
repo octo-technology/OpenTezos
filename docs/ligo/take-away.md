@@ -4,7 +4,7 @@ title: Take Away
 ---
 
 - LIGO is a programming language for writing **Tezos smart contracts**.
-- LIGO **transpiles** scripts written in a high-level language into a **Michelson script**.
+- LIGO **compiles** scripts written in a high-level language into a **Michelson script**.
 
 - A smart contract is some code written in Michelson language (a low-level stack-based turing-complete language).
     - It defines all **entrypoints** (invokable functions) of the smart contract.

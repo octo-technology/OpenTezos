@@ -872,7 +872,7 @@ You can define Tezos addresses by casting a string to an address type:
 const my_account : address = ("tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx" : address)
 ```
 
-⚠️ You will not see a transpilation error if the address you enter is wrong, but the execution will fail.
+⚠️ You will not see a compilation error if the address you enter is wrong, but the execution will fail.
 
 # Main function and Entrypoints
 

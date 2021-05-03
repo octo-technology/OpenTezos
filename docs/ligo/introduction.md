@@ -18,7 +18,7 @@ it can become very tedious for more complex smart contracts:
 
 LIGO solves these issues. 
 It is a high-level language for smart contracts development.
-Smart contracts are developed in Ligo, then transpiled into a single Michelson code file. 
+Smart contracts are developed in Ligo, then compiled into a single Michelson code file. 
 This Michelson file is the smart contract that will be deployed on a tezos network.
 
 <br/>
@@ -133,7 +133,7 @@ This LIGO contract accepts the following LIGO expressions:
 
 <br/>
 
-The goal of this module is to allow a developer to install the LIGO transpiler on his operating system
+The goal of this module is to allow a developer to install the LIGO compiler on his operating system
 and give him the essential skills to write and deploy his first smart contract
 onto the Tezos blockchain.
 PascaLigo will be used throughout this module.
