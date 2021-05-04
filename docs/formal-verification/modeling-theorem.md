@@ -25,7 +25,7 @@ The proof consists of a sequence of _tactics_ which will be interpreted by the C
 Before going deeper, let's sum up in the schema below representing the workflow of formal verification of Tezos smart contracts.
 
 ![](../../static/img/formal-verification/FormalVerification_overview.svg)
-
+![](../../static/img/formal-verification/overview_process.svg)
 
 ### Modeling a smart cotract as a theorem
 
@@ -37,7 +37,7 @@ The theorem is based on
 
 Formal verification of a Tezos smart contract consists of verifying formally that **the execution of the Michelson script satisfies specific post-conditions**.
 
-![](../../static/img/formal-verification/FormalVerification_theorem.svg)
+![](../../static/img/formal-verification/overview_theorem.svg)
 
 In the next sub-sections we will detail how to formulate formally the execution of a Michelson script and how to define post-conditions.
 The proof is a sequence of Coq tactics (see the Vernacular part of the Gallina language). We will see that part in the end of this chapter.
@@ -50,7 +50,8 @@ A smart contract invocation requires the smart contract that is invoked, the ent
 
 If all these elements are provided the execution of the code of the smart contract is triggered which will result in side-effects on the storage and optionally on the Tezos network.
 
-![](../../static/img/formal-verification/Smart_contract_execution.svg)
+
+![](../../static/img/formal-verification/smartcontract_invocation.svg)
 <small className="figure">FIGURE 3: Execution of an entrypoint of a smart contract triggering its code and thus side-effect on storage and Tezos network.</small>
 
 The entrypoint information is used to identify which portion of the code will be executed.
@@ -229,14 +230,57 @@ First, let's define some rules governing the voting process:
 Now these rules can be translated into formal propositions. These propositions depends on the given parameter, the current storage state and the new storage state (and the produced operations).
 
 ![](../../static/img/formal-verification/post_conditions.svg)
+![](../../static/img/formal-verification/postconditions_rules.svg)
+
 <small className="figure">FIGURE 4: Post conditions of _Vote_ smart contract.</small>
 
-//TODO décrire chaque condition
 
-In Coq, these logical rules are implemented like this:
+The rule "Keys of the old storage exists in the new storage" can be written in Coq (Gallina - Terms) with the following:
+```
+(forall s, (mem _ _ (Mem_variant_map _ int) s storage) <->
+        (mem _ _ (Mem_variant_map _ int) s new_storage))
+```
+This expression verifies that all keys of the old storage is defined in the new storage.
+
+The rule "For Bob, number of votes is incremented" can be formulated as: "For each elements of the mapping where key is equal to given parameter, the new value must be equal to the old value  plus one". It can be written in Coq (Gallina - Terms) with the following:
 
 ```
+match (get _ _ _ (Get_variant_map _ int) param storage) with
+  | Some n1 => match (get _ _ _ (Get_variant_map _ int) param new_storage) with
+              | Some n2 => n2 = (BinInt.Z.add n1 1)
+              | None => False
+              end
+  | None => False end
+```
 
+The rule "For others, number of votes do not change" can be formulated as: "For each elements of the mapping different from the given parameter, ensure that the old value is equal to the new value". It can be written in Coq (Gallina - Terms) with the following:
+
+```
+(forall s, s <> param ->
+   match (get _ _ _ (Get_variant_map _ int) s storage) with
+  | Some n1 => match (get _ _ _ (Get_variant_map _ int) s new_storage) with
+              | Some n2 => n2 = n1
+              | None => False
+              end
+  | None => True end)
+```
+
+The rule "Only the storage is modified" can be expressed by verifying that no operations have been produced. It can be written in Coq (Gallina - Terms) with the following:
+
+```
+returned_operations = nil
+```
+
+As seen previously, the smart contract can be executed only if the amount of XTZ transferred is lower than 5000000 otherwise the execution fails. This constraint can be written in Coq (Gallina - Terms) with the following:
+
+```
+(Z.ge (tez.to_Z (amount env)) 5000000)
+```
+
+
+To sump up, our post conditions are a combination of all these logical rules merged into a single object which depends on the given old storage state and parameter, and the resulting new storage state and the returned operations. This object `vote_spec` representing the post conditions of the voting process. 
+
+```
 Definition vote_spec
            (storage: data storage_ty)
            (param : data parameter_ty)
