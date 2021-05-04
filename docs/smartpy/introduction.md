@@ -3,7 +3,7 @@ id: introduction
 title: Introduction
 ---
 
-The goal of this module is to allow a developer to use the smartpy library to write his own smart contracts.
+The goal of this module is to allow a developer to use the SmartPy library to write his own smart contracts.
 In the form of a pedagogical course illustrated with an example of smart contract,
 the developer will have acquired the essentials to write, test and analyze his smart contract.
 
@@ -22,7 +22,7 @@ and comes with related tools in the form of [SmartPy.io](https://smartpy.io/) to
 the accessibility, understandability and provability of smart contracts on Tezos.
 - Use a popular programming language Python
 - A set of high-level primitives, SmartML, written in OCaml for a new smart contracts virtual machine 
-  that can be translated into Michelson.
+  that can be compiled into Michelson.
 - A compiler to translate SmartML contracts to Michelson.
 - Analytics are elements of the user interface that provide some automatic procedures in SmartPy.io 
   to analyze and prove properties of smart contracts
@@ -32,7 +32,7 @@ the accessibility, understandability and provability of smart contracts on Tezos
 
 Once built, SmartPy contracts become SmartML contracts 
 and are handled in an OCaml library called SmartEngine,
-then it can be transpiled into a single Michelson code file.
+then it can be compiled into a single Michelson code file.
 This Michelson file is the smart contract that will be deployed on a Tezos network.
 
 ## References
