@@ -9,7 +9,7 @@ Becoming a baker or a delegate on Tezos is a great way to contribute to the ecos
 
 Everyone with at least 8,000 XTZ can produce, sign and validate blocks and get rewards in proportion to their stake. The only thing you need to exercise your baking rights is to run a node with baking software and keep it online and up to date.
 
-OpenTezos has dedicated modules on [How baking works](/baking) and [How to setup your own baker](/baker). However this might be quite complicated for inexperienced users. An easier alternative it to delegate instead of bake.
+OpenTezos has dedicated modules on [How baking works](/baking) and [How to setup your own baker](/baker). However this might be quite complicated for inexperienced users. An easier alternative it to delegate instead of baking.
 
 ## Delegation
 
