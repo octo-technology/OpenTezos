@@ -26,8 +26,9 @@ Before going deeper, let's sum up in the schema below representing the workflow 
 
 ![](../../static/img/formal-verification/FormalVerification_overview.svg)
 ![](../../static/img/formal-verification/overview_process.svg)
+<small className="figure">FIGURE 1: Proof process.</small>
 
-### Modeling a smart cotract as a theorem
+### Modeling a smart contract as a theorem
 
 This ecosystem combines an assistant of proof (*Coq*) and the proof of the Michelson language (*Mi-cho-coq*) to formally verify the correctness of a theorem and its proof.
 
@@ -38,13 +39,14 @@ The theorem is based on
 Formal verification of a Tezos smart contract consists of verifying formally that **the execution of the Michelson script satisfies specific post-conditions**.
 
 ![](../../static/img/formal-verification/overview_theorem.svg)
+<small className="figure">FIGURE 2: Naive description of the theorem.</small>
 
 In the next sub-sections we will detail how to formulate formally the execution of a Michelson script and how to define post-conditions.
 The proof is a sequence of Coq tactics (see the Vernacular part of the Gallina language). We will see that part in the end of this chapter.
 
-#### Transaction execution (recall)
+#### Smart contract invocation (recall)
 
-As a recall, a Tezos smart contract consists on a Michelson script (//TODO see chapter Michelson). 
+As a recall, a Tezos smart contract consists on a Michelson script (more documentation is available in chapter Michelson or the official documentation [9]). 
 
 A smart contract invocation requires the smart contract that is invoked, the entrypoint that is called (and its related arguments), the actual storage state.
 
@@ -59,7 +61,7 @@ The entrypoint arguments and the storage are used as the context of execution (i
 The execution of the code produces a new storage state and operations.
 The operations produced by this invocation are some new invocations of other smart contracts.
 
-> Since the proof of smart contract interactions is not doable currently (//TODO "anglais pas top a reformuler" but a collaboration between Nomadic and Archetype has been started to  make this kind of proof possible), we will consider that there are no operations produced. 
+> Since the proof of smart contract interactions is not doable currently , the _Vote_ example  will consider that there are no operation produced. Some collaboration between Nomadic and Archetype has been started to make proof on smart contract interactions.
 
 #### Formally modeling the execution of a tezos smart contract
 
@@ -185,7 +187,7 @@ The Tezos smart contract is a Michelson script which cannot be taken as input by
 
 Mi-cho-coq (which is the Coq specification of the Michelson language) provide the correspondence between a Michelson instruction and an equivalent logical proposition.
 
-Here is a formal definition of the _Vote_ smart contract in Coq. 
+The _Vote_ smart contract can be formalized in a formal definition in Coq (Terms). 
 
 ```
 Definition vote : full_contract _ ST.self_type storage_ty :=
@@ -203,8 +205,9 @@ Definition vote : full_contract _ ST.self_type storage_ty :=
     NIL operation;; PAIR 
 ).
 ```
+This `vote` definition will be used to formalize the theorem.
 
-Notice that the _vote_ definition takes the parameter and storage types (`parameter_ty`, `storage_ty`) as arguments.
+Notice that the `vote` definition takes the parameter and storage types (`parameter_ty`, `storage_ty`) as arguments.
 
 Notice that `GET`, `UPDATE`, `ADD` and `PUSH` instructions are annotated:
 - `ADD (s := add_int_int)` indicates it is an addition between two integers.
@@ -320,7 +323,22 @@ To conclude the post conditions of the _Vote_ smart contract are defined by the 
 
 ##### Theorem definition
 
-//TODO
+
+
+As said previously, the formal verification of a Tezos smart contract consists of verifying formally that **the execution of the Michelson script satisfies specific post-conditions**.
+
+Also, as said previously, the theorem can be formalized as :
+
+```
+eval env CODE fuel (arguments, storage) = return (newstorage) <=> post-conditions
+```
+
+Here is a scheam describing graphically the theorem formailzation:
+
+![](../../static/img/formal-verification/theorem_graphical.svg)
+<small className="figure">FIGURE 5: Description of the theorem.</small>
+
+Now that we have defined the post-conditions to verify we can define the theorem in Gallina (Terms) syntax.
 
 ```
 Theorem vote_correct
@@ -334,7 +352,14 @@ Theorem vote_correct
   <-> vote_spec storage param new_storage returned_operations.
 ```
 
-This theorem can be seen as an equivalence between the execution of the code and the verification of post conditions.
+Notice that the `vote` object represents our smart contract (in a formal representation).
+
+Notice that the `vote_spec` object represents the post-conditions to verify (in a formal representation).
+
+We can represents this equivalence between the execution of the code and the verification of post conditions byt the following diagram.
+
+![](../../static/img/formal-verification/theorem_graphical_detail.svg)
+<small className="figure">FIGURE 6: Detailed description of the theorem.</small>
 
 Notice that the `vote_spec` definition is used as post condition and requires 4 arguments (`storage`, `param`, `new_storage`, `returned_operations`). 
 
@@ -344,7 +369,7 @@ Now that the intent of our smart contract has been modeled into post conditions 
 
 The demonstration or proof of the theorem can be expressed with a sequence of Coq tactics.
 
-Since the theorem is a complex logical proposition, it is suggested to decompose it into simpler propositions easily provable. This decomposition is done by applying reductions (//TODO see reductions in Gallina/Terms).  
+Since the theorem is a complex logical proposition, it is suggested to decompose it into simpler propositions easily provable. This decomposition is done by separating into smaller independent propositions or applying reductions (see reductions in Gallina [4]).  
 
 The following proof script is rely on 
 - tactics (commands of the Vernacular of Gallina) 
@@ -438,6 +463,8 @@ Qed.
 ```
 
 This section is not intended to be a Coq tutorial so we will not deep dive into this script. If you want to look into proof implementation in Coq we recommand these simple tutorials [3], [14] as a starter and the Coq'Art book [15] for a more complete overview. 
+
+
 
 
 
