@@ -181,6 +181,10 @@ Miners are now able to verify that a transaction has indeed been sent by the own
 ![](../../static/img/blockchain-basics/tx_signature_true.svg)
 <small className="figure">FIGURE 18: Miners verify that this transaction has been sent by the owner of the private key</small>
 
+Note that humans usually don't use public keys directly. In practice, we use "_**addresses**_". We won't go into details here, but addresses are created from one or many public keys. In Bitcoin, two hash functions are used (*SHA256* again, and *RIPEMD160*), while in Ethereum, only one (*Keccak-256* or "*SHA3*"). Hash functions really are everywhere in blockchains. This implies that you can't know a public key from an address.
+
+If you later want to code Tezos smart contracts, you need to know this difference, because you'd have to mostly handle addresses before public keys or signatures in your applications.
+
 ## Complete blockchain
 Let's now modify our "insecure" blockchain diagram fig. 10 and add the signatures of each sender to their transaction.
 
@@ -206,10 +210,10 @@ To recap, here is a complete schema of a block, a blockchain and a blockchain ne
 <small className="figure">FIGURE 21: A complete and distributed blockchain network</small>
 
 ## Conclusion
-You can now understand the power of the blockchain, a fully secured system without the need for a bank or any centralized entity. All you need is random number to create an a private and public key and start receiving money. Note that public keys are pseudonymous and not anonymous. You will need to associate your public key with your identity documents if you want to withdraw some money to your bank account.
+You can now understand the power of the blockchain, a fully secured system without the need for a bank or any centralized entity. All you need is a random number to create a private key and then a public key, and start receiving money. Note that public keys are pseudonymous and not anonymous. You will need to associate your public key with your identity documents if you want to withdraw some money to your bank account.
 
 ## About Energy consumption
-You know understand that mining is nothing more than repeatedly trying random _nonce_ to try to solve a very arbitrary problem first and obtain the coinbase reward. Everyone is basically in competition, and the more computational power and electricity you use, the better your chances. This unfortunately has a perverse effect on the environment. Bitcoin mining has recently past 100 TWh [[2]](/blockchain-basics/proof-of-work#references) in energy consumption, more than entire countries like Switzerland (56 TWh) or Finland (84 TWh). All this just to find an arbitrary number that does nothing except selecting a person in the world to be the next validator. Isn't there a better alternative? Isn't there a consensus that would be more cooperative and less competitive? We're going to see in the next chapter a few examples of so-called _next generation consensuses_ (including the consensus used by Tezos) that work just as well as _PoS_ but with a much lower energy consumption.
+You know understand that mining is nothing more than repeatedly trying random _nonce_ to try to solve a very arbitrary problem the first place, and obtain the coinbase reward. Everyone is basically in competition, and the more computational power and electricity you use, the better your chances. This unfortunately has a detrimental effect on the environment. Bitcoin mining has recently past 100 TWh [[2]](/blockchain-basics/proof-of-work#references) in energy consumption, more than entire countries like Switzerland (56 TWh) or Finland (84 TWh). All this just to find an arbitrary number that does nothing except selecting a person in the world to be the next validator. Isn't there a better alternative? Isn't there a consensus that would be more cooperative and less competitive? We're going to see in the next chapter a few examples of so-called _next generation consensuses_ (including the consensus used by Tezos) that work just as well as _PoS_ but with a much lower energy consumption.
 
 ## References
 
