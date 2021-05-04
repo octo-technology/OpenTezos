@@ -29,7 +29,7 @@ In order to receive a _Tezos Foundation_ grant one has to:
 - [x] apply for a grant
 - [x] wait for the application to be reviewed
 - [x] react to the review’s findings
-
+//TODO: find another question: question 2 & 3 are the same
 ### Question 4
 
 _Tezos Foundation_ grants are offered:
