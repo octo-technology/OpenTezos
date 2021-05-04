@@ -5,7 +5,7 @@ title: Main properties of the first "blockchain"
 authors: Thomas Zoughebi
 ---
 
-In this chapter, we will dig deeper into the main properties of the Bitcoin protocol, its developers, its P2P network and few basics of the economy it has created.
+In this chapter, we will dig deeper into the main properties of the Bitcoin protocol, its developers, its P2P network and a few basics of the economy it uses.
 
 ## Open-Source
 Most, if not all, public blockchain developments are made open-source. Anyone can verify the code, correct it, and make proposals. This openness is essential in a environment that is essentially trustless. It is common to hear community members say: "*Don't trust, verify!*".
@@ -25,28 +25,28 @@ There are different types of nodes, but for the sake of simplicity, let's only q
 
 - _Full nodes_ enforce the rules no matter what happens and validate transactions. They _usually_ [[2]](/blockchain-basics/main-properties#references) also record all transactions in a distributed ledger. This ledger is shared by all the full nodes of the network.
 
-- _Lightweight nodes_ are used for devices with limited space capacity, calculating speed, or connectivity (e.g. smartphones, tablets, IoT, etc.). They don't record transactions in the ledger and ask full nodes for info when needed.
+- _Lightweight nodes_ are used for devices with limited space capacity, calculating speed, or connectivity (e.g. smartphones, tablets, IoT, etc.). They don't record transactions in the ledger and ask full nodes for informations when needed.
 
-From now on, "node" refers to a full node. 
+From now on, "node" refers to a *full node*. 
 
 ### Chained Data-structure
 The ledger's structure has to be very special to meet the following constraints:
 
-- The ledger is distributed over the planet, and everyone should be able to agree on its state at the same time (minus lag)
+- The ledger is distributed over the planet, and everyone should be able to agree on its state at the same time (minus latency)
   
-- Transactions are grouped inside packages named "**blocks**" to ease management. Blocks shouldn't be too small (//TODO: why?), nor too big (//TODO: why?)
+- Transactions are grouped inside packages named "**blocks**" to ease management. Blocks shouldn't be too small, nor too big, to have smooth and regular transmissions.
   
 - The history must not be modified (immutability) so the difficulty to attack the network and modify the ledger must increase over time (as computers become more powerful)
   
 - Verifying the history, or picking a specific information inside the ledger has to be fast (e.g. check a balance)
   
-- The part of the community validating the blocks (i.e. the miners) must be rewarded in a fair way
+- The part of the community validating the blocks (i.e. the "*miners*", as we'll see) must be rewarded in a fair way
 
 The data-structure which permits all of the above is a chain of blocks aka "blockchain".
 
-Valid transactions are grouped and enclosed inside a block. Every 10 minutes on Bitcoin, a new block must be mined. The number of transactions inside a block is only limited by its available space (e.g. 1 MB for Bitcoin, 32 MB for _Bitcoin Cash_). However, the more transactions in a block (and thus transaction fees), the more rewarding it is for the blocks validators.
+Valid transactions are grouped and enclosed inside a block. Every 10 minutes on Bitcoin, a new block must be mined. The number of transactions inside a block is only limited by its available space which is currently (2021) around 2 MB (comparatively "_Bitcoin Cash_" blockchain has around 32 MB block size).
 
-Each new block is linked to the previous one: they are chained. The more blocks there are, the more difficult it is to modify anything in the ledger. They are cryptographically chained. That means, that if you want to cheat (e.g. make a double-spend or spend money you don't have), you would need to modify everything until the first block ever created (called the _Genesis Block_). This is like *Matryoshka dolls* with an enormous number of dolls.
+Each new block is linked to the previous one: they are chained. The more blocks there are, the more difficult it is to modify anything in the ledger. They are cryptographically chained. That means, that if you want to cheat (e.g. make a double-spend or spend money you don't have), you would need to modify everything until the first block ever created (called the "_Genesis Block_"). This is like *Matryoshka dolls* with an enormous number of dolls.
 This is achieved through [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_block_chaining_(CBC)), where instead of a _XOR_ function, the _SHA256_ function is used. Twice:
 
 ![Chain of blocks](../../static/img/blockchain-basics/blocks-chain.svg "Chain of blocks")
@@ -61,6 +61,7 @@ The blocks validators are called the **miners**. They put valid transactions ins
 The fees are simply **the sum of the transactions values** ($S_v$) minus **the sum of the amounts really sent** ($S_a$).
 
 For $T$ transactions in a block, let $v$ be a transaction value, and $a$ be the amount really sent:
+
 $$
 \text{Fees} = \sum_{i=1}^{T} v_i - \sum_{i=1}^{T} a_i
 $$
