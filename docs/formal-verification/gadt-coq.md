@@ -38,12 +38,13 @@ data Lam :: * -> * where
   Fix  :: Lam (a -> a)          -> Lam a        // fixed point
 ```
 
+A fixed point of a function is a value that is mapped to itself by the function. In combinatory logic for computer science, a fixed-point combinator (or fixpoint combinator) is a higher-order function _fix_ that returns some fixed point of its argument function, if one exists.
 
-### Monad
+#### Monad
 
-In category theory, a monad (also triple, triad, standard construction and fundamental construction)[ is an endofunctor (a functor mapping a category to itself), together with two natural transformations required to fulfill certain coherence conditions. Monads are used in the theory of pairs of adjoint functors, and they generalize closure operators on partially ordered sets to arbitrary categories. 
+In category theory, a monad (also triple, triad, standard construction and fundamental construction) is an endofunctor (a functor mapping a category to itself), together with two natural transformations required to fulfill certain coherence conditions. Monads are used in the theory of pairs of adjoint functors, and they generalize closure operators on partially ordered sets to arbitrary categories. 
 
-In functional programming, a **monad** is an abstraction that allows structuring programs generically. Supporting languages may use monads to abstract away boilerplate code needed by the program logic. Monads achieve this by providing their own data type (a particular type for each type of monad), which represents a specific form of computation, along with two procedures:
+In functional programming, a **monad** is an abstraction that allows structuring programs generically. Supporting languages may use monads to abstract away boilerplate code needed by the program logic. Monads achieve this by providing their own data type, which represents a specific form of computation, along with two procedures:
 
 - One to wrap values of any basic type within the monad (yielding a **monadic value**);
 - Another to compose functions that output monadic values (called **monadic functions**)
@@ -54,7 +55,7 @@ Both the concept of a monad and the term originally come from **category theory*
 
 
 
-### GADT
+#### GADT
 
 Generalized algebraic data type (GADT) is a generalization of parametric algebraic data types.
 An important application of GADTs is to embed **higher-order abstract syntax** in a type safe fashion.
@@ -63,7 +64,7 @@ In computer science, **higher-order abstract syntax** (abbreviated HOAS) is a te
 
 This article [8] describes how to define a **higher-order abstract syntax** in Coq (i.e. defining axioms, and inductive types). 
 
-#### ADT
+##### ADT
 
 In computer programming, especially functional programming and type theory, an **algebraic data type** is a kind of composite type, i.e., a type formed by combining other types.
 
@@ -74,7 +75,8 @@ The values of a product type typically contain several values, called fields. Al
 The values of a sum type are typically grouped into several classes, called variants. A value of a variant type is usually created with a quasi-functional entity called a constructor. Each variant has its own constructor, which takes a specified number of arguments with specified types. The set of all possible values of a sum type is the set-theoretic sum, i.e., the disjoint union, of the sets of all possible values of its variants. Enumerated types are a special case of sum types in which the constructors take no arguments, as exactly one value is defined for each constructor. 
 
 
-The ADT defines two monoids (PRODUCT and SUM) describing possible operations on Data type. It defines the algebra on data types. A monoid requires to define reflexivity, associativity and neutral element. Obviously ADT defines monoid an not RING because there is no inverse of Integers ! The ADT is also classified as a semi RING.
+The ADT defines two monoids (PRODUCT and SUM) describing possible operations on Data type. It defines the algebra on data types. A monoid requires to define reflexivity, associativity and neutral element. 
+
 
 PRODUCT monoid = 
 - reflexive (not really but up to an isomorphism) = swap
@@ -94,7 +96,7 @@ MAYBE a = Nothing | Just a
         = Either () a
 ```
 
-
+--------------- TODO
 We can define a List 
 ```
 data List a = Nil | Cons a (List a)
@@ -117,7 +119,9 @@ L(a) = sum [n=0 to k] a^n
 ```
 this value can be defined by a Fixpoint.
 
-A fixed point of a function is a value that is mapped to itself by the function. In combinatory logic for computer science, a fixed-point combinator (or fixpoint combinator) is a higher-order function _fix_ that returns some fixed point of its argument function, if one exists.
+ --------------- ODOT
+
+
 
 
 #### GADT to Coq
@@ -131,7 +135,7 @@ GADT is similar to inductive families of data types (or inductive datatypes) fou
 
 ## Coq
 
-Coq [1] is a proof assistant designed to develop mathematical proofs, and especially to write formal specifications, programs and proofs that programs comply to their specifications. 
+Initially developed by Thierry Coquand, Coq [1] is a proof assistant designed to develop mathematical proofs, and especially to write formal specifications, programs and proofs that programs comply to their specifications. 
 
 Properties, programs and proofs are formalized in the _Coq_ language called _Gallina_ which follows the principles of the Calculus of Inductive Constructions (CIC).
 
@@ -141,7 +145,7 @@ Properties, programs and proofs are formalized in the _Coq_ language called _Gal
 Initially developed by Thierry Coquand, the _Calculus Of Constructions_ [13] (or CoC) is a typed high-order λ-calculus (i.e. a typed formal system taking the logic of second order into account). The CoC is used as a typed programming language. 
 
 Many derivatives of CoC have been created to handle inductive types, predicates and co-inductive types.
-The Calculus of Inductive Constructions ([18] CiC) is an extension of CoC which integrates inductive datatypes. The _Coq_ proof assistant is built upon CiC.
+The Calculus of Inductive Constructions ([18] CiC) is an extension of CoC which integrates inductive datatype. The _Coq_ proof assistant is built upon CiC.
 
 All logical judgments in Coq are typing judgments: the very heart of _Coq_ is in fact a type-checking algorithm. 
 

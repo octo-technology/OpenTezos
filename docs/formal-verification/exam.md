@@ -8,8 +8,8 @@ title: Exam
 What make the bridge between the Tezos world and the formal world of Coq ?
 
 - [ ] The Michelson language
-- [ ] The Coq univers
-- [x] The Mi-cho-coq module
+- [ ] The Coq universe (predefined Coq types)
+- [x] The Mi-cho-coq library
 - [ ] The Tezos protocol
 
 
@@ -28,19 +28,22 @@ What is returned by the execution of a smart contract ?
 
 ### Question 3
 
-What postconditions depends on ?
+What post-conditions depends on ?
 
-- [x] old storage
-- [x] new storage
-- [x] parameter
-- [x] returned operations
-- [x] environment variables
-
-- [ ] smart contract code
-- [ ] Coq universe
+- [x] The storage modification produced by the execution of the smart contract
+- [x] The entrypoint parameter which is invoked
+- [ ] The sequence of Michelson instructions (smart contract code)
+- [x] Operations produced by the execution of the smart contract
+- [x] environment variables (transaction properties such as sender, amount)
+- [ ] Predefined Coq types and inductive types (Coq libraries)
 - [ ] Mi-cho-coq library
-- [ ] 
-- [ ] ???
--
 
 
+### Question 4
+
+Who is Thierry Coquand ?
+
+- [ ] The founder of the type theory called λ-calculus
+- [x] The founder of the type theory called the calculus of constructions (CoC).
+- [x] The principal developer of the _Coq_ proof assistant.
+- [ ] The founder of the intuitionistic type theory.
