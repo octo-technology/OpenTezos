@@ -1,0 +1,20 @@
+{
+  "unversionedId": "tutorial-extras/manage-docs-versions",
+  "id": "tutorial-extras/manage-docs-versions",
+  "isDocsHomePage": false,
+  "title": "Manage Docs Versions",
+  "description": "Docusaurus can manage multiple versions of your docs.",
+  "source": "@site/docs/tutorial-extras/manage-docs-versions.md",
+  "sourceDirName": "tutorial-extras",
+  "slug": "/tutorial-extras/manage-docs-versions",
+  "permalink": "/tutorial-extras/manage-docs-versions",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tutorial-extras/manage-docs-versions.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  }
+}
