@@ -12,7 +12,7 @@ _Proof-of-work_ was the first fully functional blockchain consensus ever created
 We will see that the blockchain is in fact a very intelligent assembly of cryptographic technical bricks that have already existed for many years, or even several decades for some. The beauty of the blockchain is to have been able to organize these bricks in a coherent way to create a decentralized and secure data exchange system.
 
 ## Hash
-Let's start with the basics: the **hash**. A hash is an hexadecimal number calculated from some data. In a way, it represents a unique fingerprint used to quickly identify the initial data. There are several hash functions. The most common is _SHA256_, used among others by Bitcoin. The _SHA256_ algorithm transforms any string of characters into a hexadecimal number of 64 characters (or 256 bits). For example, fig. 1 shows the hash of the very short string "Cake" and fig. 2 shows the hash of a longer string. Note that the two hashes are totally different (//TODO not on the pics below), but both are 64 characters long. In the same way, you could enter all the books from a library, or nothing at all (empty string), and you would still have a hash of 64 hexadecimal characters. Note that for two identical chains you will always have the same hash, and that for two different chains you will always have two different hashes (except for a few extremely unlikely collisions //TODO peut-être insister que pour SHA256 c'est quasiment 0). This allows you to quickly verify that the initial data has not been modified. 
+Let's start with the basics: the **hash**. A hash is an hexadecimal number calculated from some data. In a way, it represents a unique fingerprint used to quickly identify the initial data. There are several hash functions. The most common is _SHA256_, used among others by Bitcoin. The _SHA256_ algorithm transforms any string of characters into a hexadecimal number of 64 characters (or 256 bits). For example, fig. 1 shows the hash of the very short string "Cake" and fig. 2 shows the hash of a longer string. Note that the two hashes are totally different, but both are 64 characters long. In the same way, you could enter all the books from a library, or nothing at all (empty string), and you would still have a hash of 64 hexadecimal characters. Note that for two identical chains you will always have the same hash, and that for two different chains you will always have two different hashes (except for a few extremely unlikely collisions). This allows you to quickly verify that the initial data has not been modified. 
 
 ![](../../static/img/blockchain-basics/small_hash.svg)
 <small className="figure">FIGURE 1: The hash of a small string of characters</small>
@@ -21,9 +21,11 @@ Let's start with the basics: the **hash**. A hash is an hexadecimal number calcu
 <small className="figure">FIGURE 2: The hash of a large string</small>
 
 <NotificationBar>
-  <p>
-  You have probably used an hash already in your life without knowing it. Indeed, when you download a file on your computer, some browsers check the hash of the downloaded file and compare it to the hash announced by the source before download. If the two hashes match, it means that the file you have downloaded is a perfect match to the one intended to be sent by the source. If the hashes don't match, your download has been corrupted. You can try this out manually by downloading the latest release of <i>Ubuntu</i>, computing the hash of the downloaded file, and comparing it to the one announced on <a href="https://ubuntu.com/tutorials/how-to-verify-ubuntu#5-verify-the-sha256-checksum">their website</a>.
-  </p>
+<p>
+
+You have probably used an hash already in your life without knowing it. Indeed, when you download a file on your computer, some browsers check the hash of the downloaded file and compare it to the hash announced by the source before download. If the two hashes match, it means that the file you have downloaded is a perfect match to the one intended to be sent by the source. If the hashes don't match, your download has been corrupted. You can try this out manually by downloading the latest release of _Ubuntu_, computing the hash of the downloaded file, and comparing it to the one announced on [their website](https://ubuntu.com/tutorials/how-to-verify-ubuntu#5-verify-the-sha256-checksum).
+
+</p>
 </NotificationBar>
 
 ## Block
@@ -32,15 +34,6 @@ A block is simply a structure containing:
 - some data
 - an arbitrary number called _NONCE_ (diminutive of _Number used ONCE_ )
 - and the hash of all these data
-
-In Bicoin precisely, all the data aren't hashed all together. For the needs, data are split into 2 categories:
-
-1. Creating the chain:  
-   The previous block's *header* is double SHA256-hashed and the result is put inside the next block's *header*.
-2. Providing [Simple Payment Verification (SPV)](https://en.bitcoinwiki.org/wiki/Simplified_Payment_Verification) for *lightweight nodes*:  
-   Each transaction is double hashed (still with SHA256), and the results are put inside a Merkle Tree structure (see [SPV](https://en.bitcoinwiki.org/wiki/Simplified_Payment_Verification))
-
-To simplify, let's refer to the first hash as "the hash of the block". 
 
 Fig. 3 shows an example of a block. Notice that the hash of the block starts with "_d8ca_". So far, this block is considered _invalid_. There are different rules for validating a block depending on the blockchain considered. Most blockchains use *Proof-of-Work*, which consists of proving that validation's work has been done on the block.
 
@@ -55,7 +48,11 @@ In fig. 4, we have repeatedly incremented _NONCE_ and calculated the hash of the
 <small className="figure">FIGURE 4: The hash of DATA, NONCE and block number starts with 000, the block is signed</small>
 
 <NotificationBar>
-  <p>As a miner, you might want to try out random NONCE instead of incrementing it. As everyone in the world is in competition, anyone with a faster machine would always beat you to it. Using random guesses, your chances are proportional to amount of <i>hashing power</i> you have compared to the rest of the world.</p>
+  <p>
+
+  As a miner, you might want to try out random NONCE instead of incrementing it. As everyone in the world is in competition, anyone with a faster machine would always beat you to it. Using random guesses, your chances are proportional to amount of _hashing power_ you have compared to the rest of the world.
+  
+  </p>
 </NotificationBar>
 
 Mining therefore consists of calculating the hash of a block over and over again until the validation rule is validated. This is why it is possible to create _ASICs_ (Application Specific Integrated Circuit) optimized for mining. For Bitcoin, ASICs integrate chips specifically designed to make SHA256 in order to find _NONCE_ very quickly [[5]](/blockchain-basics/proof-of-work#references). 
@@ -78,9 +75,11 @@ Now you may be wondering: why not *re-hash all the invalidated blocks*? It is in
 ![](../../static/img/blockchain-basics/valid_chain_again.svg)
 <small className="figure">FIGURE 7: A valid blockchain again (all the blocks following the modification have been signed again)</small>
 
-So can the blockchain be altered? No.  
-Firstly, because mining a block requires a lot of computing power. For Bitcoin, it would take several **years** for your desktop computer to mine **a few blocks**, and the more you go back in time and modify an old block, the more blocks you will have to mine.  
-Secondly, *and most importantly*, it is because of the distributed nature of the blockchain that it's statistically impossible to rewrite its history. //TODO mettre une référence au chapitre qui parle de la proba/BFT ?
+So can the blockchain be altered? No. Why?
+
+- Firstly, because mining a block requires a lot of computing power. For Bitcoin, it would take several **years** for your desktop computer to mine **a few blocks**, and the more you go back in time and modify an old block, the more blocks you would have to mine.
+
+- Secondly, *and most importantly*, because of the distributed nature of the blockchain, which makes it statistically impossible to rewrite its history.
 
 ## Distributed
 Any blockchain needs to be distributed to be secured, that is to say that all the valid blocks have to be replicated on all the nodes of the network.
@@ -97,7 +96,7 @@ Let's consider a node decides to fraudulently modify a block. Fig. 8 shows a net
 Even if node "_C_" *validated all of its blocks again* as shown in fig. 9, the final hash (_0004de..._) is still different from the other nodes (_000969..._). There is no way to change the data of a block while preserving the same final hash as the rest of the network. The incorrect blockchain no longer corresponds to the majority of the other nodes. This block will become orphan, and will not be integrated into the general ledger.
 
 ![](../../static/img/blockchain-basics/invalid_node_remined.svg)
-<small className="figure">FIGURE 9: Even if _C_ re-mines all its block following his modification, the hash of the latest block still does not match the rest of the network.</small> //TODO Je pense qu'il faudrait mettre en valeur le hash qui diffère dans la fig. 9
+<small className="figure">FIGURE 9: Even if _C_ re-mines all its block following its modification, the hash of the latest block still does not match the rest of the network.</small>
 
 The only known way to corrupt Proof-of-Work is through the infamous "51% attack" [[8]](/blockchain-basics/proof-of-work#references) which consists, for a pirate, in obtaining more than 50% of the world's mining power, allowing him to rewrite the history (the technical details are explained [here](https://hackernoon.com/ethereum-classic-attacked-how-does-the-51-attack-occur-a5f3fa5d852e)). 
 
@@ -124,7 +123,15 @@ You now understand how the blockchain is able to calculate each person's balance
 In fact, new bitcoins are generated by the blockchain itself when a new block is created (validated). New tokens are created and given to the miner of the block. In fig. 12, assume that Chris is mining the block. You can see that $100 is created from scratch and given to Chris to thank him for investing his computational power and electricity into mining a block. This is called the "_reward_" or "_coinbase_" ("*coinbase reward*" and "*coinbase transaction*" are also used). Chris is then able to spend this money in the next block as if he had received it from another user. This process allows new tokens to be put into circulation, in the same way that a central bank is able to print new banknotes. The advantage of a blockchain over a central bank is that the process is completely autonomous, decentralized, and unalterable. Inflation on Bitcoin is completely known in advance and it is not possible to have over-inflation. Currently 17 millions of Bitcoin have been minted, namely offered as a coinbase. The maximum is 21 millions, at which point the source code of Bitcoin shows that no more coinbase will ever be offered. The source of income for miners will then only be the transactions fees, but there is still some time as this will happen around 2140 due to the ever increasing difficulty of mining [[11]](/blockchain-basics/proof-of-work#references). Indeed, the Bitcoin protocol states that a new block must mined on average every 10 minutes. As the total computational power put into bitcoin increased with more miners and more technological advancements, the average time to mine a block naturally lowers. Bitcoin compensates by increasing the mining difficulty. E.g. instead of finding a _nonce_ such that the hash of the block starts with 3 zeros, it may increase to 4 zeros, making the whole process much longer and more difficult for the hardware.  
 
 ![](../../static/img/blockchain-basics/coinbase.svg)
-<small className="figure">FIGURE 12: A block that give a coinbase of $100 to Chris, which allows him to spend it in the next block</small> //TODO peut-être rapidement dire pourquoi le PREVH du coinbase block est nul ?
+<small className="figure">FIGURE 12: A block that gives a coinbase of $100 to Chris, which allows him to spend it in the next block</small>
+
+<NotificationBar>
+  <p>
+    
+  Note that the first block has no previous hash, thus the _PREVH_ is set to a series of zeros. The first block of any blockchain is called the **genesis block**.
+
+  </p>
+</NotificationBar>
 
 There is still one big issue in our blockchain schema so far. Take a minute and try to identify it.
 
@@ -137,11 +144,9 @@ Did you find it? Consider how the transactions are authentified.
 Knowing that Chris has a positive balance of \$100, could Jane add the transaction "\$ 40 from Chris to Jane" herself in a new block without Chris ever giving his consent? At this point of the chapter, anyone seems to be able to spend anyone else's money!
 
 ## Keys
-//TODO ne devrions-nous pas mettre la partie sur les clefs/signatures/tx en dehors de la PoW ? Par exemple la déplacer dans les composants blockchain ?
-
 It is essential for the proper functioning of the crypto-money that only Chris is able to send the transaction "$40 from Chris to Jane". For that, we need to use one of the basis of modern cryptography, the _Diffie–Hellman key exchange_ or _asymmetric key algorithm_, which consists of a private key and a public key.
 
-Fig. 13 shows a pair of keys. The private key is a very long, randomly generated hexadecimal (//TODO dans l'image ça ne semble pas hexa) number (you can do this yourself by selecting random numbers). The public key is an hexadecimal number that is calculated from the private key. It is possible to calculate the public key from the private key, but it is practically impossible to find the private key from the public key.
+Fig. 13 shows a pair of keys. The private key is a very long, randomly generated number (you could generate that number yourself by flipping a coin at random a large number of times). The public key is an hexadecimal number that is calculated from the private key. It is possible to calculate the public key from the private key, but it is practically impossible to find the private key from the public key.
 
 As the name suggests, **the private key must be kept private**. You should **never** share it with anyone. On the other hand, the public key can be public and accessible to anyone that wants to send you money (but keep in mind that this public key can then be linked to your data. You should use other generated public keys whenever possible).
 
@@ -181,9 +186,15 @@ Miners are now able to verify that a transaction has indeed been sent by the own
 ![](../../static/img/blockchain-basics/tx_signature_true.svg)
 <small className="figure">FIGURE 18: Miners verify that this transaction has been sent by the owner of the private key</small>
 
-Note that humans usually don't use public keys directly. In practice, we use "_**addresses**_". We won't go into details here, but addresses are created from one or many public keys. In Bitcoin, two hash functions are used (*SHA256* again, and *RIPEMD160*), while in Ethereum, only one (*Keccak-256* or "*SHA3*"). Hash functions really are everywhere in blockchains. This implies that you can't know a public key from an address.
+<NotificationBar>
+  <p>
 
-If you later want to code Tezos smart contracts, you need to know this difference, because you'd have to mostly handle addresses before public keys or signatures in your applications.
+  Note that transactions do not use actually use public keys in the _from_ and _to_ fields. They use **addresses**, which are hashed versions of the public key. Because the public key is made up of an extremely long string of numbers, it is compressed and shortened to form the public address. That way, it is more easily readable and more secured as nobody can know your public key from your address.
+  
+  To sum up, the private key generates the public key, which, in turn, generates the public address.
+
+  </p>
+</NotificationBar>
 
 ## Complete blockchain
 Let's now modify our "insecure" blockchain diagram fig. 10 and add the signatures of each sender to their transaction.
