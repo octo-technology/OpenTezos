@@ -22,19 +22,29 @@ It contains its own modules. Hence, it is most useful when a specific module ver
 Run this command to create a virtual environment:
 
 ```shell
-python3 -m venv /path/to/env
+$ python3 -m venv /path/to/env
 ```
 
 ### Activating the environment
+By default, your OS uses the python interpreter from /usr/bin/python. 
+Once that a virtual environment is created, it has to be activated in order to be used by the OS.
 
+You can activate your virtual environment by running:
 ```shell
-source /path/to/env/bin/activate
+$ source /path/to/env/bin/activate
 ```
+The name of the environment should appear at the beginning of the commandline
+It can be deactivated by running:
+```shell
+(venv) $ deactivate
+```
+
 
 ### Installation of SmartPy library
 
+After having activated your virtual environment, you can install SmartPy by running:
 ```shell
-(venv) pip install smartpy
+(venv) $ pip install smartpy
 ```
 
 Verification of the installation:
