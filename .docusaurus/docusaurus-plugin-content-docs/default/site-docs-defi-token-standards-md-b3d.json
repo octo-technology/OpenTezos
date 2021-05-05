@@ -3,7 +3,7 @@
   "id": "defi/token-standards",
   "isDocsHomePage": false,
   "title": "Token Standards",
-  "description": "Tokens are the basis of Decentralized Finance, just like Fiat currencies (e.g. USD, EUR) are the basis of traditional finance. They represent a way to exchange value. However, contrarily to traditional finance, tokens can represent much more than a simple currency. Tokens can represent any type of virtual or physical asset or value. For instance, real-estate which has so far always been an illiquid market can now be tokenized and traded on exchanges. Tokens can also enclose collectibles or luxury items such as art. They can enclose traditional finance products like equity, stocks, bonds, etc. In this chapter, we will see the implementation of tokens in Tezos and how they are the future of finance.",
+  "description": "In the Blockchain ecosystem, any asset that is digitally transferable between two people is called a token. Tokens can be native to a blockchain, e.g. BTC is the native token of Bitcoin. Tokens can also be created and hosted on an existing blockchain via a smart contract. Some tokens, called stablecoins, are following the price of fiat currencies (e.g. USD, EUR). Others, called NFT, can enclose collectibles or art. Finally, tokens can represent rights of ownership of real-world estates or companies (i.e. stock tokens). In this chapter, we will see the main token standards on Tezos.",
   "source": "@site/docs/defi/token-standards.md",
   "slug": "/defi/token-standards",
   "permalink": "/defi/token-standards",
