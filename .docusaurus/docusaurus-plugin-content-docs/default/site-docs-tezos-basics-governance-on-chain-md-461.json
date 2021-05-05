@@ -5,10 +5,18 @@
   "title": "Governance on-chain",
   "description": "Tezos is a self-amending blockchain network that incorporates an on-chain mechanism for proposing, selecting, testing, and activating protocol upgrades without having to hard fork. [1]",
   "source": "@site/docs/tezos-basics/governance-on-chain.md",
+  "sourceDirName": "tezos-basics",
   "slug": "/tezos-basics/governance-on-chain",
   "permalink": "/tezos-basics/governance-on-chain",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/governance-on-chain.md",
   "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "governance-on-chain",
+    "title": "Governance on-chain"
+  },
   "sidebar": "docs",
   "previous": {
     "title": "CLI and RPC",

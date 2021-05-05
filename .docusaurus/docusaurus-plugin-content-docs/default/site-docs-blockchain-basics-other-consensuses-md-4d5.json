@@ -5,10 +5,20 @@
   "title": "Introduction to other consensuses",
   "description": "In this chapter, we will briefly introduce a few other public consensuses.",
   "source": "@site/docs/blockchain-basics/other-consensuses.md",
+  "sourceDirName": "blockchain-basics",
   "slug": "/blockchain-basics/other-consensuses",
   "permalink": "/blockchain-basics/other-consensuses",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/blockchain-basics/other-consensuses.md",
   "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "other-consensuses",
+    "disable_pagination": true,
+    "title": "Introduction to other consensuses",
+    "authors": "Thomas Zoughebi and Aymeric Bethencourt"
+  },
   "sidebar": "docs",
   "previous": {
     "title": "Proof-of-work",

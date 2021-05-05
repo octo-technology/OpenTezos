@@ -6,9 +6,9 @@ author: Aymeric Bethencourt
 
 ### Question 1
 
-Why is DeFi often compared to _Money LEGOs_ ?
+Why is DeFi often compared to _Money Bricks_ ?
 
-- [x] DeFi apps form layers that rely on other DeFi apps just like _LEGO_ blocks would with each other.
+- [x] DeFi apps form layers that rely on other DeFi apps just like bricks would with each other.
 - [x] DeFi apps respect common standards that allow them to interact with each other.
 - [ ] DeFi apps relie on banks to perform KYCs
 - [x] DeFi apps are often open-source allowing developers to fork them and modify them to create their own apps.
@@ -42,7 +42,9 @@ A stablecoin can be pegged to:
 - [x] a fiat currency
 - [x] a commodity
 - [x] a security
-- [ ] a stock
+- [x] a stock
+
+//TODO: => I don't feel the content really covered this
 
 ### Question 5
 

@@ -5,10 +5,18 @@
   "title": "Report an issue",
   "description": "The simplest way to contribute is to report issues that you may have encounter while using Tezos or its related platforms.",
   "source": "@site/docs/contribute/report-issue.md",
+  "sourceDirName": "contribute",
   "slug": "/contribute/report-issue",
   "permalink": "/contribute/report-issue",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/contribute/report-issue.md",
   "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "report-issue",
+    "title": "Report an issue"
+  },
   "sidebar": "docs",
   "previous": {
     "title": "Introduction",

@@ -5,10 +5,19 @@
   "title": "Exam",
   "description": "Question 1",
   "source": "@site/docs/defi/exam.md",
+  "sourceDirName": "defi",
   "slug": "/defi/exam",
   "permalink": "/defi/exam",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/exam.md",
   "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "exam",
+    "title": "Exam",
+    "author": "Aymeric Bethencourt"
+  },
   "sidebar": "docs",
   "previous": {
     "title": "Lending and Flash Loans",

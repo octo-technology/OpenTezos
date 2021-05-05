@@ -377,7 +377,8 @@ const b : bool = False  // Also: false
 ## Comparing Values
 
 Only values of the same type can be natively compared, 
-i.e. int, nat, string, tez, timestamp, address, etc.
+i.e. int, nat, string, tez, timestamp, address, etc. 
+
 However some values of the same type are not natively comparable, 
 i.e. maps, sets or lists. 
 You will have to write your own comparison functions for those values.

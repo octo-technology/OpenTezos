@@ -5,10 +5,20 @@
   "title": "Introduction",
   "description": "Under construction.",
   "source": "@site/docs/baking/introduction.md",
+  "sourceDirName": "baking",
   "slug": "/baking",
   "permalink": "/baking",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/baking/introduction.md",
   "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "introduction",
+    "disable_pagination": true,
+    "title": "Introduction",
+    "slug": "/baking"
+  },
   "sidebar": "docs",
   "previous": {
     "title": "Smart contract deployment with Truffle",

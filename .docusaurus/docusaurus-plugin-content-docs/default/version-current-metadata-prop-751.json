@@ -214,7 +214,7 @@
           },
           {
             "type": "link",
-            "label": "Deploy a contract",
+            "label": "Smart Contract",
             "href": "/ligo/deploy-a-contract"
           },
           {

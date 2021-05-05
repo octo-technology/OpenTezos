@@ -3,11 +3,22 @@
   "id": "dapp/introduction",
   "isDocsHomePage": false,
   "title": "Introduction",
+  "description": "",
   "source": "@site/docs/dapp/introduction.md",
+  "sourceDirName": "dapp",
   "slug": "/dapp",
   "permalink": "/dapp",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/dapp/introduction.md",
   "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "introduction",
+    "disable_pagination": true,
+    "title": "Introduction",
+    "slug": "/dapp"
+  },
   "sidebar": "docs",
   "previous": {
     "title": "Take away",

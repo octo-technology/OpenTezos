@@ -5,10 +5,19 @@
   "title": "Synthetics",
   "description": "Synthetics are contracts between two parties that both bet on the opposite outcome of the value of an asset and then split the difference in profit/loss. The actual asset is not purchased in this contract. Both parties simply bet on the value appreciating or depreciating.",
   "source": "@site/docs/defi/synthetics.md",
+  "sourceDirName": "defi",
   "slug": "/defi/synthetics",
   "permalink": "/defi/synthetics",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/synthetics.md",
   "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "synthetics",
+    "title": "Synthetics",
+    "author": "Aymeric Bethencourt"
+  },
   "sidebar": "docs",
   "previous": {
     "title": "Stablecoins",

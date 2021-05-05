@@ -5,10 +5,18 @@
   "title": "Introduction",
   "description": "This module focuses on blockchain explorers and blockchain indexers for Tezos,",
   "source": "@site/docs/explorer/introduction.md",
+  "sourceDirName": "explorer",
   "slug": "/explorer/introduction",
   "permalink": "/explorer/introduction",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/explorer/introduction.md",
   "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "introduction",
+    "title": "Introduction"
+  },
   "sidebar": "docs",
   "previous": {
     "title": "Exam",

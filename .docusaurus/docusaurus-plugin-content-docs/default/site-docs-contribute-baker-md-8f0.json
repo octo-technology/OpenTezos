@@ -5,10 +5,18 @@
   "title": "Become a baker or a delegator",
   "description": "Becoming a baker or a delegate on Tezos is a great way to contribute to the ecosystem while earning some profits. Baking (also called staking) is the process of forming new blocks on Tezos. This process is part of the Proof-of-Stake consensus (more on that in the Tezos basics module). The more bakers, the more decentralized and statistically safe this process is.",
   "source": "@site/docs/contribute/baker.md",
+  "sourceDirName": "contribute",
   "slug": "/contribute/baker",
   "permalink": "/contribute/baker",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/contribute/baker.md",
   "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "baker",
+    "title": "Become a baker or a delegator"
+  },
   "sidebar": "docs",
   "previous": {
     "title": "Receive a grant",
