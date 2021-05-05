@@ -10,9 +10,9 @@
   "permalink": "/explorer/private-indexer",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/explorer/private-indexer.md",
   "version": "current",
-  "lastUpdatedBy": "Author",
-  "lastUpdatedAt": 1539502055,
-  "formattedLastUpdatedAt": "10/14/2018",
+  "lastUpdatedBy": "AymericBethencourt",
+  "lastUpdatedAt": 1619648031,
+  "formattedLastUpdatedAt": "4/29/2021",
   "frontMatter": {
     "id": "private-indexer",
     "disable_pagination": true,

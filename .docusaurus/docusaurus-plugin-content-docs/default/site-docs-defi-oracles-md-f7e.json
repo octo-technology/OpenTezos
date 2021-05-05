@@ -10,9 +10,9 @@
   "permalink": "/defi/oracles",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/oracles.md",
   "version": "current",
-  "lastUpdatedBy": "Author",
-  "lastUpdatedAt": 1539502055,
-  "formattedLastUpdatedAt": "10/14/2018",
+  "lastUpdatedBy": "AymericBethencourt",
+  "lastUpdatedAt": 1620222192,
+  "formattedLastUpdatedAt": "5/5/2021",
   "frontMatter": {
     "id": "oracles",
     "title": "On-chain Oracles",
