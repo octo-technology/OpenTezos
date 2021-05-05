@@ -3,7 +3,11 @@ id: instructions-reference
 title: Instructions Reference
 ---
 
-This chapter provides an explicit list of all the most commonly used instructions in Michelson. It is not intended for you to read it as is but to use it as a reference during your developments.
+This chapter provides an explicit list of all the most commonly used instructions in Michelson. It intends to describe common Michelson instructions with a graphical illustration.
+
+ It is not intended for you to read it as is but to use it as a reference during your developments.
+
+ An exhaustive list of Michelson instructions with a full detailed description is available in the official reference website (https://tezos.gitlab.io/michelson-reference/).
 
 ## Instructions
 
