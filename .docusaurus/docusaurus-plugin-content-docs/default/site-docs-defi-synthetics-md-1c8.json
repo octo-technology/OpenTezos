@@ -3,7 +3,7 @@
   "id": "defi/synthetics",
   "isDocsHomePage": false,
   "title": "Synthetics",
-  "description": "Synthetics are contracts between two parties that both bet on the opposite outcome of the value of an asset and then split the difference in profit/loss. The actual asset is not purchased in this contract. Both parties simply bet on the value appreciating or depreciating.",
+  "description": "//TODO: Manque d’illustration",
   "source": "@site/docs/defi/synthetics.md",
   "sourceDirName": "defi",
   "slug": "/defi/synthetics",
