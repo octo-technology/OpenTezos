@@ -3,6 +3,17 @@ id: unit-testing
 title: Unit Testing with PyTezos
 ---
 
+There are multiple frameworks for testing Michelson contracts:
+- [PyTezos](https://pytezos.org/)
+- [Cleveland](https://gitlab.com/morley-framework/morley/-/blob/9455cd384b2ab897fb7b31822abca3730a4ad08b/code/cleveland/testingEDSL.md)
+
+Another alternative is to use Tezos's binary `tezos-client` directly.
+There's a new [mockup](https://tezos.gitlab.io/user/mockup.html) mode which is does not need a Tezos node to be running.
+
+This chapter aims to introduce the concept of unit testing
+and more precisely it will deal with how to test its Tezos smart contract with the [PyTezos](https://pytezos.org/) python framework.
+
+
 ## Unit Testing
 
 Just like any other programming language, writing Ligo code (to be compiled into Michelson) is not the only task of a developer:
@@ -17,9 +28,10 @@ Writing a test may take extra time, but this effort is rewarded by some great be
 - It also makes the code robust for future modifications, 
   i.e. code refactoring or new functionalities. 
   The tests make sure that the behaviour has not changed, and if it did, it clearly outlines where.
-- test can easily be automated: they can be included in a CI/CD, which runs them after any push
+- tests can easily be automated: they can be included in a CI/CD, which runs them after any push
 
-
+>**CI/CD (Continuous Integration / Continuous Delivery)** is a method to frequently deliver apps to customers by introducing automation into the stages of app development.  
+>The main concepts attributed to CI/CD are continuous integration, continuous delivery, and continuous deployment.
 
 There are different types of tests, as described below in the automated testing strategy.
 <br/>
@@ -37,8 +49,7 @@ or partially isolated from its dependencies.
 It will then be simpler to write and maintain. While an integration test aims to verify that several components work well together: 
 it checks the assembly.
 
-To go further, take a look at **Test-Driven Development (TDD)** 
-which is a development method emphasizing 
+To go further, take a look at [Test-Driven Development (TDD)](https://en.wikipedia.org/wiki/Test-driven_development) which is a development method emphasizing 
 the writing of automated tests as a tool to guide the implementation of features.
 
 Ligo does not provide a testing framework. But other languages, such as Python, do.
@@ -47,6 +58,9 @@ Two modules are needed:
 - the standard *unittest* module: used to write and run unit tests in Python
 - the *pytezos* module: used to call the entrypoints of a smart contract, without deploying it.
 This module is an interesting option because it is well-maintained and easy-to-use.
+  
+> **The execution time or CPU time** of a given task is defined as the time spent by the system executing that task.  
+> **Cost** can be seen as the complexity and time required for the developer to write a test.
 
 ## PyTezos Installation
 
@@ -190,7 +204,7 @@ class TestCalculator(unittest.TestCase):
 > If another developer was to change it into a Euclidean division, the test would fail and instantly warn the developer of a breaking change
 > 
 
-> Note that classe names are by convention in **CamelCase** 
+> Note that class names are by convention in **CamelCase** 
 > and test method names are in **snake_case**.
 
 You can run your tests in command line as follows:
@@ -282,7 +296,7 @@ ligo compile-contract file.ligo main > contract.tz
 
 Remember to recompile after any modification of the contract.
 
-### Equivalence between michelson type and python
+### Equivalence between michelson types and python
 
 **PyTezos** allows you to interpret michelson code, so here are the equivalences:
 
@@ -293,6 +307,14 @@ Remember to recompile after any modification of the contract.
 |   String   |                  String                  |
 |   Number   |                 Integer                  |
 | mutez, tez | Interpreted as Integer by `.interpret()` |
+
+For example if you want to check the content of a list in the storage you would write:
+
+```python
+self.assertEqual(my_list_from_the_storage, [expected_value1, expected_value2, ...])
+```
+
+The way to get `my_list_from_the_storage` is detailed below in the examples.
 
 ### Counter Contract Example
 
