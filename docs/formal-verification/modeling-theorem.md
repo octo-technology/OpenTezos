@@ -61,6 +61,7 @@ The entrypoint arguments and the storage are used as the context of execution (i
 The execution of the code produces a new storage state and operations.
 The operations produced by this invocation are some new invocations of other smart contracts.
 
+//TODO (we can make postconditions checking the returned operations but not if the operation triggers another smart contract)
 > Since the proof of smart contract interactions is not doable currently , the _Vote_ example  will consider that there are no operation produced. Some collaboration between Nomadic and Archetype has been started to make proof on smart contract interactions.
 
 #### Formally modeling the execution of a tezos smart contract
@@ -323,8 +324,6 @@ To conclude the post conditions of the _Vote_ smart contract are defined by the 
 
 ##### Theorem definition
 
-
-
 As said previously, the formal verification of a Tezos smart contract consists of verifying formally that **the execution of the Michelson script satisfies specific post-conditions**.
 
 Also, as said previously, the theorem can be formalized as :
@@ -333,7 +332,7 @@ Also, as said previously, the theorem can be formalized as :
 eval env CODE fuel (arguments, storage) = return (newstorage) <=> post-conditions
 ```
 
-Here is a scheam describing graphically the theorem formailzation:
+Here is a schema describing graphically the theorem formalization:
 
 ![](../../static/img/formal-verification/theorem_graphical.svg)
 <small className="figure">FIGURE 5: Description of the theorem.</small>
@@ -462,7 +461,7 @@ Proof.
 Qed.
 ```
 
-This section is not intended to be a Coq tutorial so we will not deep dive into this script. If you want to look into proof implementation in Coq we recommand these simple tutorials [3], [14] as a starter and the Coq'Art book [15] for a more complete overview. 
+This section is not intended to be a Coq tutorial so we will not deep dive into this script. If you want to look into proof implementation in Coq we recommend these simple tutorials [3], [14] as a starter and the Coq'Art book [15] for a more complete overview. 
 
 
 

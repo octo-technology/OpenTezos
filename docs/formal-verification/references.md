@@ -24,7 +24,7 @@ slug: /formal-verification
 [8] Higher-order abstract syntax in Coq - https://web.archive.org/web/20060830033826/http://www.site.uottawa.ca/~afelty/dist/tlca95.ps
 
 
-[9] Michelson - https://www.michelson-lang.com/why-michelson.html
+[9] Michelson - https://tezos.gitlab.io/michelson-reference/
 
 [10] Logique formelle - https://www.irif.fr/~roziere/2ord/2ndordre.pdf
 
@@ -39,3 +39,7 @@ slug: /formal-verification
 [16] The calculus of constructions (1988) by Thierry Coquand - https://www.sciencedirect.com/science/article/pii/0890540188900053
 
 [17] Lambda-calcul - https://fr.wikipedia.org/wiki/Lambda-calcul
+
+[18] Calculus of Inductive Constructions - https://coq.inria.fr/distrib/current/refman/language/cic.html
+
+[19] Michelson - https://www.michelson-lang.com/why-michelson.html

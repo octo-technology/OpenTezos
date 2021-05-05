@@ -26,3 +26,21 @@ What is returned by the execution of a smart contract ?
 - [ ] The code of the smart contract
 - [ ] The list of users allowed to call the smart contract
 
+### Question 3
+
+What postconditions depends on ?
+
+- [x] old storage
+- [x] new storage
+- [x] parameter
+- [x] returned operations
+- [x] environment variables
+
+- [ ] smart contract code
+- [ ] Coq universe
+- [ ] Mi-cho-coq library
+- [ ] 
+- [ ] ???
+-
+
+

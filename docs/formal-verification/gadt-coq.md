@@ -120,7 +120,7 @@ this value can be defined by a Fixpoint.
 A fixed point of a function is a value that is mapped to itself by the function. In combinatory logic for computer science, a fixed-point combinator (or fixpoint combinator) is a higher-order function _fix_ that returns some fixed point of its argument function, if one exists.
 
 
-#### Coq
+#### GADT to Coq
 
 Some other type theories include Per Martin-Löf's intuitionistic type theory, which has been the foundation used in some areas of constructive mathematics. Thierry Coquand's calculus of constructions and its derivatives are the foundation used by **Coq**.
 
@@ -128,15 +128,37 @@ GADT is similar to inductive families of data types (or inductive datatypes) fou
 
 
 
-//TODO
-Coq
-Développé par l’INRIA, Coq [2] est un moteur de preuve formelle; c’est-à-dire un logiciel permettant l'écriture et la vérification de preuves mathématiques, soit sur des théorèmes au sens usuel des mathématiques, soit sur des assertions relatives à l'exécution de programmes informatiques.
-Initialement développé par Thierry Coquand, le calcul des constructions [13] (CoC de l'anglais Calculus Of Constructions) est un lambda-calcul (un système formel) typé d'ordre supérieur. Le CoC est utilisé comme langage typé de programmation. Plusieurs variantes de CoC ont été créées pour pouvoir gérer les type de données inductives, co-inductives et prédicats.
-Le calcul des constructions inductives (CiC de l’anglais Calculus of Inductive Constructions) est une extension du CoC qui intègre des types de données inductives. 
-L’assistant de preuve Coq est construit à partir de CiC. 
-Les objets logiques (théorème, axiome) sont écrits en langage Gallina (Term) qui suit les principes du Cic. Les scripts de preuve sont écrits en langage Gallina (Vernaculaire) qui fournit les tactics. Ces script de preuve sont exécutés par le moteur d’inférence (Coq).   
-Pour plus d’information sur Coc ou Cic, il est conseillé de consulter les références [13][16]. Il est nécessaire de connaître le lambda-calcul [17] pour comprendre les notations mathématiques utilisées dans CoC ou Cic.
+
+## Coq
+
+Coq [1] is a proof assistant designed to develop mathematical proofs, and especially to write formal specifications, programs and proofs that programs comply to their specifications. 
+
+Properties, programs and proofs are formalized in the _Coq_ language called _Gallina_ which follows the principles of the Calculus of Inductive Constructions (CIC).
+
+
+### CoC - CiC
+
+Initially developed by Thierry Coquand, the _Calculus Of Constructions_ [13] (or CoC) is a typed high-order λ-calculus (i.e. a typed formal system taking the logic of second order into account). The CoC is used as a typed programming language. 
+
+Many derivatives of CoC have been created to handle inductive types, predicates and co-inductive types.
+The Calculus of Inductive Constructions ([18] CiC) is an extension of CoC which integrates inductive datatypes. The _Coq_ proof assistant is built upon CiC.
+
+All logical judgments in Coq are typing judgments: the very heart of _Coq_ is in fact a type-checking algorithm. 
+
+An interesting additional feature of _Coq_ is that it can automatically extract executable programs from specifications, as either Objective Caml or Haskell source code.
+
+### Gallina (Term and Vernacular)
+
+Logical objects (such as theorems, axioms) are formalized in Gallina-Term language and proof scripts are formalized in Gallina-Vernacular language which provides _tactics_.
+
+The proof script is executed by the _Coq_ inference engine. In case of a Tezos smart contract, the inference engine rely on the Coq universe and the Mi-cho-coq library. 
+
+For more information about the CoC and CiC foundation, it is recommended to read official paper of "Thierry Coquand" and other documentation [13] [16] [18]. It is required to know the basis of λ-calculus [17] in order to understand mathematical notations used in CoC and CiC.
 
 
 
+
+
+
+. 
 
