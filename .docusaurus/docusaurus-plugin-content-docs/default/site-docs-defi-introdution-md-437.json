@@ -5,10 +5,21 @@
   "title": "Introduction",
   "description": "What is DeFi ?",
   "source": "@site/docs/defi/introdution.md",
+  "sourceDirName": "defi",
   "slug": "/defi",
   "permalink": "/defi",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/introdution.md",
   "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "introduction",
+    "disable_pagination": true,
+    "title": "Introduction",
+    "slug": "/defi",
+    "author": "Aymeric Bethencourt"
+  },
   "sidebar": "docs",
   "previous": {
     "title": "Exam",

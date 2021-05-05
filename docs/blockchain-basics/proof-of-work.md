@@ -21,9 +21,11 @@ Let's start with the basics: the **hash**. A hash is an hexadecimal number calcu
 <small className="figure">FIGURE 2: The hash of a large string</small>
 
 <NotificationBar>
-  <p>You have probably used an hash already in your life without knowing it. Indeed when you download a file on your computer, some browsers check the hash of the downloaded file compared with the hash from announced by the source before download. If the two hashes match, it mean that the file you have downloaded is a perfect match with the one intended to be sent by the source. If the hashes don't match, your download has been corrupted. You can try this out manually by downloading the latest release of _Ubuntu_ and computing the hash of the downloaded file with the one announced on [their website](https://ubuntu.com/tutorials/how-to-verify-ubuntu#5-verify-the-sha256-checksum)
-[[2]](/blockchain-basics/proof-of-work#references).
-  </p>
+<p>
+
+You have probably used an hash already in your life without knowing it. Indeed, when you download a file on your computer, some browsers check the hash of the downloaded file and compare it to the hash announced by the source before download. If the two hashes match, it means that the file you have downloaded is a perfect match to the one intended to be sent by the source. If the hashes don't match, your download has been corrupted. You can try this out manually by downloading the latest release of _Ubuntu_, computing the hash of the downloaded file, and comparing it to the one announced on [their website](https://ubuntu.com/tutorials/how-to-verify-ubuntu#5-verify-the-sha256-checksum).
+
+</p>
 </NotificationBar>
 
 ## Block
@@ -33,69 +35,77 @@ A block is simply a structure containing:
 - an arbitrary number called _NONCE_ (diminutive of _Number used ONCE_ )
 - and the hash of all these data
 
-Fig. 3 shows an example of a block. Notice that the hash of the block starts with _32cd_. So far, this block is considered _invalid_. There are different rules for validating a block depending on the blockchain considered. Most blockchains use proof of work which consists of proving that validation work has been done on the block.
+Fig. 3 shows an example of a block. Notice that the hash of the block starts with "_d8ca_". So far, this block is considered _invalid_. There are different rules for validating a block depending on the blockchain considered. Most blockchains use *Proof-of-Work*, which consists of proving that validation's work has been done on the block.
 
 ![](../../static/img/blockchain-basics/invalid_block.svg)
 <small className="figure">FIGURE 3: The hash of DATA, NONCE and block number does not start with 000: The block is invalid.</small>
 
-For example, a widely used validation rule is that the hash must start with _000_. The block will therefore have to be "mined", that is to say, it will be necessary to find a random _NONCE_ such that the hash of the block (including the _NONCE_) starts with _000_. Note that this problem is arbitrary. Other consensus choose to have an hash starting with _123_ or that the hash in base 10 is lower than 1000 (case of Ethereum). You just need a rule that proves that a validation work has been done on the block and that allows to find one validator in the world (i.e. the first one to find a valid _NONCE_). When the rule is validated, the block is then valid.
+For example, a widely used validation rule is that the hash must start with _000_. The block will therefore have to be "mined", that is to say, it will be necessary to find a random _NONCE_ such that the hash of the block (including the _NONCE_) starts with _000_. Note that this problem is arbitrary. Other consensuses choose to have an hash starting with _123_ or that the hash in base 10 is lower than 1000 (case of Ethereum). You just need a rule that proves that a validation's work has been done on the block and that allows to find one validator in the world (i.e. the first one to find a valid _NONCE_). When the rule is validated, the block is then valid.
 
-In fig. 4, we have repeatedly incremented _NONCE_ and calculated the hash of the block until we got a hash starting with 000. This process is not fixed in time, it can be very short or very long, because each NONCE is equally probable. In this case, we have incremented the _NONCE_ up to 29258. The block is now valid.
+In fig. 4, we have repeatedly incremented _NONCE_ and calculated the hash of the block until we got a hash starting with "000". This process is not fixed in time, it can be very short or very long, because each NONCE is *equally probable*. In this case, we have incremented the _NONCE_ up to 29258. The block is now valid.
 
 ![](../../static/img/blockchain-basics/valid_block.svg)
 <small className="figure">FIGURE 4: The hash of DATA, NONCE and block number starts with 000, the block is signed</small>
 
 <NotificationBar>
-  <p>As a miner, you might want to try out random NONCE instead of incrementing it. As everyone in the world is in competition, anyone with a faster machine would always beat you to it. Using random guesses, your chances are proportional to amount of <i>hashing power</i> you have compared to the rest of the world.</p>
+  <p>
+
+  As a miner, you might want to try out random NONCE instead of incrementing it. As everyone in the world is in competition, anyone with a faster machine would always beat you to it. Using random guesses, your chances are proportional to amount of _hashing power_ you have compared to the rest of the world.
+  
+  </p>
 </NotificationBar>
 
 Mining therefore consists of calculating the hash of a block over and over again until the validation rule is validated. This is why it is possible to create _ASICs_ (Application Specific Integrated Circuit) optimized for mining. For Bitcoin, ASICs integrate chips specifically designed to make SHA256 in order to find _NONCE_ very quickly [[5]](/blockchain-basics/proof-of-work#references). 
 
-Finally, note that if you try to modify anything in a validated block, it loses its validity, because you would change the hash of the block and you would have to mine the block again to find a new hash starting with 000 .
+Finally, note that if you try to modify anything in a validated block, it loses its validity, because you would change the hash of the block and you would have to mine the block again to find a new hash starting with "000".
 
 ## Blockchain
-You basically now have all the elements to understand what is a blockchain. It is simply a list of blocks where each block contains a reference to the previous block: its hash. They are therefore "chained". In fig. 5, you can see that the block #2 contains all previously mentioned information in addition to _PREVH_, the hash of the previous block, i.e. the hash of block #1. To validate block #2, you have to mine it to find a hash starting with 000, then this hash is used in _PREVH_ in block #3, etc.
+You basically now have all the elements to understand what is a blockchain. It is simply a list of blocks where each block contains a reference to the previous block: a hash. They are therefore "chained". In fig. 5, you can see that the block #2 contains all previously mentioned information in addition to _PREVH_, the hash of the previous block, i.e. the hash of block #1. To validate block #2, you have to mine it to find a hash starting with "000", then this hash is used in "_PREVH_" in block #3, etc.
 
 ![](../../static/img/blockchain-basics/valid_chain.svg)
 <small className="figure">FIGURE 5: A valid blockchain (all blocks are signed)</small>
 
-Now if we change anything in a block, this block and all the following blocks lose their validity. Why? Because, if I change "good" by "bad" in block #2, the hash of block #2 changes, which changes _PREVH_ in block 3 and changing its own hash, which changes _PREVH_ in block 4 and changing its own hash, and so on... invalidating the whole blockchain after block #2. It is therefore very easy to know if any information on a blockchain has been changed and in which block.
+Now if we change anything in a block, this block and all the following blocks lose their validity. Why? Because, if I change "good" by "bad" in block #2, the hash of block #2 changes, which changes "_PREVH_" inside block #3, changing its own hash; which in turn changes "_PREVH_" in block #4, changing its own hash, and so on... This invalidates the whole blockchain after block #2. It is therefore very easy to know if any information on a blockchain has been changed, and in which block.
 
 ![](../../static/img/blockchain-basics/invalid_chain.svg)
 <small className="figure">FIGURE 6: An invalid blockchain (some blocks are not signed because of the data modification)</small>
 
-Now you may be wondering: why not re-hash all the invalidated blocks? It is indeed possible to re-mine these blocks from the last valid block and revalidate the entire chain (see fig. 7). 
+Now you may be wondering: why not *re-hash all the invalidated blocks*? It is indeed possible to re-mine these blocks from the last valid block and revalidate the entire chain (see fig. 7).
 
 ![](../../static/img/blockchain-basics/valid_chain_again.svg)
 <small className="figure">FIGURE 7: A valid blockchain again (all the blocks following the modification have been signed again)</small>
 
-So can the blockchain be altered? No, first because mining a block requires a lot of computing power. For Bitcoin, it would take several years for your desktop computer to mine a few blocks, and the more you go back in time and modify an old block, the more blocks you will have to mine. Secondly and most importantly, it is because of the distributed nature of the blockchain that it statistically impossible to rewrite its history.
+So can the blockchain be altered? No. Why?
+
+- Firstly, because mining a block requires a lot of computing power. For Bitcoin, it would take several **years** for your desktop computer to mine **a few blocks**, and the more you go back in time and modify an old block, the more blocks you would have to mine.
+
+- Secondly, *and most importantly*, because of the distributed nature of the blockchain, which makes it statistically impossible to rewrite its history.
 
 ## Distributed
-Any blockchain needs to distributed to be secured, that is to say that all the valid blocks have to be replicated on all the nodes of the network.
+Any blockchain needs to be distributed to be secured, that is to say that all the valid blocks have to be replicated on all the nodes of the network.
 
 Like everyone else, you can use your computer as a node and mine. To do this, you need to download all the valid blocks so far. For Bitcoin, this already represents more than 330GB [[6]](/blockchain-basics/proof-of-work#references).
 
-When any node in the world validates a new block (first to find a valid _NONCE_), it is added to the blockchain of all the other nodes in the network so using a _gossip protocol_ [[7]](/blockchain-basics/proof-of-work#references) as to always have an up-to-date blockchain everywhere on the network. There are a huge number of nodes in the world and they all have a complete copy of the blockchain.
+When any node in the world validates a new block (first to find a valid _NONCE_), it is added to the blockchain of all the other nodes using a _gossip protocol_ [[7]](/blockchain-basics/proof-of-work#references), so every node has an up-to-date blockchain. There are a huge number of nodes in the world and they all have a complete copy of the blockchain.
 
-Let's consider a node decides to fraudulently modify a block, fig. 8 shows a network of 3 nodes (_A_, _B_ and _C_) which all have a copy of the blockchain. If _C_ decides to modify some data on the blockchain, this can be seen immediately by the other nodes (_A_ and _B_) because the hash of the last block in their chain (_000969..._) is different from the hash of the last block of _C_ (_dec59db..._).
+Let's consider a node decides to fraudulently modify a block. Fig. 8 shows a network of 3 nodes (_A_, _B_ and _C_), which all have a copy of the blockchain. If "_C_ " decides to modify some data on the blockchain, this can be seen immediately by the other nodes (_A_ and _B_), because the hash of the last block in their chain (_000969..._) is different from the hash of the last block of "_C_" (_dec59db..._).
 
 ![](../../static/img/blockchain-basics/invalid_node.svg)
-<small className="figure">FIGURE 8: The blockchain is identical on all the nodes of the network except when a hacker tries to modify it. We see here that node _C_ tries to modify the data of block #2</small>
+<small className="figure">FIGURE 8: The blockchain is identical on all the nodes of the network except when a hacker tries to modify it. We see here that node "_C_" tries to modify the data of block #2</small>
 
-Even if node _C_ validated all of its blocks again as shows in fig. 9, the final hash (_0004de..._) is still be different from other nodes (_000969..._). There is no way to change the data of a block while preserving the same final hash as the rest of the network. The incorrect blockchain no longer corresponds to the majority of the other nodes. This block will become orphan, and will not be integrated into the general register.
+Even if node "_C_" *validated all of its blocks again* as shown in fig. 9, the final hash (_0004de..._) is still different from the other nodes (_000969..._). There is no way to change the data of a block while preserving the same final hash as the rest of the network. The incorrect blockchain no longer corresponds to the majority of the other nodes. This block will become orphan, and will not be integrated into the general ledger.
 
 ![](../../static/img/blockchain-basics/invalid_node_remined.svg)
-<small className="figure">FIGURE 9: Even if _C_ re-mines all its block following his modification, the hash of the latest block still does not match the rest of the network.</small>
+<small className="figure">FIGURE 9: Even if _C_ re-mines all its block following its modification, the hash of the latest block still does not match the rest of the network.</small>
 
-The only known way to corrupt Proof-of-Work is through the infamous "51% attack" [[8]](/blockchain-basics/proof-of-work#references) that consists for a pirate of obtaining more than 50% of the world's mining power, allowing him rewrite history (the technical details are explained [here](https://hackernoon.com/ethereum-classic-attacked-how-does-the-51-attack-occur-a5f3fa5d852e)). 
+The only known way to corrupt Proof-of-Work is through the infamous "51% attack" [[8]](/blockchain-basics/proof-of-work#references) which consists, for a pirate, in obtaining more than 50% of the world's mining power, allowing him to rewrite the history (the technical details are explained [here](https://hackernoon.com/ethereum-classic-attacked-how-does-the-51-attack-occur-a5f3fa5d852e)). 
 
-Fortunately, getting 51% of the world's mining power for popular blockchains is very difficult e.g. it would cost several billions for Bitcoin. However, for less popular blockchains (with fewer nodes) this is quite doable and actually happens quite regularly [[9]](/blockchain-basics/proof-of-work#references). Some blockchains are trying to solve this problem by implementing different consensus algorithms, such as Tezos as we will see in the next chapters.
+Fortunately, getting 51% of the world's mining power for popular blockchains is very difficult. For instance, it would cost several billions for Bitcoin. However, for less popular blockchains (with fewer nodes) this is quite doable and actually happens quite regularly [[9]](/blockchain-basics/proof-of-work#references). Some blockchains are trying to solve this problem by implementing different consensus algorithms, such as Tezos as we will see in the next chapters.
 
-## Tokens
-When we talk about blockchain, we do not necessarily talk about cryptocurrencies. Blockchain has been used for many non-financial applications [[10]](/blockchain-basics/proof-of-work#references). Note that until now, the data stored in the blocks of our examples were simple strings. You can store any type of data: identities, electronic documents, insurance contracts, etc. Whenever it is necessary to have immutable record, or a system of secure exchanges between parties without trust or on an unsecured network, you should ask yourself the question of whether a blockchain can be used.
+## Coins or tokens
+When we talk about "blockchains", we do not necessarily talk about "cryptocurrencies". "Blockchain" has been used for many non-financial applications [[10]](/blockchain-basics/proof-of-work#references). Note that until now, the data stored in the blocks of our examples were simple strings. You can store any type of data: identities, electronic documents, insurance contracts, etc. Whenever it is necessary to have an immutable record, or a system of secure exchanges between parties without trust, or on an unsecured network, you should ask yourself whether or not a blockchain can and should be used.
 
-If we use _DATA_ to store financial transactions then we do indeed have a crypto-currency. Figures 9 and 10 respectively show a block and a blockchain with transactions (_TX_) instead of _DATA_, e.g. _$13 from John to Chris_. By _"\$"_, we denote a monetary value that is not necessarily dollars, but which could be any token, such as Bitcoin (BTC), Ethereum (ETH), etc.
+If we use the "_DATA_" field to store financial transactions, then we do indeed have a crypto-currency. Figures 9 and 10 respectively show a block and a blockchain with transactions in "_TX_" instead of "_DATA_" (e.g. _$13 from John to Chris_). By _"\$"_, we denote a monetary value that is not necessarily dollars, but which could be any "coin" or "token", such as Bitcoin (BTC), Ethereum (ETH), etc.
 
 ![](../../static/img/blockchain-basics/tx_block.svg)
 <small className="figure">FIGURE 9: A block containing financial transactions</small>
@@ -105,17 +115,25 @@ If we use _DATA_ to store financial transactions then we do indeed have a crypto
 
 However, in our example, how do we know that John has enough money to send Chris $13?
 
-The Bitcoin blockchain does not contain a ledger showing the balance of each account at all times. Instead, when John attempts to complete a transaction, the process will go back in time on the blockchain and calculate the difference between all of his inbound transactions against all of his outbound transactions in order to deduce how much money John can spend.
+The Bitcoin blockchain does not contain a ledger showing the balance of each account at all times. Instead, when John attempts to complete a transaction, the process will go back in time on the blockchain and calculate the difference between all of his *inbound* transactions against all of his *outbound* transactions, in order to deduce how much money John can spend.
 
 ## Coinbase
-You now understand how the blockchain is able to calculate each person's balance and whether or not to authorize their transactions. However, where does all this money come from in the first place? If we were to completely trace the blockchain all the way back to its first block, there would be a point where money has to be created. If the user balances are only calculated from transactions between users, there would be no creation of a new tokens. There would be 0 bitcoin.
+You now understand how the blockchain is able to calculate each person's balance and whether or not to authorize their transactions. However, where does all this money come from in the first place? If we were to completely trace the blockchain all the way back to its first block, there would be a point where money has to be created. If the users balances are only calculated from transactions between users, there would be no creation of new tokens. There would be 0 bitcoin.
 
-In fact, new bitcoins are generated by the blockchain itself when a new block is created. New tokens are created and given to the miner of the block. In fig. 12, assume that Chris is mining the block. You can see that $100 is created from scratch and given to Chris to thank him for investing his computational power and electricity into mining a block. This is called the _reward_ or _coinbase_ . Chris is then able to spend this money in the next block as if he had received it from another user. It is this process that allows new tokens to be put into circulation, in the same way that a central bank is able to print new banknotes. The advantage of a blockchain over a central bank is that the process is completely autonomous and unalterable. Inflation on Bitcoin is completely known in advance and it is not possible to have over-inflation. Currently 17 millions of Bitcoin have been minded, i.e. offered as a coinbase. The maximum is 21 millions, at which point the source code of Bitcoin shows that no more coinbase will ever be offered. The source of income for miners will then only be the transaction fees, but there is still some time as this will happen around 2140 due to the ever increasing difficulty of mining [[11]](/blockchain-basics/proof-of-work#references). Indeed the Bitcoin protocol states that a new block must mined on average every 10 minutes. As the total computational power put into bitcoin increased with more miners and more technological advancements, the average time to mine a block naturally lowers. Bitcoin compensates by increasing the mining difficulty, e.g. instead of finding a _nonce_ such that the hash of the block starts with 3 zeros, it may increase to 4 zeros, making the whole process much longer and more difficult for the hardware.  
+In fact, new bitcoins are generated by the blockchain itself when a new block is created (validated). New tokens are created and given to the miner of the block. In fig. 12, assume that Chris is mining the block. You can see that $100 is created from scratch and given to Chris to thank him for investing his computational power and electricity into mining a block. This is called the "_reward_" or "_coinbase_" ("*coinbase reward*" and "*coinbase transaction*" are also used). Chris is then able to spend this money in the next block as if he had received it from another user. This process allows new tokens to be put into circulation, in the same way that a central bank is able to print new banknotes. The advantage of a blockchain over a central bank is that the process is completely autonomous, decentralized, and unalterable. Inflation on Bitcoin is completely known in advance and it is not possible to have over-inflation. Currently 17 millions of Bitcoin have been minted, namely offered as a coinbase. The maximum is 21 millions, at which point the source code of Bitcoin shows that no more coinbase will ever be offered. The source of income for miners will then only be the transactions fees, but there is still some time as this will happen around 2140 due to the ever increasing difficulty of mining [[11]](/blockchain-basics/proof-of-work#references). Indeed, the Bitcoin protocol states that a new block must mined on average every 10 minutes. As the total computational power put into bitcoin increased with more miners and more technological advancements, the average time to mine a block naturally lowers. Bitcoin compensates by increasing the mining difficulty. E.g. instead of finding a _nonce_ such that the hash of the block starts with 3 zeros, it may increase to 4 zeros, making the whole process much longer and more difficult for the hardware.  
 
 ![](../../static/img/blockchain-basics/coinbase.svg)
-<small className="figure">FIGURE 12: A block that give a coinbase of $100 to Chris, which allows him to spend it in the next block</small>
+<small className="figure">FIGURE 12: A block that gives a coinbase of $100 to Chris, which allows him to spend it in the next block</small>
 
-There is still one big issue in our blockchain schema so far. Take a minute and try to identify it. 
+<NotificationBar>
+  <p>
+    
+  Note that the first block has no previous hash, thus the _PREVH_ is set to a series of zeros. The first block of any blockchain is called the **genesis block**.
+
+  </p>
+</NotificationBar>
+
+There is still one big issue in our blockchain schema so far. Take a minute and try to identify it.
 
 [...]
 
@@ -123,34 +141,40 @@ Did you find it? Consider how the transactions are authentified.
 
 [...]
 
-Knowing that Chris has a positive balance of \$100, could Jane add the transaction "\$ 40 from Chris to Jane" herself in a new block without Chris ever giving his consent? At this point of the chapter, anyone would seems to be able to spend anyone else's money!
+Knowing that Chris has a positive balance of \$100, could Jane add the transaction "\$ 40 from Chris to Jane" herself in a new block without Chris ever giving his consent? At this point of the chapter, anyone seems to be able to spend anyone else's money!
 
 ## Keys
-It is essential for the proper functioning of the crypto-money that only Chris is able to send the transaction "$40 from Chris to Jane". For that, we need to use one of the basis of modern cryptography, the _Diffie–Hellman key exchange_ or _asymmetric key algorithm_, which consists of private key and public key.
+It is essential for the proper functioning of the crypto-money that only Chris is able to send the transaction "$40 from Chris to Jane". For that, we need to use one of the basis of modern cryptography, the _Diffie–Hellman key exchange_ or _asymmetric key algorithm_, which consists of a private key and a public key.
 
-Fig. 13 shows a pair of keys. The private key is a very long, randomly generated hexadecimal number (you can do this yourself by selecting random numbers). The public key is a hexadecimal number that is calculated from the private key. It is possible to calculate the public key from the private key, but it is practically impossible to find the private key from the public key.
+Fig. 13 shows a pair of keys. The private key is a very long, randomly generated number (you could generate that number yourself by flipping a coin at random a large number of times). The public key is an hexadecimal number that is calculated from the private key. It is possible to calculate the public key from the private key, but it is practically impossible to find the private key from the public key.
 
-As the name suggests, the private key must be kept private. You should never share it with anyone. On the other hand, the public key must be public and accessible to anyone that want to send you money.
+As the name suggests, **the private key must be kept private**. You should **never** share it with anyone. On the other hand, the public key can be public and accessible to anyone that wants to send you money (but keep in mind that this public key can then be linked to your data. You should use other generated public keys whenever possible).
 
 ![](../../static/img/blockchain-basics/keys.svg)
 <small className="figure">FIGURE 13: A private key that has been randomly generated and its associated public key computed from the asymetric key algorithm</small>
 
 ## Signatures
-Now what's great with a private key is that you can sign message tat be authenticated using only your public key. Indeed, fig. 14 shows a signature generated by our private key for the message "I like cake!". Notice that if we change the message, the signature changes.
+Now what's great with a **private key** is that you can sign a message that can be **authenticated** using only your **public key and signature**. Indeed, fig. 14 shows first a signature generated by our private key for the message "I like cake!". Notice that if we change the message, the signature changes.
 
 ![](../../static/img/blockchain-basics/signature.svg)
 <small className="figure">FIGURE 14: Signing some data with a private key</small>
 
-If we give someone our message and signature to someone, that person is able to verify the authenticity of the message simply by going to find our public key and apply the cryptographic verification algorithm on the message and its signature. Remember that the person does not have access to the private key, but using only the public key, the cryptographic algorithm will basically tell him "Yes, this message has been written by the person that owns private key and the message has not been altered in any way" (see fig. 15) or "No the signature is invalid meaning that either the message has been altered or it's not the person that owns the corresponding private key that signed this message" (see fig. 16).
+If we give someone our message and signature to someone, that person is able to *verify the authenticity of the message* simply by going to find our public key and apply the *cryptographic verification algorithm* on the message and its signature.
+
+Remember that the person **does not have access to the private key**, but using only the public key, the cryptographic algorithm will basically tell this person (see fig. 15):  
+"Yes, this message has been written by the person that owns the private key, and the message has not been altered in any way"  
+
+Or, in case of attempted identity theft or corrupted message (see fig. 16):  
+"No the signature is invalid meaning that either the message has been altered or it's not the person that owns the corresponding private key that signed this message"
 
 ![](../../static/img/blockchain-basics/signature_true.svg)
 <small className="figure">FIGURE 15: Thanks to the public key and the signature, anyone can verify that this data has indeed been sent by the holder of the private key associated with this public key...</small>
 
 ![](../../static/img/blockchain-basics/signature_false.svg)
-<small className="figure">FIGURE 16: ...or inversely, that the data has been altered or does not come from the holder of the private key associated with this public key.</small>
+<small className="figure">FIGURE 16: ... Or inversely, that the data has been altered or does not come from the holder of the private key associated with this public key.</small>
 
 ## Transactions
-Now, instead of using a simple string of characters in the data, let's use a transaction. Note that from now, instead of using names, our transactions will use the public key of the sender, and the public key of the recipient. Instead of "\$ 40 from Chris to Jane", we now have "\$ 40 from 0x4cf6... to 0x2f1f...".
+Now, instead of using a simple string of characters in the "DATA" field, let's use transactions and public keys. So, note that from now, instead of using names, our transactions will use _the **public key** of the sender_, and _the **public key** of the recipient_. Instead of "\$ 40 from Chris to Jane", we now have "\$ 40 from 0x4cf6... to 0x2f1f...".
 
 The sender then signs the transaction with his private key. See fig. 17 as an example.
 
@@ -161,6 +185,16 @@ Miners are now able to verify that a transaction has indeed been sent by the own
 
 ![](../../static/img/blockchain-basics/tx_signature_true.svg)
 <small className="figure">FIGURE 18: Miners verify that this transaction has been sent by the owner of the private key</small>
+
+<NotificationBar>
+  <p>
+
+  Note that transactions do not use actually use public keys in the _from_ and _to_ fields. They use **addresses**, which are hashed versions of the public key. Because the public key is made up of an extremely long string of numbers, it is compressed and shortened to form the public address. That way, it is more easily readable and more secured as nobody can know your public key from your address.
+  
+  To sum up, the private key generates the public key, which, in turn, generates the public address.
+
+  </p>
+</NotificationBar>
 
 ## Complete blockchain
 Let's now modify our "insecure" blockchain diagram fig. 10 and add the signatures of each sender to their transaction.
@@ -187,10 +221,10 @@ To recap, here is a complete schema of a block, a blockchain and a blockchain ne
 <small className="figure">FIGURE 21: A complete and distributed blockchain network</small>
 
 ## Conclusion
-You can now understand the power of the blockchain, a fully secured system without the need for a bank or any centralized entity. All you need is random number to create an a private and public key and start receiving money. Note that public keys are pseudonymous and not anonymous. You will need to associate your public key with your identity documents if you want to withdraw some money to your bank account.
+You can now understand the power of the blockchain, a fully secured system without the need for a bank or any centralized entity. All you need is a random number to create a private key and then a public key, and start receiving money. Note that public keys are pseudonymous and not anonymous. You will need to associate your public key with your identity documents if you want to withdraw some money to your bank account.
 
 ## About Energy consumption
-You know understand that mining is nothing more than repeatedly trying random _nonce_ to try to solve a very arbitrary problem first and obtain the coinbase reward. Everyone is basically in competition, and the more computational power and electricity you use, the better your chances. This unfortunately has a perverse effect on the environment. Bitcoin mining has recently past 100 TWh [[2]](/blockchain-basics/proof-of-work#references) in energy consumption, more than entire countries like Switzerland (56 TWh) or Finland (84 TWh). All this just to find an arbitrary number that does nothing except selecting a person in the world to be the next validator. Isn't there a better alternative? Isn't there a consensus that would be more cooperative and less competitive? We're going to see in the next chapter a few examples of so-called _next generation consensuses_ (including the consensus used by Tezos) that work just as well as _PoS_ but with a much lower energy consumption.
+You know understand that mining is nothing more than repeatedly trying random _nonce_ to try to solve a very arbitrary problem the first place, and obtain the coinbase reward. Everyone is basically in competition, and the more computational power and electricity you use, the better your chances. This unfortunately has a detrimental effect on the environment. Bitcoin mining has recently past 100 TWh [[2]](/blockchain-basics/proof-of-work#references) in energy consumption, more than entire countries like Switzerland (56 TWh) or Finland (84 TWh). All this just to find an arbitrary number that does nothing except selecting a person in the world to be the next validator. Isn't there a better alternative? Isn't there a consensus that would be more cooperative and less competitive? We're going to see in the next chapter a few examples of so-called _next generation consensuses_ (including the consensus used by Tezos) that work just as well as _PoS_ but with a much lower energy consumption.
 
 ## References
 

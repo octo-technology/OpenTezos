@@ -5,10 +5,18 @@
   "title": "Tutorial",
   "description": "This section introduces the main concepts of the Michelson language. It begins with the basics of stack manipulation then focuses on primitive types and more complex data structures. Finally the chapter focuses on specific features related to smart contracts concepts.",
   "source": "@site/docs/michelson/tutorial.md",
+  "sourceDirName": "michelson",
   "slug": "/michelson/tutorial",
   "permalink": "/michelson/tutorial",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/michelson/tutorial.md",
   "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "tutorial",
+    "title": "Tutorial"
+  },
   "sidebar": "docs",
   "previous": {
     "title": "Smart Contracts",

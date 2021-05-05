@@ -24,7 +24,7 @@ On another note, one of the solutions to a crisis often used by governments is t
 
 All these factors, the lack of faith in governments to protect their fiat currencies, the lack of trust in banks to protect people's holdings, and so on, led to a new questioning about the modern financial system: *Is there a better alternative?*
 
-### "And then there was light"
+### "Eureka!", said *Satoshi*
 On **October 31st, 2008**, under the _pseudonym_ of "Satoshi Nakamoto", the [Bitcoin whitepaper](https://bitcoin.org/bitcoin.pdf) was discreetly released. From its very title and abstract, one could understand that the aim of _his_ invention was to create an "electronic cash system", an alternative to fiat currency, able to function free of control or manipulation from a centralised entity.
 
 On **January 3rd, 2009**, this "blockchain" went live and the first _block_ was created, called the "Genesis Block" (you will learn about what is a _block_ in the next chapter). The Genesis block contained the first few exchanges of this newly created electronic currency called Bitcoin, and some data. It is indeed possible to store some raw data inside a block, and Satoshi Nakamoto included in the first block a message saying: "_Chancellor on brink of second bailout for banks_", the title of _The Times_ newspaper of the day describing the second bank bailout following the subprime crisis.
@@ -70,7 +70,7 @@ Crowdfunding in bitcoins during the same summer took place, and Ethereum was lau
 
 Ethereum was a revolution, a new generation of blockchain, thanks to its **EVM** ([Ethereum Virtual Machine](https://ethereum.org/en/developers/docs/evm/)), a [Turing Complete](https://en.wikipedia.org/wiki/Turing_completeness) system able to solve any computation problem using its new low-level scripting language called "[_EVM Code_](https://ethereum.org/en/whitepaper/#code-execution)". On top was also provided one of the most used high-level languages called "[_Solidity_](https://soliditylang.org/)".
 
-The first DAO of Ethereum, simply called [_The DAO_](https://en.wikipedia.org/wiki/The_DAO_(organization)) was created and more than 150 millions of US Dollars in Ethers were raised in June 2016. However, an error in the a *smart contract* (high-level Solidity code) [permitted a hacker to steal 50 million](https://www.nytimes.com/2016/06/18/business/dealbook/hacker-may-have-removed-more-than-50-million-from-experimental-cybercurrency-project.html). To recover the stolen funds, it was decided to modify the history of transactions. This decision was not approved by the entire community and created a split of the history ("*hard fork*") into two different blockchains: _Ethereum_ and _Ethereum Classic_.
+The first DAO of Ethereum, simply called "[_The DAO_](https://en.wikipedia.org/wiki/The_DAO_(organization))" was created and more than 150 millions of US Dollars in Ethers were raised in June 2016. However, an error in the a *smart contract* (high-level Solidity code) [permitted a hacker to steal 50 millions](https://www.nytimes.com/2016/06/18/business/dealbook/hacker-may-have-removed-more-than-50-million-from-experimental-cybercurrency-project.html). To recover the stolen funds, it was decided to modify the history of transactions. This decision was not approved by the entire community and created a split of the history ("*hard fork*") into two different blockchains: _Ethereum_ and _Ethereum Classic_.
 
 Today, Bitcoin and Ethereum remain the two main protocols, but a lot of very interesting alternatives have been created, notably Tezos in 2018.
 
@@ -84,13 +84,13 @@ Not all blockchains are then cryptocurrencies. For instance, [Corda](https://www
 
 It is important not to confuse a cryptocurrency (first made for exchanging money) with its supporting component: a *blockchain*. Note that **originally** the word "*blockchain*" did **not** designate a technology, but the name of the **data-structure** used to store the data.
 
-The exact word "blockchain" does not even appear in the Bitcoin white whitepaper but **now reflects the technology** used to arrange and chain data ensuring _immutability_ and _cryptographic verifiability_.
+The exact word "blockchain" does not even appear in the Bitcoin whitepaper but **now reflects the technology** used to arrange and chain data ensuring _immutability_ and _cryptographic verifiability_.
 
 Crypto-currencies have 2 important characteristics:
 - They are public
 - There is no _double-spending_, meaning that you cannot spend the same coins twice.
 
-To create a distributed currency without a central authority, Satoshi Nakamoto had to solve the double-spending problem **in a distributed environment** which was no easy task as we will see in the next chapters.
+To create a distributed currency without a central authority, Satoshi Nakamoto had to solve the double-spending problem **in a large distributed environment** which was no easy task as we will see in the next chapters.
 
 ## References
 

@@ -1,5 +1,7 @@
 const darkCodeTheme = require('prism-react-renderer/themes/palenight')
 const lightCodeTheme = require('prism-react-renderer/themes/github')
+const math = require('remark-math')
+const katex = require('rehype-katex')
 
 module.exports = {
   title: 'OpenTezos',
@@ -9,8 +11,16 @@ module.exports = {
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'OpenTezos', // Usually your GitHub org/user name.
-  projectName: 'OpenTezos', // Usually your repo name.
+  organizationName: 'Octo-Technology',
+  projectName: 'OpenTezos',
+  stylesheets: [
+    {
+      href: 'https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css',
+      type: 'text/css',
+      integrity: 'sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X',
+      crossorigin: 'anonymous',
+    },
+  ],
   themeConfig: {
     navbar: {
       logo: {
@@ -60,6 +70,10 @@ module.exports = {
           sidebarPath: require.resolve('./src/sidebar/sidebar.js'),
           routeBasePath: '/',
           editUrl: 'https://github.com/octo-technology/OpenTezos/tree/main/',
+          remarkPlugins: [math],
+          rehypePlugins: [katex],
+          showLastUpdateTime: true,
+          showLastUpdateAuthor: true
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),

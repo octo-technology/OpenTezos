@@ -5,10 +5,19 @@
   "title": "Introduction",
   "description": "Tezos is a public, open-source blockchain protocol relying on a low power consumption and energy-efficient consensus.",
   "source": "@site/docs/tezos-basics/introduction.md",
+  "sourceDirName": "tezos-basics",
   "slug": "/tezos-basics",
   "permalink": "/tezos-basics",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/introduction.md",
   "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "introduction",
+    "title": "Introduction",
+    "slug": "/tezos-basics"
+  },
   "sidebar": "docs",
   "previous": {
     "title": "Exam",

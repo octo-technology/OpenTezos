@@ -5,10 +5,19 @@
   "title": "Token Standards",
   "description": "In the Blockchain ecosystem, any asset that is digitally transferable between two people is called a token. Tokens can be native to a blockchain, e.g. BTC is the native token of Bitcoin. Tokens can also be created and hosted on an existing blockchain via a smart contract. Some tokens, called stablecoins, are following the price of fiat currencies (e.g. USD, EUR). Others, called NFT, can enclose collectibles or art. Finally, tokens can represent rights of ownership of real-world estates or companies (i.e. stock tokens). In this chapter, we will see the main token standards on Tezos.",
   "source": "@site/docs/defi/token-standards.md",
+  "sourceDirName": "defi",
   "slug": "/defi/token-standards",
   "permalink": "/defi/token-standards",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/token-standards.md",
   "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "token-standards",
+    "title": "Token Standards",
+    "author": "Aymeric Bethencourt"
+  },
   "sidebar": "docs",
   "previous": {
     "title": "Introduction",

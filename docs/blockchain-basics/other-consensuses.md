@@ -43,7 +43,7 @@ This mimics the process of mining where miners have to invest some value, except
 Examples: *Slimcoin*
 
 ## Proof-of-Capacity (PoC)
-This consensus first generates large data sets called "*Plots*". The more plots a *miner* records, the more lottery tickets he owns. Hence, the more hard-drive space (*capacity*) he has, the more chances he has to win the rewards.
+This consensus first generates large data sets called "*Plots*". The more plots a *miner* records, the more lottery tickets he owns. Hence, the more hard-drive space (*capacity*) he has, the more chances he has to win the rewards. This also mimic mining.
 
 Variants: *Proof-of-Storage, Proof-of-Space*
 
@@ -55,17 +55,14 @@ Nodes elect a temporary leader node. This leader is then responsible for validat
 Examples: *BigChainDB*
 
 ## Practical Byzantine Fault Tolerance (PBFT)
-In this consensus, each node of the network awaits messages fro other nodes. Each node receiving a message runs a program on this message using its own data. According to its data and the message received, each node produces a result and broadcasts it to the other nodes.
-//TODO: Weird explanation. I understand it because I know it but a newbie would be completely lost by this explanation.
-
-The total sum of these broadcast-results determines the consensus.
+In this consensus, each node of the network awaits messages from the others. They are continously broadcasting messages. Each node receiving a message runs a program on it using its own data. The program's result from each node is then transformed into a new broadcasted message to all other nodes. With time, according to program rules, enough nodes will transmit the same result in messages. The total sum of these broadcast-results determines the consensus.
 
 Examples: *Evernym, Chain...*
 
 ## Federated​ ​Byzantine​ ​Agreement​ ​(FBA)
-There *sets of enough nodes* to validate data are established. //TODO: What? Can't understand a thing in that phrase.
+In this distributed network *sets of enough nodes* to validate data are established. It means the sufficient number of nodes in a group is determined to reach an agreement **for that group**.
 
-A single *set* is called a "*quorum*". //TODO: What is a set?
+A single *set* of nodes is called a "*quorum*".
 
 With _FBA_, a *subset* of a quorum is able to aggregate another node, which in turn approves data *to form a complete quorum*. This *subset* is called a "*quorum slice*".
 
@@ -74,7 +71,7 @@ Each node chooses its own multiple quorum slices to trust.
 The aim of this is to avoid **separated divergent quorums**, and to ensure that **all quorums converge**.  
 Quorum slices must be large enough to have **intersections** (shared nodes).
 
-//TODO: I understood nothing about how FBA actually works ^^
+To recap, validators groups with sufficient base size can aggregate single nodes from other groups. In the end, agreed quorums will cover the majority of the network, reaching consensus.
 
 Examples: *Stellar, Ripple*.
 
@@ -92,7 +89,7 @@ Proof-of-Activity is split into 2 ordered phases:
 
 1. PoW phase
 
-    Miners race to find enough zeros in the result of the hash function. But this time, the block they validate is _usually_ empty of transactions. Only where they can receive a reward and their results are present. //TODO: "Only where they can receive" hum what? English much? ^^
+    Miners race to find enough zeros in the result of the hash function. But this time, the block they validate is _usually_ empty of transactions. Only the address they can receive a reward and their hash and nounce are present.
 
 2. PoS phase
 
@@ -102,25 +99,23 @@ Proof-of-Activity is split into 2 ordered phases:
 
 Fees-rewards are then split between miners and validators.
 
-//TODO: What is the point? Seems like it combines the worst of both world, why mine with POW and not just do POS?
-
 Examples: *Decred*.
 
 ## Pros & Cons
 
-| #    | Consensus | Advantages                                                                                | Disadvantages                                                                                                |
-| :--- | :-------- | :---------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------- |
-| 0    | PoW       | Extreme robustness (MAD + SHA256 + CBC)                                                   | High Energy consumption                                                                                      |
-| 1    | PoB       | Robustness similar to PoW                                                                 | Energy consumption; Mining power to money burners  //TODO: Why PoB use a lot of energy, there is no mining?? |
-| 2    | PoC       | Less energy consumption; mimic mining //TODO: Above you said POB mimic mining and not POC | Nothing at Stake (no MAD)                                                                                    |
-| 3    | LBC       | Less energy consumption                                                                   | Leader centralized; Sybil Attack[[1]](/blockchain-basics/other-consensuses#references) weakness              |
-| 4    | PBFT      | Very easy to implement                                                                    | Absence of privacy; less robust //TODO : why less robust?                                                    |
-| 5    | FBA       | Modest computing & financial requirements                                                 | Quorum slices centralization; Sybil Attack[[1]](/blockchain-basics/other-consensuses#references) weakness    |
-| 6    | Avalanche | Fast; highly distributed (lots of nodes)                                                  | Groups of nodes centralization; Sybil Attack[[1]](/blockchain-basics/other-consensuses#references) weakness  |
-| 7    | PoS       | Less energy consumption                                                                   | Coins owners centralization                                                                                  |
-| 8    | PoA       | Combines PoW & PoS                                                                        | Combines PoW & PoS                                                                                           |
-| 9    | DPoS      | Mitigating PoS centralization                                                             | Coins owners & witnesses centralization                                                                      |
-| 10   | LPoS      | Mitigating even more PoS centralization                                                   | Coins owners centralization  //TODO: So still the same issue as POS and DPOS ?                               |
+| #    | Consensus | Advantages                                                    | Disadvantages                                                                                               |
+| :--- | :-------- | :------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------- |
+| 0    | PoW       | Extreme robustness (MAD + SHA256 + CBC)                       | High Energy consumption                                                                                     |
+| 1    | PoB       | Robustness similar to PoW                                     | Still wastes ressources needlessly; Mining power to money burners                                           |
+| 2    | PoC       | Less energy consumption; mimic mining                         | Nothing at Stake (no MAD)                                                                                   |
+| 3    | LBC       | Less energy consumption                                       | Leader centralized; Sybil Attack[[1]](/blockchain-basics/other-consensuses#references) weakness             |
+| 4    | PBFT      | Very easy to implement                                        | Absence of privacy; Sybil Attack[[1]](/blockchain-basics/other-consensuses#references) weakness             |
+| 5    | FBA       | Modest computing & financial requirements                     | Quorum slices centralization; Sybil Attack[[1]](/blockchain-basics/other-consensuses#references) weakness   |
+| 6    | Avalanche | Fast; highly distributed (lots of nodes)                      | Groups of nodes centralization; Sybil Attack[[1]](/blockchain-basics/other-consensuses#references) weakness |
+| 7    | PoS       | Less energy consumption                                       | Coins owners centralization                                                                                 |
+| 8    | PoA       | More distribution on transaction's selection and fees rewards | Combines PoW & PoS disadvantages                                                                            |
+| 9    | DPoS      | Mitigating PoS centralization                                 | Coins owners & witnesses centralization                                                                     |
+| 10   | LPoS      | Mitigating even more PoS centralization                       | Still some coins owners centralization                                                                      |
 
 ## What have we learned so far?
 In this chapter, we briefly described 10 consensuses that can be used for public blockchains. There are many other consensus algorithms.

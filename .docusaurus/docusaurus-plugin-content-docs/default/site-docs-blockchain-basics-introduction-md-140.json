@@ -5,10 +5,21 @@
   "title": "Introduction",
   "description": "Welcome to OpenTezos, the most complete and open-source documentation on Tezos.",
   "source": "@site/docs/blockchain-basics/introduction.md",
+  "sourceDirName": "blockchain-basics",
   "slug": "/blockchain-basics",
   "permalink": "/blockchain-basics",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/blockchain-basics/introduction.md",
   "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "introduction",
+    "disable_pagination": true,
+    "title": "Introduction",
+    "slug": "/blockchain-basics",
+    "authors": "Aymeric Bethencourt and Thomas Zoughebi"
+  },
   "sidebar": "docs",
   "previous": {
     "title": "Paths",

@@ -14,11 +14,11 @@ it can become very tedious for more complex smart contracts:
 - there are no variables nor functions
 - no syntactic sugar
 - the Michelson code cannot be broken down into several files
-- stack-based languages are not commonly used when it comes to web development.
+- stack-based languages are not commonly used when it comes to development.
 
 LIGO solves these issues. 
 It is a high-level language for smart contracts development.
-Smart contracts are developed in Ligo, then transpiled into a single Michelson code file. 
+Smart contracts are developed in Ligo, then compiled into a single Michelson code file. 
 This Michelson file is the smart contract that will be deployed on a tezos network.
 
 <br/>
@@ -34,11 +34,8 @@ The diagram helps to contextualize the role of LIGO in the Tezos ecosystem.
 LIGO is active in the left part as a development tool allowing
 for the production of smart contracts (scripts in Michelson),
 which can be deployed on the blockchain.
-Tezos nodes broadcast information through the Tezos network 
-in order to maintain an immutable common ledger (blockchain) # I would remove this sentence
 
-
-LIGO currently offers three flavoured syntaxes:
+LIGO currently offers four flavoured syntaxes:
 
 - **PascaLIGO**, a syntax inspired by Pascal which provides an imperative developer experience.
 
@@ -46,9 +43,10 @@ LIGO currently offers three flavoured syntaxes:
 
 - **ReasonLIGO**, a [ReasonML](https://reasonml.github.io/) inspired syntax that builds on the strong points of OCaml. 
   It aims to be familiar to those coming from JavaScript.
+  
+- **JsLIGO**, the latest syntax released, inspired by the popular JavaScript language.
 
 Here is an example of a Counter contract that handles a single integer's "counter" value 
-
 as storage and allows users to increment decrement or reset this counter.
 
 <Tabs
@@ -57,6 +55,7 @@ as storage and allows users to increment decrement or reset this counter.
   { label: 'PascaLIGO', value: 'pascaligo', },
   { label: 'CameLIGO', value: 'cameligo', },
   { label: 'ReasonLIGO', value: 'reasonligo', },
+  { label: 'JsLIGO', value: 'jsligo', },
   ]
 }>
 
@@ -125,21 +124,50 @@ let main = ((action, store): (parameter, storage)) : return => {
 ```
 
 </TabItem>
-</Tabs>
+<TabItem value="jsligo">
 
-This LIGO contract accepts the following LIGO expressions:
-`Increment(n)`, `Decrement(n)` and `Reset`. Those serve as
-`entrypoint` identification.
+```js
+type storage = int;
+
+type parameter =
+  ["Increment", int]
+| ["Decrement", int]
+| ["Reset"];
+
+type return_ = [list<operation>, storage];
+
+let main = ([action, store]: [parameter, storage]) : return_ => {
+  return [
+    list([]) as list<operation>,
+    match(action, {
+      Increment: (n: int) => store + n,
+      Decrement: (n: int) => store - n,
+      Reset:     ()       => 0
+    })
+  ];
+};
+```
+
+</TabItem>
+</Tabs>
 
 <br/>
 
-The goal of this module is to allow a developer to install the LIGO transpiler on his operating system
-and give him the essential skills to write and deploy his first smart contract
-onto the Tezos blockchain.
 PascaLigo will be used throughout this module.
+The main difference between the syntaxes is that PascaLigo is a more imperative syntax while ReasonLigo 
+and CameLigo are functional. 
+Moreover there are for and while loops in PascaLigo which are not found in the other ones.
 
-It will include the bases of the LIGO language,
+> **Imperative programming** is a programming paradigm that describes 
+> the operations in sequences of instructions executed by the computer to change the state of the program.`
+
+> **Functional programming** is a declarative programming paradigm that considers computation as an evaluation of mathematical functions.
+
+The goal of this module is to allow a developer to install the LIGO compiler on his operating system
+by providing the essential skills to write and deploy his first smart contract
+onto the Tezos blockchain.
+
+It will include the basics of the LIGO language,
 inspired by the [official documentation](https://ligolang.org/docs/language-basics/types),
-as well as detailed smart contract examples.
-You will also be offered an exam to check your understanding.
+as well as detailed smart contract examples and then an exam to check your understanding.
 

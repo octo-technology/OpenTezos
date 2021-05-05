@@ -5,10 +5,19 @@
   "title": "Stablecoins",
   "description": "A stablecoin is a cryptocurrency whose price is fixed to another asset. Most stablecoins are pegged (fixed) to fiat currencies (currencies issued by a central bank) like the US Dollar.",
   "source": "@site/docs/defi/stablecoins.md",
+  "sourceDirName": "defi",
   "slug": "/defi/stablecoins",
   "permalink": "/defi/stablecoins",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/stablecoins.md",
   "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "stablecoins",
+    "title": "Stablecoins",
+    "author": "Aymeric Bethencourt"
+  },
   "sidebar": "docs",
   "previous": {
     "title": "On-chain Oracles",

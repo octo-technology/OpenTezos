@@ -135,15 +135,15 @@
   margin-left: 0;
 }
 
-html[data-theme="dark"] .cli button {
+html[data-theme='dark'] .cli button {
   border: 1px solid white;
   color: white;
 }
 
-html[data-theme="dark"] .cli button:hover {
+html[data-theme='dark'] .cli button:hover {
   color: var(--brand-color);
 }
 
-html[data-theme="dark"] .cli .step-description {
+html[data-theme='dark'] .cli .step-description {
   color: var(--doc-secondary-color);
 }

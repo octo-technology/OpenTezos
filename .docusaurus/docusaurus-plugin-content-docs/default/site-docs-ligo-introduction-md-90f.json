@@ -5,10 +5,19 @@
   "title": "Introduction",
   "description": "Tezos smart contracts are written in Michelson, which is a stack-based language.",
   "source": "@site/docs/ligo/introduction.md",
+  "sourceDirName": "ligo",
   "slug": "/ligo",
   "permalink": "/ligo",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/introduction.md",
   "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "introduction",
+    "title": "Introduction",
+    "slug": "/ligo"
+  },
   "sidebar": "docs",
   "previous": {
     "title": "Exam",

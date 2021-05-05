@@ -266,7 +266,7 @@ function main (const action : raffleEntrypoints; const store : storage): list (o
 
 This main function returns a tuple of the two required elements.
 
-The raffle smart contract can now be transpiled:
+The raffle smart contract can now be compiled:
 ```shell
 $ ligo compile-contract raffle.ligo main
 ```
@@ -600,7 +600,7 @@ You can define Tezos addresses by casting a `string` value to an `address` type:
 const my_account : address = ("tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx" : address)
 ```
 
-⚠️ You will not see a transpilation error if the address you enter is wrong, but the execution will fail.
+⚠️ You will not see a compilation error if the address you enter is wrong, but the execution will fail.
 
 
 ### Tezos Module
