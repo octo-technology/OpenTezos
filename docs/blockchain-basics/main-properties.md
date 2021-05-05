@@ -117,7 +117,7 @@ In IT, a consensus algorithm is a computer program allowing users to reach commo
 
 ### Agreement on *Deflation*
 
-Relying only supply and demand, Bitcoin  wouldn't be deflationary.
+Relying only on supply and demand, Bitcoin  wouldn't be deflationary.
 
 Another rule is coded in the Bitcoin protocol that increases scarcity of bitcoins. Its name is the _Halving_. Every 210,000 blocks (~4 years), the block reward (coinbase) is simply cut in half.
 
@@ -142,7 +142,7 @@ _It is more profitable to earn bitcoins participating to the protocol than to at
 You would also face the community, which can detect the attack and adapt.
 
 ## What have we learned so far?
-In this chapter, we described the pillars of the Bitcoin protocol, and how they articulate around the Nakamoto Consensus. You understand that the Nakamoto Consensus integrates the Proof-of-Work consensus algorithm, and a form of *social* consensus based on simple Economy principles and the MAD propertie.
+In this chapter, we described the pillars of the Bitcoin protocol, and how they articulate around the Nakamoto Consensus. You understand that the Nakamoto Consensus integrates the Proof-of-Work consensus algorithm, and a form of *social* consensus based on simple Economy principles and the MAD property.
 
 In the next chapter, we'll dig into the the Proof-of-Work consensus to understand how it actually works.
 
