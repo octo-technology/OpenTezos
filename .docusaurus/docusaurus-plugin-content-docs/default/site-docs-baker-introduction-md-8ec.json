@@ -5,10 +5,20 @@
   "title": "Introduction",
   "description": "Under construction.",
   "source": "@site/docs/baker/introduction.md",
+  "sourceDirName": "baker",
   "slug": "/baker",
   "permalink": "/baker",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/baker/introduction.md",
   "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "introduction",
+    "disable_pagination": true,
+    "title": "Introduction",
+    "slug": "/baker"
+  },
   "sidebar": "docs",
   "previous": {
     "title": "Exam",

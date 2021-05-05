@@ -5,10 +5,18 @@
   "title": "Exam",
   "description": "Question 1",
   "source": "@site/docs/tezos-basics/exam.md",
+  "sourceDirName": "tezos-basics",
   "slug": "/tezos-basics/exam",
   "permalink": "/tezos-basics/exam",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/exam.md",
   "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "exam",
+    "title": "Exam"
+  },
   "sidebar": "docs",
   "previous": {
     "title": "Economics and rewards",

@@ -5,10 +5,18 @@
   "title": "Examples",
   "description": "Example 1: Modulo with LOOP and IF",
   "source": "@site/docs/michelson/examples.md",
+  "sourceDirName": "michelson",
   "slug": "/michelson/examples",
   "permalink": "/michelson/examples",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/michelson/examples.md",
   "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "examples",
+    "title": "Examples"
+  },
   "sidebar": "docs",
   "previous": {
     "title": "Instructions Reference",

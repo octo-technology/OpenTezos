@@ -5,10 +5,19 @@
   "title": "Introduction",
   "description": "To write smart contracts for Tezos, you can either choose a high-level language such as LIGO or SmartPy, or the official low-level language called Michelson.",
   "source": "@site/docs/michelson/introduction.md",
+  "sourceDirName": "michelson",
   "slug": "/michelson",
   "permalink": "/michelson",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/michelson/introduction.md",
   "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "introduction",
+    "title": "Introduction",
+    "slug": "/michelson"
+  },
   "sidebar": "docs",
   "previous": {
     "title": "Take Away",

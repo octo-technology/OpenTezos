@@ -5,8 +5,16 @@
   "title": "Exam",
   "description": "Question 1",
   "source": "@site/docs/dapp/exam.md",
+  "sourceDirName": "dapp",
   "slug": "/dapp/exam",
   "permalink": "/dapp/exam",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/dapp/exam.md",
-  "version": "current"
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "exam",
+    "title": "Exam"
+  }
 }

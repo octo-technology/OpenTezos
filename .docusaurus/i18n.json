@@ -3,10 +3,11 @@
   "locales": [
     "en"
   ],
+  "currentLocale": "en",
   "localeConfigs": {
     "en": {
-      "label": "en"
+      "label": "English",
+      "direction": "ltr"
     }
-  },
-  "currentLocale": "en"
+  }
 }

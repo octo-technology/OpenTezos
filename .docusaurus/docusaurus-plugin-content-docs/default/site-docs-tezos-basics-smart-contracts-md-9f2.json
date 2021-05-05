@@ -5,10 +5,18 @@
   "title": "Smart contracts",
   "description": "In this chapter, you'll learn the Tezos smart contracts basics. Their components and the workflow to record and use them on the Tezos blockchain.",
   "source": "@site/docs/tezos-basics/smart-contracts.md",
+  "sourceDirName": "tezos-basics",
   "slug": "/tezos-basics/smart-contracts",
   "permalink": "/tezos-basics/smart-contracts",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/smart-contracts.md",
   "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "smart-contracts",
+    "title": "Smart contracts"
+  },
   "sidebar": "docs",
   "previous": {
     "title": "Introduction",

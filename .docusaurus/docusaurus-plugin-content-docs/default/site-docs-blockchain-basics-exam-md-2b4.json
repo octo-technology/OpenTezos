@@ -5,10 +5,19 @@
   "title": "Exam",
   "description": "Question 1",
   "source": "@site/docs/blockchain-basics/exam.md",
+  "sourceDirName": "blockchain-basics",
   "slug": "/blockchain-basics/exam",
   "permalink": "/blockchain-basics/exam",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/blockchain-basics/exam.md",
   "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "exam",
+    "title": "Exam",
+    "authors": "Thomas Zoughebi"
+  },
   "sidebar": "docs",
   "previous": {
     "title": "Smart Contracts",

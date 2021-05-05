@@ -58,15 +58,19 @@ The blocks validators are called the **miners**. They put valid transactions ins
 - Fees in bitcoins from each transaction, that each **sender** chose
 - **Pre-determined** quantity of bitcoins for the valid block found (called the coinbase)
 
-The fees are simply **the sum of the transactions values** (S<sub>v</sub>) minus **the sum of the amounts really sent** (S<sub>a</sub>).
+The fees are simply **the sum of the transactions values** ($S_v$) minus **the sum of the amounts really sent** ($S_a$).
 
-For "T" *transactions* in a block, let "v" be a transaction *value*, and "a" be the *amount* really sent:
+For $T$ *transactions* in a block, let $v$ be a transaction *value*, and $a$ be the *amount* really sent:
 
-![Fees calculation #1](../../static/img/blockchain-basics/fees-calculation-1.svg "Fees calculation #1")
+$$
+\text{Fees} = \sum_{i=1}^{T} v_i - \sum_{i=1}^{T} a_i
+$$
 
 Or more simply:
 
-![Fees calculation #2](../../static/img/blockchain-basics/fees-calculation-2.svg "Fees calculation #2")
+$$
+\text{Fees} = S_v - S_a
+$$
 
 Senders actually choose the fee they want to pay. The more they give, the faster the transaction is included in a block. As block size is limited, miners obviously promote transactions with the highest fees. A transaction could actually have zero fee, but it would take months or years until a miner decides to include it in a block (if ever). 
 
