@@ -44,7 +44,7 @@ Executing an entrypoint takes some parameters and a current state of the storage
 > then they are sent and executed according to the order of the operations on the list.
 
 
-## Raffle contract
+# Raffle contract
 
 // TODO: what is a raffle ? add a schema
 
@@ -126,10 +126,17 @@ code
 
 ## open_raffle entrypoint
 
+`open_raffle` is an entrypoint that can only be called by the administrator. 
+If the invocation is successful then the raffle will be opened, 
+and the smart contract storage will be updated with the jackpot amount and the hash of the winning ticket number.
+
 ### Link to referential manual
 
-- [__init__](https://smartpy.io/reference.html#_contracts)
+- [init](https://smartpy.io/reference.html#_contracts)
 - [entrypoints](https://smartpy.io/reference.html#_entry_points)
+- [Checking a Condition](https://smartpy.io/reference.html#_checking_a_condition)
+- [Timestamps](https://smartpy.io/reference.html#_timestamps)
+- [Test and Scenario](https://smartpy.io/reference.html#_tests_and_scenarios)
 
 ```python
 # Raffle Contract - Example for illustrative purposes only.
@@ -241,9 +248,74 @@ For the storage of the raffle contract we have for the moment defined 5 fields:
 
 ### Entrypoint implementation
 
+An entrypoint is a method of the contract class preceded by `@sp.entry_point`. 
+It can take several parameters in argument.
 
+In our case the first entrypoint is called `open_raffle` and does the following:
+- With `sp.verify()` or `sp.verify_equal()` we check 4 things and return an error message if necessary. See doc [Checking a Condition](https://smartpy.io/reference.html#_checking_a_condition).
+  1. The address that called the entrypoint must be the administrator one indicated in the storage. We compare here `sp.source` and `self.data.admin`.
+     >`sp.sender` is the address that called the current entrypoint.  
+     `sp.source` is the address that initiated the current transaction. It may or may not be equal to `sp.sender`, but in our case it is.
+  2. No raffle must be open, for this we use the boolean `raffle_is_open` defined in the storage. 
+     > Note that `~` is the symbol used for logical negation.
+  3. The amount `sp.amount` sent to the contract by the administrator during the transaction must be at least greater than the value specified in the `jackpot_amount` argument.
+  4. The close date `close_date` passed as argument must be at least 7 days in the future. (see doc [Timestamps](https://smartpy.io/reference.html#_timestamps)).
+- Once all the conditions are passed we update the storage as follows:
+```python
+self.data.close_date = close_date
+self.data.jackpot = jackpot_amount
+self.data.hash_winning_ticket = hash_winning_ticket
+self.data.raffle_is_open = True
+```
 
+### Test and Scenario
 
+The purpose of the test scenario is to ensure the proper functionality of the smart contract by testing the conditions 
+and checking the changes made to the storage.
+
+With SmartPy a test is a method of the class contract preceded by `@sp.add_test`.
+
+Inside this method you need to instantiate your class contract, and your scenario to which you will add the contract instance and all the calls related to the instance you want to test.
+
+```python
+@sp.add_test(name="Raffle")
+def test():
+    r = Raffle(admin.address)
+    scenario = sp.test_scenario()
+    scenario.h1("Raffle")
+    scenario += r
+```
+
+You can also organize your scenario by adding titles with `scenario.h1("My title")`, `scenario.h2("My subtitle")` etc.
+
+An interesting point is the possibility to define test accounts for our scenario.
+
+```python
+alice = sp.test_account("Alice")
+admin = sp.test_account("Administrator")
+```
+
+Test accounts can be defined by calling `sp.test_account(seed)` where seed is a string. 
+A test account account contains some fields: `account.address`, `account.public_key_hash`, `account.public_key`, and `account.secret_key`.
+
+You can then simulate the calls to the entrypoints by specifying the different arguments, as follows:
+
+```python
+scenario.h3("The unauthorized user Alice unsuccessfully call open_raffle")
+scenario += r.open_raffle(close_date=close_date, jackpot_amount=jackpot_amount,
+                          hash_winning_ticket=hash_winning_ticket) \
+    .run(source=alice.address, amount=sp.tez(10), now=sp.timestamp_from_utc_now(),
+         valid=False)
+```
+
+The run method and its parameters are all optional, but here it helps to add relevant context to the entrypoint call.  
+In fact, you can specify the `source` of the transaction, the `amount` of tez sent, the date of the transaction with `now` etc.
+
+> Note that the option `valid=False` allows you to indicate that the transaction is expected to fail, here because Alice is not the administrator.
+
+The result will then be displayed as an html document in the output panel of the online editor.
+
+### Run and watch the output
 
 
 
