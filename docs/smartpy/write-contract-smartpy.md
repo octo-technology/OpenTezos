@@ -92,7 +92,7 @@ if "templates" not in __name__:
     sp.add_compilation_target("Raffle_comp", Raffle())
 ```
 
-- **A SmartPy contract** consists of a state together with one or several entry points.
+- **A SmartPy contract** consists of a state with one or several entry points.
   It is a class definition that inherits from `sp.Contract`.
 
 - **The SmartPy storage** is defined into the constructor `__init__`
@@ -102,10 +102,10 @@ if "templates" not in __name__:
   Entrypoints need to be marked with the `@sp.entry_point` decorator.
 
 - **Tests and Scenarios** are good tools to make sure our smart contract is working properly. 
-  - A new test is a method marked with the `sp.add_test` decorator
-  - A new scenario is instantiated by `sp.test_scenario`
+  - A new test is a method marked with the `sp.add_test` decorator.
+  - A new scenario is instantiated by `sp.test_scenario`.
   - Scenarios describe a sequence of actions: originating contracts, computing expressions, calling entry points, etc.
-  - In the online Editor of SmartPy.io, the scenario is computed and then displayed as an html document.
+  - In the online Editor of SmartPy.io, the scenario is computed and then displayed as an html document on the output panel.
 
 We will explain in detail the use of all these concepts later.
 
@@ -125,6 +125,11 @@ code
 ```
 
 ## open_raffle entrypoint
+
+### Link to referential manual
+
+- [__init__](https://smartpy.io/reference.html#_contracts)
+- [entrypoints](https://smartpy.io/reference.html#_entry_points)
 
 ```python
 # Raffle Contract - Example for illustrative purposes only.
@@ -211,6 +216,36 @@ if "templates" not in __name__:
 
     sp.add_compilation_target("Raffle_comp", Raffle(admin.address))
 ```
+
+### Storage definition
+
+The definition of the storage is done in the constructor `__init__` and the different fields of the storage are declared as follows:  
+`self.init( field1=value1, field2=value2, field3=value3)`
+
+where:
+- `field1`, `field2`, `field3` are the names of the variables and are accessible via `self.data` (e.g. `self.data.field1`)
+- `value1`, `value2`, `value3` are initial values or variables passed as constructors like `__init__(self, value1)` as we did above for the `admin=address` field.  (This can be useful if you want to initialize the storage with some specific values)
+
+> Types are usually automatically infered and not explicitly needed.
+> But it is still possible to add constraints on types, see [Setting a type constraint in SmartPy](https://smartpy.io/reference.html#_setting_a_type_constraint_in_smartpy).
+
+For the storage of the raffle contract we have for the moment defined 5 fields:
+- **admin** which is assigned to an `address` that will be the only one allowed to call the two entrypoints open_raffle and close_raffle.
+- **close_date** which is a `timestamp` to indicate the closing date of the raffle. The raffle must remain open for at least 7 days.
+- **jackpot** which will be the amount in `tez` distributed to the winner of the raffle.
+- **raffle_is_open** which is a `boolean` to indicate if the raffle is open or not.
+- **hash_winning_ticket** which is the hash of the winning ticket indicated by the admin at the opening of the raffle who will have to indicate the corresponding number at the closing to prove that his choice was made before.
+
+> As there is no possibility to do random, the hash solution has been chosen.   
+> **Reminder**, this example is for educational purposes and is not intended for deployment and use of this contract on the real Tezos network.
+
+### Entrypoint implementation
+
+
+
+
+
+
 
 ## References
 
