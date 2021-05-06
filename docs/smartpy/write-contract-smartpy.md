@@ -62,7 +62,7 @@ to compile/test your contract.
 Now, let's create a new contract in the online editor that we will name _Raffle Contract_.
 
 ![](../../static/img/smartpy/online_editor_create_contract.png)
-<small className="figure">FIGURE 1: Online Editor Create Contract</small>
+<small className="figure">FIGURE 3: Online Editor Create Contract</small>
 
 ### Template
 
@@ -132,11 +132,12 @@ and the smart contract storage will be updated with the jackpot amount and the h
 
 ### Link to referential manual
 
-- [init](https://smartpy.io/reference.html#_contracts)
-- [entrypoints](https://smartpy.io/reference.html#_entry_points)
+- [Init](https://smartpy.io/reference.html#_contracts)
+- [Entrypoints](https://smartpy.io/reference.html#_entry_points)
 - [Checking a Condition](https://smartpy.io/reference.html#_checking_a_condition)
 - [Timestamps](https://smartpy.io/reference.html#_timestamps)
 - [Test and Scenario](https://smartpy.io/reference.html#_tests_and_scenarios)
+- [Typing](https://smartpy.io/reference.html#_typing)
 
 ```python
 # Raffle Contract - Example for illustrative purposes only.
@@ -317,7 +318,139 @@ The result will then be displayed as an html document in the output panel of the
 
 ### Run and watch the output
 
+Let's run our code.
 
+![](../../static/img/smartpy/online_editor_summary_contract.png)
+<small className="figure">FIGURE 4: Online Editor Contract Summary</small>
+
+On the right screen we can see a summary of our smart contract with the following information:
+- Address of the contract
+- Balance in tez
+- Storage
+- Entry points
+
+By clicking on the *Types* tab we have access to the types of the storage elements and the parameters of the entrypoints.
+
+![](../../static/img/smartpy/online_editor_Types.png)
+<small className="figure">FIGURE 5: Online Editor Types</small>
+
+> As in Python, most of the time it is not necessary to specify the type of an object in SmartPy.  
+> Because the target language of SmartPy, Michelson, requires types.  
+>Each SmartPy expression, however, needs a type. This is why SmartPy uses type inference to determine the type of each expression.  
+> See doc [Typing](https://smartpy.io/reference.html#_typing).
+
+By clicking on the *Deploy Michelson Contract* tab we have access to the codes compiled in michelson for the storage (*Storage* tab) and for the smart contract (*Code* tab).
+
+The michelson code of our smart contract is for the moment the following:
+
+```js
+parameter (pair %open_raffle (timestamp %close_date) (pair (bytes %hash_winning_ticket) (mutez %jackpot_amount)));
+storage   (pair (pair (address %admin) (timestamp %close_date)) (pair (bytes %hash_winning_ticket) (pair (mutez %jackpot) (bool %raffle_is_open))));
+code
+  {
+    UNPAIR;     # @parameter : @storage
+    SWAP;       # @storage : @parameter
+    # == open_raffle ==
+    # sp.verify(sp.pack(sp.set_type_expr(sp.source, sp.TAddress)) == sp.pack(sp.set_type_expr(self.data.admin, sp.TAddress)), message = 'Administrator not recognized.') # @storage : @parameter
+    DUP;        # @storage : @storage : @parameter
+    DUG 2;      # @storage : @parameter : @storage
+    CAR;        # pair (address %admin) (timestamp %close_date) : @parameter : @storage
+    CAR;        # address : @parameter : @storage
+    PACK;       # bytes : @parameter : @storage
+    SOURCE;     # @source : bytes : @parameter : @storage
+    PACK;       # bytes : bytes : @parameter : @storage
+    COMPARE;    # int : @parameter : @storage
+    EQ;         # bool : @parameter : @storage
+    IF
+      {}
+      {
+        PUSH string "Administrator not recognized."; # string : @parameter : @storage
+        FAILWITH;   # FAILED
+      }; # @parameter : @storage
+    SWAP;       # @storage : @parameter
+    # sp.verify(~ self.data.raffle_is_open, message = 'A raffle is already open.') # @storage : @parameter
+    DUP;        # @storage : @storage : @parameter
+    DUG 2;      # @storage : @parameter : @storage
+    GET 6;      # bool : @parameter : @storage
+    IF
+      {
+        PUSH string "A raffle is already open."; # string : @parameter : @storage
+        FAILWITH;   # FAILED
+      }
+      {}; # @parameter : @storage
+    # sp.verify(sp.amount >= params.jackpot_amount, message = 'The administrator does not own enough tz.') # @parameter : @storage
+    DUP;        # @parameter : @parameter : @storage
+    GET 4;      # mutez : @parameter : @storage
+    AMOUNT;     # @amount : mutez : @parameter : @storage
+    COMPARE;    # int : @parameter : @storage
+    GE;         # bool : @parameter : @storage
+    IF
+      {}
+      {
+        PUSH string "The administrator does not own enough tz."; # string : @parameter : @storage
+        FAILWITH;   # FAILED
+      }; # @parameter : @storage
+    # sp.verify(params.close_date > sp.add_seconds(sp.now, 604800), message = 'The raffle must remain open for at least 7 days.') # @parameter : @storage
+    NOW;        # @now : @parameter : @storage
+    PUSH int 604800; # int : @now : @parameter : @storage
+    ADD;        # timestamp : @parameter : @storage
+    SWAP;       # @parameter : timestamp : @storage
+    DUP;        # @parameter : @parameter : timestamp : @storage
+    DUG 2;      # @parameter : timestamp : @parameter : @storage
+    CAR;        # timestamp : timestamp : @parameter : @storage
+    COMPARE;    # int : @parameter : @storage
+    GT;         # bool : @parameter : @storage
+    IF
+      {}
+      {
+        PUSH string "The raffle must remain open for at least 7 days."; # string : @parameter : @storage
+        FAILWITH;   # FAILED
+      }; # @parameter : @storage
+    SWAP;       # @storage : @parameter
+    # self.data.close_date = params.close_date # @storage : @parameter
+    UNPAIR;     # pair (address %admin) (timestamp %close_date) : pair (bytes %hash_winning_ticket) (pair (mutez %jackpot) (bool %raffle_is_open)) : @parameter
+    CAR;        # address : pair (bytes %hash_winning_ticket) (pair (mutez %jackpot) (bool %raffle_is_open)) : @parameter
+    DUP 3;      # @parameter : address : pair (bytes %hash_winning_ticket) (pair (mutez %jackpot) (bool %raffle_is_open)) : @parameter
+    CAR;        # timestamp : address : pair (bytes %hash_winning_ticket) (pair (mutez %jackpot) (bool %raffle_is_open)) : @parameter
+    SWAP;       # address : timestamp : pair (bytes %hash_winning_ticket) (pair (mutez %jackpot) (bool %raffle_is_open)) : @parameter
+    PAIR;       # pair address timestamp : pair (bytes %hash_winning_ticket) (pair (mutez %jackpot) (bool %raffle_is_open)) : @parameter
+    PAIR;       # pair (pair address timestamp) (pair (bytes %hash_winning_ticket) (pair (mutez %jackpot) (bool %raffle_is_open))) : @parameter
+    SWAP;       # @parameter : pair (pair address timestamp) (pair (bytes %hash_winning_ticket) (pair (mutez %jackpot) (bool %raffle_is_open)))
+    # self.data.jackpot = params.jackpot_amount # @parameter : pair (pair address timestamp) (pair (bytes %hash_winning_ticket) (pair (mutez %jackpot) (bool %raffle_is_open)))
+    DUP;        # @parameter : @parameter : pair (pair address timestamp) (pair (bytes %hash_winning_ticket) (pair (mutez %jackpot) (bool %raffle_is_open)))
+    DUG 2;      # @parameter : pair (pair address timestamp) (pair (bytes %hash_winning_ticket) (pair (mutez %jackpot) (bool %raffle_is_open))) : @parameter
+    GET 4;      # mutez : pair (pair address timestamp) (pair (bytes %hash_winning_ticket) (pair (mutez %jackpot) (bool %raffle_is_open))) : @parameter
+    UPDATE 5;   # pair (pair address timestamp) (pair (bytes %hash_winning_ticket) (pair (mutez %jackpot) (bool %raffle_is_open))) : @parameter
+    SWAP;       # @parameter : pair (pair address timestamp) (pair (bytes %hash_winning_ticket) (pair (mutez %jackpot) (bool %raffle_is_open)))
+    # self.data.hash_winning_ticket = params.hash_winning_ticket # @parameter : pair (pair address timestamp) (pair (bytes %hash_winning_ticket) (pair (mutez %jackpot) (bool %raffle_is_open)))
+    GET 3;      # bytes : pair (pair address timestamp) (pair (bytes %hash_winning_ticket) (pair (mutez %jackpot) (bool %raffle_is_open)))
+    UPDATE 3;   # pair (pair address timestamp) (pair (bytes %hash_winning_ticket) (pair (mutez %jackpot) (bool %raffle_is_open)))
+    # self.data.raffle_is_open = True # pair (pair address timestamp) (pair (bytes %hash_winning_ticket) (pair (mutez %jackpot) (bool %raffle_is_open)))
+    PUSH bool True; # bool : pair (pair address timestamp) (pair (bytes %hash_winning_ticket) (pair (mutez %jackpot) (bool %raffle_is_open)))
+    UPDATE 6;   # pair (pair address timestamp) (pair (bytes %hash_winning_ticket) (pair (mutez %jackpot) (bool %raffle_is_open)))
+    NIL operation; # list operation : pair (pair address timestamp) (pair (bytes %hash_winning_ticket) (pair (mutez %jackpot) (bool %raffle_is_open)))
+    PAIR;       # pair (list operation) (pair (pair address timestamp) (pair (bytes %hash_winning_ticket) (pair (mutez %jackpot) (bool %raffle_is_open))))
+  };
+```
+
+By scrolling down a little we have access to the result of the test scenario, with for each step a summary of the contract.
+
+![](../../static/img/smartpy/online_editor_scenario_output.png)
+<small className="figure">FIGURE 4: Online Editor Scenario Output</small>
+
+## buy_ticket entrypoint
+
+`buy_ticket` is an entrypoint that can be called by everyone who want to participate in the raffle.
+If the invocation is successful the address of the sender will be added to the storage, and the player will now be eligible to win the jackpot
+
+### Link to referential manual
+
+- [Init](https://smartpy.io/reference.html#_contracts)
+- [Entrypoints](https://smartpy.io/reference.html#_entry_points)
+- [Checking a Condition](https://smartpy.io/reference.html#_checking_a_condition)
+- [Timestamps](https://smartpy.io/reference.html#_timestamps)
+- [Test and Scenario](https://smartpy.io/reference.html#_tests_and_scenarios)
+- [Typing](https://smartpy.io/reference.html#_typing)
 
 ## References
 
