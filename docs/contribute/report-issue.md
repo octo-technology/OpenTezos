@@ -1,6 +1,7 @@
 ---
 id: report-issue
 title: Report an issue
+authors: Aymeric Bethencourt
 ---
 
 The simplest way to contribute is to report issues that you may have encounter while using Tezos or its related platforms. 

@@ -1,6 +1,7 @@
 ---
 id: opentezos
 title: Contribute to OpenTezos
+authors: Aymeric Bethencourt
 ---
 
 The great website you are currently browsing is called _OpenTezos_ and will later be merged with the upcoming `wiki.tezos.com`. It is therefore important that all the content here is up to date and error-free. If you see an error, you can either [submit an issue](/contribute/report-issue) or go a step further by actually correcting the error yourself and submitting it for review. Here is how to proceed:

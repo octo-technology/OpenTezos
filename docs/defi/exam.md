@@ -37,14 +37,12 @@ The FA2 token standards allow Tezos developers to:
 
 ### Question 4
 
-A stablecoin can be pegged to:
+A wrapped asset can be pegged to:
 
 - [x] a fiat currency
 - [x] a commodity
 - [x] a security
 - [x] a stock
-
-//TODO: => I don't feel the content really covered this
 
 ### Question 5
 

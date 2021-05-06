@@ -60,9 +60,6 @@ wXTZ is not the only wrapped asset on Tezos. One may want to interact with Ether
 
 This  way,  one  can  use  the consensus mechanism and specific infrastructure of  of Tezos to use assets or information stored with both Tezos and Ethereum.
 
-
-//TODO: More on Bender Labs ?
-
 ## Conclusion
 Wrapped assets not only improve the functionality and usability of the asset it wraps, it also opens up a wide array of higher-level financial services that wouldn't be available otherwise. 
 
