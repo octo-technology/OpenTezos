@@ -46,9 +46,18 @@ Executing an entrypoint takes some parameters and a current state of the storage
 
 # Raffle contract
 
-// TODO: what is a raffle ? add a schema
+A raffle is a game of chance that distributes a winning prize.
 
-// TODO: past full code here
+The organizer is in charge of defining a jackpot and selling tickets that will be either winners or losers. 
+In our case, there is only one winning ticket that allows to get the jackpot.
+
+![](../../static/img/smartpy/raffle_schema.svg)
+<small className="figure">FIGURE 4: Online Editor Create Contract</small>
+
+Three entrypoints allow to interact with the contract:
+- **open_raffle** which can only be called by the administrator. During this call the admin sends the jackpot amount to the contract, defines a closing date and indicates the number of the winning ticket (in an encrypted way) and declares the raffle open.
+- **buy_ticket** allows any person with at least 1tez to buy a ticket to participate in the raffle.
+- **close_raffle** which can only be called by the admin. It allows to close the raffle and to send the jackpot to the winner.
 
 
 ## Get Started
@@ -62,7 +71,7 @@ to compile/test your contract.
 Now, let's create a new contract in the online editor that we will name _Raffle Contract_.
 
 ![](../../static/img/smartpy/online_editor_create_contract.png)
-<small className="figure">FIGURE 3: Online Editor Create Contract</small>
+<small className="figure">FIGURE 4: Online Editor Create Contract</small>
 
 ### Template
 
@@ -139,7 +148,7 @@ and the smart contract storage will be updated with the jackpot amount and the h
 - [Test and Scenario](https://smartpy.io/reference.html#_tests_and_scenarios)
 - [Typing](https://smartpy.io/reference.html#_typing)
 
-### Full code
+### Code
 
 ```python
 # Raffle Contract - Example for illustrative purposes only.
@@ -475,7 +484,7 @@ If the invocation is successful the address of the sender will be added to the s
 - [Sets](https://smartpy.io/reference.html#_sets)
 - [Maps](https://smartpy.io/reference.html#_maps_and_big_maps)
 
-### Full code
+### Code
 
 ```python
 # Raffle Contract - Example for illustrative purposes only.
@@ -635,7 +644,7 @@ def buy_ticket(self):
 ```
 
 Three checks are made for this entrypoint:
-1.  The raffle must be open.
+1. The raffle must be open.
 2. The amount of tez sent to the contract during the transaction must be equal to the ticket price which is `1tez`.
 3. Each player is allowed to buy only one ticket.
 
@@ -645,8 +654,403 @@ If the conditions are met the storage is then updated:
 > `ticket_id = abs(sp.len(self.data.players) - 1)` here the ticket id is incremented for each new participant and the `abs()` function which designates the absolute value is used to ensure that the `ticket_id` is of type `sp.TNat`.
 
 
+## close_raffle entrypoint
+
+`close_raffle` is an entrypoint that can only be called by the administrator.
+If the invocation is successful then the raffle will be closed and the jackpot amount will be sent to the winner,
+and the storage will be reset to the default values.
+
+### Link to referential manual
+
+- [Bytes](https://smartpy.io/reference.html#_bytes)
+
+### Full smart contract and test code
+
+```python
+# Raffle Contract - Example for illustrative purposes only.
+
+import smartpy as sp
+
+
+class Raffle(sp.Contract):
+    def __init__(self, address):
+        self.init(admin=address,
+                  close_date=sp.timestamp(0),
+                  jackpot=sp.tez(0),
+                  raffle_is_open=False,
+                  players=sp.set(),
+                  sold_tickets=sp.map(),
+                  hash_winning_ticket=sp.bytes('0x')
+                  )
+
+    @sp.entry_point
+    def open_raffle(self, jackpot_amount, close_date, hash_winning_ticket):
+        sp.verify_equal(sp.source, self.data.admin, message="Administrator not recognized.")
+        sp.verify(~ self.data.raffle_is_open, message="A raffle is already open.")
+        sp.verify(sp.amount >= jackpot_amount, message="The administrator does not own enough tz.")
+        today = sp.now
+        in_7_day = today.add_days(7)
+        sp.verify(close_date > in_7_day, message="The raffle must remain open for at least 7 days.")
+        self.data.close_date = close_date
+        self.data.jackpot = jackpot_amount
+        self.data.hash_winning_ticket = hash_winning_ticket
+        self.data.raffle_is_open = True
+
+    @sp.entry_point
+    def buy_ticket(self):
+        ticket_price = sp.tez(1)
+        current_player = sp.sender
+        sp.verify(self.data.raffle_is_open, message="The raffle is closed.")
+        sp.verify(sp.amount == ticket_price,
+                  message="The sender did not send the right tez amount (Ticket price = 1tz).")
+        sp.verify(~ self.data.players.contains(current_player), message="Each player can participate only once.")
+        self.data.players.add(current_player)
+        ticket_id = abs(sp.len(self.data.players) - 1)
+        self.data.sold_tickets[ticket_id] = current_player
+
+    @sp.entry_point
+    def close_raffle(self, selected_ticket):
+        sp.verify_equal(sp.source, self.data.admin, message="Administrator not recognized.")
+        sp.verify(self.data.raffle_is_open, message="The raffle is closed.")
+        sp.verify(sp.now >= self.data.close_date,
+                  message="The raffle must remain open for at least 7 days.")
+        bytes_selected_ticket = sp.pack(selected_ticket)
+        hash_selected_ticket = sp.sha256(bytes_selected_ticket)
+        sp.verify_equal(hash_selected_ticket, self.data.hash_winning_ticket,
+                        message="The hash does not match the hash of the winning ticket")
+        number_of_players = sp.len(self.data.players)
+        selected_ticket_id = selected_ticket % number_of_players
+        winner = self.data.sold_tickets[selected_ticket_id]
+        sp.send(winner, self.data.jackpot, message="winner contract not found.")
+        self.data.jackpot = sp.tez(0)
+        self.data.close_date = sp.timestamp(0)
+        self.data.players = sp.set()
+        self.data.sold_tickets = sp.map()
+        self.data.raffle_is_open = False
+
+
+if "templates" not in __name__:
+    alice = sp.test_account("Alice")
+    jack = sp.test_account("Jack")
+    admin = sp.test_account("Administrator")
+
+
+    @sp.add_test(name="Raffle")
+    def test():
+        r = Raffle(admin.address)
+        scenario = sp.test_scenario()
+        scenario.h1("Raffle")
+        scenario += r
+
+        scenario.h2("Test open_raffle entrypoint")
+        close_date = sp.timestamp_from_utc_now().add_days(8)
+        jackpot_amount = sp.tez(10)
+        number_winning_ticket = sp.nat(345)
+        bytes_winning_ticket = sp.pack(number_winning_ticket)
+        hash_winning_ticket = sp.sha256(bytes_winning_ticket)
+
+        scenario.h3("The unauthorized user Alice unsuccessfully call open_raffle")
+        scenario += r.open_raffle(close_date=close_date, jackpot_amount=jackpot_amount,
+                                  hash_winning_ticket=hash_winning_ticket) \
+            .run(source=alice.address, amount=sp.tez(10), now=sp.timestamp_from_utc_now(),
+                 valid=False)
+
+        scenario.h3("Admin unsuccessfully call open_raffle with wrong close_date")
+        close_date = sp.timestamp_from_utc_now().add_days(4)
+        scenario += r.open_raffle(close_date=close_date, jackpot_amount=jackpot_amount,
+                                  hash_winning_ticket=hash_winning_ticket) \
+            .run(source=admin.address, amount=sp.tez(10), now=sp.timestamp_from_utc_now(),
+                 valid=False)
+
+        scenario.h3("Admin unsuccessfully call open_raffle by sending not enough tez to the contract")
+        close_date = sp.timestamp_from_utc_now().add_days(8)
+        scenario += r.open_raffle(close_date=close_date, jackpot_amount=jackpot_amount,
+                                  hash_winning_ticket=hash_winning_ticket) \
+            .run(source=admin.address, amount=sp.tez(5), now=sp.timestamp_from_utc_now(),
+                 valid=False)
+
+        scenario.h3("Admin successfully call open_raffle")
+        scenario += r.open_raffle(close_date=close_date, jackpot_amount=jackpot_amount,
+                                  hash_winning_ticket=hash_winning_ticket) \
+            .run(source=admin.address, amount=sp.tez(10), now=sp.timestamp_from_utc_now())
+        scenario.verify(r.data.close_date == close_date)
+        scenario.verify(r.data.jackpot == jackpot_amount)
+        scenario.verify(r.data.raffle_is_open)
+
+        scenario.h3("Admin unsuccessfully call open_raffle because a raffle is already open")
+        scenario += r.open_raffle(close_date=close_date, jackpot_amount=jackpot_amount,
+                                  hash_winning_ticket=hash_winning_ticket) \
+            .run(source=admin.address, amount=sp.tez(10), now=sp.timestamp_from_utc_now(),
+                 valid=False)
+
+        scenario.h2("Test buy_ticket entrypoint (at this point a raffle is open)")
+
+        scenario.h3("Alice unsuccessfully call buy_ticket by sending a wrong amount of tez")
+        scenario += r.buy_ticket().run(sender=alice.address, amount=sp.tez(3), valid=False)
+
+        scenario.h3("Alice successfully call buy_ticket")
+        scenario += r.buy_ticket().run(sender=alice.address, amount=sp.tez(1))
+        alice_ticket_id = sp.nat(0)
+        scenario.verify(r.data.players.contains(alice.address))
+        scenario.verify_equal(r.data.sold_tickets[alice_ticket_id], alice.address)
+
+        scenario.h3("Alice unsuccessfully call buy_ticket because she has already buy one")
+        scenario += r.buy_ticket().run(sender=alice.address, amount=sp.tez(1), valid=False)
+
+        scenario.h3("Jack successfully call buy_ticket")
+        scenario += r.buy_ticket().run(sender=jack.address, amount=sp.tez(1))
+        jack_ticket_id = sp.nat(1)
+        scenario.verify(r.data.players.contains(jack.address))
+        scenario.verify(r.data.players.contains(alice.address))
+        scenario.verify_equal(r.data.sold_tickets[alice_ticket_id], alice.address)
+        scenario.verify_equal(r.data.sold_tickets[jack_ticket_id], jack.address)
+
+        scenario.h2("Test close_raffle entrypoint (at this point a raffle is open and two players participated)")
+        selected_ticket = sp.nat(345)
+
+        scenario.h3("The unauthorized user Alice unsuccessfully call close_raffle")
+        scenario += r.close_raffle(selected_ticket).run(sender=alice.address, valid=False)
+
+        scenario.h3("Admin unsuccessfully call close_raffle because it was before the close_date")
+        scenario += r.close_raffle(selected_ticket)\
+            .run(sender=admin.address, now=sp.timestamp_from_utc_now(), valid=False)
+
+        scenario.h3("Admin unsuccessfully call close_raffle because the hash of the selected ticket does not match with the winning one")
+        selected_ticket = sp.nat(1234)
+        scenario += r.close_raffle(selected_ticket)\
+            .run(sender=admin.address, now=r.data.close_date, valid=False)
+
+        scenario.h3("Admin successfully call close_raffle")
+        selected_ticket = sp.nat(345)
+        scenario += r.close_raffle(selected_ticket).run(sender=admin.address, now=r.data.close_date)
+        scenario.verify_equal(r.data.jackpot, sp.tez(0))
+        scenario.verify_equal(r.data.close_date, sp.timestamp(0))
+        scenario.verify_equal(r.data.players, sp.set())
+        scenario.verify_equal(r.data.sold_tickets, sp.map())
+        scenario.verify(~ r.data.raffle_is_open)
+
+        scenario.h3("Alice unsuccessfully call buy_ticket because the raffle is closed")
+        scenario += r.buy_ticket().run(sender=alice.address, amount=sp.tez(1), valid=False)
+
+
+    sp.add_compilation_target("Raffle_comp", Raffle(admin.address))
+```
+
+### Entrypoint implementation
+
+The storage definition has not been modified with the adding of this entrypoint so we can directly explain its implementation
+
+```python
+@sp.entry_point
+def close_raffle(self, selected_ticket):
+    sp.verify_equal(sp.source, self.data.admin, message="Administrator not recognized.")
+    sp.verify(self.data.raffle_is_open, message="The raffle is closed.")
+    sp.verify(sp.now >= self.data.close_date,
+              message="The raffle must remain open for at least 7 days.")
+    bytes_selected_ticket = sp.pack(selected_ticket)
+    hash_selected_ticket = sp.sha256(bytes_selected_ticket)
+    sp.verify_equal(hash_selected_ticket, self.data.hash_winning_ticket,
+                    message="The hash does not match the hash of the winning ticket")
+    number_of_players = sp.len(self.data.players)
+    selected_ticket_id = selected_ticket % number_of_players
+    winner = self.data.sold_tickets[selected_ticket_id]
+    sp.send(winner, self.data.jackpot, message="winner contract not found.")
+    self.data.jackpot = sp.tez(0)
+    self.data.close_date = sp.timestamp(0)
+    self.data.players = sp.set()
+    self.data.sold_tickets = sp.map()
+    self.data.raffle_is_open = False
+```
+
+Four checks are made for this entrypoint:
+1. Only the administrator is authorized to close the raffle.
+2. The raffle must be open.
+3. The closing date must be greater than or equal to the closing date indicated in the storage.
+4. The hash of the ticket indicated in parameter of the entrypoint must be equal to the hash of the ticket indicated in the storage.
+> The administrator indicates in parameter a `sp.nat()` which must correspond to the number of the winning ticket (modulo the number of participant) then this natural integer is converted in `byte` then it is hashed with the `sha256` algorithm.
+
+If the conditions are met then:
+- The jackpot is sent to the winner's address.
+- The storage is reset to the default values.
+
+### Run and watch the output
+
+We are coming to the end of our smart contract.
+Run it one last time and explore the result. Don't hesitate to read the test scenario to make sure your smart contract is working properly. You can of course modify the scenario or create new ones as you wish.
+
+The final michelson code generated for this smart contract is the following.
+> Note that with the michelson code you can also create a test coverage with PyTezos as described in the LIGO Module at the chapter [Unit Testing with PyTezos](ligo/unit-testing).
+
+```js
+parameter (or (unit %buy_ticket) (pair %open_raffle (timestamp %close_date) (pair (bytes %hash_winning_ticket) (mutez %jackpot_amount))));
+storage   (pair (pair (address %admin) (pair (timestamp %close_date) (bytes %hash_winning_ticket))) (pair (pair (mutez %jackpot) (set %players address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address))));
+code
+  {
+    UNPAIR;     # @parameter : @storage
+    IF_LEFT
+      {
+        DROP;       # @storage
+        # == buy_ticket ==
+        # sp.verify(self.data.raffle_is_open, message = 'The raffle is closed.') # @storage
+        DUP;        # @storage : @storage
+        GET 5;      # bool : @storage
+        IF
+          {}
+          {
+            PUSH string "The raffle is closed."; # string : @storage
+            FAILWITH;   # FAILED
+          }; # @storage
+        # sp.verify(sp.amount == sp.tez(1), message = 'The sender did not send the right tez amount (Ticket price = 1tz).') # @storage
+        PUSH mutez 1000000; # mutez : @storage
+        AMOUNT;     # @amount : mutez : @storage
+        COMPARE;    # int : @storage
+        EQ;         # bool : @storage
+        IF
+          {}
+          {
+            PUSH string "The sender did not send the right tez amount (Ticket price = 1tz)."; # string : @storage
+            FAILWITH;   # FAILED
+          }; # @storage
+        # sp.verify(~ (self.data.players.contains(sp.sender)), message = 'Each player can participate only once.') # @storage
+        DUP;        # @storage : @storage
+        GET 3;      # pair (mutez %jackpot) (set %players address) : @storage
+        CDR;        # set address : @storage
+        SENDER;     # @sender : set address : @storage
+        MEM;        # bool : @storage
+        IF
+          {
+            PUSH string "Each player can participate only once."; # string : @storage
+            FAILWITH;   # FAILED
+          }
+          {}; # @storage
+        # self.data.players.add(sp.sender) # @storage
+        UNPAIR;     # pair (address %admin) (pair (timestamp %close_date) (bytes %hash_winning_ticket)) : pair (pair (mutez %jackpot) (set %players address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address))
+        SWAP;       # pair (pair (mutez %jackpot) (set %players address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)) : pair (address %admin) (pair (timestamp %close_date) (bytes %hash_winning_ticket))
+        UNPAIR;     # pair (mutez %jackpot) (set %players address) : pair (bool %raffle_is_open) (map %sold_tickets nat address) : pair (address %admin) (pair (timestamp %close_date) (bytes %hash_winning_ticket))
+        UNPAIR;     # mutez : set address : pair (bool %raffle_is_open) (map %sold_tickets nat address) : pair (address %admin) (pair (timestamp %close_date) (bytes %hash_winning_ticket))
+        SWAP;       # set address : mutez : pair (bool %raffle_is_open) (map %sold_tickets nat address) : pair (address %admin) (pair (timestamp %close_date) (bytes %hash_winning_ticket))
+        PUSH bool True; # bool : set address : mutez : pair (bool %raffle_is_open) (map %sold_tickets nat address) : pair (address %admin) (pair (timestamp %close_date) (bytes %hash_winning_ticket))
+        SENDER;     # @sender : bool : set address : mutez : pair (bool %raffle_is_open) (map %sold_tickets nat address) : pair (address %admin) (pair (timestamp %close_date) (bytes %hash_winning_ticket))
+        UPDATE;     # set address : mutez : pair (bool %raffle_is_open) (map %sold_tickets nat address) : pair (address %admin) (pair (timestamp %close_date) (bytes %hash_winning_ticket))
+        SWAP;       # mutez : set address : pair (bool %raffle_is_open) (map %sold_tickets nat address) : pair (address %admin) (pair (timestamp %close_date) (bytes %hash_winning_ticket))
+        PAIR;       # pair mutez (set address) : pair (bool %raffle_is_open) (map %sold_tickets nat address) : pair (address %admin) (pair (timestamp %close_date) (bytes %hash_winning_ticket))
+        PAIR;       # pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)) : pair (address %admin) (pair (timestamp %close_date) (bytes %hash_winning_ticket))
+        SWAP;       # pair (address %admin) (pair (timestamp %close_date) (bytes %hash_winning_ticket)) : pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address))
+        PAIR;       # pair (pair (address %admin) (pair (timestamp %close_date) (bytes %hash_winning_ticket))) (pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)))
+        # self.data.sold_tickets[abs(sp.len(self.data.players) - 1)] = sp.sender # pair (pair (address %admin) (pair (timestamp %close_date) (bytes %hash_winning_ticket))) (pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)))
+        DUP;        # pair (pair (address %admin) (pair (timestamp %close_date) (bytes %hash_winning_ticket))) (pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address))) : pair (pair (address %admin) (pair (timestamp %close_date) (bytes %hash_winning_ticket))) (pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)))
+        DUP;        # pair (pair (address %admin) (pair (timestamp %close_date) (bytes %hash_winning_ticket))) (pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address))) : pair (pair (address %admin) (pair (timestamp %close_date) (bytes %hash_winning_ticket))) (pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address))) : pair (pair (address %admin) (pair (timestamp %close_date) (bytes %hash_winning_ticket))) (pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)))
+        GET 6;      # map nat address : pair (pair (address %admin) (pair (timestamp %close_date) (bytes %hash_winning_ticket))) (pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address))) : pair (pair (address %admin) (pair (timestamp %close_date) (bytes %hash_winning_ticket))) (pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)))
+        SENDER;     # @sender : map nat address : pair (pair (address %admin) (pair (timestamp %close_date) (bytes %hash_winning_ticket))) (pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address))) : pair (pair (address %admin) (pair (timestamp %close_date) (bytes %hash_winning_ticket))) (pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)))
+        SOME;       # option address : map nat address : pair (pair (address %admin) (pair (timestamp %close_date) (bytes %hash_winning_ticket))) (pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address))) : pair (pair (address %admin) (pair (timestamp %close_date) (bytes %hash_winning_ticket))) (pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)))
+        PUSH nat 1; # nat : option address : map nat address : pair (pair (address %admin) (pair (timestamp %close_date) (bytes %hash_winning_ticket))) (pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address))) : pair (pair (address %admin) (pair (timestamp %close_date) (bytes %hash_winning_ticket))) (pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)))
+        DIG 4;      # pair (pair (address %admin) (pair (timestamp %close_date) (bytes %hash_winning_ticket))) (pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address))) : nat : option address : map nat address : pair (pair (address %admin) (pair (timestamp %close_date) (bytes %hash_winning_ticket))) (pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)))
+        GET 3;      # pair mutez (set address) : nat : option address : map nat address : pair (pair (address %admin) (pair (timestamp %close_date) (bytes %hash_winning_ticket))) (pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)))
+        CDR;        # set address : nat : option address : map nat address : pair (pair (address %admin) (pair (timestamp %close_date) (bytes %hash_winning_ticket))) (pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)))
+        SIZE;       # nat : nat : option address : map nat address : pair (pair (address %admin) (pair (timestamp %close_date) (bytes %hash_winning_ticket))) (pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)))
+        SUB;        # int : option address : map nat address : pair (pair (address %admin) (pair (timestamp %close_date) (bytes %hash_winning_ticket))) (pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)))
+        ABS;        # nat : option address : map nat address : pair (pair (address %admin) (pair (timestamp %close_date) (bytes %hash_winning_ticket))) (pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)))
+        UPDATE;     # map nat address : pair (pair (address %admin) (pair (timestamp %close_date) (bytes %hash_winning_ticket))) (pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)))
+        UPDATE 6;   # pair (pair (address %admin) (pair (timestamp %close_date) (bytes %hash_winning_ticket))) (pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)))
+      }
+      {
+        SWAP;       # @storage : @parameter%open_raffle
+        # == open_raffle ==
+        # sp.verify(sp.pack(sp.set_type_expr(sp.source, sp.TAddress)) == sp.pack(sp.set_type_expr(self.data.admin, sp.TAddress)), message = 'Administrator not recognized.') # @storage : @parameter%open_raffle
+        DUP;        # @storage : @storage : @parameter%open_raffle
+        DUG 2;      # @storage : @parameter%open_raffle : @storage
+        CAR;        # pair (address %admin) (pair (timestamp %close_date) (bytes %hash_winning_ticket)) : @parameter%open_raffle : @storage
+        CAR;        # address : @parameter%open_raffle : @storage
+        PACK;       # bytes : @parameter%open_raffle : @storage
+        SOURCE;     # @source : bytes : @parameter%open_raffle : @storage
+        PACK;       # bytes : bytes : @parameter%open_raffle : @storage
+        COMPARE;    # int : @parameter%open_raffle : @storage
+        EQ;         # bool : @parameter%open_raffle : @storage
+        IF
+          {}
+          {
+            PUSH string "Administrator not recognized."; # string : @parameter%open_raffle : @storage
+            FAILWITH;   # FAILED
+          }; # @parameter%open_raffle : @storage
+        SWAP;       # @storage : @parameter%open_raffle
+        # sp.verify(~ self.data.raffle_is_open, message = 'A raffle is already open.') # @storage : @parameter%open_raffle
+        DUP;        # @storage : @storage : @parameter%open_raffle
+        DUG 2;      # @storage : @parameter%open_raffle : @storage
+        GET 5;      # bool : @parameter%open_raffle : @storage
+        IF
+          {
+            PUSH string "A raffle is already open."; # string : @parameter%open_raffle : @storage
+            FAILWITH;   # FAILED
+          }
+          {}; # @parameter%open_raffle : @storage
+        # sp.verify(sp.amount >= params.jackpot_amount, message = 'The administrator does not own enough tz.') # @parameter%open_raffle : @storage
+        DUP;        # @parameter%open_raffle : @parameter%open_raffle : @storage
+        GET 4;      # mutez : @parameter%open_raffle : @storage
+        AMOUNT;     # @amount : mutez : @parameter%open_raffle : @storage
+        COMPARE;    # int : @parameter%open_raffle : @storage
+        GE;         # bool : @parameter%open_raffle : @storage
+        IF
+          {}
+          {
+            PUSH string "The administrator does not own enough tz."; # string : @parameter%open_raffle : @storage
+            FAILWITH;   # FAILED
+          }; # @parameter%open_raffle : @storage
+        # sp.verify(params.close_date > sp.add_seconds(sp.now, 604800), message = 'The raffle must remain open for at least 7 days.') # @parameter%open_raffle : @storage
+        NOW;        # @now : @parameter%open_raffle : @storage
+        PUSH int 604800; # int : @now : @parameter%open_raffle : @storage
+        ADD;        # timestamp : @parameter%open_raffle : @storage
+        SWAP;       # @parameter%open_raffle : timestamp : @storage
+        DUP;        # @parameter%open_raffle : @parameter%open_raffle : timestamp : @storage
+        DUG 2;      # @parameter%open_raffle : timestamp : @parameter%open_raffle : @storage
+        CAR;        # timestamp : timestamp : @parameter%open_raffle : @storage
+        COMPARE;    # int : @parameter%open_raffle : @storage
+        GT;         # bool : @parameter%open_raffle : @storage
+        IF
+          {}
+          {
+            PUSH string "The raffle must remain open for at least 7 days."; # string : @parameter%open_raffle : @storage
+            FAILWITH;   # FAILED
+          }; # @parameter%open_raffle : @storage
+        SWAP;       # @storage : @parameter%open_raffle
+        # self.data.close_date = params.close_date # @storage : @parameter%open_raffle
+        UNPAIR;     # pair (address %admin) (pair (timestamp %close_date) (bytes %hash_winning_ticket)) : pair (pair (mutez %jackpot) (set %players address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)) : @parameter%open_raffle
+        UNPAIR;     # address : pair (timestamp %close_date) (bytes %hash_winning_ticket) : pair (pair (mutez %jackpot) (set %players address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)) : @parameter%open_raffle
+        SWAP;       # pair (timestamp %close_date) (bytes %hash_winning_ticket) : address : pair (pair (mutez %jackpot) (set %players address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)) : @parameter%open_raffle
+        CDR;        # bytes : address : pair (pair (mutez %jackpot) (set %players address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)) : @parameter%open_raffle
+        DUP 4;      # @parameter%open_raffle : bytes : address : pair (pair (mutez %jackpot) (set %players address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)) : @parameter%open_raffle
+        CAR;        # timestamp : bytes : address : pair (pair (mutez %jackpot) (set %players address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)) : @parameter%open_raffle
+        PAIR;       # pair timestamp bytes : address : pair (pair (mutez %jackpot) (set %players address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)) : @parameter%open_raffle
+        SWAP;       # address : pair timestamp bytes : pair (pair (mutez %jackpot) (set %players address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)) : @parameter%open_raffle
+        PAIR;       # pair address (pair timestamp bytes) : pair (pair (mutez %jackpot) (set %players address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)) : @parameter%open_raffle
+        SWAP;       # pair (pair (mutez %jackpot) (set %players address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)) : pair address (pair timestamp bytes) : @parameter%open_raffle
+        # self.data.jackpot = params.jackpot_amount # pair (pair (mutez %jackpot) (set %players address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)) : pair address (pair timestamp bytes) : @parameter%open_raffle
+        UNPAIR;     # pair (mutez %jackpot) (set %players address) : pair (bool %raffle_is_open) (map %sold_tickets nat address) : pair address (pair timestamp bytes) : @parameter%open_raffle
+        CDR;        # set address : pair (bool %raffle_is_open) (map %sold_tickets nat address) : pair address (pair timestamp bytes) : @parameter%open_raffle
+        DUP 4;      # @parameter%open_raffle : set address : pair (bool %raffle_is_open) (map %sold_tickets nat address) : pair address (pair timestamp bytes) : @parameter%open_raffle
+        GET 4;      # mutez : set address : pair (bool %raffle_is_open) (map %sold_tickets nat address) : pair address (pair timestamp bytes) : @parameter%open_raffle
+        PAIR;       # pair mutez (set address) : pair (bool %raffle_is_open) (map %sold_tickets nat address) : pair address (pair timestamp bytes) : @parameter%open_raffle
+        PAIR;       # pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)) : pair address (pair timestamp bytes) : @parameter%open_raffle
+        SWAP;       # pair address (pair timestamp bytes) : pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)) : @parameter%open_raffle
+        # self.data.hash_winning_ticket = params.hash_winning_ticket # pair address (pair timestamp bytes) : pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)) : @parameter%open_raffle
+        UNPAIR;     # address : pair timestamp bytes : pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)) : @parameter%open_raffle
+        SWAP;       # pair timestamp bytes : address : pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)) : @parameter%open_raffle
+        CAR;        # timestamp : address : pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)) : @parameter%open_raffle
+        DIG 3;      # @parameter%open_raffle : timestamp : address : pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address))
+        GET 3;      # bytes : timestamp : address : pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address))
+        SWAP;       # timestamp : bytes : address : pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address))
+        PAIR;       # pair timestamp bytes : address : pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address))
+        SWAP;       # address : pair timestamp bytes : pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address))
+        PAIR;       # pair address (pair timestamp bytes) : pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address))
+        PAIR;       # pair (pair address (pair timestamp bytes)) (pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)))
+        # self.data.raffle_is_open = True # pair (pair address (pair timestamp bytes)) (pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)))
+        PUSH bool True; # bool : pair (pair address (pair timestamp bytes)) (pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)))
+        UPDATE 5;   # pair (pair address (pair timestamp bytes)) (pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)))
+      }; # pair (pair address (pair timestamp bytes)) (pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)))
+    NIL operation; # list operation : pair (pair address (pair timestamp bytes)) (pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address)))
+    PAIR;       # pair (list operation) (pair (pair address (pair timestamp bytes)) (pair (pair mutez (set address)) (pair (bool %raffle_is_open) (map %sold_tickets nat address))))
+  };
+```
+
 ## References
 
 [1] https://smartpy.io/reference.html
-
-[2]
