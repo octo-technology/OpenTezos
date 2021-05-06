@@ -3,10 +3,10 @@ id: smart-contracts
 title: Smart contracts
 authors: Thomas Zoughebi, Aymeric Bethencourt and Maxime Fernandez
 ---
-In this chapter, you'll learn the Tezos smart contracts basics. Their components and the workflow to record and use them on the Tezos *blockchain*.
+In this chapter, you will learn the Tezos smart contracts basics. Their components and the workflow to record and use them on the Tezos *blockchain*.
 
 ## General definition of a Tezos smart contract
-A smart contract is a code stored inside the *blockchain* which executes a set of pre-defined instructions (promises). Once deployed (stored), it becomes **immutable**. A smart contract is deployed using a **transaction**, so we embed spending conditions inside it, which are **immutable**. Though, for smart contracts, the key difference is a user *can trigger the execution of the code without modifying it, and without moving it to another transaction or block*. It stays where it has been stored **forever**. Tezos doesn't use an [UTXO model](https://en.wikipedia.org/wiki/Unspent_transaction_output) (no "*vaults*", see *Blockchain Basics*) but a **stateful accounts** one.
+A smart contract is a code stored inside the *blockchain* which executes a set of pre-defined instructions (promises). Once deployed (stored), it becomes **immutable**. A smart contract is deployed using a **transaction**, so we embed spending conditions inside it, which are **immutable**. Though for smart contracts, the key difference is a user *can trigger the execution of the code without modifying it, and without moving it to another transaction or block*. It stays where it has been stored **forever**. Tezos doesn't use an [UTXO model](https://en.wikipedia.org/wiki/Unspent_transaction_output) (no "*vaults*", see *Blockchain Basics*) but a **stateful accounts** one.
 
 Like in Ethereum, Tezos uses 2 types of accounts:
 1. Classic accounts with a primary address, simply storing tez (ꜩ) coins
@@ -29,18 +29,21 @@ To build your own Dapp, please refer to the [*Build a Dapp*](/dapp) module.
 
 ## Lifecycle of a Tezos smart contract
 As we saw, a smart contract can only be deployed once but can be called many times. The Tezos smart contract lifecycle steps are basically two:
+
 1. Deployment
 2. Interactions through calls
 
 ### Deployment of a Tezos smart contract
 The deployment of a Tezos smart contract is named "**origination**".
 
-When a smart contract is deployed, an **address** and a corresponding *persistent space* called **storage** are allocated to this smart contract. The smart contract's address is like its *identity* and *where* it lives on the ledger, while its storage is its *usable space* inside the ledger.
+When a smart contract is deployed, an **address** and a corresponding *persistent space* called **storage** are allocated to this smart contract. The smart contract's address is like its *identity* and *where* it lives on the ledger, while its storage is its *usable space* inside itself. The smart contract is inside the blockchain. The storage is inside the smart contract.
 
-Once deployed, the smart contract can be called by anyone or *anything* (e.g. other contracts) with a transaction sent to its address. This triggers the execution of the set of pre-defined instructions (promises).
+A smart contract deployment also defines its *entrypoints*. These are special functions used to dispatch invocations of the smart contract. Each entrypoint is in charge of triggering an instruction (see below "*Call of a Tezos smart contract*").
+
+Once deployed, the smart contract can be called by anyone or *anything* (e.g. other contracts) with a transaction sent to its address and entrypoints. This triggers the execution of the set of pre-defined instructions (promises).
 
 The origination of a Tezos smart contract must define its:
-* **Entrypoints**, which are *entries* where it *receives calls*
+* **Entrypoints** (functions where it receives calls)
 * **Storage**
 * **Set of instructions** in the low-level *Michelson* language
 
@@ -102,32 +105,50 @@ Note that, even if a value or an association is deleted from a map, the blockcha
 In the DAO example, a user would be able to quit, but exploring the past blocks, you'd still find his trace.
 
 ### Lambda pattern
-The Lambda pattern is based on *lambda functions*. These functions are anonymous, they litteraly have *no name* and only a mandatory *type* (function!), non-mandatory *parameters*, and non-mandatory *return values*. The idea is to exchange the **body** of a classic *named* function with a **lambda function**.
+The Lambda pattern is based on *lambda functions*. These anonymous functions only have a mandatory *type* (function!); non-mandatory *parameters*; and non-mandatory *return values*. The idea is to exchange the **body** of a classic function with a **lambda function**. While the classic function is immutable, the lambda function is stored in the storage, therefore mutable.
 
-Instead of simply sealing the classic function's body inside the storage as an immutable structure, you make it a modifiable *variable*. For instance, you could put its body inside a dynamic map (using a *map pattern*). In a very simplified high-level language:
+Instead of simply sealing the classic function's body as an immutable structure, you make it a mutable *variable* of the storage.  
+In an **imaginary** high-level language syntax:
+
+- *An entrypoint*
+
+```d
+Entrypoint_for_doSomething(p1, ... , pP) {
+    doSomething(p1, ... , pP);
+}
+```
+- *The corresponding immutable function*
 
 ```d
 function doSomething(p1, ... , pP) return (v1, ... , vR) {
-    @storage.map.key
+    storage.lambdaFunction();
 }
 ```
-
-To execute the function's instructions, the smart contract would look in the map. At the **key** "*@storage.map.key*", it would find the lambda function as an associated **value**. The associated value would look like this:
+- *The lambda function in the storage as a variable*
 
 ```d
-function (p1, ... , pQ) return (Body) {
-    return actual_instructions;
-}
+lambdaFunction = function (p1, ... , pP) return (v1, ... , vR) {
+    actual_instructions;
+};
 ```
+**Warnings**:  
+In this algorithmic example, almost all types are implicit to limit syntax length. Furthermore the syntax isn't as functional as in real languages used for Tezos smart contracts (e.g. *LIGO*).
 
-This lambda function returns the  **body** of the "*doSomething*" function as a result.
+//TODO SCHEMA
 
-Later, in an upgrading process, it would be possible to **modify the lambda function** in **just changing** the **_value_** in the map for the **_same key_**!
+You could use a *map pattern* aswell. Inside the map, you can store each lambda function as a *value*. To execute instructions, the code would find the correct lambda function at the corresponding *key*.
 
-### Data-Proxy pattern
+Later, in an upgrading process, it would be possible to **modify the lambda function** in **just changing** the **_value_** in the *map* for the **_same key_**. It would also be possible to **batch changes on the whole *map***.
+
+### Data-Proxy pattern //TODO rework this pattern completely
+
+//TODO "proxy" not clear at all
+
 We are not forced to use the above patterns all in the same smart contract's storage. It would actually be an even better idea to use [modular programming](https://en.wikipedia.org/wiki/Modular_programming). In a "*Data-Proxy pattern*", the idea is to separate the data (*Data*) from the rules (via a *Proxy*). So, you would basicaly have a smart contract containing data and the rules in another one (functions...).
 
 Once the Data-Proxy architecture is in place, we can make the Data smart contract more dynamic with a Map pattern, and the Proxy smart contract upgradable with a Lambda pattern:
+
+//TODO Change this very bad schema:
 
 ![](../../static/img/tezos-basics/data-proxy.svg)  
 <small className="figure">FIGURE 6: Data-Proxy, Map, and Lambda patterns combination.</small>
