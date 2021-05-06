@@ -125,11 +125,13 @@ There are also _Constant Mean Market Makers_ with weighted reserves, _Hybrid CFM
 
 
 ## The risks of liquidity pools
-If you want to provide liquidity to an AMM, make sure to become familiar with the notion of _impermanent loss_. In short, it’s a loss in dollar value when providing liquidity to an AMM rather than keeping the tokens themselves as are in your wallet (a.k.a. _HODLing_) during bull markets. [More on this here.](https://academy.binance.com/en/articles/impermanent-loss-explained)
+Although DEXs are decentralized and trustless, keep in mind that are always risk with any smart contract. There has been countless cases of maliscious code or fatal errors in smart contracts. [In 2018, decentralized exchange Bancor was hacked and suffered a loss of $13.5M in assets before freezing funds.](https://www.zdnet.com/article/another-hack-rocks-cryptocurrency-trading-bancor-loses-23-5-million/) 
 
-Another thing to keep in mind is smart contract risks. When you deposit funds into a liquidity pool, they are in the pool. So, while there are technically no middlemen holding your funds, the contract itself can be thought of as the custodian of those funds. If there is a bug or some kind of exploit through a flash loan, for example, your funds could be lost forever.
+When you deposit funds into a liquidity pool, they are in the smart contract, so while there are technically no middlemen holding your funds, the contract itself can be thought of as the custodian of those funds. If there is a bug or some kind of exploit through a flash loan, for example, your funds could be lost forever.
 
 Also, be wary of projects where the developers have permission to change the rules governing the pool. Sometimes, developers can have an admin key or some other privileged access within the smart contract code. This can enable them to potentially do something malicious, like taking control of the funds in the pool.
+
+If you want to provide liquidity to an AMM, make sure to become familiar with the notion of _impermanent loss_. In short, it’s a loss in dollar value when providing liquidity to an AMM rather than keeping the tokens themselves as are in your wallet (a.k.a. _HODLing_) during bull markets. [More on this here.](https://academy.binance.com/en/articles/impermanent-loss-explained)
 
 ## Conclusion
 The concepts behind liquidity pools and automated market making are quite simple yet extremely powerful. There is no longer a need for centralized book-orders. The only obstacle to the development of liquidity pools remains some high gas fees and execution time, but as gas fees are reduced and transactions made faster with each amendment of Tezos, liquidity pools should soon become the main way of trading on Tezos.
