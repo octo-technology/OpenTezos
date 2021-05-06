@@ -12,7 +12,7 @@ A **stablecoin** is a cryptocurrency whose price is fixed to another asset. Most
 Stablecoins have gained traction as they attempt to offer the best of both worlds: the instant processing, security and privacy of cryptocurrencies, and the **volatile free** stable valuations of fiat currencies.
 
 ## How it works?
-Stablecoins achieve their price stability via **collateralization** (backing) or through **algorithmic mechanisms** of buying and selling the reference asset or its derivatives. There are 3 types of stablecoins:
+Stablecoins achieve their price stability via **collateralization** (backing) or through **algorithmic mechanisms** of buying and selling the reference asset or its derivatives. There are three types of stablecoins:
 
 ### Fiat-Collateralized Stablecoins
 #### Principle
@@ -28,24 +28,35 @@ An shown above, it is important that these entities keep as much USD in their ba
 <small className="figure">FIGURE 2: Exchanging stable coins against fiat currencies (or the other way around) is secured by a KYC. Exchanging stable coins between users do not require a KYC (i.e. as long as its stays inside de crypto world)</small>
 
 ### Crypto-Collateralized Stablecoins
-Crypto-collateralized stablecoins are backed by other cryptocurrencies. The stablecoins are minted or burned by automated smart contracts, making them fully decentralised. However, since the reserve cryptocurrency may also be prone to high volatility, such stablecoins are "over-collateralized", meaning a much larger number of cryptocurrency tokens is maintained as reserve, compared to the provided stablecoins. These are not capital efficient.
+Crypto-collateralized stablecoins are backed by other cryptocurrencies. The stablecoins are minted or burned by automated smart contracts knowns as _Collateralized Debt Position_ (CDP). However, since the reserve cryptocurrency may also be prone to high volatility, such stablecoins are "over-collateralized", meaning a much larger value of tokens is maintained as reserve, compared to the provided stablecoin value. These are not capital efficient.
 
 #### Example
-/// IN PROGRESS
+Alice want 100 stable-USD. She opens a CDP. Consider that the CDP is backed by XTZ and that the current value of XTZ is 5 USD. Typical minimun CDP collaterization is 150%, meaning that Alice need to send at least $100 / 5 = 20$ XTZ to the CDP. In practice, Alice must send much more than that as if the price of XTZ sligthly moves downward, her collaterization would go below 150% and her CDP would be liquidated. To keep it safe, let's say that Alice sends 40 XTZ to the CDP, making her collateral worth $200.
 
+Alice can now instruct the CDP to mint and transfer her 100 stable-USD. The CDP locks her XTZ until she repays the 100 stable-USD, thus the term **debt** in CDP. 
+
+If XTZ goes up, the value of her collateral increases. She can either withdraw some XTZ from the CDP or mint some more stable-USD, as long as the collateral stays above 150%.
+
+If XTZ goes below $150 / 40 = 3.75$ USD, her collateral goes below 150%. If Alice didn't send more XTZ to the CDP to compensante before reaching 150%, here CDP is liquidated, meaning that the contract is closed and here XTZ are sold publicly to other traders. Alice still has the 100 stable-USD but she just lost $150 worth of XTZ.
 
 #### Risks
+The greatest threat to a crypto-collateralized stablecoin is a massive crash of the collateral cryptocurrency [[4]](/defi/stablecoins#references). When a CDP gets liquidated, other traders must buy the XTZ to make up for the debt in stable-USD. They make a nice profit as they usually buy it just below 150% of valuation. Now if XTZ crashes so much and fast that liquidated CDPs' collateral goes below 100% of their debt, then nobody will want to buy them. This would utimatly make CDPs worthless and derail the stable-USD off his peg.
 
+The most popular crypto-collateralized stablecoin is [DAI from MakerDAO](https://makerdao.com/) on Ethereum. Their white paper can be found [here](https://makerdao.com/whitepaper/DaiDec17WP.pdf)
 
 ### Non-Collateralized (algorithmic) Stablecoins
 Non-collateralized stablecoins don’t use any reserve but rely on an algorithm that will automatically burn tokens when supply is high to increase the price, or mint new tokens when supply is low to decrease the price, much like central banks are doing to maintain valuations of a fiat currency. It can be achieved by implementing a smart contract on a decentralized platform that can run in an autonomous manner.
 
 
 #### Example
-
+For example, assume a stablecoin is priced at $1. When the price drops to $0.80, an algorithm recognizes the imbalance between supply and demand, and automatically sets a market buy order to push the price back. In case the price goes above $1, the algorithm sells assets to maintain the price on the predefined level that keeps the peg. 
 
 #### Risks
+When the price goes below $1, things get complicated. If the price is below a dollar, the algorithm must reduce supply. A common way for uncollateralized stablecoins to reduce supply is through to offer **bonds**.
 
+These bonds are sold on an open market for less than $1. They are paid for in the stablecoin and promise to return 1 stablecoin at an unspecified time in the future. For example, a buyer pays .9 stable-USD for 1 Bond token. This lowers supply and should theoretically bring the price of the stablecoin back to $1.
+
+The issue here is that buyers need to be confident that the bonds will pay out. Bonds are paid out when the supply increases (the stablecoin price goes above $1). Just as with the shares, the bonds rely on an increasing demand for the stablecoin. If demand growth slows or stops, bonds may not be paid out.
 
 ![](../../static/img/defi/stablecoin-types.svg)
 <small className="figure">FIGURE 3: Recapitulation of the 3 types of stablecoins.</small>
