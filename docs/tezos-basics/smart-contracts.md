@@ -1,6 +1,7 @@
 ---
 id: smart-contracts
 title: Smart contracts
+authors: Thomas Zoughebi, Aymeric Bethencourt and Maxime Fernandez
 ---
 In this chapter, you'll learn the Tezos smart contracts basics. Their components and the workflow to record and use them on the Tezos *blockchain*.
 

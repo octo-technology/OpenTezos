@@ -1,6 +1,7 @@
 ---
 id: unit-testing
 title: Unit Testing with PyTezos
+authors: Maxime Sallerin and Benjamin Pilia
 ---
 
 There are multiple frameworks for testing Michelson contracts:

@@ -1,6 +1,7 @@
 ---
 id: installation
 title: Installation
+authors: Maxime Sallerin and Benjamin Pilia
 ---
 
 There are currently four ways to get started with LIGO. You can choose to use a Docker image, a static Linux binary, to install packages for your Debian Linux distribution, or you can try directly on the [online editor](https://ide.ligolang.org/).

@@ -105,7 +105,7 @@ Bitcoin relies on the simple free market of *supply* and *demand*. It is intrins
 
 The total *theoric* limited *supply* of bitcoins is pre-determined and hardcoded in the protocol at 21 millions [[4]](/blockchain-basics/main-properties#references).
 
-## Consensus: Nakamoto and the Proof-of-Work’s account units issuance
+## Consensus: Nakamoto and the Proof-of-Work's account units issuance
 
 ### What is a consensus?
 "**Consensus**" comes from Latin *cōnsēnsus* ("agreement, accordance, unanimity").  

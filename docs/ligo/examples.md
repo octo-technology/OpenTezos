@@ -1,6 +1,7 @@
 ---
 id: examples
 title: Examples
+authors: Maxime Sallerin and Benjamin Pilia
 ---
 
 ## Function
@@ -168,7 +169,7 @@ So an entrypoint with `ChangeAlgorithm` is provided to modify the algorithm that
 
 ## Sandboxed mode
 
-This part will explain to you how to run a ‘localhost-only’ instance of a Tezos network.
+This part will explain to you how to run a 'localhost-only' instance of a Tezos network.
 
 ### Run a sandboxed node
 

@@ -1,6 +1,7 @@
 ---
 id: exam
 title: Exam
+authors: Thomas Zoughebi, Aymeric Bethencourt and Maxime Fernandez
 ---
 
 ### Question 1

@@ -1,6 +1,7 @@
 ---
 id: deploy-a-contract
 title: Deploy a contract
+authors: Maxime Sallerin and Benjamin Pilia
 ---
 
 # Smart Contract
@@ -388,7 +389,7 @@ tezos-client originate contract counterContract for boostrap1 transferring 1 fro
 
 > Note that you can simulate the deployment by adding the `--dry-run` parameter to the above command.  
 > Note that boostrap1 and boostrap2 are users from the sandbox of tezos.  
-> Sandboxed mode is a way to run a ‘localhost-only’ instance of a Tezos network.  
+> Sandboxed mode is a way to run a 'localhost-only' instance of a Tezos network.  
 > Find more about sandboxed mode [here](examples#sandboxed-mode).
 
 ### Invoke

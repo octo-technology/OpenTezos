@@ -14,38 +14,38 @@ One way is to use a centralized exchange like Binance. This means that you trust
 <small className="figure">FIGURE 1: Illustration of non-atomic swap on a centralized exchange</small>
 
 ### Using a DEX
-Using a DEX is a great solution for making trustless token swaps. However they only work within the same blokchain network. _Dexter_ and _Quipuswap_ only work on Tezos and only with FA1.2 or FA2 tokens. So what if I want to exchange some XTZ against some BTC? One way is to use wrapped assets as seen in the [previous chapter](defi/wrapped-assets) and exchange wrapped XTZ (wXTZ) against wrapped BTC (tzBTC) on a Tezos DEX. However, this increase the difficulty of the process as you have to wrap and unwrap tokens. Additionaly you have to trust that the smart contract that allows you to unwrap your tzBTC for actual BTC is secured. So, is there a fully trustless solution?
+Using a DEX is a great solution for making trustless token swaps. However, they only work within the same blockchain network. _Dexter_ and _Quipuswap_ only work on Tezos and only with FA1.2 or FA2 tokens. So what if I want to exchange some XTZ against some BTC? One way is to use wrapped assets as seen in the [previous chapter](defi/wrapped-assets) and exchange wrapped XTZ (wXTZ) against wrapped BTC (tzBTC) on a Tezos DEX. However, this increases the difficulty of the process as you have to wrap and unwrap tokens. Additionally you have to trust that the smart contract that allows you to unwrap your tzBTC for actual BTC is secured. So, is there a fully trustless solution?
 
 ![](../../static/img/defi/swap-dex.svg)
 <small className="figure">FIGURE 2: Illustration of non-atomic swap on a decentralized exchange</small>
 
 ### Cross chain swaps
-A _cross-chain swap_ (also referred to as an _Atomic Swap_) refers to the action of exchanging two different cryptocurrencies on different blockchains in a peer-to-peer fashion, i.e. without using a third party. This is possible thanks to code locking mechanisms known as **Hash Time Locked Contracts (HTLCs)** codeable into blockchain transactions. For this, Alice and Bob have to proceed as follows :
+A _cross-chain swap_ (also referred to as an _Atomic Swap_) refers to exchanging two different cryptocurrencies on different blockchains in a peer-to-peer fashion, i.e., without using a third party. This is possible thanks to code locking mechanisms known as **Hash Time Locked Contracts (HTLCs)** codeable into blockchain transactions. For this, Alice and Bob have to proceed as follows :
 
-- Alice deposits her XTZ into an HTLC smart contract witch acts like a safe and locks the funds. When this safe is created, Alice also generates a key to access it.
+- Alice deposits her XTZ into an HTLC smart contract which acts like a safe and locks the funds. When this safe is created, Alice also generates a key to access it.
 
-- Alice shares a cryptographic hash of this key with Bob. Note that Bob can’t access the XTZ yet because he only has the hash of the key and not the key itself.
+- Alice shares a cryptographic hash of this key with Bob. Note that Bob can't access the XTZ yet because he only has the key's hash and not the key itself.
 
 - Bob uses the hash provided by Alice to create another HTLC smart contract, in which he deposits his BTC ([Bitcoin is indeed capable of running basic smart contracts](/blockchain-basics/smart-contracts) such as HTLC). 
 
-- To claim the BTC, Alice is required to use that same key and, by doing so, she reveals it to Bob (thanks to a special function called _hashlock_ from HTLC). 
+- To claim the BTC, Alice is required to use that same key and, by doing so, she reveals it to Bob (thanks to a particular function called _hashlock_ from HTLC). 
 
-- This means that as soon as Alice claims the BTC, Bob is able to claim the XTZ and the swap is complete.
+- This means that as soon as Alice claims the BTC, Bob can claim the XTZ and the swap is complete.
 
 The term **atomic** relates to the fact that these transactions either happen entirely or not at all. If any of the parties give up or fails to do what they are supposed to, the contract is canceled, and the funds are automatically returned to their owners.
 
 ![](../../static/img/defi/atomic-swap.svg)
 <small className="figure">FIGURE 3: Illustration of an atomic swap.</small>
 
-If Bob never sends the funds, Alice's HTLC will time-out and refund the funds to Alice automatically. 
+Alice's HTLC will time-out and refund the funds to Alice automatically if Bob never sends the funds. 
 
 ![](../../static/img/defi/atomic-swap-fail.svg)
 <small className="figure">FIGURE 4: Illustration of a failed atomic swap (Bob did not send the funds).</small>
 
 ## Hash Time Lock Contracts
-_Hash Timelock Contracts_ (HTLC) are one of the key components that makes atomic swaps possible. As the name suggests, they are based on two key functions: 
+_Hash Timelock Contracts_ (HTLC) are one of the critical components that makes atomic swaps possible. As the name suggests, they are based on two essential functions: 
 
-- a hashlock, which prevents funds from being spent unless a piece of data is revealed (Alice’s key in the previous example).
+- a hashlock, which prevents funds from being spent unless a piece of data is revealed (Alice's key in the previous example).
   
 - a timelock, which ensures the contract can only be executed within a predefined timeframe. 
 
@@ -54,9 +54,9 @@ Consequently, the use of HTLCs removes the need for trust because they create a 
 To learn more about HTLCs, you can read [this article](https://medium.com/blockchainio/what-are-atomic-swaps-bc1d034634c9).
 
 ## Cross-chain swaps on Tezos
-- [StakerBridge](https://medium.com/stakerdao/stakerbridge-eth-tez-is-live-1841cb75557d) by [StakerDAO](https://www.stakerdao.com/) is an open source, trustless method of bi-directional transfer of tokens between Ethereum and Tezos.
+- [StakerBridge](https://medium.com/stakerdao/stakerbridge-eth-tez-is-live-1841cb75557d) by [StakerDAO](https://www.stakerdao.com/) is an open-source, trustless method of bi-directional transfer of tokens between Ethereum and Tezos.
   
-- [TEZEX](https://tezex.io/) is currently in development and will enable cross-chain swaps. At first, TEZEX Bridge will allow swaps of tokens between Ethereum and Tezos.
+- [TEZEX](https://tezex.io/) is currently in development and will enable cross-chain swaps. At first, TEZEX Bridge will allow token swaps between Ethereum and Tezos.
   
 ## References
 

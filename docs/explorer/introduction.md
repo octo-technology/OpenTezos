@@ -1,6 +1,7 @@
 ---
 id: introduction
 title: Introduction
+authors: Maxime Sallerin
 ---
 
 This module focuses on **blockchain explorers** and **blockchain indexers** for Tezos, 
@@ -19,7 +20,7 @@ All transactions ever performed on a network can be viewed using such a tool.
 
 **Blockchain explorers are like search engines for blockchains.**  
 You can think of it as a window into the blockchain world,
-giving you the opportunity to observe what’s happening in it.
+giving you the opportunity to observe what's happening in it.
 
 Cryptocurrency users and developers use such a tool to view the status of past or present transactions. 
 
