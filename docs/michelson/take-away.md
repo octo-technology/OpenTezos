@@ -1,6 +1,7 @@
 ---
 id: take-away
 title: Take away
+authors: Frank Hillard
 ---
 
 - Smart contracts in Tezos are implemented in the **Michelson** language which is a **stack-based strongly-typed** language. 

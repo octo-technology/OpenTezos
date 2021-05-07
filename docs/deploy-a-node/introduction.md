@@ -3,6 +3,7 @@ id: introduction
 disable_pagination: true
 title: Introduction
 slug: /deploy-a-node
+authors: Benjamin Pilia
 ---
 
 import NotificationBar from '../../src/components/docs/NotificationBar';

@@ -1,6 +1,7 @@
 ---
 id: indexer-explained
 title: How Indexers Work?
+authors: Maxime Sallerin
 ---
 
 This chapter aims to describe the functioning of a traditional indexer and its components. 

@@ -2,6 +2,7 @@
 id: introduction
 title: Introduction
 slug: /ligo
+authors: Maxime Sallerin and Benjamin Pilia
 ---
 
 import Tabs from '@theme/Tabs';

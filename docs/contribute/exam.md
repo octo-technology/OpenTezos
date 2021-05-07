@@ -20,7 +20,7 @@ To receive a _Tezos Foundation_ grant, one has to:
 - [x] devise a project idea
 - [x] apply for a grant
 - [x] wait for the application to be reviewed
-- [x] react to the review’s findings
+- [x] react to the review's findings
 
 ### Question 3
 

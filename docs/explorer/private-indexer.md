@@ -2,6 +2,7 @@
 id: private-indexer
 disable_pagination: true
 title: Private indexer
+authors: Benjamin Pilia
 ---
 
 import NotificationBar from '../../src/components/docs/NotificationBar';

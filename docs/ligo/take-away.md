@@ -1,6 +1,7 @@
 ---
 id: take-away
 title: Take Away
+authors: Maxime Sallerin and Benjamin Pilia
 ---
 
 - LIGO is a programming language for writing **Tezos smart contracts**.

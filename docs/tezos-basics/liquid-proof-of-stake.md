@@ -1,6 +1,7 @@
 ---
 id: liquid-proof-of-stake
 title: Liquid Proof-of-Stake
+authors: Thomas Zoughebi, Aymeric Bethencourt and Maxime Fernandez
 ---
 
 In ["*Blockchain Basics*"](/blockchain-basics/) module, you understood the main objective of a consensus mechanism is maintaining a common history throughout the whole peer-to-peer network. There are countless consensus algorithms and they all have pros and cons. Notably, the Bitcoin's *Proof-of-Work* has two flaws:

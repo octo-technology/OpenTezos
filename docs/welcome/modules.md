@@ -4,6 +4,7 @@ disable_pagination: true
 title: Welcome to OpenTezos
 sidebar_label: Modules
 slug: /
+authors: Aymeric Bethencourt
 ---
 
 import NotificationBar from '../../src/components/docs/NotificationBar';

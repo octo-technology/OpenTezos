@@ -1,6 +1,7 @@
 ---
 id: exam
 title: Exam
+authors: Maxime Sallerin and Benjamin Pilia
 ---
 
 ### Question 1

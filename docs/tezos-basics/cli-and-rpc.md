@@ -1,6 +1,7 @@
 ---
 id: cli-and-rpc
 title: CLI and RPC
+authors: Thomas Zoughebi, Aymeric Bethencourt and Maxime Fernandez
 ---
 
 ## Connecting to the network

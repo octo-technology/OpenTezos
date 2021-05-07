@@ -1,6 +1,7 @@
 ---
 id: language-basics
 title: Language basics
+authors: Maxime Sallerin and Benjamin Pilia
 ---
 
 In this chapter, all the following examples will use the PascaLigo syntax.

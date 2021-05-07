@@ -1,6 +1,7 @@
 ---
 id: tzstats-smart-contract
 title: Checkout your smart contract on TzStats
+authors: Maxime Sallerin
 ---
 
 As a developer, you will often want to check the state of your deployed smart contracts. Using a blockchain explorer is a fast and easy way to do so. In this section, we will deploy a smart contract and check it out on _TzStats_.

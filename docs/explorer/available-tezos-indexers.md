@@ -1,6 +1,7 @@
 ---
 id: available-tezos-indexers
 title: Available Tezos Indexers
+authors: Maxime Sallerin
 ---
 
 The purpose of this chapter is to list the main explorers of the Tezos blockchain with their pros and cons.

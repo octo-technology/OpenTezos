@@ -1,6 +1,7 @@
 ---
 id: instructions-reference
 title: Instructions Reference
+authors: Frank Hillard
 ---
 
 This chapter provides an explicit list of all the most commonly used instructions in Michelson. It is not intended for you to read it as is but to use it as a reference during your developments.
@@ -1210,7 +1211,7 @@ tezos-client run script countercaller.tz on storage '"KT1HUbVyf62ZAp7BRqwQaDueb6
 
 #### SET_DELEGATE
 
-The `SET_DELEGATE` sets or withdraws the contract’s delegation. It consumes an *option key_hash* specifying the delegate and returns a transaction (operation) on top of the stack.
+The `SET_DELEGATE` sets or withdraws the contract's delegation. It consumes an *option key_hash* specifying the delegate and returns a transaction (operation) on top of the stack.
 
 Using this instruction is the only way to modify the delegation of a smart contract. If the top element is _None_, then the delegation of the current contract is withdrawn. If the top element is _Some kh_, where _kh_ is the key hash of a registered delegate (that is not the current delegate of the contract), then this operation sets the delegate of the contract to this registered delegate. The operation fails if _kh_ is the current delegate of the contract or if _kh_ is not a registered delegate.
 

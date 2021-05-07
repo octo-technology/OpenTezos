@@ -1,9 +1,10 @@
 ---
 id: write-contracts-ligo
 title: Smart contract development in Pascaligo
+authors: Maxime Sallerin and Benjamin Pilia
 ---
-import NotificationBar from '../../src/components/docs/NotificationBar';
 
+import NotificationBar from '../../src/components/docs/NotificationBar';
 
 The language of smart contracts is Michelson, a stack-based language. 
 However, this kind of language is not commonly used by developers. 
@@ -106,23 +107,23 @@ You can find all built-in types on the [LIGO gitlab](https://gitlab.com/ligolang
 
 Below is a table of the most used built-in types. Most of them will be used in the raffle smart contract:
 
-| Type              | Description      | Example |
-| -----------       | -----------     | -----------|
-| `unit`            | carries no information           | `Unit`|
-| `option`          | value of some type or none           | `Some ("this string is defined")`, `(None: option string)`|
-| `string`          | Sequence of character        | `"This is a string"`|
-| `address`         | Address of an implicit account           | `("tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx" : address)`|
-| `int`             | Positive or negative integer             | `-5`, `int (1n)`|
-| `nat`             | Positive integer             | `0n`, `abs (1)`|
-| `tez`, `tz`, `mutez`      | Amount in tz or mutez             | `5mutez`, `10tez`|
-| `bool`             | Boolean: true or false             | `True`, `False` |
-| `timestamp`        | Timestamp (bakers are responsible for providing the given current timestamp) | `("2000-01-01T10:10:10Z" : timestamp)`, `Tezos.now` |
-| `bytes`            | Sequence of bytes | 0x12e4 |
-| `list (type)`      | List definition. The same element can be found several times in a list | `list [1; 2; 2]`, `nil` |
-| `set (type)`       | Set definition. The same element cannot be found several times in a list | `set []`, `set [3; 2; 2; 1]` |
-| `type1 * type2 ... * typeN`        | Tuple definition | `("Alice", 5n, True)` |
-| `(keyType, valueType) map`        | Map an element of type keyType to an element of type valueType. Meant for finite maps | `Map.empty`, `Map.literal [(("tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx" : address), (1,2)); (("tz1gjaF81ZRRvdzjobyfVNsAeSC6PScjfQwN" : address), (0,3))]` |
-| `(keyType, valueType) big_map`        | Map an element of type keyType to an element of type valueType. Meant for huge maps | `Big_map.empty`, `Big_map.literal [(("tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx" : address), (1,2)); (("tz1gjaF81ZRRvdzjobyfVNsAeSC6PScjfQwN" : address), (0,3))]` |
+| Type                           | Description                                                                           | Example                                                                                                                                                       |
+| ------------------------------ | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `unit`                         | carries no information                                                                | `Unit`                                                                                                                                                        |
+| `option`                       | value of some type or none                                                            | `Some ("this string is defined")`, `(None: option string)`                                                                                                    |
+| `string`                       | Sequence of character                                                                 | `"This is a string"`                                                                                                                                          |
+| `address`                      | Address of an implicit account                                                        | `("tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx" : address)`                                                                                                          |
+| `int`                          | Positive or negative integer                                                          | `-5`, `int (1n)`                                                                                                                                              |
+| `nat`                          | Positive integer                                                                      | `0n`, `abs (1)`                                                                                                                                               |
+| `tez`, `tz`, `mutez`           | Amount in tz or mutez                                                                 | `5mutez`, `10tez`                                                                                                                                             |
+| `bool`                         | Boolean: true or false                                                                | `True`, `False`                                                                                                                                               |
+| `timestamp`                    | Timestamp (bakers are responsible for providing the given current timestamp)          | `("2000-01-01T10:10:10Z" : timestamp)`, `Tezos.now`                                                                                                           |
+| `bytes`                        | Sequence of bytes                                                                     | 0x12e4                                                                                                                                                        |
+| `list (type)`                  | List definition. The same element can be found several times in a list                | `list [1; 2; 2]`, `nil`                                                                                                                                       |
+| `set (type)`                   | Set definition. The same element cannot be found several times in a list              | `set []`, `set [3; 2; 2; 1]`                                                                                                                                  |
+| `type1 * type2 ... * typeN`    | Tuple definition                                                                      | `("Alice", 5n, True)`                                                                                                                                         |
+| `(keyType, valueType) map`     | Map an element of type keyType to an element of type valueType. Meant for finite maps | `Map.empty`, `Map.literal [(("tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx" : address), (1,2)); (("tz1gjaF81ZRRvdzjobyfVNsAeSC6PScjfQwN" : address), (0,3))]`         |
+| `(keyType, valueType) big_map` | Map an element of type keyType to an element of type valueType. Meant for huge maps   | `Big_map.empty`, `Big_map.literal [(("tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx" : address), (1,2)); (("tz1gjaF81ZRRvdzjobyfVNsAeSC6PScjfQwN" : address), (0,3))]` |
 
 ### Type aliases
 

@@ -2,6 +2,7 @@
 id: introduction
 title: Introduction
 slug: /tezos-basics
+authors: Thomas Zoughebi, Aymeric Bethencourt and Maxime Fernandez
 ---
 **Tezos** is a *public, open-source blockchain protocol* relying on a **low power consumption and energy-efficient consensus**.  
 The protocol also incorporates a **self-amending governance system**, which allows *continuous improvements* while preserving the integrity of this consensus. **This eliminates *hard forks* troubles**.  
