@@ -1,21 +1,21 @@
 ---
 id: smart-contracts
 title: Smart contracts
-authors: Thomas Zoughebi, Aymeric Bethencourt and Maxime Fernandez
+authors: Thomas Zoughebi, Aymeric Bethencourt, and Maxime Fernandez
 ---
 In this chapter, you will learn the Tezos smart contracts basics. Their components and the workflow to record and use them on the Tezos *blockchain*.
 
 ## General definition of a Tezos smart contract
-A smart contract is a code stored inside the *blockchain* which executes a set of pre-defined instructions (promises). Once deployed (stored), it becomes **immutable**. A smart contract is deployed using a **transaction**, so we embed spending conditions inside it, which are **immutable**. Though for smart contracts, the key difference is a user *can trigger the execution of the code without modifying it, and without moving it to another transaction or block*. It stays where it has been stored **forever**. Tezos doesn't use an [UTXO model](https://en.wikipedia.org/wiki/Unspent_transaction_output) (no "*vaults*", see *Blockchain Basics*) but a **stateful accounts** one.
+A smart contract is a code stored inside the *blockchain*. It executes a set of pre-defined instructions (promises). Once deployed (stored), it becomes **immutable**. A smart contract is deployed using a **transaction**, so we embed spending conditions inside it, which are **immutable**. Though for smart contracts, the key difference is a user *can trigger the execution of the code without modifying it. Therefore without moving it to another transaction or block*. It stays where it has been stored **forever**. Tezos doesn't use an [UTXO model](https://en.wikipedia.org/wiki/Unspent_transaction_output) (no "*vaults*", see *Blockchain Basics*) but a **stateful accounts** one.
 
 Like in Ethereum, Tezos uses 2 types of accounts:
-1. Classic accounts with a primary address, simply storing tez (ꜩ) coins
-2. Smart contract accounts with an address, storing code and  tez (ꜩ) coins
+1. Classic accounts with a primary address, simply storing TEZ (ꜩ) coins
+2. Smart contract accounts with an address, storing code and TEZ (ꜩ) coins
 
-In Tezos vocabulary though, "*contracts*" refers to both types in general. So, actually, each *contract* has a "**_manager_**". Precisely, a classic account has an "**_owner_**". If a contract is flagged as "*spendable*", the manager is the entity allowed to spend funds from it.
+Though in Tezos vocabulary though, "*contracts*" refers to both types in general. Actually each *contract* has a "**_manager_**". Precisely, a classic account has an "**_owner_**". If a contract has the "*spendable*" property, the manager is the entity allowed to spend funds from it.
 
 Smart contracts can achieve different kinds of operations with coins and *other smart contracts*. They're comparable to *automatic* **sealed** food and drink dispensers from the same company:  
-Each machine has a contract saying "*Give me cryptocurrency and I give you food or drink*". Each machine can have a different smart contract for different foods or drinks, and there could be another smart contract gathering the cryptocurrency total for the company. Each machine doesn't operate until enough currency is delivered (*Gas*). Note that the **quantities** of foods or drinks change while their **types** can't (ever).
+Each machine has a contract saying "*Give me cryptocurrency and I give you food or drink*". Each machine can have a different smart contract for various foods or drinks, and there could be another smart contract gathering the cryptocurrency total for the company. Each machine doesn't operate until enough currency is delivered (*Gas*). Note that the **quantities** of foods or drinks change while their **types** can't (ever).
 
 Of course, smart contracts like the Tezos ones go beyond this metaphor. Thanks to *transparency* and *immutability*, they allow an **agreement** to be secured between two or more parties. In this context, the concept of "[Code is Law](https://en.wikipedia.org/wiki/Lawrence_Lessig#%22Code_is_law%22)" from [_Lawrence Lessig_](https://en.wikipedia.org/wiki/Lawrence_Lessig) is very appropriate.
 
@@ -23,12 +23,12 @@ For example, it is common to create financial instruments like various *tokens* 
 
 In most cases, smart contracts remove *intermediate* and drastically reduce costs compared to classic paper contracts and their validations.
 
-Notice that like any other, a Tezos smart contract can only run on and interact with the blockchain it's stored in (Bitcoin's smart contracts are exceptions here). It can't interact with the outside world. That's where *decentralized applications* or "_Dapps_" come in, because they provide interfaces for the outside world.
+Notice that like any other, a Tezos smart contract can only run on and interact with the blockchain it's stored in (Bitcoin's smart contracts are exceptions here). It can't interact with the outside world. That's where *decentralized applications* or "_Dapps_" come in because they provide interfaces for the outside world.
 
 To build your own Dapp, please refer to the [*Build a Dapp*](/dapp) module.
 
 ## Lifecycle of a Tezos smart contract
-As we saw, a smart contract can only be deployed once but can be called many times. The Tezos smart contract lifecycle steps are basically two:
+As we saw, a smart contract can only be deployed once but can be called many times. The Tezos smart contract lifecycle steps are two:
 
 1. Deployment
 2. Interactions through calls
@@ -36,11 +36,11 @@ As we saw, a smart contract can only be deployed once but can be called many tim
 ### Deployment of a Tezos smart contract
 The deployment of a Tezos smart contract is named "**origination**".
 
-When a smart contract is deployed, an **address** and a corresponding *persistent space* called **storage** are allocated to this smart contract. The smart contract's address is like its *identity* and *where* it lives on the ledger, while its storage is its *usable space* inside itself. The smart contract is inside the blockchain. The storage is inside the smart contract.
+When a smart contract is deployed, an **address** and a corresponding *persistent space* called "**storage**" are allocated to this smart contract. The smart contract address is like its *identity* and *where* it lives on the ledger. Its storage is its *usable space* inside itself. The smart contract is inside the blockchain. The storage is inside the smart contract.
 
 A smart contract deployment also defines its *entrypoints*. These are special functions used to dispatch invocations of the smart contract. Each entrypoint is in charge of triggering an instruction (see below "*Call of a Tezos smart contract*").
 
-Once deployed, the smart contract can be called by anyone or *anything* (e.g. other contracts) with a transaction sent to its address and entrypoints. This triggers the execution of the set of pre-defined instructions (promises).
+Once deployed, anyone or *anything* can call the smart contract (e.g. other contracts) with a transaction sent to its address and entrypoints. This call triggers the execution of the set of pre-defined instructions (promises).
 
 The origination of a Tezos smart contract must define its:
 * **Entrypoints** (functions where it receives calls)
@@ -51,15 +51,15 @@ The origination of a Tezos smart contract must define its:
 <small className="figure">FIGURE 1: Content of a Tezos smart contract</small>
 
 ### Code of a Tezos smart contract
-The code of a smart contract is a sequence of Michelson instructions that are executed when the smart contract is called.
+The code of a smart contract is a sequence of Michelson instructions. Calls to the smart contract execute these instructions.
 
-The execution of this sequence of instructions results in a modification of the *storage* content, or storage "**state**". The sequence defines how this state can be modified.
+The execution of this sequence of instructions results in a modification of the *storage* content, or storage "**state**". The sequence defines how to modify this state.
 
-The full description of the Michelson language can be found in the [Michelson module](/michelson).
+You can find the full description of the Michelson language in the [Michelson module](/michelson).
 
 ### Storage of a Tezos smart contract
-During the origination, the **initial state** of the storage must be specified.
-If needed for operations, the allocation of extra storage space is paid with calling transactions fees.
+During the origination, the process must specify the storage **initial state**.
+If needed for operations, calling transactions fees pay for the allocation of extra storage space.
 
 For more details, check out the ["*Fees and Rewards*"](/tezos-basics/economics_and_reward) chapter.
 
