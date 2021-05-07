@@ -104,6 +104,9 @@ For example, it is common to define a *map* of users in a DAO, so the users list
 Note that, even if a value or an association is deleted from a map, the blockchain ledger keep the complete history of its state.  
 In the DAO example, a user would be able to quit, but exploring the past blocks, you'd still find his trace.
 
+![](../../static/img/tezos-basics/map-pattern.svg)  
+<small className="figure">FIGURE 4: *Map pattern* illustration.</small>
+
 ### Lambda pattern
 The Lambda pattern is based on *lambda functions*. These anonymous functions only have a mandatory *type* (function!); non-mandatory *parameters*; and non-mandatory *return values*. The idea is to exchange the **body** of a classic function with a **lambda function**. While the classic function is immutable, the lambda function is stored in the storage, therefore mutable.
 
@@ -136,7 +139,7 @@ lambdaFunction = function (p1, ... , pP) return (v1, ... , vR) {
 In this algorithmic example, almost all types are implicit to limit syntax length. Furthermore the syntax isn't as functional as in real languages used for Tezos smart contracts (e.g. *LIGO*).
 
 ![](../../static/img/tezos-basics/lambda-pattern.svg)  
-<small className="figure">FIGURE 4: Lambda pattern illustration.</small>
+<small className="figure">FIGURE 5: *Lambda pattern* illustration.</small>
 
 You could use a *map pattern* aswell. Inside the map, you can store each lambda function as a *value*. To execute instructions, the code would find the correct lambda function at the corresponding *key*.
 
@@ -153,7 +156,7 @@ Once the Data-Proxy architecture is in place, we can make the Data smart contrac
 //TODO Change this very bad schema:
 
 ![](../../static/img/tezos-basics/data-proxy.svg)  
-<small className="figure">FIGURE 5: Data-Proxy, Map, and Lambda patterns combination.</small>
+<small className="figure">FIGURE 6: Data-Proxy, Map, and Lambda patterns combination.</small>
 
 As you can deduce, what really immutable here are:
 - The "*Get*" and "*Set*" functions of the Data smart contract. These are *functions* to **read** and **write** data in the storage's map.  
