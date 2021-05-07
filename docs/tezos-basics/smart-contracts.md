@@ -153,10 +153,8 @@ We are not forced to use the above patterns all in the same smart contract's sto
 
 Once the Data-Proxy architecture is in place, we can make the Data smart contract more dynamic with a Map pattern, and the Proxy smart contract upgradable with a Lambda pattern:
 
-//TODO Change this very bad schema:
-
 ![](../../static/img/tezos-basics/data-proxy.svg)  
-<small className="figure">FIGURE 6: Data-Proxy, Map, and Lambda patterns combination.</small>
+<small className="figure">FIGURE 6: *Data-Proxy* pattern illustration.</small>
 
 As you can deduce, what really immutable here are:
 - The "*Get*" and "*Set*" functions of the Data smart contract. These are *functions* to **read** and **write** data in the storage's map.  
