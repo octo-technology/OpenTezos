@@ -105,7 +105,7 @@ Note that, even if a value or an association is deleted from a map, the blockcha
 In the DAO example, a user would be able to quit, but exploring the past blocks, you'd still find his trace.
 
 ![](../../static/img/tezos-basics/map-pattern.svg)  
-<small className="figure">FIGURE 4: *Map pattern* illustration.</small>
+<small className="figure">FIGURE 4: <i>Map pattern</i> illustration.</small>
 
 ### Lambda pattern
 The Lambda pattern is based on *lambda functions*. These anonymous functions only have a mandatory *type* (function!); non-mandatory *parameters*; and non-mandatory *return values*. The idea is to exchange the **body** of a classic function with a **lambda function**. While the classic function is immutable, the lambda function is stored in the storage, therefore mutable.
@@ -139,31 +139,30 @@ lambdaFunction = function (p1, ... , pP) return (v1, ... , vR) {
 In this algorithmic example, almost all types are implicit to limit syntax length. Furthermore the syntax isn't as functional as in real languages used for Tezos smart contracts (e.g. *LIGO*).
 
 ![](../../static/img/tezos-basics/lambda-pattern.svg)  
-<small className="figure">FIGURE 5: *Lambda pattern* illustration.</small>
+<small className="figure">FIGURE 5: <i>Lambda pattern</i> illustration.</small>
 
 You could use a *map pattern* aswell. Inside the map, you can store each lambda function as a *value*. To execute instructions, the code would find the correct lambda function at the corresponding *key*.
 
 Later, in an upgrading process, it would be possible to **modify the lambda function** in **just changing** the **_value_** in the *map* for the **_same key_**. It would also be possible to **batch changes on the whole *map***.
 
-### Data-Proxy pattern //TODO rework this pattern completely
+### Data-Proxy pattern
 
-//TODO "proxy" not clear at all
+The idea of the "*Data-Proxy*" pattern is pretty simple: separate the logic from the data into different smart contracts. Instead of duplicating and transfering the data into a new smart contract, we only update the logic smart contract.
 
-We are not forced to use the above patterns all in the same smart contract's storage. It would actually be an even better idea to use [modular programming](https://en.wikipedia.org/wiki/Modular_programming). In a "*Data-Proxy pattern*", the idea is to separate the data (*Data*) from the rules (via a *Proxy*). So, you would basicaly have a smart contract containing data and the rules in another one (functions...).
+The first smart contract is the Data smart contract. It stores important data including the address and entrypoints of the Logic smart contract. It also plays a proxy role as any request always go through it first. It usually doesn't have a lot of functions. The mandatory functions set and retrieve its storage data (including new addresses for the new logic smart contracts).
 
-Once the Data-Proxy architecture is in place, we can make the Data smart contract more dynamic with a Map pattern, and the Proxy smart contract upgradable with a Lambda pattern:
+When you need to update the logic (e.g. new features; corrections...) you only deploy a new logic smart contract and update the Data smart contract storage with the new address. See below fig. 6 for an update of the Logic smart contract from version 1.0 to 2.1.:
 
 ![](../../static/img/tezos-basics/data-proxy.svg)  
-<small className="figure">FIGURE 6: *Data-Proxy* pattern illustration.</small>
+<small className="figure">FIGURE 6: <i>Data-Proxy</i> pattern illustration.</small>
 
-As you can deduce, what really immutable here are:
-- The "*Get*" and "*Set*" functions of the Data smart contract. These are *functions* to **read** and **write** data in the storage's map.  
-  Note that these functions are asynchrone in a [Continuation-Passing Style (CPS)](https://en.wikipedia.org/wiki/Continuation-passing_style) way. They are nor direct, nor public, and still have to be called through **entrypoints**.
-- The named functions in the Proxy smart contract (you could actually change the names with a *map pattern* here too...)
+Once the Data-Proxy architecture is in place, we can make the Data smart contract more dynamic with a Map pattern, and the Logic smart contract upgradable with a Lambda pattern.
 
-This pattern isn't limited to 2 smart contracts only. You can imagine various architectures, combining various patterns. For instance, you can imagine a central Data smart contract, and multiple upgradable other smart contracts revolving around it. This example implies a single point of failure in the Data smart contract, but there are other questions you should keep in mind, like access rights (getters, setters...).
+The idea we discribed is actually a basic form of [modular programming](https://en.wikipedia.org/wiki/Modular_programming).
 
-These patterns aren't magical, they just allow more flexibility. You still need to think about the best architecture for your *dapp*. Notably, patterns can increase the deployment and using *gaz* fees.
+This pattern isn't limited to 2 smart contracts only. You can imagine various architectures, combining various patterns. For instance, you can imagine a central Data smart contract, and multiple upgradable other smart contracts revolving around it. This example implies a single point of failure in the Data smart contract, but there are other questions you should keep in mind, like access rights (to get and set data, to upgrade logic...).
+
+These patterns aren't magical and just allow more flexibility. You still need to think about the best architecture for your *dapp*. Patterns can notably increase the deployment and *gaz* using fees.
 
 ## What have we learned so far?
 In this chapter, we discribed the Tezos smart contract's main components and properties and how they live themselves in its lifecycle. We also discribed how to construct Tezos smart contracts using different patterns to make evolving *dapps* and handle efficient *versioning*.
