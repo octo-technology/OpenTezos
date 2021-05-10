@@ -31,48 +31,54 @@ What is returned by the execution of a smart contract?
 
 ### Question 3
 
-What can I do with the smartPy online editor?
+What can I do with the SmartPy online editor?
 
--[x] Write test and run your code
--[x] Visualize the generated michelson contract and storage code.
--[x] View the test results as a html document.
--[x] Access a panel of several smart contract templates .
+-[x] Write test and run your code -[x] Visualize the generated Michelson contract and storage code. -[x] View the test results as an HTML document. -[x] Access a panel of several smart contract templates.
 
 ### Question 4
 
 What is a SmartPy smart contract?
 
 - [ ] It is a class method called `main` taking as input a storage and parameters and returning a list of operations and a modified storage.
-- [x] It is a class definition that inherits from `sp.Contract`. A SmartPy contract consists of a state with one or several entry points. 
-- [ ] It is like a smart contract in michelson but written in python.
+- [x] It is a class definition that inherits from `sp.Contract`. A SmartPy contract consists of a state with one or several entry points.
+- [ ] It is like a smart contract in Michelson but written in python.
 
 ### Question 5
 
 What is the correct way to add an integer `x` initialized to `0` to the storage?
 
 - [ ] .
+
 ```python
 @sp.storage
 def __init__(self):
     self.init(x = 0)
 ```
+
 - [ ] .
+
 ```python
 @sp.storage
 def storage(self):
     self.x = 0
 ```
+
 - [x] .
+
 ```python
 def __init__(self):
     self.init(x = 0)
 ```
+
 - [ ] .
+
 ```python
 def __init__(self):
     self.x = 0
 ```
+
 - [ ] .
+
 ```python
 def __storage__(self):
     self.init(x = 0)
@@ -90,6 +96,7 @@ What is true about the definition of entrypoints with SmartPy?
 ## Question 7
 
 What is true about tests and scenarios with SmartPy?
+
 - [x] A new test is a method marked with the `sp.add_test` decorator.
 - [x] A new scenario is instantiated by `sp.test_scenario`.
 - [x] Scenarios describe a sequence of actions: originating contracts, computing expressions, calling entry points, etc.
@@ -100,8 +107,8 @@ What is true about tests and scenarios with SmartPy?
 What is true about type with SmartPy?
 
 - [ ] SmartPy expressions do not have a type.
-- [x] Just like in Python, most of the time there is no need to specify the type of an object in SmartPy.
-- [x] SmartPy uses type inference in order to determine each expressions type.
+- [x] Just like in Python, most of the time, there is no need to specify the type of object in SmartPy.
+- [x] SmartPy uses type inference to determine each expression's type.
 - [x] SmartPy types are all of the form sp.T<TypeName>.
 
 ### Question 9 and 10
@@ -121,66 +128,72 @@ class Hello(sp.Contract):
 What is the correct way to set x from the storage to `newX`.
 
 - [ ] .
+
 ```python
 @sp.entry_point
 def set_x(newX):
     self.x = newX
 ```
+
 - [x] .
+
 ```python
 @sp.entry_point
 def set_x(newX):
     self.data.x = newX
 ```
+
 - [ ] .
+
 ```python
 @sp.entry_point
 def set_x(newX):
     x = newX
 ```
+
 - [ ] .
+
 ```python
 @sp.entry_point
 def set_x(newX):
     newX = self.data.x
 ```
 
-
 What is the correct way to modify the code to check that `newX` is greater than 0 for the entrypoint `set_x`?
-If the condition is not met we want the invocation of the entrypoint to fail and return an error message.
+If not, we want the entrypoint invocation to fail and return an error message.
 
 - [ ] .
+
 ```python
 @sp.entry_point
 def set_x(newX):
     verify(newX >= 0, message="x must be a positive number")
     self.data.x = newX
 ```
+
 - [ ] .
+
 ```python
 @sp.entry_point
 def set_x(newX):
     sp.if(newX >= 0, message="x must be a positive number"):
         self.data.x = newX
 ```
+
 - [x] .
+
 ```python
 @sp.entry_point
 def set_x(newX):
     sp.verify(newX >= 0, message="x must be a positive number")
     self.data.x = newX
 ```
+
 - [ ] .
+
 ```python
 @sp.entry_point
 def set_x(newX):
     sp.check(newX >= 0, message="x must be a positive number")
     self.data.x = newX
 ```
-
-
-
-
-
-
-

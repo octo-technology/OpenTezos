@@ -1,14 +1,14 @@
 ---
 id: write-contract-smartpy
-title: Smart contract development with Smartpy
+title: Smart contract development with SmartPy
 ---
 
-In this chapter, the use of the SmartPy library will be taught, based on the development of a raffle smart contract. 
-The most important aspects of the framework will be covered. 
-This chapter focuses on the way to develop a smart contract, each new notion required will be introduced. 
-For a full reference of SmartPy, see: [Reference Manual](https://smartpy.io/reference.html)
+In this chapter, the use of the SmartPy library will be taught, based on the development of a raffle smart contract.
+The most important aspects of the framework will be covered.
+This chapter focuses on the way to develop a smart contract. Each new required notion will be introduced.
+For a complete reference of SmartPy, see: [Reference Manual](https://smartpy.io/reference.html)
 
-## What is a smart contract ?
+## What is a smart contract?
 
 First, let's define what a smart contract is and what role SmartPy plays in it.
 
@@ -30,7 +30,7 @@ It also defines the **storage** of the smart contract.
 
 ### Storage
 
-The storage is an allocated memory space associated with a smart contract. 
+The storage is an allocated memory space associated with a smart contract.
 It is the permanent data store for the smart contract.
 
 ### Entrypoints
@@ -43,27 +43,26 @@ Executing an entrypoint takes some parameters and a current state of the storage
 > If the execution of an entrypoint produces operations (an ordered list of transactions)
 > then they are sent and executed according to the order of the operations on the list.
 
-
 # Raffle contract
 
 A raffle is a game of chance that distributes a winning prize.
 
-The organizer is in charge of defining a jackpot and selling tickets that will be either winners or losers. 
-In our case, there is only one winning ticket that allows to get the jackpot.
+The organizer is in charge of defining a jackpot and selling tickets that will be either winners or losers.
+In our case, there is only one winning ticket.
 
 ![](../../static/img/smartpy/raffle_schema.svg)
 <small className="figure">FIGURE 3: Raffle contract</small>
 
 Three entrypoints allow to interact with the contract:
-- **open_raffle** which can only be called by the administrator. During this call the admin sends the jackpot amount to the contract, defines a closing date and indicates the number of the winning ticket (in an encrypted way) and declares the raffle open.
-- **buy_ticket** allows any person with at least 1tez to buy a ticket to participate in the raffle.
-- **close_raffle** which can only be called by the admin. It allows to close the raffle and to send the jackpot to the winner.
 
+- **open_raffle** can only be called by the administrator. During this call, the admin sends the jackpot amount to the contract, defines a closing date and indicates the number of the winning ticket (in an encrypted way) and declares the raffle open.
+- **buy_ticket** allows any person with at least 1tez to buy a ticket to participate in the raffle.
+- **close_raffle** can only be called by the admin. It allows to close the raffle and to send the jackpot to the winner.
 
 ## Get Started
 
-The writing of this smart contract will be done entirely on the [online editor](https://smartpy.io/ide) proposed by SmartPy. 
-It is of course possible to do the same thing on your ide and use the command lines (described in the previous chapter) 
+The writing of this smart contract will be done entirely on the [online editor](https://smartpy.io/ide) proposed by SmartPy.
+It is possible to do the same thing on your IDE and use the command lines (described in the previous chapter)
 to compile/test your contract.
 
 ### Create your contract
@@ -105,21 +104,21 @@ if "templates" not in __name__:
   It is a class definition that inherits from `sp.Contract`.
 
 - **The SmartPy storage** is defined into the constructor `__init__`
-  which makes a call to `self.init()` that initializes fields and set up the storage.
+  which makes a call to `self.init()` that initializes fields and sets up the storage.
 
 - **Entrypoints** are methods of a contract class that can be called from the outside.
   Entrypoints need to be marked with the `@sp.entry_point` decorator.
 
-- **Tests and Scenarios** are good tools to make sure our smart contract is working properly. 
+- **Tests and Scenarios** are good tools to make sure our smart contract is working properly.
   - A new test is a method marked with the `sp.add_test` decorator.
   - A new scenario is instantiated by `sp.test_scenario`.
   - Scenarios describe a sequence of actions: originating contracts, computing expressions, calling entry points, etc.
-  - In the online Editor of SmartPy.io, the scenario is computed and then displayed as an html document on the output panel.
+  - In the online editor of SmartPy.io, the scenario is computed and then displayed as an HTML document on the output panel.
 
 We will explain in detail the use of all these concepts later.
 
-Our code doesn't do much for now, but it can already be compiled by pressing the _run_ button and if there is no error 
-then you can visualize the generated michelson code in the _Deploy Michelson Contract_ tab.
+Our code doesn't do much for now, but it can already be compiled by pressing the _run_ button. If there is no error
+then you can visualize the generated Michelson code in the _Deploy Michelson Contract_ tab.
 
 ```shell
 parameter (unit %open_raffle);
@@ -135,9 +134,8 @@ code
 
 ## open_raffle entrypoint
 
-`open_raffle` is an entrypoint that can only be called by the administrator. 
-If the invocation is successful then the raffle will be opened, 
-and the smart contract storage will be updated with the jackpot amount and the hash of the winning ticket number.
+`open_raffle` is an entrypoint that can only be called by the administrator.
+If the invocation is successful, then the raffle will be open, and the smart contract storage will be updated with the jackpot amount and the hash of the winning ticket number.
 
 ### Link to referential manual
 
@@ -252,21 +250,22 @@ The definition of the storage is done in the constructor `__init__` and the diff
 `self.init( field1=value1, field2=value2, field3=value3)`
 
 where:
-- `field1`, `field2`, `field3` are the names of the variables and are accessible via `self.data` (e.g. `self.data.field1`)
-- `value1`, `value2`, `value3` are initial values or variables passed as constructors like `__init__(self, value1)` as we did above for the `admin=address` field.  (This can be useful if you want to initialize the storage with some specific values)
 
-> Types are usually automatically infered and not explicitly needed.
+- `field1`, `field2`, `field3` are the names of the variables and are accessible via `self.data` (e.g. `self.data.field1`)
+- `value1`, `value2`, `value3` are initial values or variables passed as constructors like `__init__(self, value1)` as we did above for the `admin=address` field. (This can be useful if you want to initialize the storage with some specific values)
+
+> Types are usually automatically inferred and not explicitly needed.
 > But it is still possible to add constraints on types, see [Setting a type constraint in SmartPy](https://smartpy.io/reference.html#_setting_a_type_constraint_in_smartpy).
 
 For the storage of the raffle contract we have for the moment defined 5 fields:
-- **admin** which is assigned to an `address` that will be the only one allowed to call the two entrypoints open_raffle and close_raffle.
-- **close_date** which is a `timestamp` to indicate the closing date of the raffle. The raffle must remain open for at least 7 days.
-- **jackpot** which will be the amount in `tez` distributed to the winner of the raffle.
-- **raffle_is_open** which is a `boolean` to indicate if the raffle is open or not.
-- **hash_winning_ticket** which is the hash of the winning ticket indicated by the admin at the opening of the raffle who will have to indicate the corresponding number at the closing to prove that his choice was made before.
 
-> As there is no possibility to do random, the hash solution has been chosen.   
-> **Reminder**, this example is for educational purposes and is not intended for deployment and use of this contract on the real Tezos network.
+- **admin** is the only authorized `address` to call the two entrypoints open_raffle and close_raffle.
+- **close_date** is a `timestamp` to indicate the closing date of the raffle. The raffle must remain open for at least seven days.
+- **jackpot** will be the amount in `tez` distributed to the winner.
+- **raffle_is_open** is a `boolean` to indicate if the raffle is open or not.
+- **hash_winning_ticket** is the hash of the winning ticket indicated by the admin.
+  > As there is no possibility to do random, the hash solution has been chosen.  
+  > **Reminder**, this example is for educational purposes and is not intended for deployment on the real Tezos network.
 
 ### Entrypoint implementation
 
@@ -285,19 +284,21 @@ def open_raffle(self, jackpot_amount, close_date, hash_winning_ticket):
     self.data.raffle_is_open = True
 ```
 
-An entrypoint is a method of the contract class preceded by `@sp.entry_point`. 
-It can take several parameters in argument.
+An entrypoint is a method of the contract class preceded by `@sp.entry_point`.
+It can take several parameters.
 
-In our case the first entrypoint is called `open_raffle` and does the following:
+In our case, the first entrypoint is called `open_raffle` and does the following:
+
 - With `sp.verify()` or `sp.verify_equal()` we check 4 things and return an error message if necessary. See doc [Checking a Condition](https://smartpy.io/reference.html#_checking_a_condition).
-  1. The address that called the entrypoint must be the administrator one indicated in the storage. We compare here `sp.source` and `self.data.admin`.
-     >`sp.sender` is the address that called the current entrypoint.  
-     `sp.source` is the address that initiated the current transaction. It may or may not be equal to `sp.sender`, but in our case it is.
-  2. No raffle must be open, for this we use the boolean `raffle_is_open` defined in the storage. 
+  1. The address that calls the entrypoint must be the administrator one indicated in the storage. We compare here `sp.source` and `self.data.admin`.
+     > `sp.sender` is the address that calls the current entrypoint.  
+     > `sp.source` is the address that initiates the current transaction. It may or may not be equal to `sp.sender`, but in our case, it is.
+  2. No raffle must be open. For this, we use the boolean `raffle_is_open` defined in the storage.
      > Note that `~` is the symbol used for logical negation.
   3. The amount `sp.amount` sent to the contract by the administrator during the transaction must be at least greater than the value specified in the `jackpot_amount` argument.
-  4. The close date `close_date` passed as argument must be at least 7 days in the future. (see doc [Timestamps](https://smartpy.io/reference.html#_timestamps)).
+  4. The close date `close_date` passed as a parameter must be at least seven days in the future. (see doc [Timestamps](https://smartpy.io/reference.html#_timestamps)).
 - Once all the conditions are passed we update the storage as follows:
+
 ```python
 self.data.close_date = close_date
 self.data.jackpot = jackpot_amount
@@ -307,12 +308,12 @@ self.data.raffle_is_open = True
 
 ### Test and Scenario
 
-The purpose of the test scenario is to ensure the proper functionality of the smart contract by testing the conditions 
+The purpose of the test scenario is to ensure the proper functionality of the smart contract by testing the conditions
 and checking the changes made to the storage.
 
 With SmartPy a test is a method of the class contract preceded by `@sp.add_test`.
 
-Inside this method you need to instantiate your class contract, and your scenario to which you will add the contract instance and all the calls related to the instance you want to test.
+Inside this method, you need to instantiate your class contract and your scenario to which you will add the contract instance and all the calls related you want to test.
 
 ```python
 @sp.add_test(name="Raffle")
@@ -332,7 +333,7 @@ alice = sp.test_account("Alice")
 admin = sp.test_account("Administrator")
 ```
 
-Test accounts can be defined by calling `sp.test_account(seed)` where seed is a string. 
+Test accounts can be defined by calling `sp.test_account(seed)` where the seed is a string.
 A test account account contains some fields: `account.address`, `account.public_key_hash`, `account.public_key`, and `account.secret_key`.
 
 You can then simulate the calls to the entrypoints by specifying the different arguments, as follows:
@@ -345,12 +346,12 @@ scenario += r.open_raffle(close_date=close_date, jackpot_amount=jackpot_amount,
          valid=False)
 ```
 
-The run method and its parameters are all optional, but here it helps to add relevant context to the entrypoint call.  
-In fact, you can specify the `source` of the transaction, the `amount` of tez sent, the date of the transaction with `now` etc.
+The run method and its parameters are optional, but it can help to add relevant context to the entrypoint call.  
+You can specify the `source` of the transaction, the `amount` of tez sent, the transaction date with `now` etc.
 
-> Note that the option `valid=False` allows you to indicate that the transaction is expected to fail, here because Alice is not the administrator.
+> Note that the option `valid=False` allows you to indicate that the transaction is expected to fail here because Alice is not the administrator.
 
-The result will then be displayed as an html document in the output panel of the online editor.
+The result will then be displayed as an HTML document in the output panel of the online editor.
 
 ### Run and watch the output
 
@@ -359,23 +360,24 @@ Let's run our code.
 ![](../../static/img/smartpy/online_editor_summary_contract.png)
 <small className="figure">FIGURE 4: Online Editor Contract Summary</small>
 
-On the right screen we can see a summary of our smart contract with the following information:
+On the right screen, we can see a summary of our smart contract with the following information:
+
 - Address of the contract
 - Balance in tez
 - Storage
 - Entry points
 
-By clicking on the *Types* tab we have access to the types of the storage elements and the parameters of the entrypoints.
+By clicking on the _Types_ tab, we have access to the types of the storage elements and the parameters of the entrypoints.
 
 ![](../../static/img/smartpy/online_editor_Types.png)
 <small className="figure">FIGURE 5: Online Editor Types</small>
 
-> As in Python, most of the time it is not necessary to specify the type of an object in SmartPy.  
+> As in Python, most of the time, it is not necessary to specify the type of an object in SmartPy.  
 > Because the target language of SmartPy, Michelson, requires types.  
->Each SmartPy expression, however, needs a type. This is why SmartPy uses type inference to determine the type of each expression.  
+> Each SmartPy expression, however, needs a type. This is why SmartPy uses type inference to determine the type of each expression.  
 > See doc [Typing](https://smartpy.io/reference.html#_typing).
 
-By clicking on the *Deploy Michelson Contract* tab we have access to the codes compiled in michelson for the storage (*Storage* tab) and for the smart contract (*Code* tab).
+By clicking on the _Deploy Michelson Contract_ tab, we have access to the codes compiled in Michelson for the storage (_Storage_ tab) and the smart contract (_Code_ tab).
 
 The michelson code of our smart contract is for the moment the following:
 
@@ -469,15 +471,15 @@ code
   };
 ```
 
-By scrolling down a little we have access to the result of the test scenario, with for each step a summary of the contract.
+By scrolling down a little, we have access to the result of the test scenario, with for each step a summary of the contract.
 
 ![](../../static/img/smartpy/online_editor_scenario_output.png)
 <small className="figure">FIGURE 4: Online Editor Scenario Output</small>
 
 ## buy_ticket entrypoint
 
-`buy_ticket` is an entrypoint that can be called by everyone who want to participate in the raffle.
-If the invocation is successful the address of the sender will be added to the storage, and the player will now be eligible to win the jackpot
+`buy_ticket` is an entrypoint that can be called by everyone who wants to participate in the raffle.
+If the invocation is successful, the address of the sender will be added to the storage, and the player will now be eligible to win the jackpot
 
 ### Link to referential manual
 
@@ -623,9 +625,10 @@ def __init__(self, address):
               )
 ```
 
-With the adding of this entrypoint we have defined two new fields in the storage:
-- **players** which is a `set` designed to receive the addresses of each new player who bought a raffle ticket.
-- **sold_tickets** which is a `map` designed to associate each player address with a ticket number.
+With the addition of this entrypoint we have defined two new fields in the storage:
+
+- **players** is a `set` designed to receive the addresses of each new player who bought a raffle ticket.
+- **sold_tickets** is a `map` designed to associate each player's address with a ticket number.
 
 ### Entrypoint implementation
 
@@ -644,20 +647,21 @@ def buy_ticket(self):
 ```
 
 Three checks are made for this entrypoint:
+
 1. The raffle must be open.
 2. The amount of tez sent to the contract during the transaction must be equal to the ticket price which is `1tez`.
 3. Each player is allowed to buy only one ticket.
 
-If the conditions are met the storage is then updated:
+If the conditions are met, then the storage is updated:
+
 - By adding the address of the player to the set `self.data.players`.
 - By associating a ticket id with the player's address in the map `self.data.sold_tickets`.
-> `ticket_id = abs(sp.len(self.data.players) - 1)` here the ticket id is incremented for each new participant and the `abs()` function which designates the absolute value is used to ensure that the `ticket_id` is of type `sp.TNat`.
-
+  > `ticket_id = abs(sp.len(self.data.players) - 1)` here the ticket id is incremented for each new participant and the `abs()` function which designates the absolute value is used to ensure that the `ticket_id` is of type `sp.TNat`.
 
 ## close_raffle entrypoint
 
 `close_raffle` is an entrypoint that can only be called by the administrator.
-If the invocation is successful then the raffle will be closed and the jackpot amount will be sent to the winner,
+If the invocation is successful, then the raffle will be closed and, the jackpot amount will be sent to the winner,
 and the storage will be reset to the default values.
 
 ### Link to referential manual
@@ -863,23 +867,26 @@ def close_raffle(self, selected_ticket):
 ```
 
 Four checks are made for this entrypoint:
+
 1. Only the administrator is authorized to close the raffle.
 2. The raffle must be open.
 3. The closing date must be greater than or equal to the closing date indicated in the storage.
-4. The hash of the ticket indicated in parameter of the entrypoint must be equal to the hash of the ticket indicated in the storage.
-> The administrator indicates in parameter a `sp.nat()` which must correspond to the number of the winning ticket (modulo the number of participant) then this natural integer is converted in `byte` then it is hashed with the `sha256` algorithm.
+4. The hash of the ticket indicated as a parameter must be equal to the hash of the ticket indicated in the storage.
+   > The administrator indicates in parameter a `sp.nat()` which must correspond to the number of the winning ticket (modulo the number of participants) then this natural integer is converted in `byte` then it is hashed with the `sha256` algorithm.
 
-If the conditions are met then:
+If the conditions are met, then:
+
 - The jackpot is sent to the winner's address.
 - The storage is reset to the default values.
 
 ### Run and watch the output
 
 We are coming to the end of our smart contract.
-Run it one last time and explore the result. Don't hesitate to read the test scenario to make sure your smart contract is working properly. You can of course modify the scenario or create new ones as you wish.
+Run it one last time and explore the result. Don't hesitate to read the test scenario to make sure your smart contract is working properly. You can, of course, modify the scenario or create new ones as you wish.
 
-The final michelson code generated for this smart contract is the following.
-> Note that with the michelson code you can also create a test coverage with PyTezos as described in the LIGO Module at the chapter [Unit Testing with PyTezos](ligo/unit-testing).
+The final Michelson code generated for this smart contract is the following.
+
+> Note that with the Michelson code you can also create a test coverage with PyTezos as described in the LIGO Module at the chapter [Unit Testing with PyTezos](ligo/unit-testing).
 
 ```js
 parameter (or (unit %buy_ticket) (pair %open_raffle (timestamp %close_date) (pair (bytes %hash_winning_ticket) (mutez %jackpot_amount))));
