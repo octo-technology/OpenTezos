@@ -1054,3 +1054,5 @@ code
 ## References
 
 [1] https://smartpy.io/reference.html
+
+[2] https://smartpy.io/ide
