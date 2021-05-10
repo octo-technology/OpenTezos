@@ -52,7 +52,7 @@ The organizer is in charge of defining a jackpot and selling tickets that will b
 In our case, there is only one winning ticket that allows to get the jackpot.
 
 ![](../../static/img/smartpy/raffle_schema.svg)
-<small className="figure">FIGURE 4: Online Editor Create Contract</small>
+<small className="figure">FIGURE 3: Raffle contract</small>
 
 Three entrypoints allow to interact with the contract:
 - **open_raffle** which can only be called by the administrator. During this call the admin sends the jackpot amount to the contract, defines a closing date and indicates the number of the winning ticket (in an encrypted way) and declares the raffle open.
@@ -664,7 +664,7 @@ and the storage will be reset to the default values.
 
 - [Bytes](https://smartpy.io/reference.html#_bytes)
 
-### Full smart contract and test code
+### Full code
 
 ```python
 # Raffle Contract - Example for illustrative purposes only.
