@@ -117,7 +117,13 @@ module.exports = {
     {
       type: 'category',
       label: 'Formal Verification',
-      items: ['formal-verification/introduction', 'formal-verification/exam'],
+      items: [
+        'formal-verification/introduction',
+        'formal-verification/gadt-coq', 
+        'formal-verification/michocoq',
+        'formal-verification/modeling-theorem', 
+        'formal-verification/references', 
+        'formal-verification/exam'],
     },
     {
       type: 'category',

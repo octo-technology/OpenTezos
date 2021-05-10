@@ -11,9 +11,14 @@ The _Mi-Cho-Coq_ library represents the bridge between Tezos smart contract and 
 
 The _Mi-Cho-Coq_ library [2] is a formalization of the Michelson language [9] using the Coq interactive theorem prover [1].
 
-It provides a formal definition (in Gallina) of the **type system** (Michelson types), the **syntax** (instructions of the Michelson), the **semantics** (evaluator) and the lexing and parsing (for type-checking).
+In practice, the _Mi-Cho-Coq_ library is used to produce a formal definition of a Michelson script (e.g. the "Modeling theorem" [section](/formal-verification/modeling-theorem#Example_vote)). Each Michelson instruction has its equivalent in the _Mi-Cho-Coq_ library (e.g. see the syntax [subsection](/formal-verification/michocoq#Syntax)).
 
-It is recommended to have notions of Language theory in order to understand the following Mi-Cho-Coq definition.
+### Content
+
+The _Mi-Cho-Coq_ library provides a formal definition (in Gallina) of the **type system** (Michelson types), the **syntax** (instructions of the Michelson), the **semantics** (evaluator) and the lexing and parsing (for type-checking).
+
+> It is recommended to have notions of Language theory in order to understand the following Mi-Cho-Coq definition (grammar rules).
+
 
 #### Type system
 

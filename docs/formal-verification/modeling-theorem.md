@@ -61,9 +61,6 @@ The entrypoint arguments and the storage are used as the context of execution (i
 The execution of the code produces a new storage state and operations.
 The operations produced by this invocation are some new invocations of other smart contracts.
 
-//TODO (we can make post-conditions checking the returned operations but not if the operation triggers another smart contract)
-> Since the proof of smart contract interactions is not doable currently , the _Vote_ example  will consider that there are no operations produced. Some collaboration between Nomadic and Archetype has been started to make proof on smart contract interactions.
-
 #### Formally modeling the execution of a Tezos smart contract
 
 Now let's see how do we formulate formally **the execution of the Michelson script**. 
@@ -103,7 +100,7 @@ Post-conditions are logical assertions which model the intention of the smart co
 
 The work is to identify rules (or constraints) that ensure the correctness of the execution (i.e. ensure that the storage cannot end up in an invalid state).
 
-In fact, post conditions are most of the time multiple assertions combined with a logical _AND_ operator ( `^` in Coq).
+In fact, post-conditions are most of the time multiple assertions combined with a logical _AND_ operator ( `^` in Coq).
 
 ```
 post-conditions <=> A ^ B ^ C ^ D
@@ -115,7 +112,9 @@ Since post-conditions is a generic concept formalizing smart contract intention 
 
 Let's consider a very simple _Vote_ smart contract that handles a voting process. The _Vote_ smart contract allows anyone to vote for a candidate (we consider that candidates are registered and their number of votes is initialized to zero).
 
-When someone invoke the smart contract, one must indicate the candidate. If the candidate is registered then its corresponding number of votes is incremented.
+When someone invokes the smart contract, one must indicate the candidate. If the candidate is registered then its corresponding number of votes is incremented.
+
+> The _Vote_ smart contract will only modify its storage and thus will have no impact on the rest of the network (i.e. the execution of the smart contract will not produce operations). 
 
 Here is the code of the smart contract:
 ```
@@ -164,7 +163,7 @@ where _amount_ and _candidate_ are given as arguments.
 
 ##### Parameter definition
 
-The parameter type and storage type can be defined as follow in Coq:
+The parameter type and storage type can be defined in Coq as two distinct definitions:
 
 ```
 Definition parameter_ty : type := string.
@@ -184,9 +183,9 @@ It will be used when defining the smart contract.
 
 ##### Annotated script
 
-The Tezos smart contract is a Michelson script which cannot be taken as input by the Coq engine as it is.
+The Tezos smart contract is a Michelson script but it cannot be taken as input by the Coq engine as it is.
 
-Mi-Cho-Coq (which is the Coq specification of the Michelson language) provide the correspondence between a Michelson instruction and an equivalent logical proposition.
+Mi-Cho-Coq (which is the Coq specification of the Michelson language) provides the correspondence between a Michelson instruction and an equivalent logical proposition.
 
 The _Vote_ smart contract can be formalized in a formal definition in Coq (Terms). 
 
@@ -206,6 +205,7 @@ Definition vote : full_contract _ ST.self_type storage_ty :=
     NIL operation;; PAIR 
 ).
 ```
+
 This `vote` definition will be used to formalize the theorem.
 
 Notice that the `vote` definition takes the parameter and storage types (`parameter_ty`, `storage_ty`) as arguments.
@@ -227,11 +227,11 @@ First, let's define some rules governing the voting process:
 - "When someone votes for a candidate, its number of votes has been increments by 1".
 - "When someone votes for a candidate, the number of votes of other candidates does not change".
 - "When someone votes it does not change the list of candidates".
-- "If the voting process is successful then it means that the candidate is registered"
-- "Invoking this smart contract does not impact the rest of the Tezos network, only the related storage"
+- "If the voting process is successful then it means that the candidate is registered".
+- "Invoking this smart contract does not impact the rest of the Tezos network, only the related storage".
 
 
-Now these rules can be translated into formal propositions. These propositions depends on the given parameter, the current storage state and the new storage state (and the produced operations).
+Now, these rules can be translated into formal propositions. These propositions depend on the given parameter, the current storage state and the new storage state (and the produced operations).
 
 ![](../../static/img/formal-verification/post_conditions.svg)
 ![](../../static/img/formal-verification/postconditions_rules.svg)
@@ -244,7 +244,7 @@ The rule "Keys of the old storage exists in the new storage" can be written in C
 (forall s, (mem _ _ (Mem_variant_map _ int) s storage) <->
         (mem _ _ (Mem_variant_map _ int) s new_storage))
 ```
-This expression verifies that all keys of the old storage is defined in the new storage.
+This expression verifies that all keys of the old storage are defined in the new storage.
 
 The rule "For Bob, number of votes is incremented" can be formulated as: "For each element of the mapping whose key is equal to the given parameter, the new value must be equal to the old value plus one". It can be written in Coq (Gallina - Terms) with the following:
 
@@ -282,7 +282,9 @@ As seen previously, the smart contract can be executed only if the amount of XTZ
 ```
 
 
-To sump up, our post conditions are a combination of all these logical rules merged into a single object which depends on the given old storage state and parameter, and the resulting new storage state and the returned operations. This object `vote_spec` representing the post conditions of the voting process. 
+To sum up, our post-conditions are a combination of all these logical rules merged into a single object which depends on the given old storage state and parameter, and the resulting new storage state (and the returned operations).
+
+ This object `vote_spec` represents the post-conditions of the voting process. 
 
 ```
 Definition vote_spec
@@ -319,7 +321,7 @@ Notice that the `vote_spec` definition above express logical assertions dependin
 - the parameter (`param`)
 - the returned operations (`returned_operations`)
 
-To conclude the post conditions of the _Vote_ smart contract are defined by the `vote_spec` definition and can be used to formalize the theorem.
+To conclude the post-conditions of the _Vote_ smart contract are defined by the `vote_spec` definition and can be used to formalize the theorem.
 
 
 ##### Theorem definition
@@ -461,7 +463,7 @@ Proof.
 Qed.
 ```
 
-This section is not intended to be a Coq tutorial so we will not deep dive into this script. If you want to look into proof implementation in Coq we recommend these simple tutorials [3], [14] as a starter and the Coq'Art book [15] for a more complete overview. 
+This section is not intended to be a Coq tutorial so we will not deep dive into this script. If you want to look into proof implementation in Coq we recommend these simple tutorials [3], [14] as a start and the Coq'Art book [15] for a more complete overview. 
 
 
 
