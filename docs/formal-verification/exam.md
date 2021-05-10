@@ -26,7 +26,18 @@ What is returned by the execution of a smart contract ?
 - [ ] The code of the smart contract
 - [ ] The list of users allowed to call the smart contract
 
+
 ### Question 3
+
+Who is Thierry Coquand ?
+
+- [ ] The founder of the type theory called λ-calculus
+- [x] The founder of the type theory called the calculus of constructions (CoC).
+- [x] The principal developer of the _Coq_ proof assistant.
+- [ ] The founder of the intuitionistic type theory.
+
+
+### Question 4
 
 What post-conditions depends on ?
 
@@ -36,14 +47,9 @@ What post-conditions depends on ?
 - [x] Operations produced by the execution of the smart contract
 - [x] environment variables (transaction properties such as sender, amount)
 - [ ] Predefined Coq types and inductive types (Coq libraries)
-- [ ] Mi-cho-coq library
+- [ ] Mi-Cho-Coq library
 
+### Question 5
 
-### Question 4
+What's up ?
 
-Who is Thierry Coquand ?
-
-- [ ] The founder of the type theory called λ-calculus
-- [x] The founder of the type theory called the calculus of constructions (CoC).
-- [x] The principal developer of the _Coq_ proof assistant.
-- [ ] The founder of the intuitionistic type theory.

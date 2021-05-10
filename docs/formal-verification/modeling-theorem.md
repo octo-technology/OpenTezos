@@ -11,15 +11,15 @@ This section will be illustrated with a simple example with the _Vote_ smart con
 
 ### Overview
 
-The Tezos blockchain implements smart contracts using the Michelson language (see module _Michelson_ or official documentation [9]). Michelson is a low-level stack-based turing-complete language which have been proven; the proof of Michelson language is compiled in a library called **Mi-cho-coq** (check the official documentation [2]). 
+The Tezos blockchain implements smart contracts using the Michelson language (see module _Michelson_ or official documentation [9]). Michelson is a low-level stack-based Turing-complete language which have been proven; the proof of Michelson language is compiled in a library called **Mi-Cho-Coq** (check the official documentation [2]). 
 
-Based on the Curry-Howard isomorphism ([5],[6],[7]) which ensures the correspondence between a program and a theorem, Mi-cho-coq can be used in a proof assistant called **Coq** to translate a Michelson script into a theorem (i.e. into its logical equivalent form). The official documentation of Coq can be found here [1], but we recommend easy access documentation such as this introduction to Coq [3].
+Based on the Curry-Howard isomorphism ([5],[6],[7]) which ensures the correspondence between a program and a theorem, Mi-Cho-Coq can be used in a proof assistant called **Coq** to translate a Michelson script into a theorem (i.e. into its logical equivalent form). The official documentation of Coq can be found here [1], but we recommend easy access documentation such as this introduction to Coq [3].
 
 > The Coq proof assistant is built upon the paradigm of **calculus of constructions** (as described by Thierry Coquand [16]). The _Gallina_ language [4] (the language allowing to interact with the Coq engine) provides a syntax (Terms) for describing formal objects (like a theorem) and also provides a set of instructions (Vernacular syntax) called _tactics_ for writing the proof of the theorem.
 
-The formal verification of a Michelson smart contract is done by providing a proof for this theorem. *Coq* (the proof assistant) will perform the verification of a given proof (and its related theorem) based on the *Mi-cho-coq* (Michelson proof).
+The formal verification of a Michelson smart contract is done by providing the proof for this theorem. *Coq* (the proof assistant) will perform the verification of a given proof (and its related theorem) based on the *Mi-Cho-Coq* (Michelson proof).
 
-The proof consists of a sequence of _tactics_ which will be interpreted by the Coq engine. Theses instructions manipulate formal expressions (following logical laws (_Coq_ universe) and _Mi-cho-coq_ definitions) in order to formally assert truth of a given theorem (based on given assumptions).
+The proof consists of a sequence of _tactics_ which will be interpreted by the Coq engine. These instructions manipulate formal expressions (following logical laws (_Coq_ universe) and _Mi-Cho-Coq_ definitions) in order to formally assert the truth of a given theorem (based on given assumptions).
 
 
 Before going deeper, let's sum up in the schema below representing the workflow of formal verification of Tezos smart contracts.
@@ -30,7 +30,7 @@ Before going deeper, let's sum up in the schema below representing the workflow 
 
 ### Modeling a smart contract as a theorem
 
-This ecosystem combines an assistant of proof (*Coq*) and the proof of the Michelson language (*Mi-cho-coq*) to formally verify the correctness of a theorem and its proof.
+This ecosystem combines an assistant of proof (*Coq*) and the proof of the Michelson language (*Mi-Cho-Coq*) to formally verify the correctness of a theorem and its proof.
 
 The theorem is based on 
 - a Michelson script representing what the smart contract does.
@@ -61,20 +61,20 @@ The entrypoint arguments and the storage are used as the context of execution (i
 The execution of the code produces a new storage state and operations.
 The operations produced by this invocation are some new invocations of other smart contracts.
 
-//TODO (we can make postconditions checking the returned operations but not if the operation triggers another smart contract)
-> Since the proof of smart contract interactions is not doable currently , the _Vote_ example  will consider that there are no operation produced. Some collaboration between Nomadic and Archetype has been started to make proof on smart contract interactions.
+//TODO (we can make post-conditions checking the returned operations but not if the operation triggers another smart contract)
+> Since the proof of smart contract interactions is not doable currently , the _Vote_ example  will consider that there are no operations produced. Some collaboration between Nomadic and Archetype has been started to make proof on smart contract interactions.
 
-#### Formally modeling the execution of a tezos smart contract
+#### Formally modeling the execution of a Tezos smart contract
 
-Now let's se how do we formulate formally **the execution of the Michelson script**. 
+Now let's see how do we formulate formally **the execution of the Michelson script**. 
 
-As we have seen the **the execution of the Michelson script** produces a new storage (we consider there are no operation produced). 
+As we have seen the **the execution of the Michelson script** produces a new storage state (we consider there are no operations produced). 
 So, formally speaking:
 ```
 EXECUTION(CODE,arguments,storage) produces a new storage 
 ```
 
-The execution of code is done by evaluating a sequence of Michelson instruction for a given initial stack (an `eval` function is provided by _Coq_). The execution of code also requires a context and a quantity of gas to be able to execute each instruction (requirement defined by Mi-cho-coq). So the execution of code can be formalized as:
+The execution of code is done by evaluating a sequence of Michelson instruction for a given initial stack (an `eval` function is provided by _Coq_). The execution of code also requires a context and a quantity of gas to be able to execute each instruction (requirement defined by Mi-Cho-Coq). So the execution of code can be formalized as:
 
 ```
 eval env CODE fuel (arguments,storage) = return (newstorage)
@@ -83,7 +83,7 @@ eval env CODE fuel (arguments,storage) = return (newstorage)
 where:
 - `fuel` represents the quantity of gas.
 - `env` represents a context of evaluation for the Coq engine.
-- `eval` effectively executes each instruction sequencially on the provided initial stack.
+- `eval` effectively executes each instruction sequentially on the provided initial stack.
 - `arguments` and `storage` are passed as parameters.
 - `newstorage` represents the resulting storage after the execution.
 
@@ -113,9 +113,9 @@ Since post-conditions is a generic concept formalizing smart contract intention 
 
 #### Example Vote
 
-Let's consider a very simple _Vote_ smart contract that handles a voting process. The _Vote_ smart contract allows anyone to vote for a candidate (we consider candidate are registered and their number of votes is initialized to zero).
+Let's consider a very simple _Vote_ smart contract that handles a voting process. The _Vote_ smart contract allows anyone to vote for a candidate (we consider that candidates are registered and their number of votes is initialized to zero).
 
-When someone invoke the smart contract, one must indicate the candidate. If the candidate is registered the its corresponding number of votes is incremented.
+When someone invoke the smart contract, one must indicate the candidate. If the candidate is registered then its corresponding number of votes is incremented.
 
 Here is the code of the smart contract:
 ```
@@ -138,7 +138,7 @@ Here is the code of the smart contract:
 }
 ```
 
-Notice that candidate are identified by a `string` value (entrypoint argument) and the storage is a `map string int`.
+Notice that candidates are identified by a `string` value (entrypoint argument) and the storage is a `map string int`.
 
 Notice that amount of XTZ transferred must be lower than 5000000 otherwise the execution fails.
 
@@ -186,7 +186,7 @@ It will be used when defining the smart contract.
 
 The Tezos smart contract is a Michelson script which cannot be taken as input by the Coq engine as it is.
 
-Mi-cho-coq (which is the Coq specification of the Michelson language) provide the correspondence between a Michelson instruction and an equivalent logical proposition.
+Mi-Cho-Coq (which is the Coq specification of the Michelson language) provide the correspondence between a Michelson instruction and an equivalent logical proposition.
 
 The _Vote_ smart contract can be formalized in a formal definition in Coq (Terms). 
 
@@ -217,9 +217,9 @@ Notice that `GET`, `UPDATE`, `ADD` and `PUSH` instructions are annotated:
 
 ##### Post-conditions
 
-As said previously, post-conditions are logical expressions defining constraints to verify on storage data.
+As said previously, post-conditions are logical expressions defining constraints to verify on the storage data.
 
-In our example _Vote_ smart contract, the storage is a map containing the number of votes per candidates.
+In our example _Vote_ smart contract, the storage is a map containing the number of votes per candidate.
 
 Let's see how we can define logical assertions on the storage data.
 
@@ -246,7 +246,7 @@ The rule "Keys of the old storage exists in the new storage" can be written in C
 ```
 This expression verifies that all keys of the old storage is defined in the new storage.
 
-The rule "For Bob, number of votes is incremented" can be formulated as: "For each elements of the mapping where key is equal to given parameter, the new value must be equal to the old value  plus one". It can be written in Coq (Gallina - Terms) with the following:
+The rule "For Bob, number of votes is incremented" can be formulated as: "For each element of the mapping whose key is equal to the given parameter, the new value must be equal to the old value plus one". It can be written in Coq (Gallina - Terms) with the following:
 
 ```
 match (get _ _ _ (Get_variant_map _ int) param storage) with
@@ -257,7 +257,7 @@ match (get _ _ _ (Get_variant_map _ int) param storage) with
   | None => False end
 ```
 
-The rule "For others, number of votes do not change" can be formulated as: "For each elements of the mapping different from the given parameter, ensure that the old value is equal to the new value". It can be written in Coq (Gallina - Terms) with the following:
+The rule "For others, number of votes do not change" can be formulated as: "For each element of the mapping different from the given parameter, ensure that the old value is equal to the new value". It can be written in Coq (Gallina - Terms) with the following:
 
 ```
 (forall s, s <> param ->
@@ -355,7 +355,7 @@ Notice that the `vote` object represents our smart contract (in a formal represe
 
 Notice that the `vote_spec` object represents the post-conditions to verify (in a formal representation).
 
-We can represents this equivalence between the execution of the code and the verification of post conditions byt the following diagram.
+We can represent this equivalence between the execution of the code and the verification of post-conditions by the following diagram.
 
 ![](../../static/img/formal-verification/theorem_graphical_detail.svg)
 <small className="figure">FIGURE 6: Detailed description of the theorem.</small>
@@ -364,17 +364,17 @@ Notice that the `vote_spec` definition is used as post condition and requires 4 
 
 ### Proof
 
-Now that the intent of our smart contract has been modeled into post conditions and that our smart contract has been translated into a theorem (which combines evaluation of a sequence of Michelson instruction and those logical post-conditions), we need to prove this theorem is true.
+Now that the intent of our smart contract has been modeled into post-conditions and that our smart contract has been translated into a theorem (which combines evaluation of a sequence of Michelson instruction and those logical post-conditions), we need to prove this theorem is true.
 
 The demonstration or proof of the theorem can be expressed with a sequence of Coq tactics.
 
 Since the theorem is a complex logical proposition, it is suggested to decompose it into simpler propositions easily provable. This decomposition is done by separating into smaller independent propositions or applying reductions (see reductions in Gallina [4]).  
 
-The following proof script is rely on 
+The following proof script relies on:
 - tactics (commands of the Vernacular of Gallina) 
-- induced types (Mi-cho-coq)
-- proven theorem of Mi-cho-coq dealing with Tezos smart contract properties (e.g. gas)
-- the Coq univers which defines sets of numbers and related theorem. For example, natural integers are defined upon the Peano arithmetic.
+- induced types (Mi-Cho-Coq)
+- proven theorem of Mi-Cho-Coq dealing with Tezos smart contract properties (e.g. gas)
+- the Coq universe which defines sets of numbers and related theorem. For example, natural integers are defined upon the Peano arithmetic.
 
 
 Here is the proof of the Vote smart contract.

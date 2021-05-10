@@ -28,7 +28,7 @@ slug: /formal-verification
 
 [10] Logique formelle - https://www.irif.fr/~roziere/2ord/2ndordre.pdf
 
-[12] Axomes de Peano - https://fr.wikipedia.org/wiki/Axiomes_de_Peano
+[12] Axioms de Peano - https://fr.wikipedia.org/wiki/Axiomes_de_Peano
 
 [13] Calculus of constructions - https://fr.wikipedia.org/wiki/Calcul_des_constructions
 

@@ -51,6 +51,17 @@ In functional programming, a **monad** is an abstraction that allows structuring
 
 This allows monads to simplify a wide range of problems, like handling potential undefined values (with the Maybe monad), or keeping values within a flexible, well-formed list (using the List monad). With a monad, a programmer can turn a complicated sequence of functions into a succinct pipeline that abstracts away auxiliary data management, control flow, or side-effects.
 
+
+Without getting too much into mathematics, in programming a Monad is a Design Pattern. It’s a structure, a wrapper which “enriches” a value by giving it a context.
+
+Famous examples of Monads are:
+
+    Option/Maybe monad (it can represent a missing/null value)
+    Either monad (it can represent a successful operation or a failure)
+    IO/Effect monad (it can represent side-effects)
+    Task monad (it can represent asynchronous side-effects)
+
+//TODO : TO REMOVE
 Both the concept of a monad and the term originally come from **category theory**, where a monad is defined as a functor with additional structure. Category theory also provides a few formal requirements, known as the monad laws, which should be satisfied by any monad and can be used to verify monadic code.
 
 
@@ -155,9 +166,9 @@ An interesting additional feature of _Coq_ is that it can automatically extract 
 
 Logical objects (such as theorems, axioms) are formalized in Gallina-Term language and proof scripts are formalized in Gallina-Vernacular language which provides _tactics_.
 
-The proof script is executed by the _Coq_ inference engine. In case of a Tezos smart contract, the inference engine rely on the Coq universe and the Mi-cho-coq library. 
+The proof script is executed by the _Coq_ inference engine. In the case of a Tezos smart contract, the inference engine rely on the Coq universe and the Mi-Cho-Coq library. 
 
-For more information about the CoC and CiC foundation, it is recommended to read official paper of "Thierry Coquand" and other documentation [13] [16] [18]. It is required to know the basis of λ-calculus [17] in order to understand mathematical notations used in CoC and CiC.
+For more information about the CoC and CiC foundation, it is recommended to read the official paper of "Thierry Coquand" and other documentation [13] [16] [18]. It is required to know the basis of λ-calculus [17] in order to understand mathematical notations used in CoC and CiC.
 
 
 
@@ -165,4 +176,8 @@ For more information about the CoC and CiC foundation, it is recommended to read
 
 
 . 
+### Logic of first-order
 
+#### Horn clause
+
+In logic, a **Horn clause** is a clause (a disjunction of literals) with at most one positive literal. A Horn clause with exactly one positive literal is a **definite clause**; a Horn clause with no positive literals is sometimes called a **goal clause**, especially in logic programming. A Horn formula is a conjunction of Horn clauses. A **dual-Horn clause** is a clause with at most one negative literal. Horn clauses play a basic role in logic programming and are important for constructive logic.
