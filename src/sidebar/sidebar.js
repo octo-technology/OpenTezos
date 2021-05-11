@@ -119,8 +119,7 @@ module.exports = {
       label: 'Formal Verification',
       items: [
         'formal-verification/introduction',
-        'formal-verification/gadt-coq', 
-        'formal-verification/michocoq',
+        'formal-verification/gadt-coq',
         'formal-verification/modeling-theorem', 
         'formal-verification/references', 
         'formal-verification/exam'],
