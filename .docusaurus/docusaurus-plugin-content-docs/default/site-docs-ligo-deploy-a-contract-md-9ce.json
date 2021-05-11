@@ -2,13 +2,21 @@
   "unversionedId": "ligo/deploy-a-contract",
   "id": "ligo/deploy-a-contract",
   "isDocsHomePage": false,
-  "title": "Deploy a contract",
-  "description": "Smart Contract",
+  "title": "Smart Contract",
+  "description": "A Tezos smart contract is a piece of code written in Michelson language (a low-level stack-based Turing-complete language).",
   "source": "@site/docs/ligo/deploy-a-contract.md",
+  "sourceDirName": "ligo",
   "slug": "/ligo/deploy-a-contract",
   "permalink": "/ligo/deploy-a-contract",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/deploy-a-contract.md",
   "version": "current",
+  "lastUpdatedBy": "Maxime Sallerin",
+  "lastUpdatedAt": 1620209056,
+  "formattedLastUpdatedAt": "5/5/2021",
+  "frontMatter": {
+    "id": "deploy-a-contract",
+    "title": "Deploy a contract"
+  },
   "sidebar": "docs",
   "previous": {
     "title": "Language basics",

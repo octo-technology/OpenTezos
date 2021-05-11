@@ -3,12 +3,21 @@
   "id": "defi/cross-chain-swaps",
   "isDocsHomePage": false,
   "title": "Cross-chain Swaps",
-  "description": "Let's consider the following scenario",
+  "description": "//TODO: Parler du bridge StakerDAO",
   "source": "@site/docs/defi/cross-chain-swaps.md",
+  "sourceDirName": "defi",
   "slug": "/defi/cross-chain-swaps",
   "permalink": "/defi/cross-chain-swaps",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/cross-chain-swaps.md",
   "version": "current",
+  "lastUpdatedBy": "AymericBethencourt",
+  "lastUpdatedAt": 1620219513,
+  "formattedLastUpdatedAt": "5/5/2021",
+  "frontMatter": {
+    "id": "cross-chain-swaps",
+    "title": "Cross-chain Swaps",
+    "author": "Aymeric Bethencourt"
+  },
   "sidebar": "docs",
   "previous": {
     "title": "Wrapped Assets",

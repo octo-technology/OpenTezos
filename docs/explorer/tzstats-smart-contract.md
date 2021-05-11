@@ -1,9 +1,10 @@
 ---
 id: tzstats-smart-contract
 title: Checkout your smart contract on TzStats
+authors: Maxime Sallerin
 ---
 
-As a developer, you will often want to check the state of your deployed smart contracts. Using a blockchain explorer is a fast and easy way to do so. In this section, we'll deploy a smart contract and check it out on _TzStats_.
+As a developer, you will often want to check the state of your deployed smart contracts. Using a blockchain explorer is a fast and easy way to do so. In this section, we will deploy a smart contract and check it out on _TzStats_.
 
 ## Step 1: Deploy your smart contract
 We are going to re-use the [raffle smart contract from the LIGO module](/ligo/contracts-ligo) and deploy it on a testnet.
@@ -16,7 +17,7 @@ It contains two smart contracts and their associated migrations:
 
 The current testnet at the time of writing is _Edonet_. The account used for deployment is defined in the _truffle_ config (refer to the [How to build a Dapp module](/dapp) for more info).
 
-To setup the project, run the following commands:
+To set up the project, run the following commands:
 
 ```shell
 $ git clone https://github.com/bepi-octo/raffle-smart-contract.git
@@ -114,7 +115,7 @@ Summary
 ```
 
 ## Step 2: Find your smart contract on _TzStats_
-Once you have the address of your smart contract, go to the _TzStats_ website associated with the network you deployed your contract on. In our case it is the [Edo TzStats](https://edo.tzstats.com).
+Once you have the address of your smart contract, go to the _TzStats_ website associated with the network you deployed your contract on. In our case, it is the [Edo TzStats](https://edo.tzstats.com).
 
 Copy/paste your address in the search bar:
 
@@ -137,7 +138,7 @@ Here you have the history of all transactions related to your smart contract.
 ![](../../static/img/explorer/tzStats_smart_contract_calls.png)
 
 ### Entrypoints
-Here you have a list of all your entrypoints and their parameters. Furthermore you can see how many calls each entrypoint has received.
+Here you have a list of all your entrypoints and their parameters. Furthermore, you can see how many calls each entrypoint has received.
 
 ![](../../static/img/explorer/tzStats_smart_contract_entrypoints.png)
 
@@ -147,7 +148,7 @@ Here you have the michelson code of your smart contract.
 ![](../../static/img/explorer/tzStats_smart_contract_code.png)
 
 ### Storage
-Here you have access to the content of your storage with the type of each variables and their current value. Notice that the content excludes big maps as they have specific tabs for them.
+Here you have access to the content of your storage with the type of each variable and its current value. Notice that the content excludes big maps as they are specific tabs for them.
 
 ![](../../static/img/explorer/tzStats_smart_contract_storage.png)
 
@@ -315,7 +316,7 @@ The response holds the details about two calls:
 1. the contract origination
 2. the call to buy a ticket
 
-It details the inputs used for this entrypoint, the storage after the call, the differences in the big map that changed after the call...
+It details the inputs used for this entrypoint, the storage after the call, the differences in the big map that have changed after the call...
 
 The current storage can be fetched, with this endpoint:
 ```shell
@@ -337,9 +338,9 @@ $ GET https://api.edo.tzstats.com/explorer/contract/KT1Vcj7ij2fP28MGuCstVGdGRTVa
 }
 
 ```
-The storage returns by the API does match the one displayed in the web interface.
+The storage returned by the API does match the one displayed in the web interface.
 The `sold_tickets` big map holds a big map id, instead of the values.  
-Indeed, a big map is meant to hold unbounded data size: thus, fetching the storage could become quickly expensive, if the big maps hold a lot of values.
+Indeed, a big map is meant to hold unbounded data size: thus, fetching the storage could quickly become expensive, if the big maps hold a lot of values.
 
 
 The values of a big map have to be retrieved from a separate endpoint, thanks to its id (`67645` in this case):
@@ -357,25 +358,25 @@ $ GET https://api.edo.tzstats.com/explorer/bigmap/67645/values
 ```
 
 
-All the pieces of information displayed in the web interface can be retrieved from the API.
-All these API calls can of course be made by any librairies, and thus can be automated in any program.
+All of the pieces of information displayed in the web interface can be retrieved from the API.
+All these API calls can of course be made by any libraries, and thus can be automated in any program.
 
 
 # Conclusion
 
-tzstats.com is extremely useful to monitor what is going on the mainnet and public testnets.
-All the pieces of information regarding the cycles, the blocks, the transactions, the smarts contracts... can be quickly found,
+tzstats.com is extremely useful to monitor what is going-on on the mainnet and public testnets.
+All the pieces of information regarding the cycles, the blocks, the transactions, the smarts contracts... can quickly be found,
 thanks to a user-friendly interface.
 
 In addition, tzstats provides a complete and free REST API, that can be called without restriction.
 Those calls can be performed by any library: the pieces of information retrieved about a public Tezos network can be used in another monitoring tool, or even in Dapps.
 
 Indeed, the handling of big maps can be troublesome with some libraries.
-For instance, _taquito_ (a typescript library to interact with a tezos node) is not able to retrieved all the values (and even the keys) of a big map with a simple call.
+For instance, _taquito_ (a typescript library to interact with a tezos node) is not able to retrieve all the values (and even the keys) of a big map with a simple call.
 A call to the tzstats API solves this issue.
 
 Those tools are also available for private networks.
-That is what will be detailed in the next chapter, where a private tzstats is set up to monitor a private network.
+This will be detailed in the next chapter, where a private tzstats is set up to monitor a private network.
 
 ## References
 

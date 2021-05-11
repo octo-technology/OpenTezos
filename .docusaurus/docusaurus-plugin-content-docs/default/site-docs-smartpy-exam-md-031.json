@@ -5,10 +5,18 @@
   "title": "Exam",
   "description": "Question 1",
   "source": "@site/docs/smartpy/exam.md",
+  "sourceDirName": "smartpy",
   "slug": "/smartpy/exam",
   "permalink": "/smartpy/exam",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/smartpy/exam.md",
   "version": "current",
+  "lastUpdatedBy": "AymericBethencourt",
+  "lastUpdatedAt": 1617698122,
+  "formattedLastUpdatedAt": "4/6/2021",
+  "frontMatter": {
+    "id": "exam",
+    "title": "Exam"
+  },
   "sidebar": "docs",
   "previous": {
     "title": "Introduction",

@@ -5,10 +5,18 @@
   "title": "Available Tezos Indexers",
   "description": "The purpose of this chapter is to list the main explorers of the Tezos blockchain with their pros and cons.",
   "source": "@site/docs/explorer/available-tezos-indexers.md",
+  "sourceDirName": "explorer",
   "slug": "/explorer/available-tezos-indexers",
   "permalink": "/explorer/available-tezos-indexers",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/explorer/available-tezos-indexers.md",
   "version": "current",
+  "lastUpdatedBy": "Theotime-Akeare",
+  "lastUpdatedAt": 1619614380,
+  "formattedLastUpdatedAt": "4/28/2021",
+  "frontMatter": {
+    "id": "available-tezos-indexers",
+    "title": "Available Tezos Indexers"
+  },
   "sidebar": "docs",
   "previous": {
     "title": "How Indexers Work?",

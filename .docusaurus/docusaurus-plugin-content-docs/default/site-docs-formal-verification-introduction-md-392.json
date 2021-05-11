@@ -5,10 +5,19 @@
   "title": "Introduction",
   "description": "The Tezos blockchain brings several improvements including the formal verification of smart contract.This section describes the overview of how Tezos smart contract can be formally verified.",
   "source": "@site/docs/formal-verification/introduction.md",
+  "sourceDirName": "formal-verification",
   "slug": "/formal-verification",
   "permalink": "/formal-verification",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/formal-verification/introduction.md",
   "version": "current",
+  "lastUpdatedBy": "AymericBethencourt",
+  "lastUpdatedAt": 1618237907,
+  "formattedLastUpdatedAt": "4/12/2021",
+  "frontMatter": {
+    "id": "introduction",
+    "title": "Introduction",
+    "slug": "/formal-verification"
+  },
   "sidebar": "docs",
   "previous": {
     "title": "Exam",

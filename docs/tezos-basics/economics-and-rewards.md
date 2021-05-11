@@ -1,6 +1,7 @@
 ---
 id: economics-and-rewards
 title: Economics and rewards
+authors: Thomas Zoughebi, Aymeric Bethencourt and Maxime Fernandez
 ---
 
 
@@ -23,7 +24,7 @@ In a Tezos transaction, we can add additional information such as smart contract
 
 On the Tezos blockchain, gas refers to the cost necessary to perform a transaction on the network. Bakers set the price of gas based on supply and demand for computational power on the network, needed to process smart contract calls and other transactions.
 It is used to determine the complexity of the transaction execution and also to avoid infinite loops. `minimal_nanotez_per_byte` is the price of one unit of gas and is selected by the user at the transaction creation. It is one of the factors a baker considers before choosing his transactions. Before taking the transaction, the baker reviews the amount of gas required and its cost per unit. If this ratio is adequate, the baker selects the transaction. Each transaction has a gas limit: 1,040,000 gas units (gu). If the contract execution or deployment exceeds this limit the contract is considered unusable. This limit is useful to guarantee that the bakers will be able to validate the block in a limited amount of time [[4]](https://opentezos.com/tezos-basics/economics_and_reward#referencess). This is to make the process more inclusive, as all the users should be able to run a node and bake a block within the allotted time, which is why the Tezos network sets the limit so low, so that even slow nodes can participate.
-However, the Delphi update increased the amount of computation per units of gas. The minimal gas cost to achieve operations has been reduced from 10,000 to 1,000 units of gas. With this update, the execution cost of smart contracts decreased by approximately 75% [[5]](https://opentezos.com/tezos-basics/economics_and_reward#referencess). This evolution allows more complex smart contracts to be executed and was a demonstration of Tezos’ adaptability.
+However, the Delphi update increased the amount of computation per units of gas. The minimal gas cost to achieve operations has been reduced from 10,000 to 1,000 units of gas. With this update, the execution cost of smart contracts decreased by approximately 75% [[5]](https://opentezos.com/tezos-basics/economics_and_reward#referencess). This evolution allows more complex smart contracts to be executed and was a demonstration of Tezos' adaptability.
 
 
 ## Smart contract execution and optimisation

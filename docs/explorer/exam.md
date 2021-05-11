@@ -1,6 +1,7 @@
 ---
 id: exam
 title: Exam
+authors: Maxime Sallerin
 ---
 
 ### Question 1
@@ -36,7 +37,7 @@ Which of the following block explorers is designed for the Tezos Blockchain?
 
 ### Question 4
 
-What does the _TzStats_ explorer allows you to do?
+What does the _TzStats_ explorer allow you to do?
 
 - [x] Get an overview of the main activity on the Tezos network, e.g. staking activity, gas price, XTZ offer, transaction volume, etc.
 - [x] Get general information about a specific block number.
@@ -46,7 +47,7 @@ What does the _TzStats_ explorer allows you to do?
 - [ ] Modify a transaction in which you were mistaken.
 - [x] Find a smart contract by its address and view its calls, entrypoints, storage etc
 - [ ] Deploy your smart contract.
-- [x] Get an overview of the current market activity, e.g. list of exchanges, 1 day volume, overall market capitalization, etc.
+- [x] Get an overview of the current market activity, e.g. list of exchanges, 1 day's volume, overall market capitalization, etc.
 
 ### Question 5
 

@@ -5,10 +5,18 @@
   "title": "Operations",
   "description": "This chapter introduces the notion of Operations on Tezos, more commonly known as Transactions on other blockchains.",
   "source": "@site/docs/tezos-basics/operations.md",
+  "sourceDirName": "tezos-basics",
   "slug": "/tezos-basics/operations",
   "permalink": "/tezos-basics/operations",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/operations.md",
   "version": "current",
+  "lastUpdatedBy": "AymericBethencourt",
+  "lastUpdatedAt": 1616716264,
+  "formattedLastUpdatedAt": "3/26/2021",
+  "frontMatter": {
+    "id": "operations",
+    "title": "Operations"
+  },
   "sidebar": "docs",
   "previous": {
     "title": "Liquid Proof-of-Stake",

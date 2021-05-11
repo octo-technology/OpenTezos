@@ -10,7 +10,8 @@ module.exports = {
       label: 'Blockchain Basics',
       items: [
         'blockchain-basics/introduction',
-        'blockchain-basics/main-components',
+        'blockchain-basics/main-properties',
+        'blockchain-basics/proof-of-work',
         'blockchain-basics/other-consensuses',
         'blockchain-basics/smart-contracts',
         'blockchain-basics/exam',
@@ -52,7 +53,7 @@ module.exports = {
     {
       type: 'category',
       label: 'SmartPy',
-      items: ['smartpy/introduction', 'smartpy/write-contract-smartpy', 'smartpy/exam'],
+      items: ['smartpy/introduction', 'smartpy/installation', 'smartpy/write-contract-smartpy', 'smartpy/exam'],
     },
     {
       type: 'category',

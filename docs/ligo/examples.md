@@ -1,12 +1,16 @@
 ---
 id: examples
 title: Examples
+authors: Maxime Sallerin and Benjamin Pilia
 ---
 
 ## Function
 
-The following function takes a string `my_ship` as input and, 
-modifies the third attribute to 1 and assigns the result to a constant `modified_ship`.
+The example below comes from [Tezos Academy](https://tezosacademy.io/pascal/chapter-functions) 
+and refers to the modification of a spaceship id.
+
+So the following function takes a string `my_ship` as input, and 
+modifies the third character to 1 and assigns the result to a constant `modified_ship`.
 
 ```js
 type ship_code is string
@@ -57,7 +61,7 @@ In LIGO, the design aim is to have one main function called main,
 that dispatches the control flow according to its parameter. 
 The functions used for those actions are called entrypoints.
 
-In the example bellow:
+In the example below:
 - The functions `set_ship_code` and `go_to` are the entrypoints.
 - `Set_ship_code` and `Go_to` are the associated actions.
 
@@ -88,8 +92,10 @@ function main (const action : parameter; const store : storage): return is
 
 ## Option
 
-//TODO In the code below , we can notice that the _weapons_ variable is defined as a mapping between the name of each weapon and its corresponding input of power.
-Notice the weapons mapping which maps the name of each weapon to its corresponding input of power. 
+The example below comes from [Tezos Academy](https://tezosacademy.io/pascal/chapter-option) 
+and deals with the modification of the weapon power of a spaceship to illustrate the use of option types.
+
+In the code below , we can notice that the _weapons_ variable is defined as a mapping between the name of each weapon and its corresponding input of power.
 We want to increase the power of the Main Laser but mapping returns optional results as they might not be found in the mapping. 
 So we define the constant `main_laser_power` as an optional `int` from selecting "Main Laser" from the weapons mapping.
 
@@ -163,7 +169,7 @@ So an entrypoint with `ChangeAlgorithm` is provided to modify the algorithm that
 
 ## Sandboxed mode
 
-This part will explain to you how to run a ‘localhost-only’ instance of a Tezos network.
+This part will explain to you how to run a 'localhost-only' instance of a Tezos network.
 
 ### Run a sandboxed node
 
@@ -201,9 +207,11 @@ tezos-activate-alpha
 
 ## First contract - Indice
 
+The indice contract represents a fund value.
+
 ### Defining storage and entrypoints
 
-Let's create an `indice_types.ligo` file to put all the needed type definition.
+Let's create an `indice_types.ligo` file to put all the needed type definitions.
 
 - `indiceStorage` is an integer type that can have the value of an equity.
 - `indiceEntrypoints` determine how the contract will be invoked:
@@ -333,11 +341,11 @@ at a given `address`, or if the contract doesn't match the type, then `None` is 
 function sendValue(const param : unit; const s : indiceStorage) : indiceFullReturn is 
 block { 
     const c_opt : option(contract(int)) = Tezos.get_entrypoint_opt("%receiveValue", Tezos.sender);
-    const destinataire : contract(int) = case c_opt of
+    const receiver : contract(int) = case c_opt of
     | Some(c) -> c
     | None -> (failwith("sender cannot receive indice value") : contract(int))
     end;
-    const op : operation = Tezos.transaction(s, 0mutez, destinataire);
+    const op : operation = Tezos.transaction(s, 0mutez, receiver);
     const txs : list(operation) = list [ op; ];
  } with (txs, s)
 ```
@@ -350,13 +358,17 @@ ligo compile-contract indice.ligo indiceMain
 
 ## Second contract - Advisor
 
+Remember that the `advisor` contract can be invoked to request the fund value to the `indice` contract (via a transaction). 
+The `indice` contract receives the request (transaction) and will sends back the requested value. 
+When the `advisor` contract receives the fund value, it can apply the "algorithm" to check that it is worth investing !
+
 ### Defining storage and entrypoints
 
 In a new file called `advisor_types.ligo` we define:
 
 - `advisorStorage` which is a record type containing three fields:
     - `indiceAddress` of type `address` to communicate with the indice contract.
-    - `algorithm` which takes an `int` of parameter and returns a `bool`, 
+    - `algorithm` which takes an `int` as parameter and returns a `bool`, 
       depending on the business logic.
     - `result` which is `True` if the investor should invest and `False` otherwise.
 - `advisorEntrypoints` that determines how the contract will be invoked:
@@ -420,11 +432,11 @@ This function return type is `advisorFullReturn` and returns:
 function request(const p : unit; const s : advisorStorage) : advisorFullReturn is
 block { 
     const c_opt : option(contract(unit)) = Tezos.get_entrypoint_opt("%sendValue", s.indiceAddress);
-    const destinataire : contract(unit) = case c_opt of
+    const receiver : contract(unit) = case c_opt of
     | Some(c) -> c
     | None -> (failwith("indice cannot send its value") : contract(unit))
     end;
-    const op : operation = Tezos.transaction(unit, 0mutez, destinataire);
+    const op : operation = Tezos.transaction(unit, 0mutez, receiver);
     const txs : list(operation) = list [ op; ];
  } with (txs, s)
 ```
@@ -491,11 +503,11 @@ block { skip } with ((nil: list(operation)), s - param)
 function sendValue(const param : unit; const s : indiceStorage) : indiceFullReturn is 
 block { 
     const c_opt : option(contract(int)) = Tezos.get_entrypoint_opt("%receiveValue", Tezos.sender);
-    const destinataire : contract(int) = case c_opt of
+    const receiver : contract(int) = case c_opt of
     | Some(c) -> c
     | None -> (failwith("sender cannot receive indice value") : contract(int))
     end;
-    const op : operation = Tezos.transaction(s, 0mutez, destinataire);
+    const op : operation = Tezos.transaction(s, 0mutez, receiver);
     const txs : list(operation) = list [ op; ];
  } with (txs, s)
 
@@ -668,7 +680,7 @@ tezos-client bake for bootstrap1
 
 > **Tezos baking** is the process of signing and appending a block of transactions to the Tezos blockchain.
 
-Now, run the command bellow and see your indice contract on the list !
+Now, run the command below and see your indice contract on the list !
 
 ```shell
 tezos-client list known contracts
@@ -694,11 +706,11 @@ Write down your indice contract address somewhere because you will need it to in
 function request(const p : unit; const s : advisorStorage) : advisorFullReturn is
 block { 
     const c_opt : option(contract(unit)) = Tezos.get_entrypoint_opt("%sendValue", s.indiceAddress);
-    const destinataire : contract(unit) = case c_opt of
+    const receiver : contract(unit) = case c_opt of
     | Some(c) -> c
     | None -> (failwith("indice cannot send its value") : contract(unit))
     end;
-    const op : operation = Tezos.transaction(unit, 0mutez, destinataire);
+    const op : operation = Tezos.transaction(unit, 0mutez, receiver);
     const txs : list(operation) = list [ op; ];
  } with (txs, s)
 
@@ -881,7 +893,7 @@ Let's open another initialized terminal in order to bake this transaction using 
 tezos-client bake for bootstrap1
 ```
 
-Now, run the command bellow and see your advisor contract on the list !
+Now, run the command below and see your advisor contract on the list !
 
 ```shell
 tezos-client list known contracts
@@ -967,4 +979,4 @@ Now it is your turn to play with these two smart contracts by, for example, incr
 
 > Remember if you are not sure what you are doing add `--dry-run` at the end of the command line to see if everything is ok.
 
-To go further you can find the code with video explanations on this [Github](https://github.com/frankhillard/ligo_tutorial_fundadvisor)
+To go further you can find the code with video explanations on this [Github](https://github.com/frankhillard/ligo_tutorial_fundadvisor).

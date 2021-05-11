@@ -1,6 +1,7 @@
 ---
 id: exam
 title: Exam
+authors: Benjamin Pilia
 ---
 
 ### Question 1

@@ -5,10 +5,18 @@
   "title": "Exam",
   "description": "Question 1",
   "source": "@site/docs/deploy-a-node/exam.md",
+  "sourceDirName": "deploy-a-node",
   "slug": "/deploy-a-node/exam",
   "permalink": "/deploy-a-node/exam",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/deploy-a-node/exam.md",
   "version": "current",
+  "lastUpdatedBy": "AymericBethencourt",
+  "lastUpdatedAt": 1617698122,
+  "formattedLastUpdatedAt": "4/6/2021",
+  "frontMatter": {
+    "id": "exam",
+    "title": "Exam"
+  },
   "sidebar": "docs",
   "previous": {
     "title": "Introduction",

@@ -2,117 +2,125 @@
 id: other-consensuses
 disable_pagination: true
 title: Introduction to other consensuses
+authors: Thomas Zoughebi and Aymeric Bethencourt
+
 ---
 
-In this chapter, we will introduce 10 *public* consensus mechanisms.
+In this chapter, we will briefly introduce a few other *public* consensuses.
+
+## Proof-of-Stake (PoS)
+_PoS_ requires a system where _validators_ do not create coins, so that transaction fee should only provide their rewards. It also means that all the coins are either made at the launch of the blockchain or created another way.
+
+The first rule of this consensus is for blocks to be *validated* by **validators** that invested coins in the system. The more a validator has coins in an escrow, the more he is likely to validate a block and earn rewards.
+
+Valid blocks pushed from validators are always verified afterward by the network. If a validator has tried to cheat, he loses all his funds in his collateral.
+
+Examples: *Ethereum 2.0, Peercoin, Blackcoin, NXT...*
+
+We'll go into more details about PoS in the [Tezos Basics Module](/tezos-basics) as Tezos uses a variation of PoS called Liquid Proof-of-Stake.
+
+## Delegated Proof-of-Stake (DPoS)
+DPoS is the PoS consensus but with an added *delegation* phase. During this phase, decentralized *votes* are made by *witnesses* to elect validators. Parameters like fees, rewards, or witnesses number are decided by a *committee* group. This committee *does not receive any reward*. The parameters can only be changed during a *maintenance phase by vote*.
+
+Examples: *Steem, Graphene, BitShares...*
+
+## Liquid Proof-of-Stake (LPoS)
+Tezos has developed LPoS, an evolution of DPoS.
+
+In LPoS, a validator is called a **baker**. Any user owning enough coins can become a baker. Suppose a user wants to become a baker but doesn't own enough coins or technical knowledge. In that case, he can _delegate_ his coins to _bakers_, thereby benefiting from a portion of the transaction fees.
+
+The probability of winning a bake is proportional to the amount invested. The baking time is organized in cycles, and coins are locked during this time.
+
+We'll go into more details about LPoS in the [Tezos Basics Module](/tezos-basics).
 
 ## Proof-of-Burn (PoB)
-Instead of buying a lot of powerful nodes like in PoW, **validators** "*burn*" their coins. "Burning" coins means sending them to a locking address where they are irretrievable. Thereby destroying or "burning" them.
+Instead of investing computational power and electricity like in PoW, users in PoB must _burn_ some coins to gain a chance at becoming the next validator. _Burning_ coins means sending them to a locking address where they are irretrievable, thereby destroying them.
 
-The more miners burn coins, the more they are likely to validate a block and win rewards.
+The more a miner burns coins, the more likely he is to validate a block and win rewards.
 
-This mimics the process of mining, where miners have to invest energy and mining power to solve a mathematical inequality.
+This mimics the process of mining where miners have to invest some value, except that instead of electricity, it is coins themselves.
 
-An example of this would be: *Slimcoin*
+Examples: *Slimcoin*
 
 ## Proof-of-Capacity (PoC)
-The system first generates large data sets called "*Plots*". The more plots a *miner* records, the more lottery's tickets he owns. Hence, the more hard-drive space (*capacity*) he can obtain, the more chances he has to win the rewards.
+This consensus first generates large data sets called "*Plots*". The more plots a *miner* records, the more lottery tickets he owns. Hence, the more hard-drive space (*capacity*) he has, the more chances he will win the rewards. This also mimics mining.
 
-Variants would be: *Proof-of-Storage, Proof-of-Space*
+Variants: *Proof-of-Storage, Proof-of-Space*
 
-An example of this would be: *Burstcoin, Storj, Filecoin, BitcoinHD...*
+Examples: *Burstcoin, Storj, Filecoin, BitcoinHD...*
 
 ## Leader-Based Consensus (LBC)
-Nodes elect a temporary leader node. This leader is then responsible for validating transactions, and for ordering them. There are not necessarily made in blocks (i.e. is more than one transaction).
+Nodes elect a temporary leader node. This leader is then responsible for validating transactions and for ordering them. They are not necessarily made into blocks (i.e., having more than one transaction).
 
-An example of this would be: *BigChainDB*
+Examples: *BigChainDB*
 
 ## Practical Byzantine Fault Tolerance (PBFT)
-In this structure of consensus, each node of the network awaits messages. Each node receiving a message runs a program on this message using its own data. According to its data and the message received, each node produces a result and broadcasts it to the other nodes.
+In this consensus, each node of the network awaits messages from the others. They are continuously broadcasting messages. Each node receiving a message runs a program on it using its data. Each node's result is then transformed into a new broadcasted message to all other nodes. With time, according to program rules, enough nodes will transmit the same result in messages. The total sum of these broadcast results determines the consensus.
 
-The sum total of these broadcast-results determines the consensus.
-
-An example of this would be: *Evernym, Chain...*
+Examples: *Evernym, Chain...*
 
 ## Federated​ ​Byzantine​ ​Agreement​ ​(FBA)
-There *sets of enough nodes* to validate data are established. A single *set* is called a "*quorum*".
+In this distributed network *sets of enough nodes* to validate data are established. It means the sufficient number of nodes in a group is determined to reach an agreement **for that group**.
 
-With FBA, a *subset* of a quorum is able to aggregate another node, which in turn approves data *to form a complete quorum*. This *subset* is called a "*quorum slice*".
+A single *set* of nodes is called a "*quorum*".
 
-Each node chooses its own multiple quorum slices to trust.
+With _FBA_, a *subset* of a quorum can aggregate another node, which in turn approves data *to form a complete quorum*. This *subset* is called a "*quorum slice*".
+
+Each node chooses its multiple quorum slices to trust.
 
 The aim of this is to avoid **separated divergent quorums**, and to ensure that **all quorums converge**.  
 Quorum slices must be large enough to have **intersections** (shared nodes).
 
-An example of this would be: *Stellar, Ripple*.
+To recap, validator groups with sufficient base size can aggregate single nodes from other groups. In the end, agreed quorums would cover the majority of the network, reaching a consensus.
+
+Examples: *Stellar, Ripple*.
 
 ## Avalanche
-Each **validator** randomly selects N nodes among all the other validators. The more a validator has coins, the more chances it has to be selected (*see also PoS below*).
+Each **validator** randomly selects $N$ nodes among all the other validators. The more a validator has coins, the more chances it has to be selected (*see also PoS below*).
 
 Each queried validator responds with its decision.
 
-If the majority of responses differs from the asking node's decision, then it will change its own answer to that of the others.
+If most responses differ from the asking node's decision, it will change its answer to that of the others. In case of disagreement between nodes, more nodes are brought into the decision, and more and more until convergence (thus the name avalanche as it resembles the consensus).
 
-An example of this would be: *Avalanche*
-
-## Proof-of-Stake (PoS)
-Requires a system where _validators_  *do not create coins*, so that their rewards should *only be provided by transactions fees*. It also means that all the coins are created at the launch of the system.
-
-The first set of this consensus is for blocks to be  *validated* by **validators** that invested coins in the system. The more a validator has coins in an escrow, the more he is likely to validate a block and earn rewards.
-
-Valid blocks pushed from validators are always verified afterwards by the network. If a validator has tried to cheat, he loses all his funds in his collateral.
-
-An example of this would be: *Ethereum 2.0, Peercoin, Blackcoin, NXT...*
+Examples: *Avalanche*
 
 ## Proof-of-Activity (PoA)
-Proof-of-Activity is split into 2 ordered phases:
+Proof-of-Activity is split into two ordered phases:
+
 1. PoW phase
 
-    Miners race to find enough zeros in the result of the hash function. But this time, the block they validate is _usually_ empty of transactions. Only where they can receive a reward and their results are present.
+    Miners race to find enough zeros in the result of the hash function. But this time, the block they validate is _usually_ empty of transactions. Only the address they can receive a reward and their hash and nonce is present.
 
 2. PoS phase
 
-    Then, a random group of validators is chosen to sign the new block. The more coins a validator owns, the more likely he has to be chosen. When all the validators signed, the block is filled with transactions.
+    A random group of validators is chosen to sign the new block. The more coins a validator owns, the more likely he has to be selected. When all the validators signed, the block is filled with transactions.
 
     If there are not enough validators for a valid block signing, another valid block and another group of validators are chosen.
 
 Fees-rewards are then split between miners and validators.
 
-An example of this would be: *Decred*.
-
-## Delegated Proof-of-Stake (DPoS)
-DPoS is PoS system with an added *delegation* phase. During this phase, decentralized *votes* are made by *witnesses*, choosing validators. Parameters like fees, rewards, or witnesses number are decided by a *committee* group. This committee *do not receive any reward*. The parameters can only be changed during a *maintenance phase by vote*.
-
-An example of this would be: *Steem, Graphene, BitShares...*
-
-## Liquid Proof-of-Stake (LPoS)
-Tezos has developed LPoS, an evolution of the DPoS.
-
-In LPoS, a validator is called a **baker**. Any user owning enough coins can become a baker. If a user would like to become a baker but doesn't own enough coins, he can _delegate_ his coins. Thereby benefiting from a portion of the fee share.
-
-The probability to win a bake is proportional to the amount invested. The baking time is organized in cycles and coins are locked during this time.
+Examples: *Decred*.
 
 ## Pros & Cons
 
-| #    | Consensus | Advantages                                | Disadvantages                                                                                               |
-| :--- | :-------- | :---------------------------------------- | :---------------------------------------------------------------------------------------------------------- |
-| *0*  | *PoW*     | *Extreme robustness (MAD + SHA256 + CBC)* | *Energy consumption*                                                                                        |
-| ◼    | ◼         | ◼                                         | ◼                                                                                                           |
-| 1    | PoB       | Robustness similar to PoW                 | Energy consumption; Mining power to money burners                                                           |
-| 2    | PoC       | Less energy consumption; mimic mining     | Nothing at Stake (no MAD)                                                                                   |
-| 3    | LBC       | Less energy consumption                   | Leader centralized; Sybil Attack[[1]](/blockchain-basics/other-consensuses#references) weakness             |
-| 4    | PBFT      | Very easy to implement                    | Absence of privacy; less robust                                                                             |
-| 5    | FBA       | Modest computing & financial requirements | Quorum slices centralization; Sybil Attack[[1]](/blockchain-basics/other-consensuses#references) weakness   |
-| 6    | Avalanche | Fast; highly distributed (lots of nodes)  | Groups of nodes centralization; Sybil Attack[[1]](/blockchain-basics/other-consensuses#references) weakness |
-| 7    | PoS       | Less energy consumption                   | Coins owners centralization                                                                                 |
-| 8    | PoA       | Combines PoW & PoS                        | Combines PoW & PoS                                                                                          |
-| 9    | DPoS      | Mitigating PoS centralization             | Coins owners & witnesses centralization                                                                     |
-| 10   | LPoS      | Mitigating even more PoS centraliszation  | Coins owners centralization                                                                                 |
+| #    | Consensus | Advantages                                                    | Disadvantages                                                                                               |
+| :--- | :-------- | :------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------- |
+| 0    | PoW       | Extreme robustness (MAD + SHA256 + CBC)                       | High Energy consumption                                                                                     |
+| 1    | PoB       | Robustness similar to PoW                                     | Still wastes ressources needlessly; Mining power to money burners                                           |
+| 2    | PoC       | Less energy consumption; mimic mining                         | Nothing at Stake (no MAD)                                                                                   |
+| 3    | LBC       | Less energy consumption                                       | Leader centralized; Sybil Attack[[1]](/blockchain-basics/other-consensuses#references) weakness             |
+| 4    | PBFT      | Very easy to implement                                        | Absence of privacy; Sybil Attack[[1]](/blockchain-basics/other-consensuses#references) weakness             |
+| 5    | FBA       | Modest computing & financial requirements                     | Quorum slices centralization; Sybil Attack[[1]](/blockchain-basics/other-consensuses#references) weakness   |
+| 6    | Avalanche | Fast; highly distributed (lots of nodes)                      | Groups of nodes centralization; Sybil Attack[[1]](/blockchain-basics/other-consensuses#references) weakness |
+| 7    | PoS       | Less energy consumption                                       | Coins owners centralization                                                                                 |
+| 8    | PoA       | More distribution on transaction's selection and fees rewards | Combines PoW & PoS disadvantages                                                                            |
+| 9    | DPoS      | Mitigating PoS centralization                                 | Coins owners & witnesses centralization                                                                     |
+| 10   | LPoS      | Mitigating even more PoS centralization                       | Still some coins owners centralization                                                                      |
 
 ## What have we learned so far?
-In this chapter, we briefly described 10 consensuses that can be used for public blockchains. There are many other consensus algorithms.
+In this chapter, we briefly described ten consensuses that can be used for public blockchains. There are many other consensus algorithms.
 
-In the next chapter "_Smart Contracts_", we'll define what they are, what are some of the Bitcoin's limitations in that matter, and how Ethereum first proposed to lift those limitations.
+In the next chapter, "_Smart Contracts_", we'll define what they are, what are some of Bitcoin's limitations in that matter, and how Ethereum first proposed to lift those limitations.
 
 ## References
 [1] https://en.wikipedia.org/wiki/Sybil_attack

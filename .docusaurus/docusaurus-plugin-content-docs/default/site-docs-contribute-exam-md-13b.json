@@ -5,10 +5,18 @@
   "title": "Exam",
   "description": "Question 1",
   "source": "@site/docs/contribute/exam.md",
+  "sourceDirName": "contribute",
   "slug": "/contribute/exam",
   "permalink": "/contribute/exam",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/contribute/exam.md",
   "version": "current",
+  "lastUpdatedBy": "23ESHU77",
+  "lastUpdatedAt": 1620119103,
+  "formattedLastUpdatedAt": "5/4/2021",
+  "frontMatter": {
+    "id": "exam",
+    "title": "Exam"
+  },
   "sidebar": "docs",
   "previous": {
     "title": "Become a baker or a delegator",

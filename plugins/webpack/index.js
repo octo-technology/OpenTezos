@@ -16,9 +16,6 @@ module.exports = function(context, options) {
             src: path.resolve(__dirname, '../../src'),
           }
         },
-        node: {
-          fs: 'empty',
-        },
       };
     },
   };

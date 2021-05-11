@@ -1,6 +1,7 @@
 ---
 id: exam
 title: Exam
+authors: --
 ---
 
 ### Question 1

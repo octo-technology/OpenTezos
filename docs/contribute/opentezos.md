@@ -1,26 +1,27 @@
 ---
 id: opentezos
 title: Contribute to OpenTezos
+authors: Aymeric Bethencourt
 ---
 
-The great website you are currently browsing is called _OpenTezos_ and will later be merged with the upcoming `wiki.tezos.com`. It is therefore important that all the content here is up to date and error-free. If you see an error, you can either [submit an issue](/contribute/report-issue) or go a step further by actually correcting the error yourself and submitting it for review. Here is how to proceed:
+The excellent website you are currently browsing is called _OpenTezos_ and will later be merged with the upcoming `wiki.tezos.com`. It is, therefore, important that all the content here is up-to-date and error-free. If you see an error, you can either [submit an issue](/contribute/report-issue) or go a step further by actually correcting the mistake yourself and submitting it for review. Here is how to proceed:
 
-- On the page that you see the error on, scroll all the way down and click the link `Edit this page`. 
+- On the page that you see the error on, scroll down and click the link `Edit this page`. 
 
 ![](../../static/img/contribute/edit-page.png)
 <small className="figure">FIGURE 1: Click `Edit this page` on the page containing an error</small>
 
-- You are redirected the file on github corresponding to this chapter. Click on the pen logo on the upper right corner saying `Fork this project and edit the file`.
+- You are being redirected to the file on Github corresponding to this chapter. Click on the pen logo on the upper right corner saying `Fork this project and edit the file`.
 
 ![](../../static/img/contribute/fork-project.png)
 <small className="figure">FIGURE 2: Click `Fork this project and edit the file` on the github file</small>
 
-- The chapter file is now opening in your browser. Proceed to edit its content to correct the error, then scroll down to the `Propose changes` section. Enter a title and a description to your correction proposal then click `Propose changes`.
+- The chapter file is now opening in your browser. Proceed to edit its content to correct the error, then scroll down to the `Propose changes` section. Enter a title and a description of your correction proposal, then click `Propose changes`.
 
 ![](../../static/img/contribute/propose-changes.png)
 <small className="figure">FIGURE 3: Edit the chapter file and propose the changes</small>
 
-- Github now offers you to create a `Pull request`, i.e. propose your changes to the admins of the _OpenTezos_ repository. Click `Create pull request`.
+- Github now offers you to create a `Pull request`, i.e., propose your changes to the admins of the _OpenTezos_ repository. Click `Create pull request`.
 
 ![](../../static/img/contribute/create-pull-request.png)
 <small className="figure">FIGURE 4: Create a pull request.</small>
@@ -37,17 +38,17 @@ We have a few basic rules for contributors, which are designed for quality contr
 
 - No _--force_ pushes or modifications of Git history in any way.
 
-- Pull requests are preferred for issues, especially for small changes such as typos. Issues should be used for generic or broad-based changes or missing content.
+- Pull requests are preferred for issues, especially for minor changes such as typos. Issues should be used for generic or broad-based changes or missing content.
 
 - Only use non-master branches.
 
-- If there are significant modifications, even by contributors, they ought to be subject to a pull request to solicit feedback from other contributors.
+- If there are significant modifications, even by contributors, they should be subject to a pull request to solicit feedback from other contributors.
 
-- Pull requests to solicit feedback are encouraged for any other non-trivial contribution however they are left to the discretion of the contributor.
+- Pull requests to solicit feedback are encouraged for any other non-trivial contribution; however, they are left to the contributor's discretion.
 
-- Contributors should attempt to adhere to the prevailing “MarkDown” style, language, and layout.
+- Contributors should attempt to adhere to the prevailing **Markdown** style, language, and layout.
 
-- Correct grammar should be used at all times. Pull requests with typos will not be merged until fixed. All content contributions must be done in English.
+- Correct grammar should be used at all times. Pull requests with typos will not be merged until fixed. All content contributions must be made in English.
 
 - Care should be taken to remain as objective and informative as possible. There should be no editorializing, nor should there be any external bias.
 
