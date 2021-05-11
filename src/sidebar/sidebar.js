@@ -53,7 +53,7 @@ module.exports = {
     {
       type: 'category',
       label: 'SmartPy',
-      items: ['smartpy/introduction', 'smartpy/installation', 'smartpy/exam'],
+      items: ['smartpy/introduction', 'smartpy/installation', 'smartpy/write-contract-smartpy', 'smartpy/exam'],
     },
     {
       type: 'category',
