@@ -3,43 +3,8 @@ import React from 'react';
 import ComponentCreator from '@docusaurus/ComponentCreator';
 export default [
 {
-  path: '/__docusaurus/debug',
-  component: ComponentCreator('/__docusaurus/debug','3d6'),
-  exact: true,
-},
-{
-  path: '/__docusaurus/debug/config',
-  component: ComponentCreator('/__docusaurus/debug/config','914'),
-  exact: true,
-},
-{
-  path: '/__docusaurus/debug/content',
-  component: ComponentCreator('/__docusaurus/debug/content','c28'),
-  exact: true,
-},
-{
-  path: '/__docusaurus/debug/globalData',
-  component: ComponentCreator('/__docusaurus/debug/globalData','3cf'),
-  exact: true,
-},
-{
-  path: '/__docusaurus/debug/metadata',
-  component: ComponentCreator('/__docusaurus/debug/metadata','31b'),
-  exact: true,
-},
-{
-  path: '/__docusaurus/debug/registry',
-  component: ComponentCreator('/__docusaurus/debug/registry','0da'),
-  exact: true,
-},
-{
-  path: '/__docusaurus/debug/routes',
-  component: ComponentCreator('/__docusaurus/debug/routes','244'),
-  exact: true,
-},
-{
   path: '/',
-  component: ComponentCreator('/','456'),
+  component: ComponentCreator('/','3bc'),
   
   routes: [
 {
@@ -78,13 +43,18 @@ export default [
   exact: true,
 },
 {
-  path: '/blockchain-basics/main-components',
-  component: ComponentCreator('/blockchain-basics/main-components','de8'),
+  path: '/blockchain-basics/main-properties',
+  component: ComponentCreator('/blockchain-basics/main-properties','83f'),
   exact: true,
 },
 {
   path: '/blockchain-basics/other-consensuses',
   component: ComponentCreator('/blockchain-basics/other-consensuses','cf5'),
+  exact: true,
+},
+{
+  path: '/blockchain-basics/proof-of-work',
+  component: ComponentCreator('/blockchain-basics/proof-of-work','606'),
   exact: true,
 },
 {

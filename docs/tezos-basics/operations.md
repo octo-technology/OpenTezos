@@ -1,6 +1,7 @@
 ---
 id: operations
 title: Operations
+authors: Thomas Zoughebi, Aymeric Bethencourt and Maxime Fernandez
 ---
 
 This chapter introduces the notion of _Operations_ on Tezos, more commonly known as _Transactions_ on other blockchains. 
@@ -10,7 +11,7 @@ Let's start by talking about the two types of addresses in Tezos [[1]](/tezos-ba
 
 * Implicit accounts are accounts that are linked to a public key. Their addresses start with _tz1_, _tz2_, and _tz3_ (depending on the chosen signature scheme) and the hash of the public key. They are created by a transfer operation to the account public key hash. Only implicit accounts can be registered as delegates and participate in baking.
   
-* Smart contracts are also called `Originated accounts` and are created with an origination operation. Their addresses start with _KT1_. They don’t have a corresponding secret key. They run their Michelson code each time they receive an operation.
+* Smart contracts are also called `Originated accounts` and are created with an origination operation. Their addresses start with _KT1_. They don't have a corresponding secret key. They run their Michelson code each time they receive an operation.
 
 ## Tezos operations
 An operation is a message sent from one address to another. The message is represented as:
@@ -114,7 +115,7 @@ The node maintains a memory pool (aka mempool) to keep track of `not-invalid-for
 
     * `branch_refused`: an operation which could be valid in a different branch.
 
-    * `branch_delayed`: an operation which has come too soon (i.e. there’s a gap in the account counter)
+    * `branch_delayed`: an operation which has come too soon (i.e. there's a gap in the account counter)
 
 Operations in the mempool are broadcasted to peers whenever the mempool is updated. The _Peer Node_ fetches the operation from the remote peer, using the operation hash in the advertisement (this is another way for a new operation to enter in a node). All operations pass through the validation subsystem. When an operation is received by a peer, the peer node is notified of the validation result.
 
@@ -130,7 +131,7 @@ The selected baker sends the created block to a node. Once received, the node st
 
 The block validation checks for errors such as too many operations, oversized operations, incorrect protocol versions, unauthorized validation passes, invalid fitness, unavailable protocols, errors while applying the operation, and more [[4]](/tezos-basics/intro_to_operation#referencess).
 
-Once a block is validated and is a candidate for the new head of the chain, it is passed to the chain validator, which checks if the fitness score [[5]](/tezos-basics/intro_to_operation#referencess) of the new head is higher than the fitness score of the current head. If it is not, the block is ignored. If it is, then this block replaces the current head. The chain validator then calls the pre-validator in order to flush the mempool. Finally, the new block head is advertised to the peers using the *distributed_db’s Advertise module*. Of course, this block only becomes part of the canonical chain if future bakers decide to bake on top of it.
+Once a block is validated and is a candidate for the new head of the chain, it is passed to the chain validator, which checks if the fitness score [[5]](/tezos-basics/intro_to_operation#referencess) of the new head is higher than the fitness score of the current head. If it is not, the block is ignored. If it is, then this block replaces the current head. The chain validator then calls the pre-validator in order to flush the mempool. Finally, the new block head is advertised to the peers using the *distributed_db's Advertise module*. Of course, this block only becomes part of the canonical chain if future bakers decide to bake on top of it.
 
 ## References
 [1] https://tezos.gitlab.io/introduction/howtouse.html#implicit-accounts-and-smart-contracts

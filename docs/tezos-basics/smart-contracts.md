@@ -1,110 +1,170 @@
 ---
 id: smart-contracts
 title: Smart contracts
+authors: Thomas Zoughebi, Aymeric Bethencourt, and Maxime Fernandez
 ---
+In this chapter, you will learn the Tezos smart contracts basics. Their components and the workflow to record and use them on the Tezos *blockchain*.
 
-## General definition of a smart contract
+## General definition of a Tezos smart contract
+A smart contract is a code stored inside the *blockchain*. It executes a set of pre-defined instructions (promises). Once deployed (stored), it becomes **immutable**. A smart contract is deployed using a **transaction**, so we embed spending conditions inside it, which are **immutable**. Though for smart contracts, the key difference is a user *can trigger the execution of the code without modifying it. Therefore without moving it to another transaction or block*. It stays where it has been stored **forever**. Tezos doesn't use an [UTXO model](https://en.wikipedia.org/wiki/Unspent_transaction_output) (no "*vaults*", see *Blockchain Basics*) but a **stateful accounts** one.
 
-A smart contract is a code stored in the blockchain which executes a set of pre-defined instructions. Once deployed it becomes `irrevocable`. The user can trigger the execution of the code but cannot modify it. 
+Like in Ethereum, Tezos uses 2 types of accounts:
+1. Classic accounts with a primary address, simply storing tez (ꜩ) coins
+2. Smart contract accounts with an address, storing code and tez (ꜩ) coins
 
-Smart contracts can achieve different kinds of operations with tokens/cryptocurrencies and other smart contracts. They're comparable to old, signed, paper contracts. Similarly, they allow an agreement to be secured between two or more parties thanks to the transparency and immutability of the blockchain. In this context, the concept of "code is law" from _Lawrence Lessig_ is very appropriate.
+Though in Tezos vocabulary though, "*contracts*" refers to both types in general. Actually each *contract* has a "**_manager_**". Precisely, a classic account has an "**_owner_**". If a contract has the "*spendable*" property, the manager is the entity allowed to spend funds from it.
 
-In many cases, smart contracts remove middle-men and drastically reduce intermediate costs compared to classic contracts.
+Smart contracts can achieve different kinds of operations with coins and *other smart contracts*. They're comparable to *automatic* **sealed** food and drink dispensers from the same company:  
+Each machine has a contract saying "*Give me cryptocurrency, then I give you food or drink*". Each machine can have a different smart contract for various foods or drinks, and there could be another smart contract gathering the cryptocurrency total for the company. Each machine doesn't operate until enough currency is delivered (*Gas*). Note that the **quantities** of foods or drinks change while their **types** can't (ever).
 
-Notice that a smart contract can only run on the Tezos network and send transactions to other accounts or to smart contracts, but cannot interact with the internet. That's where decentralized applications (_Dapps_) come into play.
+Of course, smart contracts like the Tezos ones go beyond this metaphor. Thanks to *transparency* and *immutability*, they allow an **agreement** to be secured between two or more parties. In this context, the concept of "[Code is Law](https://en.wikipedia.org/wiki/Lawrence_Lessig#%22Code_is_law%22)" from [_Lawrence Lessig_](https://en.wikipedia.org/wiki/Lawrence_Lessig) is very appropriate.
 
-To deploy your own Dapp, please refer to the [Build a Dapp Module](/dapp).
+For example, it is common to create financial instruments like various *tokens* (usually worth a fraction of the blockchain's *coin*) with different usability and characteristics inside a multiple smart contracts system. Other more or less complex projects can propose *lending*, *stablecoins*, or *crowdfundings*.
+
+In most cases, smart contracts remove *intermediate* and drastically reduce costs compared to classic paper contracts and their validations.
+
+Notice that like any other, a Tezos smart contract can only run on and interact with the blockchain it's stored in (Bitcoin's smart contracts are exceptions here). It can't interact with the outside world. That's where *decentralized applications* or "_Dapps_" come in because they provide interfaces for the outside world.
+
+To build your own Dapp, please refer to the [*Build a Dapp*](/dapp) module.
 
 ## Lifecycle of a Tezos smart contract
+As we saw, a smart contract can only be deployed once but can be called many times. The Tezos smart contract lifecycle steps are two:
 
-A smart contract can only be deployed once but can be invoked many times.
+1. Deployment
+2. Interactions through calls
 
-![](../../static/img/tezos-basics/tezos_smart_contract_deploy_invoke.svg)
-<small className="figure">FIGURE 1: Deployment and invocation of smart contracts in Tezos.</small>
+### Deployment of a Tezos smart contract
+The deployment of a Tezos smart contract is named "**origination**".
 
-### Deployment of a smart contract
+When a smart contract is deployed, an **address** and a corresponding *persistent space* called "**storage**" are allocated to this smart contract. The smart contract address is like its *identity* and *where* it lives on the ledger. Its storage is its *usable space* inside itself. The smart contract is inside the blockchain. The storage is inside the smart contract.
 
-The Tezos network implements a transactional system (called _UTXO_). A smart contract is born from a transaction and describes how the smart contract behaves.
+A smart contract deployment also defines its *entrypoints*. These are special functions used to dispatch invocations of the smart contract. Each entrypoint is in charge of triggering an instruction (see below "*Call of a Tezos smart contract*").
 
-Transactions are then broadcasted over the Tezos network and validated by bakers. Once validated, transactions are executed and modifications are applied to the blockchain.
+Once deployed, anyone or *anything* can call the smart contract (e.g. other contracts) with a transaction sent to its address and entrypoints. This call triggers the execution of the set of pre-defined instructions (promises).
 
-A transaction can either contain transfers of a certain amount of XTZ to an account or a set of pre-defined instructions (i.e. **smart contracts**) that will be stored in the blockchain. Once this transaction is executed, the smart contract is considered as deployed. An _address_ and a persistent memory space (called *storage*) are associated with this smart contract.
-
-Once deployed the smart contract can be invoked by anyone via a transaction to the contract address. This triggers the execution of the set of pre-defined instructions.
-
-The CLI command `tezos-client originate` is required to deploy a contract. It expects as arguments
-- the name of the contract
-- the Michelson script defines: 
-    - the type definition of the storage, 
-    - entrypoints of the smart contract
-    - the sequence of Michelson instructions
-- the amount of XTZ transferred to the contract
-- the initial storage value
-- optionally the address of a delegate
- and returns the address associated with the newly deployed contract. More detail in the [CLI chapter](/tezos-basics/introduction_to_cli_and_rpc).
-
-These pre-defined instructions are written in Michelson, which is according to the protocol of the Tezos blockchain. More details in the [Michelson module](/michelson).
-
-### Evolution of a deployed smart contract
-
-Once deployed, the code of a smart contract is not meant to be modified; only the storage of a smart contract is modifiable. 
-
-However, we can forecast some possible evolutions of a smart contract. By doing this, we can implement it in such a way as to be able to upgrade certain features.
-
-* For data model extension, the `map` data structures can be used.
-
-* To change the business logic of a smart contract, the "lambda" pattern can be used (i.e. the business logic of the smart contract can be coded in a 'lambda' function inside the storage). This way the business logic can be upgraded with a regular invocation of the smart contract to modify the 'lambda' function in storage (this invocation must specify the new business logic).
-
-## Technical definition of a Tezos smart contract
-
-The implementation of a smart contract must specify its:
-* possible invocations (called **entrypoints**)
-* storage data-structure definition 
-* the sequence of Michelson instructions
+The origination of a Tezos smart contract must define its:
+* **Entrypoints** (functions where it receives calls)
+* **Storage**
+* **Set of instructions** in the low-level *Michelson* language
 
 ![](../../static/img/tezos-basics/tezos_smart_contract_content.svg)
-<small className="figure">FIGURE 2: Content of a Tezos smart contract</small>
+<small className="figure">FIGURE 1: Content of a Tezos smart contract</small>
 
-### Code of a smart contract
+### Code of a Tezos smart contract
+The code of a smart contract is a sequence of Michelson instructions. Calls to the smart contract execute these instructions.
 
-The code of a smart contract is a sequence of Michelson instructions that are executed when the smart contract is invoked. 
-This sequence of instructions is defined during the deployment phase (called **origination**) and cannot be changed afterwards. 
+The execution of this sequence of instructions results in a modification of the *storage* content, or storage "**state**". The sequence defines how to modify this state.
 
-The execution of this sequence of instructions results in a modification of the storage state. The sequence of instructions defines how the storage is modified.
+You can find the full description of the Michelson language in the [Michelson module](/michelson).
 
-The full description of the Michelson language is detailed in the [Michelson module](/michelson).
+### Storage of a Tezos smart contract
+During the origination, the process must specify the storage **initial state**.
+If needed for operations, calling transactions' fees pay for the allocation of extra storage space.
 
+For more details, check out the ["*Fees and Rewards*"](/tezos-basics/economics_and_reward) chapter.
+
+### Call of a Tezos smart contract
+A smart contract can be called by a classic account whose address starts with "**tz1**" or by a smart contract's account whose address begins with "**KT1**". The transaction specifies *arguments* and to which *entrypoint* they are sent.
 
 ![](../../static/img/tezos-basics/invoke_smart_contract.svg)
-<small className="figure">FIGURE 3: Invocation of a smart contract triggers the code of the smart contract and modifies the storage</small>
+<small className="figure">FIGURE 2: Call of a smart contract triggering its code and modifying its storage's state</small>
 
-### Storage of a smart contract
+One can use the Command Line Interface (CLI) provided by Tezos to interact with a node and make calls. The "`tezos-client`" application allows anyone to deploy and call Tezos smart contracts.
 
-During the origination (deployment phase), a persistent memory space (called **storage**) is allocated to the smart contract. The initial state of the storage must be specified during the origination of the smart contract.
+The Remote Procedure Call (RPC) also provides ways to send requests to a Tezos node via HTTP (more details in ["*RPC and CLI*"](/tezos-basics/introduction_to_cli_and_rpc) chapter).
 
-The storage can be changed by invoking the smart contract which will apply its sequence of instructions.
+The CLI command "`tezos-client originate`" is used to deploy a Tezos smart contract. Arguments are the following:
+- Name of the smart contract
+- Michelson script containing: 
+    - Entrypoints
+    - Storage type
+    - Set of instructions
+- Initial storage value
+- Amount of tez sent to the smart contract
+- (optional) Address of a delegate
 
-One can use the CLI, provided by Tezos, to inspect the storage state of a smart contract. The only required parameter is the address of the smart contract.
+The command returns the newly deployed contract's address (more detail in the ["*RPC and CLI*"](/tezos-basics/introduction_to_cli_and_rpc) chapter).
 
-The growth of the storage (i.e. memory allocation of extra space) is paid as fees when the smart contract is invoked.
+## High-level languages for Tezos smart contracts implementations
+Michelson is a low-level stack-based language. Therefore its adoption is quite limited because most developers won't take time to learn it. Many Michelson *compilers* have been developed to avoid this friction and led to many high-level languages closer to developers habits: [*SmartPy*](/smartpy) (inspired by *Python*); [*LIGO*](/ligo) (inspired by *Camel* and *Pascal*); or [*Morley*](https://serokell.io/project-morley) (framework).
 
-For more details, check out the [Fees and Rewards chapter](/tezos-basics/economics_and_reward).
+![](../../static/img/tezos-basics/tezos_smart_contract_deploy_invoke.svg)
+<small className="figure">FIGURE 3: Deployment and call of a Tezos smart contract with high-level languages.</small>
 
-### Invocation of a smart contract
+## Smart contracts versioning
+You need to remember the code of a smart contract is **immutable**. Only evolve the storage size and state. Hence, to handle smart contracts versioning, you should keep in mind **implementations structures** allowing transfer of information **from old contracts to new contracts**.
 
-A smart contract can be invoked by a person (implicit account) whose address starts with _tz1_ or by a smart contract which address starts with a _KT1_.
+Hopefully, the above high-level languages make this kind of complex implementation easier. We will present to you three patterns to build evolutive smart contracts or *Dapps*.
 
-The invocation of a smart contract is a transaction sent to the address of a smart contract. This transaction specifies which entrypoint is called and what are its related arguments. 
+### Map pattern
+The idea of this pattern is to make a smart contract storage more dynamic. We put key data inside a table or "data mapping". This mapping or "map" makes a classic "Key / Value" association between two data types. What's interesting here, like in an *array*, is that it's evolutive, even in the storage. Of course, the data types are fixed, but it is possible to add or remove pairs or change a *value* associated with the same *key*.
 
-The invocation of an entrypoint triggers the execution of the sequence of Michelson instructions, which results in the modification of the storage and potentially generates other transactions.
+For example, it is common to define a *map* of users in a DAO, so the users' list can change following various organization's rules. The same users aren't carved in stone forever.
 
-One can use the CLI provided by Tezos to interact with a node. The client application `tezos-client` allows anyone to deploy and invoke smart contracts.
+Note that even if a value or pair is deleted from a map, the blockchain ledger keeps the complete history of its state.  
+In the DAO example, a user would be able to quit but you'd still find his trace exploring the past blocks.
 
-The Remote Procedure Call (RPC) also provides a way to send a request via HTTP to a Tezos node. 
+![](../../static/img/tezos-basics/map-pattern.svg)  
+<small className="figure">FIGURE 4: <i>Map pattern</i> illustration.</small>
 
-More details in the [RPC and CLI chapter](/tezos-basics/introduction_to_cli_and_rpc).
+### Lambda pattern
+The Lambda pattern is based on *lambda functions*. These anonymous functions only have a mandatory *type* (function!); non-mandatory *parameters*; and non-mandatory *return values*. The idea is to exchange the **body** of a classic function with a **lambda function**. While the classic function is immutable, the lambda function is stored in the storage, therefore mutable.
 
-## High-level languages for Tezos smart contract implementation
+Instead of simply sealing the classic function's body as an immutable structure, you make it a mutable *variable* of the storage.  
+In an **imaginary** high-level language syntax:
 
-Michelson is a low-level stack-based language. Therefore its adoption is quite limited as most developers will not take the time to learn it. To counter this difficulty, many Michelson transpilers have been developed. These high-level languages are closer to the languages developers are more used to working with: [SmartPy](/smartpy) close to Python, [LIGO](/ligo) close to Camel and Pascal, and, finally, Morley.
+- *An entrypoint*
 
+```d
+Entrypoint_for_doSomething(p1, ... , pP) {
+    doSomething(p1, ... , pP);
+}
+```
+- *The corresponding immutable function*
+
+```d
+function doSomething(p1, ... , pP) return (v1, ... , vR) {
+    storage.lambdaFunction();
+}
+```
+- *The lambda function in the storage as a variable*
+
+```d
+lambdaFunction = function (p1, ... , pP) return (v1, ... , vR) {
+    actual_instructions;
+};
+```
+
+**Warnings**:  
+In this algorithmic example, almost all types are implicit, which limits syntax length. Furthermore, the syntax isn't as functional as in languages used for Tezos smart contracts (e.g. *LIGO*).
+
+![](../../static/img/tezos-basics/lambda-pattern.svg)  
+<small className="figure">FIGURE 5: <i>Lambda pattern</i> illustration.</small>
+
+You could use a *map pattern* aswell. Inside the map, you can store each lambda function as a *value*. To be executed, the code would find the correct lambda function at the corresponding *key*.
+
+Later, in an upgrading process, it would be possible to **modify the lambda function** in **just changing** the **_value_** in the *map* for the **_same key_**. It would also be possible to **batch changes on the whole *map***.
+
+### Data-Proxy pattern
+
+The idea of the "*Data-Proxy*" pattern is pretty simple: separate the logic from the data into different smart contracts. Instead of duplicating and transfering the data into a new smart contract, we only update the logic smart contract.
+
+The first smart contract is the Data smart contract. It stores important data, including the address and entrypoints of the Logic smart contract. It also plays a proxy role as any request always goes through it first. It usually doesn't have a lot of functions. The mandatory functions set and retrieve its storage data (including new addresses for the new logic smart contracts).
+
+When you need to update the logic (e.g. new features; corrections...) you only deploy a new logic smart contract and update the Data smart contract storage with the new address. See below fig. 6 for an update of the Logic smart contract from version 1.0 to 2.1.:
+
+![](../../static/img/tezos-basics/data-proxy.svg)  
+<small className="figure">FIGURE 6: <i>Data-Proxy</i> pattern illustration.</small>
+
+Once the Data-Proxy architecture is in place, we can make the Data smart contract more dynamic with a Map pattern and the Logic smart contract upgradable with a Lambda pattern.
+
+The idea we discribed is actually a basic form of [modular programming](https://en.wikipedia.org/wiki/Modular_programming).
+
+This pattern isn't limited to 2 smart contracts only. You can imagine various architectures combining various patterns. For instance, you can imagine a central Data smart contract and multiple upgradable other smart contracts revolving around it. This example implies a single point of failure in the Data smart contract, but there are other questions you should keep in mind, like access rights (to get and set data, to upgrade logic, etc.).
+
+These patterns aren't magical and just allow more flexibility. You still need to think about the best architecture for your *dapp*. Patterns can notably increase the deployment and *gaz* using fees.
+
+## What have we learned so far?
+In this chapter, we described the Tezos smart contract's main components and properties. We also described its lifecycle. We explained how to construct Tezos smart contracts using different patterns to make evolving *dapps* and handle efficient *versioning*.
+
+In the next chapter, we will detail the Tezos consensus "*Liquid Proof-of-Stake*".

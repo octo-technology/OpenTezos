@@ -5,10 +5,18 @@
   "title": "Contribute to the Tezos Core Protocol",
   "description": "The full source code of Tezos is available on gitlab.com/tezos. Tezos is written in OCaml, an industrial-strength programming language supporting functional, imperative and object-oriented styles [1]. OCaml is a functional programming language that offers speed, an unambiguous syntax and semantics, and formal proofs of correctness.",
   "source": "@site/docs/contribute/tezos-core.md",
+  "sourceDirName": "contribute",
   "slug": "/contribute/tezos-core",
   "permalink": "/contribute/tezos-core",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/contribute/tezos-core.md",
   "version": "current",
+  "lastUpdatedBy": "AymericBethencourt",
+  "lastUpdatedAt": 1618840330,
+  "formattedLastUpdatedAt": "4/19/2021",
+  "frontMatter": {
+    "id": "tezos-core",
+    "title": "Contribute to the Tezos Core Protocol"
+  },
   "sidebar": "docs",
   "previous": {
     "title": "Contribute to OpenTezos",

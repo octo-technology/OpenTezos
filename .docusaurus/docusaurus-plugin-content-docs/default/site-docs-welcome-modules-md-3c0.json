@@ -5,11 +5,22 @@
   "title": "Welcome to OpenTezos",
   "description": "Welcome Tezos Developers! Explore the technical and economic concepts behind the Tezos Network, experiment with our tutorials, or start building your own Tezos Dapp. Each module will teach you a full concept of Tezos, ending with a quizz that will get you an official completion certification if you succeed.",
   "source": "@site/docs/welcome/modules.md",
+  "sourceDirName": "welcome",
   "slug": "/",
   "permalink": "/",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/welcome/modules.md",
   "version": "current",
+  "lastUpdatedBy": "AymericBethencourt",
+  "lastUpdatedAt": 1617132921,
+  "formattedLastUpdatedAt": "3/30/2021",
   "sidebar_label": "Modules",
+  "frontMatter": {
+    "id": "modules",
+    "disable_pagination": true,
+    "title": "Welcome to OpenTezos",
+    "sidebar_label": "Modules",
+    "slug": "/"
+  },
   "sidebar": "docs",
   "next": {
     "title": "Paths",

@@ -3,12 +3,20 @@
   "id": "explorer/tzstats-smart-contract",
   "isDocsHomePage": false,
   "title": "Checkout your smart contract on TzStats",
-  "description": "As a developer, you will often want to check the state of your deployed smart contracts. Using a blockchain explorer is a fast and easy way to do so. In this section, we'll deploy a smart contract and check it out on TzStats.",
+  "description": "As a developer, you will often want to check the state of your deployed smart contracts. Using a blockchain explorer is a fast and easy way to do so. In this section, we will deploy a smart contract and check it out on TzStats.",
   "source": "@site/docs/explorer/tzstats-smart-contract.md",
+  "sourceDirName": "explorer",
   "slug": "/explorer/tzstats-smart-contract",
   "permalink": "/explorer/tzstats-smart-contract",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/explorer/tzstats-smart-contract.md",
   "version": "current",
+  "lastUpdatedBy": "Theotime-Akeare",
+  "lastUpdatedAt": 1619621010,
+  "formattedLastUpdatedAt": "4/28/2021",
+  "frontMatter": {
+    "id": "tzstats-smart-contract",
+    "title": "Checkout your smart contract on TzStats"
+  },
   "sidebar": "docs",
   "previous": {
     "title": "How to use the tzStats blockchain explorer?",

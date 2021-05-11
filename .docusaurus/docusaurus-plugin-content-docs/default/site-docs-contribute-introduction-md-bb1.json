@@ -5,10 +5,20 @@
   "title": "Introduction",
   "description": "Tezos is user-centric blockchain. As seen in the governance chapter, the evolution of Tezos is decided by its stakeholders. Anyone can contribute, from reporting a simple issue to coding and developing a whole new platform based on Tezos, there are many opportunities that will benefit you and the ecosystem. In this module we will see how to:",
   "source": "@site/docs/contribute/introduction.md",
+  "sourceDirName": "contribute",
   "slug": "/contribute",
   "permalink": "/contribute",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/contribute/introduction.md",
   "version": "current",
+  "lastUpdatedBy": "AymericBethencourt",
+  "lastUpdatedAt": 1618690820,
+  "formattedLastUpdatedAt": "4/17/2021",
+  "frontMatter": {
+    "id": "introduction",
+    "disable_pagination": true,
+    "title": "Introduction",
+    "slug": "/contribute"
+  },
   "sidebar": "docs",
   "previous": {
     "title": "Exam",

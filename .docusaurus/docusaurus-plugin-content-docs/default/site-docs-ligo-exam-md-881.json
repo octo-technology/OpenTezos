@@ -5,10 +5,18 @@
   "title": "Exam",
   "description": "Question 1",
   "source": "@site/docs/ligo/exam.md",
+  "sourceDirName": "ligo",
   "slug": "/ligo/exam",
   "permalink": "/ligo/exam",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/exam.md",
   "version": "current",
+  "lastUpdatedBy": "Maxime Sallerin",
+  "lastUpdatedAt": 1620209056,
+  "formattedLastUpdatedAt": "5/5/2021",
+  "frontMatter": {
+    "id": "exam",
+    "title": "Exam"
+  },
   "sidebar": "docs",
   "previous": {
     "title": "Examples",

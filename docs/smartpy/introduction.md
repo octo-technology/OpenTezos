@@ -1,6 +1,8 @@
 ---
 id: introduction
 title: Introduction
+slug: /smartpy
+authors: Maxime Sallerin
 ---
 
 The goal of this module is to allow a developer to write smart contracts with SmartPy.

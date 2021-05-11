@@ -5,10 +5,18 @@
   "title": "Smart contract development in Pascaligo",
   "description": "The language of smart contracts is Michelson, a stack-based language.",
   "source": "@site/docs/ligo/write-contracts-ligo.md",
+  "sourceDirName": "ligo",
   "slug": "/ligo/write-contracts-ligo",
   "permalink": "/ligo/write-contracts-ligo",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/write-contracts-ligo.md",
   "version": "current",
+  "lastUpdatedBy": "MASA",
+  "lastUpdatedAt": 1620045451,
+  "formattedLastUpdatedAt": "5/3/2021",
+  "frontMatter": {
+    "id": "write-contracts-ligo",
+    "title": "Smart contract development in Pascaligo"
+  },
   "sidebar": "docs",
   "previous": {
     "title": "Installation",

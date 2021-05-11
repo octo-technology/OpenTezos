@@ -1,6 +1,7 @@
 ---
 id: smart-contracts
 title: Smart Contracts
+authors: Frank Hillard
 ---
 
 ## Smart contracts in Michelson

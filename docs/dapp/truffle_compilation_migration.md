@@ -1,6 +1,7 @@
 ---
 id: truffle_compilation_migration
 title: Smart contract deployment with Truffle
+authors: Benjamin Pilia
 ---
 
 ## Introduction
@@ -323,14 +324,14 @@ const web3 = require("web3");
 
 Below is the matching table between Javascript and Ligo.
 
-| Ligo              | Javascript                                                          |
-| -----------       | -----------                                                         |
-| List, Tuple       | [ ]                                                                 |
-| Big_map, Map      | const bigMap = new MichelsonMap() <br /> bigMap.set(key, values) <br /> *(from taquito module)*   |
-| string, address   | string                                                              |
-| bytes             | `web3.utils.asciiToHex(string_to_convert).slice(2)`                    |
-| int, nat, mutez   | number                                                              |
-| record            | Object { }                                                          |
+| Ligo            | Javascript                                                                                      |
+| --------------- | ----------------------------------------------------------------------------------------------- |
+| List, Tuple     | [ ]                                                                                             |
+| Big_map, Map    | const bigMap = new MichelsonMap() <br /> bigMap.set(key, values) <br /> *(from taquito module)* |
+| string, address | string                                                                                          |
+| bytes           | `web3.utils.asciiToHex(string_to_convert).slice(2)`                                             |
+| int, nat, mutez | number                                                                                          |
+| record          | Object { }                                                                                      |
 
 Here is a migration example, defining a storage with essential types:
 

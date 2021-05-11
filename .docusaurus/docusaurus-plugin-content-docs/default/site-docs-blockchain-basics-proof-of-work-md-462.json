@@ -1,0 +1,31 @@
+{
+  "unversionedId": "blockchain-basics/proof-of-work",
+  "id": "blockchain-basics/proof-of-work",
+  "isDocsHomePage": false,
+  "title": "Proof-of-work",
+  "description": "Proof-of-work was the first fully functional blockchain consensus ever created. It is still in use by Bitcoin and many other blockchains. It requires its users to mine for getting a chance earning a reward for validating transactions. In this chapter, we are going to look into the technical side of things and how mining works.",
+  "source": "@site/docs/blockchain-basics/proof-of-work.md",
+  "sourceDirName": "blockchain-basics",
+  "slug": "/blockchain-basics/proof-of-work",
+  "permalink": "/blockchain-basics/proof-of-work",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/blockchain-basics/proof-of-work.md",
+  "version": "current",
+  "lastUpdatedBy": "AymericBethencourt",
+  "lastUpdatedAt": 1620211817,
+  "formattedLastUpdatedAt": "5/5/2021",
+  "frontMatter": {
+    "id": "proof-of-work",
+    "disable_pagination": true,
+    "title": "Proof-of-work",
+    "author": "Aymeric Bethencourt"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Main properties of the first \"blockchain\"",
+    "permalink": "/blockchain-basics/main-properties"
+  },
+  "next": {
+    "title": "Introduction to other consensuses",
+    "permalink": "/blockchain-basics/other-consensuses"
+  }
+}

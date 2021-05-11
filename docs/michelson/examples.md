@@ -1,6 +1,7 @@
 ---
 id: examples
 title: Examples
+authors: Frank Hillard
 ---
 
 

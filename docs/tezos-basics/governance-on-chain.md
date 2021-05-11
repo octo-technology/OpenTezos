@@ -1,6 +1,7 @@
 ---
 id: governance-on-chain
 title: Governance on-chain
+authors: Thomas Zoughebi, Aymeric Bethencourt and Maxime Fernandez
 ---
 
 Tezos is a self-amending blockchain network that incorporates an on-chain mechanism for proposing, selecting, testing, and activating protocol upgrades without having to hard fork. [[1]](/tezos-basics/governance-on-chain#references)
@@ -68,7 +69,7 @@ The following formula is then used to update the moving average for the next vot
 EMA(t+1)= 0.8 * EMA(t) + 0.2 * Voter Turnout
 ```
 
-Note that delegates’ votes are weighted proportionally to the number of rolls in their staking balance.
+Note that delegates' votes are weighted proportionally to the number of rolls in their staking balance.
 
 ## Phase 1: Proposal period
 The Tezos amendment process begins with the _Proposal Period_, during which delegates can submit proposals on-chain. The delegates submit the proposal by submitting the hash of the source code.
@@ -180,7 +181,7 @@ Proposals : {
   proposals: Protocol_hash.t list ; 
 }
 ```
-`source` is the delegate’s public key hash
+`source` is the delegate's public key hash
 
 `period` is the unique identifier of each voting period
 
@@ -198,7 +199,7 @@ Ballot : {
   ballot: Vote_repr.ballot ; 
 }
 ```
-`source` is the delegate’s public key hash
+`source` is the delegate's public key hash
 
 `period` is the unique identifier of each voting period
 

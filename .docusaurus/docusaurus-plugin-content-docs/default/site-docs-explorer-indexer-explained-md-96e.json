@@ -5,10 +5,18 @@
   "title": "How Indexers Work?",
   "description": "This chapter aims to describe the functioning of a traditional indexer and its components.",
   "source": "@site/docs/explorer/indexer-explained.md",
+  "sourceDirName": "explorer",
   "slug": "/explorer/indexer-explained",
   "permalink": "/explorer/indexer-explained",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/explorer/indexer-explained.md",
   "version": "current",
+  "lastUpdatedBy": "Theotime-Akeare",
+  "lastUpdatedAt": 1619616430,
+  "formattedLastUpdatedAt": "4/28/2021",
+  "frontMatter": {
+    "id": "indexer-explained",
+    "title": "How Indexers Work?"
+  },
   "sidebar": "docs",
   "previous": {
     "title": "Introduction",

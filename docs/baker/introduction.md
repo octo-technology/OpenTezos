@@ -3,6 +3,7 @@ id: introduction
 disable_pagination: true
 title: Introduction
 slug: /baker
+authors: --
 ---
 
 import NotificationBar from '../../src/components/docs/NotificationBar';

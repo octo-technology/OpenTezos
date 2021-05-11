@@ -6,8 +6,16 @@ export default {
   "onBrokenLinks": "warn",
   "onBrokenMarkdownLinks": "warn",
   "favicon": "img/favicon.ico",
-  "organizationName": "OpenTezos",
+  "organizationName": "Octo-Technology",
   "projectName": "OpenTezos",
+  "stylesheets": [
+    {
+      "href": "https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css",
+      "type": "text/css",
+      "integrity": "sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X",
+      "crossorigin": "anonymous"
+    }
+  ],
   "themeConfig": {
     "navbar": {
       "logo": {
@@ -421,7 +429,15 @@ export default {
         "docs": {
           "sidebarPath": "/Users/lol/apps/work/opentezos-docusaurus/opentezos/src/sidebar/sidebar.js",
           "routeBasePath": "/",
-          "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/"
+          "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/",
+          "remarkPlugins": [
+            null
+          ],
+          "rehypePlugins": [
+            null
+          ],
+          "showLastUpdateTime": true,
+          "showLastUpdateAuthor": true
         },
         "theme": {
           "customCss": "/Users/lol/apps/work/opentezos-docusaurus/opentezos/src/css/custom.css"

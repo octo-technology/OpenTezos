@@ -5,17 +5,25 @@
   "title": "Language basics",
   "description": "In this chapter, all the following examples will use the PascaLigo syntax.",
   "source": "@site/docs/ligo/language-basics.md",
+  "sourceDirName": "ligo",
   "slug": "/ligo/language-basics",
   "permalink": "/ligo/language-basics",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/language-basics.md",
   "version": "current",
+  "lastUpdatedBy": "Aymeric BETHENCOURT",
+  "lastUpdatedAt": 1620219601,
+  "formattedLastUpdatedAt": "5/5/2021",
+  "frontMatter": {
+    "id": "language-basics",
+    "title": "Language basics"
+  },
   "sidebar": "docs",
   "previous": {
     "title": "Smart contract development in Pascaligo",
     "permalink": "/ligo/write-contracts-ligo"
   },
   "next": {
-    "title": "Deploy a contract",
+    "title": "Smart Contract",
     "permalink": "/ligo/deploy-a-contract"
   }
 }

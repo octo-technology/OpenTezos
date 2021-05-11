@@ -5,10 +5,20 @@
   "title": "Introduction",
   "description": "Under construction.",
   "source": "@site/docs/deploy-a-node/introduction.md",
+  "sourceDirName": "deploy-a-node",
   "slug": "/deploy-a-node",
   "permalink": "/deploy-a-node",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/deploy-a-node/introduction.md",
   "version": "current",
+  "lastUpdatedBy": "AymericBethencourt",
+  "lastUpdatedAt": 1615818620,
+  "formattedLastUpdatedAt": "3/15/2021",
+  "frontMatter": {
+    "id": "introduction",
+    "disable_pagination": true,
+    "title": "Introduction",
+    "slug": "/deploy-a-node"
+  },
   "sidebar": "docs",
   "previous": {
     "title": "Exam",

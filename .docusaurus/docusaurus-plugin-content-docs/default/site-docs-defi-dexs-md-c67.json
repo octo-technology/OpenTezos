@@ -5,10 +5,19 @@
   "title": "Decentralized Exchanges",
   "description": "An exchange is a marketplace where coins and tokens are traded. The core function of an exchange is to ensure fair and orderly trading and the efficient dissemination of price information for any pair trading on that exchange. Exchanges give companies, traders, and crypto-enthusiasts a platform from which to publicly sell and buy crypto-currencies.",
   "source": "@site/docs/defi/dexs.md",
+  "sourceDirName": "defi",
   "slug": "/defi/dexs",
   "permalink": "/defi/dexs",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/dexs.md",
   "version": "current",
+  "lastUpdatedBy": "AymericBethencourt",
+  "lastUpdatedAt": 1620219513,
+  "formattedLastUpdatedAt": "5/5/2021",
+  "frontMatter": {
+    "id": "dexs",
+    "title": "Decentralized Exchanges",
+    "author": "Aymeric Bethencourt"
+  },
   "sidebar": "docs",
   "previous": {
     "title": "Token Standards",

@@ -3,12 +3,21 @@
   "id": "explorer/private-indexer",
   "isDocsHomePage": false,
   "title": "Private indexer",
-  "description": "The tools presented in this module so far are fully public, meaning that everyone can use them. However, they are meant for public networks, and the user is dependent on the infrastructure and configuration of these services. Some organizations are more interrested in deploying their own private Tezos network, either for private testing before going public, or for entirely private use. Refer to the Private blockchain module for more info. Therefore, it must be possible to use an indexer on private networks.",
+  "description": "The tools presented in this module so far, are fully public, meaning that everyone can use them. However, they are meant for public networks, and who the user is, is dependent on the infrastructure and configuration of these services. Some organizations are more interested in deploying their own private Tezos network, either for private testing before going public, or for entirely private use. Refer to the Private blockchain module for more info. Therefore, it is possible to use an indexer on private networks.",
   "source": "@site/docs/explorer/private-indexer.md",
+  "sourceDirName": "explorer",
   "slug": "/explorer/private-indexer",
   "permalink": "/explorer/private-indexer",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/explorer/private-indexer.md",
   "version": "current",
+  "lastUpdatedBy": "AymericBethencourt",
+  "lastUpdatedAt": 1619648031,
+  "formattedLastUpdatedAt": "4/29/2021",
+  "frontMatter": {
+    "id": "private-indexer",
+    "disable_pagination": true,
+    "title": "Private indexer"
+  },
   "sidebar": "docs",
   "previous": {
     "title": "Checkout your smart contract on TzStats",
