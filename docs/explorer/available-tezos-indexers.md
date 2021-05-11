@@ -1,16 +1,43 @@
 ---
 id: available-tezos-indexers
-title: Available Tezos Indexers
+title: Available Tezos Explorers
 authors: Maxime Sallerin
 ---
 
-The purpose of this chapter is to list the main explorers of the Tezos blockchain with their pros and cons.
+The purpose of this chapter is to list the main explorers of the Tezos blockchain and presents the pros and cons of some.
+
+## Tezos Blockchain Explorers
+
+- [TzStats](https://tzstats.com/)
+- [tezblock](https://tezblock.io/)
+- [Arronax](https://arronax.io/)
+- [TzKT](https://tzkt.io/)
+- [TezTracker](https://teztracker.everstake.one/mainnet)
+- [TezEdge - Tezos Node Explorer](https://tezedge.com/#/network)
+- [Tezos Notifier Bot (Telegram)](https://t.me/TezosNotifierBot)
+- [Better Call Dev - Smart Contract Explorer](https://better-call.dev/)
+- [SmartPy Contract Explorer](https://www.smartpy.io/dev/explorer)
+- [Misualizer - Smart Contract Explorer](https://misualizer.tezbridge.com/)
+- [Tezos Hubble Explorer](https://hubble.figment.network/tezos)
+- [Baking Bad - Delegation Explorer](https://baking-bad.org/)
+- [Mininax](https://mininax.io/mainnet)
+- [Blockchair](https://blockchair.com/tezos)
+
+## Indexers potential features
+
+- **Speed**
+- **Full-text search**
+- **The mempool** is made of all transactions which have been submitted for inclusion in the chain but not included in a block yet by bakers.
+- **Bigmap support** Allows you to access and observe the content of a Big Map from a smart contract.
+- **API Server**
+  - **Explorer API** for accessing individual objects of the explorer.
+  - **Time-series API** only contain numeric data types and are indexed by one date field. Through API calls, users can retrieve the entire time-series as well as a slice of it. It is great for aggregate counters and statistics over specific fields.
+  - **Tables API** can include various unsorted data types (strings, numbers, dates, etc.) and can be filtered by different fields.
 
 ## Blockwatch TzIndex / TzStats
 
-TzStats was the first Tezos Analytics Explorer, 
-extending the functionality of traditional block explorers with comprehensive data analytics.   
-It is now the most complete and intuitive Tezos blockchain explorer.
+TzStats was the first Tezos Analytics Explorer,
+extending the functionality of traditional block explorers with comprehensive data analytics.
 
 ![](../../static/img/explorer/screenshot_TzStats_explorer.png)
 <small className="figure">FIGURE 1: TzStats Explorer</small>
@@ -19,58 +46,16 @@ It is now the most complete and intuitive Tezos blockchain explorer.
 - Explorer website : [TzStats.com](https://tzstats.com/)
 
 **Pros**
+
 - speed
 - stand-alone, no database needed
 - Michelson decoding and full Bigmap support
 - time-series and table APIs
 
 **Cons**
+
 - no mempool support
 - no full-text search
-
-> **The mempool** is made of all transactions which have been submitted for inclusion in the chain but not included in a block yet by bakers.
-
-## Nomadic Labs Indexer
-
-Nomadic Labs Indexer is the first indexer made by the Tezos team in July 2019.
-
-![](../../static/img/explorer/screenshot_nomadic_indexer.png)
-<small className="figure">FIGURE 1: GitLab Nomadic Labs Indexer</small>
-
-- Source code : [Gitlab](https://gitlab.com/nomadic-labs/tezos-indexer)
-
-**Pros**
-- made by the Tezos core team
-- same data structures as a Tezos node
-
-**Cons**
-- ETL only, no API server
-- requires a Postgres database
-- no smart contract support
-
-> **Postgre server impacts speed performance**.
-> The trade-off of the Postgres server is that for every index 
-> you have to insert data at a slower pace. 
-> Essentially when you insert your data using an index 
-> it must write data to two places as well as maintain the sort on the index as you insert the data
-
-## Cryptonomic Conseil
-
-Arronax is Cyrptonomic Conseil's block explorer and was released in beta in April 2020.
-
-![](../../static/img/explorer/screenshot_cryptonomic_indexer.png)
-<small className="figure">FIGURE 1: Arronax Explorer</small>
-
-- Source code : [Github](https://github.com/Cryptonomic/Conseil)
-- Explorer website : [Arronax.io](https://arronax.io/)
-
-**Pros**
-- indexer and API server
-- full-text search in contracts & storage and smart filter
-
-**Cons**
-- requires a Postgres database
-- limited statistics and timeseries data
 
 
 ## Baking Bad TzKT Indexer
@@ -85,11 +70,52 @@ Their block explorer **TzKT** was released in December 2021.
 - Explorer website : [TzKT.io](https://tzkt.io/)
 
 **Pros**
-- split design: ETL, API
+
+- API server
 - mempool support
 
 **Cons**
-- requires a Postgres database
+
 - requires Microsoft Toolchain
-- no smart contract support (yet)
 - no time-series data
+
+> The Baking Bad team has developed another tool, [Better Call Dev](https://better-call.dev/), which allows the exploration of smart contracts.
+
+
+## Nomadic Labs Indexer
+
+Nomadic Labs Indexer is the first indexer made by the Tezos team in July 2019.
+
+![](../../static/img/explorer/screenshot_nomadic_indexer.png)
+<small className="figure">FIGURE 1: GitLab Nomadic Labs Indexer</small>
+
+- Source code : [Gitlab](https://gitlab.com/nomadic-labs/tezos-indexer)
+
+**Pros**
+
+- made by the Tezos core team
+- same data structures as a Tezos node
+
+**Cons**
+
+- ETL only, no API server
+- no smart contract support
+
+## Arronax
+
+Arronax is Cyrptonomic Conseil's block explorer and was released in beta in April 2020.
+
+![](../../static/img/explorer/screenshot_cryptonomic_indexer.png)
+<small className="figure">FIGURE 1: Arronax Explorer</small>
+
+- Source code : [Github](https://github.com/Cryptonomic/Conseil)
+- Explorer website : [Arronax.io](https://arronax.io/)
+
+**Pros**
+
+- API server
+- full-text search in contracts & storage and smart filter
+
+**Cons**
+
+- limited statistics and timeseries data
