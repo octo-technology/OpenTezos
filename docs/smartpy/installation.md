@@ -3,7 +3,7 @@ id: installation
 title: Installation
 ---
 
-This chapter aims at preparing your working environment in order to be ready to code, 
+This chapter aims at preparing your working environment to be ready to code, 
 test and compile your smart contracts.
 
 You can code locally on your favorite ide and/or use the [online editor](https://smartpy.io/ide) 
