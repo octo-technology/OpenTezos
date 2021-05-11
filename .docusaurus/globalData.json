@@ -315,8 +315,18 @@
               "sidebar": "docs"
             },
             {
+              "id": "smartpy/installation",
+              "path": "/smartpy/installation",
+              "sidebar": "docs"
+            },
+            {
               "id": "smartpy/introduction",
               "path": "/smartpy",
+              "sidebar": "docs"
+            },
+            {
+              "id": "smartpy/write-contract-smartpy",
+              "path": "/smartpy/write-contract-smartpy",
               "sidebar": "docs"
             },
             {

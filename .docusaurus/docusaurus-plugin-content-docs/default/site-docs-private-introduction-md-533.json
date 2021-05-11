@@ -10,14 +10,15 @@
   "permalink": "/private",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/private/introduction.md",
   "version": "current",
-  "lastUpdatedBy": "AymericBethencourt",
-  "lastUpdatedAt": 1615818620,
-  "formattedLastUpdatedAt": "3/15/2021",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "id": "introduction",
     "disable_pagination": true,
     "title": "Introduction",
-    "slug": "/private"
+    "slug": "/private",
+    "authors": "Maxime Sallerin"
   },
   "sidebar": "docs",
   "previous": {

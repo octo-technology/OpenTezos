@@ -10,14 +10,15 @@
   "permalink": "/baking",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/baking/introduction.md",
   "version": "current",
-  "lastUpdatedBy": "Fernandez",
-  "lastUpdatedAt": 1616170422,
-  "formattedLastUpdatedAt": "3/19/2021",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "id": "introduction",
     "disable_pagination": true,
     "title": "Introduction",
-    "slug": "/baking"
+    "slug": "/baking",
+    "authors": "--"
   },
   "sidebar": "docs",
   "previous": {

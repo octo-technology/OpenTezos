@@ -34,7 +34,10 @@ What is returned by the execution of a smart contract?
 
 What can I do with the SmartPy online editor?
 
--[x] Write test and run your code -[x] Visualize the generated Michelson contract and storage code. -[x] View the test results as an HTML document. -[x] Access a panel of several smart contract templates.
+- [x] Write test and run your code
+- [x] Visualize the generated Michelson contract and storage code. 
+- [x] View the test results as an HTML document. 
+- [x] Access a panel of several smart contract templates.
 
 ### Question 4
 
@@ -48,38 +51,33 @@ What is a SmartPy smart contract?
 
 What is the correct way to add an integer `x` initialized to `0` to the storage?
 
-- [ ] .
-
+- [ ] 
 ```python
 @sp.storage
 def __init__(self):
     self.init(x = 0)
 ```
 
-- [ ] .
-
+- [ ] 
 ```python
 @sp.storage
 def storage(self):
     self.x = 0
 ```
 
-- [x] .
-
+- [x] 
 ```python
 def __init__(self):
     self.init(x = 0)
 ```
 
-- [ ] .
-
+- [ ] 
 ```python
 def __init__(self):
     self.x = 0
 ```
 
-- [ ] .
-
+- [ ] 
 ```python
 def __storage__(self):
     self.init(x = 0)
@@ -110,7 +108,7 @@ What is true about type with SmartPy?
 - [ ] SmartPy expressions do not have a type.
 - [x] Just like in Python, most of the time, there is no need to specify the type of object in SmartPy.
 - [x] SmartPy uses type inference to determine each expression's type.
-- [x] SmartPy types are all of the form sp.T<TypeName>.
+- [x] SmartPy types are all of the form `sp.T<TypeName>`.
 
 ### Question 9 and 10
 
@@ -163,8 +161,7 @@ def set_x(newX):
 What is the correct way to modify the code to check that `newX` is greater than 0 for the entrypoint `set_x`?
 If not, we want the entrypoint invocation to fail and return an error message.
 
-- [ ] .
-
+- [ ] 
 ```python
 @sp.entry_point
 def set_x(newX):
@@ -172,8 +169,7 @@ def set_x(newX):
     self.data.x = newX
 ```
 
-- [ ] .
-
+- [ ] 
 ```python
 @sp.entry_point
 def set_x(newX):
@@ -181,8 +177,7 @@ def set_x(newX):
         self.data.x = newX
 ```
 
-- [x] .
-
+- [x] 
 ```python
 @sp.entry_point
 def set_x(newX):
@@ -190,8 +185,7 @@ def set_x(newX):
     self.data.x = newX
 ```
 
-- [ ] .
-
+- [ ] 
 ```python
 @sp.entry_point
 def set_x(newX):

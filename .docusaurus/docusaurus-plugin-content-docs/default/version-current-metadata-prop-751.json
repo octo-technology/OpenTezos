@@ -182,6 +182,16 @@
           },
           {
             "type": "link",
+            "label": "Installation",
+            "href": "/smartpy/installation"
+          },
+          {
+            "type": "link",
+            "label": "Smart contract development with SmartPy",
+            "href": "/smartpy/write-contract-smartpy"
+          },
+          {
+            "type": "link",
             "label": "Exam",
             "href": "/smartpy/exam"
           }
@@ -533,7 +543,9 @@
     "/private/exam": "docs",
     "/private": "docs",
     "/smartpy/exam": "docs",
+    "/smartpy/installation": "docs",
     "/smartpy": "docs",
+    "/smartpy/write-contract-smartpy": "docs",
     "/tezos-basics/cli-and-rpc": "docs",
     "/tezos-basics/economics-and-rewards": "docs",
     "/tezos-basics/exam": "docs",

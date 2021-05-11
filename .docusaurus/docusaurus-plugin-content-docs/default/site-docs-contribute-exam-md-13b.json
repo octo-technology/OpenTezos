@@ -10,12 +10,13 @@
   "permalink": "/contribute/exam",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/contribute/exam.md",
   "version": "current",
-  "lastUpdatedBy": "23ESHU77",
-  "lastUpdatedAt": 1620119103,
-  "formattedLastUpdatedAt": "5/4/2021",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "id": "exam",
-    "title": "Exam"
+    "title": "Exam",
+    "authors": "Aymeric Bethencourt"
   },
   "sidebar": "docs",
   "previous": {

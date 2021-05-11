@@ -10,12 +10,13 @@
   "permalink": "/ligo/exam",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/exam.md",
   "version": "current",
-  "lastUpdatedBy": "Maxime Sallerin",
-  "lastUpdatedAt": 1620209056,
-  "formattedLastUpdatedAt": "5/5/2021",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "id": "exam",
-    "title": "Exam"
+    "title": "Exam",
+    "authors": "Maxime Sallerin and Benjamin Pilia"
   },
   "sidebar": "docs",
   "previous": {

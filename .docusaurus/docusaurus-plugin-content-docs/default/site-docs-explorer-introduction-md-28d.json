@@ -10,12 +10,13 @@
   "permalink": "/explorer/introduction",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/explorer/introduction.md",
   "version": "current",
-  "lastUpdatedBy": "AymericBethencourt",
-  "lastUpdatedAt": 1619623865,
-  "formattedLastUpdatedAt": "4/28/2021",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "id": "introduction",
-    "title": "Introduction"
+    "title": "Introduction",
+    "authors": "Maxime Sallerin"
   },
   "sidebar": "docs",
   "previous": {

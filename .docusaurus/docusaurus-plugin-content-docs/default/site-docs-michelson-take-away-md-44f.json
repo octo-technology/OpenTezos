@@ -10,12 +10,13 @@
   "permalink": "/michelson/take-away",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/michelson/take-away.md",
   "version": "current",
-  "lastUpdatedBy": "AymericBethencourt",
-  "lastUpdatedAt": 1617699572,
-  "formattedLastUpdatedAt": "4/6/2021",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "id": "take-away",
-    "title": "Take away"
+    "title": "Take away",
+    "authors": "Frank Hillard"
   },
   "sidebar": "docs",
   "previous": {

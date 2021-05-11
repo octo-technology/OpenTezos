@@ -10,12 +10,13 @@
   "permalink": "/ligo/write-contracts-ligo",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/write-contracts-ligo.md",
   "version": "current",
-  "lastUpdatedBy": "MASA",
-  "lastUpdatedAt": 1620045451,
-  "formattedLastUpdatedAt": "5/3/2021",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "id": "write-contracts-ligo",
-    "title": "Smart contract development in Pascaligo"
+    "title": "Smart contract development in Pascaligo",
+    "authors": "Maxime Sallerin and Benjamin Pilia"
   },
   "sidebar": "docs",
   "previous": {

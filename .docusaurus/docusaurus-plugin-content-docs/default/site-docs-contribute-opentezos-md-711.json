@@ -3,19 +3,20 @@
   "id": "contribute/opentezos",
   "isDocsHomePage": false,
   "title": "Contribute to OpenTezos",
-  "description": "The great website you are currently browsing is called OpenTezos and will later be merged with the upcoming wiki.tezos.com. It is therefore important that all the content here is up to date and error-free. If you see an error, you can either submit an issue or go a step further by actually correcting the error yourself and submitting it for review. Here is how to proceed:",
+  "description": "The excellent website you are currently browsing is called OpenTezos and will later be merged with the upcoming wiki.tezos.com. It is, therefore, important that all the content here is up-to-date and error-free. If you see an error, you can either submit an issue or go a step further by actually correcting the mistake yourself and submitting it for review. Here is how to proceed:",
   "source": "@site/docs/contribute/opentezos.md",
   "sourceDirName": "contribute",
   "slug": "/contribute/opentezos",
   "permalink": "/contribute/opentezos",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/contribute/opentezos.md",
   "version": "current",
-  "lastUpdatedBy": "AymericBethencourt",
-  "lastUpdatedAt": 1618694304,
-  "formattedLastUpdatedAt": "4/17/2021",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "id": "opentezos",
-    "title": "Contribute to OpenTezos"
+    "title": "Contribute to OpenTezos",
+    "authors": "Aymeric Bethencourt"
   },
   "sidebar": "docs",
   "previous": {

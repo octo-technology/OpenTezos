@@ -10,12 +10,13 @@
   "permalink": "/tezos-basics/cli-and-rpc",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/cli-and-rpc.md",
   "version": "current",
-  "lastUpdatedBy": "AymericBethencourt",
-  "lastUpdatedAt": 1616717468,
-  "formattedLastUpdatedAt": "3/26/2021",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "id": "cli-and-rpc",
-    "title": "CLI and RPC"
+    "title": "CLI and RPC",
+    "authors": "Thomas Zoughebi, Aymeric Bethencourt and Maxime Fernandez"
   },
   "sidebar": "docs",
   "previous": {

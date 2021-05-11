@@ -10,12 +10,13 @@
   "permalink": "/ligo/installation",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/installation.md",
   "version": "current",
-  "lastUpdatedBy": "Maxime Sallerin",
-  "lastUpdatedAt": 1620209056,
-  "formattedLastUpdatedAt": "5/5/2021",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "id": "installation",
-    "title": "Installation"
+    "title": "Installation",
+    "authors": "Maxime Sallerin and Benjamin Pilia"
   },
   "sidebar": "docs",
   "previous": {

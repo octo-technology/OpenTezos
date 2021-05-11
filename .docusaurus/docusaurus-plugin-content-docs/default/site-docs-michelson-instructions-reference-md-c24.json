@@ -10,12 +10,13 @@
   "permalink": "/michelson/instructions-reference",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/michelson/instructions-reference.md",
   "version": "current",
-  "lastUpdatedBy": "AymericBethencourt",
-  "lastUpdatedAt": 1617699572,
-  "formattedLastUpdatedAt": "4/6/2021",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "id": "instructions-reference",
-    "title": "Instructions Reference"
+    "title": "Instructions Reference",
+    "authors": "Frank Hillard"
   },
   "sidebar": "docs",
   "previous": {

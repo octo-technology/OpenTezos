@@ -10,13 +10,14 @@
   "permalink": "/ligo",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/introduction.md",
   "version": "current",
-  "lastUpdatedBy": "Maxime Sallerin",
-  "lastUpdatedAt": 1620209056,
-  "formattedLastUpdatedAt": "5/5/2021",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "id": "introduction",
     "title": "Introduction",
-    "slug": "/ligo"
+    "slug": "/ligo",
+    "authors": "Maxime Sallerin and Benjamin Pilia"
   },
   "sidebar": "docs",
   "previous": {

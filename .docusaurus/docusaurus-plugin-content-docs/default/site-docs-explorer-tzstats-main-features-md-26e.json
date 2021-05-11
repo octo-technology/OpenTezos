@@ -10,12 +10,13 @@
   "permalink": "/explorer/tzstats-main-features",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/explorer/tzstats-main-features.md",
   "version": "current",
-  "lastUpdatedBy": "Theotime-Akeare",
-  "lastUpdatedAt": 1619620151,
-  "formattedLastUpdatedAt": "4/28/2021",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "id": "tzstats-main-features",
-    "title": "How to use the tzStats blockchain explorer?"
+    "title": "How to use the tzStats blockchain explorer?",
+    "authors": "Maxime Sallerin"
   },
   "sidebar": "docs",
   "previous": {

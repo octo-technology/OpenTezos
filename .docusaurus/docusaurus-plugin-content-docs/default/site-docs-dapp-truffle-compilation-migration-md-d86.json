@@ -10,12 +10,13 @@
   "permalink": "/dapp/truffle_compilation_migration",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/dapp/truffle_compilation_migration.md",
   "version": "current",
-  "lastUpdatedBy": "benjamin.pilia@octo.com",
-  "lastUpdatedAt": 1617868463,
-  "formattedLastUpdatedAt": "4/8/2021",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "id": "truffle_compilation_migration",
-    "title": "Smart contract deployment with Truffle"
+    "title": "Smart contract deployment with Truffle",
+    "authors": "Benjamin Pilia"
   },
   "sidebar": "docs",
   "previous": {

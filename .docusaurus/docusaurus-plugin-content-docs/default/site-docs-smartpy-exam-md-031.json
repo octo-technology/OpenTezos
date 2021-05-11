@@ -10,17 +10,18 @@
   "permalink": "/smartpy/exam",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/smartpy/exam.md",
   "version": "current",
-  "lastUpdatedBy": "AymericBethencourt",
-  "lastUpdatedAt": 1617698122,
-  "formattedLastUpdatedAt": "4/6/2021",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "id": "exam",
-    "title": "Exam"
+    "title": "Exam",
+    "authors": "Maxime Sallerin"
   },
   "sidebar": "docs",
   "previous": {
-    "title": "Introduction",
-    "permalink": "/smartpy"
+    "title": "Smart contract development with SmartPy",
+    "permalink": "/smartpy/write-contract-smartpy"
   },
   "next": {
     "title": "Introduction",

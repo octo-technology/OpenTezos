@@ -10,12 +10,13 @@
   "permalink": "/michelson/tutorial",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/michelson/tutorial.md",
   "version": "current",
-  "lastUpdatedBy": "Theotime-Akeare",
-  "lastUpdatedAt": 1617955331,
-  "formattedLastUpdatedAt": "4/9/2021",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "id": "tutorial",
-    "title": "Tutorial"
+    "title": "Tutorial",
+    "authors": "Frank Hillard"
   },
   "sidebar": "docs",
   "previous": {

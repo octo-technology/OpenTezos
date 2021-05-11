@@ -10,12 +10,13 @@
   "permalink": "/formal-verification/exam",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/formal-verification/exam.md",
   "version": "current",
-  "lastUpdatedBy": "AymericBethencourt",
-  "lastUpdatedAt": 1617698122,
-  "formattedLastUpdatedAt": "4/6/2021",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "id": "exam",
-    "title": "Exam"
+    "title": "Exam",
+    "authors": "Frank Hillard"
   },
   "sidebar": "docs",
   "previous": {

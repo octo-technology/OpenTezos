@@ -10,12 +10,13 @@
   "permalink": "/tezos-basics/liquid-proof-of-stake",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/liquid-proof-of-stake.md",
   "version": "current",
-  "lastUpdatedBy": "AymericBethencourt",
-  "lastUpdatedAt": 1619649910,
-  "formattedLastUpdatedAt": "4/29/2021",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "id": "liquid-proof-of-stake",
-    "title": "Liquid Proof-of-Stake"
+    "title": "Liquid Proof-of-Stake",
+    "authors": "Thomas Zoughebi, Aymeric Bethencourt and Maxime Fernandez"
   },
   "sidebar": "docs",
   "previous": {

@@ -3,19 +3,20 @@
   "id": "contribute/grant",
   "isDocsHomePage": false,
   "title": "Receive a grant",
-  "description": "The goal of the Tezos Foundation is to develop the Tezos ecosystem, which includes offering grant programs. In this chapter, we’ll take a closer look at how it works.",
+  "description": "The Tezos Foundation goal is to develop the Tezos ecosystem, which includes offering grant programs. In this chapter, we'll take a closer look at how it works.",
   "source": "@site/docs/contribute/grant.md",
   "sourceDirName": "contribute",
   "slug": "/contribute/grant",
   "permalink": "/contribute/grant",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/contribute/grant.md",
   "version": "current",
-  "lastUpdatedBy": "AymericBethencourt",
-  "lastUpdatedAt": 1618843077,
-  "formattedLastUpdatedAt": "4/19/2021",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "id": "grant",
-    "title": "Receive a grant"
+    "title": "Receive a grant",
+    "authors": "Aymeric Bethencourt"
   },
   "sidebar": "docs",
   "previous": {

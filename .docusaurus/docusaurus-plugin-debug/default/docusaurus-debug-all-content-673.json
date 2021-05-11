@@ -166,6 +166,14 @@
                   },
                   {
                     "type": "doc",
+                    "id": "smartpy/installation"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "smartpy/write-contract-smartpy"
+                  },
+                  {
+                    "type": "doc",
                     "id": "smartpy/exam"
                   }
                 ]
@@ -472,7 +480,9 @@
             "/private/exam": "docs",
             "/private": "docs",
             "/smartpy/exam": "docs",
+            "/smartpy/installation": "docs",
             "/smartpy": "docs",
+            "/smartpy/write-contract-smartpy": "docs",
             "/tezos-basics/cli-and-rpc": "docs",
             "/tezos-basics/economics-and-rewards": "docs",
             "/tezos-basics/exam": "docs",
@@ -503,7 +513,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "exam",
-                "title": "Exam"
+                "title": "Exam",
+                "authors": "--"
               },
               "sidebar": "docs",
               "previous": {
@@ -534,7 +545,8 @@
                 "id": "introduction",
                 "disable_pagination": true,
                 "title": "Introduction",
-                "slug": "/baker"
+                "slug": "/baker",
+                "authors": "--"
               },
               "sidebar": "docs",
               "previous": {
@@ -563,7 +575,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "exam",
-                "title": "Exam"
+                "title": "Exam",
+                "authors": "--"
               },
               "sidebar": "docs",
               "previous": {
@@ -594,7 +607,8 @@
                 "id": "introduction",
                 "disable_pagination": true,
                 "title": "Introduction",
-                "slug": "/baking"
+                "slug": "/baking",
+                "authors": "--"
               },
               "sidebar": "docs",
               "previous": {
@@ -673,7 +687,7 @@
               "id": "blockchain-basics/main-properties",
               "isDocsHomePage": false,
               "title": "Main properties of the first \"blockchain\"",
-              "description": "In this chapter, we will dig deeper into the main properties of the Bitcoin protocol, its developers, its P2P network and a few basics of the economy it uses.",
+              "description": "In this chapter, we will dig deeper into the main properties of the Bitcoin protocol, its developers, its P2P network, and a few basics of the economy it uses.",
               "source": "@site/docs/blockchain-basics/main-properties.md",
               "sourceDirName": "blockchain-basics",
               "slug": "/blockchain-basics/main-properties",
@@ -735,7 +749,7 @@
               "id": "blockchain-basics/proof-of-work",
               "isDocsHomePage": false,
               "title": "Proof-of-work",
-              "description": "Proof-of-work was the first fully functional blockchain consensus ever created. It is still in use by Bitcoin and many other blockchains. It requires its users to mine for getting a chance earning a reward for validating transactions. In this chapter, we are going to look into the technical side of things and how mining works.",
+              "description": "Proof-of-work was the first fully functional blockchain consensus ever created. It is still in use by Bitcoin and many other blockchains. It requires its users to mine for getting a chance to earn a reward for validating transactions. In this chapter, we will look into the technical side of things and how mining works.",
               "source": "@site/docs/blockchain-basics/proof-of-work.md",
               "sourceDirName": "blockchain-basics",
               "slug": "/blockchain-basics/proof-of-work",
@@ -809,7 +823,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "baker",
-                "title": "Become a baker or a delegator"
+                "title": "Become a baker or a delegator",
+                "authors": "Aymeric Bethencourt"
               },
               "sidebar": "docs",
               "previous": {
@@ -838,7 +853,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "exam",
-                "title": "Exam"
+                "title": "Exam",
+                "authors": "Aymeric Bethencourt"
               },
               "sidebar": "docs",
               "previous": {
@@ -851,7 +867,7 @@
               "id": "contribute/grant",
               "isDocsHomePage": false,
               "title": "Receive a grant",
-              "description": "The goal of the Tezos Foundation is to develop the Tezos ecosystem, which includes offering grant programs. In this chapter, we’ll take a closer look at how it works.",
+              "description": "The Tezos Foundation goal is to develop the Tezos ecosystem, which includes offering grant programs. In this chapter, we'll take a closer look at how it works.",
               "source": "@site/docs/contribute/grant.md",
               "sourceDirName": "contribute",
               "slug": "/contribute/grant",
@@ -863,7 +879,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "grant",
-                "title": "Receive a grant"
+                "title": "Receive a grant",
+                "authors": "Aymeric Bethencourt"
               },
               "sidebar": "docs",
               "previous": {
@@ -880,7 +897,7 @@
               "id": "contribute/introduction",
               "isDocsHomePage": false,
               "title": "Introduction",
-              "description": "Tezos is user-centric blockchain. As seen in the governance chapter, the evolution of Tezos is decided by its stakeholders. Anyone can contribute, from reporting a simple issue to coding and developing a whole new platform based on Tezos, there are many opportunities that will benefit you and the ecosystem. In this module we will see how to:",
+              "description": "Tezos is a user-centric blockchain. As seen in the governance chapter, its stakeholders' evolution of Tezos is decided. Anyone can contribute, from reporting a simple issue to coding and developing a whole new platform based on Tezos; many opportunities will benefit you and the ecosystem. In this module, we will see how to:",
               "source": "@site/docs/contribute/introduction.md",
               "sourceDirName": "contribute",
               "slug": "/contribute",
@@ -894,7 +911,8 @@
                 "id": "introduction",
                 "disable_pagination": true,
                 "title": "Introduction",
-                "slug": "/contribute"
+                "slug": "/contribute",
+                "authors": "Aymeric Bethencourt"
               },
               "sidebar": "docs",
               "previous": {
@@ -911,7 +929,7 @@
               "id": "contribute/opentezos",
               "isDocsHomePage": false,
               "title": "Contribute to OpenTezos",
-              "description": "The great website you are currently browsing is called OpenTezos and will later be merged with the upcoming wiki.tezos.com. It is therefore important that all the content here is up to date and error-free. If you see an error, you can either submit an issue or go a step further by actually correcting the error yourself and submitting it for review. Here is how to proceed:",
+              "description": "The excellent website you are currently browsing is called OpenTezos and will later be merged with the upcoming wiki.tezos.com. It is, therefore, important that all the content here is up-to-date and error-free. If you see an error, you can either submit an issue or go a step further by actually correcting the mistake yourself and submitting it for review. Here is how to proceed:",
               "source": "@site/docs/contribute/opentezos.md",
               "sourceDirName": "contribute",
               "slug": "/contribute/opentezos",
@@ -923,7 +941,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "opentezos",
-                "title": "Contribute to OpenTezos"
+                "title": "Contribute to OpenTezos",
+                "authors": "Aymeric Bethencourt"
               },
               "sidebar": "docs",
               "previous": {
@@ -940,7 +959,7 @@
               "id": "contribute/report-issue",
               "isDocsHomePage": false,
               "title": "Report an issue",
-              "description": "The simplest way to contribute is to report issues that you may have encounter while using Tezos or its related platforms.",
+              "description": "The simplest way to contribute is to report issues you may encounter while using Tezos or its related platforms.",
               "source": "@site/docs/contribute/report-issue.md",
               "sourceDirName": "contribute",
               "slug": "/contribute/report-issue",
@@ -952,7 +971,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "report-issue",
-                "title": "Report an issue"
+                "title": "Report an issue",
+                "authors": "Aymeric Bethencourt"
               },
               "sidebar": "docs",
               "previous": {
@@ -969,7 +989,7 @@
               "id": "contribute/tezos-core",
               "isDocsHomePage": false,
               "title": "Contribute to the Tezos Core Protocol",
-              "description": "The full source code of Tezos is available on gitlab.com/tezos. Tezos is written in OCaml, an industrial-strength programming language supporting functional, imperative and object-oriented styles [1]. OCaml is a functional programming language that offers speed, an unambiguous syntax and semantics, and formal proofs of correctness.",
+              "description": "The full source code of Tezos is available on gitlab.com/tezos. Tezos is written in OCaml, an industrial-strength programming language supporting functional, imperative and object-oriented styles [1]. OCaml is a functional programming language that offers speed, unambiguous syntax and semantics, and formal proofs of correctness.",
               "source": "@site/docs/contribute/tezos-core.md",
               "sourceDirName": "contribute",
               "slug": "/contribute/tezos-core",
@@ -981,7 +1001,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "tezos-core",
-                "title": "Contribute to the Tezos Core Protocol"
+                "title": "Contribute to the Tezos Core Protocol",
+                "authors": "Aymeric Bethencourt"
               },
               "sidebar": "docs",
               "previous": {
@@ -1010,7 +1031,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "exam",
-                "title": "Exam"
+                "title": "Exam",
+                "authors": "Benjamin Pilia"
               }
             },
             {
@@ -1032,7 +1054,8 @@
                 "id": "introduction",
                 "disable_pagination": true,
                 "title": "Introduction",
-                "slug": "/dapp"
+                "slug": "/dapp",
+                "authors": "Benjamin Pilia"
               },
               "sidebar": "docs",
               "previous": {
@@ -1061,7 +1084,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "truffle_compilation_migration",
-                "title": "Smart contract deployment with Truffle"
+                "title": "Smart contract deployment with Truffle",
+                "authors": "Benjamin Pilia"
               },
               "sidebar": "docs",
               "previous": {
@@ -1078,7 +1102,7 @@
               "id": "defi/cross-chain-swaps",
               "isDocsHomePage": false,
               "title": "Cross-chain Swaps",
-              "description": "//TODO: Parler du bridge StakerDAO",
+              "description": "Swap scenarios",
               "source": "@site/docs/defi/cross-chain-swaps.md",
               "sourceDirName": "defi",
               "slug": "/defi/cross-chain-swaps",
@@ -1108,7 +1132,7 @@
               "id": "defi/dexs",
               "isDocsHomePage": false,
               "title": "Decentralized Exchanges",
-              "description": "An exchange is a marketplace where coins and tokens are traded. The core function of an exchange is to ensure fair and orderly trading and the efficient dissemination of price information for any pair trading on that exchange. Exchanges give companies, traders, and crypto-enthusiasts a platform from which to publicly sell and buy crypto-currencies.",
+              "description": "An exchange is a marketplace where coins and tokens are traded. The core function of an exchange is to ensure fair and orderly trading and the efficient dissemination of price information for any pair trading on that exchange. Exchanges give companies, traders, and crypto-enthusiasts a platform from which to sell and buy crypto-currencies publicly.",
               "source": "@site/docs/defi/dexs.md",
               "sourceDirName": "defi",
               "slug": "/defi/dexs",
@@ -1168,7 +1192,7 @@
               "id": "defi/introduction",
               "isDocsHomePage": false,
               "title": "Introduction",
-              "description": "What is DeFi ?",
+              "description": "What is DeFi?",
               "source": "@site/docs/defi/introdution.md",
               "sourceDirName": "defi",
               "slug": "/defi",
@@ -1200,7 +1224,7 @@
               "id": "defi/lending",
               "isDocsHomePage": false,
               "title": "Lending and Flash Loans",
-              "description": "It is likely that at some point in your life you have had to borrow some money, e.g. for a student loan, a car loan or a mortgage. Lending and borrowing are essential services in any financial system. Traditionally, lenders such as banks provide you with a loan in exchange for a fee, in the form of interest rates. Repaying said loan is enforced by legal contracts with the bank.",
+              "description": "You have likely in your life had to borrow some money, e.g., for a student loan, a car loan, or a mortgage. Lending and borrowing are essential services in any financial system. Traditionally, lenders such as banks provide you with a loan in exchange for a fee in the form of interest rates. Repaying the said loan is enforced by legal contracts with the bank.",
               "source": "@site/docs/defi/lending.md",
               "sourceDirName": "defi",
               "slug": "/defi/lending",
@@ -1290,7 +1314,7 @@
               "id": "defi/synthetics",
               "isDocsHomePage": false,
               "title": "Synthetics",
-              "description": "//TODO: Manque d’illustration",
+              "description": "Synthetics are contracts between two parties that both bet on the opposite outcome of the value of an asset and then split the difference in profit/loss. The actual asset is not purchased in this contract. Both parties simply bet on the value appreciating or depreciating.",
               "source": "@site/docs/defi/synthetics.md",
               "sourceDirName": "defi",
               "slug": "/defi/synthetics",
@@ -1320,7 +1344,7 @@
               "id": "defi/token-standards",
               "isDocsHomePage": false,
               "title": "Token Standards",
-              "description": "In the Blockchain ecosystem, any asset that is digitally transferable between two people is called a token. Tokens can be native to a blockchain, e.g. BTC is the native token of Bitcoin. Tokens can also be created and hosted on an existing blockchain via a smart contract. Some tokens, called stablecoins, are following the price of fiat currencies (e.g. USD, EUR). Others, called NFT, can enclose collectibles or art. Finally, tokens can represent rights of ownership of real-world estates or companies (i.e. stock tokens). In this chapter, we will see the main token types and token standards on Tezos.",
+              "description": "In the Blockchain ecosystem, any digitally transferable asset between two people is called a token. Tokens can be native to a blockchain, e.g., BTC is the native token of Bitcoin. Tokens can also be created and hosted on an existing blockchain via a smart contract. Some tokens, called stablecoins, are following the price of fiat currencies (e.g., USD, EUR). Others, called NFT, can enclose collectibles or art. Finally, tokens can represent rights of ownership of real-world estates or companies (i.e., stock tokens). In this chapter, we will see the main token types and token standards on Tezos.",
               "source": "@site/docs/defi/token-standards.md",
               "sourceDirName": "defi",
               "slug": "/defi/token-standards",
@@ -1392,7 +1416,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "exam",
-                "title": "Exam"
+                "title": "Exam",
+                "authors": "Benjamin Pilia"
               },
               "sidebar": "docs",
               "previous": {
@@ -1423,7 +1448,8 @@
                 "id": "introduction",
                 "disable_pagination": true,
                 "title": "Introduction",
-                "slug": "/deploy-a-node"
+                "slug": "/deploy-a-node",
+                "authors": "Benjamin Pilia"
               },
               "sidebar": "docs",
               "previous": {
@@ -1452,7 +1478,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "available-tezos-indexers",
-                "title": "Available Tezos Indexers"
+                "title": "Available Tezos Indexers",
+                "authors": "Maxime Sallerin"
               },
               "sidebar": "docs",
               "previous": {
@@ -1481,7 +1508,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "exam",
-                "title": "Exam"
+                "title": "Exam",
+                "authors": "Maxime Sallerin"
               },
               "sidebar": "docs",
               "previous": {
@@ -1510,7 +1538,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "indexer-explained",
-                "title": "How Indexers Work?"
+                "title": "How Indexers Work?",
+                "authors": "Maxime Sallerin"
               },
               "sidebar": "docs",
               "previous": {
@@ -1539,7 +1568,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "introduction",
-                "title": "Introduction"
+                "title": "Introduction",
+                "authors": "Maxime Sallerin"
               },
               "sidebar": "docs",
               "previous": {
@@ -1569,7 +1599,8 @@
               "frontMatter": {
                 "id": "private-indexer",
                 "disable_pagination": true,
-                "title": "Private indexer"
+                "title": "Private indexer",
+                "authors": "Benjamin Pilia"
               },
               "sidebar": "docs",
               "previous": {
@@ -1598,7 +1629,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "tzstats-main-features",
-                "title": "How to use the tzStats blockchain explorer?"
+                "title": "How to use the tzStats blockchain explorer?",
+                "authors": "Maxime Sallerin"
               },
               "sidebar": "docs",
               "previous": {
@@ -1627,7 +1659,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "tzstats-smart-contract",
-                "title": "Checkout your smart contract on TzStats"
+                "title": "Checkout your smart contract on TzStats",
+                "authors": "Maxime Sallerin"
               },
               "sidebar": "docs",
               "previous": {
@@ -1656,7 +1689,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "exam",
-                "title": "Exam"
+                "title": "Exam",
+                "authors": "Frank Hillard"
               },
               "sidebar": "docs",
               "previous": {
@@ -1686,7 +1720,8 @@
               "frontMatter": {
                 "id": "introduction",
                 "title": "Introduction",
-                "slug": "/formal-verification"
+                "slug": "/formal-verification",
+                "authors": "Frank Hillard"
               },
               "sidebar": "docs",
               "previous": {
@@ -1715,7 +1750,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "deploy-a-contract",
-                "title": "Deploy a contract"
+                "title": "Deploy a contract",
+                "authors": "Maxime Sallerin and Benjamin Pilia"
               },
               "sidebar": "docs",
               "previous": {
@@ -1744,7 +1780,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "exam",
-                "title": "Exam"
+                "title": "Exam",
+                "authors": "Maxime Sallerin and Benjamin Pilia"
               },
               "sidebar": "docs",
               "previous": {
@@ -1773,7 +1810,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "examples",
-                "title": "Examples"
+                "title": "Examples",
+                "authors": "Maxime Sallerin and Benjamin Pilia"
               },
               "sidebar": "docs",
               "previous": {
@@ -1802,7 +1840,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "installation",
-                "title": "Installation"
+                "title": "Installation",
+                "authors": "Maxime Sallerin and Benjamin Pilia"
               },
               "sidebar": "docs",
               "previous": {
@@ -1832,7 +1871,8 @@
               "frontMatter": {
                 "id": "introduction",
                 "title": "Introduction",
-                "slug": "/ligo"
+                "slug": "/ligo",
+                "authors": "Maxime Sallerin and Benjamin Pilia"
               },
               "sidebar": "docs",
               "previous": {
@@ -1861,7 +1901,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "language-basics",
-                "title": "Language basics"
+                "title": "Language basics",
+                "authors": "Maxime Sallerin and Benjamin Pilia"
               },
               "sidebar": "docs",
               "previous": {
@@ -1890,7 +1931,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "take-away",
-                "title": "Take Away"
+                "title": "Take Away",
+                "authors": "Maxime Sallerin and Benjamin Pilia"
               },
               "sidebar": "docs",
               "previous": {
@@ -1919,7 +1961,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "unit-testing",
-                "title": "Unit Testing with PyTezos"
+                "title": "Unit Testing with PyTezos",
+                "authors": "Maxime Sallerin and Benjamin Pilia"
               },
               "sidebar": "docs",
               "previous": {
@@ -1948,7 +1991,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "write-contracts-ligo",
-                "title": "Smart contract development in Pascaligo"
+                "title": "Smart contract development in Pascaligo",
+                "authors": "Maxime Sallerin and Benjamin Pilia"
               },
               "sidebar": "docs",
               "previous": {
@@ -1977,7 +2021,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "exam",
-                "title": "Exam"
+                "title": "Exam",
+                "authors": "Frank Hillard"
               },
               "sidebar": "docs",
               "previous": {
@@ -2006,7 +2051,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "examples",
-                "title": "Examples"
+                "title": "Examples",
+                "authors": "Frank Hillard"
               },
               "sidebar": "docs",
               "previous": {
@@ -2035,7 +2081,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "instructions-reference",
-                "title": "Instructions Reference"
+                "title": "Instructions Reference",
+                "authors": "Frank Hillard"
               },
               "sidebar": "docs",
               "previous": {
@@ -2065,7 +2112,8 @@
               "frontMatter": {
                 "id": "introduction",
                 "title": "Introduction",
-                "slug": "/michelson"
+                "slug": "/michelson",
+                "authors": "Frank Hillard"
               },
               "sidebar": "docs",
               "previous": {
@@ -2094,7 +2142,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "language-basics",
-                "title": "Language Basics"
+                "title": "Language Basics",
+                "authors": "Frank Hillard"
               },
               "sidebar": "docs",
               "previous": {
@@ -2123,7 +2172,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "smart-contracts",
-                "title": "Smart Contracts"
+                "title": "Smart Contracts",
+                "authors": "Frank Hillard"
               },
               "sidebar": "docs",
               "previous": {
@@ -2152,7 +2202,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "take-away",
-                "title": "Take away"
+                "title": "Take away",
+                "authors": "Frank Hillard"
               },
               "sidebar": "docs",
               "previous": {
@@ -2181,7 +2232,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "tutorial",
-                "title": "Tutorial"
+                "title": "Tutorial",
+                "authors": "Frank Hillard"
               },
               "sidebar": "docs",
               "previous": {
@@ -2210,7 +2262,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "exam",
-                "title": "Exam"
+                "title": "Exam",
+                "authors": "Maxime Sallerin"
               },
               "sidebar": "docs",
               "previous": {
@@ -2241,7 +2294,8 @@
                 "id": "introduction",
                 "disable_pagination": true,
                 "title": "Introduction",
-                "slug": "/private"
+                "slug": "/private",
+                "authors": "Maxime Sallerin"
               },
               "sidebar": "docs",
               "previous": {
@@ -2270,12 +2324,13 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "exam",
-                "title": "Exam"
+                "title": "Exam",
+                "authors": "Maxime Sallerin"
               },
               "sidebar": "docs",
               "previous": {
-                "title": "Introduction",
-                "permalink": "/smartpy"
+                "title": "Smart contract development with SmartPy",
+                "permalink": "/smartpy/write-contract-smartpy"
               },
               "next": {
                 "title": "Introduction",
@@ -2283,11 +2338,40 @@
               }
             },
             {
+              "unversionedId": "smartpy/installation",
+              "id": "smartpy/installation",
+              "isDocsHomePage": false,
+              "title": "Installation",
+              "description": "This chapter aims at preparing your working environment to be ready to code,",
+              "source": "@site/docs/smartpy/installation.md",
+              "sourceDirName": "smartpy",
+              "slug": "/smartpy/installation",
+              "permalink": "/smartpy/installation",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/smartpy/installation.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
+              "frontMatter": {
+                "id": "installation",
+                "title": "Installation"
+              },
+              "sidebar": "docs",
+              "previous": {
+                "title": "Introduction",
+                "permalink": "/smartpy"
+              },
+              "next": {
+                "title": "Smart contract development with SmartPy",
+                "permalink": "/smartpy/write-contract-smartpy"
+              }
+            },
+            {
               "unversionedId": "smartpy/introduction",
               "id": "smartpy/introduction",
               "isDocsHomePage": false,
               "title": "Introduction",
-              "description": "Under construction.",
+              "description": "The goal of this module is to allow a developer to write smart contracts with SmartPy.",
               "source": "@site/docs/smartpy/introduction.md",
               "sourceDirName": "smartpy",
               "slug": "/smartpy",
@@ -2299,14 +2383,43 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "introduction",
-                "disable_pagination": true,
                 "title": "Introduction",
-                "slug": "/smartpy"
+                "slug": "/smartpy",
+                "authors": "Maxime Sallerin"
               },
               "sidebar": "docs",
               "previous": {
                 "title": "Exam",
                 "permalink": "/explorer/exam"
+              },
+              "next": {
+                "title": "Installation",
+                "permalink": "/smartpy/installation"
+              }
+            },
+            {
+              "unversionedId": "smartpy/write-contract-smartpy",
+              "id": "smartpy/write-contract-smartpy",
+              "isDocsHomePage": false,
+              "title": "Smart contract development with SmartPy",
+              "description": "In this chapter, the use of the SmartPy library will be taught, based on the development of a raffle smart contract.",
+              "source": "@site/docs/smartpy/write-contract-smartpy.md",
+              "sourceDirName": "smartpy",
+              "slug": "/smartpy/write-contract-smartpy",
+              "permalink": "/smartpy/write-contract-smartpy",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/smartpy/write-contract-smartpy.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
+              "frontMatter": {
+                "id": "write-contract-smartpy",
+                "title": "Smart contract development with SmartPy"
+              },
+              "sidebar": "docs",
+              "previous": {
+                "title": "Installation",
+                "permalink": "/smartpy/installation"
               },
               "next": {
                 "title": "Exam",
@@ -2330,7 +2443,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "cli-and-rpc",
-                "title": "CLI and RPC"
+                "title": "CLI and RPC",
+                "authors": "Thomas Zoughebi, Aymeric Bethencourt and Maxime Fernandez"
               },
               "sidebar": "docs",
               "previous": {
@@ -2359,7 +2473,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "economics-and-rewards",
-                "title": "Economics and rewards"
+                "title": "Economics and rewards",
+                "authors": "Thomas Zoughebi, Aymeric Bethencourt and Maxime Fernandez"
               },
               "sidebar": "docs",
               "previous": {
@@ -2388,7 +2503,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "exam",
-                "title": "Exam"
+                "title": "Exam",
+                "authors": "Thomas Zoughebi, Aymeric Bethencourt and Maxime Fernandez"
               },
               "sidebar": "docs",
               "previous": {
@@ -2417,7 +2533,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "governance-on-chain",
-                "title": "Governance on-chain"
+                "title": "Governance on-chain",
+                "authors": "Thomas Zoughebi, Aymeric Bethencourt and Maxime Fernandez"
               },
               "sidebar": "docs",
               "previous": {
@@ -2446,7 +2563,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "history-of-amendements",
-                "title": "History of amendements"
+                "title": "History of amendements",
+                "authors": "Thomas Zoughebi, Aymeric Bethencourt and Maxime Fernandez"
               },
               "sidebar": "docs",
               "previous": {
@@ -2476,7 +2594,8 @@
               "frontMatter": {
                 "id": "introduction",
                 "title": "Introduction",
-                "slug": "/tezos-basics"
+                "slug": "/tezos-basics",
+                "authors": "Thomas Zoughebi, Aymeric Bethencourt, and Maxime Fernandez"
               },
               "sidebar": "docs",
               "previous": {
@@ -2505,7 +2624,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "liquid-proof-of-stake",
-                "title": "Liquid Proof-of-Stake"
+                "title": "Liquid Proof-of-Stake",
+                "authors": "Thomas Zoughebi, Aymeric Bethencourt and Maxime Fernandez"
               },
               "sidebar": "docs",
               "previous": {
@@ -2534,7 +2654,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "operations",
-                "title": "Operations"
+                "title": "Operations",
+                "authors": "Thomas Zoughebi, Aymeric Bethencourt and Maxime Fernandez"
               },
               "sidebar": "docs",
               "previous": {
@@ -2551,7 +2672,7 @@
               "id": "tezos-basics/smart-contracts",
               "isDocsHomePage": false,
               "title": "Smart contracts",
-              "description": "In this chapter, you'll learn the Tezos smart contracts basics. Their components and the workflow to record and use them on the Tezos blockchain.",
+              "description": "In this chapter, you will learn the Tezos smart contracts basics. Their components and the workflow to record and use them on the Tezos blockchain.",
               "source": "@site/docs/tezos-basics/smart-contracts.md",
               "sourceDirName": "tezos-basics",
               "slug": "/tezos-basics/smart-contracts",
@@ -2563,7 +2684,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "smart-contracts",
-                "title": "Smart contracts"
+                "title": "Smart contracts",
+                "authors": "Thomas Zoughebi, Aymeric Bethencourt, and Maxime Fernandez"
               },
               "sidebar": "docs",
               "previous": {
@@ -2596,7 +2718,8 @@
                 "disable_pagination": true,
                 "title": "Welcome to OpenTezos",
                 "sidebar_label": "Modules",
-                "slug": "/"
+                "slug": "/",
+                "authors": "Aymeric Bethencourt"
               },
               "sidebar": "docs",
               "next": {
@@ -2623,7 +2746,8 @@
                 "id": "paths",
                 "disable_pagination": true,
                 "title": "Paths",
-                "slug": "/paths"
+                "slug": "/paths",
+                "authors": "Aymeric Bethencourt"
               },
               "sidebar": "docs",
               "previous": {

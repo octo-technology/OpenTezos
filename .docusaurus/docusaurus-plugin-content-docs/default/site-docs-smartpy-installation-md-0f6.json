@@ -1,0 +1,29 @@
+{
+  "unversionedId": "smartpy/installation",
+  "id": "smartpy/installation",
+  "isDocsHomePage": false,
+  "title": "Installation",
+  "description": "This chapter aims at preparing your working environment to be ready to code,",
+  "source": "@site/docs/smartpy/installation.md",
+  "sourceDirName": "smartpy",
+  "slug": "/smartpy/installation",
+  "permalink": "/smartpy/installation",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/smartpy/installation.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "installation",
+    "title": "Installation"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Introduction",
+    "permalink": "/smartpy"
+  },
+  "next": {
+    "title": "Smart contract development with SmartPy",
+    "permalink": "/smartpy/write-contract-smartpy"
+  }
+}

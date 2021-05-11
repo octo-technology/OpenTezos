@@ -10,16 +10,17 @@
   "permalink": "/",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/welcome/modules.md",
   "version": "current",
-  "lastUpdatedBy": "AymericBethencourt",
-  "lastUpdatedAt": 1617132921,
-  "formattedLastUpdatedAt": "3/30/2021",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "sidebar_label": "Modules",
   "frontMatter": {
     "id": "modules",
     "disable_pagination": true,
     "title": "Welcome to OpenTezos",
     "sidebar_label": "Modules",
-    "slug": "/"
+    "slug": "/",
+    "authors": "Aymeric Bethencourt"
   },
   "sidebar": "docs",
   "next": {

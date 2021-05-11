@@ -1,0 +1,29 @@
+{
+  "unversionedId": "smartpy/write-contract-smartpy",
+  "id": "smartpy/write-contract-smartpy",
+  "isDocsHomePage": false,
+  "title": "Smart contract development with SmartPy",
+  "description": "In this chapter, the use of the SmartPy library will be taught, based on the development of a raffle smart contract.",
+  "source": "@site/docs/smartpy/write-contract-smartpy.md",
+  "sourceDirName": "smartpy",
+  "slug": "/smartpy/write-contract-smartpy",
+  "permalink": "/smartpy/write-contract-smartpy",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/smartpy/write-contract-smartpy.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "write-contract-smartpy",
+    "title": "Smart contract development with SmartPy"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Installation",
+    "permalink": "/smartpy/installation"
+  },
+  "next": {
+    "title": "Exam",
+    "permalink": "/smartpy/exam"
+  }
+}

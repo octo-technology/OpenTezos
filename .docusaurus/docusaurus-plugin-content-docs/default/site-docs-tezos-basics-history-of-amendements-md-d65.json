@@ -10,12 +10,13 @@
   "permalink": "/tezos-basics/history-of-amendements",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/history-of-amendements.md",
   "version": "current",
-  "lastUpdatedBy": "AymericBethencourt",
-  "lastUpdatedAt": 1616716264,
-  "formattedLastUpdatedAt": "3/26/2021",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "id": "history-of-amendements",
-    "title": "History of amendements"
+    "title": "History of amendements",
+    "authors": "Thomas Zoughebi, Aymeric Bethencourt and Maxime Fernandez"
   },
   "sidebar": "docs",
   "previous": {

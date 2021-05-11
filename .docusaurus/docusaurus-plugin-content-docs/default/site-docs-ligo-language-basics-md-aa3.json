@@ -10,12 +10,13 @@
   "permalink": "/ligo/language-basics",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/language-basics.md",
   "version": "current",
-  "lastUpdatedBy": "Aymeric BETHENCOURT",
-  "lastUpdatedAt": 1620219601,
-  "formattedLastUpdatedAt": "5/5/2021",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "id": "language-basics",
-    "title": "Language basics"
+    "title": "Language basics",
+    "authors": "Maxime Sallerin and Benjamin Pilia"
   },
   "sidebar": "docs",
   "previous": {

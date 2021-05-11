@@ -10,12 +10,13 @@
   "permalink": "/contribute/baker",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/contribute/baker.md",
   "version": "current",
-  "lastUpdatedBy": "23ESHU77",
-  "lastUpdatedAt": 1620119014,
-  "formattedLastUpdatedAt": "5/4/2021",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "id": "baker",
-    "title": "Become a baker or a delegator"
+    "title": "Become a baker or a delegator",
+    "authors": "Aymeric Bethencourt"
   },
   "sidebar": "docs",
   "previous": {
