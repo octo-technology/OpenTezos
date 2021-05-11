@@ -8,7 +8,7 @@ For a better understanding of the formal verification on Tezos smart contract (w
 
 In order to perform a formal verification, a formal tool (also called proof assistant) must be used. The _Coq_ proof assistant has been chosen to perform formal verification on Tezos smart contracts. _Coq_ provides a language for defining theorems and for proving these theorems. The proof process relies on:
 - a theory (i.e. a base foundation of mathematic): We will introduce this branch of mathematics is called **Type theory**, and more specifically the Calculus of Construction which is the building principle of _Coq_.
-- expressing the Michelson language as a formal definition: theoretically speaking (GADT, Monad), in practice (Mi-cho-coq)
+- expressing the Michelson language as a formal definition: theoretically speaking (GADT, Monad), in practice (Mi-Cho-Coq)
 - formalizing a Michelson script into a theorem and proving this theorem (in the next [section](/formal-verification/modeling-theorem)).
 
 The goal is to:
@@ -21,7 +21,7 @@ This section intends to give:
 - a brief description of the _Coq_ proof assistant
 - a brief description of the Mi-Cho-Coq_ (library for _Coq_)
 
-For a good understanding of this theoretical part, it is recommended to have some notions on logic (first-order, second-order) [10], basics of mathematic (set, group, monoid, associativity, distributivity, reflexivity), functionnal programming, and language theory.
+For a good understanding of this theoretical part, it is recommended to have some notions on logic (first-order, second-order) [10], basics of mathematic (set, group, monoid, associativity, distributivity, reflexivity), functional programming, and language theory.
 
 
 ### Type theory
@@ -42,12 +42,12 @@ Properties, programs and proofs are formalized in the _Coq_ language called _Gal
 
 #### CoC - CiC
 
-Initially developed by Thierry Coquand, the _Calculus Of Constructions_ [13] (or CoC) is a typed high-order λ-calculus (i.e. a typed formal system taking the logic of second order into account). The CoC is used as a typed programming language. 
+Initially developed by Thierry Coquand, the _Calculus Of Constructions_ [13] (or CoC) is a typed high-order λ-calculus (i.e. a typed formal system taking the logic of second-order into account). The CoC is used as a typed programming language. 
 
 Many derivatives of CoC have been created to handle inductive types, predicates and co-inductive types.
 The Calculus of Inductive Constructions ([18] CiC) is an extension of CoC which integrates inductive datatype. The _Coq_ proof assistant is built upon CiC.
 
-All logical judgments in Coq are typing judgments: the very heart of _Coq_ is in fact a type-checking algorithm. 
+All logical judgments in Coq are typing judgments: the very heart of _Coq_ is, in fact, a type-checking algorithm. 
 
 An interesting additional feature of _Coq_ is that it can automatically extract executable programs from specifications, as either Objective Caml or Haskell source code.
 
@@ -63,7 +63,7 @@ For more information about the CoC and CiC foundation, it is recommended to read
 
 ### GADT
 
-Generalized algebraic data type (GADT) is a generalization of parametric algebraic data types (i.e. a standard representation of an algebraic data types).
+Generalized algebraic data type (GADT) is a generalization of parametric algebraic data types (i.e. a standard representation of algebraic data types).
 
 The idea of **algebraic data types** is to define a language as a composite type and formalize an algebra of data types (like the algebra on numbers). The programming language can be seen as a complex-type with functors.
 
@@ -107,7 +107,7 @@ SUM type = (Either a b); `Either a b = Left a | Right b` (i.e. variant)
 - distributivity: `(a,Either(b,c)) ~ Either (a,b) (a,c)` is equivalent to `(a * (b + c) = a*b + a*c)`
 - `(a, Void) ~ Void` is equivalent to `a * 0 = 0`
 
-Notice that all properties are inversible (up to an isomorphism).
+//TODO Notice that all properties are invertible (up to an isomorphism).
 
 So, a set equipped with PRODUCT and SUM represents a language equipped with _pairs_ and _variants_ (such as Michelson language). 
 
@@ -120,7 +120,7 @@ In algebra, a set equipped with PRODUCT and SUM is a semi-ring. Notice that the 
 
 In mathematics, **rings are algebraic structures that generalize fields**: multiplication need not be commutative and multiplicative inverses need not exist. In other words, a ring is a set equipped with two binary operations satisfying properties analogous to those of addition and multiplication of integers. Ring elements may be numbers such as integers or complex numbers, but they may also be non-numerical objects such as polynomials, or functions.
 
-To conclude , the formalization of a language into an algebra of data types (ADT) allows to specify a mathematical representation of a language; and thus allows to use CoC principles for proving theorems on this albegra (i.e. verifying script of this language). The Mi-Cho-Coq is the formal _Coq_ representation of the Michelson language and allows to specify a formal representation of a Tezos smart contract.
+To conclude , the formalization of a language into an algebra of data types (ADT) allows to specify a mathematical representation of a language; and thus allows to use CoC principles for proving theorems on this algebra (i.e. verifying script of this language). The Mi-Cho-Coq is the formal _Coq_ representation of the Michelson language and allows to specify a formal representation of a Tezos smart contract.
 
 
 ### Mi-Cho-Coq
