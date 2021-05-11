@@ -47,7 +47,7 @@ The data structure which permits all of the above is a chain of blocks, a.k.a. "
 Valid transactions are grouped and enclosed inside a block. Every 10 minutes on Bitcoin, a new block must be mined. The number of transactions inside a block is only limited by its available space, which is currently (2021) around 2 MB (comparatively "_Bitcoin Cash_" blockchain has around 32 MB block size).
 
 Each new block is linked to the previous one: they are chained. The more blocks there are, the more difficult it is to modify anything in the ledger. They are cryptographically chained. That means that if you want to cheat (e.g., make a double-spend or spend money you don't have), you would need to modify everything until the first block ever created (called the "_Genesis Block_"), just like *Matryoshka dolls* with an enormous number of dolls.
-This process is achieved through [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_block_chaining_(CBC)), where instead of a _XOR_ function, the _SHA256_ function is used. Twice:
+This process is achieved through [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_block_chaining_(CBC)) principle, where instead of a _XOR_ function (and without plain texts additions), the _SHA256_ function is used. Twice:
 
 ![Chain of blocks](../../static/img/blockchain-basics/blocks-chain.svg "Chain of blocks")
 

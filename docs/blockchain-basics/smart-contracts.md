@@ -59,7 +59,7 @@ The very first definition of "*Smart Contracts*" is originally from Nick Szabo [
 
 <NotificationBar>
   <p>
-  <blockquote>"A smart contract is a set of promises, specified in digital form, including protocols within which the parties perform on these promises."</blockquote>
+  <blockquote>"A smart contract is a set of promises, specified in digital form, including protocols within which the parties perform on these promises." &#8212; Nick Szabo</blockquote>
   </p>
 </NotificationBar>
 

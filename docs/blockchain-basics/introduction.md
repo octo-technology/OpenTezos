@@ -47,7 +47,7 @@ First of all, Bitcoin relies on the Internet, which itself has been relying on _
 
 Bitcoin also relies heavily on so-called _Modern Cryptography_, e.g., the Diffie-Hellman protocol (1976, in collaboration with Ralph Merkle), the Merkle Tree (1979), and the RSA (Rivest–Shamir–Adleman) public-key cryptosystem (1977).
 
-The blocks of data are cryptographically chained with [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_block_chaining_(CBC)) from 1976, meaning that chains of blocks are that old.
+The blocks of data are cryptographically chained with [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_block_chaining_(CBC)) principle from 1976, meaning that chains of blocks are that old.
 
 From there, countless reflections on ethics, research on technologies, and of course cryptography have taken place: Mails traceability and privacy in 1981, Elliptic Curve Cryptography in 1985 (used for _Public Key Cryptography_ in most blockchains), PGP in 1991 (developed for privacy providing authentication and encryption), etc. Even "smart contracts" were first conceptualized by Nick Szabo in 1997.
 
