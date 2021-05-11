@@ -7,7 +7,7 @@ slug: /formal-verification
 
 The Tezos blockchain brings several improvements including the **formal verification of smart contract**.This section describes the overview of how Tezos smart contract can be formally verified. 
 
-We will introduce some basic concepts of the Type theory such as GADT which sustains inductive types on the Calculus of Inductive Construction (CiC). The proof assistant _Coq_ which is based on the CiC is used for proving theorems. 
+We will briefly introduce some basic concepts of the Type theory such as GADT which sustains inductive types on the Calculus of Inductive Construction (CiC). The proof assistant _Coq_ which is based on the CiC is used for proving theorems. 
 
 We will briefly introduce the Mi-Cho-Coq library (used by _Coq_) which allows formalizing a smart contract as a theorem. 
 

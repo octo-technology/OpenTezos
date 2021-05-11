@@ -4,24 +4,38 @@ title: GADT and Coq
 slug: /formal-verification
 ---
 
+Before tackling the formal verification on Tezos smart contract (written in Michelson language), we will describe the theory and tool behind the formal analysis.
 
-//TODO
-Deduction naturelle => logique de premier ordre, logique de second ordre
-Rappel sur la logique [10].
+In order to perform a formal verification, a formal tool (also called proof assistant) must be used. The _Coq_ proof assistant has been chosen to perform formal verification on Tezos smart contracts. _Coq_ provides a language for defining theorems and for proving these theorems. The proof process relies on:
+- a theory (i.e. a base foundation of mathematic) = We will introduce this branch of mathematics is called **Type theory**, and more specifically the Calculus of Construction which is the building principle of _Coq_.
+- expressing the Michelson language as a formal definition = theoretically speaking (GADT, Monad), in practice (Mi-cho-coq)
+
+The goal is to ensure the typechecking of a script (written in Michelson language). This is how we verify a script in a language as formal objects.
+Then the goal is to ensure the semantic analysis of a script. this is done by verifying post-conditions (//TODO see section "modeling theorem").
+
+This section intends to give:
+- a theoretical context about the mathematical principles (CoC, CiC) mis en oeuvre in the formal proof process of _Coq_
+- a bit of insight of how implementation of a language is designed with GADT and Monads,
+- a brief description of the _Coq_ proof assistant
+- a brief description of the Mi-Cho-Coq_ library for _Coq_
+
+For a good understanding of this theoretical part, it is recommended to have some notions on logic (first-order, second-order) [10], basics of mathematic (set, group, monoid, associativity, distributivity, reflexivity), functionnal programming, and language theory.
+
 
 ## Type theory
 
 In mathematics, logic, and computer science, a type system is a formal system in which every term has a "type" which defines its meaning and the operations that may be performed on it. **Type theory** is the academic study of type systems.
 
-Some type theories serve as alternatives to set theory as a foundation of mathematics. Two well-known such theories are _Alonzo Church's typed λ-calculus_ and _Per Martin-Löf's intuitionistic type theory_. 
+Type theory is closely linked to many fields of active research. Most particular, the Curry–Howard correspondence [[6] [7]](/formal-verification/references) provides a deep isomorphism between intuitionistic logic, typed λ-calculus and cartesian closed categories. 
 
-Type theory is closely linked to many fields of active research. Most particular, the Curry–Howard correspondence provides a deep isomorphism between intuitionistic logic, typed lambda calculus and cartesian closed categories. 
+Some type theories serve as alternatives to set theory as a foundation of mathematics. Two well-known such theories are _Alonzo Church's typed λ-calculus_ and _Per Martin-Löf's intuitionistic type theory_. The _Per Martin-Löf's intuitionistic type theory_ has been the foundation of constructive mathematics. For example, Thierry Coquand's **Calculus of constructions** and its derivatives are the foundation used by **Coq** (the proof assistant) [[1]](/formal-verification/references).
+
 
 
 
 ### Category theory
 
-Category theory formalizes mathematical structure and its concepts in terms of a labeled directed graph called a category, whose nodes are called objects, and whose labelled directed edges are called _arrows_ (or morphisms). A category has two basic properties: the ability to compose the arrows associatively, and the existence of an identity arrow for each object. The language of category theory has been used to formalize concepts of other high-level abstractions such as _sets_, _rings_, and _groups_. Informally, category theory is a general theory of functions. 
+Category theory formalizes mathematical structure and its concepts in terms of a labeled directed graph called a category, whose nodes are called objects, and whose labeled directed edges are called _arrows_ (or morphisms). A category has two basic properties: the ability to compose the arrows associatively, and the existence of an identity arrow for each object. The language of category theory has been used to formalize concepts of other high-level abstractions such as _sets_, _rings_, and _groups_. Informally, category theory is a general theory of functions. 
 
 The common usage of "type theory" is when those types are used with a term rewrite system. The most famous early example is Alonzo Church's simply typed lambda calculus. Church's theory of types helped the formal system avoid the Kleene–Rosser paradox that afflicted the original untyped lambda calculus. Church demonstrated that it could serve as a foundation of mathematics and it was referred to as a **higher-order logic**.
 
@@ -54,6 +68,9 @@ This allows monads to simplify a wide range of problems, like handling potential
 
 Without getting too much into mathematics, in programming a Monad is a Design Pattern. It’s a structure, a wrapper which “enriches” a value by giving it a context.
 
+//TODO ... 
+It's about having representations simulating exactly notions such as exceptions and side-effects while keeping the purety of functionnal languages.
+
 Famous examples of Monads are:
 
     Option/Maybe monad (it can represent a missing/null value)
@@ -61,19 +78,20 @@ Famous examples of Monads are:
     IO/Effect monad (it can represent side-effects)
     Task monad (it can represent asynchronous side-effects)
 
-//TODO : TO REMOVE
-Both the concept of a monad and the term originally come from **category theory**, where a monad is defined as a functor with additional structure. Category theory also provides a few formal requirements, known as the monad laws, which should be satisfied by any monad and can be used to verify monadic code.
-
 
 
 #### GADT
 
-Generalized algebraic data type (GADT) is a generalization of parametric algebraic data types.
+Generalized algebraic data type (GADT) is a generalization of parametric algebraic data types (i.e. a standard representation of a algebraic data types).
+
+The idea of **algebraic data types** is to define a language as a composite type and formalize an algebra of data types (like the algebra on numbers). (//TODO see ADT section) .The programming language can be seen as a complex-type with functors.
+
 An important application of GADTs is to embed **higher-order abstract syntax** in a type safe fashion.
 
 In computer science, **higher-order abstract syntax** (abbreviated HOAS) is a technique for the representation of abstract syntax trees for languages with variable binders. 
 
-This article [8] describes how to define a **higher-order abstract syntax** in Coq (i.e. defining axioms, and inductive types). 
+This article [8] describes how to define a **higher-order abstract syntax** in _Coq_ (i.e. defining axioms, and inductive types). 
+GADT is similar to inductive families of data types (or inductive data types) found in _Coq_'s _Calculus of Inductive Constructions_.
 
 ##### ADT
 
@@ -86,62 +104,40 @@ The values of a product type typically contain several values, called fields. Al
 The values of a sum type are typically grouped into several classes, called variants. A value of a variant type is usually created with a quasi-functional entity called a constructor. Each variant has its own constructor, which takes a specified number of arguments with specified types. The set of all possible values of a sum type is the set-theoretic sum, i.e., the disjoint union, of the sets of all possible values of its variants. Enumerated types are a special case of sum types in which the constructors take no arguments, as exactly one value is defined for each constructor. 
 
 
-The ADT defines two monoids (PRODUCT and SUM) describing possible operations on Data type. It defines the algebra on data types. A monoid requires to define reflexivity, associativity and neutral element. 
+The ADT describes possible operations on Data type;it allows to define an algebra on data types. In abstract algebra, a monoid is defined by reflexivity, associativity and a neutral element. 
+
+The typechecking of a language can be modeled as a mathematical object (set) with a set of rules (PRODUCT and SUM) describing possible operations on datatypes.
+
+PRODUCT type = (a b)
+- reflexive => (not really but up to an isomorphism) _swap_ : (a b) ~ (b a)
+- associativity (assoc) => (not really but up to an isomorphism) _assoc_ :  ((a, b), c) ~ (a, (b, c)) 
+- neutral element (munit) => (not really but up to an isomorphism) _first_ (a,()) ~ a  
+
+Programmatically speaking, a tuple `(int bool)` does not typecheck a tuple `(bool int)` but both contain the same information. These two tuples are equivalent up to an isomorphism (which is the function "swap"; i.e. `swap x = (snd x, fst x)`). Notice that the inverse function of _swap_ is _swap_; and also _assoc_ and _first_ are inversible (up to an isomorphism).
+
+SUM type = (Either a b); `Either a b = Left a | Right b`
+- reflexivity = `Either a b ~ Either b a` 
+- neutral element (Void) = Either a Void ~ a (there is no element in the set Void) equivalent to `a + 0 = a`
+- associativity: (variant) (i.e. `triple (a b c) = Left a | Right c | Middle b`)
+- distributivity = `(a,Either(b,c)) ~ Either (a,b) (a,c)`  ===> equivalent to `(a * (b + c) = a*b + a*c)`
+- (a, Void) ~ Void ===> equivalent to `a * 0 = 0`
+
+Notice that all properties are inversible (up to an isomorphism).
+
+In algebra, a set equipped with neutral element and associativity (PRODUCT and SUM) is a (//TODO monoid). Notice that the inverse of SUM has no meaning (subtraction `a - b` is not permitted; programmatically speaking, removing an integer from a structure that has no integer field have no meaning).
 
 
-PRODUCT monoid = 
-- reflexive (not really but up to an isomorphism) = swap
-- associativity (assoc) => multiplication of data types is associative
-- element neutre (unit) => (a,())   
-
-SUM monoid = 
-- reflexive = Either a b ~ Either b a 
-- unit = Either a Void ~ a (there is no element in the set Void)
-- (a, Void) ~ Void ===> equivalent to (a * 0 = 0)
-- associative = (a,Either(b,c)) ~ Either (a,b) (a,c)  ===> equivalent to (a * (b + c) = a*b + a*c)
-
-for example we can create the Maybe monad.
+For example, we can create the Maybe monad.
 
 ```
 MAYBE a = Nothing | Just a
         = Either () a
 ```
 
---------------- TODO
-We can define a List 
+For example, we can define a List monad. 
 ```
 data List a = Nil | Cons a (List a)
 ```
-
-We can consider the L function as:
-```
-L(a) = 1 + a * L(a)
-```
-
-or
-```
-L(a) = 1 / (1 - a)
-```
-
-Using "developpement limité" we can write:
-```
-L(a) = 1 + a + a*a + a*a*a + ..... 
-L(a) = sum [n=0 to k] a^n
-```
-this value can be defined by a Fixpoint.
-
- --------------- ODOT
-
-
-
-
-#### GADT to Coq
-
-Some other type theories include Per Martin-Löf's intuitionistic type theory, which has been the foundation used in some areas of constructive mathematics. Thierry Coquand's calculus of constructions and its derivatives are the foundation used by **Coq**.
-
-GADT is similar to inductive families of data types (or inductive datatypes) found in Coq's Calculus of Inductive Constructions.
-
-
 
 
 ## Coq
@@ -175,7 +171,21 @@ For more information about the CoC and CiC foundation, it is recommended to read
 
 
 
-. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//TODO to remove ???
 ### Logic of first-order
 
 #### Horn clause
