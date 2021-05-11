@@ -3,14 +3,15 @@ id: introduction
 title: Introduction
 ---
 
-The goal of this module is to allow a developer to use the SmartPy library to write his own smart contracts.
-In the form of a pedagogical course illustrated with an example of smart contract,
-the developer will have acquired the essentials to write, test and analyze his smart contract.
+The goal of this module is to allow a developer to write smart contracts with SmartPy.
+In the form of a pedagogical course illustrated with an example of a smart contract,
+the developer will have acquired the essentials to write, test, and analyze his smart contract.
 
 Tezos smart contracts are written in [Michelson](https://opentezos.com/michelson), which is a stack-based language.
-It is the lowest level of a Tezos smart contract: what will be deployed on a Tezos network, is Michelson code.
+It is the lowest level of a Tezos smart contract: The Michelson code is what will be deployed on a Tezos network.
 However, if reading or writing Michelson code is still easy for small smart contracts,
 it can become very tedious for more complex smart contracts:
+
 - there are no variables nor functions
 - no syntactic sugar
 - the Michelson code cannot be broken down into several files
@@ -19,20 +20,19 @@ it can become very tedious for more complex smart contracts:
 SmartPy solves these issues.
 It is a high-level smart contracts library
 and comes with related tools in the form of [SmartPy.io](https://smartpy.io/) to greatly ease
-the accessibility, understandability and provability of smart contracts on Tezos.
+the accessibility, understandability, and provability of smart contracts on Tezos.
+
 - Use a popular programming language Python
-- A set of high-level primitives, SmartML, written in OCaml for a new smart contracts virtual machine 
+- A set of high-level primitives, SmartML, written in OCaml for a new smart contracts virtual machine
   that can be compiled into Michelson.
 - A compiler to translate SmartML contracts to Michelson.
-- Analytics are elements of the user interface that provide some automatic procedures in SmartPy.io 
+- Analytics are elements of the user interface that provide some automatic procedures in SmartPy.io
   to analyze and prove properties of smart contracts
-  
+
 ![](../../static/img/smartpy/smartpy_intro.svg)
 <small className="figure">FIGURE 1: From SmartPy to Michelson, Tests, and Analytics </small>
 
-Once built, SmartPy contracts become SmartML contracts 
-and are handled in an OCaml library called SmartEngine,
-then it can be compiled into a single Michelson code file.
+Once built, SmartPy contracts become SmartML contracts and are handled in an OCaml library called SmartEngine it can then be compiled into a single Michelson code file.
 This Michelson file is the smart contract that will be deployed on a Tezos network.
 
 ## References
