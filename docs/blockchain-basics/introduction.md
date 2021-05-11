@@ -49,11 +49,11 @@ Bitcoin also relies heavily on so-called _Modern Cryptography_, e.g., the Diffie
 
 The blocks of data are cryptographically chained with [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_block_chaining_(CBC)) principle from 1976, meaning that chains of blocks are that old.
 
-From there, countless reflections on ethics, research on technologies, and of course cryptography have taken place: Mails traceability and privacy in 1981, Elliptic Curve Cryptography in 1985 (used for _Public Key Cryptography_ in most blockchains), PGP in 1991 (developed for privacy providing authentication and encryption), etc. Even "smart contracts" were first conceptualized by Nick Szabo in 1997.
+From there, countless reflections and research on ethics in technologies, and of course cryptography have taken place: Email traceability, and privacy in 1981, Elliptic Curve Cryptography in 1985 (used for _Public Key Cryptography_ in most blockchains), PGP in 1991 (developed for privacy providing authentication and encryption), etc. Even "smart contracts" were first conceptualized by Nick Szabo in 1997.
 
 In 2001, the _Bittorent_ client provided more support to the peer-to-peer networks experimental research. An essential opening towards more decentralization.
 
-Finally, before the bankruptcy of Lehman Brothers and the global financial crisis in 2008, Hal Finney (1956-2014), who had developed on PGP, released his "Reusable Proof-of-Work" in 2004. Later, he became one of the first person to exchange Bitcoins with Satoshi Nakamoto.
+Finally, before the bankruptcy of Lehman Brothers and the global financial crisis in 2008, Hal Finney (1956-2014), who had developed PGP, released his "Reusable Proof-of-Work" in 2004. Later-on, he became one of the first person to exchange Bitcoins with Satoshi Nakamoto.
 
 ### The 2nd generation of blockchains
 Following the success of Bitcoin, many forked its code and started creating new blockchains with differentiating new features or capabilities.
@@ -80,17 +80,19 @@ Today, Bitcoin and Ethereum remain the two main protocols, but many exciting alt
 ## Terminology
 A *blockchain* is a particular type of [_**D**istributed **L**edger **T**echnology_](https://en.wikipedia.org/wiki/Distributed_ledger) (DLT), a consensus of replicated, shared, and synchronized digital data geographically spread across multiple sites.
 
-Not all blockchains are then cryptocurrencies. For instance, [Corda](https://www.corda.net/) and [Fabric](https://www.hyperledger.org/use/fabric) are blockchains often used for immutable and cryptographically verified storage of data in various domains: Secure sharing of medical data, Music royalties tracking, Personal identity security, Supply chain and logistics monitoring, Voting mechanism, etc.
+Not all blockchains are cryptocurrencies. For instance, [Corda](https://www.corda.net/) and [Fabric](https://www.hyperledger.org/use/fabric) are blockchains often used for immutable and cryptographically verified storage of data in various domains: Secure sharing of medical data, Music royalties tracking, Personal identity security, Supply chain and logistics monitoring, Voting mechanism, etc.
 
-It is important not to confuse a cryptocurrency (first made for exchanging money) with its supporting component: a *blockchain*. Note that **originally** the word "*blockchain*" did **not** designate a technology, but the name of the **data-structure** used to store the data.
+It is important not to confuse a cryptocurrency (first made to exchange money) with its supporting component: a *blockchain*. Note that **originally** the word "*blockchain*" did **not** designate a technology, but the name of the **data-structure** used to store the data.
 
-The exact word "blockchain" does not even appear in the Bitcoin whitepaper but **now reflects the technology** used to arrange and chain data ensuring _immutability_ and _cryptographic verifiability_.
+The exact word "blockchain" doesn't even appear in the Bitcoin whitepaper but it **now reflects the technology** used to arrange and chain data to ensure _immutability_ and _cryptographic verifiability_.
 
-Crypto-currencies have two essential characteristics:
-- They are public
-- There is no _double-spending_, meaning that you cannot spend the same coins twice.
+While crypto-currencies have essential characteristics of a currency:
+- They are scarces
+- Can be accepted as units of account
+- Can be accepted as stores of value
+- Can be accepted as mediums of exchange
 
-To create a distributed currency without a central authority, Satoshi Nakamoto had to solve the double-spending problem **in a large distributed environment** which was no easy task, as we will see in the following chapters.
+To really create a distributed currency without a central authority, Satoshi Nakamoto had to solve the problem of double-spending **in a large distributed environment** which was no easy task, as we will see in the following chapters.
 
 ## References
 
