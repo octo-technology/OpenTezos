@@ -84,7 +84,6 @@ The values of a product type typically contain several values, called **fields**
 
 The values of a sum type are typically grouped into several classes, called **variants**. A value of a variant type is usually created with a quasi-functional entity called a constructor. Each variant has its own constructor, which takes a specified number of arguments with specified types. The set of all possible values of a sum type is the set-theoretic sum, i.e., the disjoint union, of the sets of all possible values of its variants.  
 
-
 Basically, the Algebraic Data Type (ADT) formalizes a language into a composite type and describes possible operations on data types.
 
 #### Example with Michelson pairs and variants
@@ -220,7 +219,7 @@ Fixpoint eval {self_type} {tff} {env} {A : stack_type} {B : stack_type}
 
 > Since evaluating a Michelson instruction might fail (which Coq functions cannot), the return type of this evaluator is wrapped in an exception monad (handling errors such as overflow, lexing, parsing, fuel).
 
-> Coq forbids non-terminating function so we use a common Coq trick to define the evaluator on diverging instructions such as LOOP: we make the evaluator structurally recursive on an extra argument of type Datatypes.nat called the fuel of the evaluator.
+> Coq forbids non-terminating function so we use a common Coq trick to define the evaluator on diverging instructions such as LOOP: we make the evaluator structurally recursive on an extra argument of type Datatypes.nat called the **fuel** of the evaluator.
 
 
 

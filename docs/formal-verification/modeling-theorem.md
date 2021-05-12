@@ -78,10 +78,11 @@ eval env CODE fuel (arguments,storage) = return (newstorage)
 ```
 
 where:
-- `fuel` represents the quantity of gas.
+- `fuel` represents the quantity of gas (see [section](/formal-verification/gadt-coq#Semantics)).
 - `env` represents a context of evaluation for the Coq engine.
-- `eval` effectively executes each instruction sequentially on the provided initial stack.
-- `arguments` and `storage` are passed as parameters.
+- `eval` represents an evaluator which effectively executes each instruction sequentially on the provided initial stack.
+- `arguments` represents the parameter (entrypoint) and its related arguments.
+- `storage` represents the storage state before the execution.
 - `newstorage` represents the resulting storage after the execution.
 
 So the theorem could be formalized as:
@@ -106,7 +107,7 @@ In fact, post-conditions are most of the time multiple assertions combined with 
 post-conditions <=> A ^ B ^ C ^ D
 ```
 
-Since post-conditions is a generic concept formalizing smart contract intention as logical assertions, we will use an example in order to illustrate this.
+Since post-conditions is a generic concept formalizing smart contract intention as logical assertions, we will use an example in order to illustrate post-conditions modeling.
 
 #### Example Vote
 
