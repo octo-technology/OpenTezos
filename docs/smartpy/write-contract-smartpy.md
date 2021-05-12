@@ -8,44 +8,6 @@ import NotificationBar from '../../src/components/docs/NotificationBar';
 
 In this chapter, we will use _SmartPy_ to develop a smart contract based Raffle and cover the most important aspects of the framework. We will introduce new notions as they come along the contract. For a complete reference of _SmartPy_, please refer to the [Reference Manual](https://smartpy.io/reference.html).
 
-## What is a smart contract?
-First, let's recap what a smart contract is and what role _SmartPy_ plays in it.
-
-Fig. 1 helps to contextualize the role of _SmartPy_ in the Tezos ecosystem.
-
-_SmartPy_ is a development tool allowing for the production of smart contracts (scripts in Michelson), which can be deployed on the blockchain.
-
-![](../../static/img/ligo/intro_schema.svg)
-<small className="figure">FIGURE 1: _SmartPy_ contextualisation </small>
-
-A Tezos smart contract is a piece of **code** written in Michelson language (a low-level stack-based Turing-complete language).
-
-It defines all **entrypoints** (invocable functions) of the smart contract and its **storage**.
-
-![](../../static/img/ligo/smart_contract.svg)
-<small className="figure">FIGURE 2: Smart contract</small>
-
-//TODO: Shouldn't this whole section be in the introduction instead? There are a lot of repetition with the introduction
-
-### Storage
-The storage is an allocated memory space associated with a smart contract. It is the permanent data store for the smart contract.
-
-### Entrypoints
-The entrypoints are the invocable functions of a smart contract. Executing an entrypoint takes some parameters and the current state of the storage returns a new modified storage and some operations. //TODO: what kind of operations? operations that have not be executed? or to be executed next? or what???
-
-<NotificationBar>
-  <p>
-  
-**An operation** results from the invocation of a smart contract and represents the side effects on the Tezos network.
-The storage resulting from the invocation of a smart contract represents the side effects on the data related to the invoked contract.
-If the execution of an entrypoint produces an operation (an ordered list of transactions) then they are sent and executed according to the order on the list.
-//TODO: Unclear, I didn't understand a thing...
-
-  </p>
-</NotificationBar>
-
-//TODO: I feel like all the section above should be in the introduction, or in another chapter.
-
 ## About the raffle contract
 A raffle is a game of chance that distributes a winning prize.
 
@@ -61,6 +23,8 @@ Three entrypoints allow interaction with the contract:
 - **open_raffle** can only be called by the administrator. During this call, he sends the amount of the jackpot to the contract, defines a closing date, indicates the number/identity of the winning ticket (in an encrypted way), and declares the raffle open.
 - **buy_ticket** allows anyone to buy a ticket for 1 tez and take part in the raffle.
 - **close_raffle** can only be called by the administrator. It closes the raffle and sends the jackpot to the winner.
+
+> Note that this is a simplified conception of what a raffle is. Here the jackpot is fixed by the administrator, but it is possible to modify the contract so that the jackpot depends on the number of sold tickets.
 
 ### Get started
 This section illustrates the coding of the smart contract in the [online editor](https://smartpy.io/ide) proposed by _SmartPy_. You can however use your favourite IDE instead as described above.
@@ -99,21 +63,22 @@ if "templates" not in __name__:
     sp.add_compilation_target("Raffle_comp", Raffle())
 ```
 
-//TODO: Why is the section below shown as a list? At least you should add context before showing a list, e.g. "the contracts consists of the following:"
+**A _SmartPy_ contract** consists of a storage with one or several entry points. It is a class definition that inherits from `sp.Contract`.
+> **A class** is a code template for creating objects. Objects have member variables and have behaviour associated with them. In python a class is created by the keyword `class`.  
+> **Inheritance** allows us to define a class that inherits all the methods and properties from another class.
 
-- **A _SmartPy_ contract** consists of a state with one or several entry points. //TODO: is 'state' the right word here? Entrypoints are stored in the state? Is it the same as storage?
+- **The _SmartPy_ storage** is defined into the constructor `__init__` which makes a call to `self.init()` that initializes fields and sets up the storage.
 
-It is a class definition that inherits from `sp.Contract`. //TODO: What is a classe definition? What does inherit mean?
+- **Entrypoints** are methods of a contract class that can be called from the outside. Entrypoints need to be marked with the `@sp.entry_point` decorator.
+    > **Decorators** are functions that modify the functionality of other functions. They are introduced by `@` and are placed before the function.
 
-- **The _SmartPy_ storage** is defined into the constructor `__init__` which makes a call to `self.init()` that initializes fields and sets up the storage. //TODO: What are fields? What does setting up the storage mean? Is that setting values to null?
+**Test Scenarios** are good tools to make sure our smart contract is working correctly.
+- A new test is a method marked with the `sp.add_test` decorator.
+- A new scenario is instantiated by `sp.test_scenario`.
+- Scenarios describe a sequence of actions: originating contracts, computing expressions, calling entry points, etc.
+- In the online editor of SmartPy.io, the scenario is computed and then displayed as an HTML document on the output panel.
 
-- **Entrypoints** are methods of a contract class that can be called from the outside. Entrypoints need to be marked with the `@sp.entry_point` decorator. //TODO: What is a decorator?
-
-- **Tests and Scenarios** are good tools to make sure our smart contract is working correctly.
-  - A new test is a method marked with the `sp.add_test` decorator.
-  - A new scenario is instantiated by `sp.test_scenario`.
-  - Scenarios describe a sequence of actions: originating contracts, computing expressions, calling entry points, etc. //TODO: Difference between a test and a scenario?
-  - In the online editor of SmartPy.io, the scenario is computed and then displayed as an HTML document on the output panel.
+> Note that there is a difference between **Test Case** which is a set of actions executed to verify particular features or functionality and **Test Scenario** which includes an end to end functionality to be tested.
 
 We will explain in more details the use of all these concepts in the next sections.
 
@@ -133,8 +98,7 @@ code
 
 ### The *open_raffle* entrypoint
 
-`open_raffle` is the entrypoint that only the administrator can call. If the invocation is successful, then the raffle is open, the smart contract's storage will be updated with the jackpot amount and the hash of the winning ticket number.
-//TODO: You should introduce earlier how the raffle works and a winnier is picked, it's the first time in the article you speak about a hash of a ticket. Is that the winning mechanism? No idea so far.
+`open_raffle` is the entrypoint that only the administrator can call. If the invocation is successful, then the raffle is open, and the smart contract's storage will be updated with the jackpot amount and the hash of the winning ticket number.
 
 #### Link to referential manual
 
@@ -320,7 +284,7 @@ self.data.hash_winning_ticket = hash_winning_ticket
 self.data.raffle_is_open = True
 ```
 
-#### Test and Scenario
+#### Test Scenario
 
 The purpose of the test scenario is to ensure the proper functioning of the smart contract by triggering the conditions and checking the changes made to the storage.
 

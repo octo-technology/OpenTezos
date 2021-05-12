@@ -12,6 +12,9 @@ It also defines all **entrypoints** (invocable functions) of the smart contract.
 
 It also defines the **storage** of the smart contract (i.e. the data structure of the persistent memory associated to the smart contract).  
 
+![](../../static/img/ligo/smart_contract.svg)
+<small className="figure">FIGURE 1: Smart contract</small>
+
 ## Storage
 
 The storage is an allocated memory space associated with a smart contract. 
@@ -20,16 +23,16 @@ The description of the storage is done by strongly-typing the data structure.
 
 ## Entrypoints
 
-Entrypoints are invokable function for a smart contract.
-Executing an entrypoint takes some parameters and a current state of the storage and returns a new state of storage and some operations.
+The entrypoints are the invocable functions of a smart contract. Executing an entrypoint takes some parameters and the current state of the storage, and returns a new modified storage and some operations.
 
-![](../../static/img/ligo/smart_contract.svg)
-<small className="figure">FIGURE 1: Smart contract</small>
+<NotificationBar>
+  <p>
 
-> An operation results from the invocation of a smart contract and represents the side effects on the tezos network.
-> The storage resulting from the invocation of a smart contract represents the side effects on the data related to the invoked contract.
-> If the execution of an entrypoint produces operations (an ordered list of transactions) 
-> then they are sent and executed according to the order of the operations on the list.
+**Operations** are an ordered list of transactions. An operation can trigger a tez transfer or an entry point of another targeted contract. If the execution of an entry point produces operations then they are sent and executed following the order of the list of operations.
+
+  </p>
+</NotificationBar>
+
 
 # LIGO Compiler
 
