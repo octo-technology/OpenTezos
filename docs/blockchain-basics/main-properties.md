@@ -12,7 +12,7 @@ Most, if not all, public blockchain developments are made open-source. Anyone ca
 
 The most committed blockchain developers also go by the catchphrase "[*Code is law*](https://en.wikipedia.org/wiki/Code_and_Other_Laws_of_Cyberspace)", meaning that the strict code defines not only the validation rules of all the transactions and their interactions but also people's conduct. This code is also used to create the software that runs on the network and how data is recorded, explored, etc.
 
-There are different implementations of the Bitcoin protocol on other operating systems and devices. There are implementations in almost every programming language (e.g., _C++, Python, Java, Go, Scala_...).
+There are different implementations of the Bitcoin protocol on other operating systems and devices. With the posibility to implement in almost every programming language (e.g., _C++, Python, Java, Go, Scala_...).
 
 The original implementation from _Satoshi Nakamoto_ is in C++ and is called [_Bitcoin Core_](https://bitcoincore.org/). Most of the nodes of the network use this version.
 
@@ -25,7 +25,7 @@ There are different types of nodes, but for the sake of simplicity, let's only q
 
 - _Full nodes_ enforce the rules no matter what happens and validate transactions. They _usually_ [[2]](/blockchain-basics/main-properties#references) also record all transactions in a distributed ledger. This ledger is shared by all the full nodes of the network.
 
-- _Lightweight nodes_ are used for devices with limited space capacity, calculating speed, or connectivity (e.g., smartphones, tablets, IoT, etc.). They don't record transactions in the ledger and ask full nodes for information when needed.
+- _Lightweight nodes_ are used for devices with limited space capacity, calculating speed, or connectivity (e.g., smartphones, tablets, IoT, etc.). They don't record transactions in the ledger or ask full nodes for required informations.
 
 From now on, "node" refers to a *full node*. 
 
@@ -36,7 +36,7 @@ The ledger's structure has to be very special to meet the following constraints:
   
 - Transactions are grouped inside packages named "**blocks**" to ease management. Blocks shouldn't be too small, nor too big, to have smooth and regular transmissions.
   
-- The history must not be modified (immutability), so the difficulty in attacking the network and modifying the ledger must increase over time (as computers become more powerful)
+- Their history must not be modifiable (immutability).
   
 - Verifying the history or picking specific information inside the ledger has to be fast (e.g., check a balance)
   
