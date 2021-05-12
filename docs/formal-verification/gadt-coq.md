@@ -21,7 +21,7 @@ This section intends to give:
 - a brief description of the _Coq_ proof assistant
 - a brief description of the Mi-Cho-Coq_ (library for _Coq_)
 
-For a good understanding of this theoretical part, it is recommended to have some notions on logic (first-order, second-order) [10], basics of mathematic (set, group, monoid, associativity, distributivity, reflexivity), functional programming, and language theory.
+For a good understanding of this theoretical part, it is recommended to have some notions on logic (first-order, second-order) [[10]](/formal-verification/references), basics of mathematic (set, group, monoid, associativity, distributivity, reflexivity), functional programming, and language theory.
 
 
 ### Type theory
@@ -35,17 +35,17 @@ Some type theories serve as alternatives to set theory as a foundation of mathem
 
 ### Coq
 
-Initially developed by Thierry Coquand, Coq [1] is a proof assistant designed to develop mathematical proofs, and especially to write formal specifications, programs and proofs that programs comply to their specifications. 
+Initially developed by Thierry Coquand, _Coq_ [[1]](/formal-verification/references) is a proof assistant designed to develop mathematical proofs, and especially to write formal specifications, programs and proofs that programs comply to their specifications. 
 
 Properties, programs and proofs are formalized in the _Coq_ language called _Gallina_ which follows the principles of the Calculus of Inductive Constructions (CIC).
 
 
 #### CoC - CiC
 
-Initially developed by Thierry Coquand, the _Calculus Of Constructions_ [13] (or CoC) is a typed high-order λ-calculus (i.e. a typed formal system taking the logic of second-order into account). The CoC is used as a typed programming language. 
+Initially developed by Thierry Coquand, the _Calculus Of Constructions_ [[13]](/formal-verification/references) (or CoC) is a typed high-order λ-calculus (i.e. a typed formal system taking the logic of second-order into account). The CoC is used as a typed programming language. 
 
 Many derivatives of CoC have been created to handle inductive types, predicates and co-inductive types.
-The Calculus of Inductive Constructions ([18] CiC) is an extension of CoC which integrates inductive datatype. The _Coq_ proof assistant is built upon CiC.
+The Calculus of Inductive Constructions ([[18]](/formal-verification/references) CiC) is an extension of CoC which integrates inductive datatype. The _Coq_ proof assistant is built upon CiC.
 
 All logical judgments in Coq are typing judgments: the very heart of _Coq_ is, in fact, a type-checking algorithm. 
 
@@ -57,7 +57,7 @@ Logical objects (such as theorems, axioms) are formalized in Gallina-Term langua
 
 The proof script is executed by the _Coq_ inference engine. In the case of a Tezos smart contract, the inference engine rely on the Coq universe and the Mi-Cho-Coq library. 
 
-For more information about the CoC and CiC foundation, it is recommended to read the official paper of "Thierry Coquand" and other documentation [13] [16] [18]. It is required to know the basis of λ-calculus [17] in order to understand mathematical notations used in CoC and CiC.
+For more information about the CoC and CiC foundation, it is recommended to read the official paper of "Thierry Coquand" and other documentation [[13] [16] [18]](/formal-verification/references). It is required to know the basis of λ-calculus [[17]](/formal-verification/references) in order to understand mathematical notations used in CoC and CiC.
 
 
 
@@ -126,9 +126,9 @@ To conclude , the formalization of a language into an algebra of data types (ADT
 
 The _Mi-Cho-Coq_ library represents the bridge between Tezos smart contract and formal proof in Coq.
 
-The _Mi-Cho-Coq_ library [2] is a formalization of the Michelson language [9] using the Coq interactive theorem prover [1].
+The _Mi-Cho-Coq_ library [[2]](/formal-verification/references) is a formalization of the Michelson language [[9]](/formal-verification/references) using the Coq interactive theorem prover [[1]](/formal-verification/references).
 
-In practice, the _Mi-Cho-Coq_ library is used to produce a formal definition of a Michelson script (e.g. the "Modeling theorem" [section](/formal-verification/modeling-theorem#Example_vote)). Each Michelson instruction has its equivalent in the _Mi-Cho-Coq_ library (e.g. see the syntax [subsection](/formal-verification/michocoq#Syntax)).
+In practice, the _Mi-Cho-Coq_ library is used to produce a formal definition of a Michelson script (e.g. the "Modeling theorem" [section](/formal-verification/modeling-theorem#Example_vote)). Each Michelson instruction has its equivalent in the _Mi-Cho-Coq_ library (e.g. see the syntax [subsection](/formal-verification/gadt-coq#Syntax)).
 
 The _Mi-Cho-Coq_ library provides a formal definition (in Gallina) of the **type system** (Michelson types), the **syntax** (instructions of the Michelson), the **semantics** (evaluator) and the lexing and parsing (for type-checking).
 

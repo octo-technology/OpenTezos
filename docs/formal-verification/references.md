@@ -43,3 +43,5 @@ slug: /formal-verification
 [18] Calculus of Inductive Constructions - https://coq.inria.fr/distrib/current/refman/language/cic.html
 
 [19] Michelson - https://www.michelson-lang.com/why-michelson.html
+
+[20] Vote example - https://gitlab.com/nomadic-labs/mi-cho-coq/-/blob/master/src/contracts_coq/vote.v

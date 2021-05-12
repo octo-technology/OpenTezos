@@ -11,11 +11,11 @@ This section will be illustrated with a simple example with the _Vote_ smart con
 
 ### Overview
 
-The Tezos blockchain implements smart contracts using the Michelson language (see module _Michelson_ or official documentation [9]). Michelson is a low-level stack-based Turing-complete language which have been proven; the proof of Michelson language is compiled in a library called **Mi-Cho-Coq** (check the official documentation [2]). 
+The Tezos blockchain implements smart contracts using the Michelson language (see module _Michelson_ or official documentation [[9]](/formal-verification/references)). Michelson is a low-level stack-based Turing-complete language which have been proven; the proof of Michelson language is compiled in a library called **Mi-Cho-Coq** (check the official documentation [[2]](/formal-verification/references)). 
 
-Based on the Curry-Howard isomorphism ([5],[6],[7]) which ensures the correspondence between a program and a theorem, Mi-Cho-Coq can be used in a proof assistant called **Coq** to translate a Michelson script into a theorem (i.e. into its logical equivalent form). The official documentation of Coq can be found here [1], but we recommend easy access documentation such as this introduction to Coq [3].
+Based on the Curry-Howard isomorphism ([[5] [6] [7]](/formal-verification/references)) which ensures the correspondence between a program and a theorem, Mi-Cho-Coq can be used in a proof assistant called **Coq** to translate a Michelson script into a theorem (i.e. into its logical equivalent form). The official documentation of Coq can be found here [[1]](/formal-verification/references), but we recommend easy access documentation such as this introduction to Coq [[3]](/formal-verification/references).
 
-> The Coq proof assistant is built upon the paradigm of **calculus of constructions** (as described by Thierry Coquand [16]). The _Gallina_ language [4] (the language allowing to interact with the Coq engine) provides a syntax (Terms) for describing formal objects (like a theorem) and also provides a set of instructions (Vernacular syntax) called _tactics_ for writing the proof of the theorem.
+> The Coq proof assistant is built upon the paradigm of **calculus of constructions** (as described by Thierry Coquand [[16]](/formal-verification/references)). The _Gallina_ language [[4]](/formal-verification/references) (the language allowing to interact with the Coq engine) provides a syntax (Terms) for describing formal objects (like a theorem) and also provides a set of instructions (Vernacular syntax) called _tactics_ for writing the proof of the theorem.
 
 The formal verification of a Michelson smart contract is done by providing the proof for this theorem. *Coq* (the proof assistant) will perform the verification of a given proof (and its related theorem) based on the *Mi-Cho-Coq* (Michelson proof).
 
@@ -46,7 +46,7 @@ The proof is a sequence of Coq tactics (see the Vernacular part of the Gallina l
 
 #### Smart contract invocation (recall)
 
-As a recall, a Tezos smart contract consists on a Michelson script (more documentation is available in chapter Michelson or the official documentation [9]). 
+As a recall, a Tezos smart contract consists on a Michelson script (more documentation is available in chapter Michelson or the official documentation [[9]](/formal-verification/references)). 
 
 A smart contract invocation requires the smart contract that is invoked, the entrypoint that is called (and its related arguments), the actual storage state.
 
@@ -111,7 +111,7 @@ Since post-conditions is a generic concept formalizing smart contract intention 
 
 #### Example Vote
 
-Let's consider a very simple _Vote_ smart contract that handles a voting process. The _Vote_ smart contract allows anyone to vote for a candidate (we consider that candidates are registered and their number of votes is initialized to zero).
+Let's consider a very simple _Vote_ smart contract that handles a voting process. The complete implementation of the theorem and its proof are available at [[20]](/formal-verification/references); in this section, we will explain the "Vote" reference example. The _Vote_ smart contract allows anyone to vote for a candidate (we consider that candidates are registered and their number of votes is initialized to zero).
 
 When someone invokes the smart contract, one must indicate the candidate. If the candidate is registered then its corresponding number of votes is incremented.
 
@@ -371,13 +371,13 @@ Now that the intent of our smart contract has been modeled into post-conditions 
 
 The demonstration or proof of the theorem can be expressed with a sequence of Coq tactics.
 
-Since the theorem is a complex logical proposition, it is suggested to decompose it into simpler propositions easily provable. This decomposition is done by separating into smaller independent propositions or applying reductions (see reductions in Gallina [4]).  
+Since the theorem is a complex logical proposition, it is suggested to decompose it into simpler propositions easily provable. This decomposition is done by separating into smaller independent propositions or applying reductions (see reductions in Gallina [[4]](/formal-verification/references)).
 
 The following proof script relies on:
 - tactics (commands of the Vernacular of Gallina) 
 - induced types (Mi-Cho-Coq)
 - proven theorem of Mi-Cho-Coq dealing with Tezos smart contract properties (e.g. gas)
-- the Coq universe which defines sets of numbers and related theorem. For example, natural integers are defined upon the Peano arithmetic.
+- the Coq universe which defines sets of numbers and related theorem. For example, natural integers are defined upon the _Peano_ arithmetic.
 
 
 Here is the proof of the Vote smart contract.
@@ -464,7 +464,7 @@ Proof.
 Qed.
 ```
 
-This section is not intended to be a Coq tutorial so we will not deep dive into this script. If you want to look into proof implementation in Coq we recommend these simple tutorials [3], [14] as a start and the Coq'Art book [15] for a more complete overview. 
+This section is not intended to be a Coq tutorial so we will not deep dive into this script. If you want to look into proof implementation in Coq we recommend these simple tutorials [[3]](/formal-verification/references), [[14]](/formal-verification/references) as a start and the Coq'Art book [[15]](/formal-verification/references) for a more complete overview. 
 
 
 
