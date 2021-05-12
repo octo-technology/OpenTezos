@@ -5,7 +5,7 @@ authors: Thomas Zoughebi
 ---
 
 ### Question 1
-Which year did Nick Szabo invent *Smart Contracts*?
+Which year did Nick Szabo invent the *Smart Contracts*?
 
 - [ ] 1995
 - [x] 1996
@@ -106,7 +106,7 @@ If two miners find a valid block, The winner is the one:
 - [x] adding his block to the chain with the most work
 
 ### Question 12
-At Bitcoin's launch the blocks reward was:
+At Bitcoin's launch the reward for a blocks was:
 
 - [ ] 100 bitcoins
 - [x] 50 bitcoins
@@ -123,11 +123,11 @@ The Bitcoin's "*Halving*" happens every:
 - [ ] 2,100,000 blocks
 
 ### Question 14
-In 2016, the block's reward was:
+In 2021, the block's reward was:
 
-- [x] 12.5 bitcoins
+- [ ] 12.5 bitcoins
 - [ ] 10 bitcoins
-- [ ] 6.25 bitcoins
+- [x] 6.25 bitcoins
 - [ ] 5 bitcoins
 - [ ] 3.125 bitcoins
 - [ ] 2.5 bitcoins
