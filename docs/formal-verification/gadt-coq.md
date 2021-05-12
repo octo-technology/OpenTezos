@@ -106,10 +106,14 @@ SUM type = (Either a b); `Either a b = Left a | Right b` (i.e. variant)
 - distributivity: `(a,Either(b,c)) ~ Either (a,b) (a,c)` is equivalent to `(a * (b + c) = a*b + a*c)`
 - `(a, Void) ~ Void` is equivalent to `a * 0 = 0`
 
-//TODO Notice that all properties are invertible (up to an isomorphism).
+Notice that the variant ("Either" concept) can be combined with pairs due to the distributivity rule. 
+Like for the PRODUCT type, properties (associativity, distributivity) are respected up to an isomorphism which is invertible (i.e. an inverse function exist for each isomorphism). 
+
+For example, the "triple" function compose a variant from 3 elements. The function "triple_inv" decompose a triple in a nested pair containing the three elements: `triple_inv x = ((Left(x) Middle(x)) Right(x))`. `triple (a (b c)) = Left a | Right c | Middle b`.
 
 So, a set equipped with PRODUCT and SUM represents a language equipped with _pairs_ and _variants_ (such as Michelson language). 
 
+> Other language structures such as _List_ can be defined using the List Monad pattern.  
 
 #### A semiring to generalize Michelson language 
 
@@ -119,7 +123,7 @@ In algebra, a set equipped with PRODUCT and SUM is a semi-ring. Notice that the 
 
 In mathematics, **rings are algebraic structures that generalize fields**: multiplication need not be commutative and multiplicative inverses need not exist. In other words, a ring is a set equipped with two binary operations satisfying properties analogous to those of addition and multiplication of integers. Ring elements may be numbers such as integers or complex numbers, but they may also be non-numerical objects such as polynomials, or functions.
 
-To conclude , the formalization of a language into an algebra of data types (ADT) allows to specify a mathematical representation of a language; and thus allows to use CoC principles for proving theorems on this algebra (i.e. verifying script of this language). The Mi-Cho-Coq is the formal _Coq_ representation of the Michelson language and allows to specify a formal representation of a Tezos smart contract.
+To conclude , the formalization of a language into an algebra of data types (ADT) allows to specify a mathematical representation of a language; and thus allows to use CoC principles for proving theorems on this algebra (i.e. verifying a script of this language). The **Mi-Cho-Coq** library is the formal _Coq_ representation of the Michelson language and allows to specify a formal representation of a Tezos smart contract.
 
 
 ### Mi-Cho-Coq
