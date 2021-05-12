@@ -6,52 +6,16 @@ authors: Frank Hillard
 ---
 
 
-The Tezos blockchain brings several improvements including the formal verification of smart contract.This section describes the overview of how Tezos smart contract can be formally verified.
+The Tezos blockchain brings several improvements including the **formal verification of smart contract**.This section describes the overview of how Tezos smart contract can be formally verified. 
 
-### Overview
+We will briefly introduce some basic concepts of the Type theory such as GADT which sustains inductive types on the Calculus of Inductive Construction (CiC). The proof assistant _Coq_ which is based on the CiC is used for proving theorems. 
 
-The Tezos blockchain implements smart contracts using the Michelson language (see module _Michelson_). Michelson is a low-level stack-based turing-complete language which have been proven; the proof of Michelson language is compiled in a library called *Mi-cho-coq*. 
+We will briefly introduce the Mi-Cho-Coq library (used by _Coq_) which allows formalizing a smart contract as a theorem. 
 
-Based on the Curry-Howard isomorphism which ensures the correspondence between a program and a theorem, Mi-cho-coq can be used in a proof assistant called *Coq* to translate a Michelson script into a theorem (i.e. its logical equivalent form). 
+We will see how Coq and Mi-Cho-Coq are used to model the smart contract as a logical object (theorem). This theorem is formalized in Gallina (Term) language which follows the CiC principles. The script for proving the theorem is written in Gallina (Vernacular) which provides _tactics_ and will be executed by the inference engine (Coq).
 
-The formal verification of a smart contract is done by providing a proof for this theorem. *Coq* (the proof assistant) will perform the verification of a given proof (and its related theorem) based on the *Mi-cho-coq* (Michelson proof).
+The modeling of the theorem will be illustrated with a simple example (_Vote_ smart contract).
 
-The proof consists of instructions in _Coq_ language (called Galina). Theses instructions called _tactics_ manipulate formal expressions (following logical laws (_Coq_ univers) and _Mi-cho-coq_) and logical implications in order to formally assert truth of a given theorem.
-
-Before going deeper, let's sum up in the schema below representing the workflow of formal verification of Tezos smart contracts.
-
-![](../../static/img/formal-verification/FormalVerification_overview.svg)
-
-### Theorem
-
-This ecosystem combines an assistant of proof (*Coq*) and the proof of the Michelson language (*Mi-cho-coq*) to formally verify the correctness of a theorem and its proof.
-
-The theorem is based on 
-- a Michelson script representing what the smart contract does.
-- post-conditions representing the rules of the smart contract in a formal form.
-
-Formal verification of a Tezos smart contract consists of verifying formally that the execution of the Michelson script satisfies specific post-conditions.
-
-![](../../static/img/formal-verification/FormalVerification_theorem.svg)
-
-The proof is a sequence of Coq tactics. Will see that part in the end of this section.
-
-### Transaction execution (recall) WIP
-
-storage + parameter (entrypoint) ----> new storage + list operation
-
-So the theorem is
-
-```
-eval env vote fuel (storage..) = return (newstorage ... ) <=> post-conditions
-```
-
-### Post-conditions WIP
-
-### Proof WIP
-
-
-## Exemple Vote
 
 
 
