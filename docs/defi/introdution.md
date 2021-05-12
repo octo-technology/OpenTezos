@@ -6,8 +6,6 @@ slug: /defi
 author: Aymeric Bethencourt
 ---
 
-import NotificationBar from '../../src/components/docs/NotificationBar';
-
 ## What is _DeFi_?
 _DeFi_ is an acronym of **De**centralized and **Fi**nance :
 

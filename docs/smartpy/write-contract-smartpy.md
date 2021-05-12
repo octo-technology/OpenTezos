@@ -1,80 +1,81 @@
 ---
 id: write-contract-smartpy
 title: Smart contract development with SmartPy
+authors: Maxime Sallerin
 ---
 
-In this chapter, the use of the SmartPy library will be taught, based on the development of a raffle smart contract.
-The most important aspects of the framework will be covered.
-This chapter focuses on the way to develop a smart contract. Each new required notion will be introduced.
-For a complete reference of SmartPy, see: [Reference Manual](https://smartpy.io/reference.html)
+import NotificationBar from '../../src/components/docs/NotificationBar';
+
+In this chapter, we use _SmartPy_ to develop a Raffle smart contract and cover the most important aspects of the framework. We will introduce new notions as they come along the contract. For a complete reference of _SmartPy_, please refer to the [Reference Manual](https://smartpy.io/reference.html).
 
 ## What is a smart contract?
+First, let's recap what a smart contract is and what role _SmartPy_ plays in it.
 
-First, let's define what a smart contract is and what role SmartPy plays in it.
+Fig. 1 helps to contextualize the role of _SmartPy_ in the Tezos ecosystem.
 
-The following schema helps to contextualize the role of SmartPy in the Tezos ecosystem.
-
-SmartPy is active in the left part as a development tool allowing for the production of smart contracts (scripts in Michelson), which can be deployed on the blockchain.
+_SmartPy_ is a development tool allowing for the production of smart contracts (scripts in Michelson), which can be deployed on the blockchain.
 
 ![](../../static/img/ligo/intro_schema.svg)
-<small className="figure">FIGURE 1: SmartPy contextualisation </small>
+<small className="figure">FIGURE 1: _SmartPy_ contextualisation </small>
 
 A Tezos smart contract is a piece of **code** written in Michelson language (a low-level stack-based Turing-complete language).
 
-It also defines all **entrypoints** (invocable functions) of the smart contract.
-
-It also defines the **storage** of the smart contract.
+It defines all **entrypoints** (invocable functions) of the smart contract and its **storage**.
 
 ![](../../static/img/ligo/smart_contract.svg)
 <small className="figure">FIGURE 2: Smart contract</small>
 
-### Storage
+//TODO: Shouldn't this whole section be in the introduction instead? There are a lot of repetition with the introduction
 
-The storage is an allocated memory space associated with a smart contract.
-It is the permanent data store for the smart contract.
+### Storage
+The storage is an allocated memory space associated with a smart contract. It is the permanent data store for the smart contract.
 
 ### Entrypoints
+The entrypoints are the invocable functions of a smart contract. Executing an entrypoint takes some parameters and the current state of the storage, and returns a new modified storage and some operations. //TODO: what kind of operations? operations that have not be executed? or to be executed next? or what???
 
-Entrypoints are invocable function for a smart contract.
-Executing an entrypoint takes some parameters and a current state of the storage and returns a new state of storage and some operations.
+<NotificationBar>
+  <p>
+  
+**An operation** results from the invocation of a smart contract and represents the side effects on the Tezos network.
+The storage resulting from the invocation of a smart contract represents the side effects on the data related to the invoked contract.
+If the execution of an entrypoint produces operations (an ordered list of transactions) then they are sent and executed according to the order of the operations on the list.
+//TODO: Unclear, I didn't understand a thing...
 
-> **An operation** results from the invocation of a smart contract and represents the side effects on the Tezos network.
-> The storage resulting from the invocation of a smart contract represents the side effects on the data related to the invoked contract.
-> If the execution of an entrypoint produces operations (an ordered list of transactions)
-> then they are sent and executed according to the order of the operations on the list.
+  </p>
+</NotificationBar>
 
-# Raffle contract
+//TODO: I feel like all the section above should be in the introduction, or in another chapter.
 
+## About the raffle contract
 A raffle is a game of chance that distributes a winning prize.
 
-The organizer is in charge of defining a jackpot and selling tickets that will be either winners or losers.
-In our case, there is only one winning ticket.
+The organizer is in charge of defining a jackpot and selling tickets that will either be winners or losers. In our case, there is only one winning ticket.
+
+Fig.3 represents our smart contract.
 
 ![](../../static/img/smartpy/raffle_schema.svg)
 <small className="figure">FIGURE 3: Raffle contract</small>
 
 Three entrypoints allow to interact with the contract:
 
-- **open_raffle** can only be called by the administrator. During this call, the admin sends the jackpot amount to the contract, defines a closing date and indicates the number of the winning ticket (in an encrypted way) and declares the raffle open.
-- **buy_ticket** allows any person with at least 1tez to buy a ticket to participate in the raffle.
-- **close_raffle** can only be called by the admin. It allows to close the raffle and to send the jackpot to the winner.
+- **open_raffle** can only be called by the administrator. During this call, he sends the jackpot amount to the contract, defines a closing date, indicates the number of the winning ticket (in an encrypted way), and declares the raffle open.
+- **buy_ticket** allows anone to buy a ticket for 1 tez and take part in the raffle.
+- **close_raffle** can only be called by the administrator. It allows to close the raffle and to send the jackpot to the winner.
 
-## Get Started
+//TODO: I don't understand. In a raffle, the jackpot is made from the funds of selling the tickets. In our case, the administrator sends the jackpot amount himself even before selling tickets, it's weird. Why such design?
 
-The writing of this smart contract will be done entirely on the [online editor](https://smartpy.io/ide) proposed by SmartPy.
-It is possible to do the same thing on your IDE and use the command lines (described in the previous chapter)
-to compile/test your contract.
+### Get started
+This section illustrates the coding of the smart contract in the [online editor](https://smartpy.io/ide) proposed by _SmartPy_. You can however use your favorite IDE instead as described above.
 
-### Create your contract
-
-Now, let's create a new contract in the online editor that we will name _Raffle Contract_.
+#### Create your contract
+Create a new contract in the online editor and name it _Raffle Contract_.
 
 ![](../../static/img/smartpy/online_editor_create_contract.png)
 <small className="figure">FIGURE 4: Online Editor Create Contract</small>
 
-### Template
+#### Template
 
-Let's start with this template.
+Copy/paste the template below to get started:
 
 ```python
 # Raffle Contract - Example for illustrative purposes only.
@@ -100,27 +101,28 @@ if "templates" not in __name__:
     sp.add_compilation_target("Raffle_comp", Raffle())
 ```
 
-- **A SmartPy contract** consists of a state with one or several entry points.
-  It is a class definition that inherits from `sp.Contract`.
+//TODO: Why is the section below shown as a list? At least you should add context before showing a list, e.g. "the contracts consists of the following:"
 
-- **The SmartPy storage** is defined into the constructor `__init__`
-  which makes a call to `self.init()` that initializes fields and sets up the storage.
+- **A _SmartPy_ contract** consists of a state with one or several entry points. //TODO: is 'state' the right word here? Entrypoints are stored in the state? Is it the same as storage?
 
-- **Entrypoints** are methods of a contract class that can be called from the outside.
-  Entrypoints need to be marked with the `@sp.entry_point` decorator.
+It is a class definition that inherits from `sp.Contract`. //TODO: What is a classe definition? What does inherit mean?
 
-- **Tests and Scenarios** are good tools to make sure our smart contract is working properly.
+- **The _SmartPy_ storage** is defined into the constructor `__init__` which makes a call to `self.init()` that initializes fields and sets up the storage. //TODO: What are fields? What does setting up the storage mean? Is that setting values to null?
+
+- **Entrypoints** are methods of a contract class that can be called from the outside. Entrypoints need to be marked with the `@sp.entry_point` decorator. //TODO: What is a decorator?
+
+- **Tests and Scenarios** are good tools to make sure our smart contract is working correctly.
   - A new test is a method marked with the `sp.add_test` decorator.
   - A new scenario is instantiated by `sp.test_scenario`.
-  - Scenarios describe a sequence of actions: originating contracts, computing expressions, calling entry points, etc.
+  - Scenarios describe a sequence of actions: originating contracts, computing expressions, calling entry points, etc. //TODO: Difference between a test and a scenario?
   - In the online editor of SmartPy.io, the scenario is computed and then displayed as an HTML document on the output panel.
 
-We will explain in detail the use of all these concepts later.
+We will explain in more details the use of all these concepts in the next sections.
 
-Our code doesn't do much for now, but it can already be compiled by pressing the _run_ button. If there is no error
-then you can visualize the generated Michelson code in the _Deploy Michelson Contract_ tab.
+Our code doesn't do much for now, //TODO: so what does it do so far?
+but it can already be compiled by pressing the _run_ button. If there is no error, you should be able to visualize the generated Michelson code in the _Deploy Michelson Contract_ tab.
 
-```shell
+```js
 parameter (unit %open_raffle);
 storage   unit;
 code
@@ -132,12 +134,12 @@ code
   };
 ```
 
-## open_raffle entrypoint
+### The *open_raffle* entrypoint
 
-`open_raffle` is an entrypoint that can only be called by the administrator.
-If the invocation is successful, then the raffle will be open, and the smart contract storage will be updated with the jackpot amount and the hash of the winning ticket number.
+`open_raffle` is the entrypoint that only the administrator can call. If the invocation is successful, then the raffle is open, and the smart contract's storage will be updated with the jackpot amount and the hash of the winning ticket number.
+//TODO: You should introduce earlier how the raffle works and a winnier is picked, it's the first time in the article you speak about a hash of a ticket. Is that the winning mechanism? No idea so far.
 
-### Link to referential manual
+#### Link to referential manual
 
 - [Init](https://smartpy.io/reference.html#_contracts)
 - [Entrypoints](https://smartpy.io/reference.html#_entry_points)
@@ -146,7 +148,7 @@ If the invocation is successful, then the raffle will be open, and the smart con
 - [Test and Scenario](https://smartpy.io/reference.html#_tests_and_scenarios)
 - [Typing](https://smartpy.io/reference.html#_typing)
 
-### Code
+#### Code
 
 ```python
 # Raffle Contract - Example for illustrative purposes only.
@@ -234,7 +236,7 @@ if "templates" not in __name__:
     sp.add_compilation_target("Raffle_comp", Raffle(admin.address))
 ```
 
-### Storage definition
+#### Storage definition
 
 ```python
 def __init__(self, address):
@@ -267,7 +269,7 @@ For the storage of the raffle contract we have for the moment defined 5 fields:
   > As there is no possibility to do random, the hash solution has been chosen.  
   > **Reminder**, this example is for educational purposes and is not intended for deployment on the real Tezos network.
 
-### Entrypoint implementation
+#### Entrypoint implementation
 
 ```python
 @sp.entry_point
@@ -306,12 +308,12 @@ self.data.hash_winning_ticket = hash_winning_ticket
 self.data.raffle_is_open = True
 ```
 
-### Test and Scenario
+#### Test and Scenario
 
 The purpose of the test scenario is to ensure the proper functionality of the smart contract by testing the conditions
 and checking the changes made to the storage.
 
-With SmartPy a test is a method of the class contract preceded by `@sp.add_test`.
+With _SmartPy_ a test is a method of the class contract preceded by `@sp.add_test`.
 
 Inside this method, you need to instantiate your class contract and your scenario to which you will add the contract instance and all the calls related you want to test.
 
@@ -353,7 +355,7 @@ You can specify the `source` of the transaction, the `amount` of tez sent, the t
 
 The result will then be displayed as an HTML document in the output panel of the online editor.
 
-### Run and watch the output
+#### Run and watch the output
 
 Let's run our code.
 
@@ -372,9 +374,9 @@ By clicking on the _Types_ tab, we have access to the types of the storage eleme
 ![](../../static/img/smartpy/online_editor_Types.png)
 <small className="figure">FIGURE 5: Online Editor Types</small>
 
-> As in Python, most of the time, it is not necessary to specify the type of an object in SmartPy.  
+> As in Python, most of the time, it is not necessary to specify the type of an object in _SmartPy_.  
 > Because the target language of SmartPy, Michelson, requires types.  
-> Each SmartPy expression, however, needs a type. This is why SmartPy uses type inference to determine the type of each expression.  
+> Each _SmartPy_ expression, however, needs a type. This is why _SmartPy_ uses type inference to determine the type of each expression.  
 > See doc [Typing](https://smartpy.io/reference.html#_typing).
 
 By clicking on the _Deploy Michelson Contract_ tab, we have access to the codes compiled in Michelson for the storage (_Storage_ tab) and the smart contract (_Code_ tab).
@@ -471,22 +473,22 @@ code
   };
 ```
 
-By scrolling down a little, we have access to the result of the test scenario, with for each step a summary of the contract.
+By scrolling down a little, we have access to the test scenario's result, with each step a summary of the contract.
 
 ![](../../static/img/smartpy/online_editor_scenario_output.png)
 <small className="figure">FIGURE 4: Online Editor Scenario Output</small>
 
-## buy_ticket entrypoint
+### buy_ticket entrypoint
 
 `buy_ticket` is an entrypoint that can be called by everyone who wants to participate in the raffle.
 If the invocation is successful, the address of the sender will be added to the storage, and the player will now be eligible to win the jackpot
 
-### Link to referential manual
+#### Link to referential manual
 
 - [Sets](https://smartpy.io/reference.html#_sets)
 - [Maps](https://smartpy.io/reference.html#_maps_and_big_maps)
 
-### Code
+#### Code
 
 ```python
 # Raffle Contract - Example for illustrative purposes only.
@@ -611,7 +613,7 @@ if "templates" not in __name__:
     sp.add_compilation_target("Raffle_comp", Raffle(admin.address))
 ```
 
-### Storage definition
+#### Storage definition
 
 ```python
 def __init__(self, address):
@@ -630,7 +632,7 @@ With the addition of this entrypoint we have defined two new fields in the stora
 - **players** is a `set` designed to receive the addresses of each new player who bought a raffle ticket.
 - **sold_tickets** is a `map` designed to associate each player's address with a ticket number.
 
-### Entrypoint implementation
+#### Entrypoint implementation
 
 ```python
 @sp.entry_point
@@ -658,13 +660,13 @@ If the conditions are met, then the storage is updated:
 - By associating a ticket id with the player's address in the map `self.data.sold_tickets`.
   > `ticket_id = abs(sp.len(self.data.players) - 1)` here the ticket id is incremented for each new participant and the `abs()` function which designates the absolute value is used to ensure that the `ticket_id` is of type `sp.TNat`.
 
-## close_raffle entrypoint
+### close_raffle entrypoint
 
 `close_raffle` is an entrypoint that can only be called by the administrator.
 If the invocation is successful, then the raffle will be closed and, the jackpot amount will be sent to the winner,
 and the storage will be reset to the default values.
 
-### Link to referential manual
+#### Link to referential manual
 
 - [Bytes](https://smartpy.io/reference.html#_bytes)
 
