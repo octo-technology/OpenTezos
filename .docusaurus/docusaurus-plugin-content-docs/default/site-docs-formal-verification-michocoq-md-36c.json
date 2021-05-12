@@ -1,0 +1,30 @@
+{
+  "unversionedId": "formal-verification/michocoq",
+  "id": "formal-verification/michocoq",
+  "isDocsHomePage": false,
+  "title": "Mi-Cho-Coq",
+  "description": "Introduction",
+  "source": "@site/docs/formal-verification/michocoq.md",
+  "sourceDirName": "formal-verification",
+  "slug": "/formal-verification/michocoq",
+  "permalink": "/formal-verification/michocoq",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/formal-verification/michocoq.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "michocoq",
+    "title": "Mi-Cho-Coq",
+    "authors": "Frank Hillard"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "GADT and Coq",
+    "permalink": "/formal-verification/gadt-coq"
+  },
+  "next": {
+    "title": "Modeling theorem",
+    "permalink": "/formal-verification/modeling-theorem"
+  }
+}

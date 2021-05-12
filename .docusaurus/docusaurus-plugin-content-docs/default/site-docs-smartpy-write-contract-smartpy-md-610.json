@@ -3,7 +3,7 @@
   "id": "smartpy/write-contract-smartpy",
   "isDocsHomePage": false,
   "title": "Smart contract development with SmartPy",
-  "description": "In this chapter, the use of the SmartPy library will be taught, based on the development of a raffle smart contract.",
+  "description": "In this chapter, we use SmartPy to develop a Raffle smart contract and cover the most important aspects of the framework. We will introduce new notions as they come along the contract. For a complete reference of SmartPy, please refer to the Reference Manual.",
   "source": "@site/docs/smartpy/write-contract-smartpy.md",
   "sourceDirName": "smartpy",
   "slug": "/smartpy/write-contract-smartpy",
@@ -15,7 +15,8 @@
   "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "id": "write-contract-smartpy",
-    "title": "Smart contract development with SmartPy"
+    "title": "Smart contract development with SmartPy",
+    "authors": "Maxime Sallerin"
   },
   "sidebar": "docs",
   "previous": {

@@ -210,8 +210,28 @@
               "sidebar": "docs"
             },
             {
+              "id": "formal-verification/gadt-coq",
+              "path": "/formal-verification/gadt-coq",
+              "sidebar": "docs"
+            },
+            {
               "id": "formal-verification/introduction",
               "path": "/formal-verification",
+              "sidebar": "docs"
+            },
+            {
+              "id": "formal-verification/michocoq",
+              "path": "/formal-verification/michocoq",
+              "sidebar": "docs"
+            },
+            {
+              "id": "formal-verification/modeling-theorem",
+              "path": "/formal-verification/modeling-theorem",
+              "sidebar": "docs"
+            },
+            {
+              "id": "formal-verification/references",
+              "path": "/formal-verification/references",
               "sidebar": "docs"
             },
             {

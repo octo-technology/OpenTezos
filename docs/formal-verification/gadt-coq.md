@@ -1,7 +1,7 @@
 ---
-id: gadt
+id: gadt-coq
 title: GADT and Coq
-slug: /formal-verification
+authors: Frank Hillard
 ---
 
 For a better understanding of the formal verification on Tezos smart contract (written in Michelson language) (in the next [section](/formal-verification/modeling-theorem)), we will first describe the theory and tools behind the formal analysis.

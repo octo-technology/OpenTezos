@@ -1,7 +1,7 @@
 ---
 id: references
 title: References
-slug: /formal-verification
+authors: Frank Hillard
 ---
 
 ### References

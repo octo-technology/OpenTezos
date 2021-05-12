@@ -1,0 +1,30 @@
+{
+  "unversionedId": "formal-verification/modeling-theorem",
+  "id": "formal-verification/modeling-theorem",
+  "isDocsHomePage": false,
+  "title": "Modeling theorem",
+  "description": "This section describes how to make the bridge between the Tezos world (and the Michelson language) with the  formal world of Coq. This will be concretized by modeling a theorem representing the smart contract and its intention.",
+  "source": "@site/docs/formal-verification/modeling-theorem.md",
+  "sourceDirName": "formal-verification",
+  "slug": "/formal-verification/modeling-theorem",
+  "permalink": "/formal-verification/modeling-theorem",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/formal-verification/modeling-theorem.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "modeling-theorem",
+    "title": "Modeling theorem",
+    "authors": "Frank Hillard"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Mi-Cho-Coq",
+    "permalink": "/formal-verification/michocoq"
+  },
+  "next": {
+    "title": "References",
+    "permalink": "/formal-verification/references"
+  }
+}

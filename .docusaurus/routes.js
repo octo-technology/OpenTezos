@@ -39,7 +39,7 @@ export default [
 },
 {
   path: '/',
-  component: ComponentCreator('/','a49'),
+  component: ComponentCreator('/','816'),
   
   routes: [
 {
@@ -250,6 +250,26 @@ export default [
 {
   path: '/formal-verification/exam',
   component: ComponentCreator('/formal-verification/exam','dae'),
+  exact: true,
+},
+{
+  path: '/formal-verification/gadt-coq',
+  component: ComponentCreator('/formal-verification/gadt-coq','3c3'),
+  exact: true,
+},
+{
+  path: '/formal-verification/michocoq',
+  component: ComponentCreator('/formal-verification/michocoq','f43'),
+  exact: true,
+},
+{
+  path: '/formal-verification/modeling-theorem',
+  component: ComponentCreator('/formal-verification/modeling-theorem','d9a'),
+  exact: true,
+},
+{
+  path: '/formal-verification/references',
+  component: ComponentCreator('/formal-verification/references','381'),
   exact: true,
 },
 {

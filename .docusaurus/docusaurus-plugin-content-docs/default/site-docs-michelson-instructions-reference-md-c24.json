@@ -3,7 +3,7 @@
   "id": "michelson/instructions-reference",
   "isDocsHomePage": false,
   "title": "Instructions Reference",
-  "description": "This chapter provides an explicit list of all the most commonly used instructions in Michelson. It is not intended for you to read it as is but to use it as a reference during your developments.",
+  "description": "This chapter provides an explicit list of all the most commonly used instructions in Michelson. It intends to describe common Michelson instructions with a graphical illustration.",
   "source": "@site/docs/michelson/instructions-reference.md",
   "sourceDirName": "michelson",
   "slug": "/michelson/instructions-reference",

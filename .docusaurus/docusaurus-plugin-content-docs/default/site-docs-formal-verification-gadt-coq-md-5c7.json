@@ -1,0 +1,30 @@
+{
+  "unversionedId": "formal-verification/gadt-coq",
+  "id": "formal-verification/gadt-coq",
+  "isDocsHomePage": false,
+  "title": "GADT and Coq",
+  "description": "For a better understanding of the formal verification on Tezos smart contract (written in Michelson language) (in the next section), we will first describe the theory and tools behind the formal analysis.",
+  "source": "@site/docs/formal-verification/gadt-coq.md",
+  "sourceDirName": "formal-verification",
+  "slug": "/formal-verification/gadt-coq",
+  "permalink": "/formal-verification/gadt-coq",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/formal-verification/gadt-coq.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "gadt-coq",
+    "title": "GADT and Coq",
+    "authors": "Frank Hillard"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Introduction",
+    "permalink": "/formal-verification"
+  },
+  "next": {
+    "title": "Mi-Cho-Coq",
+    "permalink": "/formal-verification/michocoq"
+  }
+}

@@ -416,6 +416,26 @@
           },
           {
             "type": "link",
+            "label": "GADT and Coq",
+            "href": "/formal-verification/gadt-coq"
+          },
+          {
+            "type": "link",
+            "label": "Mi-Cho-Coq",
+            "href": "/formal-verification/michocoq"
+          },
+          {
+            "type": "link",
+            "label": "Modeling theorem",
+            "href": "/formal-verification/modeling-theorem"
+          },
+          {
+            "type": "link",
+            "label": "References",
+            "href": "/formal-verification/references"
+          },
+          {
+            "type": "link",
             "label": "Exam",
             "href": "/formal-verification/exam"
           }
@@ -522,7 +542,11 @@
     "/explorer/tzstats-main-features": "docs",
     "/explorer/tzstats-smart-contract": "docs",
     "/formal-verification/exam": "docs",
+    "/formal-verification/gadt-coq": "docs",
     "/formal-verification": "docs",
+    "/formal-verification/michocoq": "docs",
+    "/formal-verification/modeling-theorem": "docs",
+    "/formal-verification/references": "docs",
     "/ligo/deploy-a-contract": "docs",
     "/ligo/exam": "docs",
     "/ligo/examples": "docs",

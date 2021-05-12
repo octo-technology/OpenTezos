@@ -3,7 +3,7 @@
   "id": "blockchain-basics/main-properties",
   "isDocsHomePage": false,
   "title": "Main properties of the first \"blockchain\"",
-  "description": "In this chapter, we will dig deeper into the main properties of the Bitcoin protocol, its developers, its P2P network, and a few basics of the economy it uses.",
+  "description": "In this chapter, we will dig deeper into the main properties of the Bitcoin protocol, its developers, its P2P network, and a few basics of its economic structure.",
   "source": "@site/docs/blockchain-basics/main-properties.md",
   "sourceDirName": "blockchain-basics",
   "slug": "/blockchain-basics/main-properties",

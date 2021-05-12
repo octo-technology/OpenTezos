@@ -3,7 +3,7 @@
   "id": "blockchain-basics/proof-of-work",
   "isDocsHomePage": false,
   "title": "Proof-of-work",
-  "description": "Proof-of-work was the first fully functional blockchain consensus ever created. It is still in use by Bitcoin and many other blockchains. It requires its users to mine for getting a chance to earn a reward for validating transactions. In this chapter, we will look into the technical side of things and how mining works.",
+  "description": "Proof-of-work was the first fully functional blockchain consensus ever created. It is still in use by Bitcoin and many other blockchains. It requires its users to mine to get a chance to earn a reward for validating transactions. In this chapter, we will look into the technical side of things and how mining works.",
   "source": "@site/docs/blockchain-basics/proof-of-work.md",
   "sourceDirName": "blockchain-basics",
   "slug": "/blockchain-basics/proof-of-work",

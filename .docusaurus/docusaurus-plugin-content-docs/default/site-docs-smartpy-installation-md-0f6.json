@@ -3,7 +3,7 @@
   "id": "smartpy/installation",
   "isDocsHomePage": false,
   "title": "Installation",
-  "description": "This chapter aims at preparing your working environment to be ready to code,",
+  "description": "This chapter aims at preparing your working environment to be ready to code, test, and compile your smart contracts.",
   "source": "@site/docs/smartpy/installation.md",
   "sourceDirName": "smartpy",
   "slug": "/smartpy/installation",
@@ -15,7 +15,8 @@
   "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "id": "installation",
-    "title": "Installation"
+    "title": "Installation",
+    "authors": "Maxime Sallerin"
   },
   "sidebar": "docs",
   "previous": {

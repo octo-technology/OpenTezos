@@ -1,7 +1,7 @@
 ---
 id: modeling-theorem
 title: Modeling theorem
-slug: /formal-verification
+authors: Frank Hillard
 ---
 
 

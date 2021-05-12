@@ -363,6 +363,22 @@
                   },
                   {
                     "type": "doc",
+                    "id": "formal-verification/gadt-coq"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "formal-verification/michocoq"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "formal-verification/modeling-theorem"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "formal-verification/references"
+                  },
+                  {
+                    "type": "doc",
                     "id": "formal-verification/exam"
                   }
                 ]
@@ -459,7 +475,11 @@
             "/explorer/tzstats-main-features": "docs",
             "/explorer/tzstats-smart-contract": "docs",
             "/formal-verification/exam": "docs",
+            "/formal-verification/gadt-coq": "docs",
             "/formal-verification": "docs",
+            "/formal-verification/michocoq": "docs",
+            "/formal-verification/modeling-theorem": "docs",
+            "/formal-verification/references": "docs",
             "/ligo/deploy-a-contract": "docs",
             "/ligo/exam": "docs",
             "/ligo/examples": "docs",
@@ -687,7 +707,7 @@
               "id": "blockchain-basics/main-properties",
               "isDocsHomePage": false,
               "title": "Main properties of the first \"blockchain\"",
-              "description": "In this chapter, we will dig deeper into the main properties of the Bitcoin protocol, its developers, its P2P network, and a few basics of the economy it uses.",
+              "description": "In this chapter, we will dig deeper into the main properties of the Bitcoin protocol, its developers, its P2P network, and a few basics of its economic structure.",
               "source": "@site/docs/blockchain-basics/main-properties.md",
               "sourceDirName": "blockchain-basics",
               "slug": "/blockchain-basics/main-properties",
@@ -718,7 +738,7 @@
               "id": "blockchain-basics/other-consensuses",
               "isDocsHomePage": false,
               "title": "Introduction to other consensuses",
-              "description": "In this chapter, we will briefly introduce a few other public consensuses.",
+              "description": "In this chapter, we will briefly introduce some other public consensuses.",
               "source": "@site/docs/blockchain-basics/other-consensuses.md",
               "sourceDirName": "blockchain-basics",
               "slug": "/blockchain-basics/other-consensuses",
@@ -749,7 +769,7 @@
               "id": "blockchain-basics/proof-of-work",
               "isDocsHomePage": false,
               "title": "Proof-of-work",
-              "description": "Proof-of-work was the first fully functional blockchain consensus ever created. It is still in use by Bitcoin and many other blockchains. It requires its users to mine for getting a chance to earn a reward for validating transactions. In this chapter, we will look into the technical side of things and how mining works.",
+              "description": "Proof-of-work was the first fully functional blockchain consensus ever created. It is still in use by Bitcoin and many other blockchains. It requires its users to mine to get a chance to earn a reward for validating transactions. In this chapter, we will look into the technical side of things and how mining works.",
               "source": "@site/docs/blockchain-basics/proof-of-work.md",
               "sourceDirName": "blockchain-basics",
               "slug": "/blockchain-basics/proof-of-work",
@@ -1694,12 +1714,42 @@
               },
               "sidebar": "docs",
               "previous": {
-                "title": "Introduction",
-                "permalink": "/formal-verification"
+                "title": "References",
+                "permalink": "/formal-verification/references"
               },
               "next": {
                 "title": "Introduction",
                 "permalink": "/private"
+              }
+            },
+            {
+              "unversionedId": "formal-verification/gadt-coq",
+              "id": "formal-verification/gadt-coq",
+              "isDocsHomePage": false,
+              "title": "GADT and Coq",
+              "description": "For a better understanding of the formal verification on Tezos smart contract (written in Michelson language) (in the next section), we will first describe the theory and tools behind the formal analysis.",
+              "source": "@site/docs/formal-verification/gadt-coq.md",
+              "sourceDirName": "formal-verification",
+              "slug": "/formal-verification/gadt-coq",
+              "permalink": "/formal-verification/gadt-coq",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/formal-verification/gadt-coq.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
+              "frontMatter": {
+                "id": "gadt-coq",
+                "title": "GADT and Coq",
+                "authors": "Frank Hillard"
+              },
+              "sidebar": "docs",
+              "previous": {
+                "title": "Introduction",
+                "permalink": "/formal-verification"
+              },
+              "next": {
+                "title": "Mi-Cho-Coq",
+                "permalink": "/formal-verification/michocoq"
               }
             },
             {
@@ -1727,6 +1777,96 @@
               "previous": {
                 "title": "Exam",
                 "permalink": "/defi/exam"
+              },
+              "next": {
+                "title": "GADT and Coq",
+                "permalink": "/formal-verification/gadt-coq"
+              }
+            },
+            {
+              "unversionedId": "formal-verification/michocoq",
+              "id": "formal-verification/michocoq",
+              "isDocsHomePage": false,
+              "title": "Mi-Cho-Coq",
+              "description": "Introduction",
+              "source": "@site/docs/formal-verification/michocoq.md",
+              "sourceDirName": "formal-verification",
+              "slug": "/formal-verification/michocoq",
+              "permalink": "/formal-verification/michocoq",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/formal-verification/michocoq.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
+              "frontMatter": {
+                "id": "michocoq",
+                "title": "Mi-Cho-Coq",
+                "authors": "Frank Hillard"
+              },
+              "sidebar": "docs",
+              "previous": {
+                "title": "GADT and Coq",
+                "permalink": "/formal-verification/gadt-coq"
+              },
+              "next": {
+                "title": "Modeling theorem",
+                "permalink": "/formal-verification/modeling-theorem"
+              }
+            },
+            {
+              "unversionedId": "formal-verification/modeling-theorem",
+              "id": "formal-verification/modeling-theorem",
+              "isDocsHomePage": false,
+              "title": "Modeling theorem",
+              "description": "This section describes how to make the bridge between the Tezos world (and the Michelson language) with the  formal world of Coq. This will be concretized by modeling a theorem representing the smart contract and its intention.",
+              "source": "@site/docs/formal-verification/modeling-theorem.md",
+              "sourceDirName": "formal-verification",
+              "slug": "/formal-verification/modeling-theorem",
+              "permalink": "/formal-verification/modeling-theorem",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/formal-verification/modeling-theorem.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
+              "frontMatter": {
+                "id": "modeling-theorem",
+                "title": "Modeling theorem",
+                "authors": "Frank Hillard"
+              },
+              "sidebar": "docs",
+              "previous": {
+                "title": "Mi-Cho-Coq",
+                "permalink": "/formal-verification/michocoq"
+              },
+              "next": {
+                "title": "References",
+                "permalink": "/formal-verification/references"
+              }
+            },
+            {
+              "unversionedId": "formal-verification/references",
+              "id": "formal-verification/references",
+              "isDocsHomePage": false,
+              "title": "References",
+              "description": "References",
+              "source": "@site/docs/formal-verification/references.md",
+              "sourceDirName": "formal-verification",
+              "slug": "/formal-verification/references",
+              "permalink": "/formal-verification/references",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/formal-verification/references.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
+              "frontMatter": {
+                "id": "references",
+                "title": "References",
+                "authors": "Frank Hillard"
+              },
+              "sidebar": "docs",
+              "previous": {
+                "title": "Modeling theorem",
+                "permalink": "/formal-verification/modeling-theorem"
               },
               "next": {
                 "title": "Exam",
@@ -2069,7 +2209,7 @@
               "id": "michelson/instructions-reference",
               "isDocsHomePage": false,
               "title": "Instructions Reference",
-              "description": "This chapter provides an explicit list of all the most commonly used instructions in Michelson. It is not intended for you to read it as is but to use it as a reference during your developments.",
+              "description": "This chapter provides an explicit list of all the most commonly used instructions in Michelson. It intends to describe common Michelson instructions with a graphical illustration.",
               "source": "@site/docs/michelson/instructions-reference.md",
               "sourceDirName": "michelson",
               "slug": "/michelson/instructions-reference",
@@ -2342,7 +2482,7 @@
               "id": "smartpy/installation",
               "isDocsHomePage": false,
               "title": "Installation",
-              "description": "This chapter aims at preparing your working environment to be ready to code,",
+              "description": "This chapter aims at preparing your working environment to be ready to code, test, and compile your smart contracts.",
               "source": "@site/docs/smartpy/installation.md",
               "sourceDirName": "smartpy",
               "slug": "/smartpy/installation",
@@ -2354,7 +2494,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "installation",
-                "title": "Installation"
+                "title": "Installation",
+                "authors": "Maxime Sallerin"
               },
               "sidebar": "docs",
               "previous": {
@@ -2371,7 +2512,7 @@
               "id": "smartpy/introduction",
               "isDocsHomePage": false,
               "title": "Introduction",
-              "description": "The goal of this module is to allow a developer to write smart contracts with SmartPy.",
+              "description": "The goal of this module is to allow a developer to write smart contracts with SmartPy. In the form of a pedagogical course illustrated with an example of a smart contract, the developer will have acquired the essentials to write, test, and analyze his smart contract.",
               "source": "@site/docs/smartpy/introduction.md",
               "sourceDirName": "smartpy",
               "slug": "/smartpy",
@@ -2402,7 +2543,7 @@
               "id": "smartpy/write-contract-smartpy",
               "isDocsHomePage": false,
               "title": "Smart contract development with SmartPy",
-              "description": "In this chapter, the use of the SmartPy library will be taught, based on the development of a raffle smart contract.",
+              "description": "In this chapter, we use SmartPy to develop a Raffle smart contract and cover the most important aspects of the framework. We will introduce new notions as they come along the contract. For a complete reference of SmartPy, please refer to the Reference Manual.",
               "source": "@site/docs/smartpy/write-contract-smartpy.md",
               "sourceDirName": "smartpy",
               "slug": "/smartpy/write-contract-smartpy",
@@ -2414,7 +2555,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "write-contract-smartpy",
-                "title": "Smart contract development with SmartPy"
+                "title": "Smart contract development with SmartPy",
+                "authors": "Maxime Sallerin"
               },
               "sidebar": "docs",
               "previous": {
@@ -2612,7 +2754,7 @@
               "id": "tezos-basics/liquid-proof-of-stake",
               "isDocsHomePage": false,
               "title": "Liquid Proof-of-Stake",
-              "description": "In \"Blockchain Basics\" module, you understood the main objective of a consensus mechanism is maintaining a common history throughout the whole peer-to-peer network. There are countless consensus algorithms and they all have pros and cons. Notably, the Bitcoin's Proof-of-Work has two flaws:",
+              "description": "In \"Blockchain Basics\" module, you understood the main objective of a consensus mechanism is maintaining a common history throughout the whole peer-to-peer network. There are countless consensus algorithms, and they all have pros and cons. Notably, Bitcoin's Proof-of-Work has two flaws:",
               "source": "@site/docs/tezos-basics/liquid-proof-of-stake.md",
               "sourceDirName": "tezos-basics",
               "slug": "/tezos-basics/liquid-proof-of-stake",
@@ -2625,7 +2767,7 @@
               "frontMatter": {
                 "id": "liquid-proof-of-stake",
                 "title": "Liquid Proof-of-Stake",
-                "authors": "Thomas Zoughebi, Aymeric Bethencourt and Maxime Fernandez"
+                "authors": "Thomas Zoughebi, Aymeric Bethencourt, and Maxime Fernandez"
               },
               "sidebar": "docs",
               "previous": {

@@ -22,6 +22,7 @@
   },
   "search.exclude": {
     "**/.git": true,
+    "**/.docusaurus": true,
     "**/node_modules": true,
     "**/bower_components": true,
     "**/tmp": true,

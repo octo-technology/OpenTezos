@@ -25,7 +25,7 @@
     "permalink": "/defi/exam"
   },
   "next": {
-    "title": "Exam",
-    "permalink": "/formal-verification/exam"
+    "title": "GADT and Coq",
+    "permalink": "/formal-verification/gadt-coq"
   }
 }

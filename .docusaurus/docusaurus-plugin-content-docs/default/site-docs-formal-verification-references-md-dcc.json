@@ -1,0 +1,30 @@
+{
+  "unversionedId": "formal-verification/references",
+  "id": "formal-verification/references",
+  "isDocsHomePage": false,
+  "title": "References",
+  "description": "References",
+  "source": "@site/docs/formal-verification/references.md",
+  "sourceDirName": "formal-verification",
+  "slug": "/formal-verification/references",
+  "permalink": "/formal-verification/references",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/formal-verification/references.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "references",
+    "title": "References",
+    "authors": "Frank Hillard"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Modeling theorem",
+    "permalink": "/formal-verification/modeling-theorem"
+  },
+  "next": {
+    "title": "Exam",
+    "permalink": "/formal-verification/exam"
+  }
+}
