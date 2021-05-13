@@ -13,9 +13,9 @@ In this chapter, we will go into more details about the Tezos' "**_Liquid Proof-
 Let's first review these latter.
 
 ## Proof-of-Stake (PoS)
-While PoW assures that each network participant has performed a certain amount of work to receive rewards, PoS requires participants to prove that they are willing to guarantee the integrity of the blockchain by sequestering a certain amount of coins as proof of their good intentions.
+While PoW assures that each network participant has performed a certain amount of work to receive rewards, PoS requires participants to prove that they are willing to guarantee the integrity of the blockchain by sequestering a certain amount of coins.
 
-In _Proof-of-Stake_, validators replace miners. A validator gathers transactions and creates blocks. Several methods exist to select a validator, which we will review in the next paragraphs (i.e. Delegated-proof-of-stake, Liquid-proof-of-stake). In this consensus, they must invest their funds to have a chance to be selected as a validator, which makes it "Sybil resilient". This mechanism represents a low energy cost alternative to _PoW_. Moreover, a 51% attack would not be profitable for a hacker, as validators bet their own money [[6]](/tezos-basics/liquid-proof-of-stake#references) and risk losing it if detected. Therefore validators would not benefit from a decision against the general opinion of the network. In addition, holding 51% of the token would demand enormous amounts of liquidity, making this scenario very unlikely.
+In _Proof-of-Stake_, validators replace miners. A validator gathers transactions and creates blocks. Several methods exist to select a validator, which we will review in the following paragraphs. In this consensus, they must invest their funds to have a chance to be a validator, which makes it "Sybil resilient". This mechanism represents a low energy cost alternative to _PoW_. Moreover, a 51% attack would not be profitable as a hacker bets his own money and risks losing it if detected [[6]](/tezos-basics/liquid-proof-of-stake#references). Therefore validators would not benefit from a decision against the general opinion of the network. In addition, holding 51% of the token would demand enormous amounts of liquidity, making this scenario very unlikely.
 
 Removing PoW isn't without consequences. With the Nakamoto consensus, PoW allows chain selection, maintains regular blocks' issuance, regulates coins' creation, and selects the miner receiving rewards. PoW probably consumes too much energy. However, this energy connects to the physical world and supports the MAD property in return (miners' investments into machines and electricity). Hence, replacing PoW leads to previous fundamental questions about building a consensus to compensate the losses.
 
@@ -39,7 +39,7 @@ The **F**isher, **L**ynch, and **P**atterson's Impossibility shows that, with no
 The **D**work, **L**ynch, and **S**tockmeyer paper gives us three significant bounds on Fault Tolerance:
 - Consensuses running on a **partially synchronous** network can tolerate up to one third (1/3) faulty nodes
 - **Deterministic** consensuses running on an **asynchronous** network **cannot tolerate** faulty nodes (this becomes 1/3 with randomized algorithms)
-- Consensuses running on a **synchronous** network can tolerate **up to 100%** faulty nodes (with some restrictions exceeded 50%)
+- Consensuses running on a **synchronous** network can tolerate **up to 100%** faulty nodes (with some restrictions exceeding 50%)
 
 PoW consensus is more reliant on a **synchronous model**, while PoS is more reliant on a **BFT model**. In PoW **synchronous models**, FT decreases with latency (around 1/3 at block time latency). PoS consensuses keep track of validators and validators' set size, thus making them **partially synchronous**.
 
@@ -53,33 +53,46 @@ At this point, we already need to prevent *cartels* forming. For comparison with
 
 ### Main weaknesses of PoS
 #### "Rich get richer"
-If rewards chances are proportional to previous holdings, wealth naturally concentrates on the biggest ones. In turn, these holdings grow even bigger with time. A capped supply is an important point here. If it isn't, then creating new tokens allows only to keep almost the same share percentage. It is problematic in two ways: The concentration of power (always the same validators) and the decreasing incentive.
-
-#### Stake grinding
-PoS **randomly** selects the blocks' validators from a pool (with stake-proportional probability). 
+If rewards chances are proportional to previous holdings, wealth naturally concentrates on the biggest ones. In turn, these holdings grow even bigger with time. A capped supply is an important point here. If it isn't, then creating new tokens allows only to keep almost the same share percentage. It is problematic in two ways: The concentration of power (always the identical validators) and the decreasing incentive. However, all users wouldn't be staking validators and would make payments.
 
 #### Nothing at Stake
 **In chain-based PoS**, there weren't penalties and only rewards for producing blocks. Hence, there was no incentive to choose the correct chain. In PoW, the chain with the most accumulated work naturally attracts miners. They invest their electricity and power in the most probable part of the network where the next block should appear. Not doing so would lead to implicit penalties. On the contrary, in PoS, a validator can split his stake on every chain. He has nothing to lose. There will never be consensus in this case. This also makes the "*P+$\epsilon$ attack*"[[999]](https://opentezos.com/tezos-basics/liquid-proof-of-stake#references) possible.
 
-It seems apparent that introducing penalties would instantly solve this problem. The implementations of these penalties aren't that easy.
+It seems apparent that introducing penalties would instantly solve this problem. The implementations of these penalties aren't that easy.  
+The first strategy is to punish validators who **simultaneously** create a block on different chains. To detect this behavior, we need to include a *proof of misbehavior*. Creating this proof requires correctly identify validators and control the timing of blocks' issuance and penalties. Nodes have to be frequently online.  
+The second strategy is to punish validators who create a block on the *wrong* chain as if we were in a PoW system. This strategy requires less timing control but puts validators more at risk.
+
+**In BFT PoS**, we define four criteria with two sets of rules and two properties:
+- Rules
+  - Finality conditions: rules that determine when a given block is finalized.
+  - Slashing conditions: rules that determine when a given validator can be deemed to have misbehaved.
+
+- Properties
+  - Accountable safety: if conflicting valid blocks are finalized, then at least 1/3 of all validators must have violated some slashing condition.
+  - Plausible progression: there exists a set of messages that 2/3 of validators can produce and finalize some value.
+
+Even if we can produce a *proof of misbehavior* and punish a validator, there is a major problem in the *misbehavior* qualification. Indeed, in the conflicting chains scenario, there can be **false positives**. Switching from a chain to another is a medium to establish consensus. Punishing this behavior is counter-productive. There can be no equilibrium between punishments and rewards, so no convergence.
+
+An idea would then be to introduce harder and harder punishments as time goes by. Validators could change their mind while multiple rounds of staking take place. Though, the more they wait, the severer the sanctions.
+
+#### Stake grinding
+PoS **randomly** selects the blocks' validators from a pool (with stake-proportional probability). The source of randomness must be inside the consensus system. The difficulty is finding the component on which relies the randomness generator. If the blocks are used to generate the entropy, then stakers could try to manipulate the content to attribute themselves some future blocks. Blocks content manipulations would require computing power and electricity, which is just a PoW system.
+
+Finding an efficient source of pseudo-randomness and implementing it is a complex matter.
 
 #### Hot wallet attack
-
+To stake, validators need to be online and sign with a private key. This process exposes validators' private keys online for long periods as if they were using "hot wallets". Hence more opportunities for hackers. An idea to mitigate the risks is having a dedicated private key for this purpose and a short period. However, in the case of slashing rules, hackers could trigger punishment anyway and destroy funds. Thus, dedicated hardware for staking would be a better idea.
 
 #### Long range attack
+Attackers can try to manipulate the history of events going far back in time. At that point, they can buy an old private key that had an ample amount of coins. Then, they build a new history of staking validations and rewards from this key. Since they have a lot of coins from the start, they end up with a chain immensely probable to be selected. As a result, a multi-year reorganization takes place.  
+The system can use checkpoints to prevent the attack. A stake threshold could trigger a checkpoint. The issue is that it requires nodes to be constantly online. Going offline would then requires trusted nodes which to ask the past going back online. We can discuss Satoshi Nakamoto's philosophy and wonder if each individual should verify everything from the start. We could make a concession.
 
-
-
-<!-- ![](../../static/img/tezos-basics/PoS.svg)
-<small className="figure">FIGURE 1: PoS</small> -->
+As you can see, switching from PoW to PoS in the new generation of blockchains is not an easy task. More tweaked PoS consensuses are necessary to ensure incentives, economic principles, and security.
 
 ## Delegated Proof-of-Stake (DPoS)
 In a Delegated-proof-of-stake model, the users of this consensus, called delegates, delegate their votes to a validator. The number of eligible validators is fixed, usually between 20 and 100. If a validator is selected to forge a block, they receive a reward which is then shared with all of their delegates [[7]](/tezos-basics/liquid-proof-of-stake#references).
 
 To be selected, validators must be elected by the network. They are chosen according to their long-term reputation and efficiency. A new user is therefore unlikely to become a validator and cannot participate in the life of the network. Consequently, validators often stay the same creating an entry barrier for the new users taking part in the consensus mechanism.
-
-![](../../static/img/tezos-basics/DPoS.svg)
-<small className="figure">FIGURE 2: DPoS</small>
 
 ## Liquid Proof-of-Stake (LPoS)
 ### An evolution from _DPoS_
@@ -138,9 +151,6 @@ The forgery of a block (e.g. transaction fraud) is avoided by preventing a baker
 The security of Tezos is also insured by endorsers: they control the baker's transaction during the baking process. If endorsers find a security breach, they will cancel the baking and the baker will lose his tokens. Endorsers are, in turn, rewarded for each verification with some ꜩ (more details in the [Economics and rewards chapter](/tezos-basics/economics-and-reward)).
 
 This "liquid" implementation allows a greater decentralization and the process to be more censorship-resistant than _DPoS_. As such, contrarily to the DPoS, all the stakeholders can participate actively in the making of the block without depending on a small group of selected validators.
-
-![](../../static/img/tezos-basics/LPoS.svg)
-<small className="figure">FIGURE 3: LPoS</small>
 
 This table highlights the differences between liquid-proof-of-stake and delegated-proof-of-stake [[7]](/tezos-basics/liquid-proof-of-stake#references)):
 
