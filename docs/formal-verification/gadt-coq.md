@@ -1,6 +1,6 @@
 ---
 id: gadt-coq
-title: GADT and Coq
+title: GADT, Coq and Mi-Cho-Coq
 authors: Frank Hillard
 ---
 
