@@ -1,6 +1,6 @@
 ---
 id: gadt-coq
-title: GADT and Coq
+title: Coq, GADT and Mi-Cho-Coq
 authors: Frank Hillard
 ---
 
@@ -74,7 +74,7 @@ In computer science, **higher-order abstract syntax** (abbreviated HOAS) is a te
 This article [[8]](/formal-verification/references) describes how to define a **higher-order abstract syntax** in _Coq_ (i.e. defining axioms, and inductive types). 
 GADT is similar to inductive families of data types (or inductive data types) found in _Coq_'s _Calculus of Inductive Constructions_ [[18]](/formal-verification/references).
 
-#### ADT
+#### Algebraic Data Type
 
 In computer programming, especially functional programming and type theory, an **algebraic data type** is a kind of composite type, (i.e., a type formed by combining other types).
 
@@ -95,7 +95,7 @@ Let's illustrate the ADT formalization by defining a set with PRODUCT (a product
 PRODUCT type = `(a b)` (i.e. Michelson pair)
 - reflexivity: (up to an isomorphism) _swap_ : `(a b) ~ (b a)`
 - associativity: (up to an isomorphism) _assoc_ :  `((a, b), c) ~ (a, (b, c))`
-- neutral element: (up to an isomorphism) _first_ `(a,()) ~ a`
+- neutral element: (up to an isomorphism) _first_ : `(a,()) ~ a`
 
 Programmatically speaking, a tuple `(int bool)` does not match a tuple `(bool int)` but both contain the same information. These two tuples are equivalent up to an isomorphism (which is the function "swap"; i.e. `swap x = (snd x, fst x)`). Notice that the inverse function of _swap_ is _swap_; and also _assoc_ and _first_ are invertible (up to an isomorphism).
 
