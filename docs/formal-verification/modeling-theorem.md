@@ -1,6 +1,6 @@
 ---
 id: modeling-theorem
-title: Modeling theorem
+title: Formal verification on smart contracts
 authors: Frank Hillard
 ---
 
