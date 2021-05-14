@@ -24,7 +24,6 @@ The proof consists of a sequence of _tactics_ which will be interpreted by the C
 
 Before going deeper, let's sum up in the schema below representing the workflow of formal verification of Tezos smart contracts.
 
-![](../../static/img/formal-verification/FormalVerification_overview.svg)
 ![](../../static/img/formal-verification/overview_process.svg)
 <small className="figure">FIGURE 1: Proof process.</small>
 
@@ -234,7 +233,6 @@ First, let's define some rules governing the voting process:
 
 Now, these rules can be translated into formal propositions. These propositions depend on the given parameter, the current storage state and the new storage state (and the produced operations).
 
-![](../../static/img/formal-verification/post_conditions.svg)
 ![](../../static/img/formal-verification/postconditions_rules.svg)
 
 <small className="figure">FIGURE 4: Post conditions of _Vote_ smart contract.</small>
