@@ -92,7 +92,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Baking',
-      items: ['baking/introduction', 'baking/exam'],
+      items: ['baking/introduction', 'baking/baking_explained', 'baking/exam'],
     },
     {
       type: 'category',
