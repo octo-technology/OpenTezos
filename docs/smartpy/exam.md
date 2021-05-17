@@ -22,7 +22,7 @@ What notions are defined inside the smart contract?
 What is returned by the execution of a smart contract?
 
 - [ ] The current storage state when invoking the smart contract
-- [x] The modified storage state after invoking the smart contract
+- [x] The modified storage state after the invocation of the smart contract
 - [ ] The entrypoint that has been called (and its related parameters)
 - [x] The list of emitted operations produced by the execution of the smart contract
 - [ ] The balance of the contract
@@ -34,7 +34,7 @@ What is returned by the execution of a smart contract?
 
 What can I do with the SmartPy online editor?
 
-- [x] Write test and run your code
+- [x] Write, test and run your code
 - [x] Visualize the generated Michelson contract and storage code. 
 - [x] View the test results as an HTML document. 
 - [x] Access a panel of several smart contract templates.
@@ -43,9 +43,9 @@ What can I do with the SmartPy online editor?
 
 What is a SmartPy smart contract?
 
-- [ ] It is a class method called `main` taking as input a storage and parameters and returning a list of operations and a modified storage.
+- [ ] It is a class of method called `main` taking as input a storage and parameters, returning a list of operations and a modified storage.
 - [x] It is a class definition that inherits from `sp.Contract`. A SmartPy contract consists of a state with one or several entry points.
-- [ ] It is like a smart contract in Michelson but written in python.
+- [ ] Its like a smart contract in Michelson but written in python.
 
 ### Question 5
 
@@ -106,9 +106,9 @@ What is true about tests and scenarios with SmartPy?
 What is true about type with SmartPy?
 
 - [ ] SmartPy expressions do not have a type.
-- [x] Just like in Python, most of the time, there is no need to specify the type of object in SmartPy.
+- [x] Just like in Python, most of the time, there is no need to specify the type of the object in SmartPy.
 - [x] SmartPy uses type inference to determine each expression's type.
-- [x] SmartPy types are all of the form `sp.T<TypeName>`.
+- [x] SmartPy types are all in the form `sp.T<TypeName>`.
 
 ### Question 9 and 10
 
@@ -159,7 +159,7 @@ def set_x(newX):
 ```
 
 What is the correct way to modify the code to check that `newX` is greater than 0 for the entrypoint `set_x`?
-If not, we want the entrypoint invocation to fail and return an error message.
+If it is not, then we want the entrypoint invocation to fail and return an error message.
 
 - [ ] 
 ```python
