@@ -162,7 +162,9 @@ The following table[[9]](/tezos-basics/liquid-proof-of-stake#references) highlig
 | **Design Priorities**    | Decentralization, accountable governance, and security               | Scalability and usable consumer applications                                                             |
 
 ## What have learned so far?
+In this chapter, we detailed the PoS consensus. You are now able to understand its fundamentals. You realize that the benefits of PoS also bring hard-to-solve difficulties. The PoS derivatives propose variations in the consensus to resolve the troubles. While PoS highly reduces the external bound with energy, reliable randomness and decentralization are hardly manageable. DPoS tries to adopt a kind of democratic stance but paradoxically scales back to energy consumption. Finally, LPoS seems to be the best alternative to date, relying more on users' trust, diluting and liquifying the decision-making power. The randomness generation still needs to be observed, and only time will tell if current parameters will keep enough decentralization and security. That's for another chapter where you'll discover the Tezos "[*Governance on Chain*](/tezos-basics/governance-on-chain)".
 
+In the next chapter, you'll first uncover Tezos "*operations*" or in blockchain vocabulary: "transactions". Operations are particular messages sent from one address to another.
 
 ## References
 
