@@ -143,58 +143,70 @@ $$
   \text{VT}=\frac{(75+10+5)}{100}=90\%
 $$
 
-and:
+and the Quorum "$\text{Q}$":
 
 $$
-\text{Quorum}=0.4\times0.75+0.3=0.6=60\%
+  \text{Q}=0.4\times0.75+0.3=0.6=60\%
 $$
 
 Therefore:
 
 $$
-\text{VT}\geq\text{Quorum}
+  \text{VT}\geq\text{Q}
 $$
 
-$$
-Positive Voter Turnout = 75 / ( 75 + 10 ) = 88\%
-$$
-
-As 88% _Positive Voter Turnout_ > 80% _Super-majority_, the amendement proposal can move to the next period.
-
-PS: Let's not forget to update the EMA for the next proposal:
+Let's then calculate the *Positive Voter Turnout* (PVT):
 
 $$
-EMA(t+1) = 0.8 * 75% + 0.2 * 88% = 78%
-(considering EMA(t) = 75%)
+  \text{PVT}=\frac{75}{75+10}=\frac{75}{85}\approx88\%\text{ }(\geq80\%)
+$$
+
+So the PVT is greater than the *Super Majority*.
+
+Let's not forget to update the EMA:
+
+$$
+  \text{EMA}(t+1)= 0.8\times75\%+0.2\times88\%\approx78\%
 $$
 
 ### Example 2
-Let us assume a total of 100 active rolls managed by bakers and a _Voter Turnout_ EMA of 75%, and then 55 votes (Yay, Nay and Pass) during the _Exploration Period_.
-
-```
-Yays : 45
-Nays : 10
-Pass : 0
-```
+Let us assume a total of 100 active rolls managed by bakers and a VT's EMA at 75%. Let's consider 55 votes (Yay, Nay, and Pass) during the _Exploration Period_ (2.):
+- Yays: 45
+- Nays: 10
+- Pass: 0
+- EMA($t$) = 75% = 0.75
 
 In this case, we have:
-```
-Voter Turnout = (45 + 10 + 0) / 100 = 55%
+$$
+  \text{VT}=\frac{45+10+0}{100}=55\%
+$$
 
-Quorum = 0.3 + 75% * (0.7 - 0.3) = 60%
-(Therefore 55% Voter Turnout < 60% Quorum, proposal rejected)
+and:
 
-Positive Voter Turnout = 45 / ( 45 + 10 ) = 81%
-```
+$$
+  \text{Q}=0.4\times0.75\%+0.3=0.6=60\%
+$$
 
-Although the 81% _Positive Voter Turnout_ > 80% _Super-majority_, the amendement proposal is rejected as the Quorum has not been reached. We must therefore go back to the initial proposals stage.
+Therefore:
+$$
+  \text{VT}\lt\text{Q}
+$$
 
-PS: Let's not forget to update the EMA for the next proposal :
+**The proposal is rejected**.
 
-```
-EMA(t+1) = 0.8 * 75% + 0.2 * 55% = 71%
-(considering EMA(t) = 75%)
-```
+Even though, let's calculate the Positive Turnout to illustrate a subtlety:
+
+$$
+  \text{PVT}=\frac{45}{45+10}=\frac{45}{55}\approx81\%
+$$
+
+Although the PVT is greater than the _Super-majority_ (80%), the amendment proposal is rejected (the Quorum wasn't reached).
+
+We must therefore go back to the initial proposals stage without forgetting to update the EMA for the next submission:
+
+$$
+  \text{EMA}(t+1)=0.8\times75\%+0.2\times55\%=71\%
+$$
 
 ## Operations
 ### Proposal
