@@ -4,18 +4,18 @@ title: Installation
 authors: Maxime Sallerin
 ---
 
-This chapter aims at preparing your working environment to be ready to code, test, and compile your smart contracts.
+This chapter aims to prepare your working environment to be ready to code, test, and compile your smart contracts.
 
-You can code locally on your favorite _IDE_ or use the [official SmartPy online editor](https://smartpy.io/ide), designed with interesting features to facilitate development.
+You can code locally on your favourite _IDE_ or use the [official SmartPy online editor](https://smartpy.io/ide), designed with interesting features to facilitate development.
 
 ##  Write, test, and compile from the Online Editor
 
-The _SmartPy_ online editor is not just a simple text editor for smart contracts. It comes with a built-in simulation suite that provides powerful testing tools for developers.
+The _SmartPy_ online editor is not just a simple text editor for smart contracts. It comes with a built-in simulation suite, that provides powerful testing tools for developers.
 
 ![](../../static/img/smartpy/screenshot_online_editor.png)
 <small className="figure">FIGURE 1: Smartpy.io Online Editor </small>
 
-To familiarize yourself with _SmartPy_ you can choose among the numerous existing examples of smart contracts by going to the **Templates** tab.
+To familiarize yourself with _SmartPy_, you can choose among numerous existing examples of smart contracts by going to the **Templates** tab.
 
 ![](../../static/img/smartpy/screenshot_online_editor_templates.png)
 <small className="figure">FIGURE 2: Smartpy.io Online Editor Templates </small>
@@ -49,7 +49,7 @@ In the following chapters, we will only use the online editor. Therefore this se
 - [Python 3](https://www.python.org/downloads/)
 - A code editor, e.g. [VSCode](https://code.visualstudio.com/)
 
-### Create of a virtual environment
+### Create a virtual environment
 
 A virtual environment is a self-contained Python installation, separated from the global Python installation. It contains its own modules. Hence, it is most useful when a specific module version is needed without affecting the other modules. Run this command to create a virtual environment:
 
@@ -103,7 +103,7 @@ Use the `SmartPy.sh` script to compile a _SmartPy_ smart contract:
 ~/smartpy-cli/SmartPy.sh compile <contract.py> <output-directory>
 ```
 
-Compilation produces multiple outputs includng:
+Compilation produces multiple possible outputs including:
 - generated _Michelson_ code for contract and storage
 - generated _JSON_ code for contract and storage
 
