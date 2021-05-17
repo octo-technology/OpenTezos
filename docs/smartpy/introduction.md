@@ -5,13 +5,13 @@ slug: /smartpy
 authors: Maxime Sallerin
 ---
 
-The goal of this module is to allow a developer to write smart contracts with _SmartPy_. In the form of a pedagogical course illustrated with an example of a smart contract, the developer will have acquired the essentials to write, test, and analyze his smart contract.
+The goal of this module is to allow developers to write smart contracts with _SmartPy_. In the form of a pedagogical course illustrated by an example of a smart contract, the developer will acquire the essentials to write, test, and analyze his smart contract.
 
-Tezos smart contracts are written in [Michelson](https://opentezos.com/michelson), which is a stack-based language. It is the lowest level of a Tezos smart contract: The Michelson code is what will be deployed on a Tezos network. However, if reading or writing Michelson code is still accessible for small smart contracts, it can become pretty tedious for more complex smart contracts:
+Tezos smart contracts are written in [Michelson](https://opentezos.com/michelson), which is a stack-based language. It is the lowest level of a Tezos smart contract: The Michelson code is what will be deployed on a Tezos network. However, if reading or writing Michelson code is still accessible for small smart contracts, it can become pretty tedious to use, for more complex smart contracts:
 
 - there are no variables nor functions
 - no syntactic sugar
-  > In computer science, [syntactic sugar](https://en.wikipedia.org/wiki/Syntactic_sugar) is syntax within a programming language that is designed to make things easier to read or to express.
+  > In computer science, [syntactic sugar](https://en.wikipedia.org/wiki/Syntactic_sugar)  is a syntax within a programming language that is designed to make things easier to read or to express.
 - the Michelson code cannot be broken down into several files
 - stack-based languages are not commonly used when it comes to web development.
 
@@ -20,9 +20,9 @@ Tezos smart contracts are written in [Michelson](https://opentezos.com/michelson
 It is a high-level smart contracts library and comes with related tools in the form of [SmartPy.io](https://smartpy.io/) to greatly ease the accessibility, understandability, and provability of smart contracts on Tezos. A few advantages are:
 
 - It is based on a popular programming language: _Python_
-- It has a set of high-level primitives, called _SmartML_, written in _OCaml_ for a new smart contracts virtual machine that can be compiled into Michelson. These primitives also exist on their own and can be executed, simulated, and analyzed.
-  > **OCaml** is an industrial-level programming language supporting functional, imperative, and object-oriented styles.
-  > Smart contracts in SmartML are abstract syntax trees as typically done in OCaml with values, expressions, commands, etc.
+- It has a set of high-level primitives, called _SmartML_, written in _OCaml_ for a new smart contracts virtual machine that can be compiled into Michelson. These primitives also exist on their own and can be executed, simulated and analyzed.
+  > **OCaml** is an industrial-level programming language, that supports functional, imperative, and object-oriented styles.
+  > Smart contracts in SmartML are abstract syntax trees, as typically done in OCaml, with values, expressions, commands, etc.
 - It has a compiler that translates _SmartML_ contracts into _Michelson_.
 - Analytics tools are elements of SmartPy that provide some automatic procedures to analyze and prove properties of smart contracts. Then the [user interface](https://smartpy.io/ide) brings simulation, debugging, tests, and analytics capabilities straight to developers.
 
@@ -31,7 +31,7 @@ It is a high-level smart contracts library and comes with related tools in the f
 
 Once built, SmartPy contracts become _SmartML_ contracts and are handled in an OCaml library called _SmartEngine_.
 
-The Python interpreter evaluates Python code containing SmartPy definitions. It creates a very simple expression, called a S-expression, that is parsed and typed while some properties are verified in the SmartEngine backend.
+The Python interpreter then evaluates Python code containing SmartPy definitions. It creates a very simple expression, called an S-expression, that is parsed and typed while some properties are verified in the SmartEngine backend.
 
 The S-expression sent between SmartPy and SmartML has the following form, which is not supposed to be human-readable.
 
@@ -52,12 +52,12 @@ k (unknown 2)) (getItem (attrData "deck") (getParam cell (unknown
 (attrData "nextPlayer")))))))
 ```
 
-The point behind this design is to be able to apply the same methodology of building this kind of simple S-expression for other languages and have something like SmartJS instead of SmartPy, etc.
+The point behind this design is to be able to apply the same methodology of building this kind of simple S-expression for other languages and have something like a SmartJS instead of SmartPy, etc.
 
 It can then be easily compiled into a single Michelson code file.
 This Michelson file is the smart contract that will be deployed on a Tezos network.
 
-In the rest of the module, we will see how to install SmartPy on his machine. But mainly, we will see how to use [the online editor](https://smartpy.io/ide) to start directly to code, test, and run his smart contract with SmartPy. The whole will be illustrated with an example of a raffle smart contract.
+In the rest of the module, we will see how to install SmartPy on his machine. But mainly, we will see how to use [the online editor](https://smartpy.io/ide) to directly start to code, test, and run his smart contract with SmartPy. The whole will be illustrated with an example of a raffle smart contract.
 
 ## References
 
