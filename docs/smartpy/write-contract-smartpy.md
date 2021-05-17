@@ -256,18 +256,32 @@ where:
 - `field1`, `field2`, `field3` are the names of the variables and are accessible via `self.data` (e.g. `self.data.field1`)
 - `value1`, `value2`, `value3` are initial values or variables passed as constructors like `__init__(self, value1)` as we did above for the `admin=address` field. (This can be useful if you want to initialize the storage with some specific values)
 
-> Types are usually automatically inferred and not explicitly needed.
-> But it is still possible to add constraints on types, see [Setting a type constraint in SmartPy](https://smartpy.io/reference.html#_setting_a_type_constraint_in_smartpy).
+<NotificationBar>
+  <p>
 
-For the storage of the raffle contract we have for the moment defined 5 fields:
+  Types are usually automatically inferred and not explicitly needed. However, it is still possible to add constraints on types, e.g. check out [Setting a type constraint in SmartPy](https://smartpy.io/reference.html#_setting_a_type_constraint_in_smartpy).
 
-- **admin** is the only authorized `address` to call the two entrypoints open_raffle and close_raffle.
+  </p>
+</NotificationBar>
+
+
+
+For the storage of the raffle contract, we have for the moment defined five fields:
+
+- **admin** is the only authorized `address` to call the two entrypoints *open_raffle* and *close_raffle*.
 - **close_date** is a `timestamp` to indicate the closing date of the raffle. The raffle must remain open for at least seven days.
-- **jackpot** will be the amount in `tez` distributed to the winner.
+- **jackpot** is the amount in `tez` that will be distributed to the winner.
 - **raffle_is_open** is a `boolean` to indicate if the raffle is open or not.
 - **hash_winning_ticket** is the hash of the winning ticket indicated by the admin.
-  > As there is no possibility to do random, the hash solution has been chosen.  
-  > **Reminder**, this example is for educational purposes and is not intended for deployment on the real Tezos network.
+
+<NotificationBar>
+  <p>
+  
+  It is not possible to generate a true random number from a smart contract, so an easy alternative is to use a hash. This example is for educational purposes and is not intended for deployment on the real Tezos network.
+
+  </p>
+</NotificationBar>
+
 
 #### Entrypoint implementation
 
@@ -286,19 +300,21 @@ def open_raffle(self, jackpot_amount, close_date, hash_winning_ticket):
     self.data.raffle_is_open = True
 ```
 
-An entrypoint is a method of the contract class preceded by `@sp.entry_point`.
-It can take several parameters.
+An entrypoint is a method of the contract class preceded by the keyword `@sp.entry_point`. It can take several parameters. In our case, the first entrypoint is called `open_raffle` and does the following:
 
-In our case, the first entrypoint is called `open_raffle` and does the following:
-
-- With `sp.verify()` or `sp.verify_equal()` we check 4 things and return an error message if necessary. See doc [Checking a Condition](https://smartpy.io/reference.html#_checking_a_condition).
+- With `sp.verify()` or `sp.verify_equal()` we check that a statement is true or return an error message (more info at [Checking a Condition](https://smartpy.io/reference.html#_checking_a_condition)). Here we check four statements :
+  
   1. The address that calls the entrypoint must be the administrator one indicated in the storage. We compare here `sp.source` and `self.data.admin`.
      > `sp.sender` is the address that calls the current entrypoint.  
      > `sp.source` is the address that initiates the current transaction. It may or may not be equal to `sp.sender`, but in our case, it is.
+
   2. No raffle must be open. For this, we use the boolean `raffle_is_open` defined in the storage.
      > Note that `~` is the symbol used for logical negation.
+
   3. The amount `sp.amount` sent to the contract by the administrator during the transaction must be at least greater than the value specified in the `jackpot_amount` argument.
-  4. The close date `close_date` passed as a parameter must be at least seven days in the future. (see doc [Timestamps](https://smartpy.io/reference.html#_timestamps)).
+
+  4. The close date `close_date` passed as a parameter must be at least seven days in the future (more info on [Timestamps](https://smartpy.io/reference.html#_timestamps)).
+
 - Once all the conditions are passed we update the storage as follows:
 
 ```python
@@ -310,12 +326,11 @@ self.data.raffle_is_open = True
 
 #### Test and Scenario
 
-The purpose of the test scenario is to ensure the proper functionality of the smart contract by testing the conditions
-and checking the changes made to the storage.
+The purpose of the test scenario is to ensure the proper functioning of the smart contract by triggering the conditions and checking the changes made to the storage.
 
-With _SmartPy_ a test is a method of the class contract preceded by `@sp.add_test`.
+On _SmartPy_, a test is a method of the contract class preceded by `@sp.add_test`.
 
-Inside this method, you need to instantiate your class contract and your scenario to which you will add the contract instance and all the calls related you want to test.
+Inside this method, you need to instantiate your contract class and your scenarios, to which you will add the contract instance and all the calls related you want to test. For instance:
 
 ```python
 @sp.add_test(name="Raffle")
@@ -326,19 +341,19 @@ def test():
     scenario += r
 ```
 
-You can also organize your scenario by adding titles with `scenario.h1("My title")`, `scenario.h2("My subtitle")` etc.
+Note that you can also organize your scenarios by adding titles with `scenario.h1("My title")`, `scenario.h2("My subtitle")`, etc.
 
-An interesting point is the possibility to define test accounts for our scenario.
+An interesting capability is to define test accounts for our scenarios:
 
 ```python
 alice = sp.test_account("Alice")
 admin = sp.test_account("Administrator")
 ```
 
-Test accounts can be defined by calling `sp.test_account(seed)` where the seed is a string.
-A test account account contains some fields: `account.address`, `account.public_key_hash`, `account.public_key`, and `account.secret_key`.
+Test accounts can be defined by calling `sp.test_account(seed)`, where _seed_ is a string.
+A test account contains a few fields: `account.address`, `account.public_key_hash`, `account.public_key`, and `account.secret_key`.
 
-You can then simulate the calls to the entrypoints by specifying the different arguments, as follows:
+You can then simulate the calls to the entrypoints by specifying the different arguments as follows:
 
 ```python
 scenario.h3("The unauthorized user Alice unsuccessfully call open_raffle")
@@ -348,22 +363,20 @@ scenario += r.open_raffle(close_date=close_date, jackpot_amount=jackpot_amount,
          valid=False)
 ```
 
-The run method and its parameters are optional, but it can help to add relevant context to the entrypoint call.  
-You can specify the `source` of the transaction, the `amount` of tez sent, the transaction date with `now` etc.
+The run method accepts optional parameters that can help to setup a relevant context to the entrypoint call. You can specify the `source` of the transaction, the `amount` of tez sent, the transaction date with `now` etc.
 
 > Note that the option `valid=False` allows you to indicate that the transaction is expected to fail here because Alice is not the administrator.
 
-The result will then be displayed as an HTML document in the output panel of the online editor.
+The result is displayed in an HTML document in the output panel of the online editor.
 
 #### Run and watch the output
 
-Let's run our code.
+Let's run our code:
 
 ![](../../static/img/smartpy/online_editor_summary_contract.png)
 <small className="figure">FIGURE 4: Online Editor Contract Summary</small>
 
-On the right screen, we can see a summary of our smart contract with the following information:
-
+You can see a summary of our smart contract with the following information:
 - Address of the contract
 - Balance in tez
 - Storage

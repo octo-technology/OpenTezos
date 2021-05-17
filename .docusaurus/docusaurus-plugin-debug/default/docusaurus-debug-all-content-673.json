@@ -367,10 +367,6 @@
                   },
                   {
                     "type": "doc",
-                    "id": "formal-verification/michocoq"
-                  },
-                  {
-                    "type": "doc",
                     "id": "formal-verification/modeling-theorem"
                   },
                   {
@@ -477,7 +473,6 @@
             "/formal-verification/exam": "docs",
             "/formal-verification/gadt-coq": "docs",
             "/formal-verification": "docs",
-            "/formal-verification/michocoq": "docs",
             "/formal-verification/modeling-theorem": "docs",
             "/formal-verification/references": "docs",
             "/ligo/deploy-a-contract": "docs",
@@ -1726,7 +1721,7 @@
               "unversionedId": "formal-verification/gadt-coq",
               "id": "formal-verification/gadt-coq",
               "isDocsHomePage": false,
-              "title": "GADT and Coq",
+              "title": "Coq, GADT and Mi-Cho-Coq",
               "description": "For a better understanding of the formal verification on Tezos smart contract (written in Michelson language) (in the next section), we will first describe the theory and tools behind the formal analysis.",
               "source": "@site/docs/formal-verification/gadt-coq.md",
               "sourceDirName": "formal-verification",
@@ -1739,7 +1734,7 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "gadt-coq",
-                "title": "GADT and Coq",
+                "title": "Coq, GADT and Mi-Cho-Coq",
                 "authors": "Frank Hillard"
               },
               "sidebar": "docs",
@@ -1748,8 +1743,8 @@
                 "permalink": "/formal-verification"
               },
               "next": {
-                "title": "Mi-Cho-Coq",
-                "permalink": "/formal-verification/michocoq"
+                "title": "Formal verification on smart contracts",
+                "permalink": "/formal-verification/modeling-theorem"
               }
             },
             {
@@ -1779,7 +1774,7 @@
                 "permalink": "/defi/exam"
               },
               "next": {
-                "title": "GADT and Coq",
+                "title": "Coq, GADT and Mi-Cho-Coq",
                 "permalink": "/formal-verification/gadt-coq"
               }
             },
@@ -1802,22 +1797,13 @@
                 "id": "michocoq",
                 "title": "Mi-Cho-Coq",
                 "authors": "Frank Hillard"
-              },
-              "sidebar": "docs",
-              "previous": {
-                "title": "GADT and Coq",
-                "permalink": "/formal-verification/gadt-coq"
-              },
-              "next": {
-                "title": "Modeling theorem",
-                "permalink": "/formal-verification/modeling-theorem"
               }
             },
             {
               "unversionedId": "formal-verification/modeling-theorem",
               "id": "formal-verification/modeling-theorem",
               "isDocsHomePage": false,
-              "title": "Modeling theorem",
+              "title": "Formal verification on smart contracts",
               "description": "This section describes how to make the bridge between the Tezos world (and the Michelson language) with the  formal world of Coq. This will be concretized by modeling a theorem representing the smart contract and its intention.",
               "source": "@site/docs/formal-verification/modeling-theorem.md",
               "sourceDirName": "formal-verification",
@@ -1830,13 +1816,13 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "modeling-theorem",
-                "title": "Modeling theorem",
+                "title": "Formal verification on smart contracts",
                 "authors": "Frank Hillard"
               },
               "sidebar": "docs",
               "previous": {
-                "title": "Mi-Cho-Coq",
-                "permalink": "/formal-verification/michocoq"
+                "title": "Coq, GADT and Mi-Cho-Coq",
+                "permalink": "/formal-verification/gadt-coq"
               },
               "next": {
                 "title": "References",
@@ -1865,7 +1851,7 @@
               },
               "sidebar": "docs",
               "previous": {
-                "title": "Modeling theorem",
+                "title": "Formal verification on smart contracts",
                 "permalink": "/formal-verification/modeling-theorem"
               },
               "next": {
@@ -2482,7 +2468,7 @@
               "id": "smartpy/installation",
               "isDocsHomePage": false,
               "title": "Installation",
-              "description": "This chapter aims at preparing your working environment to be ready to code, test, and compile your smart contracts.",
+              "description": "This chapter aims to prepare your working environment to be ready to code, test, and compile your smart contracts.",
               "source": "@site/docs/smartpy/installation.md",
               "sourceDirName": "smartpy",
               "slug": "/smartpy/installation",
@@ -2663,7 +2649,7 @@
               "id": "tezos-basics/governance-on-chain",
               "isDocsHomePage": false,
               "title": "Governance on-chain",
-              "description": "Tezos is a self-amending blockchain network that incorporates an on-chain mechanism for proposing, selecting, testing, and activating protocol upgrades without having to hard fork. [1]",
+              "description": "Tezos is a self-amending blockchain network that incorporates an on-chain mechanism for proposing, selecting, testing, and activating protocol upgrades without hard forks [1].",
               "source": "@site/docs/tezos-basics/governance-on-chain.md",
               "sourceDirName": "tezos-basics",
               "slug": "/tezos-basics/governance-on-chain",
@@ -2676,7 +2662,7 @@
               "frontMatter": {
                 "id": "governance-on-chain",
                 "title": "Governance on-chain",
-                "authors": "Thomas Zoughebi, Aymeric Bethencourt and Maxime Fernandez"
+                "authors": "Thomas Zoughebi, Aymeric Bethencourt, and Maxime Fernandez"
               },
               "sidebar": "docs",
               "previous": {

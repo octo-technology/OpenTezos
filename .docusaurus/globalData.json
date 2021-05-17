@@ -221,8 +221,7 @@
             },
             {
               "id": "formal-verification/michocoq",
-              "path": "/formal-verification/michocoq",
-              "sidebar": "docs"
+              "path": "/formal-verification/michocoq"
             },
             {
               "id": "formal-verification/modeling-theorem",

@@ -416,17 +416,12 @@
           },
           {
             "type": "link",
-            "label": "GADT and Coq",
+            "label": "Coq, GADT and Mi-Cho-Coq",
             "href": "/formal-verification/gadt-coq"
           },
           {
             "type": "link",
-            "label": "Mi-Cho-Coq",
-            "href": "/formal-verification/michocoq"
-          },
-          {
-            "type": "link",
-            "label": "Modeling theorem",
+            "label": "Formal verification on smart contracts",
             "href": "/formal-verification/modeling-theorem"
           },
           {
@@ -544,7 +539,6 @@
     "/formal-verification/exam": "docs",
     "/formal-verification/gadt-coq": "docs",
     "/formal-verification": "docs",
-    "/formal-verification/michocoq": "docs",
     "/formal-verification/modeling-theorem": "docs",
     "/formal-verification/references": "docs",
     "/ligo/deploy-a-contract": "docs",
