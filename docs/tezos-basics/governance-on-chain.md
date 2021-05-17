@@ -1,18 +1,18 @@
 ---
 id: governance-on-chain
 title: Governance on-chain
-authors: Thomas Zoughebi, Aymeric Bethencourt and Maxime Fernandez
+authors: Thomas Zoughebi, Aymeric Bethencourt, and Maxime Fernandez
 ---
 
-Tezos is a self-amending blockchain network that incorporates an on-chain mechanism for proposing, selecting, testing, and activating protocol upgrades without having to hard fork. [[1]](/tezos-basics/governance-on-chain#references)
+Tezos is a self-amending blockchain network that incorporates an on-chain mechanism for proposing, selecting, testing, and activating protocol upgrades *without hard forks* [[1]](/tezos-basics/governance-on-chain#references).
 
 ## What is self-amendment?
-Tezos is a blockchain that can improve itself over time by using a formalized process to upgrade its protocol. In practice, it is similar to the structure of a corporation, where shareholders get to vote on the future direction of the company.
+Tezos is a blockchain that can improve itself over time by using a formalized process to upgrade its protocol. In practice, it is similar to the structure of a corporation, where shareholders get to vote on the future direction.
 
-Many other blockchains do not have this type of formal governance structure. Consequently, the direction of these projects is either decided by a small group and imposed to the whole ecosystem, or the process results in many _hard forks_ of the blockchain with participants that did not agree with the decisions. Consequently, two or more chains can co-exists and split the community. Self-amendement aims to avoid this scenario, and Tezos has had no hard fork so far.
+Many other blockchains do not have this type of formal governance structure. Consequently, the direction of these projects is often decided by a small group and imposed on the whole ecosystem. If not, the process results in many _hard forks_ by participants that did not agree with the decisions. Thus, two or more chains can co-exist and split the community. Self-amendment aims to avoid this scenario, and Tezos *has had no hard fork so far*.
 
 ![](../../static/img/tezos-basics/tezos-hard-forks.svg)
-<small className="figure">FIGURE 1: Bitcoin hard-forks Vs Tezos hard-forks</small>
+<small className="figure">FIGURE 1: Bitcoin hard-forks vs. Tezos hard-forks</small>
 
 ## Definitions of main concepts 
 
@@ -22,14 +22,22 @@ Many other blockchains do not have this type of formal governance structure. Con
 
 * **Delegation**: All holders of the XTZ crypto-currency can delegate their baking and voting rights to a baker called a _delegate_, while still maintaining control of their funds.
 
-* **Roll**: An amount of XTZ which is used as the unit of measure for baking and voting rights. Weight in the baking and voting process are indexed to an integral number of rolls. At present, one roll is equal to 8,000 XTZ.
+* **Roll**: An amount of XTZ which is used as the unit of measure for baking and voting rights. Weight in the baking and voting process is indexed to an integral number of rolls. At present, one roll is equal to 8,000 XTZ.
 
-* **Cycle**: The time required for 4,096 blocks to be created on Tezos, usually this is 2 days, 20 hours and 16 minutes (or 1 minute per block, if all bakers cooperate effectively).
+* **Cycle**: The time required for 4,096 blocks' creation on Tezos (around 2 days, 20 hours, and 16 minutes (1 minute per block, if all bakers cooperate effectively)).
 
-* **Proposal**: A request for an addition, adjustment or removal of a feature of the protocol.
+* **Proposal**: A request for addition, adjustment, or removal of a protocol's feature.
 
 ## How does it work?
-The self-amendment process is split into 5 periods: the _Proposal Period_, the _Exploration Vote Period_, the _Testing Period_, the _Promotion Vote Period_ and the _Adoption period_. Each of these five periods lasts five baking cycles (i.e. 20 480 blocks or roughly 14 days), taking almost two months from the proposal to activation. The latest and current self-amendments are available at [tezosagora.org](https://www.tezosagora.org)
+Five (5) periods split the self-amendment process:
+
+1. _Proposal Period_
+2. _Exploration Vote Period_
+3. _Testing Period_
+4. _Promotion Vote Period_
+5. _Adoption Period_
+
+Each of these five periods lasts five baking cycles (i.e. 20,480 blocks or roughly 14 days), taking almost two months from the proposal to activation. The latest and current self-amendments are available at [tezosagora.org](https://www.tezosagora.org).
 
 Should there be any failure in a given period, the whole process reverts back to the _Proposal Period_, effectively aborting and restarting the process.
 
