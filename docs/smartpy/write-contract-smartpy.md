@@ -6,7 +6,7 @@ authors: Maxime Sallerin
 
 import NotificationBar from '../../src/components/docs/NotificationBar';
 
-In this chapter, we use _SmartPy_ to develop a Raffle smart contract and cover the most important aspects of the framework. We will introduce new notions as they come along the contract. For a complete reference of _SmartPy_, please refer to the [Reference Manual](https://smartpy.io/reference.html).
+In this chapter, we will use _SmartPy_ to develop a smart contract based Raffle and cover the most important aspects of the framework. We will introduce new notions as they come along the contract. For a complete reference of _SmartPy_, please refer to the [Reference Manual](https://smartpy.io/reference.html).
 
 ## What is a smart contract?
 First, let's recap what a smart contract is and what role _SmartPy_ plays in it.
@@ -31,14 +31,14 @@ It defines all **entrypoints** (invocable functions) of the smart contract and i
 The storage is an allocated memory space associated with a smart contract. It is the permanent data store for the smart contract.
 
 ### Entrypoints
-The entrypoints are the invocable functions of a smart contract. Executing an entrypoint takes some parameters and the current state of the storage, and returns a new modified storage and some operations. //TODO: what kind of operations? operations that have not be executed? or to be executed next? or what???
+The entrypoints are the invocable functions of a smart contract. Executing an entrypoint takes some parameters and the current state of the storage returns a new modified storage and some operations. //TODO: what kind of operations? operations that have not be executed? or to be executed next? or what???
 
 <NotificationBar>
   <p>
   
 **An operation** results from the invocation of a smart contract and represents the side effects on the Tezos network.
 The storage resulting from the invocation of a smart contract represents the side effects on the data related to the invoked contract.
-If the execution of an entrypoint produces operations (an ordered list of transactions) then they are sent and executed according to the order of the operations on the list.
+If the execution of an entrypoint produces an operation (an ordered list of transactions) then they are sent and executed according to the order on the list.
 //TODO: Unclear, I didn't understand a thing...
 
   </p>
@@ -49,23 +49,21 @@ If the execution of an entrypoint produces operations (an ordered list of transa
 ## About the raffle contract
 A raffle is a game of chance that distributes a winning prize.
 
-The organizer is in charge of defining a jackpot and selling tickets that will either be winners or losers. In our case, there is only one winning ticket.
+The organizer is in charge of defining a jackpot and selling tickets that will either be winners or losers. In the case of our example, there is only one winning ticket.
 
 Fig.3 represents our smart contract.
 
 ![](../../static/img/smartpy/raffle_schema.svg)
 <small className="figure">FIGURE 3: Raffle contract</small>
 
-Three entrypoints allow to interact with the contract:
+Three entrypoints allow interaction with the contract:
 
-- **open_raffle** can only be called by the administrator. During this call, he sends the jackpot amount to the contract, defines a closing date, indicates the number of the winning ticket (in an encrypted way), and declares the raffle open.
-- **buy_ticket** allows anone to buy a ticket for 1 tez and take part in the raffle.
-- **close_raffle** can only be called by the administrator. It allows to close the raffle and to send the jackpot to the winner.
-
-//TODO: I don't understand. In a raffle, the jackpot is made from the funds of selling the tickets. In our case, the administrator sends the jackpot amount himself even before selling tickets, it's weird. Why such design?
+- **open_raffle** can only be called by the administrator. During this call, he sends the amount of the jackpot to the contract, defines a closing date, indicates the number/identity of the winning ticket (in an encrypted way), and declares the raffle open.
+- **buy_ticket** allows anyone to buy a ticket for 1 tez and take part in the raffle.
+- **close_raffle** can only be called by the administrator. It closes the raffle and sends the jackpot to the winner.
 
 ### Get started
-This section illustrates the coding of the smart contract in the [online editor](https://smartpy.io/ide) proposed by _SmartPy_. You can however use your favorite IDE instead as described above.
+This section illustrates the coding of the smart contract in the [online editor](https://smartpy.io/ide) proposed by _SmartPy_. You can however use your favourite IDE instead as described above.
 
 #### Create your contract
 Create a new contract in the online editor and name it _Raffle Contract_.
@@ -119,8 +117,7 @@ It is a class definition that inherits from `sp.Contract`. //TODO: What is a cla
 
 We will explain in more details the use of all these concepts in the next sections.
 
-Our code doesn't do much for now, //TODO: so what does it do so far?
-but it can already be compiled by pressing the _run_ button. If there is no error, you should be able to visualize the generated Michelson code in the _Deploy Michelson Contract_ tab.
+Our code doesn't do much for now, but it can already be compiled by pressing the _run_ button. If there is no error, you should be able to visualize the generated Michelson code in the _Deploy Michelson Contract_ tab.
 
 ```js
 parameter (unit %open_raffle);
@@ -136,7 +133,7 @@ code
 
 ### The *open_raffle* entrypoint
 
-`open_raffle` is the entrypoint that only the administrator can call. If the invocation is successful, then the raffle is open, and the smart contract's storage will be updated with the jackpot amount and the hash of the winning ticket number.
+`open_raffle` is the entrypoint that only the administrator can call. If the invocation is successful, then the raffle is open, the smart contract's storage will be updated with the jackpot amount and the hash of the winning ticket number.
 //TODO: You should introduce earlier how the raffle works and a winnier is picked, it's the first time in the article you speak about a hash of a ticket. Is that the winning mechanism? No idea so far.
 
 #### Link to referential manual
@@ -259,14 +256,14 @@ where:
 > Types are usually automatically inferred and not explicitly needed.
 > But it is still possible to add constraints on types, see [Setting a type constraint in SmartPy](https://smartpy.io/reference.html#_setting_a_type_constraint_in_smartpy).
 
-For the storage of the raffle contract we have for the moment defined 5 fields:
+For the storage of the raffle contract, we have for the moment defined 5 fields:
 
 - **admin** is the only authorized `address` to call the two entrypoints open_raffle and close_raffle.
 - **close_date** is a `timestamp` to indicate the closing date of the raffle. The raffle must remain open for at least seven days.
 - **jackpot** will be the amount in `tez` distributed to the winner.
 - **raffle_is_open** is a `boolean` to indicate if the raffle is open or not.
 - **hash_winning_ticket** is the hash of the winning ticket indicated by the admin.
-  > As there is no possibility to do random, the hash solution has been chosen.  
+  > As there is no possibility randomise, the hash solution has been chosen.  
   > **Reminder**, this example is for educational purposes and is not intended for deployment on the real Tezos network.
 
 #### Entrypoint implementation
@@ -310,7 +307,7 @@ self.data.raffle_is_open = True
 
 #### Test and Scenario
 
-The purpose of the test scenario is to ensure the proper functionality of the smart contract by testing the conditions
+The purpose of the test scenario is to ensure the proper functionment of the smart contract by testing the conditions
 and checking the changes made to the storage.
 
 With _SmartPy_ a test is a method of the class contract preceded by `@sp.add_test`.
@@ -336,7 +333,7 @@ admin = sp.test_account("Administrator")
 ```
 
 Test accounts can be defined by calling `sp.test_account(seed)` where the seed is a string.
-A test account account contains some fields: `account.address`, `account.public_key_hash`, `account.public_key`, and `account.secret_key`.
+A test account contains some fields: `account.address`, `account.public_key_hash`, `account.public_key`, and `account.secret_key`.
 
 You can then simulate the calls to the entrypoints by specifying the different arguments, as follows:
 
@@ -374,8 +371,8 @@ By clicking on the _Types_ tab, we have access to the types of the storage eleme
 ![](../../static/img/smartpy/online_editor_Types.png)
 <small className="figure">FIGURE 5: Online Editor Types</small>
 
-> As in Python, most of the time, it is not necessary to specify the type of an object in _SmartPy_.  
-> Because the target language of SmartPy, Michelson, requires types.  
+> As with Python, most of the time, it is not necessary to specify the type of an object in _SmartPy_.  
+> But because the target language of SmartPy, Michelson, requires types.  
 > Each _SmartPy_ expression, however, needs a type. This is why _SmartPy_ uses type inference to determine the type of each expression.  
 > See doc [Typing](https://smartpy.io/reference.html#_typing).
 
@@ -658,11 +655,11 @@ If the conditions are met, then the storage is updated:
 
 - By adding the address of the player to the set `self.data.players`.
 - By associating a ticket id with the player's address in the map `self.data.sold_tickets`.
-  > `ticket_id = abs(sp.len(self.data.players) - 1)` here the ticket id is incremented for each new participant and the `abs()` function which designates the absolute value is used to ensure that the `ticket_id` is of type `sp.TNat`.
+  > `ticket_id = abs(sp.len(self.data.players) - 1)` here the ticket id is incremented for each new participant and the `abs()` function which designates the absolute value, is used to ensure that the `ticket_id` is of type `sp.TNat`.
 
 ### close_raffle entrypoint
 
-`close_raffle` is an entrypoint that can only be called by the administrator.
+`close_raffle` is an entrypoint that can only be called on by the administrator.
 If the invocation is successful, then the raffle will be closed and, the jackpot amount will be sent to the winner,
 and the storage will be reset to the default values.
 
@@ -874,7 +871,7 @@ Four checks are made for this entrypoint:
 2. The raffle must be open.
 3. The closing date must be greater than or equal to the closing date indicated in the storage.
 4. The hash of the ticket indicated as a parameter must be equal to the hash of the ticket indicated in the storage.
-   > The administrator indicates in parameter a `sp.nat()` which must correspond to the number of the winning ticket (modulo the number of participants) then this natural integer is converted in `byte` then it is hashed with the `sha256` algorithm.
+   > The administrator indicates in parameter a `sp.nat()` which must correspond to the number of the winning ticket (modulating the number of participants) then this natural integer is converted in `byte` then it is hashed with the `sha256` algorithm.
 
 If the conditions are met, then:
 
