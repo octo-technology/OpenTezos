@@ -5,7 +5,9 @@ slug: /michelson
 authors: Frank Hillard
 ---
 
-To write smart contracts for Tezos, you can either choose a high-level language such as [LIGO](/404.html) or [SmartPy](/404.html), or the official low-level language called Michelson.
+To write smart contracts for Tezos, you can either choose the official low-level language called **Michelson** or a high-level language (such as [LIGO](/ligo/introduction) or [SmartPy](/smartpy/introduction)) which compiles to Michelson language.
+
+This section focus on the **Michelson** language.
 
 At the end of this module, you will be able to:
 - manipulate a stack-based language,
@@ -17,7 +19,7 @@ This module is inspired from the official Michelson documentation available [her
 
 ## Environment
 
-Before you proceed, it is recommended to set up a dev environment to test your Michelson scripts.
+Before you proceed, it is recommended to set up a dev environment to test your Michelson scripts. We recommend installing an IDE such as [Visual Studio Code](https://code.visualstudio.com/) with _Michelson_ extensions ("vscode-michelson").
 
 A sandbox node can be launched by following the [Deploy a node module](/404.html) or the official documentation at [https://tezos.gitlab.io/user/sandbox.html](https://tezos.gitlab.io/user/sandbox.html).
 

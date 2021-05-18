@@ -7,7 +7,7 @@ authors: Frank Hillard
 ## Smart contracts in Michelson
 
 Michelson is a domain-specific language and is designed for implementing smart contracts. Tezos smart contracts contain three main pieces of information:
-- the **parameter** of the smart contract which describes the possible invocations of the smart contract (often called **entrypoints**)
+- the **parameter** of the smart contract which describes the possible invocations of the smart contract (often called **entrypoints**) and related arguments
 - the type definition of the persistent data structure associated with the smart contract (referred to as **storage**)
 - a sequence of instructions to be executed when invoking the smart contract (this is the **code** of the smart contract)
 
@@ -26,7 +26,7 @@ These three instructions will be described later in the "invocation" sub-section
 ### Entrypoint
 
 The **parameter** of the smart contract describes all possible invocations of the smart contract.
-An entrypoint is a invocable function of the smart contract which takes arguments. These arguments are specific to the entrypoint.
+An entrypoint is an invocable function of the smart contract which takes arguments. These arguments are specific to the entrypoint.
 
 Each entrypoint is composed of:
 - the type definition of the expected argument of the entrypoint 
@@ -90,7 +90,7 @@ Generally speaking, a _stack_ data structure is a linear collection of elements 
 ![](../../static/img/michelson/michelson_stack_basics.svg)
 <small className="figure">FIGURE 2: Illustration of a stack</small>
 
-The _Instructions_ section describes basic stack manipulations allowed by the Michelson language.
+The [Tutorial](/michelson/tutorial) section describes basic stack manipulations allowed by the Michelson language.
 
 ## Invocation and transaction return (list of operations, storage)
 

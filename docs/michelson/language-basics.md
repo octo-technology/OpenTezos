@@ -51,7 +51,7 @@ Michelson also provides specific types for smart contract modeling:
 - `address` represents an identifier for a user account or a deployed smart contract (e.g. "tz1faswCTDciRzE4oJ9jn2Vm2dvjeyA9fUzU")
 - `mutez` represents the smallest quantity of the Tezos crypto-currency (1 tez = 1,000,000 mutez)
 - `key` is a byte sequence representing a public key (e.g. "edpkuBknW28nW72KG6RoH..." )
-- `key_hash` represents a hashed key using a standard hashing functions such as SHA512 (e.g. "tz1KqTpEZ7Yob7QbPE4Hy..."; i.e. a string in base58 encoded form)
+- `key_hash` represents a hashed key using a standard hashing function such as SHA512 (e.g. "tz1KqTpEZ7Yob7QbPE4Hy..."; i.e. a string in base58 encoded form)
 - `signature` is a byte sequence representing a message signed by a public key (e.g. "spsig1PPUFZucuAQybs5w...)
 - `chain_id` represents the network identifer (e.g. 0x7a06a770, "NetXynUjJNZm7wi")
 - `operation` represents a transaction
@@ -67,11 +67,20 @@ The Michelson language provides basic operations on these types:
 - crypto: standard hash function
 - collection: standard collection manipulation (create, insert, remove, access, modification) 
 - currency: standard operations on XTZ crypto-currency
-- smart contract: contract interactions, transfer, invocation of other smart contract, delegation
+- smart contract: contract interactions, transfer, invocation of smart contracts, delegation
 
 A description of some of these operators is provided in the "Tutorial" section.
 
 An exhaustive list of instructions for each type is described in the "Instructions" section.
+
+These instructions introduce basic programming concepts such as:
+- conditional branching: `IF` instruction family.
+- repetitive processing: `LOOP`, `ITER`, `MAP` instructions.
+- "Lambda" functions: `LAMBDA` instruction.
+- structuring data: `PAIR`, `UNPAIR`, `CAR`, `CDR`, `LEFT`, `RIGHT` instructions, and `list`, `map`, `set` composite types.
+- contract communication: `CONTRACT`, `TRANSFER_TOKENS` instructions. 
+
+
 
 ## Explicit failure
 
