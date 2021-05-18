@@ -6,9 +6,9 @@ authors: Maxime Sallerin
 
 // TODO SCHEMA
 
-- **baker** participating the consensus by **creating** new blocks.
-- **endorser** participating the consensus by **validating** the blocks created by other bakers.
-- **accuser** particpating the consensus by **monitoring** bakers and endorsers works.
+- **Baker** participating the consensus by **creating** new blocks.
+- **Endorser** participating the consensus by **validating** the blocks created by other bakers.
+- **Accuser** particpating the consensus by **monitoring** bakers and endorsers works.
 - **A roll** represents 8,000ꜩ delegated to a given key and are taken every `BLOCKS_PER_ROLL_SNAPSHOT` = 256 blocks.
 - **Roll snpashots** represent the state of rolls for a given block.
 - `BLOCKS_PER_CYLCE` = 4096 blocks.
@@ -102,16 +102,16 @@ The selected rolls determine the baking and endorsing rights in cycle `n+PRESERV
 
 The generated list of priorities identifies which roll has the responsibility to forge a block (baking) and which rolls have to endorse this new block. It is a round-robin process that cycles on the list of priorities until the end of the cycle (4096 blocks).
 
-// TODO explain round-robin
+> **A round robin** is an arrangement of choosing all elements in a group equally in some rational order, usually from the top to the bottom of a list and then starting again at the top of the list and so on.
 
 ## Accusation
 
 There are also **accusers**. These network members monitor that:
 
 - a baker does not create two competing blocks at the same level
-- an endoreser endorse a block twice or more at the same baking slot
+- an endorser endorse a block twice or more at the same baking slot
 
-If an accusation is correct, the accuser get a part of the funds that were frozen by the baker or the endorser, as a reward. The other part is burned.
+If an accusation is correct, the accuser gets a part of the funds that were frozen by the baker or the endorser, as a reward. The other part is burned.
 
 Any attempt to fraud is therefore punished.
 
@@ -123,7 +123,7 @@ Any attempt to fraud is therefore punished.
 
 ## Conclusion
 
-The Tezos consensus protocol use the Liquid Proof of Stake algorithm. Delegates (people who have at least 8,000 ꜩ of delegated funds) are given the responsibility of creating and endorsing blocks. They are rewarded for their action. They are also required to stake some of their capital to ensure honest behavior.
+The Tezos consensus protocol uses the Liquid Proof of Stake algorithm. Delegates (people who have at least 8,000 ꜩ of delegated funds) are given the responsibility of creating and endorsing blocks. They are rewarded for their action. They are also required to stake some of their capital to ensure honest behavior.
 
 ## References
 
