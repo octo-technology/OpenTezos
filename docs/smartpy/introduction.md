@@ -66,7 +66,7 @@ Fig. 1 helps to contextualize the role of _SmartPy_ in the Tezos ecosystem.
 _SmartPy_ is a development tool allowing for the production of smart contracts (scripts in Michelson), which can be deployed on the blockchain.
 
 ![](../../static/img/ligo/intro_schema.svg)
-<small className="figure">FIGURE 2: _SmartPy_ contextualisation </small>
+<small className="figure">FIGURE 2: SmartPy contextualisation </small>
 
 A Tezos smart contract is a piece of **code** written in Michelson language (a low-level stack-based Turing-complete language).
 
