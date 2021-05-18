@@ -54,10 +54,43 @@ k (unknown 2)) (getItem (attrData "deck") (getParam cell (unknown
 
 The point behind this design is to be able to apply the same methodology of building this kind of simple S-expression for other languages and have something like a SmartJS instead of SmartPy, etc.
 
-It can then be easily compiled into a single Michelson code file.
+It can then be easily compiled into a single Michelson code file.  
 This Michelson file is the smart contract that will be deployed on a Tezos network.
 
-In the rest of the module, we will see how to install SmartPy on his machine. But mainly, we will see how to use [the online editor](https://smartpy.io/ide) to directly start to code, test, and run his smart contract with SmartPy. The whole will be illustrated with an example of a raffle smart contract.
+## What is a smart contract?
+
+What is a smart contract is and what role _SmartPy_ plays in it.
+
+Fig. 1 helps to contextualize the role of _SmartPy_ in the Tezos ecosystem.
+
+_SmartPy_ is a development tool allowing for the production of smart contracts (scripts in Michelson), which can be deployed on the blockchain.
+
+![](../../static/img/ligo/intro_schema.svg)
+<small className="figure">FIGURE 2: _SmartPy_ contextualisation </small>
+
+A Tezos smart contract is a piece of **code** written in Michelson language (a low-level stack-based Turing-complete language).
+
+It defines all **entrypoints** (invocable functions) of the smart contract and its **storage**.
+
+![](../../static/img/ligo/smart_contract.svg)
+<small className="figure">FIGURE 3: Smart contract</small>
+
+### Storage
+The storage is an allocated memory space associated with a smart contract. It is the permanent data store for the smart contract.
+
+### Entrypoints
+The entrypoints are the invocable functions of a smart contract. Executing an entrypoint takes some parameters and the current state of the storage, and returns a new modified storage and some operations.
+
+<NotificationBar>
+  <p>
+
+**Operations** are an ordered list of transactions. An operation can trigger a tez transfer or an entry point of another targeted contract. If the execution of an entry point produces operations then they are sent and executed following the order of the list of operations.
+
+  </p>
+</NotificationBar>
+
+
+In the rest of the module, we will see how to install SmartPy on his machine. But mainly, we will see how to use [the online editor](https://smartpy.io/ide) to start directly to code, test, and run his smart contract with SmartPy. The whole will be illustrated with an example of a raffle smart contract.
 
 ## References
 

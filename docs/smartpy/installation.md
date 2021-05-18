@@ -105,23 +105,22 @@ Use the `SmartPy.sh` script to compile a _SmartPy_ smart contract:
 
 Compilation produces multiple possible outputs including:
 - generated _Michelson_ code for contract and storage
-- generated _JSON_ code for contract and storage
+- generated _JSON_ code for contract and storage 
+    > It is referring to Michelson source code in JSON representation.
 
-//TODO: What is the purpose of the '_JSON_ code for contract" ?
-
-#### Execute a SmartPy Script with its tests
+#### Execute the tests of your SmartPy Script
 
 Use the `SmartPy.sh` script to run the tests:
 
 ```shell
 ~/smartpy-cli/SmartPy.sh test <contract.py> <output-directory>
 ```
-//TODO: shouldn't we provide the file containing the tests as well? Where are the tests?
 
-This leads to multiple outputs: types, generated Michelson code, pretty-printed scenario, etc. //TODO: types??? What does it mean?
+This leads to multiple outputs: types of storage values and entrypoint parameters, generated Michelson code, pretty-printed scenario, etc.
 
+## Conclusion
 
-// TODO: Conclusion
+Installing support for programming with SmartPy is not complicated. You just need Python and the necessary libraries or simply start coding from the online editor.
 
 ## Reference
 
