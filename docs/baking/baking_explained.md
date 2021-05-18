@@ -4,7 +4,8 @@ title: How baking works ?
 authors: Maxime Sallerin
 ---
 
-// TODO SCHEMA
+![](../../static/img/baking/baking_explained.svg)
+<small className="figure">FIGURE 1: How Baking Works?</small>
 
 - **Baker** participating the consensus by **creating** new blocks.
 - **Endorser** participating the consensus by **validating** the blocks created by other bakers.
@@ -87,7 +88,8 @@ The random seed for cycle `n` is a 256-bit number generated at the very end of c
 
 The seed is created by requesting a secret number (nonce) from all roll owners. All secret numbers are gathered and used to create a hash that will be used as the random seed. Since the last owner to reveal its secret number already knows the other's secret numbers, a 2-phase process called "Commit & Reveal" has been put in place.
 
-// TODO SCHEMA Commit & Reveal
+![](../../static/img/baking/commit_reveal.svg)
+<small className="figure">FIGURE 2: Commit & Reveal</small>
 
 The seed for cycle `n` is then obtained as follows: the seed of cycle `n-1` is hashed with a constant and then with each nonce revealed in cycle n-1.
 
