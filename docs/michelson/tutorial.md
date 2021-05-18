@@ -12,6 +12,10 @@ This section introduces the main concepts of the Michelson language. It begins w
 
 Michelson is a stack-based language, which means that all the data (manipulated by the program) will be stacked on a single pile. The Michelson language provides stack operators to reorganize elements of the stack and other kinds of operators which consume the top elements of the stack. In this section, we will introduce basic stack-manipulation operators and illustrates them with simple examples. Then, in a second time, focus on the arithmetic operators and conditional branching.
 
+##### Type checking
+
+In this section, we will introduce Michelson instructions. In order to be able to operate these instructions require precise elements (of a certain type) on the stack in a specific order. If these expectations are not met then the type checking of the Michelson script would fail and the execution of the smart contract would stop.
+
 ##### Basic stack operators (PUSH DROP SWAP)
 
 The code of a smart contract is defined as a **sequence** of Michelson instructions. The **sequence** structure is defined by `{` and `}` and contains instructions separated by `;` (semi-colon). When executing a sequence the interpreter executes each instruction sequentially, one after the other, in the specified order.
@@ -255,6 +259,8 @@ The Michelson language supports only few primitive data types:
 
 Notice that there is no floating-point type supported (such as _float_).
 
+> It is worth mentioning that there is no limit to the value of numbers (_nat_, _int_) or length of strings (_string_, _bytes_) other than the storage limit and gas limit (specified in the Tezos protocol). So there is no risk of overflow errors.
+
 Other Tezos specific types such as `tez` and `address` will be listed and explained later.
 
 Obviously, The Michelson language also allows for the manipulation of these types.
@@ -347,9 +353,9 @@ The `UNPAIR` instruction takes the top element of the stack and ensures it is a 
 ![](../../static/img/michelson/michelson_tutorial_pair_unpair.svg)
 <small className="figure">FIGURE 18: Illustration of the _PAIR_ and _UNPAIR_ instructions</small>
 
-Notice that the `UNPAIR` instruction expects a _pair_ element on top of the stack. If the top element is not of the _pair_ type then the type checking of the script would fail and the execution of the smart contract would stop.
+Notice that the `UNPAIR` instruction expects a _pair_ element on top of the stack. 
 
-Similarly, the `PAIR` instruction expects two elements in the stack. The execution of a valid smart contract would stop if the stack did not contain two elements.
+Similarly, the `PAIR` instruction expects two elements in the stack. 
 
 ##### Accessing to elements of a _PAIR_
 
@@ -384,9 +390,9 @@ The next section will explain the list operators (`NIL operation`).
 
 ##### Nested pairs
 
-As seen a _pair_ structure contain two fields can be primitive types but can also be an other pair (in this case, it is called _nested pair_).
+As seen a _pair_ structure contains two fields which can be primitive types but can also be an other _pair_ (in this case, it is called _nested pair_).
 
-The creation of a _nested pair_ consists of a successions of `PAIR` instruction (and reorganizing elements in the stack). This may become a fastidious exercise with large _nested pairs_. The Michelson language supports these nested pairs by providing the `PAPPAIIR` macros for creating _nested pair_ in a single instruction.
+The creation of a _nested pair_ consists of a succession of `PAIR` instructions (which reorganize elements in the stack). This may become a fastidious exercise with large _nested pairs_. The Michelson language supports these nested pairs by providing the `PAPPAIIR` macros for creating _nested pair_ in a single instruction.
 
 Similarly, the Michelson language provides the `UNPAPPAIIR` macro for destructuring _nested pairs_.
 
@@ -724,9 +730,6 @@ tezos-client run script instruction_bytes_slice.tz on storage '0x00' and input '
 
 The `COMPARE` instruction computes a lexicographic comparison. As with other `COMPARE` instructions, it returns 1 if the first sequence is bigger than the second sequence, 0 if both byte sequences are equal, or -1 otherwise.
 
-The `COMPARE` instruction can be used only on comparable types.
-
-
 The following smart contract concatenates the given bytes with the ones in the storage only if the parameter value is 0x12. Otherwise it fails.
 
 ```
@@ -755,12 +758,13 @@ Since the beginning we have used primitive types such as _int_, _nat_ and _strin
 A composite structure integrates many fields and can organize them in many ways. 
 
 There are 5 kinds of composite data structures: 
-- **binary tree** implemented with nested _PAIR_ structure (seen in the previous section)
+
 - **ordered list** of elements with type _list_
 - **set** of unique elements with type _set_
 - an **associative array** (a collection of key-value pairs) implemented with the type _map_
 - a **union** (i.e. an exclusive composite type) implemented with nested _or_ structure.
 - a **optional** implements a type holding a value which handles an uninitialized state if a value hasn't been assigned.  (seen in the previous section)
+- **records** containing multiple fields implemented with nested _PAIR_ structure (seen in the previous section)
 
 
 
@@ -972,7 +976,9 @@ The `big_map` data structure usage is similar to the `map` one.
 
  When using big and complex types as values, it is recommended to use the `big_map` data structure which is a lazily deserialized map.
 
-Operations on _big_map_ type have higher gas costs than those over standard maps, as data is lazily deserialized. However, a _big_map_ type has a lower storage cost than a standard map of the same size.
+ A _big_map_ type has a lower storage cost than a standard map of the same size.
+
+However, operations on _big_map_ type have higher gas costs than those over standard maps, as data is lazily deserialized. The behavior of `GET`, `UPDATE` and `MEM` is the same on big_maps as on standard maps, except that under the hood, elements are loaded and deserialized on demand.
 
 
 
@@ -1182,7 +1188,7 @@ The `IF_LEFT` instruction inspects a value of *union*. It requires two sequences
 
 The `IF_LEFT bt bf` executes the "bt" sequence if the left part of a *union* has been given, otherwise it will execute the "bf" sequence.
 
-The instruction consumes a Michelson expression on top of the stack which specifies which part of the *union* has been defined.
+The `IF_LEFT` instruction consumes a Michelson expression on top of the stack which specifies which part of the *union* has been defined and pushes on top of the stack the element underneath the _union_.
 
 
 The following smart contract (union_example.tz) illustrates the `IF_LEFT` usage. Notice that the parameter is a *union* `(or string int)` and the storage is an integer. This smart contract increments the storage if an integer is passed as a parameter (i.e. if the smart contract is invoked with an integer) and does nothing if a string is given.
@@ -1207,6 +1213,8 @@ tezos-client run script union_example.tz on storage '5' and input 'Right 1'
 ![](../../static/img/michelson/michelson_instruction_ifleft_right_example.svg)
 <small className="figure">FIGURE 42: Illustration of the `IF_LEFT` instruction</small>
 
+Notice that the `IF_LEFT` instruction consumes the _union_ value `RIGHT int 1` and pushed back the element behind the _right_ branch `int 1`, and finally selects the `{ ADD }` sequence.
+
 The following command simulates the execution of the smart contract when called with a string.
 
 ```js
@@ -1216,13 +1224,24 @@ tezos-client run script union_example.tz on storage '5' and input 'Left "Hello"'
 ![](../../static/img/michelson/michelson_instruction_ifleft_left_example.svg)
 <small className="figure">FIGURE 43: Illustration of the `IF_LEFT` instruction</small>
 
+Notice that the `IF_LEFT` instruction consumes the _union_ value `LEFT string "Hello"` and pushed back the element behind the _left_ branch `string "Hello"`, and finally selects the `{ DROP }` sequence.
+
+
 ### Contract specific types and operations
 
 Now let's focus on the specific types related to Tezos smart contract such as crypto-currency (mutez), address identifying an account or a contract, delegation.
 
 #### Mutez
 
-Mutez (micro-Tez) are internally represented by a 64-bit, signed integer. There are restrictions to prevent creating a negative amount of mutez. Operations are limited in order to prevent overflow and to avoid mixing with other numerical types by mistake. They are also mandatorily checked for under/overflows.
+Mutez (micro-Tez) are internally represented by a 64-bit, signed integer. 
+
+There are restrictions to prevent creating a negative amount of mutez. Operations are limited in order to prevent overflow and to avoid mixing with other numerical types by mistake. 
+
+Operations `ADD` and `MUL` must be checked for overflows (i.e. the `ADD` and `MUL` instructions will fail in case of overflow).
+
+Operations `SUB` must be checked for underflows (i.e. the `SUB` instruction will fail if the result is negative).
+
+So, keep in mind that taking under/overflows into account is mandatory while manipulating _mutez_ type.
 
 ##### Standard currency operations
 
@@ -1268,7 +1287,8 @@ All this verification is done based on entry point definition and expectation. T
 
 
 The `CONTRACT 'p` instruction casts the address to the given contract type if possible.
-It consumes an `address` to the top element of the stack and returns a contract option that corresponds to the given parameter type.
+It consumes an `address` to the top element of the stack and returns a contract instance that corresponds to the given parameter type. 
+The element returned on top of the stack is typed _option contract_ and its value represents a valid instance of contract at the given address.
 
 The parameter is `unit` in case of an implicit account.
 
@@ -1344,7 +1364,11 @@ tezos-client run script countercaller.tz on storage '"KT1HUbVyf62ZAp7BRqwQaDueb6
 ![](../../static/img/michelson/michelson_example_transfertoken_execution.svg)
 <small className="figure">FIGURE 44: Illustration of the `TRANSFER_TOKENS` instruction</small>
 
+Notice that the `CONTRACT (or int int)` instruction produces an optional instance of contract. This instance,once the optional is resolved, is typed `contract (or int int)` and its value contains the `address` of a valid deployed smart contract (`instance @"KT.."` in the schema).
+
 ##### Delegation with `SET_DELEGATE`
+
+Delegation is when you delegate your staking/baking rights to another person (called “baker”), rather than setting your own Tezos node. It’s a quite useful feature as it allows you to participate in staking and receive Tezos staking rewards without the necessity of maintaining a node (see Chapter Baking).
 
 The `SET_DELEGATE` sets or withdraws the contract's delegation. It consumes an *option key_hash* specifying the delegate and returns a transaction (operation) on top of the stack.
 
@@ -1648,7 +1672,10 @@ The example ([#1](https://opentezos.com/michelson/examples#example-1--modulo-wit
 
 Like the `LOOP` instruction, `LOOP_LEFT {}` is a generic loop that handles accumulators generally used for aggregating data during a repetitive process. 
 
-The `LOOP_LEFT {}` takes a sequence of instructions as an argument and requires a `union` (composed of a given data structure and an accumulator) on top of the stack. If the left part of the `union` is initialized the process is repeated. If the right part is initialized then the process is stopped and the accumulator is returned.
+The `LOOP_LEFT {}` takes a sequence of instructions as an argument and requires a `union` (composed of a given data structure and an accumulator) on top of the stack. 
+
+If the left part of the `union` is initialized the process is repeated (i.e. the value of the _union_ defines the left branch `LEFT <datatype> <value>`). 
+If the right part is initialized (i.e. the value of the _union_ defines the right branch `RIGHT <datatype> <value>`) then the process is stopped and the accumulator is returned.
 
 Two examples ([#4](https://opentezos.com/michelson/examples#example-4--computing-a-sum-with-loop_left) and [#5](https://opentezos.com/michelson/examples#example-5--computing-a-factorial-with-loop_left)) in the _Examples_ section describe in detail the `LOOP_LEFT` instruction usage.
 
