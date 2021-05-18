@@ -227,8 +227,13 @@ $$
 $$
 
 ## Operations
-### Proposal
-A proposal operation can only be submitted during a _Proposal Period_.
+Delegates can send two operations: "*Proposals*" and "*Ballot*".
+
+### The "*Proposals*" operation
+It is only possible to submit a proposal operation during the _Proposal Period_ (1.).
+
+Description:
+
 ```
 Proposals : {
   source: Signature.Public_key_hash.t ;
@@ -244,8 +249,11 @@ Proposals : {
 
 This operation [[3]](/tezos-basics/governance-on-chain#references) can be submitted more than once but only if the cumulative number of active proposals is less than 20. Each time a delegate duplicates a proposal, a vote is counted with the 20 vote maximum applying.
 
-### Ballot
-A ballot operation can only be submitted during the _Promotion Vote Period_ or the _Exploration Vote Period_, and only once per period.
+### The "*Ballot*" operation
+It is only possible to submit a proposal operation during the _Exploration Vote Period_ (2.) or the _Promotion Vote Period_ (4.), and only once per period.
+
+Description:
+
 ```
 Ballot : {
   source: Signature.Public_key_hash.t ;
@@ -260,14 +268,16 @@ Ballot : {
 
 `proposal` is the selected protocol hash.
 
-`ballot` is one of the possible ballot response: `Yea`, `Nay` or `Pass`
+`ballot` is one of the possible ballot response: `Yea`, `Nay`, or `Pass`
 
 
-## Send a proposal
-To send a proposal or a ballot, please refer to [CLI chapter](/tezos-basics/introduction_to_cli_and_rpc)
+## Sending a proposal operation
+To send a "proposals" or a "ballot" operation, please refer to the [CLI and RPC](/tezos-basics/cli-and-rpc) chapter.
 
-## Learn more
-To learn more about the amendement process on Tezos, please refer to the [official documentation](https://gitlab.com/tezos-paris-hub/tezos-on-chain-governance/-/blob/master/Documentations/Amendements_Tezos_en.pdf).
+## What have learned so far?
+In this chapter, we learned how Tezos allows on-chain decentralized governance without hard forks' troubles. To do this, Tezos splits amendments into five different periods that we defined and detailed.
+
+In the next "*History of Amendments*" chapter, we will go over a history of past proposals, both approved and refused, and look at why.
 
 ## References
 [1] https://medium.com/tezos/amending-tezos-b77949d97e1e
