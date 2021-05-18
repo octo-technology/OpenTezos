@@ -121,7 +121,8 @@ module.exports = {
       items: [
         'formal-verification/introduction',
         'formal-verification/gadt-coq',
-        'formal-verification/modeling-theorem', 
+        'formal-verification/modeling-theorem',
+        'formal-verification/michocoq',
         'formal-verification/references', 
         'formal-verification/exam'],
     },

@@ -15,7 +15,6 @@ What notions are defined inside the smart contract?
 - [x] The type definition of the entrypoint
 - [ ] The size of the storage
 - [x] The code of the smart contract
-- [ ] The list of users allowed to call the smart contract
 
 ### Question 2
 
@@ -32,20 +31,19 @@ What is returned by the execution of a smart contract?
 
 ### Question 3
 
-What can I do with the SmartPy online editor?
+What can you do with the SmartPy online editor?
 
 - [x] Write, test and run your code
-- [x] Visualize the generated Michelson contract and storage code. 
-- [x] View the test results as an HTML document. 
+- [x] Visualize the generated Michelson code and storage. 
+- [x] View the results of the tests as an HTML document. 
 - [x] Access a panel of several smart contract templates.
 
 ### Question 4
 
-What is a SmartPy smart contract?
+What is a _SmartPy_ smart contract?
 
 - [ ] It is a class of method called `main` taking as input a storage and parameters, returning a list of operations and a modified storage.
 - [x] It is a class definition that inherits from `sp.Contract`. A SmartPy contract consists of a state with one or several entry points.
-- [ ] Its like a smart contract in Michelson but written in python.
 
 ### Question 5
 
@@ -99,11 +97,11 @@ What is true about tests and scenarios with SmartPy?
 - [x] A new test is a method marked with the `sp.add_test` decorator.
 - [x] A new scenario is instantiated by `sp.test_scenario`.
 - [x] Scenarios describe a sequence of actions: originating contracts, computing expressions, calling entry points, etc.
-- [x] SmartPy provides the possibility to generate test_account with `sp.test_account(seed)` which contains some fields: `account.address`, `account.public_key_hash`, `account.public_key`, and `account.secret_key`.
+- [x] SmartPy provides the possibility to generate test accounts with `sp.test_account(seed)` which contain the following fields: `account.address`, `account.public_key_hash`, `account.public_key`, and `account.secret_key`.
 
 ### Question 8
 
-What is true about type with SmartPy?
+What is true about types with SmartPy?
 
 - [ ] SmartPy expressions do not have a type.
 - [x] Just like in Python, most of the time, there is no need to specify the type of the object in SmartPy.
@@ -158,8 +156,7 @@ def set_x(newX):
     newX = self.data.x
 ```
 
-What is the correct way to modify the code to check that `newX` is greater than 0 for the entrypoint `set_x`?
-If it is not, then we want the entrypoint invocation to fail and return an error message.
+What is the correct way to modify the code to check that `newX` is greater than 0 for the entrypoint `set_x`? (If not, we want the entrypoint invocation to fail and return an error message.)
 
 - [ ] 
 ```python
