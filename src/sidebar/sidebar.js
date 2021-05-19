@@ -75,11 +75,11 @@ module.exports = {
       label: 'Michelson',
       items: [
         'michelson/introduction',
-        'michelson/language-basics',
         'michelson/smart-contracts',
+        'michelson/language-basics',
         'michelson/tutorial',
-        'michelson/instructions-reference',
         'michelson/examples',
+        'michelson/instructions-reference',
         'michelson/exam',
         'michelson/take-away',
       ],
