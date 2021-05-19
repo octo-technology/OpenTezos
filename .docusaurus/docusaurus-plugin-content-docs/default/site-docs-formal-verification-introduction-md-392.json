@@ -3,7 +3,7 @@
   "id": "formal-verification/introduction",
   "isDocsHomePage": false,
   "title": "Introduction",
-  "description": "The Tezos blockchain brings several improvements including the formal verification of smart contract.This section describes the overview of how Tezos smart contract can be formally verified.",
+  "description": "The Tezos blockchain has several advantages over its concurrents. One of them is the formal verification of smart contract. This module shows a brief overview of how Tezos smart contracts can be formally verified.",
   "source": "@site/docs/formal-verification/introduction.md",
   "sourceDirName": "formal-verification",
   "slug": "/formal-verification",

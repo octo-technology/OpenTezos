@@ -426,11 +426,6 @@
           },
           {
             "type": "link",
-            "label": "References",
-            "href": "/formal-verification/references"
-          },
-          {
-            "type": "link",
             "label": "Exam",
             "href": "/formal-verification/exam"
           }
@@ -540,7 +535,6 @@
     "/formal-verification/gadt-coq": "docs",
     "/formal-verification": "docs",
     "/formal-verification/modeling-theorem": "docs",
-    "/formal-verification/references": "docs",
     "/ligo/deploy-a-contract": "docs",
     "/ligo/exam": "docs",
     "/ligo/examples": "docs",

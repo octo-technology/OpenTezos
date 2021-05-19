@@ -30,79 +30,69 @@ This section intends to give:
 For a good understanding of this theoretical part, it is recommended to have some notions on first-order and second-order logic [[10]](/formal-verification/gadt-coq#references), mathematics (e.g. set, group, monoid, associativity, distributivity, reflexivity), functional programming, and language theory.
 
 ### Type theory
+In mathematics, logic and computer science, a _type system_ is a formal system in which every term has a **type**. The type defines the meaning and the operations that can be performed on it. **Type theory** is the academic study of type systems.
 
-In mathematics, logic, and computer science, a type system is a formal system in which every term has a "type" which defines its meaning and the operations that may be performed on it. **Type theory** is the academic study of type systems.
+Type theory is closely linked to many fields of active research, including the Curry–Howard correspondence [[6] [7]](/formal-verification/gadt-coq#references) that provides a deep isomorphism between _intuitionistic logic_, typed _λ-calculus_ and _cartesian closed categories_. 
 
-Type theory is closely linked to many fields of active research. Most particular, the Curry–Howard correspondence [[6] [7]](/formal-verification/gadt-coq#references) provides a deep isomorphism between intuitionistic logic, typed λ-calculus and cartesian closed categories. 
-
-Some type theories serve as alternatives to set theory as a foundation of mathematics. Two well-known such theories are _Alonzo Church's typed λ-calculus_ and _Per Martin-Löf's intuitionistic type theory_. The _Per Martin-Löf's intuitionistic type theory_ has been the foundation of constructive mathematics. For example, Thierry Coquand's **Calculus of constructions** and its derivatives are the foundation used by **Coq** (the proof assistant) [[1]](/formal-verification/gadt-coq#references).
-
+Some type theories serve as alternatives to set theory as a foundation of mathematics. Two famous theories are _Alonzo Church's typed λ-calculus_ and _Per Martin-Löf's intuitionistic type theory_. The _Per Martin-Löf's intuitionistic type theory_ has been the foundation of constructive mathematics. For instance, Thierry Coquand's **Calculus of constructions** and its derivatives are the foundation used by **Coq** (the proof assistant) [[1]](/formal-verification/gadt-coq#references).
 
 ### Coq
+Initially developed by Thierry Coquand, _Coq_ [[1]](/formal-verification/gadt-coq#references) is a proof assistant designed to develop mathematical proofs, and especially to write formal specifications, programs, and proofs. Programs chave to comply to their specifications. 
 
-Initially developed by Thierry Coquand, _Coq_ [[1]](/formal-verification/gadt-coq#references) is a proof assistant designed to develop mathematical proofs, and especially to write formal specifications, programs and proofs that programs comply to their specifications. 
+Properties, programs, and proofs are formalized in the _Coq_ language called _Gallina_, which follows the _Calculus of Inductive Constructions_ (CIC).
 
-Properties, programs and proofs are formalized in the _Coq_ language called _Gallina_ which follows the principles of the Calculus of Inductive Constructions (CIC).
-
+//TODO: What are "properties", "programs" and "proofs" ?
 
 #### CoC - CiC
+Initially developed by Thierry Coquand, the _Calculus of Constructions_ [[13]](/formal-verification/gadt-coq#references) (or CoC) is a typed high-order _λ-calculus_ (i.e. a typed formal system taking the logic of second-order into account). The CoC is used as a typed programming language. 
 
-Initially developed by Thierry Coquand, the _Calculus Of Constructions_ [[13]](/formal-verification/gadt-coq#references) (or CoC) is a typed high-order λ-calculus (i.e. a typed formal system taking the logic of second-order into account). The CoC is used as a typed programming language. 
-
-Many derivatives of CoC have been created to handle inductive types, predicates and co-inductive types.
-The Calculus of Inductive Constructions ([[18]](/formal-verification/gadt-coq#references) CiC) is an extension of CoC which integrates inductive datatype. The _Coq_ proof assistant is built upon CiC.
+Many derivatives of CoC have been created to handle inductive types, predicates and co-inductive types. The CIC ([[18]](/formal-verification/gadt-coq#references)) is an extension of CoC which integrates inductive datatype. The _Coq_ proof assistant is built upon CiC.
 
 All logical judgments in Coq are typing judgments: the very heart of _Coq_ is, in fact, a type-checking algorithm. 
 
-An interesting additional feature of _Coq_ is that it can automatically extract executable programs from specifications, as either Objective Caml or Haskell source code.
+An interesting additional feature of _Coq_ is that it can automatically extract executable programs from specifications, either as _OCaml_ or as _Haskell_ source code.
 
 #### Gallina (Term and Vernacular)
+Logical objects (such as theorems, axioms) are formalized in Gallina-Term language, and proof scripts are formalized in Gallina-Vernacular language, which provides _tactics_.
 
-Logical objects (such as theorems, axioms) are formalized in Gallina-Term language and proof scripts are formalized in Gallina-Vernacular language which provides _tactics_.
+The _Coq_ inference engine executes the proof script. In the case of a Tezos smart contract, the inference engine relies on the Coq universe and the _Mi-Cho-Coq_ library. 
 
-The proof script is executed by the _Coq_ inference engine. In the case of a Tezos smart contract, the inference engine rely on the Coq universe and the Mi-Cho-Coq library. 
-
-For more information about the CoC and CiC foundation, it is recommended to read the official paper of "Thierry Coquand" and other documentation [[13] [16] [18]](/formal-verification/gadt-coq#references). It is required to know the basis of λ-calculus [[17]](/formal-verification/gadt-coq#references) in order to understand mathematical notations used in CoC and CiC.
-
-
+For more information about the CoC and CiC foundation, it is recommended to read the official paper from Thierry Coquand and other documentation [[13] [16] [18]](/formal-verification/gadt-coq#references). It is required to know the basis of λ-calculus [[17]](/formal-verification/gadt-coq#references) in order to understand mathematical notations used in CoC and CiC.
 
 ### GADT
-
 Generalized algebraic data type (GADT) is a generalization of parametric algebraic data types (i.e. a standard representation of algebraic data types).
 
 The idea of **algebraic data types** is to define a language as a composite type and formalize an algebra of data types (like the algebra on numbers). The programming language can be seen as a complex-type with functors.
 
-An important application of GADTs is to embed **higher-order abstract syntax** in a type-safe fashion.
+An essential application of GADTs is to embed **higher-order abstract syntax** in a type-safe fashion.
 
 In computer science, **higher-order abstract syntax** (abbreviated HOAS) is a technique for the representation of abstract syntax trees for languages with variable binders. 
 
-This article [[8]](/formal-verification/gadt-coq#references) describes how to define a **higher-order abstract syntax** in _Coq_ (i.e. defining axioms, and inductive types). 
-GADT is similar to inductive families of data types (or inductive data types) found in _Coq_'s _Calculus of Inductive Constructions_ [[18]](/formal-verification/gadt-coq#references).
+This article [[8]](/formal-verification/gadt-coq#references) describes how to define an **higher-order abstract syntax** in _Coq_ (i.e., defining axioms, and inductive types). 
+GADT is similar to inductive families of data types (or inductive data types) found in _Coq_'s CIC [[18]](/formal-verification/gadt-coq#references).
 
 #### Algebraic Data Type
-
-In computer programming, especially functional programming and type theory, an **algebraic data type** is a kind of composite type, (i.e., a type formed by combining other types).
+In computer programming, and especially functional programming and type theory, an **algebraic data type** is a kind of composite type, (i.e., a type formed by combining other types).
 
 Two common classes of algebraic types are product types (i.e., tuples and records) and sum types (i.e., tagged or disjoint unions, coproduct types or variant types).
 
 The values of a product type typically contain several values, called **fields**. All values of that type have the same combination of field types. The set of all possible values of a product type is the set-theoretic product, i.e., the Cartesian product, of the sets of all possible values of its field types.
 
-The values of a sum type are typically grouped into several classes, called **variants**. A value of a variant type is usually created with a quasi-functional entity called a constructor. Each variant has its own constructor, which takes a specified number of arguments with specified types. The set of all possible values of a sum type is the set-theoretic sum, i.e., the disjoint union, of the sets of all possible values of its variants.  
+The values of a sum type are typically grouped into several classes, called **variants**. A value of a variant type is created with a quasi-functional entity called a constructor. Each variant has its own constructor, which takes a specified number of arguments with specified types. The set of all possible values of a sum type is the set-theoretic sum, i.e., the disjoint union, of the sets of all possible values of its variants.  
 
-Basically, the Algebraic Data Type (ADT) formalizes a language into a composite type and describes possible operations on data types.
+The _Algebraic Data Type_ (ADT) formalizes a language into a composite type and describes possible operations on data types.
 
 #### Example with Michelson pairs and variants
+Let's illustrate the ADT formalization by defining a set with PRODUCT (a product type) and SUM (a sum type) thus forming a _semi-ring_ that can model Michelson language structures (_Pairs_ and _Variants_). Defining Michelson data structures as an ADT provides a robust type-checking mechanism on Michelson scripts.
 
-Let's illustrate the ADT formalization by defining a set with PRODUCT (a product type) and SUM (a sum type) thus forming a semi-ring which can model Michelson language structures (Pairs and Variants). Defining Michelson data structures as an ADT provides a strong typechecking mechanism on Michelson scripts.
+The Michelson language can be modeled as a mathematical object (set) with a set of rules (PRODUCT and SUM) describing possible operations on datatypes. 
 
- The Michelson language can be modeled as a mathematical object (set) with a set of rules (PRODUCT and SUM) describing possible operations on datatypes. 
-
-PRODUCT type = `(a b)` (i.e. Michelson pair)
+PRODUCT type = `(a b)` (i.e., Michelson pair)
 - reflexivity: (up to an isomorphism) _swap_ : `(a b) ~ (b a)`
 - associativity: (up to an isomorphism) _assoc_ :  `((a, b), c) ~ (a, (b, c))`
 - neutral element: (up to an isomorphism) _first_ : `(a,()) ~ a`
 
-Programmatically speaking, a tuple `(int bool)` does not match a tuple `(bool int)` but both contain the same information. These two tuples are equivalent up to an isomorphism (which is the function "swap"; i.e. `swap x = (snd x, fst x)`). Notice that the inverse function of _swap_ is _swap_; and also _assoc_ and _first_ are invertible (up to an isomorphism).
+Programmatically speaking, a tuple `(int bool)` does not match a tuple `(bool int)`, but both contain the same information. These two tuples are equivalent up to an isomorphism (which is the function "swap"; i.e. `swap x = (snd x, fst x)`). Notice that the inverse function of _swap_ is _swap_. Also _assoc_ and _first_ are invertible (up to an isomorphism).
 
 SUM type = (Either a b); `Either a b = Left a | Right b` (i.e. variant)
 - reflexivity: `Either a b ~ Either b a` 
@@ -112,40 +102,35 @@ SUM type = (Either a b); `Either a b = Left a | Right b` (i.e. variant)
 - `(a, Void) ~ Void` is equivalent to `a * 0 = 0`
 
 Notice that the variant ("Either" concept) can be combined with pairs due to the distributivity rule. 
-Like for the PRODUCT type, properties (associativity, distributivity) are respected up to an isomorphism which is invertible (i.e. an inverse function exist for each isomorphism). 
+For the PRODUCT type, properties (associativity, distributivity) are respected up to an isomorphism that is invertible (i.e., an inverse function exists for each isomorphism). 
 
-For example, the "triple" function compose a variant from 3 elements. The function "triple_inv" decompose a triple in a nested pair containing the three elements: `triple_inv x = ((Left(x) Middle(x)) Right(x))`. `triple (a (b c)) = Left a | Right c | Middle b`.
+For example, the "triple" function compose a variant from three elements. The function "triple_inv" decompose a triple in a nested pair containing the three elements: `triple_inv x = ((Left(x) Middle(x)) Right(x))`. `triple (a (b c)) = Left a | Right c | Middle b`.
 
 So, a set equipped with PRODUCT and SUM represents a language equipped with _pairs_ and _variants_ (such as Michelson language). 
 
-> Other language structures such as _List_ can be defined using the List Monad pattern.  
+> Other language structures such as _List_ can be defined using the _List Monad pattern_.  
 
-#### A semiring to generalize Michelson language 
-
+#### A semi-ring to generalize Michelson language 
 In algebra, a set equipped with PRODUCT and SUM is a semi-ring. Notice that the inverse of SUM has no meaning (subtraction `a - b` is not permitted; programmatically speaking, removing an integer from a structure that has no integer field has no meaning). That's why the set equipped with PRODUCT and SUM is just a semi-ring and not a ring (due to the missing relation `a + inv(a) ~ Void` where `inv(a)` does not exist).
 
-> Formally, a ring is an _abelian_ group whose operation is called _addition_, with a second binary operation called _multiplication_ that is associative, is distributive over the _addition_ operation, and has a multiplicative identity element. 
+> Formally speaking, a ring is an _abelian_ group whose operation is called _addition_, with a second binary operation called _multiplication_ that is associative, distributive over the _addition_ operation, and has a multiplicative identity element. 
 
-In mathematics, **rings are algebraic structures that generalize fields**: multiplication need not be commutative and multiplicative inverses need not exist. In other words, a ring is a set equipped with two binary operations satisfying properties analogous to those of addition and multiplication of integers. Ring elements may be numbers such as integers or complex numbers, but they may also be non-numerical objects such as polynomials, or functions.
+In mathematics, **rings are algebraic structures that generalize fields**: multiplication need not be commutative and multiplicative inverses do not have to exist. In other words, a ring is a set equipped with two binary operations satisfying properties analogous to those of addition and multiplication of integers. Ring elements may be numbers, such as integers or complex numbers, but they may also be non-numerical objects, such as polynomial numbers or functions.
 
-To conclude , the formalization of a language into an algebra of data types (ADT) allows to specify a mathematical representation of a language; and thus allows to use CoC principles for proving theorems on this algebra (i.e. verifying a script of this language). The **Mi-Cho-Coq** library is the formal _Coq_ representation of the Michelson language and allows to specify a formal representation of a Tezos smart contract.
-
+To conclude, the formalization of a language into an algebra of data types (ADT) allows to specify a mathematical representation of a language; and thus allows to use CoC principles to prove theorems on this algebra (i.e., verifying a script in this language). The **Mi-Cho-Coq** library is the formal _Coq_ representation of the Michelson language and allows to specify a formal representation of a Tezos smart contract.
 
 ### Mi-Cho-Coq
-
-The _Mi-Cho-Coq_ library represents the bridge between Tezos smart contract and formal proof in Coq.
+The _Mi-Cho-Coq_ library represents the bridge between Tezos smart contracts and formal proofs in Coq.
 
 The _Mi-Cho-Coq_ library [[2]](/formal-verification/gadt-coq#references) is a formalization of the Michelson language [[9]](/formal-verification/gadt-coq#references) using the Coq interactive theorem prover [[1]](/formal-verification/gadt-coq#references).
 
-In practice, the _Mi-Cho-Coq_ library is used to produce a formal definition of a Michelson script (e.g. the "Modeling theorem" [section](/formal-verification/modeling-theorem#Example_vote)). Each Michelson instruction has its equivalent in the _Mi-Cho-Coq_ library (e.g. see the syntax [subsection](/formal-verification/gadt-coq#Syntax)).
+In practice, the _Mi-Cho-Coq_ library is used to produce a formal definition of a Michelson script (i.e., the "Modeling theorem" [section](/formal-verification/modeling-theorem#Example_vote)). Each Michelson instruction has its equivalent in the _Mi-Cho-Coq_ library (e.g. see the syntax [subsection](/formal-verification/gadt-coq#Syntax)).
 
 The _Mi-Cho-Coq_ library provides a formal definition (in Gallina) of the **type system** (Michelson types), the **syntax** (instructions of the Michelson), the **semantics** (evaluator) and the lexing and parsing (for type-checking).
 
-> It is recommended to have notions of Language theory in order to understand the following Mi-Cho-Coq definition (grammar rules).
-
+> It is recommended to have notions of _Language theory_ in order to understand the following Mi-Cho-Coq definition (grammar rules).
 
 #### Type system
-
 The **type system** consists of the definition of types (comparable types and non-comparable ones).
 
 ```
@@ -179,7 +164,6 @@ Inductive type : Set :=
 ```
 
 #### Syntax
-
 The ****syntax** and typing of Michelson instructions are formalized as a dependent inductive type to rule out ill-typed instructions.
 
 ```
@@ -194,9 +178,7 @@ Inductive instruction :
 ```
 
 #### Semantics
-
-
-The **semantics** of types is defined by interpreting them by predefined Coq types (e.g. int -> Z, nat -> N, mutez -> int63). The semantics of Michelson is defined by an evaluator `eval` formalized as a _Fixpoint_. 
+The **semantics** of types is defined by interpreting them with predefined _Coq_ types (e.g. int -> Z, nat -> N, mutez -> int63). The semantics of Michelson is defined by an evaluator `eval` formalized as a _Fixpoint_. 
 
 ```
 Fixpoint eval {self_type} {tff} {env} {A : stack_type} {B : stack_type}
@@ -226,10 +208,14 @@ Fixpoint eval {self_type} {tff} {env} {A : stack_type} {B : stack_type}
 ...
 ```
 
-> Since evaluating a Michelson instruction might fail (which Coq functions cannot), the return type of this evaluator is wrapped in an exception monad (handling errors such as overflow, lexing, parsing, fuel).
+//TODO: I didn't understand a single thing in the code examples above...
 
-> Coq forbids non-terminating function so we use a common Coq trick to define the evaluator on diverging instructions such as LOOP: we make the evaluator structurally recursive on an extra argument of type Datatypes.nat called the **fuel** of the evaluator.
+> Since evaluating a Michelson instruction might fail (whereas _Coq_ functions cannot), the return type of this evaluator is wrapped in an exception monad (handling errors such as overflow, lexing, parsing, fuel).
 
+> Coq forbids non-terminating functions, so we use a common _Coq_ trick to define the evaluator on diverging instructions such as _LOOP_: we make the evaluator structurally recursive on an extra argument of type Datatypes.nat called the **fuel** of the evaluator.
+
+## Conclusion
+//TODO: Conclusion, small summary of this chapter and what's next
 
 ## References
 
@@ -270,15 +256,3 @@ Fixpoint eval {self_type} {tff} {env} {A : stack_type} {B : stack_type}
 [19] Michelson - https://www.michelson-lang.com/why-michelson.html
 
 [20] Vote example - https://gitlab.com/nomadic-labs/mi-cho-coq/-/blob/master/src/contracts_coq/vote.v
-
-
-
-
-
-
-
-
-
-
-
-

@@ -229,11 +229,6 @@
               "sidebar": "docs"
             },
             {
-              "id": "formal-verification/references",
-              "path": "/formal-verification/references",
-              "sidebar": "docs"
-            },
-            {
               "id": "ligo/deploy-a-contract",
               "path": "/ligo/deploy-a-contract",
               "sidebar": "docs"

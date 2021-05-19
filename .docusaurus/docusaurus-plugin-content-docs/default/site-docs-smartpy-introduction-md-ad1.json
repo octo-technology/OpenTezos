@@ -3,7 +3,7 @@
   "id": "smartpy/introduction",
   "isDocsHomePage": false,
   "title": "Introduction",
-  "description": "The goal of this module is to allow a developer to write smart contracts with SmartPy. In the form of a pedagogical course illustrated with an example of a smart contract, the developer will have acquired the essentials to write, test, and analyze his smart contract.",
+  "description": "This module aim to enable developers to write smart contracts with SmartPy. It will take the form of a pedagogical course, illustrated through an example of a smart contract, to help the developer acquire the essentials to write, test, and analyze his smart contract.",
   "source": "@site/docs/smartpy/introduction.md",
   "sourceDirName": "smartpy",
   "slug": "/smartpy",

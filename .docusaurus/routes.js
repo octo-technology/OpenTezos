@@ -39,7 +39,7 @@ export default [
 },
 {
   path: '/',
-  component: ComponentCreator('/','816'),
+  component: ComponentCreator('/','548'),
   
   routes: [
 {
@@ -265,11 +265,6 @@ export default [
 {
   path: '/formal-verification/modeling-theorem',
   component: ComponentCreator('/formal-verification/modeling-theorem','d9a'),
-  exact: true,
-},
-{
-  path: '/formal-verification/references',
-  component: ComponentCreator('/formal-verification/references','381'),
   exact: true,
 },
 {

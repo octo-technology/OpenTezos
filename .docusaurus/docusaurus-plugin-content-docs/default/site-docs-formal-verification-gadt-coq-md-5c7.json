@@ -3,7 +3,7 @@
   "id": "formal-verification/gadt-coq",
   "isDocsHomePage": false,
   "title": "Coq, GADT and Mi-Cho-Coq",
-  "description": "For a better understanding of the formal verification on Tezos smart contract (written in Michelson language) (in the next section), we will first describe the theory and tools behind the formal analysis.",
+  "description": "To better understand formal verification, let's first describe the theory and tools behind the formal analysis.",
   "source": "@site/docs/formal-verification/gadt-coq.md",
   "sourceDirName": "formal-verification",
   "slug": "/formal-verification/gadt-coq",

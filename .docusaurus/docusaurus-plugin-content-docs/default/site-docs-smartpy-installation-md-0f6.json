@@ -3,7 +3,7 @@
   "id": "smartpy/installation",
   "isDocsHomePage": false,
   "title": "Installation",
-  "description": "This chapter aims to prepare your working environment to be ready to code, test, and compile your smart contracts.",
+  "description": "This chapter aims to prepare you and your working environment to be ready to code, test, and compile your smart contracts.",
   "source": "@site/docs/smartpy/installation.md",
   "sourceDirName": "smartpy",
   "slug": "/smartpy/installation",
