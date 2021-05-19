@@ -1,0 +1,29 @@
+{
+  "name": "tezos-example",
+  "version": "2.0.0",
+  "description": "Tezos Example Box =================",
+  "devDependencies": {
+    "ganache-cli": "6.12.0-tezos.0",
+    "web3": "^1.3.5",
+    "@taquito/taquito": "^6.3.5-beta.0"
+  },
+  "scripts": {
+    "start-sandbox": "ganache-cli --flavor tezos --seed alice"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/truffle-box/tezos-example-box.git"
+  },
+  "keywords": [
+    "tezos",
+    "ligo",
+    "blockchain",
+    "truffle"
+  ],
+  "author": "Cruz Molina <cruz@trufflesuite.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/truffle-box/tezos-example-box/issues"
+  },
+  "homepage": "https://github.com/truffle-box/tezos-example-box#readme"
+}
