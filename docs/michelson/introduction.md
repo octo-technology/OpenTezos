@@ -5,7 +5,7 @@ slug: /michelson
 authors: Frank Hillard
 ---
 
-To write smart contracts for Tezos, you can either choose the official low-level language called **Michelson** or a high-level language (such as [LIGO](/ligo/introduction) or [SmartPy](/smartpy/introduction)) which compiles to Michelson language.
+To write smart contracts for Tezos, you can either choose the official low-level language called **Michelson** or a high-level language (such as [LIGO](/ligo/introduction) or [SmartPy](/smartpy/introduction)) which compile with the Michelson language.
 
 This section focus on the **Michelson** language.
 
@@ -29,7 +29,7 @@ Once your _tezos-client_ is installed and configured, you can test your smart co
 tezos-client run script example.tz on storage '0' and input '5'
 ```
 
-It is also possible to verify whether the smart contract is well-formatted and respects the language's grammar with the following command:
+It is also possible to verify whether the smart contract is well-formatted and respects the language's grammar using the following command:
 
 ```
 tezos-client typecheck script example.tz -v
