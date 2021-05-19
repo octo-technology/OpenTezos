@@ -73,9 +73,9 @@ Notice that in the Counter contract (above) the type definition describing the s
 
 The **code** of the smart contract is a sequence of Michelson instructions separated by semi-colons `;`.
 
-We will delve into this more deeply in the code portion of the "instructions" section.
+We will delve into this more deeply in the code portion of the "instructions" and "tutorial" sections.
 
-## Address and balance
+## Deployment - Address and balance
 
 In order to be accessible to anyone on the Tezos network, a smart contract must be deployed. This deployment phase is called **origination**.
 

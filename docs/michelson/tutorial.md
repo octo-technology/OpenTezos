@@ -392,7 +392,7 @@ The next section will explain the list operators (`NIL operation`).
 
 As seen a _pair_ structure contains two fields which can be primitive types but can also be an other _pair_ (in this case, it is called _nested pair_).
 
-The creation of a _nested pair_ consists of a succession of `PAIR` instructions (which reorganize elements in the stack). This may become a fastidious exercise with large _nested pairs_. The Michelson language supports these nested pairs by providing the `PAPPAIIR` macros for creating _nested pair_ in a single instruction.
+The creation of a _nested pair_ consists of a succession of `PAIR` instructions (which reorganizes elements in the stack). This may become a fastidious exercise with large _nested pairs_. The Michelson language supports these nested pairs by providing the `PAPPAIIR` macros for creating _nested pair_ in a single instruction.
 
 Similarly, the Michelson language provides the `UNPAPPAIIR` macro for destructuring _nested pairs_.
 

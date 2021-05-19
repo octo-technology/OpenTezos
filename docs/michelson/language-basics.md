@@ -84,4 +84,4 @@ These instructions introduce basic programming concepts such as:
 
 ## Explicit failure
 
-When invoking a smart contract, the execution of the sequence of instructions may terminate. In this case the transaction is considered finalized. If the execution of the sequence of instructions throws an exception, the transaction is considered to be rejected. The following sections will introduce the `FAIL` Michelson instruction which is responsible for throwing an error. 
+When invoking a smart contract, the execution of the sequence of instructions may terminate. In this case the transaction is considered finalized. If the execution of the sequence of instructions stops before the end, the transaction is considered to be rejected. The following sections will introduce the `FAIL` Michelson instruction which is responsible for throwing an error (for stopping the execution). 
