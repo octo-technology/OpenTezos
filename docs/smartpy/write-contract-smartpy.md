@@ -221,7 +221,18 @@ where:
 <NotificationBar>
   <p>
 
- //TODO Define Types
+
+SmartPy types are all of the form `sp.T<TypeName>`. Check out [Typing](https://smartpy.io/reference.html#_primitive_data_types_overview).
+For examples:
+```
+sp.TUnit
+sp.TBool
+sp.TInt
+sp.TNat
+sp.TString
+...
+```
+
 Types are usually automatically inferred and not explicitly needed. However, it is still possible to add constraints on types, e.g. check out [Setting a type of constraint in SmartPy](https://smartpy.io/reference.html#_setting_a_type_constraint_in_smartpy).
 
   </p>
