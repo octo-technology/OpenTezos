@@ -41,11 +41,18 @@ Each of these five periods lasts five baking cycles (i.e. 20,480 blocks or rough
 
 Should there be any failure in a given period, the whole process reverts to the _Proposal Period_ (1.), effectively aborting and restarting the process.
 
-## Super-majority, Voter Turnout, and Quorum
+## Positive Voter Turnout & Super-majority; Voter Turnout & Quorum
 The _Exploration Vote Period_ (2.) and _Promotion Vote Period_ (4.) work the same way. During a *vote*, each delegate has to use a single ballot: `Yea` (For), `Nay` (Against), or `Pass` (Neutral). A vote is successful if there is a _Super-majority_ and if the participation has reaches the current quorum [[2]](/tezos-basics/governance-on-chain#references).
 
-### Super-majority
-In Tezos, having the _Super-majority_ means that "_Yea_" votes represent more than 80% of the total of "_Yeas_" and "_Nays_" votes (*Yeas* $\geq$ 80% $\times$ (*Yeas* + *Nays*)).
+### Positive Voter Turnout (PVT)
+The _Positive Voter Turnout_ represents the percentage of bakers that have voted "Yay" compared to the total number of "Yays" and "Nays".
+
+Example with 90 votes: 75 _Yeas_; 10 _Nays_; and 5 _Pass_.
+
+The _Positive Voter Turnout_ is roughly 88%: $\frac{75}{85}\approx$ 88%.
+
+### Super-majority (80%)
+In Tezos, having the _Super-majority_ means that "_Yea_" votes represent more than 80% of the total of "_Yeas_" and "_Nays_" votes (*Yeas* $\geq$ 80% $\times$ (*Yeas* + *Nays*)). In other words: $\text{PVT}\geq80\%$
 
 Example with 90 votes: **75** _Yeas_; 10 _Nays_; and 5 _Pass_. The total of _Yeas_ and _Nays_ is **85**.
 
@@ -53,13 +60,14 @@ The number of _Yeas_ required for the validation is greater than **68**: 85 $\ti
 
 The number of _Yeas_ is then high enough to validate the vote: **75** $\geq$ **68**.
 
-### Voter Turnout
-_Voter Turnout_ represents the percentage of bakers that have voted compared to the total number of bakers with active rolls.
+### Voter Turnout (VT)
+The _Voter Turnout_ represents the percentage of bakers that have voted compared to the total number of bakers with active rolls.
 
 Example with 90 votes out of 100 active rolls: 75 _Yeas_; 10 _Nays_; and 5 _Pass_.
+
 The _Voter Turnout_ is 90%: $\frac{90}{100}=$ 90%.
 
-### Quorum
+### Quorum (Q)
 The _Quorum_ is the minimum number of voters required to deliberate. At Tezos mainnet launch, the required Quorum was 80%. At the end of each successfully approved vote, the protocol performed a Quorum update. This update was based on the Voter Turnout.
 
 The _Carthage_ amendment introduced two major changes to the calculation of the Quorum:
@@ -69,7 +77,7 @@ The _Carthage_ amendment introduced two major changes to the calculation of the 
 * The Quorum is now bounded between 30% and 70%. To calculate the Quorum we use the following formula:
 
 $$
-  \text{Quorum} = (70\%-30\%)\times\text{EMA}(t)+30\%
+  \text{Q} = (70\%-30\%)\times\text{EMA}(t)+30\%
 $$
 
 $$
@@ -77,7 +85,7 @@ $$
 $$
 
 $$
-  \text{Quorum}=0.4\times\text{EMA}(t)+0.3
+  \text{Q}=0.4\times\text{EMA}(t)+0.3
 $$
 
 With the **V**oter **T**urnout denoted "VT", the following formula is then used to update the EMA for the next vote:
@@ -87,6 +95,10 @@ $$
 $$
 
 Note that delegates' votes are weighted proportionally to the number of rolls in their staking balance.
+
+**To summarize, a proposal submission proceeds to a next phase on two conditions:**
+- $\text{PVT}\geq80\%$
+- $\text{VT}\geq\text{Q}$
 
 ## Phase 1: Proposal Period
 The Tezos amendment process begins with the _Proposal Period_, during which delegates can submit proposals on-chain. The delegates submit a proposal by submitting the hash of the source code.
@@ -166,7 +178,7 @@ So the PVT is greater than the *Super Majority*.
 Let's not forget to update the EMA:
 
 $$
-  \text{EMA}(t+1)= 0.8\times75\%+0.2\times88\%\approx78\%
+  \text{EMA}(t+1)= 0.8\times75\%+0.2\times90\%=78\%
 $$
 
 ### Example 2
@@ -194,7 +206,7 @@ $$
 
 **The proposal is rejected**.
 
-Even though, let's calculate the Positive Turnout to illustrate a subtlety:
+Even though, let's calculate the **PVT** to illustrate a subtlety:
 
 $$
   \text{PVT}=\frac{45}{45+10}=\frac{45}{55}\approx81\%
@@ -205,12 +217,23 @@ Although the PVT is greater than the _Super-majority_ (80%), the amendment propo
 We must therefore go back to the initial proposals stage without forgetting to update the EMA for the next submission:
 
 $$
+  \text{EMA}(t+1)=0.8\times\text{EMA}(t)+0.2\times\text{VT}
+$$
+
+So, in our example, the next EMA would be:
+
+$$
   \text{EMA}(t+1)=0.8\times75\%+0.2\times55\%=71\%
 $$
 
 ## Operations
-### Proposal
-A proposal operation can only be submitted during a _Proposal Period_.
+Delegates can send two operations: "*Proposals*" and "*Ballot*".
+
+### The "*Proposals*" operation
+It is only possible to submit a proposal operation during the _Proposal Period_ (1.).
+
+Description:
+
 ```
 Proposals : {
   source: Signature.Public_key_hash.t ;
@@ -226,8 +249,11 @@ Proposals : {
 
 This operation [[3]](/tezos-basics/governance-on-chain#references) can be submitted more than once but only if the cumulative number of active proposals is less than 20. Each time a delegate duplicates a proposal, a vote is counted with the 20 vote maximum applying.
 
-### Ballot
-A ballot operation can only be submitted during the _Promotion Vote Period_ or the _Exploration Vote Period_, and only once per period.
+### The "*Ballot*" operation
+It is only possible to submit a proposal operation during the _Exploration Vote Period_ (2.) or the _Promotion Vote Period_ (4.), and only once per period.
+
+Description:
+
 ```
 Ballot : {
   source: Signature.Public_key_hash.t ;
@@ -242,14 +268,16 @@ Ballot : {
 
 `proposal` is the selected protocol hash.
 
-`ballot` is one of the possible ballot response: `Yea`, `Nay` or `Pass`
+`ballot` is one of the possible ballot response: `Yea`, `Nay`, or `Pass`
 
 
-## Send a proposal
-To send a proposal or a ballot, please refer to [CLI chapter](/tezos-basics/introduction_to_cli_and_rpc)
+## Sending a proposal operation
+To send a "proposals" or a "ballot" operation, please refer to the [CLI and RPC](/tezos-basics/cli-and-rpc) chapter.
 
-## Learn more
-To learn more about the amendement process on Tezos, please refer to the [official documentation](https://gitlab.com/tezos-paris-hub/tezos-on-chain-governance/-/blob/master/Documentations/Amendements_Tezos_en.pdf).
+## What have learned so far?
+In this chapter, we learned how Tezos allows on-chain decentralized governance without hard forks' troubles. To do this, Tezos splits amendments into five different periods that we defined and detailed.
+
+In the next "*History of Amendments*" chapter, we will go over a history of past proposals, both approved and refused, and look at why.
 
 ## References
 [1] https://medium.com/tezos/amending-tezos-b77949d97e1e
