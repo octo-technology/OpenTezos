@@ -4,48 +4,53 @@ title: Coq, GADT and Mi-Cho-Coq
 authors: Frank Hillard
 ---
 
-For a better understanding of the formal verification on Tezos smart contract (written in Michelson language) (in the next [section](/formal-verification/modeling-theorem)), we will first describe the theory and tools behind the formal analysis.
+To better understand formal verification, let's first describe the theory and tools behind the formal analysis.
 
-In order to perform a formal verification, a formal tool (also called proof assistant) must be used. The _Coq_ proof assistant has been chosen to perform formal verification on Tezos smart contracts. _Coq_ provides a language for defining theorems and for proving these theorems. The proof process relies on:
-- a theory (i.e. a base foundation of mathematic): We will introduce this branch of mathematics is called **Type theory**, and more specifically the Calculus of Construction which is the building principle of _Coq_.
-- expressing the Michelson language as a formal definition: theoretically speaking (GADT, Monad), in practice (Mi-Cho-Coq)
-- formalizing a Michelson script into a theorem and proving this theorem (in the next [section](/formal-verification/modeling-theorem)).
+In order to perform a formal verification, we need a _proof assistant_. _Coq_ is the default proof assistant for formal verification on Tezos smart contracts. _Coq_ provides a language for defining theorems and for proving these theorems. The proof process relies on:
+
+- A theory (i.e. a base foundation of mathematic): We will introduce a branch of mathematics called **Type theory**, and more specifically, the _Calculus of Construction_ (CoC), the building principle of _Coq_.
+
+- An expression of the Michelson language as a formal definition: We use _GADT_ for the theory and _Mi-Cho-Coq_ in practice.
+
+- A formalization of the Michelson script into a theorem to prove this theorem (we'll see this in the next [chapter](/formal-verification/modeling-theorem)).
+//TODO: What is the script? Is it the smart contract?
 
 The goal is to:
-- provide a strong typechecking mechanism of a Michelson script based on formal rules.
-- ensure the semantic of a script by verifying post-conditions (in the next [section](/formal-verification/modeling-theorem)).
+
+- provide a solid type-checking mechanism of a Michelson script based on formal rules.
+
+- ensure the semantic of the script by verifying post-conditions (in the next [section](/formal-verification/modeling-theorem)).
 
 This section intends to give:
 - a theoretical context about the mathematical principles (CoC, CiC) used in the formal proof process of _Coq_
-- a bit of insight on how a language is designed with a GADT
+- a bit of insight on how a language is designed with a _GADT_
 - a brief description of the _Coq_ proof assistant
-- a brief description of the Mi-Cho-Coq_ (library for _Coq_)
+- a brief description of _Mi-Cho-Coq_ (library for _Coq_)
 
-For a good understanding of this theoretical part, it is recommended to have some notions on logic (first-order, second-order) [[10]](/formal-verification/references), basics of mathematic (set, group, monoid, associativity, distributivity, reflexivity), functional programming, and language theory.
-
+For a good understanding of this theoretical part, it is recommended to have some notions on first-order and second-order logic [[10]](/formal-verification/gadt-coq#references), mathematics (e.g. set, group, monoid, associativity, distributivity, reflexivity), functional programming, and language theory.
 
 ### Type theory
 
 In mathematics, logic, and computer science, a type system is a formal system in which every term has a "type" which defines its meaning and the operations that may be performed on it. **Type theory** is the academic study of type systems.
 
-Type theory is closely linked to many fields of active research. Most particular, the Curry–Howard correspondence [[6] [7]](/formal-verification/references) provides a deep isomorphism between intuitionistic logic, typed λ-calculus and cartesian closed categories. 
+Type theory is closely linked to many fields of active research. Most particular, the Curry–Howard correspondence [[6] [7]](/formal-verification/gadt-coq#references) provides a deep isomorphism between intuitionistic logic, typed λ-calculus and cartesian closed categories. 
 
-Some type theories serve as alternatives to set theory as a foundation of mathematics. Two well-known such theories are _Alonzo Church's typed λ-calculus_ and _Per Martin-Löf's intuitionistic type theory_. The _Per Martin-Löf's intuitionistic type theory_ has been the foundation of constructive mathematics. For example, Thierry Coquand's **Calculus of constructions** and its derivatives are the foundation used by **Coq** (the proof assistant) [[1]](/formal-verification/references).
+Some type theories serve as alternatives to set theory as a foundation of mathematics. Two well-known such theories are _Alonzo Church's typed λ-calculus_ and _Per Martin-Löf's intuitionistic type theory_. The _Per Martin-Löf's intuitionistic type theory_ has been the foundation of constructive mathematics. For example, Thierry Coquand's **Calculus of constructions** and its derivatives are the foundation used by **Coq** (the proof assistant) [[1]](/formal-verification/gadt-coq#references).
 
 
 ### Coq
 
-Initially developed by Thierry Coquand, _Coq_ [[1]](/formal-verification/references) is a proof assistant designed to develop mathematical proofs, and especially to write formal specifications, programs and proofs that programs comply to their specifications. 
+Initially developed by Thierry Coquand, _Coq_ [[1]](/formal-verification/gadt-coq#references) is a proof assistant designed to develop mathematical proofs, and especially to write formal specifications, programs and proofs that programs comply to their specifications. 
 
 Properties, programs and proofs are formalized in the _Coq_ language called _Gallina_ which follows the principles of the Calculus of Inductive Constructions (CIC).
 
 
 #### CoC - CiC
 
-Initially developed by Thierry Coquand, the _Calculus Of Constructions_ [[13]](/formal-verification/references) (or CoC) is a typed high-order λ-calculus (i.e. a typed formal system taking the logic of second-order into account). The CoC is used as a typed programming language. 
+Initially developed by Thierry Coquand, the _Calculus Of Constructions_ [[13]](/formal-verification/gadt-coq#references) (or CoC) is a typed high-order λ-calculus (i.e. a typed formal system taking the logic of second-order into account). The CoC is used as a typed programming language. 
 
 Many derivatives of CoC have been created to handle inductive types, predicates and co-inductive types.
-The Calculus of Inductive Constructions ([[18]](/formal-verification/references) CiC) is an extension of CoC which integrates inductive datatype. The _Coq_ proof assistant is built upon CiC.
+The Calculus of Inductive Constructions ([[18]](/formal-verification/gadt-coq#references) CiC) is an extension of CoC which integrates inductive datatype. The _Coq_ proof assistant is built upon CiC.
 
 All logical judgments in Coq are typing judgments: the very heart of _Coq_ is, in fact, a type-checking algorithm. 
 
@@ -57,7 +62,7 @@ Logical objects (such as theorems, axioms) are formalized in Gallina-Term langua
 
 The proof script is executed by the _Coq_ inference engine. In the case of a Tezos smart contract, the inference engine rely on the Coq universe and the Mi-Cho-Coq library. 
 
-For more information about the CoC and CiC foundation, it is recommended to read the official paper of "Thierry Coquand" and other documentation [[13] [16] [18]](/formal-verification/references). It is required to know the basis of λ-calculus [[17]](/formal-verification/references) in order to understand mathematical notations used in CoC and CiC.
+For more information about the CoC and CiC foundation, it is recommended to read the official paper of "Thierry Coquand" and other documentation [[13] [16] [18]](/formal-verification/gadt-coq#references). It is required to know the basis of λ-calculus [[17]](/formal-verification/gadt-coq#references) in order to understand mathematical notations used in CoC and CiC.
 
 
 
@@ -71,8 +76,8 @@ An important application of GADTs is to embed **higher-order abstract syntax** i
 
 In computer science, **higher-order abstract syntax** (abbreviated HOAS) is a technique for the representation of abstract syntax trees for languages with variable binders. 
 
-This article [[8]](/formal-verification/references) describes how to define a **higher-order abstract syntax** in _Coq_ (i.e. defining axioms, and inductive types). 
-GADT is similar to inductive families of data types (or inductive data types) found in _Coq_'s _Calculus of Inductive Constructions_ [[18]](/formal-verification/references).
+This article [[8]](/formal-verification/gadt-coq#references) describes how to define a **higher-order abstract syntax** in _Coq_ (i.e. defining axioms, and inductive types). 
+GADT is similar to inductive families of data types (or inductive data types) found in _Coq_'s _Calculus of Inductive Constructions_ [[18]](/formal-verification/gadt-coq#references).
 
 #### Algebraic Data Type
 
@@ -130,7 +135,7 @@ To conclude , the formalization of a language into an algebra of data types (ADT
 
 The _Mi-Cho-Coq_ library represents the bridge between Tezos smart contract and formal proof in Coq.
 
-The _Mi-Cho-Coq_ library [[2]](/formal-verification/references) is a formalization of the Michelson language [[9]](/formal-verification/references) using the Coq interactive theorem prover [[1]](/formal-verification/references).
+The _Mi-Cho-Coq_ library [[2]](/formal-verification/gadt-coq#references) is a formalization of the Michelson language [[9]](/formal-verification/gadt-coq#references) using the Coq interactive theorem prover [[1]](/formal-verification/gadt-coq#references).
 
 In practice, the _Mi-Cho-Coq_ library is used to produce a formal definition of a Michelson script (e.g. the "Modeling theorem" [section](/formal-verification/modeling-theorem#Example_vote)). Each Michelson instruction has its equivalent in the _Mi-Cho-Coq_ library (e.g. see the syntax [subsection](/formal-verification/gadt-coq#Syntax)).
 
@@ -225,6 +230,46 @@ Fixpoint eval {self_type} {tff} {env} {A : stack_type} {B : stack_type}
 
 > Coq forbids non-terminating function so we use a common Coq trick to define the evaluator on diverging instructions such as LOOP: we make the evaluator structurally recursive on an extra argument of type Datatypes.nat called the **fuel** of the evaluator.
 
+
+## References
+
+[1] Coq - https://coq.inria.fr/distrib/current/refman/index.html
+
+[2] Mi-cho-coq repository - https://gitlab.com/nomadic-labs/mi-cho-coq
+
+[3] Introduction to Coq - http://www-sop.inria.fr/members/Yves.Bertot/courses/introcoq.pdf
+
+[4] Gallina - https://coq.inria.fr/distrib/current/refman/language/gallina-specification-language.html
+
+[5] Lambda-Calculus and Isomorphism Curry-Howard - http://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
+
+[6] Isomorphism Curry-Howard for Dummies - https://www.pédrot.fr/slides/inria-junior-02-15.pdf
+
+[7] Isomorphism Curry-Howard (small) - https://www.seas.harvard.edu/courses/cs152/2015sp/lectures/lec15-curryhoward.pdf
+
+[8] Higher-order abstract syntax in Coq - https://web.archive.org/web/20060830033826/http://www.site.uottawa.ca/~afelty/dist/tlca95.ps
+
+[9] Michelson - https://tezos.gitlab.io/michelson-reference/
+
+[10] Logique formelle - https://www.irif.fr/~roziere/2ord/2ndordre.pdf
+
+[12] Axioms de Peano - https://fr.wikipedia.org/wiki/Axiomes_de_Peano
+
+[13] Calculus of constructions - https://fr.wikipedia.org/wiki/Calcul_des_constructions
+
+[14] Mini-guide Coq - https://www.lri.fr/~paulin/MathInfo/coq-survey.pdf
+
+[15] Coq’Art - https://www.labri.fr/perso/casteran/CoqArt/coqartF.pdf
+
+[16] The calculus of constructions (1988) by Thierry Coquand - https://www.sciencedirect.com/science/article/pii/0890540188900053
+
+[17] Lambda-calcul - https://fr.wikipedia.org/wiki/Lambda-calcul
+
+[18] Calculus of Inductive Constructions - https://coq.inria.fr/distrib/current/refman/language/cic.html
+
+[19] Michelson - https://www.michelson-lang.com/why-michelson.html
+
+[20] Vote example - https://gitlab.com/nomadic-labs/mi-cho-coq/-/blob/master/src/contracts_coq/vote.v
 
 
 

@@ -8,7 +8,7 @@ authors: Frank Hillard
 
 The Tezos blockchain has several advantages over its concurrents. One of them is the **formal verification of smart contract**. This module shows a brief overview of how Tezos smart contracts can be formally verified. 
 
-//TODO: One phase here about what is formal verification.
+//TODO: Add one phase here about what is formal verification, and what is its purpose. The goal to to quickly inform the reader if he should continue reading or is not interested to go further.
 
 We will first introduce some basic concepts of the _Type theory_ such as _GADT_ which allows inductive types on the _Calculus of Inductive Construction_ (CiC). The proof assistant _Coq_, which is based on the CiC, is then used for proving theorems. 
 
