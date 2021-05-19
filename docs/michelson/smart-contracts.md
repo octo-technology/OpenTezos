@@ -32,6 +32,7 @@ Each entrypoint is composed of:
 - the type definition of the expected argument of the entrypoint 
 - the annotation (name) of the entrypoint
 
+> The following example is not meant to be understood yet but intends to illustrate the three parts of the smart contract. This example will be crystal clear after reading the [tutorial](/michelson/tutorial) section.
 
 The example below (Counter contract) shows a simple smart contract implementing a counter: 
 

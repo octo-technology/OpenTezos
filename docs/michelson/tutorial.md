@@ -198,7 +198,7 @@ Other comparison instructions are available to check if a number is lower or equ
 
 The combination of the `COMPARE` and `LE` and `IF` instructions allows you to apply conditional branching by comparing two numbers.
 
-The following sequence of instruction assumes two integers on top of the stack and removes the smaller one.
+The following sequence of instructions assumes two integers on top of the stack and removes the smaller one.
 
 ```
 DUP;
@@ -233,7 +233,7 @@ The `DIP` instruction takes two arguments:
 
 This instruction can be very useful. For example, let's re-write the duplication of the top two elements of the stack with the `DIP` instruction.
 
-The following sequence of instruction expects two integers on top of the stack and removes the smaller one.
+The following sequence of instructions expects two integers on top of the stack and removes the smaller one.
 
 ```
 DIP { DUP };
@@ -269,7 +269,7 @@ But before going on primitive type, let's introduce _unit_ type, the optional (i
 
 #### Default `UNIT` type 
 
-The `UNIT` instruction pushes a `Unit` value of type _unit_ on top of the stack. The _unit_ type stands in many context for nothing:
+The `UNIT` instruction pushes a `Unit` value of type _unit_ on top of the stack. The _unit_ type stands in many contexts for nothing:
 - an empty structure in case of storage. 
 - an empty entry point in case of a parameter.
 - an empty argument in a function. 
@@ -281,10 +281,10 @@ The `Unit` value represents the value of a _unit_ type.
 
 The `FAILWITH` instruction aborts the execution of the Michelson script which implies the cancellation of all storage modifications and other smart contract invocations.
 
-The `FAILWITH` instruction consumes the top element of the stack as argument (usually a string message). The consumed element must be a push-able type. It is allowed to stop the execution of a Michelson script without a message by pushing a `UNIT` value on top of the stack.
+The `FAILWITH` instruction consumes the top element of the stack as arguments (usually a string message). The consumed element must be a push-able type. It is allowed to stop the execution of a Michelson script without a message by pushing a `UNIT` value on top of the stack.
 
 
-The `FAIL` keyword has been provided as replacement for `UNIT; FAILWITH`.
+The `FAIL` keyword has been provided as a replacement for `UNIT; FAILWITH`.
 
 Actually, the `FAIL` keyword is not an instruction but a syntactic sugar.
 
@@ -304,14 +304,14 @@ The `SOME` instruction packs a value as an optional value (i.e. allows to create
 The `NONE` instruction specifies the absence of value. It requires that the type of value that can be held be specified.
 
 This _option_ type is very useful for all process that may fail such as:
-- euclidean division (division by zero) 
+- Euclidean division (division by zero) 
 - slicing a string (out of bound error)
 - accessing an element in a collection (non-existence of the element)
 - invoking an other contract (entrypoint name and type verification)
 
 Rather than causing an error, the examples above make use of optional values to specify a special case to handle.
 
-A Michelson smart contract the program is expected to explicitly handle all possible cases; especially the case where the process produces an option with no value.
+A Michelson smart contract is expected to explicitly handle all possible cases; especially the case where the process produces an option with no value.
 
 All these cases will be detailed in their respective sections.
 
@@ -337,10 +337,7 @@ Michelson also introduces the `IF_SOME bt bf` instruction which retrieves the va
 
 The Michelson language introduces the _pair_ type which defines a data structure containing multiple fields. 
 
-A _pair_ type is a tuple of 2 elements. Michelson language doesn't directly supports tuples of more than 2 elements, but we can instead create nested pairs. For example, the following nested _pair_ `PAIR (PAIR nat 5, string "Hello") int 37` contains a natural integer 5, a string "Hello" and an integer 37.
-
-![](../../static/img/michelson/michelson_tutorial_pair.svg)
-<small className="figure">FIGURE 17: Illustration of the C[AD]+R macro</small>
+A _pair_ type is a tuple of 2 elements.
 
 A  _pair_ type can contain values of any type, from primitive types (`nat`, `string`, `int`) to advanced composite types such as `list`, `map`, `set`, `lambda` function or `union`.
 
@@ -390,7 +387,11 @@ The next section will explain the list operators (`NIL operation`).
 
 ##### Nested pairs
 
-As seen a _pair_ structure contains two fields which can be primitive types but can also be an other _pair_ (in this case, it is called _nested pair_).
+ Michelson language doesn't directly support tuples of more than 2 elements, but we can instead create **nested pairs**. For example, the following nested _pair_ `PAIR (PAIR nat 5, string "Hello") int 37` contains a natural integer 5, a string "Hello" and an integer 37.
+
+![](../../static/img/michelson/michelson_tutorial_pair.svg)
+<small className="figure">FIGURE 17: Illustration of the C[AD]+R macro</small>
+
 
 The creation of a _nested pair_ consists of a succession of `PAIR` instructions (which reorganizes elements in the stack). This may become a fastidious exercise with large _nested pairs_. The Michelson language supports these nested pairs by providing the `PAPPAIIR` macros for creating _nested pair_ in a single instruction.
 
@@ -405,7 +406,7 @@ Similarly, the Michelson language provides the `C[AD]+R` macro for accessing a s
 These macros are described in the "Instructions" section (in the "macros" sub-section).
 
 
-Here is an example of a smart contract that stores a natural integer in its storage and receives as parameter a nested pair containing a _nat_ , a _string_ and an _int_. It only takes the nat part of the nested pair and adds it to the storage.
+Here is an example of a smart contract that stores a natural integer in its storage and receives a nested pair (containing a _nat_ , a _string_ and an _int_) as the parameter. It only takes the nat part of the nested pair and adds it to the storage.
 
 ```
 parameter (pair (pair (nat) (string)) (int));
@@ -428,12 +429,12 @@ tezos-client run script instruction_caar.tz on storage '9' and input 'Pair (Pair
 
 Notice that defining a Michelson expression containing a _pair_ in CLI expects a `Pair` keyword (which is different from _pair_ type or `PAIR` instruction).
 
-
+> Annotation usage is recommended when creating complex types and nested _pairs_ (see [Annotation](/michelson/instructions-reference#annotation) section)
 
 #### Numbers
-Now let's focus on primitive type such as numbers.
+Now let's focus on primitive types such as numbers.
 
-There are two number types in Michelson. The _nat_ type represents natural integers and _int_ type represents integers.
+There are two number types in Michelson. The _nat_ type represents natural integers and the _int_ type represents integers.
 
 ##### Standard arithmetic operations
 
@@ -459,7 +460,7 @@ Notice that the multiplication of a natural integer and an integer produces an i
 ![](../../static/img/michelson/michelson_instruction_mul_example.svg)
 <small className="figure">FIGURE 25: Illustration of the `MUL` instruction</small>
 
-The `EDIV` instruction computes euclidean divisions on _nat_. The euclidean division computes the quotient and the remainder between two numbers.
+The `EDIV` instruction computes Euclidean divisions on _nat_. The Euclidean division computes the quotient and the remainder between two numbers.
 
 If the divisor is equal to zero, it returns an _option_ type with the assigned value _None_. Otherwise, it applies the Euclidean division and returns an _option_ type containing the result (i.e. a _pair_ composed with the quotient and the remainder). 
 
@@ -496,10 +497,7 @@ The resulting storage has a value of 11.
 
 #### String
 
-//TODO
-The `string` type represents a sequence of characters useful for modeling non-numerous data. 
-
-A _string_ value is composed of a sequence of ASCII printable characters (accents are not included).
+The `string` type represents a sequence of characters and a _string_ value is composed of a sequence of ASCII printable characters (accents are not included).
 
 A _string_ value can be split and two _string_ values can be concatenated or linked together. A _string_ can be compared to an other _string_.
 
@@ -511,7 +509,7 @@ PUSH string "Hello World"
 The `SIZE` instruction consumes a string of the top of the stack and pushes the number of characters contained in the string element.
 
 
-The `CONCAT` instruction concatenates strings. It consumes the two top elements and produces a string (concatenation of the two top element) that is placed on top of the stack. The `CONCAT` instruction also works with a list of strings. 
+The `CONCAT` instruction concatenates strings. It consumes the two top elements and produces a string (concatenation of the two top elements) that is placed on top of the stack. The `CONCAT` instruction also works with a list of strings. 
 
 For example, the following smart contract concatenates a given string at the end of the storage.
 
@@ -591,8 +589,8 @@ The `NOT` instruction consumes a boolean top element of the stack and pushes the
 
 #### Timestamp
 
-The Michelson language supports `timestamp` type. Like in most languages a timestamp represents a numbers of seconds passed since the beginning of year 1970. 
-Timestamps can be used in smart contract to authorize actions on a certain period of time.  
+The Michelson language supports the `timestamp` type. Like in most languages, a timestamp represents a number of seconds passed since the beginning of year 1970. 
+Timestamps can be used in a smart contract to authorize actions on a certain period of time.  
 
 Timestamps can be obtained by the `NOW` operation, or retrieved from script parameters or globals.
 
@@ -701,7 +699,7 @@ It expects the following elements on top of the stack:
 
 It returns an optional byte sequence because the given offset and length may be out of bound.
 
-The following smart contract illustrates the slicing of bytes. It expects a _bytes_ value as parameter and saves in the storage the first 3 bytes. Otherwise if the offset or length elements do not fit the given bytes value then it fails.
+The following smart contract illustrates the slicing of bytes. It expects a _bytes_ value as parameter and saves in the storage the first 3 bytes. Otherwise if the offset or length elements do not fit the given _bytes_ value then it fails.
 
 ```
 parameter bytes;
@@ -753,7 +751,9 @@ tezos-client run script instruction_bytes.tz on storage '0xa2' and input '0x12'
 
 ### Working with complex data structures
 
-Since the beginning we have used primitive types such as _int_, _nat_ and _string_. The storage of the smart contract usually stores more than just one number. We also have briefly introduced _pair_ and _option_; let's take a deeper dive into composite data structures.
+Since the beginning we have used simple data structures such as primitive types (_int_, _nat_, _string_, _pair_ and _option_) but more complex types can be designed. 
+
+The storage of the smart contract can store a single type which can combine composite types and _pairs_ to create a complex data structure. Let's take a deeper dive into composite data types.
 
 A composite structure integrates many fields and can organize them in many ways. 
 
@@ -763,9 +763,8 @@ There are 5 kinds of composite data structures:
 - **set** of unique elements with type _set_
 - an **associative array** (a collection of key-value pairs) implemented with the type _map_
 - a **union** (i.e. an exclusive composite type) implemented with nested _or_ structure.
-- a **optional** implements a type holding a value which handles an uninitialized state if a value hasn't been assigned.  (seen in the previous section)
-- **records** containing multiple fields implemented with nested _PAIR_ structure (seen in the previous section)
-
+- an **optional** implements a type holding a value which handles an uninitialized state if a value hasn't been assigned.  (seen in the previous section)
+- **records** containing multiple fields implemented with nested _PAIR_ structure (seen in the previous section). Notice that _records_ is not a reserved word of the language but just symbolizes the concept represented by nested pairs.
 
 
 
@@ -787,7 +786,7 @@ The `CONS` instruction allows you to add an element at the beginning of a list. 
 ![](../../static/img/michelson/michelson_instruction_cons_example.svg)
 <small className="figure">FIGURE 33: Illustration of the `CONS` instruction</small>
 
-So as to illustrate the _list_ type usage take a look at the following smart contract.
+To illustrate the _list_ type usage take a look at the following smart contract.
 
 ```
 parameter int ;
@@ -799,7 +798,7 @@ code { UNPAIR ;
 ```
 
 The unique entry point of smart contract expects an integer as input (`parameter int`).
-Notice that the storage of this smart contract is a list of integer declared with `(list int)`.
+Notice that the storage of this smart contract is defined as a list of integers declared with `(list int)`.
 This smart contract concatenates the given integer at the beginning of the integer list and returns the updated list as the new state of the storage.
 
 This smart contract can be simulated by running the following CLI command:
@@ -988,6 +987,25 @@ The `EMPTY_MAP 'key 'val` instruction builds a new empty map. It requires the ty
 
 The _'key_ type must be comparable (the COMPARE primitive must be defined over it).
 
+For example, this smart contract always returns an empty _map_ (typed map string int) and an empty list of _operations_.
+
+```
+parameter unit;
+storage (map string int);
+code { DROP;
+       EMPTY_MAP string int;
+       NIL operation ;
+       PAIR }
+```
+
+This script can be simulated with the following command line:
+```
+tezos-client run script instruction_empty_map.tz on storage '{ Elt "toto" 1 }' and input 'Unit'
+```
+
+Notice that
+
+
 The `EMPTY_BIG_MAP` instruction builds a new empty `big_map` data structure.
 
 The Michelson syntax for defining a non-empty _map_ value is:
@@ -1061,7 +1079,7 @@ tezos-client run script map_insert_example.tz on storage '{ Elt "toto" 1 }' and 
 
 The `GET` instruction allows access to an element inside a map. It returns an optional value to be checked with an `IF_SOME` instruction.
 
-The following smart contract illustrates the usage of `GET`. The storage of this contract defines a map. This smart contract takes a key as the parameter and inserts a new element in the map if the key does not exist. In this case, it assigns value 0 to the given key. Or if the map possesses an element for the given key then it increments its associated value.
+The following smart contract illustrates the usage of `GET`. The storage of this contract defines a map. This smart contract takes a key as the parameter and inserts a new element in the map if the key does not exist. In this case, it assigns the value 0 to the given key. Or if the map possesses an element for the given key then it increments its associated value.
 
 ```js
 parameter string ;
@@ -1101,7 +1119,7 @@ The following diagram illustrates the execution of this command.
 
 The `SIZE` instruction computes the number of elements inside a map. It consumes a map on top of the stack and places the number of elements on top of the stack.
 
-The `SIZE` instruction cannot be applied to `big_map` type. 
+The `SIZE` instruction cannot be applied to the `big_map` type. 
 
 
 The `MAP` instruction updates a _map_ data structure by applying a sequence of instructions to each element of a `map`. It takes a sequence of instructions as its argument (called "body") which has access to the stack.
@@ -1239,7 +1257,7 @@ There are restrictions to prevent creating a negative amount of mutez. Operation
 
 Operations `ADD` and `MUL` must be checked for overflows (i.e. the `ADD` and `MUL` instructions will fail in case of overflow).
 
-Operations `SUB` must be checked for underflows (i.e. the `SUB` instruction will fail if the result is negative).
+Operations `SUB` must be checked for underflow (i.e. the `SUB` instruction will fail if the result is negative).
 
 So, keep in mind that taking under/overflows into account is mandatory while manipulating _mutez_ type.
 
@@ -1257,9 +1275,9 @@ The `MUL` instruction computes multiplications on mutez. It consumes a _mutez_ a
 The multiplication allows mutez to be multiplied with natural integers.
 Multiplication of 2 `mutez` operands is not allowed. 
 
-The `EDIV` instruction computes the euclidean division on mutez. It consumes a _mutez_ and a _nat_ elements on top of the stack and pushes back a `pair` with the quotient and the reminder (of the two elements) on top of the stack.
+The `EDIV` instruction computes the Euclidean division on mutez. It consumes a _mutez_ and a _nat_ elements on top of the stack and pushes back a `pair` with the quotient and the reminder (of the two elements) on top of the stack.
 
-The euclidean division allows a mutez to be divided by a natural integer. It is also possible to divide 2 mutez, in this case, it returns a _pair_ composed with a `nat` as a quotient and a mutez as the rest of the euclidean division.
+The Euclidean division allows a mutez to be divided by a natural integer. It is also possible to divide 2 mutez, in this case, it returns a _pair_ composed with a `nat` as a quotient and a mutez as the rest of the Euclidean division.
 
 The `COMPARE` instruction compares two mutez and returns an integer on top of the stack. It returns 0 if both elements are equal, 1 if the first element is bigger than the second, and -1 otherwise. 
  
@@ -1281,7 +1299,7 @@ Built-ins macros such as SOURCE or SENDER push an _address_ value on top of the 
 
 ##### Entrypoint verification with `CONTRACT`
 
-Smart contract communicates among each other with transactions. When invoking a smart contract, the execution must insure that the invocation parameter matches the parameter of the targeted smart contract. For example, if a smart contract (possessing 2 entrypoints) can only "Increment" and "Decrement" one can not ask it to "Multiply". In the same manner, the arguments of entry point must be respected.
+Smart contract communicates among each other with transactions. When invoking a smart contract, the execution must insure that the invocation parameter matches the parameter of the targeted smart contract. For example, if a smart contract (possessing 2 entrypoints) can only "Increment" and "Decrement" one can not ask it to "Multiply". In the same manner, the arguments of entrypoints must be respected.
 
 All this verification is done based on entry point definition and expectation. The `CONTRACT` stands for this concept. Actually the `CONTRACT 'p` instruction permits to specify what kind of entry points one expects to invoke (i.e. the type definition of invoked entrypoint).
 
@@ -1544,11 +1562,11 @@ Lambda functions are useful for factoring code, thus preventing code duplication
 An important limitation is that Lambda functions can't manipulate the stack of the calling contract, but instead have their own stack.
 Though, data can be passed as arguments to the lambda function.
 
-Lambda functions can also be defined inside the storage. A smart contract would be able to apply on-demand the stored lambda; and would also be able to change the code of the lambda. BE CAREFUL! In this case, it means the smart contract is not immutable. This kind of design requires a strong administration layer (with multi-signature patterns); and proofs on those smart contract might become irrelevant.
+Lambda functions can also be defined inside the storage. A smart contract would be able to apply on-demand the stored lambda; and would also be able to change the code of the lambda. BE CAREFUL! In this case, it means the smart contract is not immutable. This kind of design requires a strong administration layer (with multi-signature patterns); and proofs on those smart contracts might become irrelevant.
 
 The `LAMBDA` instruction defines a lambda function and the `EXEC` instruction allows to execute its code.
 
-Function can be partially applied (i.e. partially resolved) with the `APPLY` instruction. 
+A function can be partially applied (i.e. partially resolved) with the `APPLY` instruction. 
 
 #### Lambda definition with `LAMBDA`
 
@@ -1656,7 +1674,7 @@ The `LOOP_LEFT` instruction is a bit more complex and allows to handle a repetit
 
 #### LOOP {}
 
-The `LOOP` instruction is a generic loop, i.e. it repeatedily applies a sequence of instructions (called "body") many times until a condition is reached. The condition is tested before each application of the sequence.
+The `LOOP` instruction is a generic loop, i.e. it repeatedly applies a sequence of instructions (called "body") many times until a condition is reached. The condition is tested before each application of the sequence.
 
 The `LOOP` instruction consumes a boolean value on top of the stack. If the value is true then the 'body" sequence is applied; otherwise the repetitive process is stopped. 
 
