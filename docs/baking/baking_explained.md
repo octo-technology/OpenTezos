@@ -4,12 +4,14 @@ title: How baking works ?
 authors: Maxime Sallerin
 ---
 
+In this section we will discuss how baking works. The different actors of the mechanism as well as the technological solutions will be presented.
+
 ![](../../static/img/baking/baking_explained.svg)
 <small className="figure">FIGURE 1: How Baking Works?</small>
 
-- **Baker** participating the consensus by **creating** new blocks.
-- **Endorser** participating the consensus by **validating** the blocks created by other bakers.
-- **Accuser** particpating the consensus by **monitoring** bakers and endorsers works.
+- **Baker** participating in the consensus by **creating** new blocks.
+- **Endorser** participating in the consensus by **validating** the blocks created by other bakers.
+- **Accuser** participating in the consensus by **monitoring** bakers and endorsers works.
 - **A roll** represents 8,000ꜩ delegated to a given key and are taken every `BLOCKS_PER_ROLL_SNAPSHOT` = 256 blocks.
 - **Roll snpashots** represent the state of rolls for a given block.
 - `BLOCKS_PER_CYLCE` = 4096 blocks.
@@ -118,10 +120,6 @@ If an accusation is correct, the accuser gets a part of the funds that were froz
 Any attempt to fraud is therefore punished.
 
 > Cryptocurrency tokens or coins are _burned_ when they are permanently removed from the circulating supply on purpose.
-
-## Security
-
-// TODO
 
 ## Conclusion
 
