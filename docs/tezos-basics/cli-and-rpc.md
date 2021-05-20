@@ -4,6 +4,8 @@ title: CLI and RPC
 authors: Thomas Zoughebi, Aymeric Bethencourt, and Maxime Fernandez
 ---
 
+In this chapter, we will introduce
+
 ## Connecting to the network
 The _tezos-client_ and _Tezos RPC_ need a connection to a Tezos node. You can connect to your own [tezos node](/deploy-a-node/introduction), or you can use a *community node*. In both cases, you can set it for the *mainnet* or the *testnet*.
 
@@ -49,18 +51,18 @@ GET https://mainnet-tezos.giganode.io/chains/main/blocks/1400114/context/contrac
 _Tezos-client_ is the official client to interact with a Tezos node via RPC. Let's take a look at the installation and some examples.
 
 ### How to install
-#### On Mac OS with [Homebrew](https://brew.sh/):
+#### On Mac OS with [Homebrew](https://brew.sh/)
 ```bash
 $ brew install tezos-client
 ```
 
-#### On Ubuntu with binaries:
+#### On Ubuntu with binaries
 ```bash
 $ sudo add-apt-repository ppa:serokell/tezos && sudo apt-get update
 $ sudo apt-get install -y tezos-client
 ```
 
-#### On Fedora with binaries:
+#### On Fedora with binaries
 ```bash
 $ dnf copr enable -y @Serokell/Tezos && dnf update -y
 $ dnf install -y tezos-client
@@ -142,7 +144,7 @@ $ tezos-client transfer 42 from user1 to user2 --fee-cap 0.9
 
 You can also add "`--dry-run`" or "`-D`" if you want to test and display the transaction without finalizing it.
 
-The recipe of this command is as follows:
+Below the receipt structure of the call:
 ```
 Current head: BM3smBpBVtHD (timestamp: 2021-03-12T09:42:28.000-00:00, validation: 2021-03-12T09:42:38.372-00:00)
 Node is bootstrapped.
@@ -168,134 +170,115 @@ This sequence of operations was run:
       Consumed gas: 1000
 ```
 
-You can observe your actions on the block explorers :
+You can observe your actions on explorers like *tzstats*:
 * Mainnet: https://tzstats.com
 * Edonet: https://edo.tzstats.com
-* DelphiNet: https://delphi.tzstats.com
   
-There is a dedicated module on [How to use an explorer](/explorer) if you want to learn more.
+OpenTezos has a dedicated module on [how to use an explorer](/explorer/introduction).
 
-## Tezos-admin-client
-The admin client allows you to interact with the peer-to-peer layer in order to:
+## Tezos Admin client
+The admin client allows you to interact with the peer-to-peer layer:
 
-- check the status of the connections
-- force connections to known peers
-- ban/un-ban peers
+- to check the status of the connections
+- to force connections to known peers
+- to ban/un-ban peers
 
 ### How to install
-* On Mac OS with [Homebrew](https://brew.sh/):
-
+#### On Mac OS with [Homebrew](https://brew.sh/)
 ```bash
 $ brew install tezos-admin-client
 ```
 
-* On Ubuntu with binaries:
-
+#### On Ubuntu with binaries
 ```bash
 $ sudo add-apt-repository ppa:serokell/tezos && sudo apt-get update
 $ sudo apt-get install -y tezos-admin-client
 ```
 
-* On Fedora with binaries:
-
+#### On Fedora with binaries
 ```bash
 $ dnf copr enable -y @Serokell/Tezos && dnf update -y
 $ dnf install -y tezos-admin-client
 ```
 
-* [From sources with OPAM](https://tezos.gitlab.io/introduction/howtoget.html#building-from-sources-via-opam).
+#### From [sources with OPAM](https://tezos.gitlab.io/introduction/howtoget.html#building-from-sources-via-opam)
 
-
-### Admin-client manual
-* Global options:
-  
+### Admin-client user manual and version
+#### Global options
 ```bash
 $ tezos-admin-client --help
 ```
 
-* Command options:
-
+#### Command options
 ```bash
 $ tezos-admin-client [global options] command --help
 ```
 
-* Version information:
-
+#### Version information
 ```bash
 $ tezos-admin-client --version
 ```
 
-The full documentation on Tezos-admin-client can be found [here](https://tezos.gitlab.io/shell/cli-commands.html).
+The full commands' list on Tezos admin-client is available [here](https://tezos.gitlab.io/shell/cli-commands.html).
 
-
-### Admin-client examples
-This is a non-exhaustive list of possible commands with tezos-admin-client. To discover more commands please refer to the [CLI manual](https://tezos.gitlab.io/shell/cli-commands.html).
-
-#### Commands for the low level RPC layer
-* List RPCs under a given URL prefix:
-  
+### Admin-client commands examples
+#### Lists remote procedure calls under a given URL prefix
 ```bash
 $ tezos-admin-client rpc list [URL]
 ```
 
-* Get the input and the output JSON schemas of an RPC:
-
+#### Get the input and the output JSON schemas of an RPC
 ```bash
 $ tezos-admin-client rpc schema [HTTP method] [url]
 ```
 
-* Get the readable input and output formats of an RPC:
-
+#### RPC with the GET method
 ```bash
 $ tezos-admin-client rpc get [url]
 ```
 
-* Call an RPC with the POST method and input params:
+#### RPC with the POST method and JSON input data
+```bash
+$ tezos-admin-client rpc post [url] with [input]
+```
+Use "file:path" to read from a file:
+```bash
+$ tezos-admin-client rpc post localhost:4040 with file:/home/methods/params.json
+```
 
+#### Listing protocols known by the node
 ```bash
 $ tezos-admin-client list protocols
 ```
 
-#### Commands for managing protocols
-* List protocols known by the node:
-
-```bash
-$ tezos-admin-client rpc post [url] with [input]
-```
-
-* Inject a new protocol into the node:
-(*given_dir* is the directory containing the sources of a protocol)
+#### Inject a new protocol into the node
+"given_dir" is the directory containing the sources of the new protocol.
 
 ```bash
 $ tezos-admin-client inject protocol [given_dir]
 ```
 
-#### Commands to report the node's status:
-* The last heads that have been considered by the node:
-
+#### The last considered heads by the node
 ```bash
 $ tezos-admin-client list heads [-o --output [path]]
 ```
 
-#### Commands for editing and viewing the client's config file:
-* Show the current config file content and command line arguments:
-
+#### Current config file content
 ```bash
 $ tezos-admin-client config show
 ```
 
-* Update the config based on the current CLI values:
-  
+#### Update the config based on the current CLI values
 ```bash
 $ tezos-admin-client config update
 ```
 
-* A useful command to debug a node that is not syncing:
-
+#### Usefull command to debug a node that is not syncing
 ```bash
 $ tezos-admin-client tezos-admin-client p2p stat
 ```
 
 ## References
-
 [1] https://en.wikipedia.org/wiki/Remote_procedure_call
+
+https://tezos.gitlab.io/alpha/cli-commands.html
