@@ -1,82 +1,78 @@
 ---
 id: cli-and-rpc
 title: CLI and RPC
-authors: Thomas Zoughebi, Aymeric Bethencourt and Maxime Fernandez
+authors: Thomas Zoughebi, Aymeric Bethencourt, and Maxime Fernandez
 ---
 
 ## Connecting to the network
-The _tezos-client_ and Tezos RPC need to be connected to a Tezos node. You can connect to your own [tezos node](/deploy-a-node/introduction) or you can use a community node on the Tezos mainnet or testnet.
+The _tezos-client_ and _Tezos RPC_ need a connection to a Tezos node. You can connect to your own [tezos node](/deploy-a-node/introduction), or you can use a *community node*. In both cases, you can set it for the *mainnet* or the *testnet*.
 
-You can find a list of community nodes [here](https://tezostaquito.io/docs/rpc_nodes/).
+You can find a list of *community nodes* [here](https://tezostaquito.io/docs/rpc_nodes/).
 
-If you use a testnet you can download a free faucet file with test XTZ on it [here](https://faucet.tzalpha.net).
+If you use a testnet, you can download a faucet file with free **test**'s XTZ [here](https://faucet.tzalpha.net).
 
 ## Tezos RPC (Remote Procedure Call)
-RPC [[1]](/tezos-basics/introduction_to_cli_and_rpc#references) is a client-server protocol where the requesting program is the client and the program providing the service is the server. 
+RPC[[1]](/tezos-basics/cli-and-rpc#references) is a client-server protocol where the requesting program is the client and the program providing the service is the server.
 
-Tezos nodes provide a JSON/RPC interface to interact with the Tezos network. Note that although it uses RPC and is JSON based, it does not follow the `JSON-RPC` protocol.
+Tezos nodes provide a JSON/RPC interface to interact with the Tezos network. Although it uses RPC and is JSON-based, it does **not** follow the *JSON-RPC* protocol.
 
-A complete list of RPC calls is available [here](http://tezos.gitlab.io/shell/rpc.html#rpc-index-shell). Make sure to check the protocol version before using these calls. The calls available in the Edo protocol are available [here](http://tezos.gitlab.io/008/rpc.html#id1).  
+A complete list of calls is available [here](http://tezos.gitlab.io/shell/rpc.html#rpc-index-shell). Make sure to check the protocol version before using these calls. The available calls in the *Edo* protocol (see "[*History of Amendments*](/tezos-basics/history-of-amendments#edo-ptedotezd)" chapter) are [here](http://tezos.gitlab.io/008/rpc.html#id1).
 
 ### RPC call examples
-
-#### Get block
-This call is used to find all the information about a block. The associated metadata may not be present depending on the history mode and block's distance from the head.
+#### GET 'block'
+This call returns all the information about a block. The associated metadata may not be present depending on the history mode and block's distance from the head.
 
 ```bash
 GET NodeUrl/chains/[chain_id]/blocks/[blocks_id]
 ```
 
-Example: To get the block number _1400114_ from the mainnet using giganode, do as follows:
+Example to get the block number **1400114** from the mainnet using *giganode.io*:
 
 ```bash
 GET https://mainnet-tezos.giganode.io/chains/main/blocks/1400114
 ```
 
-#### Get contract storage
-This call is used to access the storage of the contract.
+#### GET 'contract storage'
+This call accesses the storage of a contract.
 
 ```bash
 GET NodeUrl/chains/[chain_id]/blocks/[blocks_id]/context/contracts/[contract_id]/storage
 ```
 
-Example: To get the storage of contract _KT1Hkg5qeNhfwpKW4fXvq7HGZB9z2EnmCCA9_ from block number _1400114_ on the mainnet using giganode, do as follows:
+Example to get the storage of contract **KT1Hkg5qeNhfwpKW4fXvq7HGZB9z2EnmCCA9** from block **1400114** on the mainnet using *giganode.io*:
 
 ```bash
 GET https://mainnet-tezos.giganode.io/chains/main/blocks/1400114/context/contracts/KT1Hkg5qeNhfwpKW4fXvq7HGZB9z2EnmCCA9/storage
 ```
 
 ## Tezos-client (CLI)
-
-_Tezos-client_ is the official client when interacting with a Tezos node via RPC. Let's take a look at some examples and how to use it.
+_Tezos-client_ is the official client to interact with a Tezos node via RPC. Let's take a look at the installation and some examples.
 
 ### How to install
-
-* On Mac OS with [Homebrew](https://brew.sh/):
-
+#### On Mac OS with [Homebrew](https://brew.sh/):
 ```bash
 $ brew install tezos-client
 ```
 
-* On Ubuntu with binaries:
+#### On Ubuntu with binaries:
 ```bash
 $ sudo add-apt-repository ppa:serokell/tezos && sudo apt-get update
 $ sudo apt-get install -y tezos-client
 ```
 
-* On Fedora with binaries:
+#### On Fedora with binaries:
 ```bash
 $ dnf copr enable -y @Serokell/Tezos && dnf update -y
 $ dnf install -y tezos-client
 ```
 
-* [From sources with OPAM](https://tezos.gitlab.io/introduction/howtoget.html#building-from-sources-via-opam).
+#### From [sources with OPAM](https://tezos.gitlab.io/introduction/howtoget.html#building-from-sources-via-opam)
 
 ### Account activation
-Activate your account by replacing `#accountName` and `#faucet` below with an account name and the path to your downloaded faucet file. 
+Activate your account by replacing "accountName" and "faucet" below with an account name and the path to your downloaded faucet file: 
 
 ```bash
-$ tezos-client activate account #accountName with ~/Downloads/#faucet.json
+$ tezos-client activate account accountName with ~/Downloads/faucet.json
 ```
 
 Example :
@@ -84,66 +80,67 @@ Example :
 $ tezos-client activate account user1 with ~/Downloads/tz1VH3sHQ5SNby95S9EtPQBqZrhgv2DqjPvy.json
 ```
 
-### Client manual
-
-* For global options
+### Tezos Client user manual and version
+#### For global options
 ```bash
 $ tezos-client --help
 ```
 
-* For command options
+#### For command options
 ```bash
 $ tezos-client [global options] command --help
 ```
 
-* For version information
+#### For version information
 ```bash
 $ tezos-client --version
 ```
 
-The full documentation on _Tezos-client_ can be found [here](https://tezos.gitlab.io/008/cli-commands.html#cli-commands).
+The full commands' list on _Tezos client_ is available [here](https://tezos.gitlab.io/shell/cli-commands.html).
 
-### Client examples
-This is a non-exhaustive list of possible commands with _tezos-client_. To discover more commands please refer to the [CLI manual](https://tezos.gitlab.io/008/cli-commands.html#cli-commands).
-
+### Tezos Client examples
 #### Get balance
-To get the balance of your account you can execute the following command:
+To get the balance of the account "accountName":
 
 ```bash
-$ tezos-client get balance for #accountName
+$ tezos-client get balance for accountName
 ```
 
 #### Get timestamp
-This call is useful to check if the node is synchronized. It returns the UTC time of the latest downloaded block, timezones may differ from your local time.
+Call to return the UTC of the latest downloaded block. Timezones may differ from your local time:
 
 ```bash
 $ tezos-client get timestamp
 ```
 
 #### List known addresses
-This call lists implicit accounts registered in your _tezos-client_.
+This call only lists registered **implicit accounts** in your Tezos client.
 
 ```bash
 $ tezos-client list known addresses
 ```
 
 #### List known contracts
-This call lists all accounts (implicit and smart contract) registered in your _tezos-client_.
+This call lists **all registered accounts**, *implicit* **and** *originated* in your Tezos client.
 
 ```bash
 $ tezos-client list known contracts
 ```
 
 #### Transfers and receipts
-The command line below makes a transaction of 42ꜩ from the account _user1_ to _user2_ (you can also just use the tezos addresses directly):
+The command below transfers 42ꜩ from the account _user1_ to _user2_ (you can use Tezos addresses directly):
 
 ```bash
-$ tezos-client transfer 30 from user1 to user2 --burn-cap 0.5
+$ tezos-client transfer 42 from user1 to user2
 ```
 
-Notice that `--burn-cap` specifies the maximum fee the user is willing to pay for this operation. The actual fee is determined by the network.
+Notice that you can specify the maximum fee for this operation appending "`--fee-cap`" (defaults to 1.0). The network would determine the actual fee lesser than this cap:
 
-You can also add `--dry-run` if you just want to practice by running a transaction simulation instead of a real transaction.
+```bash
+$ tezos-client transfer 42 from user1 to user2 --fee-cap 0.9
+```
+
+You can also add "`--dry-run`" or "`-D`" if you want to test and display the transaction without finalizing it.
 
 The recipe of this command is as follows:
 ```
