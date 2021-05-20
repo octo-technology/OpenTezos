@@ -76,7 +76,6 @@ module.exports = {
       items: [
         'michelson/introduction',
         'michelson/smart-contracts',
-        'michelson/language-basics',
         'michelson/tutorial',
         'michelson/examples',
         'michelson/instructions-reference',
