@@ -78,7 +78,7 @@ Example of a transaction between two **implicit** accounts:
 }
 ```
 
-Such an operation can be sent from an implicit account (if signed using the manager's private key) or programmatically by contract code execution. When the operation is received, the amount is added to the destination contract's balance, and the destination contract's code is executed. This code can make use of the parameters passed on to it. It can read and write the contract's storage, change the signature key (//TODO Define "signature key"), and post operations to other contracts.
+Such an operation can be sent from an implicit account (if signed using the manager's private key) or programmatically by contract code execution. When the operation is received, the amount is added to the destination contract's balance, and the destination contract's code is executed. This code can make use of the parameters passed on to it. It can read and write the contract's storage and post operations to other contracts.
 
 As the example shows, there is also a _counter_ field, whose purpose is to prevent replay attacks. An operation is only valid if the contract's _counter_ is equal to the operation's _counter_. Once an operation is applied, the _counter_ increases by one, preventing the operation from being reused.
 
