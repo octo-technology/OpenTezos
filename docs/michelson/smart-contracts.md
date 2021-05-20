@@ -7,11 +7,11 @@ authors: Frank Hillard
 ## Smart contracts in Michelson
 
 Michelson is a domain-specific language and is designed for implementing smart contracts. Tezos smart contracts contain three main pieces of information:
-- the **parameter** of the smart contract which describes the possible invocations of the smart contract (often called **entrypoints**) and related arguments
-- the type definition of the persistent data structure associated with the smart contract (referred to as **storage**)
-- a sequence of instructions to be executed when invoking the smart contract (this is the **code** of the smart contract)
+- the **parameter** of the smart contract which describes the possible invocations of the smart contract (often called **entrypoints**) and related arguments.
+- the type definition of the persistent data structure associated with the smart contract (referred to as **storage**).
+- a sequence of instructions to be executed when invoking the smart contract (this is the **code** of the smart contract).
 
-Basically, an empty smart contract is defines by those three pieces of information (parameter, storage, code) and looks like this:
+Basically, a smart contract is defined by those three pieces of information (parameter, storage, code) and an empty smart contract looks like this:
 
 ```js
 parameter unit;
@@ -74,13 +74,15 @@ Notice that in the Counter contract (above) the type definition that describe th
 
 The **code** of the smart contract is a sequence of Michelson instructions separated by semi-colons `;`.
 
-We will delve into this more deeply in "instructions" and "tutorial" sections, but let's have a quick overview.
+We will delve into this more deeply in "instructions" and "tutorial" sections, but before that let's have a quick overview of the Michelson language.
+
+## Michelson overview
 
 The Michelson language is the reference language for Tezos smart contracts. It is a low-level **stack-based** language and is also a **Turing-complete** language. This means it has basic operations allowing to read/write/compare values in-memory, has infinite memory, and allows conditional operators (e.g. _if_, _switch_ instructions).
 
 The Michelson language introduces data types for structuring data and instructions on these data types for manipulating data.
 
-#### Stack-based language
+### Stack-based language
 
 Generally speaking, a _stack_ data structure is a linear collection of elements which can be added or removed respectively with the `PUSH` and `POP` instruction. In the Michelson language, elements can be pushed to the top of the pile or removed from the top of the pile. This kind of stack is called LIFO (Last In First Out).
 
@@ -89,7 +91,8 @@ Generally speaking, a _stack_ data structure is a linear collection of elements 
 
 The [Tutorial](/michelson/tutorial) section describes basic stack manipulations allowed by the Michelson language.
 
-#### Static typing
+
+### Static typing
 
 The Michelson language is a strongly typed language. It means that all data inserted into the stack must be typed and operators manipulating these data must respect the typing rules.
 
@@ -125,7 +128,7 @@ Michelson also provides specific types for smart contract modelling:
 
 The usage of these types is illustrated in the "Tutorial" and "Instructions" sections.
 
-#### Atomic computation
+### Atomic computation
 
 The Michelson language provides basic operations on these types:  
 - numbers: addition, subtraction, multiplication, euclidean division, comparison
@@ -146,7 +149,7 @@ These instructions introduce basic programming concepts such as:
 - structuring data: `PAIR`, `UNPAIR`, `CAR`, `CDR`, `LEFT`, `RIGHT` instructions, and `list`, `map`, `set` composite types.
 - contract communication: `CONTRACT`, `TRANSFER_TOKENS` instructions.
 
-#### Gas model
+### Gas model
 
 A cost in "gas" (i.e. the money that must be paid in order to execute the instructions) is associated with the execution of a Michelson instruction. This "gas" modelling prevents the execution from creating an infinite loop. 
 
