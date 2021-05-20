@@ -4,7 +4,7 @@ title: CLI and RPC
 authors: Thomas Zoughebi, Aymeric Bethencourt, and Maxime Fernandez
 ---
 
-In this chapter, we will introduce
+In this chapter, the reader will learn how to install the official "tezos-client" and "tezos-admin-client" applications and run them with the Command Line Interface. These commands call remote procedures of a Tezos node (local or remote). There are many commands, but we'll see some examples.
 
 ## Connecting to the network
 The _tezos-client_ and _Tezos RPC_ need a connection to a Tezos node. You can connect to your own [tezos node](/deploy-a-node/introduction), or you can use a *community node*. In both cases, you can set it for the *mainnet* or the *testnet*.
@@ -277,6 +277,11 @@ $ tezos-admin-client config update
 ```bash
 $ tezos-admin-client tezos-admin-client p2p stat
 ```
+
+## What have we learned so far?
+In this chapter, we saw how to install the CLI. We also introduced you to simple remote procedure calls to a Tezos node.
+
+In the next chapter, we will learn in detail how Tezos allows on-chain decentralized governance without hard forks' troubles.
 
 ## References
 [1] https://en.wikipedia.org/wiki/Remote_procedure_call
