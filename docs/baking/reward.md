@@ -10,14 +10,14 @@ To maintain the network, Tezos needs bakers and endorsers. They stake their toke
 
 When staking, you can earn a passive income by participating in the Tezos network via delegation. The current annual yield on Tezos is around `6%`, minus a validator’s fees.
 
-There are no direct risks of delegating XTZ. The only risk you take is not earning the potential rewards. Carefully choose your baker to ensure quality of service and rewards.
-
 Every time a baker receives rewards, those rewards are frozen for the next `5 cycles (~14 days)`, so the baker can’t spend it. Only after ~14 days rewards are unfrozen and the baker can transfer it to someone else. Most bakers wait until rewards are unfrozen and only then pay it out to delegators, but some don't.
 
 - if your baker pays after rewards are unfrozen you will reveive your first reward after `20 days (confirmation) + 3 days (cycle ends) + 14 days (frozen) = ~37 days`.
 - if your baker pays in advance, you will reveive your first reward after `20 days (confirmation) + 3 days (cycle ends) = ~23 days`.
 
 Rewards for cycle `n` comes in the cycle `n + 1` (after ~3 days) so you will then receive your delegating reward every 3 days.
+
+There are no direct risks of delegating XTZ. The only risk you take is not earning the potential rewards. Carefully choose your baker to ensure quality of service and rewards.
 
 When delegating, your XTZ are completely liquid. You are free to move your tokens anytime as there are no freezing periods when delegating to a baker.
 
