@@ -263,7 +263,7 @@ Warning:
 testnetEdo-User_1: tz1f5bQSLzsFAB9vpTWFqNSH1KTkew4kVFUc
 ```
 
-Everything is correct: We don't any *originated* account and only one *implicit* account!
+Everything is correct: We don't have any *originated* account and only one *implicit* account!
 
 #### Transfers and receipts
 The command below transfers 42 ꜩ from the account _user1_ to _user2_ (you can use Tezos addresses directly):
