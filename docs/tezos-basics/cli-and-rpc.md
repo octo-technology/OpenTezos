@@ -11,7 +11,33 @@ The _tezos-client_ and _Tezos RPC_ need a connection to a Tezos node. You can co
 
 You can find a list of *community nodes* [here](https://tezostaquito.io/docs/rpc_nodes/).
 
-If you use a testnet, you can download a faucet file with free **test**'s XTZ [here](https://faucet.tzalpha.net).
+If you use a testnet, you can download a *faucet file* with free **test**'s XTZ [here](https://faucet.tzalpha.net). Below is an example of such a JSON file:
+```json
+{
+  "mnemonic": [
+    "sunset",
+    "used",
+    "fruit",
+    "resemble",
+    "nest",
+    "shell",
+    "upgrade",
+    "cinnamon",
+    "shell",
+    "hockey",
+    "stuff",
+    "denial",
+    "pupil",
+    "ladder",
+    "over"
+  ],
+  "secret": "974580058df32cb586424ba29758f42227fac953",
+  "amount": "62593128795",
+  "pkh": "tz1f5bQSLzsFAB9vpTWFqNSH1KTkew4kVFUc",
+  "password": "a0EADP8w8n",
+  "email": "wbjcyjdm.vvsvchum@tezos.example.org"
+}
+```
 
 ## Tezos RPC (Remote Procedure Call)
 RPC[[1]](/tezos-basics/cli-and-rpc#references) is a client-server protocol where the requesting program is the client and the program providing the service is the server.
@@ -34,6 +60,8 @@ Example to get the block number **1400114** from the mainnet using *giganode.io*
 GET https://mainnet-tezos.giganode.io/chains/main/blocks/1400114
 ```
 
+To test this call, simply click the address above (or copy-paste it) to open it in your web browser. You'll discover a pretty long JSON object. Depending on the used browser, the visualization may be better (e.g. Firefox will format the appearance to make it easier to read).
+
 #### GET 'contract storage'
 This call accesses the storage of a contract.
 
@@ -46,6 +74,8 @@ Example to get the storage of contract **KT1Hkg5qeNhfwpKW4fXvq7HGZB9z2EnmCCA9** 
 ```bash
 GET https://mainnet-tezos.giganode.io/chains/main/blocks/1400114/context/contracts/KT1Hkg5qeNhfwpKW4fXvq7HGZB9z2EnmCCA9/storage
 ```
+
+You can test this call exactly the same way as with the "GET block" call.
 
 ## Tezos-client (CLI)
 _Tezos-client_ is the official client to interact with a Tezos node via RPC. Let's take a look at the installation and some examples.
@@ -70,16 +100,65 @@ $ dnf install -y tezos-client
 
 #### From [sources with OPAM](https://tezos.gitlab.io/introduction/howtoget.html#building-from-sources-via-opam)
 
+### Connection to a node
+Below we'll connect to a community node (https://edonet-tezos.giganode.io/) on the Edo **testnet**. We'll use the "`--endpoint`" parameter to update the configuration of the Tezos Client on a Ubuntu system:
+```bash
+tezos-client --endpoint https://edonet-tezos.giganode.io/ config update
+```
+
+The result should look like below:
+```bash
+Warning:
+  
+                 This is NOT the Tezos Mainnet.
+  
+           Do NOT use your fundraiser keys on this network.
+```
+
+On Ubuntu, the config file should be written in "/.tezos-client/config" under your "home" folder. For example after the last command, the all new "config" file look like this (with Nano):
+```bash
+{ "base_dir": "/home/userName/.tezos-client",
+  "endpoint": "https://edonet-tezos.giganode.io/", "web_port": 8080,
+  "confirmations": 0 }
+```
+
 ### Account activation
-Activate your account by replacing "accountName" and "faucet" below with an account name and the path to your downloaded faucet file: 
+Activate your account by replacing "accountName" and "faucet" below with an account name and the path to your downloaded faucet file (which can be different from "~/Downloads/"):
 
 ```bash
 $ tezos-client activate account accountName with ~/Downloads/faucet.json
 ```
 
-Example :
+Example on Ubuntu with a downloaded JSON faucet file:
 ```bash
-$ tezos-client activate account user1 with ~/Downloads/tz1VH3sHQ5SNby95S9EtPQBqZrhgv2DqjPvy.json
+$ tezos-client activate account testnetEdo-User_1 with ./tz1f5bQSLzsFAB9vpTWFqNSH1KTkew4kVFUc.json
+```
+
+The resulting return:
+```bash
+Warning:
+  
+                 This is NOT the Tezos Mainnet.
+  
+           Do NOT use your fundraiser keys on this network.
+
+Node is bootstrapped.
+Operation successfully injected in the node.
+Operation hash is 'opAqABPnAHz5u6oHh8qAVhNKs38oytcMUGgT2yFZogtSeXRPYqa'
+Waiting for the operation to be included...
+Operation found in block: BLv6HBRJEzekfkvobjWztRHqfNVncGDSySwC3jjsYtRJKhc4T6r (pass: 2, offset: 0)
+This sequence of operations was run:
+  Genesis account activation:
+    Account: tz1f5bQSLzsFAB9vpTWFqNSH1KTkew4kVFUc
+    Balance updates:
+      tz1f5bQSLzsFAB9vpTWFqNSH1KTkew4kVFUc ... +ꜩ62593.128795
+
+The operation has only been included 0 blocks ago.
+We recommend to wait more.
+Use command
+  tezos-client wait for opAqABPnAHz5u6oHh8qAVhNKs38oytcMUGgT2yFZogtSeXRPYqa to be included --confirmations 30 --branch BLusSi35mANMCFezjxaGT8ycnW4JztW7ZhnNogWuwepRo1bQRM4
+and/or an external block explorer.
+Account testnetEdo-User_1 (tz1f5bQSLzsFAB9vpTWFqNSH1KTkew4kVFUc) activated with ꜩ62593.128795.
 ```
 
 ### Tezos Client user manual and version
@@ -98,21 +177,54 @@ $ tezos-client [global options] command --help
 $ tezos-client --version
 ```
 
+On Ubuntu, the result would look like the following:
+```bash
+31e6641d (2021-04-30 16:58:29 +0200) (9.1)
+```
+
 The full commands' list on _Tezos client_ is available [here](https://tezos.gitlab.io/shell/cli-commands.html).
 
 ### Tezos Client examples
 #### Get balance
 To get the balance of the account "accountName":
-
 ```bash
 $ tezos-client get balance for accountName
 ```
+
+Example with our previously registered user "testnetEdo-User_1":
+```bash
+$ tezos-client get balance for testnetEdo-User_1
+```
+
+The response:
+```bash
+Warning:
+  
+                 This is NOT the Tezos Mainnet.
+  
+           Do NOT use your fundraiser keys on this network.
+
+62593.128795 ꜩ
+```
+
+The previous response is also a way to check if the account is activated on the testnet (first transfer).
 
 #### Get timestamp
 Call to return the UTC of the latest downloaded block. Timezones may differ from your local time:
 
 ```bash
 $ tezos-client get timestamp
+```
+
+Result example:
+```bash
+Warning:
+  
+                 This is NOT the Tezos Mainnet.
+  
+           Do NOT use your fundraiser keys on this network.
+
+2021-05-21T16:01:45Z
 ```
 
 #### List known addresses
@@ -122,6 +234,17 @@ This call only lists registered **implicit accounts** in your Tezos client.
 $ tezos-client list known addresses
 ```
 
+Example response:
+```bash
+Warning:
+  
+                 This is NOT the Tezos Mainnet.
+  
+           Do NOT use your fundraiser keys on this network.
+
+testnetEdo-User_1: tz1f5bQSLzsFAB9vpTWFqNSH1KTkew4kVFUc (unencrypted sk known)
+```
+
 #### List known contracts
 This call lists **all registered accounts**, *implicit* **and** *originated* in your Tezos client.
 
@@ -129,8 +252,21 @@ This call lists **all registered accounts**, *implicit* **and** *originated* in 
 $ tezos-client list known contracts
 ```
 
+Our example:
+```bash
+Warning:
+  
+                 This is NOT the Tezos Mainnet.
+  
+           Do NOT use your fundraiser keys on this network.
+
+testnetEdo-User_1: tz1f5bQSLzsFAB9vpTWFqNSH1KTkew4kVFUc
+```
+
+Everything is correct: We don't any *originated* account and only one *implicit* account!
+
 #### Transfers and receipts
-The command below transfers 42ꜩ from the account _user1_ to _user2_ (you can use Tezos addresses directly):
+The command below transfers 42 ꜩ from the account _user1_ to _user2_ (you can use Tezos addresses directly):
 
 ```bash
 $ tezos-client transfer 42 from user1 to user2
@@ -144,31 +280,87 @@ $ tezos-client transfer 42 from user1 to user2 --fee-cap 0.9
 
 You can also add "`--dry-run`" or "`-D`" if you want to test and display the transaction without finalizing it.
 
-Below the receipt structure of the call:
+For our example, let's first activate another account with another faucet file:
+```bash
+$ tezos-client activate account testnetEdo-User_2 with ./tz1X3oQvEieBBL3Zgg8LJVnUXD45phTZsBeh.json
 ```
-Current head: BM3smBpBVtHD (timestamp: 2021-03-12T09:42:28.000-00:00, validation: 2021-03-12T09:42:38.372-00:00)
+
+Let's verify its balance (and activation):
+```bash
+$ tezos-client get balance for testnetEdo-User_2
+```
+
+Response (without the warning message):
+```bash
+16146.743708 ꜩ
+```
+
+Let's finally try a transfer of 10,000 ꜩ from testnetEdo-User_1 to testnetEdo-User_2 with a 2.5 ꜩ fee cap:
+```bash
+$ tezos-client transfer 10000 from testnetEdo-User_1 to testnetEdo-User_2 --fee-cap 2.5
+```
+
+Response (without the warning message):
+```bash
 Node is bootstrapped.
-Estimated gas: 1000 units (will add 100 for safety)
+Estimated storage: no bytes added
+Estimated gas: 1427 units (will add 100 for safety)
+Estimated storage: no bytes added
 Operation successfully injected in the node.
-Operation hash is 'oo4745Q5mq8snHYAxUYWedBCVb7yQJ7jvFhKECPN9xqgwE4Ni8A'
+Operation hash is 'oo4bni9cvma8v7C2hJMBwc2KTz356zrmqiN3j78gbBQTcU5i1xZ'
 Waiting for the operation to be included...
-Operation found in block: BKnKoaYqCz3dTWr66x4X1mvXC95kuozRkdd23LDuM5ZA1ayF5mi (pass: 3, offset: 0)
+Operation found in block: BKon5Zj6aQMd6Q2T9jWVFsY3QCWpys4BYbXa2ticxFvDaKc8GRm (pass: 3, offset: 0)
 This sequence of operations was run:
   Manager signed operations:
-    From: tz1gWQz5iTP6UDkWjm1jnKsCq1HHG4hgEmJn
-    Fee to the baker: ꜩ0.000369
-    Expected counter: 1412932
-    Gas limit: 1100
+    From: tz1f5bQSLzsFAB9vpTWFqNSH1KTkew4kVFUc
+    Fee to the baker: ꜩ0.000359
+    Expected counter: 306156
+    Gas limit: 1000
     Storage limit: 0 bytes
     Balance updates:
-      tz1gWQz5iTP6UDkWjm1jnKsCq1HHG4hgEmJn ............. -ꜩ0.000369
-      fees(tz1aWXP237BLwNHJcCD4b3DutCevhqq2T1Z9,248) ... +ꜩ0.000369
+      tz1f5bQSLzsFAB9vpTWFqNSH1KTkew4kVFUc ............ -ꜩ0.000359
+      fees(tz1aWXP237BLwNHJcCD4b3DutCevhqq2T1Z9,97) ... +ꜩ0.000359
     Revelation of manager public key:
-      Contract: tz1gWQz5iTP6UDkWjm1jnKsCq1HHG4hgEmJn
-      Key: edpktpMjpmsK6fLKGrXzhp67tRdu2m5HyzGrp1tuS8ZJBc7dGqBeAq
+      Contract: tz1f5bQSLzsFAB9vpTWFqNSH1KTkew4kVFUc
+      Key: edpkuBvrEUG2pS3FCpxnr8bPu8tDG3Hv6y9LbFgNQBKAF5hzz37gsw
       This revelation was successfully applied
       Consumed gas: 1000
+  Manager signed operations:
+    From: tz1f5bQSLzsFAB9vpTWFqNSH1KTkew4kVFUc
+    Fee to the baker: ꜩ0.000311
+    Expected counter: 306157
+    Gas limit: 1527
+    Storage limit: 0 bytes
+    Balance updates:
+      tz1f5bQSLzsFAB9vpTWFqNSH1KTkew4kVFUc ............ -ꜩ0.000311
+      fees(tz1aWXP237BLwNHJcCD4b3DutCevhqq2T1Z9,97) ... +ꜩ0.000311
+    Transaction:
+      Amount: ꜩ10000
+      From: tz1f5bQSLzsFAB9vpTWFqNSH1KTkew4kVFUc
+      To: tz1X3oQvEieBBL3Zgg8LJVnUXD45phTZsBeh
+      This transaction was successfully applied
+      Consumed gas: 1427
+      Balance updates:
+        tz1f5bQSLzsFAB9vpTWFqNSH1KTkew4kVFUc ... -ꜩ10000
+        tz1X3oQvEieBBL3Zgg8LJVnUXD45phTZsBeh ... +ꜩ10000
+
+The operation has only been included 0 blocks ago.
+We recommend to wait more.
+Use command
+  tezos-client wait for oo4bni9cvma8v7C2hJMBwc2KTz356zrmqiN3j78gbBQTcU5i1xZ to be included --confirmations 30 --branch BMbERSrVPTF2GT1DVSy6x6yiHPvcz12AT7FSkUWD3yeT9NyzB4n
+and/or an external block explorer.
 ```
+
+Let's check both balances (testnet warning messages removed):
+```bash
+$ tezos-client get balance for testnetEdo-User_1
+52593.128125 ꜩ
+
+$ tezos-client get balance for testnetEdo-User_2
+26146.743708 ꜩ
+```
+
+Everything is fine.
 
 You can observe your actions on explorers like *tzstats*:
 * Mainnet: https://tzstats.com
@@ -219,7 +411,7 @@ $ tezos-admin-client [global options] command --help
 $ tezos-admin-client --version
 ```
 
-The full commands' list on Tezos admin-client is available [here](https://tezos.gitlab.io/shell/cli-commands.html).
+The complete listing of commands on Tezos admin-client is available [here](https://tezos.gitlab.io/shell/cli-commands.html).
 
 ### Admin-client commands examples
 #### Lists remote procedure calls under a given URL prefix
@@ -241,6 +433,7 @@ $ tezos-admin-client rpc get [url]
 ```bash
 $ tezos-admin-client rpc post [url] with [input]
 ```
+
 Use "file:path" to read from a file:
 ```bash
 $ tezos-admin-client rpc post localhost:4040 with file:/home/methods/params.json
