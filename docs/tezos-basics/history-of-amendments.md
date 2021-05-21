@@ -4,71 +4,68 @@ title: History of amendments
 authors: Thomas Zoughebi, Aymeric Bethencourt, and Maxime Fernandez
 ---
 
-As presented in the [Governance on-chain chapter](/tezos-basics/governance-on-chain), the Tezos blockchain is constantly evolving through new amendments. In this chapter, we will go over a history of past proposals both approved and refused, and look at why.
+As presented in the [Governance on-chain chapter](/tezos-basics/governance-on-chain), the Tezos blockchain is constantly evolving through new amendments. In this chapter, we will go over past proposals' history. We will see the reasons for their approval or disapproval.
 
 ![](../../static/img/tezos-basics/history_of_tezos_amendement.svg)
 <small className="figure">FIGURE 1: History of Tezos amendments</small>
 
 ## [Athens](https://www.tezosagora.org/proposal/1) (Pt24m4xiP)
-`Athens` was the first proposed protocol-amendment for Tezos. Two proposals - [Athens A](https://www.tezosagora.org/proposal/1) and [Athens B](https://forum.tezosagora.org/t/athens-b-psd1ynubh/33) were proposed by [Nomadic Labs](https://blog.nomadic-labs.com/athens-our-proposals-for-the-first-voted-amendment.html) in February 2019.
+*Athens* was the first proposed protocol-amendment for Tezos. Two proposals - [Athens A](https://www.tezosagora.org/proposal/1) and [Athens B](https://forum.tezosagora.org/t/athens-b-psd1ynubh/33) - were proposed by [Nomadic Labs](https://blog.nomadic-labs.com/athens-our-proposals-for-the-first-voted-amendment.html) in February 2019.
 
 Of the two proposals, _Athens A_ sought to increase the gas limit and reduce the roll size required for baking from 10,000 tez to 8,000 tez. _Athens B_ just sought to increase the gas limit. Athens A was voted with _Super-majority_ and was autonomously [activated](https://twitter.com/TezosAgoraBot/status/1133901612790034432?s=20) into the protocol in May 2019.
 
 For a full list of changes, be sure to read the corresponding blog [post](https://blog.nomadic-labs.com/athens-proposals-injected.html) from Nomadic Labs and [reflections](https://medium.com/tqtezos/reflecting-on-athens-the-first-self-amendment-of-tezos-4791ab3b1de1) by Jacob Arluck. 
 
 ## [Brest A](https://www.tezosagora.org/proposal/3) (PtdRxBHv)
+*Brest A* was the first proposed amendment rejected during the _Exploration Period_. Submitted in June 2019, it received only 0.35% of the votes during the _Proposal Period_. But as it had no competition, the system promoted it. The amendment had then rejection in the _Exploration Period_ with only 0.26% of favorable votes. The 80% _Super-majority_ was not reached, neither was the minimum _Quorum_ to validate it.
 
-`Brest A` was the first amendment proposed to be rejected during the _Exploration Period_. It was proposed in June 2019 and received only 0.35% of the votes during the _Proposal Period_. But as it had no competition, it was promoted. The amendment was then rejected in the _Exploration Period_ with only 0.26% of the votes in favour. The 80% _Super-majority_ was not reached and neither was the minimum _Quorum_ to validate the vote.
-
-This proposal would have allowed to fix a security breach linked to issues pertaining to the rehashing push during the _Athens_ protocol change. Moreover, it would have facilitated amendment-invoice tracking. But the invoice for this proposal, 8,000 tez, was much higher than the usual cost.
+This proposal would have allowed fixing a security breach linked to the rehashing push during the _Athens_ protocol change. Moreover, it would have facilitated the amendment's invoice tracking. But the invoice for this proposal, 8,000 tez, was much higher than the usual cost.
 
 ## [Babylon](https://www.tezosagora.org/proposal/5) (PsBABY5nk)
+The *Babylon* proposal was composed of two proposals made in July/August 2019: [Babylon](https://www.tezosagora.org/proposal/4) and [Babylon 2](https://www.tezosagora.org/proposal/5). *Babylon 2* was built by Nomadic Labs, Cryptium Labs (Metastate), and Marigold, after receiving feedback on the _Babylon_ proposal. The teams proposed a new tweaked version in the same proposal period.
 
-The `Babylon` proposal was composed of two proposals made in July/August 2019. [Babylon](https://www.tezosagora.org/proposal/4) and [Babylon 2](https://www.tezosagora.org/proposal/5) built by Nomadic Labs, Cryptium Labs (Metastate), and Marigold made after receiving feedback on the _Babylon_ proposal, the teams proposed a new tweaked version in the same proposal period: _Babylon 2_.
-
-Notable changes included a new variant of the consensus algorithm (`Emmy+`), in addition to new Michelson features to aid smart contract developers, an account rehaul that enabled clearer distinction between _tz_ and _kt_ accounts, as well as refinements to the quorum formula and the addition of a 5% proposed quorum threshold.
+Notable changes included a new variant of the consensus algorithm (`Emmy+`). There were new Michelson features and accounts rehaul to aid smart contract developers. The accounts rehaul enabled a clearer distinction between "_tz_" and "_KT_" addresses. Furthermore, there were a refinement of the Quorum formula and the addition of the 5% threshold.
 
 Babylon was autonomously [activated](https://twitter.com/adrian_brink/status/1185137422432161792?s=20) into the protocol in October 2019.
 
-For a full list of changes be sure to read the corresponding blog posts from [Nomadic Labs](https://blog.nomadic-labs.com/babylon-proposal-injected.html, and [Cryptium Labs](https://medium.com/metastatedev/on-babylon2-0-1-58058d9d2106) (Metastate). 
+For a full list of changes, be sure to read the corresponding blog posts from [Nomadic Labs](https://blog.nomadic-labs.com/babylon-proposal-injected.html), and [Cryptium Labs](https://medium.com/metastatedev/on-babylon2-0-1-58058d9d2106) (Metastate). 
 
 ## [Carthage](https://www.tezosagora.org/proposal/6) (PtCarthav)
+*Carthage* was the first proposal rejected during the _Proposal Period_ in November 2019. Since the _Babylon_ change, it now took a minimum of 5% of approval to move to the _Exploration Period_ and _Carthage_ only obtained 3.5%.
 
-Was the first implementation of a proposal to be rejected during the _Proposal Period_ in november 2019. As since the _Babylon_ change, it now took a minimum of 5% to move to the _Exploration Period_ and _Carthage_ obtained 3.5% of the votes.
-
-The purpose of this proposal was to increase the gas limit per block and per operation by 30% to improve the accuracy of the existing formula used for calculating baking, endorsing rewards and fix various small issues.
+The purpose of this proposal was to increase the gas limit per block and per operation by 30% to improve the accuracy of the existing formula used for calculating baking, endorsing rewards, and fix various minor issues.
 
 ## [Carthage 2.0](https://www.tezosagora.org/proposal/7) (PtCarthav)
-Carthage 2.0 was then proposed and it was overwhelmingly accepted in December 2019 due partly to contributions by Nomadic Labs and Cryptium Labs (Metastate).
+*Carthage 2.0* was then proposed and overwhelmingly accepted in December 2019 partly due to Nomadic Labs and Cryptium Labs (Metastate) contributions.
 
-Notable changes included increasing the gas limit per block and per operation by 30%, improving the accuracy of the formula used to calculate baking and endorsing rewards, as well as several minor improvements to Michelson. The main difference with _Carthage 1_ was its new, more secure formula to calculate rewards.
+Notable changes included increasing the gas limit per block and per operation by 30%, improving the accuracy of the formula used to calculate baking and endorsing rewards, as well as several minor improvements to Michelson. The main difference with _Carthage_ was the new and more secure formula to calculate rewards.
 
-Carthage 2 was autonomously [activated](https://twitter.com/tezos/status/1235590757416751105?s=20) onto the protocol in March 2020.
+*Carthage 2.0* was autonomously [activated](https://twitter.com/tezos/status/1235590757416751105?s=20) onto the protocol in March 2020.
 
 For a full list of changes be sure to read the corresponding [changelog](https://tezos.gitlab.io/protocols/006_carthage.html#changelog) and blog posts from [Nomadic Labs](https://blog.nomadic-labs.com/carthage-changelog-and-testnet.html) and [Cryptium Labs](https://medium.com/metastatedev/updating-the-potential-carthage-proposal-and-resetting-the-carthagenet-test-network-f413a792571f) (Metastate). 
 
 ## [Delphi](https://www.tezosagora.org/proposal/8) (PsDELPH1K)
-The Delphi proposal was a contribution from Nomadic Labs, Metastate, and Gabriel Alfour, adopted in September 2020.
+The *Delphi* proposal was a Nomadic Labs, Metastate, and Gabriel Alfour contribution, adopted in September 2020.
 
-Notable changes included improving the performance of the Michelson interpreter, improving gas costs by adjusting the gas model, reducing storage costs by 4x, and various other small fixes.
+Notable changes included improving the performance of the Michelson interpreter, improving gas costs by adjusting the gas model, reducing storage costs by 4 times, and various minor fixes.
 
-Delphi was autonomously [activated](https://twitter.com/tezos/status/1326877616322859009?s=20) into the protocol in November 2020.
+*Delphi* was autonomously [activated](https://twitter.com/tezos/status/1326877616322859009?s=20) into the protocol in November 2020.
 
-For a full list of changes be sure to read the corresponding [changelog](https://blog.nomadic-labs.com/delphi-changelog.html#007-delphi-changelog) and blog post from [Nomadic Labs](https://blog.nomadic-labs.com/delphi-official-release.html).
+For a full list of changes, be sure to read the corresponding [changelog](https://blog.nomadic-labs.com/delphi-changelog.html#007-delphi-changelog) and blog post from [Nomadic Labs](https://blog.nomadic-labs.com/delphi-official-release.html).
 
 ## [Edo](https://www.tezosagora.org/proposal/9) (PtEdoTezd)
-The `Edo` proposal was in turn adopted in November 2020 with contributions by Nomadic Labs, Metastate, and Gabriel Alfour.
+The *Edo* proposal was adopted in November 2020 with Nomadic Labs, Metastate, and Gabriel Alfour contributions.
 
 Edo added two major features to Tezos smart contracts:
 
-* Sapling and BLS12-381 to enable privacy-preserving smart contracts
+* *Sapling*[1](/tezos-basics/history-of-amendments#references) and *BLS12-381*[2](/tezos-basics/history-of-amendments#references) to enable privacy-preserving smart contracts
 
-* Tickets for native on-chain permissions and asset issuance.
+* *Tickets*[3](/tezos-basics/history-of-amendments#references) for native on-chain permissions and assets issuance.
 
-Among other features, Edo also updates the Tezos amendment process by lowering period length to 5 cycles and by adding a 5th Adoption Period. A full changelog is available [here](https://tezos.gitlab.io/protocols/008_edo.html).
+Among other features, Edo also updated the Tezos amendment process by lowering period length to 5 cycles and by adding a 5th *Adoption Period*. A full changelog is available [here](https://tezos.gitlab.io/protocols/008_edo.html).
 
 ## [Florence](https://www.tezosagora.org/proposal/11) (PsFLorena)
-The `Florence` proposal was a joint effort from Nomadic Labs, Marigold, DaiLambda, and Tarides.
+The *Florence* proposal was a joint effort from Nomadic Labs, Marigold, DaiLambda, and Tarides.
 
 Florence's notable bug fixes and improvements are:
 
@@ -76,12 +73,29 @@ Florence's notable bug fixes and improvements are:
 
 * Improved gas consumption for the execution of more complex smart contracts
 
-* Changing inter-contract calls to a depth-first ordering, as opposed to breadth-first
+* Changing inter-contract calls to a depth-first serach[4](/tezos-basics/history-of-amendments#references) ordering, as opposed to breadth-first search[5](/tezos-basics/history-of-amendments#references) ordering
 
 * The elimination of the test chain activation
   
-Baking Accounts were also included in the feature set, however, ongoing testing uncovered some important and previously undocumented breaking changes in the Baking Account proposal. Postponing Baking Accounts until a thorough audit of functionality is complete, or an alternative implementation is produced. The version of Florence without Baking Accounts having been considered a safer choice.
+*Bakings Accounts*[6](/tezos-basics/history-of-amendments#references) was also included in the feature set. However, ongoing testing uncovered some important and previously undocumented breaking changes in the proposal with *Baking Accounts*. Hence, the postponed feature until a thorough audit of functionality completion or an alternative implementation production. The version of *Florence* without *Baking Accounts* has been considered a safer choice.
+
+## What have we learned so far?
+In this chapter, we went through the past proposals' history and how and why they were approved or rejected.
+
+In the next chapter, we will see the details of operations costs and various rewards calculations.
 
 ## References 
 
-[1] https://wiki.tezosagora.org/learn/governance/past-tezos-amendments
+[1] https://z.cash/upgrade/sapling/
+
+[2] https://electriccoin.co/blog/new-snark-curve/
+
+[3] https://medium.com/tqtezos/tickets-on-tezos-part-1-a7cad8cc71cd
+
+[4] https://en.wikipedia.org/wiki/Depth-first_search
+
+[5] https://en.wikipedia.org/wiki/Breadth-first_search
+
+[6] https://midl-dev.medium.com/tezos-in-favor-of-baking-accounts-3886effa370c
+
+https://wiki.tezosagora.org/learn/governance/past-tezos-amendments
