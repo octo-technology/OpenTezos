@@ -13,7 +13,7 @@ In this section we will discuss how baking works. The different actors of the me
 - **Endorser** participating in the consensus by **validating** the blocks created by other bakers.
 - **Accuser** participating in the consensus by **monitoring** bakers and endorsers works.
 - **A roll** represents 8,000ꜩ delegated to a given key and are taken every `BLOCKS_PER_ROLL_SNAPSHOT` = 256 blocks.
-- **Roll snpashots** represent the state of rolls for a given block.
+- **Roll snapshots** represent the state of rolls for a given block.
 - `BLOCKS_PER_CYLCE` = 4096 blocks.
 - `n` current cycle.
 - `PRESERVED_CYCLES` = 5 cyles. Number of cycles during which the tokens are frozen.
@@ -93,7 +93,7 @@ The seed is created by requesting a secret number (nonce) from all roll owners. 
 ![](../../static/img/baking/commit_reveal.svg)
 <small className="figure">FIGURE 2: Commit & Reveal</small>
 
-The seed for cycle `n` is then obtained as follows: the seed of cycle `n-1` is hashed with a constant and then with each nonce revealed in cycle n-1.
+The seed for cycle `n` is then obtained as follows: the seed of cycle `n-1` is hashed with a constant and then with each nonce revealed in cycle `n-1`.
 
 Each cycle `n` is associated with a random seed. This seed is used to randomly select:
 
