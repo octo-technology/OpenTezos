@@ -4,8 +4,10 @@ title: Formal verification on smart contracts
 authors: Frank Hillard
 ---
 
-This section describes how to bridge the Tezos world (and the Michelson language) with the formal world of _Coq_. For this, we are going to model a theorem representing a smart contract and its intentions.
+This section describes how to bridge the Tezos world (and the Michelson language) with the formal world of _Coq_. For this, we are going to model a theorem representing a smart contract and its intentions (i.e. the goal of the smart contract).
 // TODO: Is intention the right word there? Seems weird. "Interactions" maybe?
+no... I mean intention: intention / goal / purpose
+
 
 This chapter is based on the _Vote_ smart contract seen in [previous modules](/ligo).
 
@@ -39,14 +41,14 @@ Formal verification of a Tezos smart contract consists of verifying formally tha
 ![](../../static/img/formal-verification/overview_theorem.svg)
 <small className="figure">FIGURE 2: Naive description of the theorem</small>
 
-//TODO: Add more explanations about this schema. What are A, B, C, D ???
+This schema describes an equivalence between the execution of instructions and post-conditions (A, B, C, D). Post-conditions are rules that must be verified, but these post-conditions do not describe the whole behavior of the smart contract, only specific traits representing the intent of the smart contract.
 
-In the following sections, we will detail how the execution of a Michelson script can be formally written and how to define post-conditions. We will then study the formal proof as a sequence of _Coq_ tactics (cf. the _Vernacular_ part of the Gallina language).
+In the following sections, we will detail how the execution of a Michelson script can be formally written and how to define post-conditions. We will then study the formal proof as a sequence of _Coq_ tactics (cf. the _Vernacular_ part of the _Gallina_ language).
 
 ### Smart contract invocation
-Tezos smart contract can be written LIGO or SmartPy but are utimatly compiled in Michelson.
+Tezos smart contract can be written in high-level languages (such as LIGO, SmartPy and others) but are ultimately compiled in Michelson.
 
-A smart contract invocation requires the smart contract itself, the entrypoint that is being called (and its related arguments) and the storage state.
+A smart contract invocation requires the smart contract itself (through its address), the entrypoint that is being called (and its related arguments) and the storage state.
 
 If all these elements are provided, the execution of the smart contract code is triggered, which will result in side-effects on the storage and optionally on the Tezos network.
 
@@ -108,10 +110,13 @@ Since post-conditions are a generic concept formalizing the smart contract inten
 ### Example Vote
 Let's consider a very simple _Vote_ smart contract that handles a voting process. The complete implementation of the theorem and its proof are available at [[20]](/formal-verification/modeling-theorem#references). In this section, we explain the "Vote" reference example. The _Vote_ smart contract allows anyone to vote for a candidate (we consider that candidates are registered and their number of votes is initialized to zero).
 
-When someone invokes the smart contract, one must indicate the candidate. If the candidate is registered then its corresponding number of votes is incremented.
+When someone invokes the _Vote_ smart contract, one must indicate the candidate. If the candidate is registered then its corresponding number of votes is incremented.
 
-> The _Vote_ smart contract will only modify its storage and thus will have no impact on the rest of the network (i.e. the execution of the smart contract will not produce operations). 
+> When someone invokes the _Vote_ smart contract it will only modify its storage and thus will have no impact on other smart contract storages. (i.e. the execution of the smart contract will not produce `operations`). 
+
 //TODO: Voting itself isn't an operation?
+answer: invocation of the _Vote_ smart contract is an operation, but voting is just a sequence of instructions that modifies the storage and does not produce impacts on other smart contract storages. 
+
 
 Here is the code of the smart contract:
 
@@ -185,10 +190,12 @@ The Tezos smart contract is a Michelson script but it cannot be taken as input b
 
 Mi-Cho-Coq (which is the Coq specification of the Michelson language) provides the correspondence between a Michelson instruction and an equivalent logical proposition.
 
-//TODO: So is this automated? You give the Michelson code to mi-cho-coq and it automatically transpiles it into a coq code?
 
-The _Vote_ smart contract can be formalized in a formal definition in Coq (Terms).
-//TODO: I thought coq languge was galina?
+//TODO: So is this automated? You give the Michelson code to mi-cho-coq and it automatically transpiles it into a coq code?
+There is no automated process that translates a Michelson code into a formal definition based on Mi-Cho-Coq definitions. This must be done manually.
+
+
+The _Vote_ smart contract can be formalized in a formal definition in Coq (_Terms_ part of the _Gallina_ language).
 
 ```
 Definition vote : full_contract _ ST.self_type storage_ty :=
@@ -455,10 +462,21 @@ Proof.
 Qed.
 ```
 
-This chapter is not intended to be a _Coq_ tutorial, we will not deep further into this script. If you want to look into proof implementation in _Coq_, we recommend these simple tutorials [[3]](/formal-verification/modeling-theorem#references), [[14]](/formal-verification/modeling-theorem#references) as a start and the Coq'Art book [[15]](/formal-verification/modeling-theorem#references) for a more complete overview. 
+This chapter is not intended to be a _Coq_ tutorial, we will not deep further into this script.  
 
 ## Conclusion
-//TODO: Conclusion, small summary of this chapter and how to learn more
+
+//TODO
+In this section, we provided explanations of the _Vote_ example to illustrate: 
+- how to translate a Tezos smart contract into a formal definition based on Mi-Cho-Coq definitions
+- how to design post-conditions modeling the intention of a smart contract (with the _Vote_ smart contract example)
+- how to define a theorem based on the Mi-Cho-coq evaluator and post-conditions.
+- a proof (the proof of the _Vote_ theorem).
+
+To learn more about proof implementation in _Coq_, we recommend these simple tutorials [[3]](/formal-verification/modeling-theorem#references), [[14]](/formal-verification/modeling-theorem#references) as a start and the Coq'Art book [[15]](/formal-verification/modeling-theorem#references) for a more complete overview. 
+
+We also recommend to check other examples provided with the Mi-Cho-Coq repository [[21]](/formal-verification/modeling-theorem#references).
+
 
 ## References
 [1] Coq - https://coq.inria.fr/distrib/current/refman/index.html
@@ -498,3 +516,7 @@ This chapter is not intended to be a _Coq_ tutorial, we will not deep further in
 [19] Michelson - https://www.michelson-lang.com/why-michelson.html
 
 [20] Vote example - https://gitlab.com/nomadic-labs/mi-cho-coq/-/blob/master/src/contracts_coq/vote.v
+
+[21] Mi-Cho-Coq examples - https://gitlab.com/nomadic-labs/mi-cho-coq/-/blob/master/src/contracts_coq
+
+[22] Archetype - https://completium.com/docs/verification/specification/

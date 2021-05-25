@@ -6,14 +6,13 @@ authors: Frank Hillard
 
 To better understand formal verification, let's first describe the theory and tools behind the formal analysis.
 
-In order to perform a formal verification, we need a _proof assistant_. _Coq_ is the default proof assistant for formal verification on Tezos smart contracts. _Coq_ provides a language for defining theorems and for proving these theorems. The proof process relies on:
+In order to perform a formal verification, we need a _proof assistant_. _Coq_ is a proof assistant which can be used for formal verification on Tezos smart contracts. Other proof assistants can be used instead of _Coq_ such as _Archetype_ or _K-framework_. In this section we will focus on _Coq_ which provides a language (_Gallina_) for defining theorems and for proving these theorems. The proof process relies on:
 
 - A theory (i.e. a base foundation of mathematic): We will introduce a branch of mathematics called **Type theory**, and more specifically, the _Calculus of Construction_ (CoC), the building principle of _Coq_.
 
 - An expression of the Michelson language as a formal definition: We use _GADT_ for the theory and _Mi-Cho-Coq_ in practice.
 
-- A formalization of the Michelson script into a theorem to prove this theorem (we'll see this in the next [chapter](/formal-verification/modeling-theorem)).
-//TODO: What is the script? Is it the smart contract?
+- A formalization of the Michelson script (code of the smart contract) into a theorem to prove this theorem (we'll see this in the next [chapter](/formal-verification/modeling-theorem)).
 
 The goal is to:
 
@@ -37,11 +36,13 @@ Type theory is closely linked to many fields of active research, including the C
 Some type theories serve as alternatives to set theory as a foundation of mathematics. Two famous theories are _Alonzo Church's typed λ-calculus_ and _Per Martin-Löf's intuitionistic type theory_. The _Per Martin-Löf's intuitionistic type theory_ has been the foundation of constructive mathematics. For instance, Thierry Coquand's **Calculus of constructions** and its derivatives are the foundation used by **Coq** (the proof assistant) [[1]](/formal-verification/gadt-coq#references).
 
 ### Coq
-Initially developed by Thierry Coquand, _Coq_ [[1]](/formal-verification/gadt-coq#references) is a proof assistant designed to develop mathematical proofs, and especially to write formal specifications, programs, and proofs. Programs chave to comply to their specifications. 
+Initially developed by Thierry Coquand, _Coq_ [[1]](/formal-verification/gadt-coq#references) is a proof assistant designed to develop mathematical proofs, and especially to write formal specifications, programs, and proofs that programs comply to their specifications. 
 
-Properties, programs, and proofs are formalized in the _Coq_ language called _Gallina_, which follows the _Calculus of Inductive Constructions_ (CIC).
+Specifications, programs, and proofs are formalized in the _Coq_ language called _Gallina_, which follows the _Calculus of Inductive Constructions_ (CIC).
 
-//TODO: What are "properties", "programs" and "proofs" ?
+//TODO: What are "Specifications", "programs" and "proofs" ?
+
+
 
 #### CoC - CiC
 Initially developed by Thierry Coquand, the _Calculus of Constructions_ [[13]](/formal-verification/gadt-coq#references) (or CoC) is a typed high-order _λ-calculus_ (i.e. a typed formal system taking the logic of second-order into account). The CoC is used as a typed programming language. 
@@ -216,6 +217,15 @@ Fixpoint eval {self_type} {tff} {env} {A : stack_type} {B : stack_type}
 
 ## Conclusion
 //TODO: Conclusion, small summary of this chapter and what's next
+
+
+Proof assistants are built upon the Calculus of Construction, a branch of the Type theory. _Coq_ is proof assistant and can be seen as a formal engine.
+
+We saw how the Michelson language can be represented as an Algebraic Data Type (GADT) by giving an example of building a semi-ring for representing _pairs_ and _variants_. 
+
+Mi-Cho-Coq is a GADT formalizing the Michelson language (data structures and instructions (a formal definition for each) and is used in combination with _Coq_ to verify a Michelson script.
+
+Coq and Mi-Cho-Coq are the tools allowing the formal verification of Tezos smart contract. Other similar tools can be used such as Archetype or K-framework.  
 
 ## References
 
