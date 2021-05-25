@@ -1,7 +1,6 @@
 ---
 id: general
 title: Generalities
-slug: /formal-verification
 authors: Frank Hillard
 ---
 
@@ -61,7 +60,7 @@ Many proof assistants can be used to translate a smart contract into a formal de
 - K-Michelson is based on K-framework which is a generic tool for specifications and proofs languages.
 
 
-### Mi-Cho-Coq
+#### Mi-Cho-Coq
 
 Allow to directly verify smart contracts (Michelson scripts) in _Coq_
 
@@ -72,6 +71,12 @@ Mi-Cho-Coq limitations are:
 - data serialization/deserialization is not supported yet
 - cryptographic functions are considered as a black box and used as such.
 - gas model is not taken into account.
+
+#### Archetype
+section under development
+
+#### K-Michelson
+section under development
 
 
 ### Examples of famous proven smart contracts
