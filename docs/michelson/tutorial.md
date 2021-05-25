@@ -971,15 +971,11 @@ A `map` is an associative array. It stores many pairs of key-value elements, i.e
 
 The `map` data structure can only contain a limited amount of data. Another associative array called `big_map` is introduced in the Michelson language to optimize the storage of large amount of data. 
 
-The `big_map` data structure usage is similar to the `map` one.
+These big_maps should be used if you intend to store large amounts of data in a map. Using big_maps can reduce gas costs significantly compared to standard maps, as as data is lazily deserialized. 
 
- When using big and complex types as values, it is recommended to use the `big_map` data structure which is a lazily deserialized map.
+The behavior of `GET`, `UPDATE` and `MEM` instructions is the same on big_maps as on standard maps. Note however that single operations on big_maps have higher gas costs than those over standard maps (because, under the hood, they have to load and deserialize data on demand). 
 
- A _big_map_ type has a lower storage cost than a standard map of the same size.
-
-However, operations on _big_map_ type have higher gas costs than those over standard maps, as data is lazily deserialized. The behavior of `GET`, `UPDATE` and `MEM` is the same on big_maps as on standard maps, except that under the hood, elements are loaded and deserialized on demand.
-
-
+A big_map also has a lower storage cost than a standard map of the same size.
 
 ##### Building a map
 
