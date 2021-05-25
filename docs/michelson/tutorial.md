@@ -975,8 +975,6 @@ These big_maps should be used if you intend to store large amounts of data in a 
 
 The behavior of `GET`, `UPDATE` and `MEM` instructions is the same on big_maps as on standard maps. Note however that single operations on big_maps have higher gas costs than those over standard maps (because, under the hood, they have to load and deserialize data on demand). 
 
-A big_map also has a lower storage cost than a standard map of the same size.
-
 ##### Building a map
 
 The `EMPTY_MAP 'key 'val` instruction builds a new empty map. It requires the type definition of the key (_'key_) and types definition of the value (_'val_).
