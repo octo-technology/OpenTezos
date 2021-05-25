@@ -41,7 +41,7 @@ Contrary to popular belief, Bitcoin wasn't the first attempt at creating a crypt
 
 Bitcoin's components were not new either and were based on technologies used for years before that. Bitcoin relies on a lot of "old" Information Technologies (IT). Some from as far back as 1973 and up until the Genesis Block in 2009.
 
-Bitcoin's system actually spans 36 years of research, trials, experiments and failures.
+Bitcoin's system was actually born from 36 years of research, trials, experiments and failures.
 
 First of all, Bitcoin relies on the Internet, which itself has been relying on _TCP/IP_ since 1974.
 
@@ -62,7 +62,7 @@ Note here that Bitcoin's transactions are programmable. One can program how fund
 
 In 2011, Vitalik Buterin encountered Bitcoin, and two years later (October 2013) began work on a proposal for [_Mastercoin_](https://web.archive.org/web/20150627031414/http://vbuterin.com/ultimatescripting.html) a protocol with more programmable capabilities than Bitcoin.
 
-However, the team at _Mastercoin_ didn't want to go in this direction, and Vitalik Buterin began to re-work his proposal into another project named _Ethereum_ (December 2013). The interest drove the need for even more complex scripts into [_**D**ecentralized **A**utonomous **O**rganizations_](https://en.wikipedia.org/wiki/Decentralized_autonomous_organization) (or DAO), a form of investor-directed venture capital fund that no blockchain could so far implement. It was also in December 2013 that Gavin Wood (protocol-side) and Jeffrey Wilcke (client-side) joined forces with Vitalik Buterin to work on Ethereum, and a [white paper was first published in January 2014](https://ethereum.org/en/whitepaper/).
+However, the team at _Mastercoin_ didn't want to go in this direction, and Vitalik Buterin began to re-work his proposal into another project named _Ethereum_ (December 2013). The interest into [_**D**ecentralized **A**utonomous **O**rganizations_](https://en.wikipedia.org/wiki/Decentralized_autonomous_organization) (or DAO) drove the need for even more complex scripts. A "DAO" is a form of investor-directed venture capital fund that no blockchain could so far implement. It was also in December 2013 that Gavin Wood (protocol-side) and Jeffrey Wilcke (client-side) joined forces with Vitalik Buterin to work on Ethereum, and a [white paper was first published in January 2014](https://ethereum.org/en/whitepaper/).
 
 In April 2014, Gavin Wood published a [Yellow paper](https://ethereum.github.io/yellowpaper/paper.pdf) (a yellow paper is a document containing research that has not yet been formally accepted or published in an academic journal. It usually contains unannotated statements with sufficient details to implement an idea).
 
@@ -70,9 +70,9 @@ Crowdfunding in bitcoins during the same summer took place, and Ethereum was lau
 
 Ethereum was a revolution, a new generation of blockchain, thanks to its **EVM** ([Ethereum Virtual Machine](https://ethereum.org/en/developers/docs/evm/)), a [Turing Complete](https://en.wikipedia.org/wiki/Turing_completeness) system able to solve any computation problem using its new low-level scripting language called "[_EVM Code_](https://ethereum.org/en/whitepaper/#code-execution)". Ethreum also provided a high-level language called "[_Solidity_](https://soliditylang.org/)".
 
-The first DAO with Ethereum, simply called "[_The DAO_](https://en.wikipedia.org/wiki/The_DAO_(organization))" was created, and more than 150 million US Dollars in Ethers were raised in June 2016. However, an error in the *smart contract* (high-level Solidity code) [permitted a hacker to steal 50 million](https://www.nytimes.com/2016/06/18/business/dealbook/hacker-may-have-removed-more-than-50-million-from-experimental-cybercurrency-project.html). To recover the stolen funds, it was decided to modify the history of transactions. This decision was not approved by the entire community and it created a split of the history ("*hard fork*") into two different blockchains: _Ethereum_ and _Ethereum Classic_.
+The first DAO on Ethereum, simply called "[_The DAO_](https://en.wikipedia.org/wiki/The_DAO_(organization))" was created, and more than 150 million US Dollars in Ethers were raised in June 2016. However, an error in a *smart contract* (a program that was written in the Solidity language) [permitted a hacker to steal 50 million](https://www.nytimes.com/2016/06/18/business/dealbook/hacker-may-have-removed-more-than-50-million-from-experimental-cybercurrency-project.html). To recover the stolen funds, it was decided to modify the history of transactions. This decision was not approved by the entire community and it created a split of the history ("*hard fork*") into two different blockchains: _Ethereum_ and _Ethereum Classic_. The various technologies protect the history of a blockchain. It should be immutable. Hence, the disapproval of a part of the community. *Ethereum Classic* users chose to respect this immutability and so **kept the theft** in their blockchain history.
 
-Today, Bitcoin and Ethereum remain the two main protocols, but many exciting alternatives have been created, notably Tezos in 2018.
+Today, Bitcoin and Ethereum remain the two main protocols with the most adoption, but many exciting alternatives have been created, notably Tezos in 2018.
 
 ![A non-hexaustive timeline](../../static/img/blockchain-basics/timeline.svg "A non-hexaustive timeline")
 <small className="figure">FIGURE 2: A non-hexaustive timeline</small>
@@ -86,7 +86,7 @@ It is important not to confuse a cryptocurrency (first made to exchange value) w
 
 The exact word "blockchain" doesn't even appear in the Bitcoin whitepaper but it **now reflects the technology** used to arrange and chain data to ensure _immutability_ and _cryptographic verifiability_.
 
-While crypto-currencies have many essential characteristics of a currency:
+Crypto-currencies have many essential characteristics of a currency:
 - They are scarce
 - They can be accepted as units of account
 - They can be accepted as stores of value
