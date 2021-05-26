@@ -6,7 +6,7 @@ authors: Thomas Zoughebi, Aymeric Bethencourt, and Maxime Fernandez
 
 
 ## Transaction cost
-Each transaction on Tezos has a cost. To account for this, the user includes a gas fee when he submits his transaction. Bakers will then choose transactions using a **minimal fee filter**. If the baker chooses a transaction, he will add the operation to the block and propagate it. The fee is therefore used to pay the bakers. They are calculated using the following formula [[1]](https://opentezos.com/tezos-basics/economics_and_reward#referencess):
+Each transaction on Tezos has a cost. To account for this, the user includes a gas fee when he submits his transaction. Bakers will then choose transactions using a **minimal fee filter**. If the baker chooses a transaction, he will add it to the block and propagate it. The fee is therefore used to pay the bakers. They are calculated using the following formula [[1]](https://opentezos.com/tezos-basics/economics_and_reward#referencess):
 
 Let:
 - Minimal Fees: $\text{min}_{F}$
@@ -29,7 +29,7 @@ The transaction **default** values are:
 
 In a Tezos transaction, we can add additional information such as smart contracts deployment, smart contract call, etc. This information has a storage cost which is represented in tez per byte. Since the update of the *Delphi* protocol [[3]](https://opentezos.com/tezos-basics/economics_and_reward#referencess) this minimal cost has been reduced from 1ꜩ to 0.25 ꜩ per kilobyte (250 µꜩ/B). The minimal price of creating a new account has thus been lowered from 0.257 tez to 0.06425 tez (the cost of creating an account is important to protect the system from spams and Sybil attacks [[4]](https://opentezos.com/tezos-basics/economics_and_reward#referencess)).
 
-On the Tezos blockchain, gas refers to the cost necessary to perform a transaction on the network. Bakers set the price **in** gas based on supply and demand for computational power on the network, needed to process smart contract calls and other transactions.
+On the Tezos blockchain, gas refers to the cost necessary to perform a transaction on the network. Bakers set the price **_in_** gas based on supply and demand for computational power on the network (needed to process smart contract calls and other transactions).
 
 Gas is used to determine the complexity of the transaction execution and also to avoid infinite loops. It is one of the factors a baker considers before choosing transactions. Before including a transaction, the baker reviews the amount of gas required and its cost per unit. If this ratio is adequate, the baker selects the transaction.
 
