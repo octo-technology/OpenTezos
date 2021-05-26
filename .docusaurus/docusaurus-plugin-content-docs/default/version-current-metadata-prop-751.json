@@ -96,8 +96,8 @@
           },
           {
             "type": "link",
-            "label": "History of amendements",
-            "href": "/tezos-basics/history-of-amendements"
+            "label": "History of amendments",
+            "href": "/tezos-basics/history-of-amendments"
           },
           {
             "type": "link",
@@ -145,7 +145,7 @@
           },
           {
             "type": "link",
-            "label": "Available Tezos Indexers",
+            "label": "Available Tezos Explorers",
             "href": "/explorer/available-tezos-indexers"
           },
           {
@@ -261,11 +261,6 @@
           },
           {
             "type": "link",
-            "label": "Language Basics",
-            "href": "/michelson/language-basics"
-          },
-          {
-            "type": "link",
             "label": "Smart Contracts",
             "href": "/michelson/smart-contracts"
           },
@@ -276,13 +271,13 @@
           },
           {
             "type": "link",
-            "label": "Instructions Reference",
-            "href": "/michelson/instructions-reference"
+            "label": "Examples",
+            "href": "/michelson/examples"
           },
           {
             "type": "link",
-            "label": "Examples",
-            "href": "/michelson/examples"
+            "label": "Instructions Reference",
+            "href": "/michelson/instructions-reference"
           },
           {
             "type": "link",
@@ -548,7 +543,6 @@
     "/michelson/examples": "docs",
     "/michelson/instructions-reference": "docs",
     "/michelson": "docs",
-    "/michelson/language-basics": "docs",
     "/michelson/smart-contracts": "docs",
     "/michelson/take-away": "docs",
     "/michelson/tutorial": "docs",
@@ -562,7 +556,7 @@
     "/tezos-basics/economics-and-rewards": "docs",
     "/tezos-basics/exam": "docs",
     "/tezos-basics/governance-on-chain": "docs",
-    "/tezos-basics/history-of-amendements": "docs",
+    "/tezos-basics/history-of-amendments": "docs",
     "/tezos-basics": "docs",
     "/tezos-basics/liquid-proof-of-stake": "docs",
     "/tezos-basics/operations": "docs",

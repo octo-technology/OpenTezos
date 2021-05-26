@@ -31,6 +31,10 @@
               "sidebar": "docs"
             },
             {
+              "id": "baking/reward",
+              "path": "/baking/reward"
+            },
+            {
               "id": "blockchain-basics/exam",
               "path": "/blockchain-basics/exam",
               "sidebar": "docs"
@@ -295,8 +299,7 @@
             },
             {
               "id": "michelson/language-basics",
-              "path": "/michelson/language-basics",
-              "sidebar": "docs"
+              "path": "/michelson/language-basics"
             },
             {
               "id": "michelson/smart-contracts",
@@ -364,8 +367,8 @@
               "sidebar": "docs"
             },
             {
-              "id": "tezos-basics/history-of-amendements",
-              "path": "/tezos-basics/history-of-amendements",
+              "id": "tezos-basics/history-of-amendments",
+              "path": "/tezos-basics/history-of-amendments",
               "sidebar": "docs"
             },
             {

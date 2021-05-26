@@ -3,7 +3,7 @@
   "id": "tezos-basics/cli-and-rpc",
   "isDocsHomePage": false,
   "title": "CLI and RPC",
-  "description": "Connecting to the network",
+  "description": "In this chapter, the reader will learn how to install the official \"tezos-client\" and \"tezos-admin-client\" applications and run them with the Command Line Interface. These commands call remote procedures of a Tezos node (local or remote). There are many commands, but we'll see some examples.",
   "source": "@site/docs/tezos-basics/cli-and-rpc.md",
   "sourceDirName": "tezos-basics",
   "slug": "/tezos-basics/cli-and-rpc",
@@ -16,7 +16,7 @@
   "frontMatter": {
     "id": "cli-and-rpc",
     "title": "CLI and RPC",
-    "authors": "Thomas Zoughebi, Aymeric Bethencourt and Maxime Fernandez"
+    "authors": "Thomas Zoughebi, Aymeric Bethencourt, and Maxime Fernandez"
   },
   "sidebar": "docs",
   "previous": {

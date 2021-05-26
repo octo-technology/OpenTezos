@@ -377,7 +377,7 @@ The admin client allows you to interact with the peer-to-peer layer:
 
 To use the Tezos Admin Client commands, we need a node we can administrate. In the above examples, we learned how to use remote community nodes. Let's now install a local node we can pretend to be an administrator. This section will also be useful to follow along the "[*Deploy a Node*](/docs/deploy-a-node/introduction)" module.
 
-We'll need several prerequisites. Main ones are [Docker]() and [Flextesa](https://gitlab.com/tezos/flextesa).
+We'll need several prerequisites. Main ones are [Docker](https://www.docker.com/) and [Flextesa](https://gitlab.com/tezos/flextesa).
 
 For the demonstration, the installations will take place on a **fresh** Ubuntu 20.04 (x86_64/amd64 system minimal installation).
 
