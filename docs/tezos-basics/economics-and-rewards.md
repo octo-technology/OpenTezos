@@ -23,12 +23,12 @@ $$
 
 The transaction default values are:
 - $\text{min}_{F}=\text{100 µꜩ}$
-- $\text{min(nꜩ/B)}=\text{250 nꜩ/B}$
-- $\text{min(nꜩ/gu)}=\text{100 nꜩ/}\text{g}_u$
+- $\text{min(nꜩ/B)}=\text{250,000 nꜩ/B}\text{ (250 µꜩ/B)}$
+- $\text{min(nꜩ/}\text{g}_u)=\text{100 nꜩ/}\text{g}_u$
 
 The size is the number of bytes in the complete serialized operation.
 
-In a Tezos transaction, we can add additional information such as smart contracts deployment, smart contract call, etc. This information has a storage cost which is represented with a `minimal_nanotez_per_byte`. Since the update of the Delphy protocol [[2]](https://opentezos.com/tezos-basics/economics_and_reward#referencess) this cost has been reduced from 1ꜩ to 0.25 ꜩ per kilobyte. The price of creating a new account is thus been lowered from 0.257 tez to 0.06425 tez (the cost of creating an account is important to protect the system from spams and Sybil attacks [[3]](https://opentezos.com/tezos-basics/economics_and_reward#referencess)).
+In a Tezos transaction, we can add additional information such as smart contracts deployment, smart contract call, etc. This information has a storage cost which is represented in tez per byte. Since the update of the *Delphy* protocol [[2]](https://opentezos.com/tezos-basics/economics_and_reward#referencess) this cost has been reduced from 1ꜩ to 0.25 ꜩ per kilobyte (250 µꜩ/B). The price of creating a new account has thus been lowered from 0.257 tez to 0.06425 tez (the cost of creating an account is important to protect the system from spams and Sybil attacks [[3]](https://opentezos.com/tezos-basics/economics_and_reward#referencess)).
 
 On the Tezos blockchain, gas refers to the cost necessary to perform a transaction on the network. Bakers set the price of gas based on supply and demand for computational power on the network, needed to process smart contract calls and other transactions.
 It is used to determine the complexity of the transaction execution and also to avoid infinite loops. `minimal_nanotez_per_byte` is the price of one unit of gas and is selected by the user at the transaction creation. It is one of the factors a baker considers before choosing his transactions. Before taking the transaction, the baker reviews the amount of gas required and its cost per unit. If this ratio is adequate, the baker selects the transaction. Each transaction has a gas limit: 1,040,000 gas units (gu). If the contract execution or deployment exceeds this limit the contract is considered unusable. This limit is useful to guarantee that the bakers will be able to validate the block in a limited amount of time [[4]](https://opentezos.com/tezos-basics/economics_and_reward#referencess). This is to make the process more inclusive, as all the users should be able to run a node and bake a block within the allotted time, which is why the Tezos network sets the limit so low, so that even slow nodes can participate.
