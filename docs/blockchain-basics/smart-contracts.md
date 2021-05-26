@@ -65,6 +65,8 @@ The very first definition of "*Smart Contracts*" is originally from Nick Szabo [
 
 This definition is pretty hard to understand because very general.
 
+A smart contract is a code stored inside the *blockchain*. It executes a set of pre-defined instructions (promises). Once deployed (stored), it becomes **immutable**. A smart contract is deployed using a **transaction**, so we embed spending conditions inside it, which are **immutable**. We will go into more detail about this immutability in the [Tezos Basics module](/tezos-basics/introduction).
+
 Strictly speaking, a Bitcoin transaction is a smart contract. The **promise** to open the *vault* from one party is fulfilled, given that the other party has the right *key* to open it. Note that *the way* this key is provided is also meaningful here. It must follow **protocols**.
 
 ## Halting problem of Turing-complete machines and Gas
