@@ -1,22 +1,30 @@
 ---
 id: economics-and-rewards
 title: Economics and rewards
-authors: Thomas Zoughebi, Aymeric Bethencourt and Maxime Fernandez
+authors: Thomas Zoughebi, Aymeric Bethencourt, and Maxime Fernandez
 ---
 
 
 ## Transaction cost
 
 Each transaction on Tezos has a cost. To account for this, the user includes a gas fee when he submits his transaction. Bakers will then choose transactions using a minimal fee filter. If the baker chooses a transaction, he will add the operation to the block and propagate it. The fee is therefore used to pay the bakers. They are calculated using the following formula [[1]](https://opentezos.com/tezos-basics/economics_and_reward#referencess):
-```
-fees >= (minimal_fees + minimal_nanotez_per_byte * size + minimal_nanotez_per_gas_unit * gas)
-```
+
+Let:
+- Size of the operation in bytes: $\text{s}$
+- Gaz used for the operation in gaz unit: $\text{g}$
+- Minimal Fees: $\text{min}_{F}$
+- Minimal nano-XTZ per byte: $\text{min(nꜩ/B)}$
+- Minimal nano-XTZ per gaz unit: $\text{min(nꜩ/}\text{g}_u\text{)}$
+
+Then:
+$$
+    \text{Fees}\geq\text{min}_{F}+\text{min(nꜩ/B)}\times\text{s}+\text{min(nꜩ/}\text{g}_u\text{)}\times\text{g}
+$$
+
 The transaction default values are:
-```
-minimal_fees = 0.000 1ꜩ (100µꜩ)
-minimal_nanotez_per_gas_unit = 100nꜩ/gu (0.000 000 1ꜩ/gu)
-minimal_nanotez_per_byte = 250nꜩ/B (0.000 00025ꜩ/B)
-```
+- $\text{min}_{F}=\text{100 µꜩ}$
+- $\text{min(nꜩ/B)}=\text{250 nꜩ/B}$
+- $\text{min(nꜩ/gu)}=\text{100 nꜩ/}\text{g}_u$
 
 The size is the number of bytes in the complete serialized operation.
 
