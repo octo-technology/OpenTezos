@@ -40,8 +40,8 @@ Initially developed by Thierry Coquand, _Coq_ [[1]](/formal-verification/gadt-co
 
 Specifications, programs, and proofs are formalized in the _Coq_ language called _Gallina_, which follows the _Calculus of Inductive Constructions_ (CIC).
 
-//TODO: What are "Specifications", "programs" and "proofs" ?
-
+A program is a sequence of instructions in a language. _Coq_ is a generic tool and can support many languages (e.g. Mi-Cho-Coq is a library for Michelson language support). A program represents **how** a modification is applied.
+The specification of a program represents **what** a program is meant to do. _Coq_ provides a language (called Gallina -Terms) for modeling logical objects such as theorems, axioms, assumptions). The proof is a sequence of logical deductions (based on axioms, assumptions and the inference rule) that verify the **compliance of a program to its specification**.
 
 
 #### CoC - CiC
@@ -178,6 +178,8 @@ Inductive instruction :
 ...
 ```
 
+Notice that the inductive type `instruction`  defines typing rules for each instruction (`SEQ`, `IF`, `LOOP`, ...).
+
 #### Semantics
 The **semantics** of types is defined by interpreting them with predefined _Coq_ types (e.g. int -> Z, nat -> N, mutez -> int63). The semantics of Michelson is defined by an evaluator `eval` formalized as a _Fixpoint_. 
 
@@ -209,15 +211,14 @@ Fixpoint eval {self_type} {tff} {env} {A : stack_type} {B : stack_type}
 ...
 ```
 
-//TODO: I didn't understand a single thing in the code examples above...
+Notice that the evaluator defines actions that must be performed for each type of instruction.
+
 
 > Since evaluating a Michelson instruction might fail (whereas _Coq_ functions cannot), the return type of this evaluator is wrapped in an exception monad (handling errors such as overflow, lexing, parsing, fuel).
 
 > Coq forbids non-terminating functions, so we use a common _Coq_ trick to define the evaluator on diverging instructions such as _LOOP_: we make the evaluator structurally recursive on an extra argument of type Datatypes.nat called the **fuel** of the evaluator.
 
 ## Conclusion
-//TODO: Conclusion, small summary of this chapter and what's next
-
 
 Proof assistants are built upon the Calculus of Construction, a branch of the Type theory. _Coq_ is proof assistant and can be seen as a formal engine.
 

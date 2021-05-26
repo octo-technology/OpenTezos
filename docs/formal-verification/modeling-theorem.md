@@ -4,10 +4,7 @@ title: Formal verification on smart contracts
 authors: Frank Hillard
 ---
 
-This section describes how to bridge the Tezos world (and the Michelson language) with the formal world of _Coq_. For this, we are going to model a theorem representing a smart contract and its intentions (i.e. the goal of the smart contract).
-// TODO: Is intention the right word there? Seems weird. "Interactions" maybe?
-no... I mean intention: intention / goal / purpose
-
+This section describes how to bridge the Tezos world (and the Michelson language) with the formal world of _Coq_. For this, we are going to model a theorem representing a smart contract and its purpose (i.e. the goal of the smart contract).
 
 This chapter is based on the _Vote_ smart contract seen in [previous modules](/ligo).
 
@@ -27,7 +24,10 @@ Before going deeper, let's illustrate the workflow of formal verification of Tez
 ![](../../static/img/formal-verification/overview_process.svg)
 <small className="figure">FIGURE 1: Proof process</small>
 
-//TODO: Add more explanations about this schema. Why is proof in Vernacular and Theorem in Terms as they are both in Gallinea?
+Notice that the _Coq_ language (called **Gallina** [[4]](/formal-verification/modeling-theorem#references)) provides 2 parts:
+- **Terms** is the specification language: for modeling logical objects (such as theorems, axioms, assumptions, logical rules, specifications)
+- **Vernacular** is the language of commands: for writing a proof of a theorem (_tactics_ are provided to interactively prove a theorem).
+
 
 ## Modeling a smart contract as a theorem
 This ecosystem combines an assistant of proof (*Coq*) and the proof of the Michelson language (*Mi-Cho-Coq*) to formally verify the correctness of a theorem and its proof.
@@ -114,8 +114,6 @@ When someone invokes the _Vote_ smart contract, one must indicate the candidate.
 
 > When someone invokes the _Vote_ smart contract it will only modify its storage and thus will have no impact on other smart contract storages. (i.e. the execution of the smart contract will not produce `operations`). 
 
-//TODO: Voting itself isn't an operation?
-answer: invocation of the _Vote_ smart contract is an operation, but voting is just a sequence of instructions that modifies the storage and does not produce impacts on other smart contract storages. 
 
 
 Here is the code of the smart contract:
@@ -190,8 +188,6 @@ The Tezos smart contract is a Michelson script but it cannot be taken as input b
 
 Mi-Cho-Coq (which is the Coq specification of the Michelson language) provides the correspondence between a Michelson instruction and an equivalent logical proposition.
 
-
-//TODO: So is this automated? You give the Michelson code to mi-cho-coq and it automatically transpiles it into a coq code?
 There is no automated process that translates a Michelson code into a formal definition based on Mi-Cho-Coq definitions. This must be done manually.
 
 
@@ -466,7 +462,6 @@ This chapter is not intended to be a _Coq_ tutorial, we will not deep further in
 
 ## Conclusion
 
-//TODO
 In this section, we provided explanations of the _Vote_ example to illustrate: 
 - how to translate a Tezos smart contract into a formal definition based on Mi-Cho-Coq definitions
 - how to design post-conditions modeling the intention of a smart contract (with the _Vote_ smart contract example)
