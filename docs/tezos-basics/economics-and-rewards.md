@@ -71,17 +71,39 @@ One must therefore act on these two variables to optimize a contract:
     So, the size optimization comes down to decreasing the number of instructions and the variable-size constants. [[7]](https://opentezos.com/tezos-basics/economics_and_reward#referencess)
 
 ## Tezos reward
-To maintain the network, Tezos needs bakers and endorsers. They stake their token and use their computing power to create blocks, manage transactions, vote and secure the network. In exchange for the completion of these tasks, bakers are rewarded with tokens from the transaction fees or tokens created by the network. Since the Carthage update [[8]](https://opentezos.com/tezos-basics/economics_and_reward#referencess), the reward system has been updated to make the network more robust against non-cooperative baking strategies. 
-
+To maintain the network, Tezos needs bakers and endorsers. They stake their tokens and use their computing power to create blocks, manage transactions, vote, and secure the network. In exchange for these tasks, bakers are rewarded with fees.  
+Since the Carthage update[[8]](https://opentezos.com/tezos-basics/economics_and_reward#referencess), the reward system has been updated to make the network more robust against non-cooperative baking strategies. 
 
 ### Baking reward
-When a baker bakes a block, he receives a reward composed of all the transaction fees contained in the block in addition to a network reward computed by this formula [[9]](https://opentezos.com/tezos-basics/economics_and_reward#referencess) :
-```	
-e * BAKING_REWARD_PER_ENDORSEMENT
-```
-`BAKING_REWARD_PER_ENDORSEMENT` = 1.250ꜩ if the baking priority is high or `BAKING_REWARD_PER_ENDORSEMENT` = 0.1875ꜩ if the baking priority is low. This Carthage update allows to focus the baker's efforts on the priority blocks.
+When a baker bakes a block, he receives a reward composed of all the transactions' fees contained in the block in addition to a *network reward* computed by the following formula[[9]](https://opentezos.com/tezos-basics/economics_and_reward#referencess):
+
+With:
+- "$n_e$": the number of endorsements the block receives  
+  32 endorsements are required to validate a block.
+
+- "$Br_e$": the baking reward per endorsement
+- "$Br_b$": the network baking reward per block
+
+Then:
+
+$$
+\bm{Br_b=n_e\times Br_e}
+$$
+
+For a **high priority** baking:
+
+$$
+\bm{Br_e}=\text{1.2500 ꜩ}
+$$
+
+For a **low priority** baking:
+
+$$
+\bm{Br_e}=\text{0.1875 ꜩ}
+$$
+
+This Carthage update allows to focus the baker's efforts on the priority blocks.
  
-`e` is the number of endorsements the block contains. 32 endorsements are required to validate a block.
 Finally, with this formula, the network reward for a baked block is generally 32 X 1.25 = 40 ꜩ/block in addition to the transaction fee contain in the block.
 
 ### Endorser reward
