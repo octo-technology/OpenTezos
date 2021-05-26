@@ -8,7 +8,7 @@ authors: Thomas Zoughebi
 In this chapter, we will dig deeper into the main properties of the Bitcoin protocol, its developers, its P2P network, and a few basics of its economic structure.
 
 ## Open-Source
-Most, if not all, of the public blockchain developments, are made open-source. Anyone can verify the code, correct it, and make proposals. This openness is essential in an essentially trustless environment. It is common to hear community members say: "*Don't trust, verify!*".
+Most, if not all, of the public blockchain developments, are made open-source. Anyone can verify the code, correct it, and make proposals. This openness is fundamental in an essentially trustless environment. It is common to hear community members say: "*Don't trust, verify!*".
 
 The most committed blockchain developers also go by the catchphrase "[*Code is law*](https://en.wikipedia.org/wiki/Code_and_Other_Laws_of_Cyberspace)", meaning that the strict code defines not only the validation rules of all the transactions and their interactions but also people's conduct. This code is also used to create the software that runs on the network and how data is recorded, explored, etc.
 
