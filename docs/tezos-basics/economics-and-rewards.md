@@ -4,6 +4,7 @@ title: Economics and rewards
 authors: Thomas Zoughebi, Aymeric Bethencourt, and Maxime Fernandez
 ---
 
+In this chapter, we will see more detail about the fees of the Tezos network and the baking and endorsing rewards. The calculations you'll learn are helpful for the simplest transaction issuance to the most complex application built on Tezos. You need to understand the basics of fees and gas optimizations. Of course, this will serve you if you are a baker or an endorser.
 
 ## Transaction cost
 Each transaction on Tezos has a cost. To account for this, the user includes a gas fee when he submits his transaction. Bakers will then choose transactions using a **minimal fee filter**. If the baker chooses a transaction, he will add it to the block and propagate it. The fee is therefore used to pay the bakers. They are calculated using the following formula [[1]](https://opentezos.com/tezos-basics/economics_and_reward#referencess):
@@ -79,7 +80,7 @@ When a baker bakes a block, he receives a reward composed of all the transaction
 
 With:
 - "$n_e$": the number of endorsements the block receives  
-  32 endorsements are required to validate a block.
+  **32** endorsements are required to validate a block.
 
 - "$Br_e$": the baking reward per endorsement
 - "$Br_b$": the network baking reward per block
@@ -102,23 +103,51 @@ $$
 \bm{Br_e}=\text{0.1875 ꜩ}
 $$
 
-This Carthage update allows to focus the baker's efforts on the priority blocks.
- 
-Finally, with this formula, the network reward for a baked block is generally 32 X 1.25 = 40 ꜩ/block in addition to the transaction fee contain in the block.
+This Carthage update allows focusing the baker's efforts on the priority blocks.
+
+If we apply the block reward formula on a **priority block**, we get *40ꜩ*:
+
+$$
+\bm{Br_b}=32\times 1.2500=\bm{40}
+$$
 
 ### Endorser reward
-Endorsers are also rewarded, when they are also randomly selected. One block needs 32 endorsers slots. But one endorser can have more than one slot.
-```	
-e * ENDORSEMENT REWARD
-```
-Where `ENDORSEMENT_REWARD` = 1.250ꜩ if the block priority is high and `ENDORSEMENT_REWARD` = 0.833333 ꜩ if the block priority is low.
+Selected endorsers are also rewarded. One block needs 32 endorsers slots, while one endorser can have more than one. The total reward for an endorser "$Er$" is then easy to calculate.
 
-`e` Is the number of endorser slots attributed.
+For:
+- "$Er$": the endorser's total reward
+- "$n_s$": the endorser's number of slots
+- "$Er_b$": the endorsement reward per block
+
+We have:
+
+$$
+\bm{Er=n_s\times Er_b}
+$$
+
+For a **high priority** block:
+
+$$
+\bm{Er_b}=\text{1.250000 ꜩ}
+$$
+
+For a **low priority** block:
+
+$$
+\bm{Er_b}=\text{0.833333 ꜩ}
+$$
 
 ### Inflation
-Each new block generates 80 new XTZ as a reward. A new block is created each minute witch generates 42 Million of XTZ per year (80ꜩ x 60 mins x 24 hours x 365 days). At the Tezos launch, the network was composed of 763 Millions XTZ. 
-Therefore the inflation rate of the XTZ token is 5.51% : 42 000 000 / 763 000 000 = 5.51%.
+Each new block generates 80 new XTZ as a reward. A new block is created each minute. This represents 42 Million XTZ per year (~80 ꜩ $\times$ 60 mins $\times$ 24 hours $\times$ 365 days). At the Tezos launch, the network was composed of 763 Million XTZ.
+Therefore the inflation rate of the XTZ token is approximatively 5.5%:
+$$
+\frac{42,000,000}{763,000,000}=\frac{42}{763}\approx5.5\%
+$$
 
+## What have we learned so far?
+Thanks to this chapter, you should now have a better understanding of how Tezos economics works. Notably, this understanding can help to build viable Tezos smart contracts.
+
+This chapter is the last one from the *Tezos Basics* module. Next is the examination.
 
 ## References
 [1]https://tezos.gitlab.io/protocols/003_PsddFKi3.html#baker
