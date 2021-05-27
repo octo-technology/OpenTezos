@@ -4,11 +4,11 @@ title: List of bakers
 authors: Maxime Sallerin
 ---
 
-In this section we will present the lists of bakers. Then as a delegator we will see how to choose a baker.
+In this section, we will present the lists of bakers. Then as a delegator, we will see how to choose a baker.
 
 ## List of baker
 
-Tezos blockchain explorers mostly contain a list of bakers classified according to different criteria. This allows delegators to choose their baker in the most comfortable way. Check out [here](/explorer/available-tezos-indexers) a list of bloc explorers.
+Tezos blockchain explorers mostly contain a list of bakers classified according to different criteria. This allows delegators to choose their baker in the most comfortable way. Check out [here](/explorer/available-tezos-indexers) a list of block explorers.
 
 For example, [Baking Bad](https://tzkt.io/bakers/), [TzStats](https://tzstats.com/bakers) or [Tezos Nodes](https://tezos-nodes.com/) allow you to browse through bakers.
 
@@ -18,7 +18,7 @@ For example, [Baking Bad](https://tzkt.io/bakers/), [TzStats](https://tzstats.co
 ![](../../static/img/baking/tezos_nodes_bakers)
 <small className="figure">FIGURE 3: Tezos Nodes Bakers</small>
 
-### What kind of baker ?
+### What kind of baker?
 
 You have probably come across terms like **public baker**, **private baker** or **corporate baker**. How are they different? In terms of protocol, i.e. participation in block validation, there is no difference. But there is one somewhere else.
 
@@ -28,40 +28,52 @@ A public baker is different from a private one by functioning as a public stakin
 
 #### Private bakers
 
-A private baker doesn’t offer everyone to delegate their stakes, and though, technically speaking, they can’t forbid you to delegate your tez to them, they are under no obligation to share their baking profits with you.
+A private baker doesn’t offer everyone to delegate their stakes. Technically speaking, they can’t forbid you to delegate your XTZ to them and, they are under no obligation to share their baking profits with you.
 
-These days, it is the centralised exchanges like Coinbase, Binance or Kraken that hold the biggest stakes. They offer their users an opportunity to stake tez from their exchange accounts and get profit.
+These days, it is the centralized exchanges like Coinbase, Binance or Kraken, that hold the biggest stakes. They offer their users an opportunity to stake XTZ from their exchange accounts and get profit.
 
 ![](../../static/img/baking/tzstats_bakers)
 <small className="figure">FIGURE 5: TzStats Bakers Top20</small>
 
 #### Corporate bakers
 
-A corporate baker only means that someone wants to emphasise that it is a corporation that bakes Tezos. Such a baker can be private or public.
+A corporate baker only means that someone wants to emphasize that it is a corporation that bakes Tezos. Such a baker can be private or public.
 
-## How to choose a baker ?
+## How to choose a baker?
 
 ### Criterias
 
-There are a few factors to consider when choosing a baker to delegate with.
+There are a few factors to consider when choosing a baker to delegate with:
 
 #### Staking
 
 This is the Tezos baker’s staking balance, which includes his own XTZ funds (bonds) and all the delegated funds. In short term, the bigger the stake, the less the baker’s profit fluctuates from cycle to cycle. This happens due to the randomness in the distribution of baking rights in Tezos, which means the more rolls, the less variance, and the less rolls, the more variance.
 
+#### ROI (Return On Investment)
+
+This is how much Tezos staking rewards you would earn per year if you delegate to a particular baker, assuming he pays all the rewards accurately, doesn’t miss payouts and, doesn’t change the fee and other terms.
+
+#### Fee
+
+This is how much the Tezos baker charges from the staking rewards he distributes between his delegators. On average, the profitability is the same across all bakers, yet their customers have varying profits as different bakers have different fees. If the fee is too high or too low, it’s a good reason to start thinking why.
+
 #### Free space
 
-This is how much XTZ you can delegate to the baker. A negative value indicates that the baker is likely overdelegated, which is very unwanted as he will miss blocks and endorsements.
+This is how much XTZ you can delegate to the baker. A negative value indicates that the baker is likely _overdelegated_, which is very unwanted as he will miss blocks and endorsements.
 
-> Each time a baker/endorser creates/confirms a a block, they have to lock a certain amount for 5 cycles as a security deposit.
+> Each time a baker/endorser creates/confirms a block, they have to lock a certain amount for 5 cycles as a security deposit. _Overdelegation_ is when the available XTZ balance is not enough (because the entire balance has already been locked) so, they skip block/endorsement.
 
-What is “overdelegation” and why does a baker have limited staking capacity?
+#### Minimum delegated amount.
 
-Each time a baker produces a new block or confirms an existing block, a certain amount of his own bonds are blocked for 5 cycles as a security deposit. If the available XTZ balance is not enough (because the entire balance has already been blocked), the baker skips block/endorsement. That’s not good.
+Bakers can set up a minimum amount they expect to get from a delegator. Some accept stakes starting from 1 XTZ while others from 1000 XTZ.
 
-That’s why Tezos bakers should control their staking balance because if it is too large, they receive too many baking rights which cannot be covered by their bond. As a result, they miss blocks.
+#### Payouts accuracy
 
-#### Criteria 3
+This value indicates how accurate the baker’s payouts are.
+
+#### Payouts periodicity
+
+This value indicates whether the baker pays according to his payment schedule or not.
 
 ## Conclusion
 
