@@ -142,10 +142,10 @@ At each cycle, a random seed is created. A pseudo-random number generator uses t
 Every 256 blocks, the system creates snapshots of **owned** rolls.
 
 ##### The Seed
-A secret number from all rolls' owners is requested. All secret numbers are gathered and hashed to produce the seed. Since the last owner to reveal his secret already knows the other numbers, a 2-phase process called "Commit & Reveal" is in place.
+A secret number from all rolls' owners is requested. All secret numbers are gathered and hashed to produce the seed. Since the last owner to reveal his secret already knows the other numbers, a 2-phase process called "Commit & Reveal" is in place. More details about the selection of the baker are available in the ["*How Baking Works*"](/baking/baking_explained#random-seed) chapter.
 
 ##### Bakers and endorsers selection
-The generated list of priorities identifies who forges a block (bakes) and who endorses it. It is a round-robin process[12](/tezos-basics/liquid-proof-of-stake#references) that cycles on the list of priorities until the end of the cycle (4096 blocks).
+The generated list of priorities identifies who forges a block (bakes) and who endorses it. It is a round-robin process[[12]](/tezos-basics/liquid-proof-of-stake#references) that cycles on the list of priorities until the end of the cycle (4096 blocks).
 
 ### Security
 A baker can't proceed to the next cycle before the complete verification of his roll. Endorsers also control the bakers' transactions. If endorsers find a security breach, they can cancel the baking. In that case, the bakers would lose their coins. Endorsers are, in turn, rewarded for each verification with tezs (more details in the [*Economics and rewards*](/tezos-basics/economics-and-reward) chapter).

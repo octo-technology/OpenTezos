@@ -137,7 +137,7 @@ $$
 \bm{Er_b}=\text{0.833333 ꜩ}
 $$
 
-### Inflation
+### Inflation //TODO 80/2 pour baking + endorsing
 Each new block generates 80 new XTZ as a reward. A new block is created each minute. This represents 42 Million XTZ per year (~80 ꜩ $\times$ 60 mins $\times$ 24 hours $\times$ 365 days). At the Tezos launch, the network was composed of 763 Million XTZ.
 Therefore the inflation rate of the XTZ token is approximatively 5.5%:
 $$
