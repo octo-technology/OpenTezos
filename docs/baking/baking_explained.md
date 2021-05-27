@@ -1,10 +1,10 @@
 ---
 id: baking_explained
-title: How baking works ?
+title: How baking works?
 authors: Maxime Sallerin
 ---
 
-In this section we will discuss how baking works. The different actors of the mechanism as well as the technological solutions will be presented.
+In this section, we will discuss how baking works. The different actors of the mechanism and the technological solutions will be presented.
 
 ![](../../static/img/baking/baking_explained.svg)
 <small className="figure">FIGURE 1: How Baking Works?</small>
@@ -52,9 +52,9 @@ Endorsing is a sign of activity, so the more endorsement blocks contain, the hea
 
 ## Rolls
 
-A roll represents 8,000ꜩ delegated to a given key. The more rolls someone has, the higher the chance of being given the rights to bake the next block. If 10 rolls are active at one point in time, and a baker owns 2/10 of these rolls, the baker has a 20% chance of being selected to create the next block. This means that whether the baker has 8,000 ꜩ or 15,999 ꜩ, he has the same chances.
+A roll represents 8,000ꜩ delegated to a given private key. So, the more rolls someone has, the higher the chance to bake the next block. If 10 rolls are active, and a baker owns 2/10 of these rolls, he has a 20% chance of being selected. Note that 8,000ꜩ or 15,999ꜩ stakeholders have the same probability of baking.
 
-Baking rights are called priorities and are given in turns. For example, if there are 10 rolls activated, the protocol could randomly select a priority list as follows:
+Baking rights are called priorities and given in turns. For example, if 10 rolls were active, the protocol could randomly select a priority list as follows:
 
 ```
  Priority1 = Roll 6
@@ -67,13 +67,13 @@ Baking rights are called priorities and are given in turns. For example, if ther
  Priority10 = Roll 7
 ```
 
-Consequently, the person who owns roll 6 will have priority to propose the new block. If he does not create and broadcast a block within a certain period, the baker who owns the roll number 9 may take over. Note that a baker may have several rolls selected and therefore receive several priorities.
+Consequently, the person who owns roll #6 would have priority to propose the new block. If he does not create and broadcast it within a certain period, the next baker who owns roll #9 may take over. Note that a baker may have several rolls selected and therefore receive several priorities.
 
-A new priority list is established for each block.
+Each validation establishes a new priority list.
 
 ### Roll selection
 
-At each cycle, a random seed is created. This seed is used to produce baking rights (i.e. a list of priorities as mentioned above) based on a snapshot of existing rolls 2 cycles ago.
+At each cycle, a random seed is created. A pseudo-random number generator uses the seed to generate the priority list based on a snapshot of existing rolls 2 cycles ago.
 
 #### Roll snapshots
 
@@ -88,7 +88,7 @@ The random seed for cycle `n` is a 256-bit number generated at the very end of c
 > In cryptography, **a nonce** (number used once) is an arbitrary number intended to be used only once.  
 > **A commitment** is the hash of a nonce.
 
-The seed is created by requesting a secret number (nonce) from all roll owners. All secret numbers are gathered and used to create a hash that will be used as the random seed. Since the last owner to reveal its secret number already knows the other's secret numbers, a 2-phase process called "Commit & Reveal" has been put in place.
+The seed is created by requesting a secret number (nonce) from all roll owners. All secret numbers are gathered and used to create a hash that will be used as the random seed. Since the last owner to reveal his secret already knows the other numbers, a 2-phase process called "Commit & Reveal" is in place.
 
 ![](../../static/img/baking/commit_reveal.svg)
 <small className="figure">FIGURE 2: Commit & Reveal</small>

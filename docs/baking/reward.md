@@ -10,60 +10,96 @@ To maintain the network, Tezos needs bakers and endorsers. They stake their toke
 
 Each new block generates 80 new XTZ as a reward. 40 XTZ for the bakers and 40 XTZ for the endorsers.
 A new block is created each minute witch generates 42 Million of XTZ per year (80ꜩ x 60 mins x 24 hours x 365 days). At the Tezos launch, the network was composed of 763 Millions XTZ.
-Therefore the inflation rate of the XTZ token is `5.51%` : 42 000 000 / 763 000 000 = 5.51%.
+Therefore the inflation rate of the XTZ token is **5.5%** :
+$$
+\frac{42,000,000}{763,000,000}=\frac{42}{763}\approx5.5\%
+$$
 
 ## Baking reward
 
 When a baker bakes a block, he receives a reward composed of all the [transaction fees](/tezos-basics/economics-and-rewards#transaction-cost) contained in the block in addition to a network reward computed by this formula:
 
-```
-e * BAKING_REWARD_PER_ENDORSEMENT
-```
+With:
+- $n_e$: the number of endorsements the block receives  
+  **32** endorsements are required to validate a block.
 
-- `e` = 32 is the number of endorsements the block contains.
-- `BAKING_REWARD_PER_ENDORSEMENT` = 1.250ꜩ if the baking priority is high (`p` = 0)
-- `BAKING_REWARD_PER_ENDORSEMENT` = 0.1875ꜩ if the baking priority is low (`p`= 1).
+- $Br_e$: the baking reward per endorsement
+- $Br_b$: the network baking reward per block
+- $p$: the priority level
 
-To make deflationary baking irrational, for all profitability criteria, the reward for including an endorsement is set to the same amount as the reward to have one endorsement included. In other words, the function makes a non-cooperative baker lose as many rewards per censored endorsement as the endorser who loses the endorsement. This property holds only for high priority. The value is `40/32 = 1.250`.
+Then:
 
-To make block stealing less profitable, and since the previous point needs to equalize the rewards for the baker and the endorsers of a block, the reward for baking at low priority is set to much less than the reward for baking at high priority. The decreasing factor is **0.15**. The value is `40/32 * 0.15 = 6/32 = 0.1875` per included endorsement.
+$$
+\bm{Br_b=n_e\times Br_e}
+$$
+
+For $p=0$, a **high priority** baking:
+
+To make deflationary baking irrational, for all profitability criteria, the reward for including an endorsement is set to the same amount as the reward to have one endorsement included. In other words, the function makes a non-cooperative baker lose as many rewards per censored endorsement as the endorser who loses the endorsement. This property holds only for high priority.
+
+$$
+\bm{Br_e}=\frac{40}{32}=\text{1.2500 ꜩ}  
+$$
+
+For $p=1$, a **low priority** baking:
+
+To make block stealing less profitable, and since the previous point needs to equalize the rewards for the baker and the endorsers of a block, the reward for baking at low priority is set to much less than the reward for baking at high priority. The decreasing factor is **0.15**.
+
+$$
+\bm{Br_e}=\frac{40}{32}\times0.15=\frac{6}{32}=\text{0.1875 ꜩ}
+$$
 
 This Carthage update allows to focus the baker's efforts on the priority blocks.
 
-The final formulas for [Emmy+C](https://blog.nomadic-labs.com/analysis-of-emmy.html) are as follows. For a block baked at priority `p` and containing `e` endorsements, the reward is computed as:
+The final formulas for [Emmy+C](https://blog.nomadic-labs.com/analysis-of-emmy.html) are as follows. For a block baked at priority $p$ and containing $n_e$ endorsements, the reward is computed as:
 
 ```js
-baking_reward (p, e) =
+baking_reward (p, ne) =
   if p = 0 then
-     (e / 32) * 40 // e * 1.250
+     (ne / 32) * 40
   else
-     (e / 32) * 6 // e * 0.1875
+     (ne / 32) * 6
 ```
 
 Finally, with this formula, the network reward for a baked block is generally 32 X 1.250 = **40** ꜩ/block in addition to the transaction fee contained in the block.
 
 ## Endorsing reward
 
-Endorsers are also rewarded, when they are also randomly selected. One block needs 32 endorsers slots. But one endorser can have more than one slot.
+Selected endorsers are also rewarded. One block needs 32 endorsers slots, while one endorser can have more than one. The total reward for an endorser "$Er$" is then easy to calculate.
 
-```
-e * ENDORSEMENT_REWARD
-```
+For:
+- "$Er$": the endorser's total reward
+- "$n_s$": the endorser's number of slots
+- "$Er_b$": the endorsement reward per block
 
-`e` Is the number of endorser slots attributed.
-`ENDORSEMENT_REWARD` = 1.250ꜩ if the baking priority is high (`p` = 0)
-`ENDORSEMENT_REWARD` = 0.833333ꜩ if the baking priority is low (`p`= 1).
+We have:
 
-The endorsement rewards for endorsements included in low priority blocks are decreased by a factor of **2/3**. This does decrease slightly resistance to block stealing because the baker that steals a block gets a higher reward for his own endorsements, but has the advantage of punishing the endorsers less for having their endorsements not included by absent low priority bakers. The value is `40/32 * 2/3 = 0.833333`.
+$$
+\bm{Er=n_s\times Er_b}
+$$
 
-The reward reveive for `e` slot endorsed at priority `p` is computed as:
+For a **high priority** block:
+
+$$
+\bm{Er_b}=\text{1.2500 ꜩ}
+$$
+
+For a **low priority** block:
+
+The endorsement rewards for endorsements included in low priority blocks are decreased by a factor of **2/3**. This does decrease slightly resistance to block stealing because the baker that steals a block gets a higher reward for his own endorsements, but has the advantage of punishing the endorsers less for having their endorsements not included by absent low priority bakers.
+
+$$
+\bm{Er_b}=\frac{40}{32}\times\frac{2}{3}=\text{0.8333 ꜩ}
+$$
+
+The reward reveive for $n_s$ slot endorsed at priority $p$ is computed as:
 
 ```js
-endorsing_reward (p) =
+endorsing_reward (p, ns) =
   if p = 0 then
-     (e / 32) * 40
+     (ns / 32) * 40
   else
-     (e / 32) * 40 * (2/3)
+     (ns / 32) * 40 * (2/3)
 ```
 
 ## Delegating reward
