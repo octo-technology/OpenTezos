@@ -163,7 +163,7 @@ let main = ([action, store]: [parameter, storage]) : return_ => {
 PascaLigo will be used throughout this module.
 The main difference between the syntaxes is that PascaLigo is a more imperative syntax while ReasonLigo 
 and CameLigo are functional. 
-Moreover there are "for" and "while" loops in PascaLigo which are not found in the other ones.
+Moreover, 'for' and 'while' loops are only implemented in Pascaligo.
 
 The goal of this module is to allow a developer to install the LIGO compiler on his operating system
 by providing the essential skills to write and deploy his first smart contract
