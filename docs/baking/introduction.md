@@ -4,7 +4,7 @@ title: Introduction
 authors: Maxime Sallerin
 ---
 
-// TODO preséntation du module
+In this module, we will see how baking works for the Tezos blokchain. More precisely, we will see who are the different actors involved from the creation to the validation of a new block. Then we will see the associated reward system. And finally, we will present the list of existing bakers and the criteria to evaluate them.
 
 ## Tezos is a proof-of-stake blockchain
 

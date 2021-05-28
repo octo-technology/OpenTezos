@@ -102,6 +102,9 @@ endorsing_reward (p, ns) =
      (ns / 32) * 40 * (2/3)
 ```
 
+The total available reward for endorsing a high-priority block is fixed to the same amount as baking that block: **40ꜩ**.
+That value is distributed among all the endorsers proportionally to their slots.
+
 ## Delegating reward
 
 When delegating, you can earn a passive income by participating in the Tezos network via delegation. The current annual yield on Tezos is around **6%** minus a validator’s fees.
