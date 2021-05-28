@@ -32,11 +32,9 @@ From now on, "node" refers to a *full node*.
 ### Chained Data-structure
 The ledger's structure has to be very special to meet the following constraints:
 
-- The ledger is distributed over the planet, and everyone should be able to agree on its state at the same time (minus latency)
+- The ledger is distributed over the planet, and everyone should be able to agree on its state at the same time (minus latency): This is an asynchronous network. Transactions (exchanges of bitcoins) are grouped inside packages named "**blocks**" to ease management. The size of the blocks impacts the transmission's speed. If blocks are relatively small, more blocks circulate on the network. If blocks are relatively big, less of them circulate in the same delay. Almost every node (computers) of the network has to check each block, and that also roughly the same time. So, in an asynchronous network, to assure maximum participation in the reconciliation, the size of a block is a key factor. Finding a good size allows for smooth and regular transmissions.
   
-- Transactions are grouped inside packages named "**blocks**" to ease management. Blocks shouldn't be too small, nor too big, to have smooth and regular transmissions.
-  
-- Their history must not be modifiable (immutability).
+- The ledger's history of transactions must not be modifiable (immutability) to prevent double-spending
   
 - Verifying the history or picking specific information inside the ledger has to be fast (e.g., check a balance)
   
@@ -44,10 +42,10 @@ The ledger's structure has to be very special to meet the following constraints:
 
 The data structure which permits all of the above is a chain of blocks, a.k.a. "blockchain".
 
-Valid transactions are grouped and enclosed inside a block. Every 10 minutes with Bitcoin, a new block must be mined. The number of transactions inside a block is only limited by the available space, which is currently (2021) around 2 MB (comparatively "_Bitcoin Cash_" blockchain has around 32 MB block size).
+Valid transactions are grouped and enclosed inside a block. Every 10 minutes with Bitcoin, a new block should be mined. The number of transactions inside a block is only limited by the available space, which is currently (2021) around 2 MB (comparatively "_Bitcoin Cash_" blockchain has around 32 MB block size).
 
 Each new block is linked to the previous one: they are chained. The more blocks there are, the more difficult it is to modify anything in the ledger. They are cryptographically chained. This means that if you want to cheat (e.g., make a double-spend or spend money you don't have), you would need to modify everything from the first block ever created (called the "_Genesis Block_"), just like *Matryoshka dolls* with an enormous number of dolls.
-This process is achieved through a [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_block_chaining_(CBC)) principle, where instead of a _XOR_ function (and without plain texts additions), the _SHA256_ function is used. Twice:
+This process is achieved through the [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_block_chaining_(CBC)) principle, where instead of a _XOR_ function (and without plain texts additions), the _SHA256_ function is used. Twice:
 
 ![Chain of blocks](../../static/img/blockchain-basics/blocks-chain.svg "Chain of blocks")
 
@@ -76,13 +74,17 @@ Senders choose the fee they want to pay. The more they give, the faster the tran
 
 The block reward is sent through a particular transaction called a "_Coinbase Transaction_" directly to the miner. It's always the first transaction of a validated ("*mined*") block.
 
-To get these two rewards, a miner basically plays a lottery, a game of chance. This game is to find a binary number lesser than a target (called "_Target_") with the specific hash function _SHA256_. The fact is a miner can't guess in advance the result of this function. He **must** try values (by [*Brute Force*](https://en.wikipedia.org/wiki/Brute-force_attack)). He must *hash* the previous block header (twice) with a random number called the *nounce*.
+To get these two rewards, a miner basically plays a lottery, a game of chance. This game is to find a binary number lesser than a target (called "_Target_") with the specific hash function _SHA256_. The fact is a miner can't guess in advance the result of this function. He **must** try values (by [*Brute Force*](https://en.wikipedia.org/wiki/Brute-force_attack)). He must *hash* the previous block header (twice) with a random number called the *nounce* (details in the ["*Proof-of-Work*"](/blockchain-basics/proof-of-work) chapter).
 
 The more a miner tries values (the more he has lottery tickets), and the more energy he uses to make his computers work.
 
 When a miner finds a valid number, he finally finds a valid block. His node tells the network its discovery with the final _nounce_ (so anyone can verify it).
 
-If two miners find a valid number simultaneously (within lag and network propagation delays), then two valid blocks are possible. Miners are then split into two groups: those mining from the block of the first miner and those mining from the block of the second miner. If someone finds a block following the second miner's block, then both of them become the "winners" as they form "the longest chain" (actually, the chain with *the most work*) [[3]](/blockchain-basics/main-properties#references).
+If two miners find a valid number simultaneously (within lag and network propagation delays), then two valid blocks are possible. Miners are then split into two groups:
+- those mining from the block of the first miner,
+- and those mining from the block of the second miner.
+
+If someone finds a block following the second miner's block, then both of them become the "winners" as they form "the longest chain" (actually, the chain with *the most work*[[3]](/blockchain-basics/main-properties#references)).
 
 More details on that in the [next chapter on Proof-of-Work](/blockchain-basics/proof-of-work).
 
