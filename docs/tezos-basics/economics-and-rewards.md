@@ -16,7 +16,7 @@ Let:
 - Gas used for the operation (in gas unit "$\text{g}_u$"): $\text{g}$
 - Minimal nano-tez per byte: $\text{min(nꜩ/B)}$
 - Minimal nano-tez per gas unit: $\text{min(nꜩ/}\text{g}_u\text{)}$  
-  Gas unit cost is defined by the protocol. It does not depend on the fee market conditions; it does not depend on arbitrary defaults in config files; etc [[2]](https://opentezos.com/tezos-basics/economics_and_reward#referencess)
+  Gas unit cost in XTZ is defined by the protocol. It does not depend on the fee market conditions; it does not depend on arbitrary defaults in config files; etc [[2]](https://opentezos.com/tezos-basics/economics_and_reward#referencess)
 
 Then:
 $$
@@ -41,7 +41,7 @@ The *Delphi* update also increased the *number of computation per unit of gas*. 
 Note that a baker also takes into account the gas limit **per block**. In *Delphi*, that limit is 10,400,000 $\text{g}_u$ (10 times the gas limit per operation). So, of course, it limits the number of transactions to include in a block. However, the storage cost isn't a fee that rewards a baker. Actually, this particular fee is "burned", meaning nobody receives it.
 
 ## Smart contract execution and optimization
-The gas limit is an important parameter for the usability of the smart contract. But there is also a second major limit: each serialized operation has a maximum size of 16,384 bytes. It is impossible to upload a smart contract bigger than this limit.
+The gas limit is an important parameter for the usability of the smart contract. But there is also a second major limit: each serialized operation has a maximum size of 16,384 bytes. It is impossible to upload a smart contract bigger than this limit (origination).
 
 One must therefore act on these two variables to optimize a contract:
 
@@ -91,13 +91,13 @@ $$
 \bm{Br_b=n_e\times Br_e}
 $$
 
-For a **high priority** baking:
+For a **high-priority** baking:
 
 $$
 \bm{Br_e}=\text{1.2500 ꜩ}
 $$
 
-For a **low priority** baking:
+For a **low-priority** baking:
 
 $$
 \bm{Br_e}=\text{0.1875 ꜩ}
@@ -125,20 +125,26 @@ $$
 \bm{Er=n_s\times Er_b}
 $$
 
-For a **high priority** block:
+For a **high-priority** block:
 
 $$
 \bm{Er_b}=\text{1.250000 ꜩ}
 $$
 
-For a **low priority** block:
+For a **low-priority** block:
 
 $$
 \bm{Er_b}=\text{0.833333 ꜩ}
 $$
 
-### Inflation //TODO 80/2 pour baking + endorsing
-Each new block generates 80 new XTZ as a reward. A new block is created each minute. This represents 42 Million XTZ per year (~80 ꜩ $\times$ 60 mins $\times$ 24 hours $\times$ 365 days). At the Tezos launch, the network was composed of 763 Million XTZ.
+The total available reward for endorsing a high-priority block is fixed to the same amount as baking that block: **40**ꜩ.  
+That value is distributed among all the endorsers proportionally to their slots.  
+The operation is the same for a low-priority block.
+
+For more detail about the Tezos baking process, please refer to the ["*How Baking Works*"](/baking/introduction) module.
+
+### Inflation
+Adding up baking and endorsing block reward, each new high-priority block then generates 80 new XTZ. A new block is created roughly every minute. This represents 42 Million XTZ per year (~80 ꜩ $\times$ 60 mins $\times$ 24 hours $\times$ 365 days). At the Tezos launch, the network was composed of 763 Million XTZ.
 Therefore the inflation rate of the XTZ token is approximatively 5.5%:
 $$
 \frac{42,000,000}{763,000,000}=\frac{42}{763}\approx5.5\%
