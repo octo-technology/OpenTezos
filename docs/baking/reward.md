@@ -4,7 +4,7 @@ title: Rewards
 authors: Maxime Sallerin
 ---
 
-To maintain the network, Tezos needs bakers and endorsers. They stake their token and use their computing power to create blocks, manage transactions, vote and secure the network. In exchange for the completion of these tasks, bakers are rewarded with tokens from the transaction fees or tokens created by the network. Since the [Carthage update](https://blog.nomadic-labs.com/a-new-reward-formula-for-carthage.html), the reward system has been updated to make the network more robust against non-cooperative baking strategies.
+To maintain the network, Tezos needs bakers and endorsers. They stake their token and use their computing power to create blocks, manage transactions, vote, and secure the network. In exchange for the completion of these tasks, bakers are rewarded with tokens from the transaction fees or tokens created by the network. Since the [Carthage update](https://blog.nomadic-labs.com/a-new-reward-formula-for-carthage.html), the reward system has been updated to make the network more robust against non-cooperative baking strategies.
 
 ## Inflation
 
@@ -49,7 +49,7 @@ $$
 \bm{Br_e}=\frac{40}{32}\times0.15=\frac{6}{32}=\text{0.1875 ꜩ}
 $$
 
-This Carthage update allows to focus the baker's efforts on the priority blocks.
+This Carthage update allows focusing the baker's efforts on the priority blocks.
 
 The final formulas for [Emmy+C](https://blog.nomadic-labs.com/analysis-of-emmy.html) are as follows. For a block baked at priority $p$ and containing $n_e$ endorsements, the reward is computed as:
 
@@ -68,9 +68,9 @@ Finally, with this formula, the network reward for a baked block is generally 32
 Selected endorsers are also rewarded. One block needs 32 endorsers slots, while one endorser can have more than one. The total reward for an endorser "$Er$" is then easy to calculate.
 
 For:
-- "$Er$": the endorser's total reward
-- "$n_s$": the endorser's number of slots
-- "$Er_b$": the endorsement reward per block
+- $Er$: the endorser's total reward
+- $n_s$: the endorser's number of slots
+- $Er_b$: the endorsement reward per block
 
 We have:
 
@@ -104,22 +104,35 @@ endorsing_reward (p, ns) =
 
 ## Delegating reward
 
-When delegating, you can earn a passive income by participating in the Tezos network via delegation. The current annual yield on Tezos is around `6%`, minus a validator’s fees.
+When delegating, you can earn a passive income by participating in the Tezos network via delegation. The current annual yield on Tezos is around **6%** minus a validator’s fees.
 
-Every time a baker receives rewards, those rewards are frozen for the next `5 cycles (~14 days)`, so the baker can’t spend it. Only after ~14 days rewards are unfrozen and the baker can transfer it to someone else. Most bakers wait until rewards are unfrozen and only then pay it out to delegators, but some don't.
+Every time a baker receives rewards, those rewards are frozen for the next 5 cycles (~14 days), so the baker can’t spend it. Only after ~14 days rewards are unfrozen, and the baker can transfer it to someone else. Most bakers wait until rewards are unfrozen and only then pay it out to delegators, but some don't.
 
-- if your baker pays after rewards are unfrozen you will reveive your first reward after `20 days (confirmation) + 3 days (cycle ends) + 14 days (frozen) = ~37 days`.
-- if your baker pays in advance, you will reveive your first reward after `20 days (confirmation) + 3 days (cycle ends) = ~23 days`.
+For:
+- $Confirmation_{time} \approx \text{20 days}$, delegators have to wait ~20 days after delegating before start staking.
+- $Frozen_{time} \approx \text{14 days}$, baker's rewards are frozen for 5 cycles.
+- $Cycle_{time} \approx \text{3 days}$, this is the approximate time between two successive cycles.
+- $FirstPayout_{time}$: The necessary time to wait before the first payout.
 
-Rewards for cycle `n` comes in the cycle `n + 1` (after ~3 days) so you will then receive your delegating reward every 3 days.
+If your baker pays after rewards are unfrozen you will receive your first reward after:
+$$
+\bm{FirstPayout_{time}}= Confirmation_{time} + Frozen_{time} + Cycle_{time} \approx \text{37 days}
+$$
 
-There are no direct risks of delegating XTZ. The only risk you take is not earning the potential rewards. Carefully choose your baker to ensure quality of service and rewards.
+If your baker pays in advance, you will receive your first reward after:
+$$
+\bm{FirstPayout_{time}}= Confirmation_{time} + Cycle_{time} \approx \text{23 days}
+$$
+
+Rewards for cycle `n` come in the cycle `n + 1` (after ~3 days) so, you will then receive your delegating reward every **3 days**.
+
+There are no direct risks of delegating XTZ. The only risk you take is not earning the potential rewards. Carefully choose your baker to ensure the quality of service and rewards.
 
 When delegating, your XTZ are completely liquid. You are free to move your tokens anytime as there are no freezing periods when delegating to a baker.
 
 ## Accusation reward
 
-The Accuser monitors the network, detects double-baking or double-endorsing.
+The accuser monitors the network, detects double-baking or double-endorsing.
 
 If two endorsements are made for the same slot or two blocks baked at the same height, the evidence can be collected by an accuser and included in a block for a period of 5 cycles including the current cycle.
 

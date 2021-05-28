@@ -50,7 +50,7 @@ There are a few factors to consider when choosing a baker to delegate with:
 
 #### Staking
 
-This is the Tezos baker’s staking balance, which includes his own XTZ funds (bonds) and all the delegated funds. In short term, the bigger the stake, the less the baker’s profit fluctuates from cycle to cycle. This happens due to the randomness in the distribution of baking rights in Tezos, which means the more rolls, the less variance, and the less rolls, the more variance.
+This is the Tezos baker’s staking balance, which includes his own XTZ funds (bonds) and all the delegated funds. In the short term, the greater the stake, the less the baker’s profit fluctuates from cycle to cycle. This happens due to the randomness in the distribution of baking rights in Tezos, which means the more rolls, the less variance, and the less rolls, the more variance.
 
 #### ROI (Return On Investment)
 
