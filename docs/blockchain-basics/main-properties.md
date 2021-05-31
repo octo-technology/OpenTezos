@@ -27,7 +27,7 @@ There are different types of nodes, but for the sake of simplicity, let's only q
 
 - _Lightweight nodes_ are used for devices with limited space capacity, calculating speed, or connectivity (e.g., smartphones, tablets, IoT, etc.). They don't record transactions in the ledger but ask the full nodes for required information.
 
-From now on, "node" refers to a *full node*. 
+From now on, "node" refers to a *full node*. All these full nodes communicate with each other using a [*Gossip Protocol*](https://academy.bit2me.com/en/what-is-gossip-protocol/).
 
 ### Chained Data-structure
 The ledger's structure has to be very special to meet the following constraints:

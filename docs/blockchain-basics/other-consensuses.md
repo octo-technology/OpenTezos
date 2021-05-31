@@ -1,31 +1,41 @@
 ---
 id: other-consensuses
 disable_pagination: true
-title: Introduction to other consensuses
+title: Introduction to other consensus algorithms
 authors: Thomas Zoughebi and Aymeric Bethencourt
 
 ---
 
-In this chapter, we will briefly introduce some other *public* consensuses.
+In this chapter, we will briefly introduce some other *public* consensus algorithms.  
+Remember we defined what's a consensus, in IT, in the *Main properties of the first "blockchain"* chapter [here](blockchain-basics/main-properties#what-is-a-consensus):
+<NotificationBar>
+    <p>
+        <blockquote>
+            "In IT, a consensus algorithm is a computer program allowing users to <b>reach common agreements on the states of data</b> in a distributed network."
+        </blockquote>
+    </p>
+</NotificationBar>
 
 ## Proof-of-Stake (PoS)
-_PoS_ requires a system where _validators_ are not the creators of coins, so that transaction fees provide their only rewards. It also requires that all the coins are either made at the launch of the blockchain or created another way.
+_PoS_ requires a system where _validators_ are not the creators of coins, so that transaction fees provide their only rewards (no coinbase).
 
-The first rule of this consensus is for blocks to be *validated* by **validators** that have invested coins in the system. The more a validator has coins in an escrow, the more he is likely to validate a block and earn rewards.
+The first rule of this mechanism is for blocks to be *validated* by **validators** that **have invested coins** in the system. The more a validator has coins in an escrow, the more he has chances to validate a block and earn rewards. This requires that coins are made early enough so blocks can be validated from the launch.
 
-Blocks deemed valid and pushed by validators are always verified afterwards by the network. If a validator has tried to cheat, he loses all of his funds held in collateral.
+Blocks deemed valid and pushed by validators are always verified afterward by the network. If a validator has tried to cheat, he loses all of his funds held in collateral.
 
 Examples: *Ethereum 2.0, Peercoin, Blackcoin, NXT...*
 
 We'll go into more details about PoS in the [Tezos Basics Module](/tezos-basics) as Tezos uses a variation of PoS called Liquid Proof-of-Stake.
 
 ## Delegated Proof-of-Stake (DPoS)
-DPoS is the PoS consensus but with an added *delegation* phase. During this phase, decentralized *votes* are made by *witnesses* to elect validators. Parameters like fees, rewards, or witnesses number are decided by a *committee* group. This committee *does not receive any reward*. The parameters can only be changed during a *maintenance phase by vote*.
+DPoS has an added *Delegation* phase. During this phase, decentralized *votes* are made by the *witnesses* to elect validators. The witness group has the same function as the parliament in a parliamentary democracy.  
+Another special *committee* group decides parameters like fees, rewards, or how many witnesses in the witness group. This committee *does not receive any reward* and these parameters can only change by vote during another *maintenance phase*.  
+We'll go back to DPoS in the ["*Delegated Proof-of-Stake (DPoS)* section"](/tezos-basics/liquid-proof-of-stake#delegated-proof-of-stake-dpos) of the ["*Liquid Proof-of-Stake*" chapter](/tezos-basics/liquid-proof-of-stake) in the ["*Tezos Basics*" module](/tezos-basics/).
 
 Examples: *Steem, Graphene, BitShares...*
 
 ## Liquid Proof-of-Stake (LPoS)
-Tezos has developed LPoS, an evolution of DPoS.
+Tezos has developed LPoS, an evolution of DPoS. Though delegation is optional. As opposed to DPoS, any user can become a validator if he has enough coins. If he doesn't, then he has the choice to delegate. The idea is to dilute even more the mining activity and to increase inclusion.
 
 In LPoS, a validator is called a **baker**. Any user owning enough coins can become a baker. Suppose a user wants to benefit from baking but doesn't own enough coins or have enough technical knowledge. In that case, he can _delegate_ his coins to _bakers_, thereby benefiting from a portion of the transaction fees.
 
@@ -43,7 +53,7 @@ This mimics the process of mining where miners have to invest some value, except
 Examples: *Slimcoin*
 
 ## Proof-of-Capacity (PoC)
-This consensus first generates large data sets called "*Plots*". The more plots a *miner* records, the more lottery tickets he owns. Hence, the more hard-drive space (*capacity*) he has, the more chances of winning the rewards. This also mimics the process of mining.
+This consensus first generates large data sets called "*Plots*". The more plots a *miner* records, the more lottery tickets he owns. Hence, the more hard-drive space (*capacity*) he has, the more chances of winning the rewards. This also mimics PoW mining: instead of accumulating hash power, you accumulate hard-drive capacity.
 
 Variants: *Proof-of-Storage, Proof-of-Space*
 
@@ -76,7 +86,7 @@ To summarise, validator groups with sufficient base size can aggregate single no
 Examples: *Stellar, Ripple*.
 
 ## Avalanche
-Each **validator** randomly selects $N$ nodes among all the other validators. The more a validator has coins, the more chances it has to be selected (*see also PoS below*).
+Each **validator** randomly selects $N$ nodes among all the other validators. The more a validator has coins, the more chances it has to be selected (see also PoS above).
 
 Each queried validator responds with its decision.
 
