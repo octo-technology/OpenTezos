@@ -8,9 +8,7 @@ authors: Maxime Sallerin and Benjamin Pilia
 
 A Tezos smart contract is a piece of **code** written in the Michelson language (a low-level stack-based Turing-complete language).
 
-##TODO is a phrase missing here?
-
-It also defines all **entrypoints** (invocable functions) of the smart contract. In other words, it defines the prototype of each entrypoint (e.g. specifies the types of parameters for the entrypoint).  
+It defines all **entrypoints** (invocable functions) of the smart contract. In other words, it defines the prototype of each entrypoint (e.g. specifies the types of parameters for the entrypoint).  
 
 It also defines the **storage** of the smart contract (i.e. the data structure of the persistent memory associated with the smart contract).  
 
@@ -355,7 +353,6 @@ ligo compile-storage src/counter.ligo main 5
 
 ### Invocation parameter
 
-//TODO 
 The same rules apply for the parameters, as apply for the translating of LIGO storage values to Michelson. 
 We will need to use `compile-parameter` to compile our action variant into Michelson, here's how:
 
@@ -415,5 +412,8 @@ You can access the stored value with the following command:
 ```shell
 tezos-client get contract storage for counterContract
 ```
-##TODO//a concluding line
+
+## Conclusion
+
+In this section, we have seen how to use the LIGO compiler command lines to interact with a smart contract. We have seen how to compile a LIGO code in Michelson code, then simulate the behavior of its smart contract and, finally, the deployment and the invocation of entrypoints.
 
