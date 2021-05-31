@@ -9,7 +9,6 @@ We will then take the example of **BlockWatch Indexer** used for the **TzStats e
 
 ## Typical Blockchain Explorer Backends
 
-Indexers are node operators.
 Indexers are node operators that extract, transform and load data into a database by mapping the data into a pre-defined schema of tables with referential integrity
 in order to provide indexing and query processing services via an **API**.
 
