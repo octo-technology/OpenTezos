@@ -9,7 +9,7 @@ import NotificationBar from '../../src/components/docs/NotificationBar';
 
 _Proof-of-work_ was the first fully functional blockchain consensus ever created. It is still in use by Bitcoin and many other blockchains. It requires its users to _mine_ to get a chance to earn a reward for validating transactions. In this chapter, we will look into the technical side of things and how mining works.
 
-We will see that blockchain technology is a brilliant assembly of cryptographic technical bricks, that already existed for many years or even several decades for some. The beauty of the blockchain is to have been able to organize these bricks in a coherent way to create a decentralized and secure data exchange system.
+We will see that blockchain technology is a brilliant assembly of cryptographic technical bricks that already existed for many years or even several decades for some. The beauty of the blockchain is to have been able to organize these bricks in a coherent way to create a decentralized and secure data exchange system.
 
 ## Hash
 Let's start with the basics: the **hash**. A hash is a hexadecimal number calculated from a set of data. In a way, it is similar to a unique fingerprint used to identify the initial data quickly. There are several hash functions. The most common is _SHA256_, used among others by Bitcoin. The _SHA256_ algorithm transforms any string of characters into a hexadecimal number of 64 characters (or 256 bits). For example, fig. 1 shows the hash of the small string "Cake" and fig. 2 shows the hash of a longer string. Note that the two hashes are completely different, but both are 64 characters long.
