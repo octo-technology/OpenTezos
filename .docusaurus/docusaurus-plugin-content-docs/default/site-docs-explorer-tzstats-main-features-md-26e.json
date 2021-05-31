@@ -3,7 +3,7 @@
   "id": "explorer/tzstats-main-features",
   "isDocsHomePage": false,
   "title": "How to use the tzStats blockchain explorer?",
-  "description": "In the previous chapter, we saw that there are different block indexers for different uses in the block explorers for the Tezos Blockchain. In this chapter, we will focus on TzStats which is the most popular and complete Tezos explorer.",
+  "description": "In this chapter, we will use the TzStats explorer to illustrate the different features of an explorer, but similar features are usually available on others.",
   "source": "@site/docs/explorer/tzstats-main-features.md",
   "sourceDirName": "explorer",
   "slug": "/explorer/tzstats-main-features",
@@ -20,7 +20,7 @@
   },
   "sidebar": "docs",
   "previous": {
-    "title": "Available Tezos Indexers",
+    "title": "Available Tezos Explorers",
     "permalink": "/explorer/available-tezos-indexers"
   },
   "next": {

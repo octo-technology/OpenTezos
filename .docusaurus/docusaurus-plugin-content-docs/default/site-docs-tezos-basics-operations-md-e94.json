@@ -3,7 +3,7 @@
   "id": "tezos-basics/operations",
   "isDocsHomePage": false,
   "title": "Operations",
-  "description": "This chapter introduces the notion of Operations on Tezos, more commonly known as Transactions on other blockchains.",
+  "description": "This chapter introduces the notion of Operations on Tezos. These are more commonly known as Transactions on other blockchains.",
   "source": "@site/docs/tezos-basics/operations.md",
   "sourceDirName": "tezos-basics",
   "slug": "/tezos-basics/operations",

@@ -2,8 +2,8 @@
   "unversionedId": "formal-verification/modeling-theorem",
   "id": "formal-verification/modeling-theorem",
   "isDocsHomePage": false,
-  "title": "Modeling theorem",
-  "description": "This section describes how to make the bridge between the Tezos world (and the Michelson language) with the  formal world of Coq. This will be concretized by modeling a theorem representing the smart contract and its intention.",
+  "title": "Formal verification on smart contracts",
+  "description": "This section describes how to bridge the Tezos world (and the Michelson language) with the formal world of Coq. For this, we are going to model a theorem representing a smart contract and its intentions.",
   "source": "@site/docs/formal-verification/modeling-theorem.md",
   "sourceDirName": "formal-verification",
   "slug": "/formal-verification/modeling-theorem",
@@ -15,16 +15,16 @@
   "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "id": "modeling-theorem",
-    "title": "Modeling theorem",
+    "title": "Formal verification on smart contracts",
     "authors": "Frank Hillard"
   },
   "sidebar": "docs",
   "previous": {
-    "title": "Mi-Cho-Coq",
-    "permalink": "/formal-verification/michocoq"
+    "title": "Coq, GADT and Mi-Cho-Coq",
+    "permalink": "/formal-verification/gadt-coq"
   },
   "next": {
-    "title": "References",
-    "permalink": "/formal-verification/references"
+    "title": "Exam",
+    "permalink": "/formal-verification/exam"
   }
 }

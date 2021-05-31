@@ -17,14 +17,5 @@
     "id": "michocoq",
     "title": "Mi-Cho-Coq",
     "authors": "Frank Hillard"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "GADT and Coq",
-    "permalink": "/formal-verification/gadt-coq"
-  },
-  "next": {
-    "title": "Modeling theorem",
-    "permalink": "/formal-verification/modeling-theorem"
   }
 }

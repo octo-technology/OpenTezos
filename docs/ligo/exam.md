@@ -9,8 +9,8 @@ authors: Maxime Sallerin and Benjamin Pilia
 What is correct about LIGO?
 
 - [x] LIGO is a programming language for writing Tezos smart contracts.
-- [ ] By default, smart contracts are written in LIGO language.
-- [x] LIGO compiles scripts written in a high-level language into a Michelson script.
+- [ ] Smart contracts are, by default, written in the LIGO language.
+- [x] LIGO compiles scripts written in a high-level language into Michelson script.
 - [ ] The LIGO syntax is PascaLigo.
 
 ### Question 2
@@ -30,7 +30,6 @@ What notions are defined inside the smart contract?
 
 What is returned by the execution of a smart contract?
 
-- [ ] The current storage state when invoking the smart contract.
 - [x] The modified storage state after invoking the smart contract.
 - [ ] The entry point that has been called (and its related parameters).
 - [x] The list of emitted operations produced by the execution of the smart contract.
@@ -89,18 +88,18 @@ What is correct about type aliasing?
 What is a set?
 
 - [ ] A linear collection of elements of the same type.
-- [ ] A data structure which associates values of the same type to values of the same type.
+- [ ] A data structure that associates values of the same type to values of the same type.
 - [x] An unordered collection of values of the same type.
-- [ ] One way data of different types can be packed into a single type, which is made of a field name and a field type.
+- [ ] One way that data of different types can be packed into a single type, which is made of a field name and a field type.
 
 ### Question 9
 
 What is a record?
 
 - [ ] A linear collection of elements of the same type.
-- [ ] A data structure which associates values of the same type to values of the same type.
+- [ ] A data structure that associates values of the same type to values of the same type.
 - [ ] An unordered collection of values of the same type.
-- [x] One way data of different types can be packed into a single type, which is made of a field name and a field type.
+- [x] One-way that data of different types can be packed into a single type, which is made of a field name and a field type.
 
 ###
 
@@ -131,7 +130,7 @@ block {
  } with ret
 ```
 
-Complete the ######## part in the code to give a correct definition to the return type of the main function.
+Complete the ######## part in the code to give the return type of the main function a correct definition.
 (More than one answers can be considered valid)
 
 - [ ] `type counterReturn is list(operation) * counterEntrypoints`

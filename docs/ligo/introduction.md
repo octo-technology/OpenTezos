@@ -9,18 +9,18 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Tezos smart contracts are written in [Michelson](https://opentezos.com/michelson), which is a stack-based language.
-It is the lowest level of a Tezos smart contract: what will be deployed on a Tezos network, is Michelson code.
+It forms the lowest level of a Tezos smart contract: the part that will be deployed on a Tezos network.
 However, if reading or writing Michelson code is still easy for small smart contracts, 
-it can become very tedious for more complex smart contracts:
-- there are no variables nor functions
+it can become tedious for more complex smart contracts:
+- there are no variables or functions
 - no syntactic sugar
 - the Michelson code cannot be broken down into several files
-- stack-based languages are not commonly used when it comes to development.
+- and stack-based languages are not commonly used when it comes to development.
 
 LIGO solves these issues. 
 It is a high-level language for smart contracts development.
 Smart contracts are developed in Ligo, then compiled into a single Michelson code file. 
-This Michelson file is the smart contract that will be deployed on a tezos network.
+This Michelson file becaumes the smart contract that will be deployed on a tezos network.
 
 <br/>
 
@@ -30,7 +30,7 @@ This Michelson file is the smart contract that will be deployed on a tezos netwo
 <br/>
 
 As said above, LIGO is a programming language for writing **[Tezos](https://tezos.com/) smart contracts**.
-The diagram helps to contextualize the role of LIGO in the Tezos ecosystem.
+This diagram helps to contextualize the role of LIGO in the Tezos ecosystem.
 
 LIGO is active in the left part as a development tool allowing
 for the production of smart contracts (scripts in Michelson),
@@ -47,8 +47,14 @@ LIGO currently offers four flavoured syntaxes:
   
 - **JsLIGO**, the latest syntax released, inspired by the popular JavaScript language.
 
+
+> **Imperative programming** is a programming paradigm that describes 
+> the operations in sequences of instructions executed by the computer to change the state of the program.
+
+> **Functional programming** is a declarative programming paradigm that considers computation as an evaluation of mathematical functions.
+
 Here is an example of a Counter contract that handles a single integer's "counter" value 
-as storage and allows users to increment decrement or reset this counter.
+as storage and allows users to increment, decrement or reset this counter.
 
 <Tabs
   defaultValue="pascaligo"
@@ -157,12 +163,7 @@ let main = ([action, store]: [parameter, storage]) : return_ => {
 PascaLigo will be used throughout this module.
 The main difference between the syntaxes is that PascaLigo is a more imperative syntax while ReasonLigo 
 and CameLigo are functional. 
-Moreover there are for and while loops in PascaLigo which are not found in the other ones.
-
-> **Imperative programming** is a programming paradigm that describes 
-> the operations in sequences of instructions executed by the computer to change the state of the program.`
-
-> **Functional programming** is a declarative programming paradigm that considers computation as an evaluation of mathematical functions.
+Moreover, 'for' and 'while' loops are only implemented in Pascaligo.
 
 The goal of this module is to allow a developer to install the LIGO compiler on his operating system
 by providing the essential skills to write and deploy his first smart contract
@@ -170,5 +171,5 @@ onto the Tezos blockchain.
 
 It will include the basics of the LIGO language,
 inspired by the [official documentation](https://ligolang.org/docs/language-basics/types),
-as well as detailed smart contract examples and then an exam to check your understanding.
+as well as detailed smart contract examples and an exam to check your understanding.
 

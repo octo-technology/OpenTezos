@@ -71,7 +71,7 @@ What post-conditions depends on (What post-conditions are built upon) ?
 - [x] The entrypoint parameter which is invoked
 - [ ] The sequence of Michelson instructions (smart contract code)
 - [x] Operations produced by the execution of the smart contract
-- [x] environment variables (transaction properties such as sender, amount)
+- [x] Environment variables (transaction properties such as sender, amount)
 - [ ] Predefined Coq types and inductive types (Coq libraries)
 - [ ] Mi-Cho-Coq library
 

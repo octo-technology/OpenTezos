@@ -3,7 +3,7 @@
   "id": "michelson/language-basics",
   "isDocsHomePage": false,
   "title": "Language Basics",
-  "description": "The Michelson language is the reference language for Tezos smart contracts. It is a low-level stack-based language and is also a Turing-complete language. This means it has basic operations allowing to read/write/compare values in-memory, has infinite memory, and allows conditional operators (e.g. if, switch instructions)",
+  "description": "OLD page - not to be displayed (this section has been merged in smart contract page)",
   "source": "@site/docs/michelson/language-basics.md",
   "sourceDirName": "michelson",
   "slug": "/michelson/language-basics",
@@ -17,14 +17,5 @@
     "id": "language-basics",
     "title": "Language Basics",
     "authors": "Frank Hillard"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Introduction",
-    "permalink": "/michelson"
-  },
-  "next": {
-    "title": "Smart Contracts",
-    "permalink": "/michelson/smart-contracts"
   }
 }

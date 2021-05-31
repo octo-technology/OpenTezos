@@ -20,8 +20,8 @@
   },
   "sidebar": "docs",
   "previous": {
-    "title": "References",
-    "permalink": "/formal-verification/references"
+    "title": "Formal verification on smart contracts",
+    "permalink": "/formal-verification/modeling-theorem"
   },
   "next": {
     "title": "Introduction",

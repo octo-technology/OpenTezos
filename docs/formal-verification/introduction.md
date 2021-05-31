@@ -6,16 +6,19 @@ authors: Frank Hillard
 ---
 
 
-The Tezos blockchain brings several improvements including the **formal verification of smart contract**.This section describes the overview of how Tezos smart contract can be formally verified. 
+The Tezos blockchain has several advantages over its concurrents. One of them is the **formal verification of smart contract**. This module shows a brief overview of how Tezos smart contracts can be formally verified. 
 
-We will briefly introduce some basic concepts of the Type theory such as GADT which sustains inductive types on the Calculus of Inductive Construction (CiC). The proof assistant _Coq_ which is based on the CiC is used for proving theorems. 
+//TODO: Add one phase here about what is formal verification, and what is its purpose. The goal to to quickly inform the reader if he should continue reading or is not interested to go further.
 
-We will briefly introduce the Mi-Cho-Coq library (used by _Coq_) which allows formalizing a smart contract as a theorem. 
+We will first introduce some basic concepts of the _Type theory_ such as _GADT_ which allows inductive types on the _Calculus of Inductive Construction_ (CiC). The proof assistant _Coq_, which is based on the CiC, is then used for proving theorems. 
 
-We will see how Coq and Mi-Cho-Coq are used to model the smart contract as a logical object (theorem). This theorem is formalized in Gallina (Term) language which follows the CiC principles. The script for proving the theorem is written in Gallina (Vernacular) which provides _tactics_ and will be executed by the inference engine (Coq).
+We will also introduce the _Mi-Cho-Coq_ library (used by _Coq_) to formalize a smart contract as a theorem. 
 
-The modeling of the theorem will be illustrated with a simple example (_Vote_ smart contract).
+Finally, we will see how to use _Coq_ and _Mi-Cho-Coq_ to model the smart contract as a logical object (theorem). This theorem is formalized in _Gallina_ (Term) language, which follows the CiC principles. The script for proving the theorem is written in _Gallina_ (Vernacular), which provides _tactics_ and will be executed by the inference engine (Coq).
 
+The modeling of the theorem will be illustrated with a simple example: a _Vote_ smart contract.
+
+//TODO: Small introductive schema/figure that recaps all that text above
 
 
 

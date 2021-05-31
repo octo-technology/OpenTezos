@@ -84,8 +84,8 @@ Like centralized exchanges, liquidity providers (LP) play an essential role by p
 
 This is why liquidity pools are also known as _Automated Market Maker_ (AMM) because the price is automatically set based on the number of tokens currently available in the pool (and not by some arbitrary order book that represents potential order and not actual liquidity).
 
-![](../../static/img/defi/pricing.svg)
-<small className="figure">FIGURE 3: Marginal price of tokens in a liquidity pool</small>
+![](../../static/img/defi/pool-size.svg)
+<small className="figure">FIGURE 3: Marginal price vs. effective swap price of two pools of different sizes.</small>
 
 From now on, let's consider only pools with enough liquidities so that the effective swap price is almost the same as the marginal price, and only refer to it as _the price_.
 

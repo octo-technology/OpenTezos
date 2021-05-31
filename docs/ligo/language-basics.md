@@ -9,16 +9,16 @@ In this chapter, all the following examples will use the PascaLigo syntax.
 # Types
 
 LIGO is a strongly and statically typed language. This means that the compiler can checks how your contract processes data, 
-ensuring that each function's expectations are met. 
+to ensure that each function's expectations are met. 
 If it passes the test, your contract will not fail during run-time due to some inconsistent assumptions in your data. 
 This is called type checking.
 
-LIGO types are built on top of the Michelson's type system.
+LIGO types are built on top of Michelson's type system.
 
 ## Built-in types
 
-LIGO comes with some basic types built-in like _string_, _int_ or _tez_ (for account balance or monetary transactions). 
-You can find all the built-in types on the [LIGO gitlab](https://gitlab.com/ligolang/ligo/-/tree/dev#L35).
+LIGO comes with some basic built-in types like _string_, _int_ or _tez_ (for account balance or monetary transactions). 
+You can find all of the built-in types on the [LIGO gitlab](https://gitlab.com/ligolang/ligo/-/tree/dev#L35).
 
 ## Type aliases
 
@@ -40,7 +40,7 @@ LIGO offers a simple way to compose simple types into structured types.
 The first of those structured types is the record, 
 which aggregates types as fields and indexes them with a field name. 
 In the example below, you can see the definition of data types 
-for a ledger that keeps the balance and the number of previous transactions for a given account.
+for a ledger that keeps the balance and the number of the previous transactions of a given account.
 
 ```js
 type account is record [
@@ -61,8 +61,8 @@ We will look more deeply into the `record` construct in the following chapters.
 ## Constants
 
 Constants are immutable by design, which means their values cannot be reassigned. 
-Put in another way, they can be assigned once, at their declaration. 
-When defining a constant you need to provide a name, type and a value:
+Put in another way, they can only be assigned once, at their declaration. 
+When defining a constant you need to provide a name, a type and a value:
 
 ```js
 const age : int = 25
@@ -89,12 +89,12 @@ LIGO offers four built-in numerical types:
 - `nat` are natural numbers (integral numbers greater than or equal to zero). 
   They are followed by the suffix **n** such as `3n`, `12n` and `0n` for the natural zero.
 - `tez` are units of measure of Tezos tokens. They can be decimals and are followed by **tez** or **tz** such as `3tz` or `12.4tez`. 
-  You can also type units of millionths of tez, using the suffix **mutez** after a natural literal, such as `1000mutez` or `0mutez`.
-- `bytes` are sequence of bytes, such as `0x12e4`.
+  You can also type units in millionths of tez, using the suffix **mutez** after a natural literal, such as `1000mutez` or `0mutez`.
+- `bytes` are sequences of bytes, such as `0x12e4`.
 
-⚠️ Note that there are no floating point types in LIGO because they are not deterministic in hardware modules.
+⚠️ Note that there are no floating-point types in LIGO because they are not deterministic in hardware modules.
 
-> Pro tip: you can use underscores for readability when defining large
+> Pro tip: you can use underscores for better readability when defining large
 > numbers:
 >```js
 >const sum : tez = 100_000mutez
@@ -102,7 +102,7 @@ LIGO offers four built-in numerical types:
 
 ## Addition
 
-Addition in LIGO is accomplished by means of the `+` infix
+Additions in LIGO are accomplished by means of the `+` infix
 operator. Some type constraints apply, for example, you cannot add a
 value of type `tez` to a value of type `nat`.
 
@@ -130,7 +130,7 @@ const g : int = 1_000_000
 
 ## Subtraction
 
-Subtraction looks as follows.
+Subtractions look as follows.
 
 ⚠️ Even when subtracting two `nat` values, the result is an `int` value.
 
@@ -160,9 +160,9 @@ const c : tez = 5n * 5mutez
 
 ## Division
 
-In LIGO you can divide `int`, `nat`, and `tez`. Here is how:
+In LIGO you can divide `int`, `nat`, and `tez`. Here's how:
 
-⚠️ Remember that there are no floating point numbers in LIGO so the `/` operator stands for integer division.
+⚠️ Remember that there are no floating-point numbers in LIGO so the `/` operator stands for integer division.
 
 Therefore, the division of two `tez` values results in a `nat` value.
 
@@ -305,7 +305,7 @@ function add (const a : int; const b : int) : int is
 
 ## Blockless functions
 
-Functions that can contain all of their logic into a single expression can be defined without the need for a block. 
+Functions that can contain all of their own logic into a single expression can be defined without the need for a block. 
 The add function above can be re-written as a blockless function:
 
 ```js
@@ -315,7 +315,7 @@ function add (const a: int; const b : int) : int is a + b
 ## Anonymous functions (a.k.a. lambdas)
 
 It is possible to define functions without assigning them a name. 
-They are useful when you want to pass them as arguments, 
+This is useful when you want to pass them as arguments, 
 or assign them to a key in a record or a map.
 
 ```js
@@ -326,7 +326,7 @@ const a : int = increment (1); // a = 2
 
 If the example above seems contrived, here is a more common design pattern for lambdas: 
 to be used as parameters to functions. 
-Consider the use case of having a list of integers and mapping the increment function to all its elements.
+Consider this use case of having a list of integers and mapping the increment function to all its elements.
 
 ```js
 function incr_map (const l : list (int)) : list (int) is
@@ -344,7 +344,7 @@ At the moment,
 recursive functions are limited to one (possibly tupled) parameter 
 and recursion is limited to tail recursion (i.e the recursive call should be the last expression of the function)
 
-In PascaLigo recursive functions are defined using the `recursive` keyword.
+In PascaLigo recursive functions are defined by using the `recursive` keyword.
 
 ```js
 recursive function sum (const n : int; const acc: int) : int is
@@ -413,11 +413,11 @@ const b : tez  = 10mutez
 const c : bool = (a = b) // False
 ```
 
-> 💡 Comparing `tez` values is especially useful when dealing with an amount sent in a transaction.
+> 💡 Comparing the value of `tez` is especially useful when dealing with an amount sent, in a transaction.
 
 ## Conditionals
 
-Conditional logic enables forking the control the flow depending on the state.
+Conditional logic enables you to fork the control of the flow depending on the state.
 
 ```js
 function isSmall (const n : nat) : bool is
@@ -438,7 +438,7 @@ else skip;
 # Tuples, lists, sets
 
 ## Tuples
-Tuples gather a given number of values in a specific order and those values,
+Tuples gather a given number of values in a specific order. Then, those values,
 called components,
 can be retrieved by their index (position).
 Probably the most common tuple is the pair `(x,y)`.
@@ -471,7 +471,7 @@ const captain_last_name : string = captain_full_name.1
 
 ### Update Components
 
-You can modify a component of a tuple by assigning values as if it were a variable:
+You can modify a component of a tuple by assigning values as if they were a variable:
 
 ```js
 captain_full_name.1 := "Carter"
@@ -480,7 +480,7 @@ captain_full_name.1 := "Carter"
 ## Lists
 
 Lists are **linear collections of elements of the same type**.
-Linear means that, in order to reach an element in a list,
+Linear means that to reach an element in a list,
 we must visit all the elements before (sequential access).
 Elements can be repeated, as only their order in the collection matters.
 The first element is called the head,
@@ -526,8 +526,8 @@ Sets are **unordered collections of values of the same type**,
 unlike lists, which are ordered collections.
 Like the mathematical sets and lists,
 sets can be empty and, if not,
-elements of the sets in LIGO are unique,
-whereas they can be repeated in a list.
+then the elements of the sets in LIGO are unique,
+but they can be repeated in a list.
 
 ### Defining Sets
 
@@ -544,7 +544,7 @@ You can test membership with the `contains` operator:
 const contains_3 : bool = my_set contains 3
 ```
 
-You can get the size of a set using the Set.size operator:
+You can get the size of a set by using the Set.size operator:
 
 ```js
 const cardinal : nat = Set.size (my_set)
@@ -561,8 +561,8 @@ const smaller_set : set (int) = Set.remove (3, my_set)
 
 ## Records
 
-Records are a one-way data of different types that can be packed into a single type.
-A record is made of a set of fields, which are made of a field name and a field type.
+Records are one-way data of different types that can be packed into a single type.
+A record is made of a set of fields, which are, in turn, made of a field name and a field type.
 
 ### Defining records
 
@@ -621,7 +621,7 @@ function change_name (const u : user) : user is
 
 ## Maps
 
-Maps are a data structure which associates a value to a key, thus creating a key-value binding. All keys have the same type and all values have the same type.
+Maps are data structures that associate a value to a key, thus creating a key-value binding. All keys have the same type and all values have the same type.
 An additional requirement is that the type of the keys must be comparable.
 
 ### Defining a Map
@@ -655,7 +655,7 @@ user_balances ["tim"] := 2n
 user_balances ["New User"] := 24n
 ```
 
-A key-value can be removed from the mapping as follows:
+A key value can be removed from the mapping as follows:
 
 ```js
 remove "tim" from map user_balances
@@ -663,9 +663,9 @@ remove "tim" from map user_balances
 
 > Maps load their entries into the environment,
 > which is fine for small maps,
-> but for maps holding millions of entries,
-> the cost of loading such map would be too expensive.
-> For this we use `big_maps`. Their syntax is the same as those of regular maps.
+> but for larger maps holding millions of entries,
+> the cost would be too expensive.
+> For such cases we use `big_maps`. Their syntax is the same as those of regular maps.
 
 # Loops
 
@@ -703,17 +703,17 @@ function gcd (var x : nat; var y : nat) : nat is
 ⚠️ If the 'while' condition is never met, the block will repeatedly be evaluated until the contract runs out of gas or fails.
 
 > ℹ️ About gas: The smart contracts interpreter uses the concept of gas. 
-> Each low-level instruction evaluation burns an amount of gas 
+> Each evaluation of low-level instruction burns an amount of gas 
 > which is crafted to be proportional to the actual execution time 
 > and if an execution exceeds its allowed gas consumption, 
 > it is stopped immediately and the effects of the execution are rolled back. 
 > The transaction is still included in the block and the fees are taken, 
 > to prevent the nodes from being spammed with failing transactions. 
 > In Tezos, the economic protocol sets the gas limit per block and for each transaction, 
-> and the emitter of the transaction also set an upper bound to the gas consumption for its transaction. 
+> and the emitter of the transaction also set an upper limit to the gas consumption for its transaction. 
 > The economic protocol does not require the transaction fee to be proportional to the gas upper bound, 
 > however the default strategy of the baking software (that forges blocks) 
-> provided with Tezos current implementation does require it.
+> de facto does require it.
 
 ## For Loops
 
@@ -736,7 +736,7 @@ for i := 1 to 10 block {
 
 ## Iterations
 
-For-loops can also iterate through the contents of a collection, that is, a list, a set or a map. 
+For-loops can also iterate through the contents of a collection, that is, it can iterate with a list, a set or a map. 
 This is done with:
 
 ```js
@@ -756,7 +756,7 @@ function sum_list (var l : list (int)) : int is block {
 } with total
 ```
 
-Sets and maps follow the same logics:
+Sets and maps follow the same logic:
 
 - maps with `for key -> value in map m`
 - sets with `for i in set s`
@@ -766,7 +766,7 @@ Sets and maps follow the same logics:
 ## Unit Type
 
 The `unit` type in Michelson or LIGO is a predefined type 
-that contains only one value, that carries no information. 
+that contains only one value that carries no information. 
 It is used when no relevant information is required or produced. 
 Here is how it used.
 
@@ -779,8 +779,8 @@ const n : unit = Unit
 ## Variant type
 
 A variant type is a user-defined or a built-in type (in case of options) that defines a type by cases, 
-so the value of a variant type is either this, or that or... 
-The simplest variant type is equivalent to the enumerated types found in Java, C++, JavaScript etc.
+so the value of a variant type is either this, or that, or... 
+The simplest variant type is equivalent to the enumerated types, found in Java, C++, JavaScript etc.
 
 Here is how we define a bit as being either 1 or 0 (and nothing else):
 
@@ -793,8 +793,8 @@ const open_switch : coin = Zero
 ## Pattern Matching
 
 Pattern matching is similar to the switch construct in Javascript, 
-and can be used to route the program's controled flow based on the value of a variant. 
-Consider for example the definition of a power switch that turns on/off a light.
+and can be used to route the program's controlled flow based on the value of a variant. 
+Consider for example the definition of a power switch that turns a light on/off.
 
 ```js
 type bit is One | Zero
@@ -811,7 +811,7 @@ function power_switch (const b : bit) : bit is
 The `option` type is a predefined variant type that is used to express whether 
 there is a value of some type or none. 
 This is especially useful when calling a partial function, 
-that is, a function that is not defined for some inputs. 
+that is, a function that is not defined for some (specific) inputs. 
 In that case, the value of the option type would be `None`, 
 otherwise `Some (v)`, where `v` is some meaningful value of any type.
 
@@ -820,10 +820,10 @@ function div (const a : nat; const b : nat) : option (nat) is
   if b = 0n then (None: option (nat)) else Some (a/b)
 ```
 
-The keyword `Some` can be used in a pattern matching to retrieve the value behind the option variable.  
-The keyword `None` can be used in a pattern matching to verify the option variable has no value.
+The keyword `Some` can be used in pattern matching to retrieve the value behind the option variable.  
+The keyword `None` can be used in pattern matching to verify that the option variable has no value.
 
-Here is an example of pattern matching resolving an option type directly 
+Here is an example of a pattern matching resolving an option type directly 
 (useful when we just want to retrieve the value behind the optional) :
 
 ```js
@@ -841,7 +841,7 @@ end
 
 ## Timestamps
 
-Timestamps are responsible for providing the current given timestamp for a contract.
+Timestamps are responsible for providing the current, given, timestamp for a contract.
 
 ```js
 const today : timestamp = Tezos.now
@@ -868,7 +868,7 @@ const my_account : address = ("tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx" : address)
 Smart contracts are small programs that are stored and executed on the blockchain. 
 They allow people to cooperate and exchange tokens without requiring them to trust one another.
 
-A LIGO contract is made of a series of constant and function declarations. 
+A LIGO contract is made of a series of constant and function, declarations. 
 Only functions with a special type can be called when the contract is activated: 
 we call them **main functions**. A main function takes two parameters, 
 the **contract parameter** and the **on-chain storage**, 
@@ -881,7 +881,7 @@ and returns a pair made of a **list of operations** and a **(new) storage**.
 
 <br/>
 
-The type of the contract parameter and the storage are up to the contract designer, 
+The type of the contract parameter and the storage is up to the contract designer, 
 but the type for list operations is not.
 
 The return type of a main function is as follows, 
@@ -892,12 +892,12 @@ type storage is ...  // Any name, any type
 type return is list (operation) * storage
 ```
 
-The contract storage can only be modified by activating a main function: 
-given the state of the storage on-chain, 
+The contract storage can only be modified by activating the main function: 
+if given the state of the storage on-chain, 
 a main function specifies how to create another state for it, 
 depending on the contract's parameter.
 
-Here is an example where the storage is a single natural number that is updated by the parameter.
+Here is an example where the storage is a single natural number, updated by the parameter.
 
 ```js
 type parameter is nat
@@ -912,16 +912,16 @@ function save (const action : parameter; const store : storage) : return is
 
 In LIGO, the design pattern has one main function called `main`, 
 that dispatches the control flow according to its parameter. 
-Those functions used for those actions are called entrypoints.
+The functions used for those actions are called entrypoints.
 
 As an analogy, in the C programming language, 
-the `main` function is the unique main function and any function called from it would be an entrypoint.
+the `main` function is the unique main function and any of the functions called from it would be an entrypoint.
 
 The parameter of the contract is then a variant type, 
 and, depending on the constructors of that type, 
 different functions in the contract are called. 
 In other terms, the unique main function dispatches the control flow 
-depending on a pattern matching on the contract parameter.
+according to the pattern matching on the contract parameter.
 
 In the following example, 
 the storage contains a counter of type `nat` and a name of type `string`. 
@@ -956,17 +956,17 @@ function main (const action : parameter; const store : storage): return is
 
 ## A few Built-ins
 
-A LIGO smart contract can query part of the state of the Tezos blockchain by means of built-in values.
+A LIGO smart contract can query parts of the state of the Tezos blockchain through the built-in values.
 
-- `Tezos.balance`: Get the balance for the contract.
-- `Tezos.amount`: Get the amount of tez provided by the sender to complete this transaction.
-- `Tezos.sender`: Get the address that initiated the current transaction.
-- `Tezos.self_address`: Get the address of the currently running contract.
-- `Tezos.source`: Get the originator (address) of the current transaction. 
-  That is, if a chain of transactions led to the current execution get the address that began the chain. 
+- `Tezos.balance`: Gets the balance for the contract.
+- `Tezos.amount`: Gets the amount of tez provided by the sender to complete this transaction.
+- `Tezos.sender`: Gets the address that initiated the current transaction.
+- `Tezos.self_address`: Gets the address of the currently running contract.
+- `Tezos.source`: Gets the originator (address) of the current transaction. 
+  That is, if a chain of transactions led to the current execution, it gets the address that began the chain. 
   Not to be confused with Tezos.sender, 
   which gives the address of the contract or user which directly caused the current transaction.
-- `Tezos.chain_id`: Get the identifier of the chain to distinguish between main and test chains.
+- `Tezos.chain_id`: Gets the identifier of the chain, to be able to distinguish between main and test chains.
 
 ## Failwith
 
@@ -1091,6 +1091,9 @@ block { skip } with case a of
 end
 ```
 
+
+
+##TODO//Conclusion
 
 
 

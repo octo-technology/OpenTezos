@@ -1,18 +1,18 @@
 ---
 id: governance-on-chain
 title: Governance on-chain
-authors: Thomas Zoughebi, Aymeric Bethencourt and Maxime Fernandez
+authors: Thomas Zoughebi, Aymeric Bethencourt, and Maxime Fernandez
 ---
 
-Tezos is a self-amending blockchain network that incorporates an on-chain mechanism for proposing, selecting, testing, and activating protocol upgrades without having to hard fork. [[1]](/tezos-basics/governance-on-chain#references)
+Tezos is a self-amending blockchain network that incorporates an on-chain mechanism for proposing, selecting, testing, and activating protocol upgrades *without hard forks* [[1]](/tezos-basics/governance-on-chain#references).
 
 ## What is self-amendment?
-Tezos is a blockchain that can improve itself over time by using a formalized process to upgrade its protocol. In practice, it is similar to the structure of a corporation, where shareholders get to vote on the future direction of the company.
+Tezos is a blockchain that can improve itself over time by using a formalized process to upgrade its protocol. In practice, it is similar to the structure of a corporation, where shareholders get to vote on the future direction.
 
-Many other blockchains do not have this type of formal governance structure. Consequently, the direction of these projects is either decided by a small group and imposed to the whole ecosystem, or the process results in many _hard forks_ of the blockchain with participants that did not agree with the decisions. Consequently, two or more chains can co-exists and split the community. Self-amendement aims to avoid this scenario, and Tezos has had no hard fork so far.
+Many other blockchains do not have this type of formal governance structure. Consequently, the direction of these projects is often decided by a small group and imposed on the whole ecosystem. If not, the process results in many _hard forks_ by participants that did not agree with the decisions. Thus, two or more chains can co-exist and split the community. Self-amendment aims to avoid this scenario, and Tezos *has had no hard fork so far*.
 
 ![](../../static/img/tezos-basics/tezos-hard-forks.svg)
-<small className="figure">FIGURE 1: Bitcoin hard-forks Vs Tezos hard-forks</small>
+<small className="figure">FIGURE 1: Bitcoin hard-forks vs. Tezos hard-forks</small>
 
 ## Definitions of main concepts 
 
@@ -22,158 +22,218 @@ Many other blockchains do not have this type of formal governance structure. Con
 
 * **Delegation**: All holders of the XTZ crypto-currency can delegate their baking and voting rights to a baker called a _delegate_, while still maintaining control of their funds.
 
-* **Roll**: An amount of XTZ which is used as the unit of measure for baking and voting rights. Weight in the baking and voting process are indexed to an integral number of rolls. At present, one roll is equal to 8,000 XTZ.
+* **Roll**: An amount of XTZ which is used as the unit of measure for baking and voting rights. Weight in the baking and voting process is indexed to an integral number of rolls. At present, one roll is equal to 8,000 XTZ.
 
-* **Cycle**: The time required for 4,096 blocks to be created on Tezos, usually this is 2 days, 20 hours and 16 minutes (or 1 minute per block, if all bakers cooperate effectively).
+* **Cycle**: The time required for 4,096 blocks' creation on Tezos (around 2 days, 20 hours, and 16 minutes (1 minute per block, if all bakers cooperate effectively)).
 
-* **Proposal**: A request for an addition, adjustment or removal of a feature of the protocol.
+* **Proposal**: A request for addition, adjustment, or removal of a protocol's feature.
 
 ## How does it work?
-The self-amendment process is split into 5 periods: the _Proposal Period_, the _Exploration Vote Period_, the _Testing Period_, the _Promotion Vote Period_ and the _Adoption period_. Each of these five periods lasts five baking cycles (i.e. 20 480 blocks or roughly 14 days), taking almost two months from the proposal to activation. The latest and current self-amendments are available at [tezosagora.org](https://www.tezosagora.org)
+Five (5) periods split the self-amendment process:
 
-Should there be any failure in a given period, the whole process reverts back to the _Proposal Period_, effectively aborting and restarting the process.
+1. _Proposal Period_
+2. _Exploration Vote Period_
+3. _Testing Period_
+4. _Promotion Vote Period_
+5. _Adoption Period_
 
-## Super-majority, Voter Turnout and Quorum
-The _Exploration Vote Period_ and _Promotion Vote Period_ work the same way. During a vote, each delegate has to use a single ballot: `Yea` (For), `Nay` (Against) or `Pass` (Neutral). A vote is successful if there is a _Super-majority_ and if the participation has reaches the current quorum [[2]](/tezos-basics/governance-on-chain#references).
+Each of these five periods lasts five baking cycles (i.e. 20,480 blocks or roughly 14 days), taking almost two months from the proposal to activation. The latest and current self-amendments are available at [tezosagora.org](https://www.tezosagora.org).
 
-### Super-majority
-In Tezos, having the _Super-majority_ means that _Yea_ represents more than 80% of the total of _Yeas_ + _Nays_ votes. 
+Should there be any failure in a given period, the whole process reverts to the _Proposal Period_ (1.), effectively aborting and restarting the process.
 
-Example: With 90 votes = 75 _Yeas_ + 10 _Nays_ + 5 _Pass_, the total of _Yeas_ + _Nays_ is 85. 
+## Positive Voter Turnout & Super-majority; Voter Turnout & Quorum
+The _Exploration Vote Period_ (2.) and _Promotion Vote Period_ (4.) work the same way. During a *vote*, each delegate has to use a single ballot: `Yea` (For), `Nay` (Against), or `Pass` (Neutral). A vote is successful if there is a _Super-majority_ and if the participation has reaches the current quorum [[2]](/tezos-basics/governance-on-chain#references).
 
-The number of _Yeas_ required for the validation is 85 * 80% = 68 votes.
+### Positive Voter Turnout (PVT)
+The _Positive Voter Turnout_ represents the percentage of bakers that have voted "Yay" compared to the total number of "Yays" and "Nays".
 
-The number of _Yeas_ is then high enough to validate the vote (68 < 75 _Yeas_).
+Example with 90 votes: 75 _Yeas_; 10 _Nays_; and 5 _Pass_.
 
-### Voter Turnout
-_Voter Turnout_ represents the percentage of bakers that have voted compared to the total number of bakers with active rolls.
+The _Positive Voter Turnout_ is roughly 88%: $\frac{75}{85}\approx$ 88%.
 
-Example: With 90 votes = 75 _Yeas_ + 10 _Nays_ + 5 _Pass_ out of 100 active rolls, the _Voter Turnout_ is 90 / 100 = 90%. 
+### Super-majority (80%)
+In Tezos, having the _Super-majority_ means that "_Yea_" votes represent more than 80% of the total of "_Yeas_" and "_Nays_" votes (*Yeas* $\geq$ 80% $\times$ (*Yeas* + *Nays*)). In other words: $\text{PVT}\geq80\%$
 
-### Quorum
-A _Quorum_ is the minimum number of voters required to deliberate. When the Tezos Mainnet was launched, the Quorum was set at 80% and updated at the end of each vote which was successfully approved, based on the _Voter Turnout_.
+Example with 90 votes: **75** _Yeas_; 10 _Nays_; and 5 _Pass_. The total of _Yeas_ and _Nays_ is **85**.
 
-The _Carthage_ amendment introduced two major changes to the calculation of the _Quorum_:
+The number of _Yeas_ required for the validation is greater than **68**: 85 $\times$ 80% $=$ 68.
 
-* The calculation now takes into account the exponential moving average (EMA) of the _Voter Turnout_. At time _t_, the EMA is represented as `EMA(t)`.
+The number of _Yeas_ is then high enough to validate the vote: **75** $\geq$ **68**.
+
+### Voter Turnout (VT)
+The _Voter Turnout_ represents the percentage of bakers that have voted compared to the total number of bakers with active rolls.
+
+Example with 90 votes out of 100 active rolls: 75 _Yeas_; 10 _Nays_; and 5 _Pass_.
+
+The _Voter Turnout_ is 90%: $\frac{90}{100}=$ 90%.
+
+### Quorum (Q)
+The _Quorum_ is the minimum number of voters required to deliberate. At Tezos mainnet launch, the required Quorum was 80%. At the end of each successfully approved vote, the protocol performed a Quorum update. This update was based on the Voter Turnout.
+
+The _Carthage_ amendment introduced two major changes to the calculation of the Quorum:
+
+* The calculation now takes into account the **E**xponential **M**oving **A**verage (EMA) of the _Voter Turnout_. With "$t$" a period, EMA is a function of "$t$".
   
-* The Quorum is now bounded between 30% and 70%. The following formula is used to calculate the Quorum:
+* The Quorum is now bounded between 30% and 70%. To calculate the Quorum we use the following formula:
 
-```
-Quorum = 0.3 + EMA(t) * (0.7 - 0.3)
-```
+$$
+  \text{Q} = (70\%-30\%)\times\text{EMA}(t)+30\%
+$$
 
-The following formula is then used to update the moving average for the next vote:
+$$
+  \iff
+$$
 
-```
-EMA(t+1)= 0.8 * EMA(t) + 0.2 * Voter Turnout
-```
+$$
+  \text{Q}=0.4\times\text{EMA}(t)+0.3
+$$
+
+With the **V**oter **T**urnout denoted "VT", the following formula is then used to update the EMA for the next vote:
+
+$$
+  \text{EMA}(t+1)=0.8\times\text{EMA}(t)+0.2\times\text{VT}
+$$
 
 Note that delegates' votes are weighted proportionally to the number of rolls in their staking balance.
 
-## Phase 1: Proposal period
-The Tezos amendment process begins with the _Proposal Period_, during which delegates can submit proposals on-chain. The delegates submit the proposal by submitting the hash of the source code.
+**To summarize, a proposal submission proceeds to a next phase on two conditions:**
+- $\text{PVT}\geq80\%$
+- $\text{VT}\geq\text{Q}$
 
-In each _Proposal Period_, delegates can submit up to 20 proposals. A proposal submission also counts as a vote, which is equivalent to the number of rolls in his staking balance when the period starts. Other delegates can then vote on the proposal up to 20 times during the _Proposal Period_. 
+## Phase 1: Proposal Period
+The Tezos amendment process begins with the _Proposal Period_, during which delegates can submit proposals on-chain. The delegates submit a proposal by submitting the hash of the source code.
 
-During this period a minimum of 5% of the bakers must vote for it to be validated to the next stage. 
+In each _Proposal Period_, delegates can submit up to 20 proposals. **A proposal submission also counts as a weighted vote** (proportionally to the number of rolls in their staking balance at this moment). Other delegates can then vote on the submission up to 20 times.
 
-At the end of the _Proposal Period_, the network counts proposal votes and the most-upvoted proposal proceeds to the Exploration Vote Period. If no proposal has been submitted, if there is a tie between proposals or if less than 5% have voted, a new _Proposal Period_ begins.
+A submission must receive **a minimum of 5% of approval** to access the next stage (2. _Exploration Vote Period_).
 
-## Phase 2: Exploration vote period
+At the end of the _Proposal Period_, the network counts proposal votes, and the most-upvoted submission proceeds to the _Exploration Vote Period_ (2.). If there is no proposal, a tie, or less than 5% votes, then a new _Proposal Period_ (1.) begins.
 
-In the _Exploration Vote Period_, delegates may vote for the top-ranked proposal from the previous _Proposal Period_. Delegates get to vote either _Yea_, _Nay_ or _Pass_ on a specific proposal. Voting rules are explained in the _Super-majority_ and _Quorum_ section. If the voting participation fails to achieve the _Quorum_ or the 80% _Super-Majority_, the amendment process restarts from the beginning of the _Proposal Period_.
+## Phase 2: Exploration Vote Period
 
-## Phase 3: Testing period
-If the proposal is approved in the _Exploration Vote Period_, the _Testing Period_ begins with a testnet fork that runs in parallel with the main network for 48 hours. These forks have access to the standard library but are sandboxed. 
+In the _Exploration Vote Period_, delegates may vote for the top-ranked proposal from the previous _Proposal Period_. Delegates get to vote either _Yea_, _Nay_ or _Pass_ on a specific submission (voting rules are explained in the previous "_Super-majority_" and "_Quorum_" sections). If the voting participation fails to achieve the _Quorum_ or the 80% _Super-Majority_, the amendment process restarts from the beginning of the _Proposal Period_ (1.).
 
-The purpose of this fork is simply to verify that the migration from the old protocol to the new one work's correctly. This 48-hour parallel fork has been set conservatively to reduce the risk of the network perceiving the testnet-fork as the main chain. However, 48 hours of testing is too short to determine whether a proposal is a worthwhile and safe amendment, or not. To find any security vulnerabilities, a testnet matching the amendment proposal is likely to run off-chain during the remaining ~7.3 cycles of the _Testing Period_, allowing stakeholders to evaluate and discuss the amendment as they gain better knowledge of its properties.
+## Phase 3: Testing Period
+If a proposal is approved in the _Exploration Vote Period_ (2.), the _Testing Period_ begins with a **testnet** fork that runs in parallel with the mainnet for 48 hours. These forks have **access rights to the standard library** but in a *sandbox*.
 
-## Phase 4: Promotion vote period
-At the end of the _Testing Period_, the _Promotion Vote Period_ begins. In this period, the network decides whether to adopt the amendment based on off-chain discussions and its behaviour during the _Testing Period_. The voting rules are identical to the exploration voting period and are explained in the _Super-Majority_ and _Quorum_ section.
+The purpose is to verify that the migration from the old protocol to the new one works correctly. This 48-hour duration has been conservatively set to reduce the risk of the network perceiving the testnet fork as the main chain. However, 48 hours of testing is too short to determine whether a proposal is a worthwhile and safe amendment or not. A testnet matching the amendment proposal is likely to run off-chain during the remaining ~7.3 cycles of the _Testing Period_ to find security vulnerabilities. These extra cycles allow stakeholders to evaluate and discuss the amendment, gaining better knowledge of its properties.
 
-At the end of the _Promotion Vote Period_, the network counts the number of votes. If the participation rate reaches the minimum quorum and an 80% _Super-Majority_ of non-passing delegates vote _Yea_ then proceeds to the Adoption period. If not, the process reverts back to the _Proposal Period_. The minimum vote participation rate is set based on past participation rates.
+## Phase 4: Promotion Vote Period
+At the end of the _Testing Period_ (3.), the _Promotion Vote Period_ (4.) begins. The network decides whether to adopt the amendment based on previous off-chain discussions and its behavior (in 3.). The voting rules are identical to the _Exploration Voting Period_ (2.) (settlement in the "_Super-Majority_" and "_Quorum_" sections).
 
-In exchange for their work on the proposal, some delegates can put a symbolic self-reward into the protocol. If the protocol is accepted, they will receive the reward. 
+At the end of the _Promotion Vote Period_, the network counts the number of votes. If the participation rate reaches the minimum quorum and an 80% _Super-Majority_ of non-passing delegates vote _Yea_, then the amendment proceeds to the _Adoption period_ (5.). If not, then the process reverts to the _Proposal Period_ (1.). The minimum vote participation rate is based on past ones.
 
+In exchange for their work on the proposal, some delegates can put a symbolic self-reward into the new protocol. If the new protocol is accepted, they will receive the reward.
 
 ## Phase 5: Adoption period
+_Adoption period_ provides enough time to enable the ecosystem and update the dev tooling.
 
-_Adoption period_ is designed to provide enough time to enable the ecosystem and dev tooling to be updated.
+After this phase, the mainnet activation is complete.
 
-After this period the proposal is activated in the new mainnet.
+At the time of writing (March 2021), 43 periods have passed. There were 8 submitted proposals for 6 validations.
 
-As of (March 2021), 43 periods have passed. A total of 8 proposals have been made and 6 have been validated. 
-
-This diagram sums up the self-amendment process :
+## Amendment Process Diagram
+The diagram below sums up the self-amendment process:
 
 ![](../../static/img/tezos-basics/Governance_mechanism_uml.svg)
 <small className="figure">FIGURE 2: Self-amendment process</small>
 
-
 ## Voting examples
-
 Let's illustrate this process:
 
 ### Example 1
-Let us assume a total of 100 active rolls managed by bakers and a _Voter Turnout_ EMA of 75%, and then 90 votes (Yay, Nay and Pass) during the _Exploration Period_.
+Let us assume a total of 100 active rolls managed by bakers and a _Voter Turnout_ (VT)'s EMA at 75%. Let's consider 90 votes (Yay, Nay, and Pass) during the _Exploration Period_ (2.):
 
-```
-Yays : 75
-Nays : 10
-Pass : 5
-```
+- Yays: 75
+- Nays: 10
+- Pass: 5
+- EMA($t$) = 75% = 0.75
 
 In this case, we have:
-```
-Voter Turnout = (75 + 10 + 5) / 100 = 90%
 
-Quorum = 0.3 + 75% * (0.7 - 0.3) = 60%
-(Therefore 90% Voter Turnout > 60% Quorum, we can continue)
+$$
+  \text{VT}=\frac{(75+10+5)}{100}=90\%
+$$
 
-Positive Voter Turnout = 75 / ( 75 + 10 ) = 88%
-```
+and the Quorum "$\text{Q}$":
 
-As 88% _Positive Voter Turnout_ > 80% _Super-majority_, the amendement proposal can move to the next period.
+$$
+  \text{Q}=0.4\times0.75+0.3=0.6=60\%
+$$
 
-PS: Let's not forget to update the EMA for the next proposal:
+Therefore:
 
-```
-EMA(t+1) = 0.8 * 75% + 0.2 * 88% = 78%
-(considering EMA(t) = 75%)
-```
+$$
+  \text{VT}\geq\text{Q}
+$$
+
+Let's then calculate the *Positive Voter Turnout* (PVT):
+
+$$
+  \text{PVT}=\frac{75}{75+10}=\frac{75}{85}\approx88\%\text{ }(\geq80\%)
+$$
+
+So the PVT is greater than the *Super Majority*.
+
+Let's not forget to update the EMA:
+
+$$
+  \text{EMA}(t+1)= 0.8\times75\%+0.2\times90\%=78\%
+$$
 
 ### Example 2
-Let us assume a total of 100 active rolls managed by bakers and a _Voter Turnout_ EMA of 75%, and then 55 votes (Yay, Nay and Pass) during the _Exploration Period_.
-
-```
-Yays : 45
-Nays : 10
-Pass : 0
-```
+Let us assume a total of 100 active rolls managed by bakers and a VT's EMA at 75%. Let's consider 55 votes (Yay, Nay, and Pass) during the _Exploration Period_ (2.):
+- Yays: 45
+- Nays: 10
+- Pass: 0
+- EMA($t$) = 75% = 0.75
 
 In this case, we have:
-```
-Voter Turnout = (45 + 10 + 0) / 100 = 55%
+$$
+  \text{VT}=\frac{45+10+0}{100}=55\%
+$$
 
-Quorum = 0.3 + 75% * (0.7 - 0.3) = 60%
-(Therefore 55% Voter Turnout < 60% Quorum, proposal rejected)
+and:
 
-Positive Voter Turnout = 45 / ( 45 + 10 ) = 81%
-```
+$$
+  \text{Q}=0.4\times0.75\%+0.3=0.6=60\%
+$$
 
-Although the 81% _Positive Voter Turnout_ > 80% _Super-majority_, the amendement proposal is rejected as the Quorum has not been reached. We must therefore go back to the initial proposals stage.
+Therefore:
+$$
+  \text{VT}\lt\text{Q}
+$$
 
-PS: Let's not forget to update the EMA for the next proposal :
+**The proposal is rejected**.
 
-```
-EMA(t+1) = 0.8 * 75% + 0.2 * 55% = 71%
-(considering EMA(t) = 75%)
-```
+Even though, let's calculate the **PVT** to illustrate a subtlety:
+
+$$
+  \text{PVT}=\frac{45}{45+10}=\frac{45}{55}\approx81\%
+$$
+
+Although the PVT is greater than the _Super-majority_ (80%), the amendment proposal is rejected (the Quorum wasn't reached).
+
+We must therefore go back to the initial proposals stage without forgetting to update the EMA for the next submission:
+
+$$
+  \text{EMA}(t+1)=0.8\times\text{EMA}(t)+0.2\times\text{VT}
+$$
+
+So, in our example, the next EMA would be:
+
+$$
+  \text{EMA}(t+1)=0.8\times75\%+0.2\times55\%=71\%
+$$
 
 ## Operations
-### Proposal
-A proposal operation can only be submitted during a _Proposal Period_.
+Delegates can send two operations: "*Proposals*" and "*Ballot*".
+
+### The "*Proposals*" operation
+It is only possible to submit a proposal operation during the _Proposal Period_ (1.).
+
+Description:
+
 ```
 Proposals : {
   source: Signature.Public_key_hash.t ;
@@ -189,8 +249,11 @@ Proposals : {
 
 This operation [[3]](/tezos-basics/governance-on-chain#references) can be submitted more than once but only if the cumulative number of active proposals is less than 20. Each time a delegate duplicates a proposal, a vote is counted with the 20 vote maximum applying.
 
-### Ballot
-A ballot operation can only be submitted during the _Promotion Vote Period_ or the _Exploration Vote Period_, and only once per period.
+### The "*Ballot*" operation
+It is only possible to submit a proposal operation during the _Exploration Vote Period_ (2.) or the _Promotion Vote Period_ (4.), and only once per period.
+
+Description:
+
 ```
 Ballot : {
   source: Signature.Public_key_hash.t ;
@@ -205,14 +268,16 @@ Ballot : {
 
 `proposal` is the selected protocol hash.
 
-`ballot` is one of the possible ballot response: `Yea`, `Nay` or `Pass`
+`ballot` is one of the possible ballot response: `Yea`, `Nay`, or `Pass`
 
 
-## Send a proposal
-To send a proposal or a ballot, please refer to [CLI chapter](/tezos-basics/introduction_to_cli_and_rpc)
+## Sending a proposal operation
+To send a "proposals" or a "ballot" operation, please refer to the [CLI and RPC](/tezos-basics/cli-and-rpc) chapter.
 
-## Learn more
-To learn more about the amendement process on Tezos, please refer to the [official documentation](https://gitlab.com/tezos-paris-hub/tezos-on-chain-governance/-/blob/master/Documentations/Amendements_Tezos_en.pdf).
+## What have learned so far?
+In this chapter, we learned how Tezos allows on-chain decentralized governance without hard forks' troubles. To do this, Tezos splits amendments into five different periods that we defined and detailed.
+
+In the next "*History of Amendments*" chapter, we will go over a history of past proposals, both approved and refused, and look at why.
 
 ## References
 [1] https://medium.com/tezos/amending-tezos-b77949d97e1e

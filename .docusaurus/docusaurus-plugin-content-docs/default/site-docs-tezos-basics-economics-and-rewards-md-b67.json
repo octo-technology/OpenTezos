@@ -16,12 +16,12 @@
   "frontMatter": {
     "id": "economics-and-rewards",
     "title": "Economics and rewards",
-    "authors": "Thomas Zoughebi, Aymeric Bethencourt and Maxime Fernandez"
+    "authors": "Thomas Zoughebi, Aymeric Bethencourt, and Maxime Fernandez"
   },
   "sidebar": "docs",
   "previous": {
-    "title": "History of amendements",
-    "permalink": "/tezos-basics/history-of-amendements"
+    "title": "History of amendments",
+    "permalink": "/tezos-basics/history-of-amendments"
   },
   "next": {
     "title": "Exam",

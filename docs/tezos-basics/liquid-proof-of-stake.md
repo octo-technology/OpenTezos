@@ -12,17 +12,17 @@ In this chapter, we will go into more details about the Tezos' "**_Liquid Proof-
 
 Let's first review these latter.
 
-## Proof-of-Stake (PoS)
+## Proof-of-Stake (PoS) [[1]](/tezos-basics/liquid-proof-of-stake#references)[[2]](/tezos-basics/liquid-proof-of-stake#references)
 While PoW assures that each network participant has performed a certain amount of work to receive rewards, PoS requires participants to prove that they are willing to guarantee the integrity of the blockchain by sequestering a certain amount of coins.
 
-In _Proof-of-Stake_, validators replace miners. A validator gathers transactions and creates blocks. Several methods exist to select a validator, which we will review in the following paragraphs. In this consensus, they must invest their funds to have a chance to be a validator, which makes it "Sybil resilient". This mechanism represents a low energy cost alternative to _PoW_. Moreover, a 51% attack would not be profitable as a hacker bets his own money and risks losing it if detected [[6]](/tezos-basics/liquid-proof-of-stake#references). Therefore validators would not benefit from a decision against the general opinion of the network. In addition, holding 51% of the token would demand enormous amounts of liquidity, making this scenario very unlikely.
+In _Proof-of-Stake_, validators replace miners. A validator gathers transactions and creates blocks. Several methods exist to select a validator, which we will review in the following paragraphs. In this consensus, they must invest their funds to have a chance to be a validator, which makes it "Sybil resilient". This mechanism represents a low energy cost alternative to _PoW_. Moreover, a 51% attack would not be profitable as a hacker bets his own money and risks losing it if detected [[3]](/tezos-basics/liquid-proof-of-stake#references). Therefore validators would not benefit from a decision against the general opinion of the network. In addition, holding 51% of the token would demand enormous amounts of liquidity, making this scenario very unlikely.
 
 Removing PoW isn't without consequences. With the Nakamoto consensus, PoW allows chain selection, maintains regular blocks' issuance, regulates coins' creation, and selects the miner receiving rewards. PoW probably consumes too much energy. However, this energy connects to the physical world and supports the MAD property in return (miners' investments into machines and electricity). Hence, replacing PoW leads to previous fundamental questions about building a consensus to compensate the losses.
 
 ### BFT in DLT
 In the "Blockchain Basics" module, we talked about the *Byzantine Fault Tolerance* and how Bitcoin roughly supports 50% faulty nodes. Three fundamental elements of research let us lay the foundations for a new consensus.
 
-#### CAP Theorem [[999]](https://opentezos.com/tezos-basics/liquid-proof-of-stake#references)
+#### CAP Theorem [[4]](https://opentezos.com/tezos-basics/liquid-proof-of-stake#references)
 - **C**onsistency:  
   Every read receives the most recent write or an error
 - **A**vailability:  
@@ -32,10 +32,10 @@ In the "Blockchain Basics" module, we talked about the *Byzantine Fault Toleranc
 
 In cases of forks (partitions), you must **exclusively** choose between consistency **or** availability.
 
-#### FLP Impossibility [[999]](https://opentezos.com/tezos-basics/liquid-proof-of-stake#references)
+#### FLP Impossibility [[5]](https://opentezos.com/tezos-basics/liquid-proof-of-stake#references)
 The **F**isher, **L**ynch, and **P**atterson's Impossibility shows that, with no guaranteed bounds on network latency, it is impossible to reach consensus **even with a single faulty node**. This absence of limits for latency is characteristic of an **asynchronous setting**.
 
-#### FT's Bounds from DLS paper [[999]](https://opentezos.com/tezos-basics/liquid-proof-of-stake#references)
+#### FT's Bounds from DLS paper [[6]](https://opentezos.com/tezos-basics/liquid-proof-of-stake#references)
 The **D**work, **L**ynch, and **S**tockmeyer paper gives us three significant bounds on Fault Tolerance:
 - Consensuses running on a **partially synchronous** network can tolerate up to one third (1/3) faulty nodes
 - **Deterministic** consensuses running on an **asynchronous** network **cannot tolerate** faulty nodes (this becomes 1/3 with randomized algorithms)
@@ -49,14 +49,14 @@ Keeping in mind validators' selection and rewards' distributions, we can disting
 | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Pseudo-randomly** select a validator from a set **during a time slot**. The validator creates the next valid block. Example: Casper (with as much consistency as possible) | **Randomly** select validators who *propose* blocks. Then *voting* rounds elect the next block. There is a *chain* but blocks are *partially independent*. Validators have to be **honest and online**. Example: Tendermint |
 
-At this point, we already need to prevent *cartels* forming. For comparison with PoW, it is like to impede attacks like "*Selfish Mining*"[[999]](https://opentezos.com/tezos-basics/liquid-proof-of-stake#references). There are other problems and various solutions.
+At this point, we already need to prevent *cartels* forming. For comparison with PoW, it is like to impede attacks like "*Selfish Mining*"[[7]](https://opentezos.com/tezos-basics/liquid-proof-of-stake#references). There are other problems and various solutions.
 
 ### Main weaknesses of PoS
 #### "Rich get richer"
 If rewards chances are proportional to previous holdings, wealth naturally concentrates on the biggest ones. In turn, these holdings grow even bigger with time. A capped supply is an important point here. If it isn't, then creating new tokens allows only to keep almost the same share percentage. It is problematic in two ways: The concentration of power (always the identical validators) and the decreasing incentive. However, all users wouldn't be staking validators and would make payments.
 
 #### Nothing at Stake
-**In chain-based PoS**, there weren't penalties and only rewards for producing blocks. Hence, there was no incentive to choose the correct chain. In PoW, the chain with the most accumulated work naturally attracts miners. They invest their electricity and power in the most probable part of the network where the next block should appear. Not doing so would lead to implicit penalties. On the contrary, in PoS, a validator can split his stake on every chain. He has nothing to lose. There will never be consensus in this case. This also makes the "*P+$\epsilon$ attack*"[[999]](https://opentezos.com/tezos-basics/liquid-proof-of-stake#references) possible.
+**In chain-based PoS**, there weren't penalties and only rewards for producing blocks. Hence, there was no incentive to choose the correct chain. In PoW, the chain with the most accumulated work naturally attracts miners. They invest their electricity and power in the most probable part of the network where the next block should appear. Not doing so would lead to implicit penalties. On the contrary, in PoS, a validator can split his stake on every chain. He has nothing to lose. There will never be consensus in this case. This also makes the "*P+$\epsilon$ attack*"[[8]](https://opentezos.com/tezos-basics/liquid-proof-of-stake#references) possible.
 
 It seems apparent that introducing penalties would instantly solve this problem. The implementations of these penalties aren't that easy.  
 The first strategy is to punish validators who **simultaneously** create a block on different chains. To detect this behavior, we need to include a *proof of misbehavior*. Creating this proof requires correctly identify validators and control the timing of blocks' issuance and penalties. Nodes have to be frequently online.  
@@ -81,7 +81,7 @@ PoS **randomly** selects the blocks' validators from a pool (with stake-proporti
 Finding an efficient source of pseudo-randomness and implementing it is a complex matter.
 
 #### Hot wallet attack
-To stake, validators need to be online and sign with a private key. This process exposes validators' private keys online for long periods as if they were using "hot wallets". Hence more opportunities for hackers. An idea to mitigate the risks is having a dedicated private key for this purpose and a short period. However, in the case of slashing rules, hackers could trigger punishment anyway and destroy funds. Thus, dedicated hardware for staking would be a better idea.
+To stake, validators need to be online and sign with a private key. This process exposes validators' private keys online for long periods as if they were using "hot wallets". Hence more opportunities for hackers. An idea to mitigate the risks is having a dedicated private key for this purpose and a short period. However, in the case of slashing rules, hackers could trigger punishment anyway and destroy funds. Thus, dedicated hardware for staking would be a better idea (cold wallet).
 
 #### Long range attack
 Attackers can try to manipulate the history of events going far back in time. At that point, they can buy an old private key that had an ample amount of coins. Then, they build a new history of staking validations and rewards from this key. Since they have a lot of coins from the start, they end up with a chain immensely probable to be selected. As a result, a multi-year reorganization takes place.  
@@ -90,23 +90,29 @@ The system can use checkpoints to prevent the attack. A stake threshold could tr
 As you can see, switching from PoW to PoS in the new generation of blockchains is not an easy task. More tweaked PoS consensuses are necessary to ensure incentives, economic principles, and security.
 
 ## Delegated Proof-of-Stake (DPoS)
-In a Delegated-proof-of-stake model, the users of this consensus, called delegates, delegate their votes to a validator. The number of eligible validators is fixed, usually between 20 and 100. If a validator is selected to forge a block, they receive a reward which is then shared with all of their delegates [[7]](/tezos-basics/liquid-proof-of-stake#references).
+The Delegated Proof-of-Stake (DPoS) consensus was developed by Daniel Larimer in 2014. Because of the "Rich get richer" problem, pure PoS fails in diluting mining activity's centralization. The idea of DPoS is to add a new option to make PoS more inclusive. In DPoS, users act as if they were in a parliamentary democracy. Users **delegate** or "*vote*" for validators also called "*witnesses*" among a set. There is a fixed number of eligible witnesses, usually between 20 and 100. One "*votes*" by attributing owned coins to a validator, thus gifting him more chances to validate a block and receive rewards. *DPoS splits block production rights evenly within the set of active block producers*[[9]](/tezos-basics/liquid-proof-of-stake#references). A winning validator receives rewards and shares them with his electorate. **Long-term reputation and efficiency** motivate choices in elections.
 
-To be selected, validators must be elected by the network. They are chosen according to their long-term reputation and efficiency. A new user is therefore unlikely to become a validator and cannot participate in the life of the network. Consequently, validators often stay the same creating an entry barrier for the new users taking part in the consensus mechanism.
+The idea to decentralize blocks' validation activity with a more democratic approach paradoxically strengthens an oligarchy at the network level. Even worse, DPoS reinforces the scalability, which leads to the professionalization of the activity. Witnesses will organize in validating farms instead of mining farms. Finally, electricity consumption will rise excessively again.
+
+DPoS is then not enough. PoS needs to evolve more. That is why Tezos' community launched the "*Liquid Proof-of-Stake*" (LPoS) consensus.
 
 ## Liquid Proof-of-Stake (LPoS)
 ### An evolution from _DPoS_
-Tezos has developed _Liquid Proof-of-Stake_ which is an evolution of the _Delegated Proof-of-Stake_. The current version used by Tezos is called Emmy+ [[8]](/tezos-basics/liquid-proof-of-stake#references).
+Tezos has developed LPoS, an evolution of DPoS idea. The current version is "*Emmy+*" [[10]](/tezos-basics/liquid-proof-of-stake#references).
 
-In _Liquid Proof-of-Stake_, a miner or validator is called a _baker_. As opposed to _DPoS_, any user can become a baker in _Liquid Proof-of-Stake_ if they have enough tokens. If they do not have enough tokens to be a baker themself, they will delegate their token.
+In LPoS, a validator is called a "**baker**" or an "**endorser**". As opposed to DPoS, **any user can become a validator if he has enough coins**. If he doesn't, then he has **the choice** to *delegate*. The idea is to dilute even more the activity and to increase inclusion. The focus is more on governance *liquidity* rather than the network's *scalability*. The two roles of delegates are simple:
+- Bakers: create blocks
+- Endorsers: agree on blocks
 
-A baker only needs to have 8,000ꜩ (Tezos tokens) to take part in the consensus (soon to be lowered to 2,000ꜩ [[9]](/tezos-basics/liquid-proof-of-stake#references)). As in _Delegated Proof-of-Stake_, the probability to win the bake is proportional to the amount invested, but any user owning 8,000ꜩ has the opportunity to bake alone. The baking time is organized in cycles and the tokens are frozen during this process.
+The needed quantity of tezs to bake or endorse is a useful parameter. Increase it to discourage Sybil attack or 51% attack, decrease it to coordinate cartels or coalitions dissolutions:
+
+A validator needs 8,000ꜩ (one "*roll*") to take part in the consensus (soon to be lowered to 2,000ꜩ [[11]](/tezos-basics/liquid-proof-of-stake#references)). Though, as in DPoS, the reward probability is still proportional to the invested amount. The baking time has cycles, and the tokens are still frozen as bonds during this process.
 
 ### Consensus mechanism
 #### Roll
-A roll represents 8,000ꜩ delegated to a given key. The more rolls someone has, the higher the chance of being given the rights to bake the next block. If 10 rolls are active at one point in time, and a baker owns 2/10 of these rolls, the baker has a 20% chance of being selected to create the next block. This means that whether the baker has 8,000 ꜩ or 15,999 ꜩ, he has the same chances.
+A roll represents 8,000ꜩ delegated to a given private key. So, the more rolls someone has, the higher the chance to bake the next block. If ten (10) rolls are active, and a baker owns 2/10 of these rolls, he has a 20% chance of being selected. Note that 8,000ꜩ or 15,999ꜩ stakeholders have the same probability of baking.
 
-Baking rights are called priorities and are given in turns. For example, if there are 10 rolls activated, the protocol could randomly select a priority list as follows:
+Baking rights are called priorities and given in turns. For example, if ten (10) rolls were active, the protocol could randomly select a priority list as follows:
 
 ```
  Priority1 = Roll 6
@@ -119,40 +125,34 @@ Baking rights are called priorities and are given in turns. For example, if ther
  Priority10 = Roll 7
 ```
 
-Consequently, the person who owns roll 6 will have priority to propose the new block. If he does not create and broadcast a block within a certain period, the baker who owns the roll number 9 may take over. Note that a baker may have several rolls selected and therefore receive several priorities.
+Consequently, the person who owns roll #6 would have priority to propose the new block. If he does not create and broadcast it within a certain period, the next baker who owns roll #9 may take over. Note that a baker may have several rolls selected and therefore receive several priorities.
 
-A new priority list is established for each block.
+Each validation establishes a new priority list.
 
 #### Cycle
-The Tezos consensus is organized in cycles. One cycle corresponds to 4096 blocks (≈ 2.8 days). 
+One cycle corresponds to 4096 blocks (≈ 2.8 days).
 
-##### Reward and Fee
-It takes 7 cycles to accumulate rewards. It then takes another 5 cycles before the delegation service receives them and can transfer those rewards. Finally, the tokens are frozen during several weeks.
-
-More details in [chapter Rewards and Fees]
+##### Cycles, rewards and fees
+It takes seven (7) cycles to accumulate rewards. It then takes another five (5) cycles before the delegation service receives them and can transfer those rewards. Finally, the tokens are frozen for several weeks. More details in chapter "[*Economics and Rewards*](https://opentezos.com/tezos-basics/economics-and-rewards)"
 
 #### Roll selection
-At each cycle, a random seed is created. This seed is used to produce baking rights (i.e. a list of priorities as mentioned above) based on a snapshot of existing rolls 2 cycles ago.
+At each cycle, a random seed is created. A pseudo-random number generator uses the seed to generate the priority list based on a snapshot of existing rolls two (2) cycles ago.
  
-More details in [chapter Baking].
-
-##### The Roll snapshot
-Snapshots of owned rolls are done regularly (Every 256 blocks). These snapshots of rolls define who can bake. The order of baking is then defined by assigning priorities to each roll. The ordering is done using a pseudo-random number generator based on a seed.
+##### The rolls snapshots
+Every 256 blocks, the system creates snapshots of **owned** rolls.
 
 ##### The Seed
-The seed is created by requesting a secret number from all roll owners. All secret numbers are gathered and used to create a hash that will be used as the _random seed_. Since the last owner to reveal its secret number already knows the other's secret numbers, a 2-phase process called "Commit & Reveal" has been put in place. More details about the selection of the baker are available in the [Baking module]
+A secret number from all rolls' owners is requested. All secret numbers are gathered and hashed to produce the seed. Since the last owner to reveal his secret already knows the other numbers, a 2-phase process called "Commit & Reveal" is in place. More details about the selection of the baker are available in the ["*How Baking Works*"](/baking/baking_explained#random-seed) chapter.
 
-##### Baker and endorser selection
-The generated list of priorities identifies which roll has the responsibility to forge a block (baking) and which rolls have to endorse this new block. It is a round-robin process that cycles on the list of priorities until the end of the cycle (4096 blocks).
+##### Bakers and endorsers selection
+The generated list of priorities identifies who forges a block (bakes) and who endorses it. It is a round-robin process[[12]](/tezos-basics/liquid-proof-of-stake#references) that cycles on the list of priorities until the end of the cycle (4096 blocks).
 
 ### Security
-The forgery of a block (e.g. transaction fraud) is avoided by preventing a baker from proceeding to the next cycle while his roll is being verified.
+A baker can't proceed to the next cycle before the complete verification of his roll. Endorsers also control the bakers' transactions. If endorsers find a security breach, they can cancel the baking. In that case, the bakers would lose their coins. Endorsers are, in turn, rewarded for each verification with tezs (more details in the [*Economics and rewards*](/tezos-basics/economics-and-reward) chapter).
 
-The security of Tezos is also insured by endorsers: they control the baker's transaction during the baking process. If endorsers find a security breach, they will cancel the baking and the baker will lose his tokens. Endorsers are, in turn, rewarded for each verification with some ꜩ (more details in the [Economics and rewards chapter](/tezos-basics/economics-and-reward)).
+## LPoS and DPoS comparison
 
-This "liquid" implementation allows a greater decentralization and the process to be more censorship-resistant than _DPoS_. As such, contrarily to the DPoS, all the stakeholders can participate actively in the making of the block without depending on a small group of selected validators.
-
-This table highlights the differences between liquid-proof-of-stake and delegated-proof-of-stake [[7]](/tezos-basics/liquid-proof-of-stake#references)):
+The following table[[9]](/tezos-basics/liquid-proof-of-stake#references) highlights the differences between LPoS and DPoS:
 
 |                          | Liquid-proof-of-stake                                                | Delegated-proof-of-stake                                                                                 |
 | ------------------------ | -------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
@@ -161,38 +161,33 @@ This table highlights the differences between liquid-proof-of-stake and delegate
 | **Validator Set**        | Dynamic (size not fixed). Up to 80,000 bakers (limited by roll size) | Fixed size. Between 21 (EOS) and 101 (Lisk).                                                             |
 | **Design Priorities**    | Decentralization, accountable governance, and security               | Scalability and usable consumer applications                                                             |
 
-To conclude, the Liquid Proof-of-stake consensus is inspired by _PoW_ and _DPoS_ resulting in a fully decentralized consensus, with low entry-barrier but without the high costs and high energy requirements.
+## What have learned so far?
+In this chapter, we detailed the PoS consensus. You are now able to understand its fundamentals. You realize that the benefits of PoS also bring hard-to-solve difficulties. The PoS derivatives propose variations in the consensus to resolve the troubles. While PoS highly reduces the external bound with energy, reliable randomness and decentralization are hardly manageable. DPoS tries to adopt a kind of democratic stance but paradoxically scales back to energy consumption. Finally, LPoS seems to be the best alternative to date, relying more on users' trust, diluting and liquifying the decision-making power. The randomness generation still needs to be observed, and only time will tell if current parameters will keep enough decentralization and security. That's for another chapter where you'll discover the Tezos "[*Governance on Chain*](/tezos-basics/governance-on-chain)".
+
+In the next chapter, you'll first uncover Tezos "*operations*" or in blockchain vocabulary: "transactions". Operations are particular messages sent from one address to another.
 
 ## References
 
-https://en.wikipedia.org/wiki/CAP_theorem
+[1] https://eth.wiki/en/concepts/proof-of-stake-faqs
 
-https://www.the-paper-trail.org/post/2008-08-13-a-brief-tour-of-flp-impossibility/
+[2] https://blog.bitmex.com/wp-content/uploads/2018/04/2018.04.11-Complete-guide-to-Proof-of-Stake.pdf
 
-https://groups.csail.mit.edu/tds/papers/Lynch/jacm88.pdf
+[3] https://medium.com/@V.academy/can-pos-prevent-51-attack-2449d45039d2; https://www.crypto51.app
 
-https://eth.wiki/en/concepts/proof-of-stake-faqs
+[4] https://en.wikipedia.org/wiki/CAP_theorem
 
-https://blog.bitmex.com/wp-content/uploads/2018/04/2018.04.11-Complete-guide-to-Proof-of-Stake.pdf
+[5] https://www.the-paper-trail.org/post/2008-08-13-a-brief-tour-of-flp-impossibility/
 
-https://bitcoinmagazine.com/technical/selfish-mining-a-25-attack-against-the-bitcoin-network-1383578440
+[6] https://groups.csail.mit.edu/tds/papers/Lynch/jacm88.pdf
 
-https://blog.ethereum.org/2015/01/28/p-epsilon-attack/
+[7] https://bitcoinmagazine.com/technical/selfish-mining-a-25-attack-against-the-bitcoin-network-1383578440
 
-[1] https://en.wikipedia.org/wiki/Sybil_attack
+[8] https://blog.ethereum.org/2015/01/28/p-epsilon-attack/
 
-[2] https://wiki.tezosagora.org/learn/proofofstake
+[9] https://medium.com/tezos/liquid-proof-of-stake-aec2f7ef1da7
 
-[3] https://opentezos.com/blockchain-basics/consensus 
+[10] https://blog.nomadic-labs.com/analysis-of-emmy.html
 
-[4] https://www.crypto51.app
+[11] https://tezos.gitlab.io/007/proof_of_stake.html
 
-[5] https://en.bitcoinwiki.org/wiki/51%25_attack
-
-[6] https://medium.com/@V.academy/can-pos-prevent-51-attack-2449d45039d2
-
-[7] https://medium.com/tezos/liquid-proof-of-stake-aec2f7ef1da7
-
-[8] https://blog.nomadic-labs.com/analysis-of-emmy.html
-
-[9] https://tezos.gitlab.io/007/proof_of_stake.html
+[12] https://en.wikipedia.org/wiki/Round-robin_scheduling

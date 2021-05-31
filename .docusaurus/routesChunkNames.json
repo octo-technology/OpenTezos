@@ -21,7 +21,7 @@
   "/__docusaurus/debug/routes-244": {
     "component": "component---theme-debug-routes-946-699"
   },
-  "/-816": {
+  "/-d95": {
     "component": "component---theme-doc-page-1-be-9be",
     "versionMetadata": "versionMetadata---935-fcf"
   },
@@ -44,6 +44,10 @@
   "/baking/exam-7b0": {
     "component": "component---theme-doc-item-178-a40",
     "content": "content---baking-examb-65-f59"
+  },
+  "/baking/reward-3ae": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---baking-reward-789-c09"
   },
   "/blockchain-basics-783": {
     "component": "component---theme-doc-item-178-a40",
@@ -205,10 +209,6 @@
     "component": "component---theme-doc-item-178-a40",
     "content": "content---formal-verification-modeling-theorem-22-b-651"
   },
-  "/formal-verification/references-381": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---formal-verification-referencesdcc-146"
-  },
   "/ligo-f43": {
     "component": "component---theme-doc-item-178-a40",
     "content": "content---ligo-90-f-7cd"
@@ -325,9 +325,9 @@
     "component": "component---theme-doc-item-178-a40",
     "content": "content---tezos-basics-governance-on-chain-461-7fe"
   },
-  "/tezos-basics/history-of-amendements-413": {
+  "/tezos-basics/history-of-amendments-4cb": {
     "component": "component---theme-doc-item-178-a40",
-    "content": "content---tezos-basics-history-of-amendementsd-65-84e"
+    "content": "content---tezos-basics-history-of-amendments-011-5ee"
   },
   "/tezos-basics/liquid-proof-of-stake-435": {
     "component": "component---theme-doc-item-178-a40",

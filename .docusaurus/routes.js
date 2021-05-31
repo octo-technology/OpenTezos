@@ -39,7 +39,7 @@ export default [
 },
 {
   path: '/',
-  component: ComponentCreator('/','816'),
+  component: ComponentCreator('/','d95'),
   
   routes: [
 {
@@ -65,6 +65,11 @@ export default [
 {
   path: '/baking/exam',
   component: ComponentCreator('/baking/exam','7b0'),
+  exact: true,
+},
+{
+  path: '/baking/reward',
+  component: ComponentCreator('/baking/reward','3ae'),
   exact: true,
 },
 {
@@ -268,11 +273,6 @@ export default [
   exact: true,
 },
 {
-  path: '/formal-verification/references',
-  component: ComponentCreator('/formal-verification/references','381'),
-  exact: true,
-},
-{
   path: '/ligo',
   component: ComponentCreator('/ligo','f43'),
   exact: true,
@@ -418,8 +418,8 @@ export default [
   exact: true,
 },
 {
-  path: '/tezos-basics/history-of-amendements',
-  component: ComponentCreator('/tezos-basics/history-of-amendements','413'),
+  path: '/tezos-basics/history-of-amendments',
+  component: ComponentCreator('/tezos-basics/history-of-amendments','4cb'),
   exact: true,
 },
 {

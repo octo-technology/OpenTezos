@@ -93,7 +93,7 @@
                   },
                   {
                     "type": "doc",
-                    "id": "tezos-basics/history-of-amendements"
+                    "id": "tezos-basics/history-of-amendments"
                   },
                   {
                     "type": "doc",
@@ -232,10 +232,6 @@
                   },
                   {
                     "type": "doc",
-                    "id": "michelson/language-basics"
-                  },
-                  {
-                    "type": "doc",
                     "id": "michelson/smart-contracts"
                   },
                   {
@@ -244,11 +240,11 @@
                   },
                   {
                     "type": "doc",
-                    "id": "michelson/instructions-reference"
+                    "id": "michelson/examples"
                   },
                   {
                     "type": "doc",
-                    "id": "michelson/examples"
+                    "id": "michelson/instructions-reference"
                   },
                   {
                     "type": "doc",
@@ -367,15 +363,7 @@
                   },
                   {
                     "type": "doc",
-                    "id": "formal-verification/michocoq"
-                  },
-                  {
-                    "type": "doc",
                     "id": "formal-verification/modeling-theorem"
-                  },
-                  {
-                    "type": "doc",
-                    "id": "formal-verification/references"
                   },
                   {
                     "type": "doc",
@@ -477,9 +465,7 @@
             "/formal-verification/exam": "docs",
             "/formal-verification/gadt-coq": "docs",
             "/formal-verification": "docs",
-            "/formal-verification/michocoq": "docs",
             "/formal-verification/modeling-theorem": "docs",
-            "/formal-verification/references": "docs",
             "/ligo/deploy-a-contract": "docs",
             "/ligo/exam": "docs",
             "/ligo/examples": "docs",
@@ -493,7 +479,6 @@
             "/michelson/examples": "docs",
             "/michelson/instructions-reference": "docs",
             "/michelson": "docs",
-            "/michelson/language-basics": "docs",
             "/michelson/smart-contracts": "docs",
             "/michelson/take-away": "docs",
             "/michelson/tutorial": "docs",
@@ -507,7 +492,7 @@
             "/tezos-basics/economics-and-rewards": "docs",
             "/tezos-basics/exam": "docs",
             "/tezos-basics/governance-on-chain": "docs",
-            "/tezos-basics/history-of-amendements": "docs",
+            "/tezos-basics/history-of-amendments": "docs",
             "/tezos-basics": "docs",
             "/tezos-basics/liquid-proof-of-stake": "docs",
             "/tezos-basics/operations": "docs",
@@ -638,6 +623,27 @@
               "next": {
                 "title": "Exam",
                 "permalink": "/baking/exam"
+              }
+            },
+            {
+              "unversionedId": "baking/reward",
+              "id": "baking/reward",
+              "isDocsHomePage": false,
+              "title": "Reward and fees",
+              "description": "To maintain the network, Tezos needs bakers and endorsers. They stake their token and use their computing power to create blocks, manage transactions, vote and secure the network. In exchange for the completion of these tasks, bakers are rewarded with tokens from the transaction fees or tokens created by the network. Since the Carthage update, the reward system has been updated to make the network more robust against non-cooperative baking strategies.",
+              "source": "@site/docs/baking/reward.md",
+              "sourceDirName": "baking",
+              "slug": "/baking/reward",
+              "permalink": "/baking/reward",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/baking/reward.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
+              "frontMatter": {
+                "id": "reward",
+                "title": "Reward and fees",
+                "authors": "Maxime Sallerin"
               }
             },
             {
@@ -1485,8 +1491,8 @@
               "unversionedId": "explorer/available-tezos-indexers",
               "id": "explorer/available-tezos-indexers",
               "isDocsHomePage": false,
-              "title": "Available Tezos Indexers",
-              "description": "The purpose of this chapter is to list the main explorers of the Tezos blockchain with their pros and cons.",
+              "title": "Available Tezos Explorers",
+              "description": "The purpose of this chapter is to list the main explorers of the Tezos blockchain and presents the pros and cons of some.",
               "source": "@site/docs/explorer/available-tezos-indexers.md",
               "sourceDirName": "explorer",
               "slug": "/explorer/available-tezos-indexers",
@@ -1498,7 +1504,7 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "available-tezos-indexers",
-                "title": "Available Tezos Indexers",
+                "title": "Available Tezos Explorers",
                 "authors": "Maxime Sallerin"
               },
               "sidebar": "docs",
@@ -1546,7 +1552,7 @@
               "id": "explorer/indexer-explained",
               "isDocsHomePage": false,
               "title": "How Indexers Work?",
-              "description": "This chapter aims to describe the functioning of a traditional indexer and its components.",
+              "description": "This chapter aims to describe the functioning of a typical indexer and its components.",
               "source": "@site/docs/explorer/indexer-explained.md",
               "sourceDirName": "explorer",
               "slug": "/explorer/indexer-explained",
@@ -1567,7 +1573,7 @@
                 "permalink": "/explorer/introduction"
               },
               "next": {
-                "title": "Available Tezos Indexers",
+                "title": "Available Tezos Explorers",
                 "permalink": "/explorer/available-tezos-indexers"
               }
             },
@@ -1606,7 +1612,7 @@
               "id": "explorer/private-indexer",
               "isDocsHomePage": false,
               "title": "Private indexer",
-              "description": "The tools presented in this module so far, are fully public, meaning that everyone can use them. However, they are meant for public networks, and who the user is, is dependent on the infrastructure and configuration of these services. Some organizations are more interested in deploying their own private Tezos network, either for private testing before going public, or for entirely private use. Refer to the Private blockchain module for more info. Therefore, it is possible to use an indexer on private networks.",
+              "description": "The tools presented in this module so far are fully public: everyone can use them. However, they are meant",
               "source": "@site/docs/explorer/private-indexer.md",
               "sourceDirName": "explorer",
               "slug": "/explorer/private-indexer",
@@ -1637,7 +1643,7 @@
               "id": "explorer/tzstats-main-features",
               "isDocsHomePage": false,
               "title": "How to use the tzStats blockchain explorer?",
-              "description": "In the previous chapter, we saw that there are different block indexers for different uses in the block explorers for the Tezos Blockchain. In this chapter, we will focus on TzStats which is the most popular and complete Tezos explorer.",
+              "description": "In this chapter, we will use the TzStats explorer to illustrate the different features of an explorer, but similar features are usually available on others.",
               "source": "@site/docs/explorer/tzstats-main-features.md",
               "sourceDirName": "explorer",
               "slug": "/explorer/tzstats-main-features",
@@ -1654,7 +1660,7 @@
               },
               "sidebar": "docs",
               "previous": {
-                "title": "Available Tezos Indexers",
+                "title": "Available Tezos Explorers",
                 "permalink": "/explorer/available-tezos-indexers"
               },
               "next": {
@@ -1680,7 +1686,7 @@
               "frontMatter": {
                 "id": "tzstats-smart-contract",
                 "title": "Checkout your smart contract on TzStats",
-                "authors": "Maxime Sallerin"
+                "authors": "Benjamin Pila"
               },
               "sidebar": "docs",
               "previous": {
@@ -1714,8 +1720,8 @@
               },
               "sidebar": "docs",
               "previous": {
-                "title": "References",
-                "permalink": "/formal-verification/references"
+                "title": "Formal verification on smart contracts",
+                "permalink": "/formal-verification/modeling-theorem"
               },
               "next": {
                 "title": "Introduction",
@@ -1726,8 +1732,8 @@
               "unversionedId": "formal-verification/gadt-coq",
               "id": "formal-verification/gadt-coq",
               "isDocsHomePage": false,
-              "title": "GADT and Coq",
-              "description": "For a better understanding of the formal verification on Tezos smart contract (written in Michelson language) (in the next section), we will first describe the theory and tools behind the formal analysis.",
+              "title": "Coq, GADT and Mi-Cho-Coq",
+              "description": "To better understand formal verification, let's first describe the theory and tools behind the formal analysis.",
               "source": "@site/docs/formal-verification/gadt-coq.md",
               "sourceDirName": "formal-verification",
               "slug": "/formal-verification/gadt-coq",
@@ -1739,7 +1745,7 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "gadt-coq",
-                "title": "GADT and Coq",
+                "title": "Coq, GADT and Mi-Cho-Coq",
                 "authors": "Frank Hillard"
               },
               "sidebar": "docs",
@@ -1748,8 +1754,8 @@
                 "permalink": "/formal-verification"
               },
               "next": {
-                "title": "Mi-Cho-Coq",
-                "permalink": "/formal-verification/michocoq"
+                "title": "Formal verification on smart contracts",
+                "permalink": "/formal-verification/modeling-theorem"
               }
             },
             {
@@ -1757,7 +1763,7 @@
               "id": "formal-verification/introduction",
               "isDocsHomePage": false,
               "title": "Introduction",
-              "description": "The Tezos blockchain brings several improvements including the formal verification of smart contract.This section describes the overview of how Tezos smart contract can be formally verified.",
+              "description": "The Tezos blockchain has several advantages over its concurrents. One of them is the formal verification of smart contract. This module shows a brief overview of how Tezos smart contracts can be formally verified.",
               "source": "@site/docs/formal-verification/introduction.md",
               "sourceDirName": "formal-verification",
               "slug": "/formal-verification",
@@ -1779,7 +1785,7 @@
                 "permalink": "/defi/exam"
               },
               "next": {
-                "title": "GADT and Coq",
+                "title": "Coq, GADT and Mi-Cho-Coq",
                 "permalink": "/formal-verification/gadt-coq"
               }
             },
@@ -1802,23 +1808,14 @@
                 "id": "michocoq",
                 "title": "Mi-Cho-Coq",
                 "authors": "Frank Hillard"
-              },
-              "sidebar": "docs",
-              "previous": {
-                "title": "GADT and Coq",
-                "permalink": "/formal-verification/gadt-coq"
-              },
-              "next": {
-                "title": "Modeling theorem",
-                "permalink": "/formal-verification/modeling-theorem"
               }
             },
             {
               "unversionedId": "formal-verification/modeling-theorem",
               "id": "formal-verification/modeling-theorem",
               "isDocsHomePage": false,
-              "title": "Modeling theorem",
-              "description": "This section describes how to make the bridge between the Tezos world (and the Michelson language) with the  formal world of Coq. This will be concretized by modeling a theorem representing the smart contract and its intention.",
+              "title": "Formal verification on smart contracts",
+              "description": "This section describes how to bridge the Tezos world (and the Michelson language) with the formal world of Coq. For this, we are going to model a theorem representing a smart contract and its intentions.",
               "source": "@site/docs/formal-verification/modeling-theorem.md",
               "sourceDirName": "formal-verification",
               "slug": "/formal-verification/modeling-theorem",
@@ -1830,43 +1827,13 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "modeling-theorem",
-                "title": "Modeling theorem",
+                "title": "Formal verification on smart contracts",
                 "authors": "Frank Hillard"
               },
               "sidebar": "docs",
               "previous": {
-                "title": "Mi-Cho-Coq",
-                "permalink": "/formal-verification/michocoq"
-              },
-              "next": {
-                "title": "References",
-                "permalink": "/formal-verification/references"
-              }
-            },
-            {
-              "unversionedId": "formal-verification/references",
-              "id": "formal-verification/references",
-              "isDocsHomePage": false,
-              "title": "References",
-              "description": "References",
-              "source": "@site/docs/formal-verification/references.md",
-              "sourceDirName": "formal-verification",
-              "slug": "/formal-verification/references",
-              "permalink": "/formal-verification/references",
-              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/formal-verification/references.md",
-              "version": "current",
-              "lastUpdatedBy": "Author",
-              "lastUpdatedAt": 1539502055,
-              "formattedLastUpdatedAt": "10/14/2018",
-              "frontMatter": {
-                "id": "references",
-                "title": "References",
-                "authors": "Frank Hillard"
-              },
-              "sidebar": "docs",
-              "previous": {
-                "title": "Modeling theorem",
-                "permalink": "/formal-verification/modeling-theorem"
+                "title": "Coq, GADT and Mi-Cho-Coq",
+                "permalink": "/formal-verification/gadt-coq"
               },
               "next": {
                 "title": "Exam",
@@ -1878,7 +1845,7 @@
               "id": "ligo/deploy-a-contract",
               "isDocsHomePage": false,
               "title": "Smart Contract",
-              "description": "A Tezos smart contract is a piece of code written in Michelson language (a low-level stack-based Turing-complete language).",
+              "description": "A Tezos smart contract is a piece of code written in the Michelson language (a low-level stack-based Turing-complete language).",
               "source": "@site/docs/ligo/deploy-a-contract.md",
               "sourceDirName": "ligo",
               "slug": "/ligo/deploy-a-contract",
@@ -2166,8 +2133,8 @@
               },
               "sidebar": "docs",
               "previous": {
-                "title": "Examples",
-                "permalink": "/michelson/examples"
+                "title": "Instructions Reference",
+                "permalink": "/michelson/instructions-reference"
               },
               "next": {
                 "title": "Take away",
@@ -2196,12 +2163,12 @@
               },
               "sidebar": "docs",
               "previous": {
-                "title": "Instructions Reference",
-                "permalink": "/michelson/instructions-reference"
+                "title": "Tutorial",
+                "permalink": "/michelson/tutorial"
               },
               "next": {
-                "title": "Exam",
-                "permalink": "/michelson/exam"
+                "title": "Instructions Reference",
+                "permalink": "/michelson/instructions-reference"
               }
             },
             {
@@ -2226,12 +2193,12 @@
               },
               "sidebar": "docs",
               "previous": {
-                "title": "Tutorial",
-                "permalink": "/michelson/tutorial"
-              },
-              "next": {
                 "title": "Examples",
                 "permalink": "/michelson/examples"
+              },
+              "next": {
+                "title": "Exam",
+                "permalink": "/michelson/exam"
               }
             },
             {
@@ -2239,7 +2206,7 @@
               "id": "michelson/introduction",
               "isDocsHomePage": false,
               "title": "Introduction",
-              "description": "To write smart contracts for Tezos, you can either choose a high-level language such as LIGO or SmartPy, or the official low-level language called Michelson.",
+              "description": "To write smart contracts for Tezos, you can either choose the official low-level language called Michelson or a high-level language (such as LIGO or SmartPy) which compile with the Michelson language.",
               "source": "@site/docs/michelson/introduction.md",
               "sourceDirName": "michelson",
               "slug": "/michelson",
@@ -2261,8 +2228,8 @@
                 "permalink": "/ligo/take-away"
               },
               "next": {
-                "title": "Language Basics",
-                "permalink": "/michelson/language-basics"
+                "title": "Smart Contracts",
+                "permalink": "/michelson/smart-contracts"
               }
             },
             {
@@ -2270,7 +2237,7 @@
               "id": "michelson/language-basics",
               "isDocsHomePage": false,
               "title": "Language Basics",
-              "description": "The Michelson language is the reference language for Tezos smart contracts. It is a low-level stack-based language and is also a Turing-complete language. This means it has basic operations allowing to read/write/compare values in-memory, has infinite memory, and allows conditional operators (e.g. if, switch instructions)",
+              "description": "OLD page - not to be displayed (this section has been merged in smart contract page)",
               "source": "@site/docs/michelson/language-basics.md",
               "sourceDirName": "michelson",
               "slug": "/michelson/language-basics",
@@ -2284,15 +2251,6 @@
                 "id": "language-basics",
                 "title": "Language Basics",
                 "authors": "Frank Hillard"
-              },
-              "sidebar": "docs",
-              "previous": {
-                "title": "Introduction",
-                "permalink": "/michelson"
-              },
-              "next": {
-                "title": "Smart Contracts",
-                "permalink": "/michelson/smart-contracts"
               }
             },
             {
@@ -2317,8 +2275,8 @@
               },
               "sidebar": "docs",
               "previous": {
-                "title": "Language Basics",
-                "permalink": "/michelson/language-basics"
+                "title": "Introduction",
+                "permalink": "/michelson"
               },
               "next": {
                 "title": "Tutorial",
@@ -2381,8 +2339,8 @@
                 "permalink": "/michelson/smart-contracts"
               },
               "next": {
-                "title": "Instructions Reference",
-                "permalink": "/michelson/instructions-reference"
+                "title": "Examples",
+                "permalink": "/michelson/examples"
               }
             },
             {
@@ -2482,7 +2440,7 @@
               "id": "smartpy/installation",
               "isDocsHomePage": false,
               "title": "Installation",
-              "description": "This chapter aims at preparing your working environment to be ready to code, test, and compile your smart contracts.",
+              "description": "This chapter aims to prepare you and your working environment to be ready to code, test, and compile your smart contracts.",
               "source": "@site/docs/smartpy/installation.md",
               "sourceDirName": "smartpy",
               "slug": "/smartpy/installation",
@@ -2512,7 +2470,7 @@
               "id": "smartpy/introduction",
               "isDocsHomePage": false,
               "title": "Introduction",
-              "description": "The goal of this module is to allow a developer to write smart contracts with SmartPy. In the form of a pedagogical course illustrated with an example of a smart contract, the developer will have acquired the essentials to write, test, and analyze his smart contract.",
+              "description": "This module aim to enable developers to write smart contracts with SmartPy. It will take the form of a pedagogical course, illustrated through an example of a smart contract, to help the developer acquire the essentials to write, test, and analyze his smart contract.",
               "source": "@site/docs/smartpy/introduction.md",
               "sourceDirName": "smartpy",
               "slug": "/smartpy",
@@ -2543,7 +2501,7 @@
               "id": "smartpy/write-contract-smartpy",
               "isDocsHomePage": false,
               "title": "Smart contract development with SmartPy",
-              "description": "In this chapter, we use SmartPy to develop a Raffle smart contract and cover the most important aspects of the framework. We will introduce new notions as they come along the contract. For a complete reference of SmartPy, please refer to the Reference Manual.",
+              "description": "In this chapter, we will use SmartPy to develop a smart contract based Raffle and cover the most important aspects of the framework. We will use this opportunity to introduce new notions as they appear. For a complete reference of SmartPy, please refer to the Reference Manual.",
               "source": "@site/docs/smartpy/write-contract-smartpy.md",
               "sourceDirName": "smartpy",
               "slug": "/smartpy/write-contract-smartpy",
@@ -2573,7 +2531,7 @@
               "id": "tezos-basics/cli-and-rpc",
               "isDocsHomePage": false,
               "title": "CLI and RPC",
-              "description": "Connecting to the network",
+              "description": "In this chapter, the reader will learn how to install the official \"tezos-client\" and \"tezos-admin-client\" applications and run them with the Command Line Interface. These commands call remote procedures of a Tezos node (local or remote). There are many commands, but we'll see some examples.",
               "source": "@site/docs/tezos-basics/cli-and-rpc.md",
               "sourceDirName": "tezos-basics",
               "slug": "/tezos-basics/cli-and-rpc",
@@ -2586,7 +2544,7 @@
               "frontMatter": {
                 "id": "cli-and-rpc",
                 "title": "CLI and RPC",
-                "authors": "Thomas Zoughebi, Aymeric Bethencourt and Maxime Fernandez"
+                "authors": "Thomas Zoughebi, Aymeric Bethencourt, and Maxime Fernandez"
               },
               "sidebar": "docs",
               "previous": {
@@ -2616,12 +2574,12 @@
               "frontMatter": {
                 "id": "economics-and-rewards",
                 "title": "Economics and rewards",
-                "authors": "Thomas Zoughebi, Aymeric Bethencourt and Maxime Fernandez"
+                "authors": "Thomas Zoughebi, Aymeric Bethencourt, and Maxime Fernandez"
               },
               "sidebar": "docs",
               "previous": {
-                "title": "History of amendements",
-                "permalink": "/tezos-basics/history-of-amendements"
+                "title": "History of amendments",
+                "permalink": "/tezos-basics/history-of-amendments"
               },
               "next": {
                 "title": "Exam",
@@ -2663,7 +2621,7 @@
               "id": "tezos-basics/governance-on-chain",
               "isDocsHomePage": false,
               "title": "Governance on-chain",
-              "description": "Tezos is a self-amending blockchain network that incorporates an on-chain mechanism for proposing, selecting, testing, and activating protocol upgrades without having to hard fork. [1]",
+              "description": "Tezos is a self-amending blockchain network that incorporates an on-chain mechanism for proposing, selecting, testing, and activating protocol upgrades without hard forks [1].",
               "source": "@site/docs/tezos-basics/governance-on-chain.md",
               "sourceDirName": "tezos-basics",
               "slug": "/tezos-basics/governance-on-chain",
@@ -2676,7 +2634,7 @@
               "frontMatter": {
                 "id": "governance-on-chain",
                 "title": "Governance on-chain",
-                "authors": "Thomas Zoughebi, Aymeric Bethencourt and Maxime Fernandez"
+                "authors": "Thomas Zoughebi, Aymeric Bethencourt, and Maxime Fernandez"
               },
               "sidebar": "docs",
               "previous": {
@@ -2684,29 +2642,29 @@
                 "permalink": "/tezos-basics/cli-and-rpc"
               },
               "next": {
-                "title": "History of amendements",
-                "permalink": "/tezos-basics/history-of-amendements"
+                "title": "History of amendments",
+                "permalink": "/tezos-basics/history-of-amendments"
               }
             },
             {
-              "unversionedId": "tezos-basics/history-of-amendements",
-              "id": "tezos-basics/history-of-amendements",
+              "unversionedId": "tezos-basics/history-of-amendments",
+              "id": "tezos-basics/history-of-amendments",
               "isDocsHomePage": false,
-              "title": "History of amendements",
-              "description": "As presented in the Governance on-chain chapter, the Tezos blockchain is constantly evolving through new amendments. In this chapter, we will go over a history of past proposals both approved and refused, and look at why.",
-              "source": "@site/docs/tezos-basics/history-of-amendements.md",
+              "title": "History of amendments",
+              "description": "As presented in the Governance on-chain chapter, the Tezos blockchain is constantly evolving through new amendments. In this chapter, we will go over past proposals' history. We will see the reasons for their approval or disapproval.",
+              "source": "@site/docs/tezos-basics/history-of-amendments.md",
               "sourceDirName": "tezos-basics",
-              "slug": "/tezos-basics/history-of-amendements",
-              "permalink": "/tezos-basics/history-of-amendements",
-              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/history-of-amendements.md",
+              "slug": "/tezos-basics/history-of-amendments",
+              "permalink": "/tezos-basics/history-of-amendments",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/history-of-amendments.md",
               "version": "current",
               "lastUpdatedBy": "Author",
               "lastUpdatedAt": 1539502055,
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
-                "id": "history-of-amendements",
-                "title": "History of amendements",
-                "authors": "Thomas Zoughebi, Aymeric Bethencourt and Maxime Fernandez"
+                "id": "history-of-amendments",
+                "title": "History of amendments",
+                "authors": "Thomas Zoughebi, Aymeric Bethencourt, and Maxime Fernandez"
               },
               "sidebar": "docs",
               "previous": {
@@ -2784,7 +2742,7 @@
               "id": "tezos-basics/operations",
               "isDocsHomePage": false,
               "title": "Operations",
-              "description": "This chapter introduces the notion of Operations on Tezos, more commonly known as Transactions on other blockchains.",
+              "description": "This chapter introduces the notion of Operations on Tezos. These are more commonly known as Transactions on other blockchains.",
               "source": "@site/docs/tezos-basics/operations.md",
               "sourceDirName": "tezos-basics",
               "slug": "/tezos-basics/operations",

@@ -20,11 +20,11 @@
   },
   "sidebar": "docs",
   "previous": {
-    "title": "Instructions Reference",
-    "permalink": "/michelson/instructions-reference"
+    "title": "Tutorial",
+    "permalink": "/michelson/tutorial"
   },
   "next": {
-    "title": "Exam",
-    "permalink": "/michelson/exam"
+    "title": "Instructions Reference",
+    "permalink": "/michelson/instructions-reference"
   }
 }

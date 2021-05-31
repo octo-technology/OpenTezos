@@ -96,8 +96,8 @@
           },
           {
             "type": "link",
-            "label": "History of amendements",
-            "href": "/tezos-basics/history-of-amendements"
+            "label": "History of amendments",
+            "href": "/tezos-basics/history-of-amendments"
           },
           {
             "type": "link",
@@ -145,7 +145,7 @@
           },
           {
             "type": "link",
-            "label": "Available Tezos Indexers",
+            "label": "Available Tezos Explorers",
             "href": "/explorer/available-tezos-indexers"
           },
           {
@@ -261,11 +261,6 @@
           },
           {
             "type": "link",
-            "label": "Language Basics",
-            "href": "/michelson/language-basics"
-          },
-          {
-            "type": "link",
             "label": "Smart Contracts",
             "href": "/michelson/smart-contracts"
           },
@@ -276,13 +271,13 @@
           },
           {
             "type": "link",
-            "label": "Instructions Reference",
-            "href": "/michelson/instructions-reference"
+            "label": "Examples",
+            "href": "/michelson/examples"
           },
           {
             "type": "link",
-            "label": "Examples",
-            "href": "/michelson/examples"
+            "label": "Instructions Reference",
+            "href": "/michelson/instructions-reference"
           },
           {
             "type": "link",
@@ -416,23 +411,13 @@
           },
           {
             "type": "link",
-            "label": "GADT and Coq",
+            "label": "Coq, GADT and Mi-Cho-Coq",
             "href": "/formal-verification/gadt-coq"
           },
           {
             "type": "link",
-            "label": "Mi-Cho-Coq",
-            "href": "/formal-verification/michocoq"
-          },
-          {
-            "type": "link",
-            "label": "Modeling theorem",
+            "label": "Formal verification on smart contracts",
             "href": "/formal-verification/modeling-theorem"
-          },
-          {
-            "type": "link",
-            "label": "References",
-            "href": "/formal-verification/references"
           },
           {
             "type": "link",
@@ -544,9 +529,7 @@
     "/formal-verification/exam": "docs",
     "/formal-verification/gadt-coq": "docs",
     "/formal-verification": "docs",
-    "/formal-verification/michocoq": "docs",
     "/formal-verification/modeling-theorem": "docs",
-    "/formal-verification/references": "docs",
     "/ligo/deploy-a-contract": "docs",
     "/ligo/exam": "docs",
     "/ligo/examples": "docs",
@@ -560,7 +543,6 @@
     "/michelson/examples": "docs",
     "/michelson/instructions-reference": "docs",
     "/michelson": "docs",
-    "/michelson/language-basics": "docs",
     "/michelson/smart-contracts": "docs",
     "/michelson/take-away": "docs",
     "/michelson/tutorial": "docs",
@@ -574,7 +556,7 @@
     "/tezos-basics/economics-and-rewards": "docs",
     "/tezos-basics/exam": "docs",
     "/tezos-basics/governance-on-chain": "docs",
-    "/tezos-basics/history-of-amendements": "docs",
+    "/tezos-basics/history-of-amendments": "docs",
     "/tezos-basics": "docs",
     "/tezos-basics/liquid-proof-of-stake": "docs",
     "/tezos-basics/operations": "docs",

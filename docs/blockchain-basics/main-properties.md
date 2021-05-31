@@ -8,7 +8,7 @@ authors: Thomas Zoughebi
 In this chapter, we will dig deeper into the main properties of the Bitcoin protocol, its developers, its P2P network, and a few basics of its economic structure.
 
 ## Open-Source
-Most, if not all, of the public blockchain developments, are made open-source. Anyone can verify the code, correct it, and make proposals. This openness is essential in an essentially trustless environment. It is common to hear community members say: "*Don't trust, verify!*".
+Most, if not all, of the public blockchain developments, are made open-source. Anyone can verify the code, correct it, and make proposals. This openness is fundamental in an essentially trustless environment. It is common to hear community members say: "*Don't trust, verify!*".
 
 The most committed blockchain developers also go by the catchphrase "[*Code is law*](https://en.wikipedia.org/wiki/Code_and_Other_Laws_of_Cyberspace)", meaning that the strict code defines not only the validation rules of all the transactions and their interactions but also people's conduct. This code is also used to create the software that runs on the network and how data is recorded, explored, etc.
 
@@ -27,16 +27,14 @@ There are different types of nodes, but for the sake of simplicity, let's only q
 
 - _Lightweight nodes_ are used for devices with limited space capacity, calculating speed, or connectivity (e.g., smartphones, tablets, IoT, etc.). They don't record transactions in the ledger but ask the full nodes for required information.
 
-From now on, "node" refers to a *full node*. 
+From now on, "node" refers to a *full node*. All these full nodes communicate with each other using a [*Gossip Protocol*](https://academy.bit2me.com/en/what-is-gossip-protocol/).
 
 ### Chained Data-structure
 The ledger's structure has to be very special to meet the following constraints:
 
-- The ledger is distributed over the planet, and everyone should be able to agree on its state at the same time (minus latency)
+- The ledger is distributed over the planet, and everyone should be able to agree on its state at the same time (minus latency): This is an asynchronous network. Transactions (exchanges of bitcoins) are grouped inside packages named "**blocks**" to ease management. The size of the blocks impacts the transmission's speed. If blocks are relatively small, more blocks circulate on the network. If blocks are relatively big, less of them circulate in the same delay. Almost every node (computers) of the network has to check each block, and that also roughly the same time. So, in an asynchronous network, to assure maximum participation in the reconciliation, the size of a block is a key factor. Finding a good size allows for smooth and regular transmissions.
   
-- Transactions are grouped inside packages named "**blocks**" to ease management. Blocks shouldn't be too small, nor too big, to have smooth and regular transmissions.
-  
-- Their history must not be modifiable (immutability).
+- The ledger's history of transactions must not be modifiable (immutability) to prevent double-spending
   
 - Verifying the history or picking specific information inside the ledger has to be fast (e.g., check a balance)
   
@@ -44,10 +42,10 @@ The ledger's structure has to be very special to meet the following constraints:
 
 The data structure which permits all of the above is a chain of blocks, a.k.a. "blockchain".
 
-Valid transactions are grouped and enclosed inside a block. Every 10 minutes with Bitcoin, a new block must be mined. The number of transactions inside a block is only limited by the available space, which is currently (2021) around 2 MB (comparatively "_Bitcoin Cash_" blockchain has around 32 MB block size).
+Valid transactions are grouped and enclosed inside a block. Every 10 minutes with Bitcoin, a new block should be mined. The number of transactions inside a block is only limited by the available space, which is currently (2021) around 2 MB (comparatively "_Bitcoin Cash_" blockchain has around 32 MB block size).
 
 Each new block is linked to the previous one: they are chained. The more blocks there are, the more difficult it is to modify anything in the ledger. They are cryptographically chained. This means that if you want to cheat (e.g., make a double-spend or spend money you don't have), you would need to modify everything from the first block ever created (called the "_Genesis Block_"), just like *Matryoshka dolls* with an enormous number of dolls.
-This process is achieved through a [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_block_chaining_(CBC)) principle, where instead of a _XOR_ function (and without plain texts additions), the _SHA256_ function is used. Twice:
+This process is achieved through the [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_block_chaining_(CBC)) principle, where instead of a _XOR_ function (and without plain texts additions), the _SHA256_ function is used. Twice:
 
 ![Chain of blocks](../../static/img/blockchain-basics/blocks-chain.svg "Chain of blocks")
 
@@ -76,13 +74,17 @@ Senders choose the fee they want to pay. The more they give, the faster the tran
 
 The block reward is sent through a particular transaction called a "_Coinbase Transaction_" directly to the miner. It's always the first transaction of a validated ("*mined*") block.
 
-To get these two rewards, a miner basically plays a lottery, a game of chance. This game is to find a binary number lesser than a target (called "_Target_") with the specific hash function _SHA256_. The fact is a miner can't guess in advance the result of this function. He **must** try values (by [*Brute Force*](https://en.wikipedia.org/wiki/Brute-force_attack)). He must *hash* the previous block header (twice) with a random number called the *nounce*.
+To get these two rewards, a miner basically plays a lottery, a game of chance. This game is to find a binary number lesser than a target (called "_Target_") with the specific hash function _SHA256_. The fact is a miner can't guess in advance the result of this function. He **must** try values (by [*Brute Force*](https://en.wikipedia.org/wiki/Brute-force_attack)). He must *hash* the previous block header (twice) with a random number called the *nounce* (details in the ["*Proof-of-Work*"](/blockchain-basics/proof-of-work) chapter).
 
 The more a miner tries values (the more he has lottery tickets), and the more energy he uses to make his computers work.
 
 When a miner finds a valid number, he finally finds a valid block. His node tells the network its discovery with the final _nounce_ (so anyone can verify it).
 
-If two miners find a valid number simultaneously (within lag and network propagation delays), then two valid blocks are possible. Miners are then split into two groups: those mining from the block of the first miner and those mining from the block of the second miner. If someone finds a block following the second miner's block, then both of them become the "winners" as they form "the longest chain" (actually, the chain with *the most work*) [[3]](/blockchain-basics/main-properties#references).
+If two miners find a valid number simultaneously (within lag and network propagation delays), then two valid blocks are possible. Miners are then split into two groups:
+- those mining from the block of the first miner,
+- and those mining from the block of the second miner
+
+If someone finds a block following the second miner's block, then both of them become the "winners" as they form "the longest chain" (actually, the chain with *the most work*[[3]](/blockchain-basics/main-properties#references)).
 
 More details on that in the [next chapter on Proof-of-Work](/blockchain-basics/proof-of-work).
 
@@ -111,10 +113,12 @@ The total *theoric* limited *supply* of bitcoins is pre-determined and hardcoded
 "**Consensus**" comes from Latin *cōnsēnsus* ("agreement, accordance, unanimity").  
 It is the point where independent actors reach a common agreement on a decision.  
 
-In IT, a consensus algorithm is a computer program allowing users to reach common agreements on the states of data in a distributed network.  
+In IT, a consensus algorithm is a computer program allowing users to reach common **agreements** on the states of data in a distributed network.  
 *Examples*: Distributed Calculation, Distributed Database, etc.
 
-### Agreement on *Deflation*
+### Agreements and *Deflation*
+
+There are two more elements we need to introduce to have a better general picture of Bitcoin. The *Nakamoto Consensus* is both the engine and the binder of the Bitcoin components and relies on them. In the above sections, you learned parts about the Bitcoin open-source development, the distributed ledger and its network, and some basics about the mining and economics of Bitcoin. In the next chapter, you'll learn technical details about "*Proof-of-Work*". First, we need to know about the "*Halving*" and the "*MAD Property*":
 
 Relying only on supply and demand, Bitcoin wouldn't be deflationary.
 
@@ -126,19 +130,21 @@ Block reward is how the currency's issuance is produced. So the _Halving_ has a 
 
 The numbers chosen by Satoshi Nakamoto for the total supply and the _Halving_ are inspired by _gold mining_. The more you dig to find gold, the less there is, and the harder it is to dig. That's precisely why the blocks validators are called the "Miners".
 
-The _Nakamoto Consensus_, which Bitcoin is based on, is driven by:
+To recap, the _Nakamoto Consensus_, which Bitcoin is based on, is driven by:
 - Decentralization
-- Proof-of-Work
-- A probabilistic solution to the Byzantine General Problem
+- Proof-of-Work and mining economics
+- A probabilistic solution to the [Byzantine General Problem](https://en.wikipedia.org/wiki/Byzantine_fault) (a quick word on that below)
 - The _MAD_ property (defined below)
 
-In the Bitcoin mesh network, the rewards make it possible to support up to 50% of bad actors (1/2). The network uses "Byzantine Fault Tolerant" (BFT). Probabilistically, Bitcoin's solution is more efficient than the main mathematical solution: The actual main solution requires less than one-third of bad actors.
+In the Bitcoin mesh network, the **rewards** make it possible to support up to 50% of bad actors ($\frac{1}{2}$). The network uses "Byzantine Fault Tolerant" (BFT). Probabilistically, Bitcoin's solution is more efficient than the main mathematical solution: The actual main solution requires less than one-third of bad actors($\frac{1}{3}$).
 
-The _**M**utual **A**ssured **D**estruction_ (**_MAD_**) property reinforce this BFT solution:  
+The _**M**utual **A**ssured **D**estruction_ (**_MAD_**) property reinforces this BFT solution:  
 
 _It is more profitable to earn bitcoins by participating in the protocol than to attack it. If you want to attack it, you'd have to invest an unreasonable amount of resources. Even in the improbable case that your attack is successful, you'd still lose money on your investment..._
 
 You would also face the community, which can detect the attack and adapt.
+
+In conclusion, the distributed network's parameters allow for anyone to agree asynchronously on the data states. Anyone is also able to verify the rules or even code them through the open-source frame. The Proof-of-Work permits good actors to be miners and to prove their work, hence being rewarded for securing transactions. The probabilistic solution to the Byzantine General Problem and the MAD property assure the robustness of the network. The protocol evolves and adapts with the Halving and the Difficulty to mimic gold mining and assure deflation.
 
 ## What have we learned so far?
 This chapter described some of the pillars of the Bitcoin protocol and how they are articulated around the Nakamoto Consensus. You now understand that the Nakamoto Consensus integrates the Proof-of-Work consensus algorithm and a form of *social* consensus based on simple Economy principles.

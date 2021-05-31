@@ -2,8 +2,8 @@
   "unversionedId": "explorer/available-tezos-indexers",
   "id": "explorer/available-tezos-indexers",
   "isDocsHomePage": false,
-  "title": "Available Tezos Indexers",
-  "description": "The purpose of this chapter is to list the main explorers of the Tezos blockchain with their pros and cons.",
+  "title": "Available Tezos Explorers",
+  "description": "The purpose of this chapter is to list the main explorers of the Tezos blockchain and presents the pros and cons of some.",
   "source": "@site/docs/explorer/available-tezos-indexers.md",
   "sourceDirName": "explorer",
   "slug": "/explorer/available-tezos-indexers",
@@ -15,7 +15,7 @@
   "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "id": "available-tezos-indexers",
-    "title": "Available Tezos Indexers",
+    "title": "Available Tezos Explorers",
     "authors": "Maxime Sallerin"
   },
   "sidebar": "docs",

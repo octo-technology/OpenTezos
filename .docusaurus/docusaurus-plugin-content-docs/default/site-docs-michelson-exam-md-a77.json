@@ -20,8 +20,8 @@
   },
   "sidebar": "docs",
   "previous": {
-    "title": "Examples",
-    "permalink": "/michelson/examples"
+    "title": "Instructions Reference",
+    "permalink": "/michelson/instructions-reference"
   },
   "next": {
     "title": "Take away",

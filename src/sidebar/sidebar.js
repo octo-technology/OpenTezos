@@ -27,7 +27,7 @@ module.exports = {
         'tezos-basics/operations',
         'tezos-basics/cli-and-rpc',
         'tezos-basics/governance-on-chain',
-        'tezos-basics/history-of-amendements',
+        'tezos-basics/history-of-amendments',
         'tezos-basics/economics-and-rewards',
         'tezos-basics/exam',
       ],
@@ -75,11 +75,10 @@ module.exports = {
       label: 'Michelson',
       items: [
         'michelson/introduction',
-        'michelson/language-basics',
         'michelson/smart-contracts',
         'michelson/tutorial',
-        'michelson/instructions-reference',
         'michelson/examples',
+        'michelson/instructions-reference',
         'michelson/exam',
         'michelson/take-away',
       ],
@@ -121,9 +120,7 @@ module.exports = {
       items: [
         'formal-verification/introduction',
         'formal-verification/gadt-coq',
-        'formal-verification/michocoq',
-        'formal-verification/modeling-theorem', 
-        'formal-verification/references', 
+        'formal-verification/modeling-theorem',
         'formal-verification/exam'],
     },
     {
