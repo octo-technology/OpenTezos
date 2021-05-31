@@ -113,22 +113,22 @@ Examples: *Decred*.
 
 ## Pros & Cons
 
-| #    | Consensus | Advantages                                                    | Disadvantages                                                                                               |
-| :--- | :-------- | :------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------- |
-| 0    | PoW       | Extreme robustness (MAD + SHA256 + CBC)                       | High Energy consumption                                                                                     |
-| 1    | PoB       | Robustness similar to PoW                                     | Still wastes ressources needlessly; Mining power to money burners                                           |
-| 2    | PoC       | Less energy consumption; mimic mining                         | Nothing at Stake (no MAD)                                                                                   |
-| 3    | LBC       | Less energy consumption                                       | Leader centralized; Sybil Attack[[1]](/blockchain-basics/other-consensuses#references) weakness             |
-| 4    | PBFT      | Very easy to implement                                        | Absence of privacy; Sybil Attack[[1]](/blockchain-basics/other-consensuses#references) weakness             |
-| 5    | FBA       | Modest computing & financial requirements                     | Quorum slices centralization; Sybil Attack[[1]](/blockchain-basics/other-consensuses#references) weakness   |
-| 6    | Avalanche | Fast; highly distributed (lots of nodes)                      | Groups of nodes centralization; Sybil Attack[[1]](/blockchain-basics/other-consensuses#references) weakness |
-| 7    | PoS       | Less energy consumption                                       | Coins owners centralization                                                                                 |
-| 8    | PoA       | More distribution on transaction's selection and fees rewards | Combines PoW & PoS disadvantages                                                                            |
-| 9    | DPoS      | Mitigating PoS centralization                                 | Coins owners & witnesses centralization                                                                     |
-| 10   | LPoS      | Mitigating even more PoS centralization                       | Still some coins owners centralization                                                                      |
+| #    | Consensus | Advantages                                                       | Disadvantages                                                                                                                                         |
+| :--- | :-------- | :--------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0    | PoW       | Extreme robustness (MAD + SHA256 + CBC)                          | High Energy consumption                                                                                                                               |
+| 1    | PoB       | Robustness similar to PoW                                        | Still wastes ressources needlessly; Mining power to money burners                                                                                     |
+| 2    | PoC       | Less energy consumption; mimic mining                            | Nothing at Stake (no MAD); tends to detroy hard-drives                                                                                                |
+| 3    | LBC       | Less energy consumption                                          | Leader centralized; Sybil Attack[[1]](/blockchain-basics/other-consensuses#references) weakness                                                       |
+| 4    | PBFT      | Very easy to implement                                           | Absence of privacy; Sybil Attack[[1]](/blockchain-basics/other-consensuses#references) weakness                                                       |
+| 5    | FBA       | Modest computing & financial requirements                        | Quorum slices centralization; Sybil Attack[[1]](/blockchain-basics/other-consensuses#references) weakness                                             |
+| 6    | Avalanche | Fast; highly distributed (lots of nodes)                         | Groups of nodes centralization; Sybil Attack[[1]](/blockchain-basics/other-consensuses#references) weakness                                           |
+| 7    | PoS       | Less energy consumption                                          | Coins owners centralization; other problems (see ["*Liquid Proof-of-Stake*"](/tezos-basics/liquid-proof-of-stake) chapter in "*Tezos Basics*" module) |
+| 8    | PoA       | More distribution on transaction's selection and fees rewards    | Combines PoW & PoS disadvantages                                                                                                                      |
+| 9    | DPoS      | Less energy consumption; Mitigating PoS centralization           | Coins owners & witnesses centralization                                                                                                               |
+| 10   | LPoS      | Less energy consumption; Mitigating even more PoS centralization | Still some coins owners centralization                                                                                                                |
 
 ## What have we learned so far?
-In this chapter, we briefly described ten consensuses that can be used for public blockchains. There are many other consensus algorithms.
+In this chapter, we briefly described ten consensus algorithms that can be used for public blockchains. There are many others.
 
 In the next chapter, "_Smart Contracts_", we'll define what they are, what are some of Bitcoin's limitations in that matter, and how Ethereum first proposed to lift those limitations.
 
