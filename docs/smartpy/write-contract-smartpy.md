@@ -98,11 +98,9 @@ code
 ```
 
 ### The *open_raffle* entrypoint
-
 `open_raffle` is the entrypoint that only the administrator can call. If the invocation is successful, then the raffle will open, and the smart contract's storage will be updated with the chosen amount and the hash of the winning ticket number.
 
 #### Link to referential manual
-
 - [Init](https://smartpy.io/reference.html#_contracts)
 - [Entrypoints](https://smartpy.io/reference.html#_entry_points)
 - [Checking a Condition](https://smartpy.io/reference.html#_checking_a_condition)
@@ -111,7 +109,6 @@ code
 - [Typing](https://smartpy.io/reference.html#_typing)
 
 #### Code
-
 ```python
 # Raffle Contract - Example for illustrative purposes only.
 

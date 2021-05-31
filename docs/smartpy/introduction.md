@@ -91,11 +91,9 @@ The entrypoints are the invocable functions of a smart contract. Executing an en
   </p>
 </NotificationBar>
 
-
 In the rest of the module, we will see how to install SmartPy on his machine. But mainly, we will see how to use [the online editor](https://smartpy.io/ide) to start directly to code, test, and run his smart contract with SmartPy. The whole will be illustrated with an example of a raffle smart contract.
 
 ## References
-
 [1] https://tzstats.com/blog/next-gen-blockchain-indexing-for-tezos/https://smartpy.io/
 
 [2] https://smartpy-io.medium.com/introducing-smartpy-and-smartpy-io-d4013bee7d4e
