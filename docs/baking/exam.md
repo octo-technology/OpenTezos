@@ -20,7 +20,7 @@ What is the consensus protocol of the Tezos Blockchain?
 
 What is baking?
 
-- [ ] It is the act of delegating XTZ to earn passiv interest.
+- [ ] It is the act of delegating XTZ to earn passive interest.
 - [x] It is the act of signing and publishing blocks to the Tezos blockchain.
 - [ ] It is the act of monitoring transaction of the Tezos blockchain.
 - [x] It is a food cooking method using prolonged dry heat acting by convection, normally in an oven, but also in hot ashes, or on hot stones.
@@ -60,8 +60,8 @@ How long a baker will have to freeze part of his tokens to create a block?
 
 What is true about baker and endorser selection?
 
-- [x] Rolls snapshot are done every 256 blocks and define who can bake.
-- [ ] Rolls snapshot are done every 5 cycles and define who can bake.
+- [x] Rolls snapshots are done every 256 blocks and define who can bake.
+- [ ] Rolls snapshots are done every 5 cycles and define who can bake.
 - [x] The order of baking is done using a pseudo-random number generator based on a seed.
 - [x] The selected rolls determine the baking and endorsing rights for the next 5 cycles.
 - [ ] The selected rolls determine the baking and endorsing rights for the next cycle.
@@ -71,8 +71,8 @@ What is true about baker and endorser selection?
 
 What monitors an accuser?
 - [x] He monitors that a baker does not create two competing blocks at the same level.
-- [ ] He monitors that a baker does not steal his delegators rewards.
-- [x] He monitors that an endorser endorse a block twice or more at the same baking slot.
+- [ ] He monitors that a baker does not steal his delegators' rewards.
+- [x] He monitors that an endorser does not endorse a block twice or more at the same baking slot.
 - [ ] He monitors that baker and endorser selection is fair. 
 
 ### Question 8
@@ -86,7 +86,7 @@ What is true about the XTZ inflation?
 
 ### Question 9
 
-For high priority baking, how much is the baking reward per endorsement?
+For a high priority baking, how much is the baking reward per endorsement?
 
 - [x] 0.1875 ꜩ
 - [ ] 0.8333 ꜩ

@@ -109,7 +109,7 @@ That value is distributed among all the endorsers proportionally to their slots.
 
 When delegating, you can earn a passive income by participating in the Tezos network via delegation. The current annual yield on Tezos is around **6%** minus a validator’s fees.
 
-Every time a baker receives rewards, those rewards are frozen for the next 5 cycles (~14 days), so the baker can’t spend it. Only after ~14 days rewards are unfrozen, and the baker can transfer it to someone else. Most bakers wait until rewards are unfrozen and only then pay it out to delegators, but some don't.
+Every time a baker receives rewards, those rewards are frozen for the next 5 cycles (~14 days), so the baker cannot spend them. Only after rewards are unfrozen, the baker can transfer them to someone else. Most bakers wait until rewards are unfrozen and only then pay it out to delegators, but some do not.
 
 For:
 - $Confirmation_{time} \approx \text{20 days}$, delegators have to wait ~20 days after delegating before start staking.
@@ -117,7 +117,7 @@ For:
 - $Cycle_{time} \approx \text{3 days}$, this is the approximate time between two successive cycles.
 - $FirstPayout_{time}$: The necessary time to wait before the first payout.
 
-If your baker pays after rewards are unfrozen you will receive your first reward after:
+If your baker pays after rewards are unfrozen, you will receive your first reward after:
 $$
 \bm{FirstPayout_{time}}= Confirmation_{time} + Frozen_{time} + Cycle_{time} \approx \text{37 days}
 $$
@@ -137,7 +137,7 @@ When delegating, your XTZ are completely liquid. You are free to move your token
 
 The accuser monitors the network, detects double-baking or double-endorsing.
 
-If two endorsements are made for the same slot or two blocks baked at the same height, the evidence can be collected by an accuser and included in a block for a period of 5 cycles including the current cycle.
+If two endorsements are made for the same slot or two blocks baked at the same height, the evidence can be collected by an accuser and included in a block for a period of 5 cycles, including the current cycle.
 
 This accusation forfeits the entirety of the safety deposit and future reward up to that point in the cycle. Half is burned, half goes to the accuser in the form of a block reward.
 

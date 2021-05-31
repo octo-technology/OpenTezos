@@ -44,7 +44,7 @@ A baker becomes passive for cycle `n` when they fail to create any blocks or end
 
 Tezos also relies on **endorsers** who approve the newly created block in exchange for a reward. Then, each other member of the network will have to validate the block on its own version of the chain.
 
-Endorsing rights are set in the same way as baking rights. At every block height, 32 random rolls are selected, and their owners are supposed to endorse a block. Endorsing serves as a vote on a block.
+Endorsing rights are set in the same way as baking rights. At every block height, 32 random rolls are selected. Their owners are supposed to endorse a block. Endorsing serves as a vote on a block.
 
 Each endorser verifies the last block that was baked, say at the level `n`, and emits an endorsement operation. The endorsement operations are then baked in block `n+1`. Once block `n+1` is baked, no other endorsement for block `n` will be considered valid.
 
@@ -113,7 +113,7 @@ The generated list of priorities identifies which roll has the responsibility to
 There are also **accusers**. These network members monitor that:
 
 - a baker does not create two competing blocks at the same level
-- an endorser endorse a block twice or more at the same baking slot
+- an endorser does not endorse a block twice or more at the same baking slot
 
 If an accusation is correct, the accuser gets a part of the funds that were frozen by the baker or the endorser, as a reward. The other part is burned.
 

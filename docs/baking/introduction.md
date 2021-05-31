@@ -17,9 +17,9 @@ To bake blocks, a baker needs to participate in Proof-of-Stake, which requires a
 
 ### What is delegating?
 
-If someone does not have 8,000 XTZ or does not want to set up computing infrastructure to bake blocks, they may delegate their coins to a baker. Delegating lets coin holders (i.e. **delegators**) "lend" their coins to a baker (i.e. a **delegate**), giving the baker a higher probability of being selected to bake and endorse blocks. In exchange, bakers share the additional revenue generated from the delegated tokens with the delegators, in proportion to their participation. Importantly, this process does not actually transfer ownership of coins and hence the baker cannot spend or control the XTZ delegated to it, ensuring that bakers cannot appropriate the delegators funds.
+If someone does not have 8,000 XTZ or does not want to set up computing infrastructure to bake blocks, they may delegate their coins to a baker. Delegating lets coin holders (i.e. **delegators**) "lend" their coins to a baker (i.e. a **delegate**), giving the baker a higher probability of being selected to bake and endorse blocks. In exchange, bakers share the additional revenue generated from the delegated tokens with the delegators, in proportion to their participation. Importantly, this process does not actually transfer ownership of coins. Hence bakers cannot spend or control the XTZ delegated to it, ensuring that bakers cannot appropriate the delegators funds.
 
-With LPoS the number of bakers is unlimited (everyone can participate) and delegation is optional.
+With LPoS the number of bakers is unlimited (everyone can participate), and delegation is optional.
 
 ## References
 
