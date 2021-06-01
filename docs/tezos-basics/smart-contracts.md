@@ -12,7 +12,7 @@ Like in Ethereum, Tezos uses 2 types of accounts:
 1. Classic accounts with a primary address, simply storing tez (ꜩ) coins
 2. Smart contract accounts with an address, storing code and tez (ꜩ) coins
 
-Though in Tezos vocabulary though, "*contracts*" refers to both types in general. Actually each *contract* has a "**_manager_**". Precisely, a classic account has an "**_owner_**". If a contract has the "*spendable*" property, the manager is the entity allowed to spend funds from it.
+Though in Tezos vocabulary, "*contracts*" refers to both types in general. Actually each *contract* has a "**_manager_**". Precisely, a classic account has an "**_owner_**". If a contract has the "*spendable*" property, the manager is the entity allowed to spend funds from it.
 
 Smart contracts can achieve different kinds of operations with coins and *other smart contracts*. They're comparable to *automatic* **sealed** food and drink dispensers from the same company:  
 Each machine has a contract saying "*Give me cryptocurrency, then I give you food or drink*". Each machine can have a different smart contract for various foods or drinks, and there could be another smart contract gathering the cryptocurrency total for the company. Each machine doesn't operate until enough currency is delivered (*Gas*). Note that the **quantities** of foods or drinks change while their **types** can't (ever).
@@ -61,7 +61,7 @@ You can find the full description of the Michelson language in the [Michelson mo
 During the origination, the process must specify the storage **initial state**.
 If needed for operations, calling transactions' fees pay for the allocation of extra storage space.
 
-For more details, check out the ["*Fees and Rewards*"](/tezos-basics/economics_and_reward) chapter.
+For more details, check out the ["*Fees and Rewards*"](/tezos-basics/economics-and-rewards) chapter.
 
 ### Call of a Tezos smart contract
 A smart contract can be called by a classic account whose address starts with "**tz1**" or by a smart contract's account whose address begins with "**KT1**". The transaction specifies *arguments* and to which *entrypoint* they are sent.
@@ -71,7 +71,7 @@ A smart contract can be called by a classic account whose address starts with "*
 
 One can use the Command Line Interface (CLI) provided by Tezos to interact with a node and make calls. The "`tezos-client`" application allows anyone to deploy and call Tezos smart contracts.
 
-The Remote Procedure Call (RPC) also provides ways to send requests to a Tezos node via HTTP (more details in ["*RPC and CLI*"](/tezos-basics/introduction_to_cli_and_rpc) chapter).
+The Remote Procedure Call (RPC) also provides ways to send requests to a Tezos node via HTTP (more details in ["*CLI and RPC*"](/tezos-basics/cli-and-rpc) chapter).
 
 The CLI command "`tezos-client originate`" is used to deploy a Tezos smart contract. Arguments are the following:
 - Name of the smart contract
@@ -83,7 +83,7 @@ The CLI command "`tezos-client originate`" is used to deploy a Tezos smart contr
 - Amount of tez sent to the smart contract
 - (optional) Address of a delegate
 
-The command returns the newly deployed contract's address (more detail in the ["*RPC and CLI*"](/tezos-basics/introduction_to_cli_and_rpc) chapter).
+The command returns the newly deployed contract's address (more detail in the ["*CLI and RPC*"](/tezos-basics/cli-and-rpc) chapter).
 
 ## High-level languages for Tezos smart contracts implementations
 Michelson is a low-level stack-based language. Therefore its adoption is quite limited because most developers won't take time to learn it. Many Michelson *compilers* have been developed to avoid this friction and led to many high-level languages closer to developers habits: [*SmartPy*](/smartpy) (inspired by *Python*); [*LIGO*](/ligo) (inspired by *Camel* and *Pascal*); or [*Morley*](https://serokell.io/project-morley) (framework).
