@@ -174,7 +174,7 @@ A full documentation is available [here](https://tzstats.com/docs/api#tezos-api)
 First, let's get the contract information.
 The "explorer" endpoints will be used (full reference [here](https://tzstats.com/docs/api#explorer-endpoints))
 
-In this example, one of the contracts has been migrated on edonet to KT1Vcj7ij2fP28MGuCstVGdGRTVafSTECyMV.
+In this example, one of the contracts has been deployed on edonet to KT1Vcj7ij2fP28MGuCstVGdGRTVafSTECyMV.
 
 Let's retrieve the contract details:
 
@@ -381,12 +381,11 @@ tzstats.com is extremely useful to monitor what is going-on on the mainnet and p
 All the pieces of information regarding the cycles, the blocks, the transactions, the smarts contracts... can quickly be found,
 thanks to a user-friendly interface.
 
-In addition, _TzStats_ provides a complete and free REST API, that can be called without restriction.
+In addition, _TzStats_ provides a complete and free REST API (for non-commercial use), without any authentication or enforcement of rate limits (as long as it remains reasonable). See the introduction of the [Tzstats API](https://tzstats.com/docs/api#tezos-api).
+
 Those calls can be performed by any library: the pieces of information retrieved about a public Tezos network can be used in another monitoring tool, or even in Dapps.
 
-Indeed, the handling of big maps can be troublesome with some libraries.
-For instance, _taquito_ (a typescript library to interact with a tezos node) is not able to retrieve all the values (and even the keys) of a big map with a simple call.
-A call to the _TzStats_ API solves this issue.
+Indeed, API calls can be used within Dapps to retrieve those kinds of information. For instance, _taquito_ (a typescript library to interact with a tezos node) is not able to retrieve the keys of a big map with a simple call. A call to the _TzStats_ API solves this issue.
 
 Those tools are also available for private networks.
 This will be detailed in the next chapter, where a private _TzStats_ is set up to monitor a private network.
