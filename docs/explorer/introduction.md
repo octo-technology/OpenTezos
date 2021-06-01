@@ -21,11 +21,7 @@ All transactions ever performed on a network can be viewed using such a tool.
 You can think of it as a window into the blockchain world,
 allowing you to observe what's happening in it.
 
-<<<<<<< HEAD
 Cryptocurrency users and developers use such a tool to view the status of past or pending transactions.
-=======
-Cryptocurrency users and developers use such a tool to view the status of past or present transactions.
->>>>>>> e9d29c74a634817a8545479987c07e1c31464e43
 
 Some of the most basic information available on blockchain explorers includes (but are not limited to):
 

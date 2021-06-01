@@ -25,7 +25,7 @@ The purpose of this chapter is to list the main explorers of the Tezos blockchai
 
 ## Indexers potential features
 
-- **Full-text search** in smart contract storage. For example, you can retrieve a smart contract by specifying a part of the michelson code of the storage.
+- **Full-text search** in smart contract storage. For example, you can retrieve a smart contract by specifying a part of the Michelson code of the storage.
 - **Michelson decoding**: The Michelson code is interpreted to be presented in a more readable way.
 - **Bigmap support** Allows you to access and observe the content of Big Maps in the storage of smart contracts.
 - **Mempool access**: some explorers provide access to the content of the mempool. The mempool is made of all transactions that have been submitted for inclusion in the chain but have not yet been included in a block by a baker.
@@ -117,4 +117,4 @@ Arronax is Cyrptonomic Conseil's block explorer and was released in beta in Apri
 
 **Cons**
 
-- limited statistics and timeseries data
+- limited statistics and time-series data

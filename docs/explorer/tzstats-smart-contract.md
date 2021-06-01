@@ -381,15 +381,15 @@ tzstats.com is extremely useful to monitor what is going-on on the mainnet and p
 All the pieces of information regarding the cycles, the blocks, the transactions, the smarts contracts... can quickly be found,
 thanks to a user-friendly interface.
 
-In addition, tzstats provides a complete and free REST API, that can be called without restriction.
+In addition, _TzStats_ provides a complete and free REST API, that can be called without restriction.
 Those calls can be performed by any library: the pieces of information retrieved about a public Tezos network can be used in another monitoring tool, or even in Dapps.
 
 Indeed, the handling of big maps can be troublesome with some libraries.
 For instance, _taquito_ (a typescript library to interact with a tezos node) is not able to retrieve all the values (and even the keys) of a big map with a simple call.
-A call to the tzstats API solves this issue.
+A call to the _TzStats_ API solves this issue.
 
 Those tools are also available for private networks.
-This will be detailed in the next chapter, where a private tzstats is set up to monitor a private network.
+This will be detailed in the next chapter, where a private _TzStats_ is set up to monitor a private network.
 
 ## References
 
