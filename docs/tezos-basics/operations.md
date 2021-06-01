@@ -1,15 +1,15 @@
 ---
 id: operations
 title: Operations
-authors: Thomas Zoughebi, Aymeric Bethencourt and Maxime Fernandez
+authors: Thomas Zoughebi, Aymeric Bethencourt, and Maxime Fernandez
 ---
 
 This chapter introduces the notion of _Operations_ on Tezos. These are more commonly known as _Transactions_ on other blockchains.
 
 ## Implicit accounts and originated accounts
-Let's start by talking about the two types of addresses in Tezos [[1]](/tezos-basics/operations#referencess):
+Let's start by talking about the two types of addresses in Tezos [[1]](/tezos-basics/operations#references):
 
-* An **implicit account** is linked to a **manager** (see [*General definition of a tezos smart contract*](/tezos-basics/smart-contracts#general-definition-of-a-tezos-smart-contract)), which owns the *public key*. The hash of the *public key* outputs an **address**. Depending on the chosen **D**igital **S**ignature **A**lgorithm's **e**lliptic **c**urve (see [ECDSA](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm)), the latter starts with "**_tz1_**" (Ed25519 curve), "**_tz2_**" ([Secp256k1](https://en.bitcoin.it/wiki/Secp256k1) curve), or "**_tz3_**" (P256 curve) [[2]](/tezos-basics/operations#referencess).  
+* An **implicit account** is linked to a **manager** (see [*General definition of a tezos smart contract*](/tezos-basics/smart-contracts#general-definition-of-a-tezos-smart-contract)), which owns the *public key*. The hash of the *public key* outputs an **address**. Depending on the chosen **D**igital **S**ignature **A**lgorithm's **e**lliptic **c**urve (see [ECDSA](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm)), the latter starts with "**_tz1_**" (Ed25519 curve), "**_tz2_**" ([Secp256k1](https://en.bitcoin.it/wiki/Secp256k1) curve), or "**_tz3_**" (P256 curve) [[2]](/tezos-basics/operations#references).  
 A *transfer* operation to the account's address creates the account itself.  
 Only *implicit* accounts can be registered as *delegates* and participate in the *baking process*.
 
