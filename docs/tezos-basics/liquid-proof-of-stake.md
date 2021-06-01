@@ -22,7 +22,7 @@ Removing PoW isn't without consequences. With the Nakamoto consensus, PoW allows
 ### BFT in DLT
 In the "Blockchain Basics" module, we talked about the *Byzantine Fault Tolerance* and how Bitcoin roughly supports 50% faulty nodes. Three fundamental elements of research let us lay the foundations for a new consensus.
 
-#### CAP Theorem [[4]](https://opentezos.com/tezos-basics/liquid-proof-of-stake#references)
+#### CAP Theorem [[4]](/tezos-basics/liquid-proof-of-stake#references)
 - **C**onsistency:  
   Every read receives the most recent write or an error
 - **A**vailability:  
@@ -32,16 +32,16 @@ In the "Blockchain Basics" module, we talked about the *Byzantine Fault Toleranc
 
 In cases of forks (partitions), you must **exclusively** choose between consistency **or** availability.
 
-#### FLP Impossibility [[5]](https://opentezos.com/tezos-basics/liquid-proof-of-stake#references)
+#### FLP Impossibility [[5]](/tezos-basics/liquid-proof-of-stake#references)
 The **F**isher, **L**ynch, and **P**atterson's Impossibility shows that, with no guaranteed bounds on network latency, it is impossible to reach consensus **even with a single faulty node**. This absence of limits for latency is characteristic of an **asynchronous setting**.
 
-#### FT's Bounds from DLS paper [[6]](https://opentezos.com/tezos-basics/liquid-proof-of-stake#references)
+#### FT's Bounds from DLS paper [[6]](/tezos-basics/liquid-proof-of-stake#references)
 The **D**work, **L**ynch, and **S**tockmeyer paper gives us three significant bounds on Fault Tolerance:
-- Consensuses running on a **partially synchronous** network can tolerate up to one third (1/3) faulty nodes
-- **Deterministic** consensuses running on an **asynchronous** network **cannot tolerate** faulty nodes (this becomes 1/3 with randomized algorithms)
+- Consensuses running on a **partially synchronous** network can tolerate up to one third ($\frac{1}{3}$) faulty nodes
+- **Deterministic** consensuses running on an **asynchronous** network **cannot tolerate** faulty nodes (this becomes $\frac{1}{3}$ with randomized algorithms)
 - Consensuses running on a **synchronous** network can tolerate **up to 100%** faulty nodes (with some restrictions exceeding 50%)
 
-PoW consensus is more reliant on a **synchronous model**, while PoS is more reliant on a **BFT model**. In PoW **synchronous models**, FT decreases with latency (around 1/3 at block time latency). PoS consensuses keep track of validators and validators' set size, thus making them **partially synchronous**.
+PoW consensus is more reliant on a **synchronous model**, while PoS is more reliant on a **BFT model**. In PoW **synchronous models**, FT decreases with latency (around $\frac{1}{3}$ at block time latency). PoS consensuses keep track of validators and validators' set size, thus making them **partially synchronous**.
 
 Keeping in mind validators' selection and rewards' distributions, we can distinguish two main categories for a PoS consensus:
 
@@ -49,14 +49,14 @@ Keeping in mind validators' selection and rewards' distributions, we can disting
 | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Pseudo-randomly** select a validator from a set **during a time slot**. The validator creates the next valid block. Example: Casper (with as much consistency as possible) | **Randomly** select validators who *propose* blocks. Then *voting* rounds elect the next block. There is a *chain* but blocks are *partially independent*. Validators have to be **honest and online**. Example: Tendermint |
 
-At this point, we already need to prevent *cartels* forming. For comparison with PoW, it is like to impede attacks like "*Selfish Mining*"[[7]](https://opentezos.com/tezos-basics/liquid-proof-of-stake#references). There are other problems and various solutions.
+At this point, we already need to prevent *cartels* forming. For comparison with PoW, it is like to impede attacks like "*Selfish Mining*"[[7]](/tezos-basics/liquid-proof-of-stake#references). There are other problems and various solutions.
 
 ### Main weaknesses of PoS
 #### "Rich get richer"
 If rewards chances are proportional to previous holdings, wealth naturally concentrates on the biggest ones. In turn, these holdings grow even bigger with time. A capped supply is an important point here. If it isn't, then creating new tokens allows only to keep almost the same share percentage. It is problematic in two ways: The concentration of power (always the identical validators) and the decreasing incentive. However, all users wouldn't be staking validators and would make payments.
 
 #### Nothing at Stake
-**In chain-based PoS**, there weren't penalties and only rewards for producing blocks. Hence, there was no incentive to choose the correct chain. In PoW, the chain with the most accumulated work naturally attracts miners. They invest their electricity and power in the most probable part of the network where the next block should appear. Not doing so would lead to implicit penalties. On the contrary, in PoS, a validator can split his stake on every chain. He has nothing to lose. There will never be consensus in this case. This also makes the "*P+$\epsilon$ attack*"[[8]](https://opentezos.com/tezos-basics/liquid-proof-of-stake#references) possible.
+**In chain-based PoS**, there weren't penalties and only rewards for producing blocks. Hence, there was no incentive to choose the correct chain. In PoW, the chain with the most accumulated work naturally attracts miners. They invest their electricity and power in the most probable part of the network where the next block should appear. Not doing so would lead to implicit penalties. On the contrary, in PoS, a validator can split his stake on every chain. He has nothing to lose. There will never be consensus in this case. This also makes the "*P+$\epsilon$ attack*"[[8]](/tezos-basics/liquid-proof-of-stake#references) possible.
 
 It seems apparent that introducing penalties would instantly solve this problem. The implementations of these penalties aren't that easy.  
 The first strategy is to punish validators who **simultaneously** create a block on different chains. To detect this behavior, we need to include a *proof of misbehavior*. Creating this proof requires correctly identify validators and control the timing of blocks' issuance and penalties. Nodes have to be frequently online.  
@@ -68,8 +68,8 @@ The second strategy is to punish validators who create a block on the *wrong* ch
   - Slashing conditions: rules that determine when a given validator can be deemed to have misbehaved.
 
 - Properties
-  - Accountable safety: if conflicting valid blocks are finalized, then at least 1/3 of all validators must have violated some slashing condition.
-  - Plausible progression: there exists a set of messages that 2/3 of validators can produce and finalize some value.
+  - Accountable safety: if conflicting valid blocks are finalized, then at least $\frac{1}{3}$ of all validators must have violated some slashing condition.
+  - Plausible progression: there exists a set of messages that $\frac{2}{3}$ of validators can produce and finalize some value.
 
 Even if we can produce a *proof of misbehavior* and punish a validator, there is a major problem in the *misbehavior* qualification. Indeed, in the conflicting chains scenario, there can be **false positives**. Switching from a chain to another is a medium to establish consensus. Punishing this behavior is counter-productive. There can be no equilibrium between punishments and rewards, so no convergence.
 
@@ -110,9 +110,9 @@ A validator needs 8,000ꜩ (one "*roll*") to take part in the consensus (soon to
 
 ### Consensus mechanism
 #### Roll
-A roll represents 8,000ꜩ delegated to a given private key. So, the more rolls someone has, the higher the chance to bake the next block. If ten (10) rolls are active, and a baker owns 2/10 of these rolls, he has a 20% chance of being selected. Note that 8,000ꜩ or 15,999ꜩ stakeholders have the same probability of baking.
+A roll represents 8,000ꜩ delegated to a given private key. So, the more rolls someone has, the higher the chance to bake the next block. If 10 rolls are active, and a baker owns $\frac{2}{10}$ of these rolls, he has a 20% chance of being selected. Note that 8,000ꜩ or 15,999ꜩ stakeholders have the same probability of baking.
 
-Baking rights are called priorities and given in turns. For example, if ten (10) rolls were active, the protocol could randomly select a priority list as follows:
+Baking rights are called priorities and given in turns. For example, if 10 rolls were active, the protocol could randomly select a priority list as follows:
 
 ```
  Priority1 = Roll 6
@@ -133,10 +133,10 @@ Each validation establishes a new priority list.
 One cycle corresponds to 4096 blocks (≈ 2.8 days).
 
 ##### Cycles, rewards and fees
-It takes seven (7) cycles to accumulate rewards. It then takes another five (5) cycles before the delegation service receives them and can transfer those rewards. Finally, the tokens are frozen for several weeks. More details in chapter "[*Economics and Rewards*](https://opentezos.com/tezos-basics/economics-and-rewards)"
+It takes 7 cycles to accumulate rewards. It then takes another 5 cycles before the delegation service receives them and can transfer those rewards. Finally, the tokens are frozen for several weeks. More details in chapter "[*Economics and Rewards*](/tezos-basics/economics-and-rewards)"
 
 #### Roll selection
-At each cycle, a random seed is created. A pseudo-random number generator uses the seed to generate the priority list based on a snapshot of existing rolls two (2) cycles ago.
+At each cycle, a random seed is created. A pseudo-random number generator uses the seed to generate the priority list based on a snapshot of existing rolls 2 cycles ago.
  
 ##### The rolls snapshots
 Every 256 blocks, the system creates snapshots of **owned** rolls.
