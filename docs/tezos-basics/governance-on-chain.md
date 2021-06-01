@@ -29,7 +29,7 @@ Many other blockchains do not have this type of formal governance structure. Con
 * **Proposal**: A request for addition, adjustment, or removal of a protocol's feature.
 
 ## How does it work?
-Five (5) periods split the self-amendment process:
+Five periods split the self-amendment process:
 
 1. _Proposal Period_
 2. _Exploration Vote Period_
@@ -250,7 +250,7 @@ Proposals : {
 This operation [[3]](/tezos-basics/governance-on-chain#references) can be submitted more than once but only if the cumulative number of active proposals is less than 20. Each time a delegate duplicates a proposal, a vote is counted with the 20 vote maximum applying.
 
 ### The "*Ballot*" operation
-It is only possible to submit a proposal operation during the _Exploration Vote Period_ (2.) or the _Promotion Vote Period_ (4.), and only once per period.
+It is only possible to submit a ballot operation during the _Exploration Vote Period_ (2.) or the _Promotion Vote Period_ (4.), and only once per period.
 
 Description:
 
@@ -272,9 +272,9 @@ Ballot : {
 
 
 ## Sending a proposal operation
-To send a "proposals" or a "ballot" operation, please refer to the [CLI and RPC](/tezos-basics/cli-and-rpc) chapter.
+To send a "proposal" or a "ballot" operation, please refer to the [CLI and RPC](/tezos-basics/cli-and-rpc) chapter.
 
-## What have learned so far?
+## What have we learned so far?
 In this chapter, we learned how Tezos allows on-chain decentralized governance without hard forks' troubles. To do this, Tezos splits amendments into five different periods that we defined and detailed.
 
 In the next "*History of Amendments*" chapter, we will go over a history of past proposals, both approved and refused, and look at why.

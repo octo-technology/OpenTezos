@@ -58,9 +58,9 @@ The *Edo* proposal was adopted in November 2020 with Nomadic Labs, Metastate, an
 
 Edo added two major features to Tezos smart contracts:
 
-* *Sapling*[1](/tezos-basics/history-of-amendments#references) and *BLS12-381*[2](/tezos-basics/history-of-amendments#references) to enable privacy-preserving smart contracts
+* *Sapling*[[1]](/tezos-basics/history-of-amendments#references) and *BLS12-381*[[2]](/tezos-basics/history-of-amendments#references) to enable privacy-preserving smart contracts
 
-* *Tickets*[3](/tezos-basics/history-of-amendments#references) for native on-chain permissions and assets issuance.
+* *Tickets*[[3]](/tezos-basics/history-of-amendments#references) for native on-chain permissions and assets issuance.
 
 Among other features, Edo also updated the Tezos amendment process by lowering period length to 5 cycles and by adding a 5th *Adoption Period*. A full changelog is available [here](https://tezos.gitlab.io/protocols/008_edo.html).
 
@@ -73,11 +73,11 @@ Florence's notable bug fixes and improvements are:
 
 * Improved gas consumption for the execution of more complex smart contracts
 
-* Changing inter-contract calls to a depth-first serach[4](/tezos-basics/history-of-amendments#references) ordering, as opposed to breadth-first search[5](/tezos-basics/history-of-amendments#references) ordering
+* Changing inter-contract calls to a depth-first serach[[4]](/tezos-basics/history-of-amendments#references) ordering, as opposed to breadth-first search[[5]](/tezos-basics/history-of-amendments#references) ordering
 
 * The elimination of the test chain activation
   
-*Bakings Accounts*[6](/tezos-basics/history-of-amendments#references) was also included in the feature set. However, ongoing testing uncovered some important and previously undocumented breaking changes in the proposal with *Baking Accounts*. Hence, the postponed feature until a thorough audit of functionality completion or an alternative implementation production. The version of *Florence* without *Baking Accounts* has been considered a safer choice.
+*Bakings Accounts*[[6]](/tezos-basics/history-of-amendments#references) was also included in the feature set. However, ongoing testing uncovered some important and previously undocumented breaking changes in the proposal with *Baking Accounts*. Hence, the postponed feature until a thorough audit of functionality completion or an alternative implementation production. The version of *Florence* without *Baking Accounts* has been considered a safer choice.
 
 ## What have we learned so far?
 In this chapter, we went through the past proposals' history and how and why they were approved or rejected.
