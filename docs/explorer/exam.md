@@ -8,9 +8,9 @@ authors: Maxime Sallerin
 
 What is true about a block indexer?
 
-- [x] Indexers are node operators.
+- [x] Indexers fetches the raw data from the node, then processes it and stores it in a database in an optimized way.
 - [ ] It enables cryptocurrency transaction.
-- [x] It provides fast and readable access to the blockchain data.
+- [x] It provides fast access to the blockchain data.
 - [ ] It allows the writing and deployment of smart contracts.
 - [ ] Indexers exist only for the Tezos blockchain.
 
@@ -37,7 +37,7 @@ Which of the following block explorers is designed for the Tezos Blockchain?
 
 ### Question 4
 
-What does the _TzStats_ explorer allow you to do?
+What does a block explorer such as _TzStats_ allow you to do?
 
 - [x] Get an overview of the main activity on the Tezos network, e.g. staking activity, gas price, XTZ offer, transaction volume, etc.
 - [x] Get general information about a specific block number.
