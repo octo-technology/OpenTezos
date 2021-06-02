@@ -44,7 +44,7 @@
           },
           {
             "type": "link",
-            "label": "Introduction to other consensuses",
+            "label": "Introduction to other consensus algorithms",
             "href": "/blockchain-basics/other-consensuses"
           },
           {
@@ -316,7 +316,22 @@
           {
             "type": "link",
             "label": "Introduction",
-            "href": "/baking"
+            "href": "/baking/introduction"
+          },
+          {
+            "type": "link",
+            "label": "How baking works?",
+            "href": "/baking/baking_explained"
+          },
+          {
+            "type": "link",
+            "label": "Rewards",
+            "href": "/baking/reward"
+          },
+          {
+            "type": "link",
+            "label": "List of bakers",
+            "href": "/baking/bakers_list"
           },
           {
             "type": "link",
@@ -490,8 +505,11 @@
   "permalinkToSidebar": {
     "/baker/exam": "docs",
     "/baker": "docs",
+    "/baking/bakers_list": "docs",
+    "/baking/baking_explained": "docs",
     "/baking/exam": "docs",
-    "/baking": "docs",
+    "/baking/introduction": "docs",
+    "/baking/reward": "docs",
     "/blockchain-basics/exam": "docs",
     "/blockchain-basics": "docs",
     "/blockchain-basics/main-properties": "docs",

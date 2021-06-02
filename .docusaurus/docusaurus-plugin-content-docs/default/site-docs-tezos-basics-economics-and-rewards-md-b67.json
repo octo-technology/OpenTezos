@@ -3,7 +3,7 @@
   "id": "tezos-basics/economics-and-rewards",
   "isDocsHomePage": false,
   "title": "Economics and rewards",
-  "description": "Transaction cost",
+  "description": "In this chapter, we will see more detail about the fees of the Tezos network and the baking and endorsing rewards. The calculations you'll learn are helpful for the simplest transaction issuance to the most complex application built on Tezos. You need to understand the basics of fees and gas optimizations. Of course, this will serve you if you are a baker or an endorser.",
   "source": "@site/docs/tezos-basics/economics-and-rewards.md",
   "sourceDirName": "tezos-basics",
   "slug": "/tezos-basics/economics-and-rewards",

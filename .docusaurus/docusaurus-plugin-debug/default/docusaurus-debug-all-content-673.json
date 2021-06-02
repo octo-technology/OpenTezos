@@ -282,6 +282,18 @@
                   },
                   {
                     "type": "doc",
+                    "id": "baking/baking_explained"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "baking/reward"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "baking/bakers_list"
+                  },
+                  {
+                    "type": "doc",
                     "id": "baking/exam"
                   }
                 ]
@@ -426,8 +438,11 @@
           "permalinkToSidebar": {
             "/baker/exam": "docs",
             "/baker": "docs",
+            "/baking/bakers_list": "docs",
+            "/baking/baking_explained": "docs",
             "/baking/exam": "docs",
-            "/baking": "docs",
+            "/baking/introduction": "docs",
+            "/baking/reward": "docs",
             "/blockchain-basics/exam": "docs",
             "/blockchain-basics": "docs",
             "/blockchain-basics/main-properties": "docs",
@@ -564,6 +579,66 @@
               }
             },
             {
+              "unversionedId": "baking/bakers_list",
+              "id": "baking/bakers_list",
+              "isDocsHomePage": false,
+              "title": "List of bakers",
+              "description": "In this section, we will present the lists of bakers. Then as a delegator, we will see how to choose a baker.",
+              "source": "@site/docs/baking/bakers_list.md",
+              "sourceDirName": "baking",
+              "slug": "/baking/bakers_list",
+              "permalink": "/baking/bakers_list",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/baking/bakers_list.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
+              "frontMatter": {
+                "id": "bakers_list",
+                "title": "List of bakers",
+                "authors": "Maxime Sallerin"
+              },
+              "sidebar": "docs",
+              "previous": {
+                "title": "Rewards",
+                "permalink": "/baking/reward"
+              },
+              "next": {
+                "title": "Exam",
+                "permalink": "/baking/exam"
+              }
+            },
+            {
+              "unversionedId": "baking/baking_explained",
+              "id": "baking/baking_explained",
+              "isDocsHomePage": false,
+              "title": "How baking works?",
+              "description": "In this section, we will discuss how baking works. The different actors of the mechanism and the technological solutions will be presented.",
+              "source": "@site/docs/baking/baking_explained.md",
+              "sourceDirName": "baking",
+              "slug": "/baking/baking_explained",
+              "permalink": "/baking/baking_explained",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/baking/baking_explained.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
+              "frontMatter": {
+                "id": "baking_explained",
+                "title": "How baking works?",
+                "authors": "Maxime Sallerin"
+              },
+              "sidebar": "docs",
+              "previous": {
+                "title": "Introduction",
+                "permalink": "/baking/introduction"
+              },
+              "next": {
+                "title": "Rewards",
+                "permalink": "/baking/reward"
+              }
+            },
+            {
               "unversionedId": "baking/exam",
               "id": "baking/exam",
               "isDocsHomePage": false,
@@ -585,8 +660,8 @@
               },
               "sidebar": "docs",
               "previous": {
-                "title": "Introduction",
-                "permalink": "/baking"
+                "title": "List of bakers",
+                "permalink": "/baking/bakers_list"
               },
               "next": {
                 "title": "Introduction",
@@ -598,11 +673,11 @@
               "id": "baking/introduction",
               "isDocsHomePage": false,
               "title": "Introduction",
-              "description": "Under construction.",
+              "description": "In this module, we will see how baking works for the Tezos blokchain. More precisely, we will see who are the different actors involved from the creation to the validation of a new block. Then we will see the associated reward system. And finally, we will present the list of existing bakers and the criteria to evaluate them.",
               "source": "@site/docs/baking/introduction.md",
               "sourceDirName": "baking",
-              "slug": "/baking",
-              "permalink": "/baking",
+              "slug": "/baking/introduction",
+              "permalink": "/baking/introduction",
               "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/baking/introduction.md",
               "version": "current",
               "lastUpdatedBy": "Author",
@@ -610,10 +685,8 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "introduction",
-                "disable_pagination": true,
                 "title": "Introduction",
-                "slug": "/baking",
-                "authors": "--"
+                "authors": "Maxime Sallerin"
               },
               "sidebar": "docs",
               "previous": {
@@ -621,16 +694,16 @@
                 "permalink": "/dapp/truffle_compilation_migration"
               },
               "next": {
-                "title": "Exam",
-                "permalink": "/baking/exam"
+                "title": "How baking works?",
+                "permalink": "/baking/baking_explained"
               }
             },
             {
               "unversionedId": "baking/reward",
               "id": "baking/reward",
               "isDocsHomePage": false,
-              "title": "Reward and fees",
-              "description": "To maintain the network, Tezos needs bakers and endorsers. They stake their token and use their computing power to create blocks, manage transactions, vote and secure the network. In exchange for the completion of these tasks, bakers are rewarded with tokens from the transaction fees or tokens created by the network. Since the Carthage update, the reward system has been updated to make the network more robust against non-cooperative baking strategies.",
+              "title": "Rewards",
+              "description": "To maintain the network, Tezos needs bakers and endorsers. They stake their token and use their computing power to create blocks, manage transactions, vote, and secure the network. In exchange for the completion of these tasks, bakers are rewarded with tokens from the transaction fees or tokens created by the network. Since the Carthage update, the reward system has been updated to make the network more robust against non-cooperative baking strategies.",
               "source": "@site/docs/baking/reward.md",
               "sourceDirName": "baking",
               "slug": "/baking/reward",
@@ -642,8 +715,17 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "reward",
-                "title": "Reward and fees",
+                "title": "Rewards",
                 "authors": "Maxime Sallerin"
+              },
+              "sidebar": "docs",
+              "previous": {
+                "title": "How baking works?",
+                "permalink": "/baking/baking_explained"
+              },
+              "next": {
+                "title": "List of bakers",
+                "permalink": "/baking/bakers_list"
               }
             },
             {
@@ -681,7 +763,7 @@
               "id": "blockchain-basics/introduction",
               "isDocsHomePage": false,
               "title": "Introduction",
-              "description": "Welcome to OpenTezos, the most complete and open-source documentation on Tezos.",
+              "description": "Before we start digging into Tezos itself, let's review the basics of blockchain and cryptocurrencies. This module will present a brief history of the blockchain, its main components, consensus' mechanisms and introduce the notion of smart contract (smart contracts will be more detailed in the dedicated chapter of the \"Tezos Basics\" module). All these notions will later be helpful in the following modules to understand how Tezos works and how it builds upon Bitcoin and Ethereum to become part of a new generation of blockchains.",
               "source": "@site/docs/blockchain-basics/introduction.md",
               "sourceDirName": "blockchain-basics",
               "slug": "/blockchain-basics",
@@ -743,8 +825,8 @@
               "unversionedId": "blockchain-basics/other-consensuses",
               "id": "blockchain-basics/other-consensuses",
               "isDocsHomePage": false,
-              "title": "Introduction to other consensuses",
-              "description": "In this chapter, we will briefly introduce some other public consensuses.",
+              "title": "Introduction to other consensus algorithms",
+              "description": "In this chapter, we will briefly introduce some other public consensus algorithms.",
               "source": "@site/docs/blockchain-basics/other-consensuses.md",
               "sourceDirName": "blockchain-basics",
               "slug": "/blockchain-basics/other-consensuses",
@@ -757,7 +839,7 @@
               "frontMatter": {
                 "id": "other-consensuses",
                 "disable_pagination": true,
-                "title": "Introduction to other consensuses",
+                "title": "Introduction to other consensus algorithms",
                 "authors": "Thomas Zoughebi and Aymeric Bethencourt"
               },
               "sidebar": "docs",
@@ -775,7 +857,7 @@
               "id": "blockchain-basics/proof-of-work",
               "isDocsHomePage": false,
               "title": "Proof-of-work",
-              "description": "Proof-of-work was the first fully functional blockchain consensus ever created. It is still in use by Bitcoin and many other blockchains. It requires its users to mine to get a chance to earn a reward for validating transactions. In this chapter, we will look into the technical side of things and how mining works.",
+              "description": "Proof-of-work was the first fully functional blockchain consensus mechanism ever created. It is still in use by Bitcoin and many other blockchains. It requires its users to mine to get a chance to earn a reward for validating blocks of transactions. In this chapter, we will look into the technical side of things and how mining works.",
               "source": "@site/docs/blockchain-basics/proof-of-work.md",
               "sourceDirName": "blockchain-basics",
               "slug": "/blockchain-basics/proof-of-work",
@@ -797,7 +879,7 @@
                 "permalink": "/blockchain-basics/main-properties"
               },
               "next": {
-                "title": "Introduction to other consensuses",
+                "title": "Introduction to other consensus algorithms",
                 "permalink": "/blockchain-basics/other-consensuses"
               }
             },
@@ -824,7 +906,7 @@
               },
               "sidebar": "docs",
               "previous": {
-                "title": "Introduction to other consensuses",
+                "title": "Introduction to other consensus algorithms",
                 "permalink": "/blockchain-basics/other-consensuses"
               },
               "next": {
@@ -1120,7 +1202,7 @@
               },
               "next": {
                 "title": "Introduction",
-                "permalink": "/baking"
+                "permalink": "/baking/introduction"
               }
             },
             {
@@ -1935,7 +2017,7 @@
               "id": "ligo/installation",
               "isDocsHomePage": false,
               "title": "Installation",
-              "description": "There are currently four ways to get started with LIGO. You can choose to use a Docker image, a static Linux binary, to install packages for your Debian Linux distribution, or you can try directly on the online editor.",
+              "description": "There are currently four ways to get started with LIGO. You can choose to use a Docker image, a static Linux binary, or install packages for your Debian Linux distribution, or you can try directly on the online editor.",
               "source": "@site/docs/ligo/installation.md",
               "sourceDirName": "ligo",
               "slug": "/ligo/installation",
@@ -1965,7 +2047,7 @@
               "id": "ligo/introduction",
               "isDocsHomePage": false,
               "title": "Introduction",
-              "description": "Tezos smart contracts are written in Michelson, which is a stack-based language.",
+              "description": "Tezos smart contracts are written in Michelson, which is a stack-based language and the lowest level of language for a Tezos smart contract. The Michelson code can be deployed as-is on the Tezos network.",
               "source": "@site/docs/ligo/introduction.md",
               "sourceDirName": "ligo",
               "slug": "/ligo",
@@ -2206,7 +2288,7 @@
               "id": "michelson/introduction",
               "isDocsHomePage": false,
               "title": "Introduction",
-              "description": "To write smart contracts for Tezos, you can either choose the official low-level language called Michelson or a high-level language (such as LIGO or SmartPy) which compile with the Michelson language.",
+              "description": "To write smart contracts for Tezos, one can either choose the official low-level language called Michelson, or a high-level language, such as LIGO or SmartPy, which compiles into Michelson.",
               "source": "@site/docs/michelson/introduction.md",
               "sourceDirName": "michelson",
               "slug": "/michelson",
@@ -2561,7 +2643,7 @@
               "id": "tezos-basics/economics-and-rewards",
               "isDocsHomePage": false,
               "title": "Economics and rewards",
-              "description": "Transaction cost",
+              "description": "In this chapter, we will see more detail about the fees of the Tezos network and the baking and endorsing rewards. The calculations you'll learn are helpful for the simplest transaction issuance to the most complex application built on Tezos. You need to understand the basics of fees and gas optimizations. Of course, this will serve you if you are a baker or an endorser.",
               "source": "@site/docs/tezos-basics/economics-and-rewards.md",
               "sourceDirName": "tezos-basics",
               "slug": "/tezos-basics/economics-and-rewards",
@@ -2604,7 +2686,7 @@
               "frontMatter": {
                 "id": "exam",
                 "title": "Exam",
-                "authors": "Thomas Zoughebi, Aymeric Bethencourt and Maxime Fernandez"
+                "authors": "Thomas Zoughebi, Aymeric Bethencourt, and Maxime Fernandez"
               },
               "sidebar": "docs",
               "previous": {

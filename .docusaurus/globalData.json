@@ -21,18 +21,29 @@
               "sidebar": "docs"
             },
             {
+              "id": "baking/bakers_list",
+              "path": "/baking/bakers_list",
+              "sidebar": "docs"
+            },
+            {
+              "id": "baking/baking_explained",
+              "path": "/baking/baking_explained",
+              "sidebar": "docs"
+            },
+            {
               "id": "baking/exam",
               "path": "/baking/exam",
               "sidebar": "docs"
             },
             {
               "id": "baking/introduction",
-              "path": "/baking",
+              "path": "/baking/introduction",
               "sidebar": "docs"
             },
             {
               "id": "baking/reward",
-              "path": "/baking/reward"
+              "path": "/baking/reward",
+              "sidebar": "docs"
             },
             {
               "id": "blockchain-basics/exam",

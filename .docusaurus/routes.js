@@ -39,7 +39,7 @@ export default [
 },
 {
   path: '/',
-  component: ComponentCreator('/','d95'),
+  component: ComponentCreator('/','f0e'),
   
   routes: [
 {
@@ -58,13 +58,23 @@ export default [
   exact: true,
 },
 {
-  path: '/baking',
-  component: ComponentCreator('/baking','93f'),
+  path: '/baking/bakers_list',
+  component: ComponentCreator('/baking/bakers_list','605'),
+  exact: true,
+},
+{
+  path: '/baking/baking_explained',
+  component: ComponentCreator('/baking/baking_explained','b2d'),
   exact: true,
 },
 {
   path: '/baking/exam',
   component: ComponentCreator('/baking/exam','7b0'),
+  exact: true,
+},
+{
+  path: '/baking/introduction',
+  component: ComponentCreator('/baking/introduction','fb4'),
   exact: true,
 },
 {

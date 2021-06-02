@@ -2,8 +2,8 @@
   "unversionedId": "baking/reward",
   "id": "baking/reward",
   "isDocsHomePage": false,
-  "title": "Reward and fees",
-  "description": "To maintain the network, Tezos needs bakers and endorsers. They stake their token and use their computing power to create blocks, manage transactions, vote and secure the network. In exchange for the completion of these tasks, bakers are rewarded with tokens from the transaction fees or tokens created by the network. Since the Carthage update, the reward system has been updated to make the network more robust against non-cooperative baking strategies.",
+  "title": "Rewards",
+  "description": "To maintain the network, Tezos needs bakers and endorsers. They stake their token and use their computing power to create blocks, manage transactions, vote, and secure the network. In exchange for the completion of these tasks, bakers are rewarded with tokens from the transaction fees or tokens created by the network. Since the Carthage update, the reward system has been updated to make the network more robust against non-cooperative baking strategies.",
   "source": "@site/docs/baking/reward.md",
   "sourceDirName": "baking",
   "slug": "/baking/reward",
@@ -15,7 +15,16 @@
   "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "id": "reward",
-    "title": "Reward and fees",
+    "title": "Rewards",
     "authors": "Maxime Sallerin"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "How baking works?",
+    "permalink": "/baking/baking_explained"
+  },
+  "next": {
+    "title": "List of bakers",
+    "permalink": "/baking/bakers_list"
   }
 }
