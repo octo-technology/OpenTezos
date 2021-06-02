@@ -661,11 +661,8 @@ You should see a "New Smart contract created by ..." line in the *Calls* section
 
 # Conclusion
 
-_Truffle_ speeds up the deployment of smart contracts. 
-Most of the work is done during the first project configuration (networks, accounts, migrations). 
-Then each modification takes little time. 
-Besides, _Truffle_ projects can be versioned.
+The first step in developing a Dapp is to deploy the smart contracts. _Truffle_ takes ligo code, compiles it into Michelson code and can deploy it onto any public or private network. 
 
-All of this make it a great tool for every smart contract deployment.
+Each migration needs an initial storage, that should be compliant with the storage section of the Michelson code. 
 
-Now that our smart contract is deployed, we are going to interact with it thanks to a Typescript library, _Taquito_.
+Thanks to its configuration and migration files easily readable and versioned, _Truflle_ is an essential tool throughout the development and deployment of a dapp.
