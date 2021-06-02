@@ -20,9 +20,9 @@ _Arthur Breitman_ had seen the main weaknesses of early blockchains like Bitcoin
 
 His goal was to keep the best bits from these early blockchains and overcome their existing defects.
 
-In August and September, 2014, *Arthur Breitman* and *Kathleen Breitman* respectively released the Tezos' [*Position Paper*](https://tezos.com/static/position_paper-841a0a56b573afb28da16f6650152fb4.pdf) and [*White Paper*](https://tezos.com/static/white_paper-2dc8c02267a8fb86bd67a108199441bf.pdf), using the "*L.M Goodman*" pseudonym.
+In August and September, 2014, *Arthur Breitman* and *Kathleen Breitman* respectively released the Tezos' [*Position Paper*](https://tezos.com/position-paper.pdf) and [*White Paper*](https://tezos.com/whitepaper.pdf), using the "*L.M Goodman*" pseudonym.
 
-From March 2014 to July 2017, the company *OCamlPro* [[1]](https://opentezos.com/tezos-basics/introduction#references) took on the project to develop a Tezos prototype. The platform was thus written in their preferred language *OCaml*, mainly used in research.
+From March 2014 to July 2017, the company *OCamlPro* [[1]](/tezos-basics/#references) took on the project to develop a Tezos prototype. The platform was thus written in their preferred language *OCaml*, mainly used in research.
 
 ### The Tezos fundraiser
 On July 1st, 2017, Tezos launched its fundraiser as a crowdsale. A crowdsale is similar to a crowdfunding process, except the buyer invests in *future* coins. When the blockchain coins are created, the buyer receives his coins according to the amount invested. This process allows dispatching coins between as many users as possible. It involves them in the launch of the blockchain.
@@ -35,7 +35,7 @@ The Tezos fundraiser was a complete success: it stayed live for only 13 days and
 
 Initially aimed at 10,000,000,000 (10 billion) coins, the total supply was actually the number of coins issued during the crowdsale. Unlike, for example, Bitcoin, the total supply of Tezos coins has no limit. The Tezos coins are called "**tez**" and their symbol "**ꜩ**" (\ua729, "Latin small letter tz"). The symbol "**XTZ**" is also used, especially on markets.
 
-To promote Tezos, the founders created the **_Tezos Foundation_**. Based in Switzerland, its role is to help the network expand. It has no control over the blockchain and doesn't manage the Tezos network. Since the fundraiser, it gradually traded its bitcoins and ethers for Swiss francs granting Tezos community's beneficial projects[[2]](https://opentezos.com/tezos-basics/introduction#references).
+To promote Tezos, the founders created the **_Tezos Foundation_**. Based in Switzerland, its role is to help the network expand. It has no control over the blockchain and doesn't manage the Tezos network. Since the fundraiser, it gradually traded its bitcoins and ethers for Swiss francs granting Tezos community's beneficial projects[[2]](/tezos-basics/#references).
 The Tezos Foundation supports the community and deploys resources to support the Tezos long-term development.
 
 The Tezos project has an established history of upholding and cooperating with educational and research institutions, developers and activists, who support it all over the world.

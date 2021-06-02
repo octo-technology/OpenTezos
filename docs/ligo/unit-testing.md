@@ -9,27 +9,27 @@ There are multiple frameworks for testing Michelson contracts:
 - [Cleveland](https://gitlab.com/morley-framework/morley/-/blob/9455cd384b2ab897fb7b31822abca3730a4ad08b/code/cleveland/testingEDSL.md)
 
 Another alternative is to use Tezos's binary `tezos-client` directly.
-There's a new [mockup](https://tezos.gitlab.io/user/mockup.html) mode which is does not need a Tezos node to be running.
+Or there's also a new [mockup](https://tezos.gitlab.io/user/mockup.html) mode that no longer requires a Tezos node to run.
 
 This chapter aims to introduce the concept of unit testing
-and more precisely it will deal with how to test its Tezos smart contract with the [PyTezos](https://pytezos.org/) python framework.
+and especially, how to deal with testing Tezos smart contract using the [PyTezos](https://pytezos.org/) python framework.
 
 
 ## Unit Testing
 
-Just like any other programming language, writing Ligo code (to be compiled into Michelson) is not the only task of a developer:
-writing tests is as important as writing the code.
+Just like any other programming language, writing Ligo code (for it, to be compiled into Michelson) is not the only task of a developer:
+writing the tests is as important as writing the code.
 
-Writing a test may take extra time, but this effort is rewarded by some great benefits:
-- a test helps to understand the code: a user or a new developer can easily understand the code behaviour.
+Writing a test may take extra time, but this effort is usually rewarded by some great benefits:
+- a test helps to understand the code: a user or a new developer can easily understand the code behaviour through testing.
   The test name should clearly describe what the code is checking;
   the test itself shows how the code should be handled.
 - checking the good behaviour of the written code. It is a benefit to both the developer and the user of a smart contract:
   both of them want to be sure the smart contract behaves as it should
 - It also makes the code robust for future modifications, 
   i.e. code refactoring or new functionalities. 
-  The tests make sure that the behaviour has not changed, and if it did, it clearly outlines where.
-- tests can easily be automated: they can be included in a CI/CD, which runs them after any push
+  The tests make sure that the behaviour has not changed, and if it did, it will clearly outline where.
+- tests can easily be automated: they can be included in a CI/CD, which will run them after any push
 
 >**CI/CD (Continuous Integration / Continuous Delivery)** is a method to frequently deliver apps to customers by introducing automation into the stages of app development.  
 >The main concepts attributed to CI/CD are continuous integration, continuous delivery, and continuous deployment.
@@ -45,20 +45,19 @@ Unit tests are the base of the pyramid and therefore the most important part.
 Décrire les autres tests très succinctement
 -->
 **Unit testing** is performed at a very fine granularity 
-by fully verifying the behaviour of a portion of a code  
-or partially isolated from its dependencies.
-It will then be simpler to write and maintain. While an integration test aims to verify that several components work well together: 
-it checks the assembly.
+by fully verifying the behaviour of a portion of code  
+or by partially isolating it from its dependencies.
+It will then be simpler to write and maintain. While an integration test aims to verify that several components work well together.
 
 To go further, take a look at [Test-Driven Development (TDD)](https://en.wikipedia.org/wiki/Test-driven_development) which is a development method emphasizing 
 the writing of automated tests as a tool to guide the implementation of features.
 
 Ligo does not provide a testing framework. But other languages, such as Python, do.
-This chapter details how to write unit tests in Michelson code in Python.
+This chapter details how to write Michelson code unit tests in Python.
 Two modules are needed:
 - the standard *unittest* module: used to write and run unit tests in Python
-- the *pytezos* module: used to call the entrypoints of a smart contract, without deploying it.
-This module is an interesting option because it is well-maintained and easy-to-use.
+- the *pytezos* module: used to call the entrypoints of a smart contract, without deploying the smart contract.
+This module is an interesting option because it is well-maintained and easy to use.
   
 > **The execution time or CPU time** of a given task is defined as the time spent by the system executing that task.  
 > **Cost** can be seen as the complexity and time required for the developer to write a test.
@@ -74,8 +73,8 @@ This module is an interesting option because it is well-maintained and easy-to-u
 ### Installation
 
 #### Creation of a virtual environment
-A virtual environment is a self-contained python installation, separated from the global Python installation.
-It contains its own modules. Hence, it is most useful when a specific module version is needed, without affecting the other modules.
+A virtual environment is a self-contained Python installation, separated from the global Python installation.
+It contains its own modules. Hence, it is most useful when a specific version of a module is needed, without affecting the other modules.
 Run this command to create a virtual environment:
 ```shell
 python3 -m venv /path/to/env
@@ -104,7 +103,7 @@ Verification of the installation:
 If the command returns nothing then the installation is successful.
 
 You can find the official documentation here [https://pytezos.org/](https://pytezos.org/) and 
-all the versions on the project's github [https://github.com/baking-bad/pytezos](https://github.com/baking-bad/pytezos) in the [Releases part](https://github.com/baking-bad/pytezos/releases).
+all the versions on the project's Github [https://github.com/baking-bad/pytezos](https://github.com/baking-bad/pytezos) in the [Releases part](https://github.com/baking-bad/pytezos/releases).
 
 > The pytezos version used for the following example is `pytezos==3.1.0`.  
 > You can check the version of your package with the `pip freeze` command.    
@@ -158,17 +157,17 @@ class TestCalculator(unittest.TestCase):
   pass #keyword which tells the class to do nothing
 ```  
 - Write your tests. Keep in mind these few basic rules:
-   - A test must check one behaviour at a time.
+   - A test must check only one behaviour at a time.
    - One test = one method
    - No magic number: all the values used must be declared in variables, with explicit names
-   - There can not be useless variables to pass the test. If a variable can be removed without making the test fail, it must be removed.
-   - The method name must be explicit. Anyone should understand what the test takes as input, what behaviour is been checked and what is expected.
+   - There can be no useless variables to pass the test. If a variable can be removed without making the test fail, it must be removed.
+   - The method name must be explicit. Anyone should understand what the test takes as input, what behaviour is been checked and what result is expected.
    - A test can be divided into three parts (as implemented in the tests below):
       - GIVEN section: input declarations, expected results
       - WHEN section: the tested method is called with the declared inputs
       - THEN: assertions checks
   
-With unittest, a test method must be with `test_` otherwise it will not be considered as a test.
+With unittest, a test method must include `test_` otherwise it will not be considered as a test.
 
 ```python
 class TestCalculator(unittest.TestCase):
@@ -197,18 +196,18 @@ class TestCalculator(unittest.TestCase):
     self.assertEqual(result, expected_division_result)
 ```
 
-> At the beginning of this chapter, several of the benefits of unit testing have been raised. 
+> At the beginning of this chapter, several of the benefits of unit testing were raised. 
 > This simple tests-suite gives a good example:
 >  - Reading the test name gives a clear idea about its code implementation. 
-> For instance, the second test shows that it is not a Euclidean division that is been implemented
->  - The divide method could be the Euclidean division. The test checks that it returns, a float number and not a int.
+> For instance, the second test shows that it is not a Euclidean division been implemented
+>  - The dividng method could be the Euclidean division. The test checks that it returns, is a float number and not an int.
 > If another developer was to change it into a Euclidean division, the test would fail and instantly warn the developer of a breaking change
 > 
 
 > Note that class names are by convention in **CamelCase** 
 > and test method names are in **snake_case**.
 
-You can run your tests in command line as follows:
+You can run your tests in the command line as follows:
 
 ```shell
 python -m unittest test_calculator
@@ -225,7 +224,7 @@ OK
 ```
 
 Note that the command has executed all the tests in the `test_calculator.py` file, 
-but it is only possible to execute some specific tests.
+but that it is only possible to execute some specific tests.
 
 Indeed, the unittest module can be used from the command line to execute tests from modules, 
 classes or even individual test methods:
@@ -238,15 +237,15 @@ python -m unittest test_calculator.TestCalculator.test_sub
 
 ## Testing a compiled smart contract with PyTezos
 
-**PyTezos** library is a **Python** toolset for **Tezos** blockchain, 
-including work with keys, signatures, contracts, operations, RPC query builder, 
+**PyTezos** library is a **Python** toolset for the **Tezos** blockchain, 
+it includes work with keys, signatures, contracts, operations, RPC query builder, 
 and a high-level interface for smart contract interaction.
 
 This module is very interesting for testing smart-contracts unit:
-- it can directly test the Michelson code with Python scripts, without having to deploy it on a testnet.
+- it can directly test the Michelson code with a Python script, without having to deploy it on a testnet.
 - since it does not have to wait for transactions confirmations, the tests are fast to run
 - it can simulate any execution context (sender, amount, storage...)
-- it gives total control on the storage: each test has its own initial storage, and the output storage can be checked.
+- it gives total control over the storage: each test has its own initial storage, and the output storage can be checked.
 - the tests are independent one from another. If the tests were run on a deployed smart contract, the initial storage of a test would be the output storage of the previous one.
 
 In this section, we will test the entrypoints of a michelson script
@@ -254,7 +253,7 @@ for a smart contract that is compiled but not deployed.
 
 For this we will need:
 
-- The **Unittest** library is the standard framework for writing tests in Python.
+- The **Unittest** library, which is the standard framework for writing tests in Python.
 - Two very useful classes from **PyTezos**:
   - **ContractInterface**: allows interfacing with the entrypoints of a contract 
   and interact with them.
@@ -289,7 +288,7 @@ class TestContract(TestCase):
 
 **PyTezos** requires the path to a file containing Michelson code `path_to_michelson_contract`.
 
-The compiled contract is obtained with a command of this type:
+The compiled contract is obtained through a command of this type:
 
 ```shell
 ligo compile-contract file.ligo main > contract.tz
@@ -299,7 +298,7 @@ Remember to recompile after any modification of the contract.
 
 ### Equivalence between michelson types and python
 
-**PyTezos** allows you to interpret michelson code, so here are the equivalences:
+**PyTezos** allows you to interpret michelson code, here are the equivalences:
 
 | Michelson  |                  Python                  |
 | :--------: | :--------------------------------------: |
@@ -319,7 +318,7 @@ The way to get `my_list_from_the_storage` is detailed below in the examples.
 
 ### Counter Contract Example
 
-Here is an example of **Counter contract** that handles an integer of "counter" value, an administrator address
+Here is an example of a **Counter contract** that handles an integer of "counter" value, an administrator address
 as storage and allows the administrator **only** to increment or decrement this counter.
 
 ```js
@@ -400,7 +399,7 @@ The output is :
                   PAIR } } } }
 ```
 
-First, let's test the **increment** entrypoint when the user is the administrator.
+First, let's test the **increment** entrypoint if the user is the administrator.
 
 >Note that only the administrator is allowed to modify the storage and if another person tries to do it 
 >then the contract will return an error.
@@ -415,8 +414,8 @@ For example, let's write a test that verifies that the storage is incremented by
 when the administrator performs the `Increment(5)` action.
 
 - For the test a false address tz1 has been assigned to the administrator,
-  you can generate false addresses [here](https://faucet.tzalpha.net/).
-- In the `setUpClass` method we load the contract from the michelson source code stored in the **counter.tz** file,
+  you can generate a false address [here](https://faucet.tzalpha.net/).
+- In the `setUpClass` method we load the contract from the michelson source-code, stored in the **counter.tz** file,
   with the `ContractInterface.from_file()` method.
 - Note that the name of the test accurately describes the test's intention.
 
@@ -447,14 +446,14 @@ class TestCounterContract(TestCase):
 ```
 
 **GIVEN** 
-- The storage has been initialized as a dictionary `{}` 
+- That the storage has been initialized as a dictionary `{}` 
   to respect the equivalence with the michelson format. 
 - The incremented value is an `int`.
 
 **WHEN**
 - From our contract `self.counterContract` we can call an **entrypoint** and its **parameter** with `.increment(value)`.
 - Then we can add a context with `.interpret()`.
-  to specify the storage and the source (the original address sending the transaction).
+  to specify the storage and the source (the original address that is sending the transaction).
 
 **THEN**  
 Finally we can check that the storage counter has been incremented by 5 
@@ -483,7 +482,7 @@ tries to modify the storage by incrementing or decrementing it.
 
 Let's write a test to make sure that this user gets rejected.
 
-First let's add a new user **alice** at the beginning of the file, 
+First, let's add a new user **alice** at the beginning of the file, 
 with a different address from the **administrator**.
 
 ```python
@@ -491,7 +490,7 @@ administrator = "tz1L738ifd66ah69PrmKAZzckvvHnbcSeqjf"
 alice = "tz1LFuHW4Z9zsCwg1cgGTKU12WZAs27ZD14v"
 ```
 
-Then just following the first test, let's write the new test:
+Then following the first test, let's write the new test:
 
 ```python
 def test_should_failed_if_the_source_is_not_the_administrator(self):
@@ -511,9 +510,9 @@ def test_should_failed_if_the_source_is_not_the_administrator(self):
 - The line `with self.assertRaises(MichelsonRuntimeError) as administrator_error:`
   retrieves and stores the error in the `administrator_error` variable. 
 - The administrator's address is still defined in the initial state of storage 
-  but this time the address of alice is specified in the context's source variable: `source=alice`.
+  but this time alice's address is specified in the context's source variable: `source=alice`.
 - Finally, the string message from the error is stored in the variable `error_message` 
-  and it is compared with the original message written in the `failwith()` of the LIGO code. 
+  and is compared with the original message written in the `failwith()` of the LIGO code. 
   
 
 ```shell
@@ -529,8 +528,8 @@ OK
 ```
 
 Now it's your turn to write your tests! 
-Try to do the same thing for the entrypoint `decrement` for example.  
+Try to do the same thing with the entrypoint `decrement` for example.  
 The goal of writing tests is to have optimal coverage of the whole code.  
 This allows you to have a robust and high-quality code. 
-Moreover, future developers who will use your code will thank you very much.
+Moreover, future developers that use your code will thank you, very much.
 

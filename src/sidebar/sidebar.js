@@ -86,7 +86,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Build a Dapp',
-      items: ['dapp/introduction', 'dapp/truffle_compilation_migration'],
+      items: ['dapp/introduction', 'dapp/truffle_compilation_migration', 'dapp/taquito', 'dapp/temple', 'dapp/basics', 'dapp/front_user_experience', 'dapp/exam'],
     },
     {
       type: 'category',

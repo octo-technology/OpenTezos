@@ -9,15 +9,13 @@ We will then take the example of **BlockWatch Indexer** used for the **TzStats e
 
 ## Typical Blockchain Explorer Backends
 
-Indexers are node operators.
-The **ETL** extract, transform and load data
-into the **SQL database** by mapping the data into a pre-defined schema of tables with referential integrity
+Indexers are node operators that extract, transform and load data into a database by mapping the data into a pre-defined schema of tables with referential integrity
 in order to provide indexing and query processing services via an **API**.
 
 > **Indexing** is a data structure technique to efficiently retrieve records from the database based on some attributes on which the indexing has been done.
 
 - A **Tezos Node** is the heart of the blockchain. It manages the protocol. Here the Archive node is responsible for fetching all the data from the network that will be used and made available by the indexer/explorer.
-- **ETL** stands for _extract, transform, and load_. The process of ETL plays a key role in data integration strategies.
+- **ETL** stands for _extract, transform, and load_.
 - **API** is the acronym for _Application Programming Interface_,
   which is a software intermediary that allows two applications to talk to each other.
 
@@ -34,11 +32,11 @@ in order to provide indexing and query processing services via an **API**.
 
 The Blockwatch Indexer [TzIndex](https://github.com/blockwatch-cc/tzindex) is used for the [TzStats explorer](https://tzstats.com/).
 
-The **Blockwatch indexer** use a high-performance columnar database that allows for extremely fast analytical queries.
+The **Blockwatch indexer** uses a high-performance columnar database that allows for extremely fast analytical queries.
 
 > **Columnar database** is a column-oriented storage for database.
 > It is optimized for fast retrieval of data columns,
-> for example for analytical applications.
+> for example, for analytical applications.
 > It significantly reduces the overall disk I/O requirements
 > and limits the amount of data you need to load from the disk.
 

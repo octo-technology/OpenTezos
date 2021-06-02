@@ -35,8 +35,7 @@ A private baker doesn’t offer everyone to delegate their stakes. Technically s
 
 These days, it is the centralized exchanges like Coinbase, Binance or Kraken, that hold the biggest stakes. They offer their users an opportunity to stake XTZ from their exchange accounts and get profit.
 
-![](../../static/img/baking/tzstats_bakers.png)
-<small className="figure">FIGURE 5: TzStats Bakers Top20</small>
+![](../../static/img/baking/tzstats_bakers_top20.png)
 
 #### Corporate bakers
 

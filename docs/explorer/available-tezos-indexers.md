@@ -25,13 +25,13 @@ The purpose of this chapter is to list the main explorers of the Tezos blockchai
 
 ## Indexers potential features
 
-- **Speed**
-- **Full-text search**
-- **The mempool** is made of all transactions which have been submitted for inclusion in the chain but not included in a block yet by bakers.
-- **Bigmap support** Allows you to access and observe the content of a Big Map from a smart contract.
-- **API Server**
-  - **Explorer API** for accessing individual objects of the explorer.
-  - **Time-series API** only contain numeric data types and are indexed by one date field. Through API calls, users can retrieve the entire time-series as well as a slice of it. It is great for aggregate counters and statistics over specific fields.
+- **Full-text search** in smart contract storage. For example, you can retrieve a smart contract by specifying a part of the Michelson code of the storage.
+- **Michelson decoding**: The Michelson code is interpreted to be presented in a more readable way.
+- **Bigmap support** Allows you to access and observe the content of Big Maps in the storage of smart contracts.
+- **Mempool access**: some explorers provide access to the content of the mempool. The mempool is made of all transactions that have been submitted for inclusion in the chain but have not yet been included in a block by a baker.
+- **Available Server APIs**
+  - **Explorer API** for accessing individual objects of the explorer user interface via API calls.
+  - **Time-series APIs** only contain numeric data types and are indexed by one date field. Through API calls, users can retrieve the entire time-series as well as a slice of it. It is great for aggregate counters and statistics over specific fields.
   - **Tables API** can include various unsorted data types (strings, numbers, dates, etc.) and can be filtered by different fields.
 
 ## Blockwatch TzIndex / TzStats
@@ -47,14 +47,13 @@ extending the functionality of traditional block explorers with comprehensive da
 
 **Pros**
 
-- speed
-- stand-alone, no database needed
+- stand-alone, no database installation needed
 - Michelson decoding and full Bigmap support
 - time-series and table APIs
 
 **Cons**
 
-- no mempool support
+- no mempool access
 - no full-text search
 
 
@@ -72,7 +71,7 @@ Their block explorer **TzKT** was released in December 2021.
 **Pros**
 
 - API server
-- mempool support
+- mempool access
 
 **Cons**
 
@@ -98,7 +97,7 @@ Nomadic Labs Indexer is the first indexer made by the Tezos team in July 2019.
 
 **Cons**
 
-- ETL only, no API server
+- ETL only, no API server, no User Interface (command lines only)
 - no smart contract support
 
 ## Arronax
@@ -118,4 +117,4 @@ Arronax is Cyrptonomic Conseil's block explorer and was released in beta in Apri
 
 **Cons**
 
-- limited statistics and timeseries data
+- limited statistics and time-series data

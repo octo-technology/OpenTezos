@@ -44,7 +44,7 @@ RPC[[1]](/tezos-basics/cli-and-rpc#references) is a client-server protocol where
 
 Tezos nodes provide a JSON/RPC interface to interact with the Tezos network. Although it uses RPC and is JSON-based, it does **not** follow the *JSON-RPC* protocol.
 
-A complete list of calls is available [here](http://tezos.gitlab.io/shell/rpc.html#rpc-index-shell). Make sure to check the protocol version before using these calls. The available calls in the *Edo* protocol (see "[*History of Amendments*](/tezos-basics/history-of-amendments#edo-ptedotezd)" chapter) are [here](http://tezos.gitlab.io/008/rpc.html#id1).
+A complete list of calls is available [here](http://tezos.gitlab.io/shell/rpc.html#rpc-index-shell). Make sure to check the protocol version before using these calls. The available calls in the *Edo* protocol (see "[*History of Amendments*](/tezos-basics/history-of-amendments#edo-ptedotezd)" chapter) are [here](https://tezos.gitlab.io/protocols/008_edo.html?highlight=edo#rpcs).
 
 ### RPC examples
 #### GET 'block'
@@ -59,6 +59,7 @@ Example to get the block number **1400114** from the mainnet using *giganode.io*
 ```bash
 GET https://mainnet-tezos.giganode.io/chains/main/blocks/1400114
 ```
+[https://mainnet-tezos.giganode.io/chains/main/blocks/1400114](https://mainnet-tezos.giganode.io/chains/main/blocks/1400114)
 
 To test this call, simply click the address above (or copy-paste it) to open it in your web browser. You'll discover a pretty long JSON object. Depending on the used browser, the visualization may be better (e.g. Firefox will format the appearance to make it easier to read).
 
@@ -74,6 +75,7 @@ Example to get the storage of contract **KT1Hkg5qeNhfwpKW4fXvq7HGZB9z2EnmCCA9** 
 ```bash
 GET https://mainnet-tezos.giganode.io/chains/main/blocks/1400114/context/contracts/KT1Hkg5qeNhfwpKW4fXvq7HGZB9z2EnmCCA9/storage
 ```
+[https://mainnet-tezos.giganode.io/chains/main/blocks/1400114/context/contracts/KT1Hkg5qeNhfwpKW4fXvq7HGZB9z2EnmCCA9/storage](https://mainnet-tezos.giganode.io/chains/main/blocks/1400114/context/contracts/KT1Hkg5qeNhfwpKW4fXvq7HGZB9z2EnmCCA9/storage)
 
 You can test this call exactly the same way as with the "GET block" call.
 

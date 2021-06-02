@@ -4,12 +4,12 @@ title: Rewards
 authors: Maxime Sallerin
 ---
 
-To maintain the network, Tezos needs bakers and endorsers. They stake their token and use their computing power to create blocks, manage transactions, vote, and secure the network. In exchange for the completion of these tasks, bakers are rewarded with tokens from the transaction fees or tokens created by the network. Since the [Carthage update](https://blog.nomadic-labs.com/a-new-reward-formula-for-carthage.html), the reward system has been updated to make the network more robust against non-cooperative baking strategies.
+To maintain the network, Tezos needs bakers and endorsers. They stake their tokens and use their computing power to create blocks, manage transactions, vote, and secure the network. In exchange for the completion of these tasks, bakers are rewarded with tokens from the transaction fees or tokens created by the network. Since the [Carthage update](https://blog.nomadic-labs.com/a-new-reward-formula-for-carthage.html), the reward system has been updated to make the network more robust against non-cooperative baking strategies.
 
 ## Inflation
 
 Each new block generates 80 new XTZ as a reward. 40 XTZ for the bakers and 40 XTZ for the endorsers.
-A new block is created each minute witch generates 42 Million of XTZ per year (80ꜩ x 60 mins x 24 hours x 365 days). At the Tezos launch, the network was composed of 763 Millions XTZ.
+A new block is created each minute witch generates 42 Million of XTZ per year ($\approx$ 80ꜩ $\times$ 60 mins $\times$ 24 hours $\times$ 365 days). At the Tezos launch, the network was composed of 763 Millions XTZ.
 Therefore the inflation rate of the XTZ token is **5.5%** :
 $$
 \frac{42,000,000}{763,000,000}=\frac{42}{763}\approx5.5\%
@@ -61,7 +61,7 @@ baking_reward (p, ne) =
      (ne / 32) * 6
 ```
 
-Finally, with this formula, the network reward for a baked block is generally 32 X 1.250 = **40** ꜩ/block in addition to the transaction fee contained in the block.
+Finally, with this formula, the network reward for a baked block is generally 32 $\times$ 1.250 = **40** ꜩ/block in addition to the transaction fees contained in the block.
 
 ## Endorsing reward
 
@@ -86,7 +86,7 @@ $$
 
 For a **low priority** block:
 
-The endorsement rewards for endorsements included in low priority blocks are decreased by a factor of **2/3**. This does decrease slightly resistance to block stealing because the baker that steals a block gets a higher reward for his own endorsements, but has the advantage of punishing the endorsers less for having their endorsements not included by absent low priority bakers.
+The endorsement rewards for endorsements included in low priority blocks are decreased by a factor of $\bm{\frac{2}{3}}$. This does decrease slightly resistance to block stealing because the baker that steals a block gets a higher reward for his own endorsements, but has the advantage of punishing the endorsers less for having their endorsements not included by absent low priority bakers.
 
 $$
 \bm{Er_b}=\frac{40}{32}\times\frac{2}{3}=\text{0.8333 ꜩ}
@@ -109,10 +109,10 @@ That value is distributed among all the endorsers proportionally to their slots.
 
 When delegating, you can earn a passive income by participating in the Tezos network via delegation. The current annual yield on Tezos is around **6%** minus a validator’s fees.
 
-Every time a baker receives rewards, those rewards are frozen for the next 5 cycles (~14 days), so the baker cannot spend them. Only after rewards are unfrozen, the baker can transfer them to someone else. Most bakers wait until rewards are unfrozen and only then pay it out to delegators, but some do not.
+Every time a baker receives rewards, those rewards are frozen for the next 5 cycles ($\approx$ 14 days), so the baker cannot spend them. Only after rewards are unfrozen, the baker can transfer them to someone else. Most bakers wait until rewards are unfrozen and only then pay it out to delegators, but some do not.
 
 For:
-- $Confirmation_{time} \approx \text{20 days}$, delegators have to wait ~20 days after delegating before start staking.
+- $Confirmation_{time} \approx \text{20 days}$, delegators have to wait around 20 days after delegating before start staking.
 - $Frozen_{time} \approx \text{14 days}$, baker's rewards are frozen for 5 cycles.
 - $Cycle_{time} \approx \text{3 days}$, this is the approximate time between two successive cycles.
 - $FirstPayout_{time}$: The necessary time to wait before the first payout.
@@ -127,7 +127,7 @@ $$
 \bm{FirstPayout_{time}}= Confirmation_{time} + Cycle_{time} \approx \text{23 days}
 $$
 
-Rewards for cycle `n` come in the cycle `n + 1` (after ~3 days) so, you will then receive your delegating reward every **3 days**.
+Rewards for cycle `n` come in the cycle `n + 1` (after $\approx$ 3 days) so, you will then receive your delegating reward every **3 days**.
 
 There are no direct risks of delegating XTZ. The only risk you take is not earning the potential rewards. Carefully choose your baker to ensure the quality of service and rewards.
 
