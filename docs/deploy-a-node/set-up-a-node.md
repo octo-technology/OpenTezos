@@ -9,7 +9,7 @@ authors: Maxime Sallerin
 First, you must generate a new identity in order to connect to the Tezos network.
 
 ```shell
-$ tezos-node identity generate 26.
+tezos-node identity generate 26
 ```
 
 
