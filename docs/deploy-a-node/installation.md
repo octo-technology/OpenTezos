@@ -7,8 +7,10 @@ authors: Maxime Sallerin
 ## Build from source (Ubuntu)
 
 ```shell
-$ sudo apt install -y rsync git m4 build-essential patch unzip bubblewrap wget pkg-config libgmp-dev libev-dev libhidapi-dev
+sudo apt install -y rsync git m4 build-essential patch unzip bubblewrap wget pkg-config libgmp-dev libev-dev libhidapi-dev
 ```
+
+//TODO Est-ce que ça vaut le coup de rajouter un `sudo apt update &&` ?
 
 Type your password when prompted.
 `[sudo] password for username:`
@@ -16,13 +18,13 @@ Type your password when prompted.
 ### Install Rust
 
 Compiling Tezos requires the Rust compiler, version 1.44.0, and the Cargo package manager to be installed.
-
+//TODO On se retrouve avec les scripts dans Home, peut-être pour faire plus propre on pourrait créer un répertoire dédié ?
 ```shell
-$ cd $HOME
-$ wget https://sh.rustup.rs/rustup-init.sh
-$ chmod +x rustup-init.sh
-$ ./rustup-init.sh --profile minimal --default-toolchain 1.44.0 -y
-$ source $HOME/.cargo/env
+cd $HOME
+wget https://sh.rustup.rs/rustup-init.sh
+chmod +x rustup-init.sh
+./rustup-init.sh --profile minimal --default-toolchain 1.44.0 -y
+source $HOME/.cargo/env
 ```
 
 ### Install Zcash Parameters
@@ -30,41 +32,45 @@ $ source $HOME/.cargo/env
 Tezos binaries require the Zcash parameter files to run.
 
 ```shell
-$ wget https://raw.githubusercontent.com/zcash/zcash/master/zcutil/fetch-params.sh
-$ chmod +x fetch-params.sh
-$ ./fetch-params.sh
+wget https://raw.githubusercontent.com/zcash/zcash/master/zcutil/fetch-params.sh
+chmod +x fetch-params.sh
+./fetch-params.sh
 ```
-
-Answers the prompts with 'N' then 'y'.
 
 ### Install OPAM
 
 ```shell
-$ wget https://github.com/ocaml/opam/releases/download/2.0.3/opam-2.0.3-x86_64-linux
-$ sudo cp opam-2.0.3-x86_64-linux /usr/local/bin/opam
-$ sudo chmod a+x /usr/local/bin/opam
+wget https://github.com/ocaml/opam/releases/download/2.0.3/opam-2.0.3-x86_64-linux
+sudo cp opam-2.0.3-x86_64-linux /usr/local/bin/opam
+sudo chmod a+x /usr/local/bin/opam
 ```
 
 ### Get sources
 
 ```shell
-$ git clone https://gitlab.com/tezos/tezos.git
-$ cd tezos
-$ git checkout latest-release
+git clone https://gitlab.com/tezos/tezos.git
+cd tezos
+git checkout latest-release
 ```
 
 ### Install Tezos dependencies
 
 ```shell
-$ opam init --bare
-$ make build-deps
+opam init --bare
+make build-deps
 ```
+
+Answers the prompts with 'N' then 'y'.
+
+You may also be prompted for your `sudo` password.
+
+You may encounter a "switch" error: You can ignore it. You may encounter failures in the processes for the `make build-deps` command. In that case, just re-type the command to re-initiate.
 
 ### Compile sources
 
 ```shell
-$ eval $(opam env)
-$ make
+eval $(opam env)
+make
 ```
 
 ### Optional setup
@@ -75,18 +81,26 @@ source ./src/bin_client/bash-completion.sh
 export TEZOS_CLIENT_UNSAFE_DISABLE_DISCLAIMER=Y
 ```
 
+You can quickly check the correct installations of some files:
+```shell
+tezos-client --version
+tezos-admin-client --version
+```
+
+The commands should return appropriate versions.
+
 ## Build from source (MacOs)
 
 ### Install Homebrew
 
 ```shell
-$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
 ### Install the libraries that Tezos is dependent on
 
 ```shell
-$ brew install hidapi libev
+brew install hidapi libev
 ```
 
 On Catalina you may see the following error if you have xcode installed:
@@ -95,39 +109,39 @@ On Catalina you may see the following error if you have xcode installed:
 If this is the case then run the following command to update your xcode install and restart the terminal.
 
 ```shell
-$ xcode-select --install
+xcode-select --install
 ```
 
 ### Get sources
 
 ```shell
-$ git clone https://gitlab.com/tezos/tezos.git
-$ cd tezos
-$ git checkout latest-release
+git clone https://gitlab.com/tezos/tezos.git
+cd tezos
+git checkout latest-release
 ```
 
 ### Install the OPAM
 
 ```shell
-$ brew install gpatch
-$ brew install opam
-$ opam init
-$ opam update
-$ eval $(opam env)
+brew install gpatch
+brew install opam
+opam init
+opam update
+eval $(opam env)
 ```
 
 ### Install Tezos dependencies
 
 ```shell
-$ cd tezos
-$ make build-deps 
+cd tezos
+make build-deps 
 ```
 
 ### Compile sources
 
 ```shell
-$ eval $(opam env)
-$ make
+eval $(opam env)
+make
 ```
 
 ## References
