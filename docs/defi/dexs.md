@@ -74,7 +74,7 @@ The difference between the effective swap price and the marginal price is referr
 ![](../../static/img/defi/swap.svg)
 <small className="figure">FIGURE 2: Illustration of a token Swap. The trader first sends his input tokens, then the pool computes the effective swap price by maintaining a constant product, and finally sends the output of tokens.</small>
 
-From this, you can deduct two things :
+From this, you can deduct two things:
 
 1. You can never empty all the liquidity from a pool. As you withdraw more and more tokens from one side of the pool, the effective swap price shift toward one side of the curve in an asymptotically manner toward infinity.
 
@@ -93,7 +93,7 @@ From now on, let's consider only pools with enough liquidities so that the effec
 Arbitrage happens when the price offered by the pool diverges from the price shown for the same pair on other platforms. In our example, the price of _XTZ_ is 5 _USDtz_. Now suppose that _XTZ_ is being traded everywhere else at 10 _USDtz_. Arbitrageurs will, therefore, immediately buy _XTZ_ from the pool at 5 _USDtz_ and resell it on other platforms at 10 _USDtz_, making profits in the process. This process will keep going until the reserves in our pool shift sufficiently to align with the rest of the market at 5 _USDtz_ per _XTZ_.
 
 ## LP tokens
-When liquidity is supplied to a pool, the liquidity provider (or _LP_ for short) receives unique tokens called LP tokens in proportion to how much liquidity they provided to the pool. When a swap occurs in the pool, a 0.3% fee is proportionally distributed amongst all the LP token holders. If a liquidity provider wants to get his underlying liquidity back and any accrued fees, he must burn his LP tokens.
+When liquidity is supplied to a pool, the liquidity provider (or _LP_ for short) receives unique tokens called LP tokens in proportion to how much liquidity they provided to the pool. When a swap occurs in the pool, a 0.3% fee is proportionally distributed amongst all the LP token holders. If a liquidity provider wants to get his underlying liquidity back and any accrued fees, he must burn his LP tokens. As liquidity tokens are themselves tradable assets, liquidity providers may sell, transfer, or otherwise use their liquidity tokens in any way they see fit.
 
 ![](../../static/img/defi/liquidity.svg)
 <small className="figure">FIGURE 4: How liquidity providers are rewarded</small>
@@ -101,9 +101,9 @@ When liquidity is supplied to a pool, the liquidity provider (or _LP_ for short)
 ## Different types of AMM
 Contrary to popular belief, [Uniswap](https://uniswap.org) did not invent the AMM. The concept has actually been studied extensively in academic literature for over a decade [[5]](/defi/dexs#references), the majority of which were primarily designed for information aggregation and implemented in markets where payoffs depend on some future state of the world (e.g., prediction markets).
 
-The most popular AMM is the [Logarithmic Market Scoring Rule](http://mason.gmu.edu/~rhanson/mktscore.pdf), developed in 2002 and used for most prediction markets. 
+The [Logarithmic Market Scoring Rule](http://mason.gmu.edu/~rhanson/mktscore.pdf) is a type of AMM developed in 2002 and used for most prediction markets. 
 
-While it is true that Uniswap is an AMM, we could refer to it with more specificity as a _constant function market makers_ or _CFMMs_. CFMMs are the first class of AMMs to be applied explicitly to real-world financial markets. There are multiple types of CFMMs:
+While it is true that Uniswap is an AMM, we could refer to it with more specificity as a _constant function market makers_ or _CFMMs_. CFMMs are the first class of AMMs to be applied explicitly to real-world financial markets and cryptocurrencies. There are multiple types of CFMMs:
 
 ### Constant Product Market Makers
 This type is the one used by Uniswap and studied so far in this chapter. A constant product function forms a curve with the desirable property of always having liquidity as prices approach infinity on both sides of the spectrum.
@@ -111,6 +111,8 @@ This type is the one used by Uniswap and studied so far in this chapter. A const
 It is represented by $R_x * R_y = k$ for two assets, or more generally in tri-assets (or more) pools by:
 
 $\prod_{i=1}^n R_i = k$
+
+Note that the first depositor into a pool sets the initial value of $k$. this value then stays contants for each user swaps, until another LP adds more liquidity or remove some from the pool, changing $k$ in the process.
 
 ### Constant Sum Market Makers
 
@@ -131,7 +133,7 @@ When you deposit funds into a liquidity pool, they are in the smart contract, so
 
 Also, be wary of projects where the developers have permission to change the rules governing the pool. Sometimes, developers can have an admin key or some other privileged access within the smart contract code. This can enable them to potentially do something malicious, like taking control of the funds in the pool.
 
-If you want to provide liquidity to an AMM, make sure to become familiar with the notion of _impermanent loss_. In short, it's a loss in dollar value when providing liquidity to an AMM rather than keeping the tokens themselves as they are in your wallet (a.k.a. _HODLing_) during bull markets. [More on this here.](https://academy.binance.com/en/articles/impermanent-loss-explained)
+If you want to provide liquidity to an AMM, make sure to become familiar with the notion of _impermanent loss_. In short, if the relative price of the two types of tokens changes between the time you deposit your funds into the liquidity pool, and the time you withdraw them, you will lose some value compared to what you would have if you had just held the tokens themselves. More on this [here](https://academy.binance.com/en/articles/impermanent-loss-explained).
 
 ## Conclusion
 The concepts behind liquidity pools and automated market-making are pretty simple yet extremely powerful. There is no longer a need for centralized order books. The only obstacle to the development of liquidity pools remains some high gas fees and execution time. Still, as gas fees are reduced and transactions made faster with each amendment of Tezos, liquidity pools should soon become the primary way of trading on Tezos.

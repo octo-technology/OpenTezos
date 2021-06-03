@@ -136,7 +136,7 @@
           {
             "type": "link",
             "label": "Introduction",
-            "href": "/explorer/introduction"
+            "href": "/explorer"
           },
           {
             "type": "link",
@@ -305,6 +305,31 @@
             "type": "link",
             "label": "Smart contract deployment with Truffle",
             "href": "/dapp/truffle_compilation_migration"
+          },
+          {
+            "type": "link",
+            "label": "Taquito",
+            "href": "/dapp/taquito"
+          },
+          {
+            "type": "link",
+            "label": "Temple Wallet",
+            "href": "/dapp/temple"
+          },
+          {
+            "type": "link",
+            "label": "Build a dapp - basics",
+            "href": "/dapp/basics"
+          },
+          {
+            "type": "link",
+            "label": "Build a dapp - User Experience",
+            "href": "/dapp/front_user_experience"
+          },
+          {
+            "type": "link",
+            "label": "Exam",
+            "href": "/dapp/exam"
           }
         ]
       },
@@ -316,7 +341,7 @@
           {
             "type": "link",
             "label": "Introduction",
-            "href": "/baking/introduction"
+            "href": "/baking"
           },
           {
             "type": "link",
@@ -508,7 +533,7 @@
     "/baking/bakers_list": "docs",
     "/baking/baking_explained": "docs",
     "/baking/exam": "docs",
-    "/baking/introduction": "docs",
+    "/baking": "docs",
     "/baking/reward": "docs",
     "/blockchain-basics/exam": "docs",
     "/blockchain-basics": "docs",
@@ -523,7 +548,12 @@
     "/contribute/opentezos": "docs",
     "/contribute/report-issue": "docs",
     "/contribute/tezos-core": "docs",
+    "/dapp/basics": "docs",
+    "/dapp/exam": "docs",
+    "/dapp/front_user_experience": "docs",
     "/dapp": "docs",
+    "/dapp/taquito": "docs",
+    "/dapp/temple": "docs",
     "/dapp/truffle_compilation_migration": "docs",
     "/defi/cross-chain-swaps": "docs",
     "/defi/dexs": "docs",
@@ -540,7 +570,7 @@
     "/explorer/available-tezos-indexers": "docs",
     "/explorer/exam": "docs",
     "/explorer/indexer-explained": "docs",
-    "/explorer/introduction": "docs",
+    "/explorer": "docs",
     "/explorer/private-indexer": "docs",
     "/explorer/tzstats-main-features": "docs",
     "/explorer/tzstats-smart-contract": "docs",

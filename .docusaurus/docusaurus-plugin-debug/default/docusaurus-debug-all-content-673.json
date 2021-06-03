@@ -268,6 +268,26 @@
                   {
                     "type": "doc",
                     "id": "dapp/truffle_compilation_migration"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "dapp/taquito"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "dapp/temple"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "dapp/basics"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "dapp/front_user_experience"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "dapp/exam"
                   }
                 ]
               },
@@ -441,7 +461,7 @@
             "/baking/bakers_list": "docs",
             "/baking/baking_explained": "docs",
             "/baking/exam": "docs",
-            "/baking/introduction": "docs",
+            "/baking": "docs",
             "/baking/reward": "docs",
             "/blockchain-basics/exam": "docs",
             "/blockchain-basics": "docs",
@@ -456,7 +476,12 @@
             "/contribute/opentezos": "docs",
             "/contribute/report-issue": "docs",
             "/contribute/tezos-core": "docs",
+            "/dapp/basics": "docs",
+            "/dapp/exam": "docs",
+            "/dapp/front_user_experience": "docs",
             "/dapp": "docs",
+            "/dapp/taquito": "docs",
+            "/dapp/temple": "docs",
             "/dapp/truffle_compilation_migration": "docs",
             "/defi/cross-chain-swaps": "docs",
             "/defi/dexs": "docs",
@@ -473,7 +498,7 @@
             "/explorer/available-tezos-indexers": "docs",
             "/explorer/exam": "docs",
             "/explorer/indexer-explained": "docs",
-            "/explorer/introduction": "docs",
+            "/explorer": "docs",
             "/explorer/private-indexer": "docs",
             "/explorer/tzstats-main-features": "docs",
             "/explorer/tzstats-smart-contract": "docs",
@@ -631,7 +656,7 @@
               "sidebar": "docs",
               "previous": {
                 "title": "Introduction",
-                "permalink": "/baking/introduction"
+                "permalink": "/baking"
               },
               "next": {
                 "title": "Rewards",
@@ -676,8 +701,8 @@
               "description": "In this module, we will see how baking works for the Tezos blokchain. More precisely, we will see who are the different actors involved from the creation to the validation of a new block. Then we will see the associated reward system. And finally, we will present the list of existing bakers and the criteria to evaluate them.",
               "source": "@site/docs/baking/introduction.md",
               "sourceDirName": "baking",
-              "slug": "/baking/introduction",
-              "permalink": "/baking/introduction",
+              "slug": "/baking",
+              "permalink": "/baking",
               "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/baking/introduction.md",
               "version": "current",
               "lastUpdatedBy": "Author",
@@ -686,12 +711,13 @@
               "frontMatter": {
                 "id": "introduction",
                 "title": "Introduction",
+                "slug": "/baking",
                 "authors": "Maxime Sallerin"
               },
               "sidebar": "docs",
               "previous": {
-                "title": "Smart contract deployment with Truffle",
-                "permalink": "/dapp/truffle_compilation_migration"
+                "title": "Exam",
+                "permalink": "/dapp/exam"
               },
               "next": {
                 "title": "How baking works?",
@@ -703,7 +729,7 @@
               "id": "baking/reward",
               "isDocsHomePage": false,
               "title": "Rewards",
-              "description": "To maintain the network, Tezos needs bakers and endorsers. They stake their token and use their computing power to create blocks, manage transactions, vote, and secure the network. In exchange for the completion of these tasks, bakers are rewarded with tokens from the transaction fees or tokens created by the network. Since the Carthage update, the reward system has been updated to make the network more robust against non-cooperative baking strategies.",
+              "description": "To maintain the network, Tezos needs bakers and endorsers. They stake their tokens and use their computing power to create blocks, manage transactions, vote, and secure the network. In exchange for the completion of these tasks, bakers are rewarded with tokens from the transaction fees or tokens created by the network. Since the Carthage update, the reward system has been updated to make the network more robust against non-cooperative baking strategies.",
               "source": "@site/docs/baking/reward.md",
               "sourceDirName": "baking",
               "slug": "/baking/reward",
@@ -1123,6 +1149,36 @@
               }
             },
             {
+              "unversionedId": "dapp/basics",
+              "id": "dapp/basics",
+              "isDocsHomePage": false,
+              "title": "Build a dapp - basics",
+              "description": "Now that we have a deployed contract and a ready-to-use Wallet, we can start to develop a frontend that will interact",
+              "source": "@site/docs/dapp/front.md",
+              "sourceDirName": "dapp",
+              "slug": "/dapp/basics",
+              "permalink": "/dapp/basics",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/dapp/front.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
+              "frontMatter": {
+                "id": "basics",
+                "disable_pagination": true,
+                "title": "Build a dapp - basics"
+              },
+              "sidebar": "docs",
+              "previous": {
+                "title": "Temple Wallet",
+                "permalink": "/dapp/temple"
+              },
+              "next": {
+                "title": "Build a dapp - User Experience",
+                "permalink": "/dapp/front_user_experience"
+              }
+            },
+            {
               "unversionedId": "dapp/exam",
               "id": "dapp/exam",
               "isDocsHomePage": false,
@@ -1141,6 +1197,45 @@
                 "id": "exam",
                 "title": "Exam",
                 "authors": "Benjamin Pilia"
+              },
+              "sidebar": "docs",
+              "previous": {
+                "title": "Build a dapp - User Experience",
+                "permalink": "/dapp/front_user_experience"
+              },
+              "next": {
+                "title": "Introduction",
+                "permalink": "/baking"
+              }
+            },
+            {
+              "unversionedId": "dapp/front_user_experience",
+              "id": "dapp/front_user_experience",
+              "isDocsHomePage": false,
+              "title": "Build a dapp - User Experience",
+              "description": "In the previous chapter, the most basic usages of the Temple Wallet have been covered. The React app developed in the previous chapter is functional.",
+              "source": "@site/docs/dapp/front-user-experience.md",
+              "sourceDirName": "dapp",
+              "slug": "/dapp/front_user_experience",
+              "permalink": "/dapp/front_user_experience",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/dapp/front-user-experience.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
+              "frontMatter": {
+                "id": "front_user_experience",
+                "disable_pagination": true,
+                "title": "Build a dapp - User Experience"
+              },
+              "sidebar": "docs",
+              "previous": {
+                "title": "Build a dapp - basics",
+                "permalink": "/dapp/basics"
+              },
+              "next": {
+                "title": "Exam",
+                "permalink": "/dapp/exam"
               }
             },
             {
@@ -1148,7 +1243,7 @@
               "id": "dapp/introduction",
               "isDocsHomePage": false,
               "title": "Introduction",
-              "description": "",
+              "description": "One of the main features of blockchains is decentralization:",
               "source": "@site/docs/dapp/introduction.md",
               "sourceDirName": "dapp",
               "slug": "/dapp",
@@ -1176,11 +1271,71 @@
               }
             },
             {
+              "unversionedId": "dapp/taquito",
+              "id": "dapp/taquito",
+              "isDocsHomePage": false,
+              "title": "Taquito",
+              "description": "Interactions with a Tezos blockchain can be done thanks to the Tezos cli.",
+              "source": "@site/docs/dapp/taquito.md",
+              "sourceDirName": "dapp",
+              "slug": "/dapp/taquito",
+              "permalink": "/dapp/taquito",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/dapp/taquito.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
+              "frontMatter": {
+                "id": "taquito",
+                "disable_pagination": true,
+                "title": "Taquito"
+              },
+              "sidebar": "docs",
+              "previous": {
+                "title": "Smart contract deployment with Truffle",
+                "permalink": "/dapp/truffle_compilation_migration"
+              },
+              "next": {
+                "title": "Temple Wallet",
+                "permalink": "/dapp/temple"
+              }
+            },
+            {
+              "unversionedId": "dapp/temple",
+              "id": "dapp/temple",
+              "isDocsHomePage": false,
+              "title": "Temple Wallet",
+              "description": "Dapp users need to have addresses, and their associated private keys.",
+              "source": "@site/docs/dapp/temple.md",
+              "sourceDirName": "dapp",
+              "slug": "/dapp/temple",
+              "permalink": "/dapp/temple",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/dapp/temple.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
+              "frontMatter": {
+                "id": "temple",
+                "disable_pagination": true,
+                "title": "Temple Wallet"
+              },
+              "sidebar": "docs",
+              "previous": {
+                "title": "Taquito",
+                "permalink": "/dapp/taquito"
+              },
+              "next": {
+                "title": "Build a dapp - basics",
+                "permalink": "/dapp/basics"
+              }
+            },
+            {
               "unversionedId": "dapp/truffle_compilation_migration",
               "id": "dapp/truffle_compilation_migration",
               "isDocsHomePage": false,
               "title": "Smart contract deployment with Truffle",
-              "description": "Introduction",
+              "description": "The first step to create a Dapp is to deploy the smart contract onto a Tezos network, whether for testing or real-life use.",
               "source": "@site/docs/dapp/truffle_compilation_migration.md",
               "sourceDirName": "dapp",
               "slug": "/dapp/truffle_compilation_migration",
@@ -1201,8 +1356,8 @@
                 "permalink": "/dapp"
               },
               "next": {
-                "title": "Introduction",
-                "permalink": "/baking/introduction"
+                "title": "Taquito",
+                "permalink": "/dapp/taquito"
               }
             },
             {
@@ -1534,7 +1689,7 @@
               },
               "next": {
                 "title": "Introduction",
-                "permalink": "/explorer/introduction"
+                "permalink": "/explorer"
               }
             },
             {
@@ -1652,7 +1807,7 @@
               "sidebar": "docs",
               "previous": {
                 "title": "Introduction",
-                "permalink": "/explorer/introduction"
+                "permalink": "/explorer"
               },
               "next": {
                 "title": "Available Tezos Explorers",
@@ -1667,8 +1822,8 @@
               "description": "This module focuses on blockchain explorers and blockchain indexers for Tezos,",
               "source": "@site/docs/explorer/introduction.md",
               "sourceDirName": "explorer",
-              "slug": "/explorer/introduction",
-              "permalink": "/explorer/introduction",
+              "slug": "/explorer",
+              "permalink": "/explorer",
               "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/explorer/introduction.md",
               "version": "current",
               "lastUpdatedBy": "Author",
@@ -1677,6 +1832,7 @@
               "frontMatter": {
                 "id": "introduction",
                 "title": "Introduction",
+                "slug": "/explorer",
                 "authors": "Maxime Sallerin"
               },
               "sidebar": "docs",
@@ -2837,7 +2993,7 @@
               "frontMatter": {
                 "id": "operations",
                 "title": "Operations",
-                "authors": "Thomas Zoughebi, Aymeric Bethencourt and Maxime Fernandez"
+                "authors": "Thomas Zoughebi, Aymeric Bethencourt, and Maxime Fernandez"
               },
               "sidebar": "docs",
               "previous": {

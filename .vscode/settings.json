@@ -5,7 +5,7 @@
     // "**/.DS_Store": true,
     // "**/.git": true,
     // "**/.webpack": true,
-    "**/build": true,
+    // "**/build": true,
     // "**/dist": true,
     // "**/coverage": true,
     // "**/node_modules": true,

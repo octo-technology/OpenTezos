@@ -37,7 +37,7 @@
             },
             {
               "id": "baking/introduction",
-              "path": "/baking/introduction",
+              "path": "/baking",
               "sidebar": "docs"
             },
             {
@@ -111,12 +111,33 @@
               "sidebar": "docs"
             },
             {
+              "id": "dapp/basics",
+              "path": "/dapp/basics",
+              "sidebar": "docs"
+            },
+            {
               "id": "dapp/exam",
-              "path": "/dapp/exam"
+              "path": "/dapp/exam",
+              "sidebar": "docs"
+            },
+            {
+              "id": "dapp/front_user_experience",
+              "path": "/dapp/front_user_experience",
+              "sidebar": "docs"
             },
             {
               "id": "dapp/introduction",
               "path": "/dapp",
+              "sidebar": "docs"
+            },
+            {
+              "id": "dapp/taquito",
+              "path": "/dapp/taquito",
+              "sidebar": "docs"
+            },
+            {
+              "id": "dapp/temple",
+              "path": "/dapp/temple",
               "sidebar": "docs"
             },
             {
@@ -201,7 +222,7 @@
             },
             {
               "id": "explorer/introduction",
-              "path": "/explorer/introduction",
+              "path": "/explorer",
               "sidebar": "docs"
             },
             {

@@ -21,7 +21,7 @@
   "/__docusaurus/debug/routes-244": {
     "component": "component---theme-debug-routes-946-699"
   },
-  "/-f0e": {
+  "/-b5e": {
     "component": "component---theme-doc-page-1-be-9be",
     "versionMetadata": "versionMetadata---935-fcf"
   },
@@ -37,6 +37,10 @@
     "component": "component---theme-doc-item-178-a40",
     "content": "content---baker-exam-588-0cb"
   },
+  "/baking-93f": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---bakingd-59-cec"
+  },
   "/baking/bakers_list-605": {
     "component": "component---theme-doc-item-178-a40",
     "content": "content---baking-bakers-list-7-dc-ae4"
@@ -48,10 +52,6 @@
   "/baking/exam-7b0": {
     "component": "component---theme-doc-item-178-a40",
     "content": "content---baking-examb-65-f59"
-  },
-  "/baking/introduction-fb4": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---baking-introductiond-59-256"
   },
   "/baking/reward-3ae": {
     "component": "component---theme-doc-item-178-a40",
@@ -113,9 +113,25 @@
     "component": "component---theme-doc-item-178-a40",
     "content": "content---dapp-0-ea-407"
   },
+  "/dapp/basics-6b8": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---dapp-basicsfe-9-90c"
+  },
   "/dapp/exam-bb1": {
     "component": "component---theme-doc-item-178-a40",
     "content": "content---dapp-exam-5-cf-b69"
+  },
+  "/dapp/front_user_experience-111": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---dapp-front-user-experience-21-f-71b"
+  },
+  "/dapp/taquito-b99": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---dapp-taquito-17-e-792"
+  },
+  "/dapp/temple-588": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---dapp-temple-4-c-5-83b"
   },
   "/dapp/truffle_compilation_migration-cc7": {
     "component": "component---theme-doc-item-178-a40",
@@ -169,6 +185,10 @@
     "component": "component---theme-doc-item-178-a40",
     "content": "content---deploy-a-node-examc-94-6d2"
   },
+  "/explorer-9c5": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---explorer-28-d-f30"
+  },
   "/explorer/available-tezos-indexers-fba": {
     "component": "component---theme-doc-item-178-a40",
     "content": "content---explorer-available-tezos-indexers-928-087"
@@ -180,10 +200,6 @@
   "/explorer/indexer-explained-791": {
     "component": "component---theme-doc-item-178-a40",
     "content": "content---explorer-indexer-explained-96-e-1e9"
-  },
-  "/explorer/introduction-3d2": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---explorer-introduction-28-d-2dd"
   },
   "/explorer/private-indexer-f11": {
     "component": "component---theme-doc-item-178-a40",

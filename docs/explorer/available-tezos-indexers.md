@@ -42,8 +42,8 @@ extending the functionality of traditional block explorers with comprehensive da
 ![](../../static/img/explorer/screenshot_TzStats_explorer.png)
 <small className="figure">FIGURE 1: TzStats Explorer</small>
 
-- Source code : [Github](https://github.com/blockwatch-cc/tzindex)
-- Explorer website : [TzStats.com](https://tzstats.com/)
+- Source code: [Github](https://github.com/blockwatch-cc/tzindex)
+- Explorer website: [TzStats.com](https://tzstats.com/)
 
 **Pros**
 
@@ -65,8 +65,8 @@ Their block explorer **TzKT** was released in December 2021.
 ![](../../static/img/explorer/screenshot_TzKT_explorer.png)
 <small className="figure">FIGURE 1: TzKT Explorer</small>
 
-- Source code : [Github](https://github.com/baking-bad/tzkt)
-- Explorer website : [TzKT.io](https://tzkt.io/)
+- Source code: [Github](https://github.com/baking-bad/tzkt)
+- Explorer website: [TzKT.io](https://tzkt.io/)
 
 **Pros**
 
@@ -88,7 +88,7 @@ Nomadic Labs Indexer is the first indexer made by the Tezos team in July 2019.
 ![](../../static/img/explorer/screenshot_nomadic_indexer.png)
 <small className="figure">FIGURE 1: GitLab Nomadic Labs Indexer</small>
 
-- Source code : [Gitlab](https://gitlab.com/nomadic-labs/tezos-indexer)
+- Source code: [Gitlab](https://gitlab.com/nomadic-labs/tezos-indexer)
 
 **Pros**
 
@@ -107,8 +107,8 @@ Arronax is Cyrptonomic Conseil's block explorer and was released in beta in Apri
 ![](../../static/img/explorer/screenshot_cryptonomic_indexer.png)
 <small className="figure">FIGURE 1: Arronax Explorer</small>
 
-- Source code : [Github](https://github.com/Cryptonomic/Conseil)
-- Explorer website : [Arronax.io](https://arronax.io/)
+- Source code: [Github](https://github.com/Cryptonomic/Conseil)
+- Explorer website: [Arronax.io](https://arronax.io/)
 
 **Pros**
 

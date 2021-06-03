@@ -56,7 +56,7 @@ wXTZ is not the only wrapped asset on Tezos. One may want to interact with Ether
 
 [Wrapped Bitcoin (tzBTC)](https://tzbtc.io/) is another wrapped asset on Tezos pegged to BTC. tzBTC is also implemented using the FA1.2 asset standard on Tezos.
 
-[Bender Labs](https://www.benderlabs.io/wrap) will soon offer to wrap ERC-20 and ERC-721 tokens from Ethereum to Tezos. This work by locking the token in a smart contract an ethereum then minting corresponding tokens on a smart contract on Tezos. Both contracts can communique with each other using an [oracle](/defi/oracles) bridge. When the token is burned on Tezos, the oracle informs the smart contract on Ethereum to release the corresponding tokens.
+[Bender Labs](https://www.benderlabs.io/wrap) will soon offer to wrap ERC-20 and ERC-721 tokens from Ethereum to Tezos. This work by locking the token in a smart contract an Ethereum then minting corresponding tokens on a smart contract on Tezos. Both contracts can communique with each other using an [oracle](/defi/oracles) bridge. When the token is burned on Tezos, the oracle informs the smart contract on Ethereum to release the corresponding tokens.
 
 This way, one can use the consensus mechanism and specific infrastructure of Tezos to use assets or information stored with both Tezos and Ethereum.
 

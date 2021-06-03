@@ -3,7 +3,7 @@
   "id": "dapp/truffle_compilation_migration",
   "isDocsHomePage": false,
   "title": "Smart contract deployment with Truffle",
-  "description": "Introduction",
+  "description": "The first step to create a Dapp is to deploy the smart contract onto a Tezos network, whether for testing or real-life use.",
   "source": "@site/docs/dapp/truffle_compilation_migration.md",
   "sourceDirName": "dapp",
   "slug": "/dapp/truffle_compilation_migration",
@@ -24,7 +24,7 @@
     "permalink": "/dapp"
   },
   "next": {
-    "title": "Introduction",
-    "permalink": "/baking/introduction"
+    "title": "Taquito",
+    "permalink": "/dapp/taquito"
   }
 }

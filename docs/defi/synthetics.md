@@ -8,7 +8,7 @@ Synthetics are contracts between two parties that both bet on the opposite outco
 
 Example: Alice and Bob both send $100 in value to a contract, making the total value of the contract $200. Alice and Bob decide that the contract represents a BTC/USD value. Alice bets that the BTC price will go up, and Bob bets that the BTC price will go down. They agree on an expiry date for this bet. Since this is a synthetic contract, no BTC is actually bought. All they do is take the current USD price of BTC as a starting point, place their bets and wait until the expiry date.
 
-If the value of BTC goes up 20% in the set period of the bet, Alice's $100 should now be worth $120. As agreed on, Alice and Bob split the difference. Alice gets $100 + ($20/2) = $110 and Bob gets $100 - ($20/2) = $90.
+If the value of BTC goes up 20% in the set period of the bet, Alice's $100 should now be worth $120. As agreed on, Alice and Bob split the difference. Alice gets $100 + ($20/2) = $110 and Bob gets $100 - ($20/2) = $90. (If the value of BTC goes up more than 100%, Alice gets $200 and Bon $0.)
 
 Simple as that. **This is how you speculate on the price of BTC without buying any BTC.**
 

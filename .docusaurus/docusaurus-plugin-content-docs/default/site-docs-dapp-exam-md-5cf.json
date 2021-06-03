@@ -17,5 +17,14 @@
     "id": "exam",
     "title": "Exam",
     "authors": "Benjamin Pilia"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Build a dapp - User Experience",
+    "permalink": "/dapp/front_user_experience"
+  },
+  "next": {
+    "title": "Introduction",
+    "permalink": "/baking"
   }
 }

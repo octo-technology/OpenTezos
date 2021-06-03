@@ -14,13 +14,13 @@ One way is to use a centralized exchange like Binance. This means that you must 
 <small className="figure">FIGURE 1: Illustration of non-atomic swap on a centralized exchange</small>
 
 ### Using a DEX
-Using a DEX is a great solution for making trustless token swaps. However, they only work within the same blockchain network. For example, _Dexter_ and _Quipuswap_ only work on Tezos and only with FA1.2 or FA2 tokens. So that wouldn't work if you want to exchange XTZ against BTC! One way would be to use wrapped assets as seen in the [previous chapter](defi/wrapped-assets) and exchange wrapped XTZ (wXTZ) against wrapped BTC (tzBTC) on a Tezos DEX. However, this increases the difficulty of the process, as you must wrap and unwrap the tokens. Additionally, you have to trust that the smart contract that allows you to unwrap your tzBTC for actual BTC is secured. So, does a fully trustless solution exist?
+Using a DEX is a great solution for making trustless token swaps. However, they only work within the same blockchain network. For example, _Dexter_ and _Quipuswap_ only work on Tezos and only with FA1.2 or FA2 tokens. So that wouldn't work if you want to exchange XTZ against BTC! One way would be to use wrapped assets as seen in the [previous chapter](defi/wrapped-assets) and exchange wrapped XTZ (wXTZ) against wrapped BTC (tzBTC) on a Tezos DEX. However, this increases the difficulty of the process, as you must wrap and unwrap the tokens, which requires a third party for BTC. Additionally, you have to trust that the smart contract that allows you to unwrap your tzBTC for actual BTC is secured. So, does a fully trustless solution exist?
 
 ![](../../static/img/defi/swap-dex.svg)
 <small className="figure">FIGURE 2: Illustration of non-atomic swap on a decentralized exchange</small>
 
 ### Cross chain swaps
-A _cross-chain swap_ (also referred to as an _Atomic Swap_) refers to the exchanging of two different cryptocurrencies, on two different blockchains in a peer-to-peer fashion, i.e., without using a third party. This is possible thanks to a code locking mechanisms known as **Hash Time Locked Contracts (HTLCs)** codable into blockchain transactions. For this, Alice and Bob have to proceed as follows :
+A _cross-chain swap_ (also referred to as an _Atomic Swap_) refers to the exchanging of two different cryptocurrencies, on two different blockchains in a peer-to-peer fashion, i.e., without using a third party. This is possible thanks to a code locking mechanisms known as **Hash Time Locked Contracts (HTLCs)** codable into blockchain transactions. For this, Alice and Bob have to proceed as follows:
 
 - Alice must deposit her XTZ into an HTLC smart contract which acts like a safe and locks the funds. When this safe is created, Alice also generates a key to access it.
 

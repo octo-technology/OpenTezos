@@ -26,7 +26,7 @@ There are multiple reasons:
 - They may want to use the borrowed funds to increase their leverage in a certain position. 
 
 ### Example
-For instance, Alice has 133 USDS and believes the price of XTZ will go down. How can she benefit from it? Alice takes a loan of 20 XTZ using here 133 USDS (considering $5 per XTZ plus 33% for over-collaterization). She immediately sells the 20 XTZ for 100 USDS. She now has 233 USDS (133 initially plus 100 from the sale) and owes a debt of 20 XTZ. Consider that XTZ goes down to $2. Alice buys 20 XTZ for 40 USDS, repays the 20 XTZ to the lender, and gets her 133 USDS collateral back. Alice now have $233 - 40 = 193$ USDS. She has made a $60 benefit. This whole operation is called a _short position_.
+For instance, Alice has 133 USDS and believes the price of XTZ will go down. How can she benefit from it? Alice takes a loan of 20 XTZ using here 133 USDS (considering 5 USDS per XTZ, plus 33% for over-collaterization). She immediately sells the 20 XTZ for 100 USDS. She now has 233 USDS (133 initially plus 100 from the sale) and owes a debt of 20 XTZ. Consider that XTZ goes down to $2. Alice buys 20 XTZ for 40 USDS, repays the 20 XTZ to the lender, and gets her 133 USDS collateral back. Alice now have $233 - 40 = 193$ USDS. She has made a $60 benefit. This whole operation is called a _short position_.
 
 ### Liquidation
 As long as the value of the collateral is superior or equal to 133% of the borrowed funds, there is no limit on how long a user can keep the borrowed funds for.
@@ -36,13 +36,13 @@ However, if the value of the collateral falls below 133%, the user then has his 
 ### Interests
 Borrowers pay lenders interests on their loans, plus a platform fee. The interest rate is determined by supply and demand. For instance, if many lenders are offering loans for XTZ and demand is low, interest rates are lowered to attract more demand. However, if there are few lenders but demand is high, interests are increased (lenders obviously want to earn as much money as possible). For instance, if traders believe the price of XTZ will go down, a lot of them might want to open _short positions_ as seen in the example above, and therefore increase the demand for loans.
 
-Interests paid on loans are based on their APY. Lenders usually offer two kinds of APY :
+Interests paid on loans are based on their APY. Lenders usually offer two kinds of APY:
 - A variable APY, which is updated at every block depending on offer and demand.
 - A much higher but stable APY that will not change during the whole period of your loan.
 
-Variable rates may sometimes be low and attractive, but keep in mind that they can sharply move at any time. As seen above, if XRP crashes, demand for loans increases, and variable APYs can skyrocket.
+Variable rates may sometimes be low and attractive, but keep in mind that they can sharply move at any time. As seen above, if XTZ crashes, demand for loans increases, and variable APYs can skyrocket.
 
-For instance, if you borrow $100 for a year at a stable APY of 10%, you would pay $10 interest. Now consider borrowing at 5% APY, but after 6 months, the APY jumps to 30% for the rest of the year. You would have to pay $2.5 interest for the first 6 months and $15 for the last 6 months.
+For instance, if you borrow $100 for a year at a stable APY of 10%, you would pay $10 interest. Now consider borrowing at a 5% variable APY, but after 6 months, the APY jumps to 30% for the rest of the year. You would have to pay $2.5 interest for the first 6 months and $15 for the last 6 months.
 
 Note that interests are computed at each block, increasing your debt a little every time. If APY jumps sharply, your debt might surpass the 133% collateral limit. You must close your loan or add more collateral, or your loan will be liquidated. This is how you can get liquidated based only on accrued interests even if the tokens borrowed and used as collateral didn't change in price (typically borrowing stablecoins with stablecoins).
 
@@ -65,15 +65,15 @@ Transactions are grouped and included in a Tezos block. Each transaction can be 
 
 On Tezos, transactions can consist of multiple consecutive steps, e.g., you could supply XTZ and borrow kUSD on _TezFin_, swap half of your borrowed kUSD for USDS on _Dexter_ and provide liquidity to the kUSD/USDS pool on _Quipuswap_ - all in one single Tezos transaction. If any of these steps result in an error, the whole transaction would be rolled back, and none of the steps would occur. Note that you would still pay gas fees. Even failed contract executions consume gas.  
 
-The gas cost only bounds the number of steps in a single transaction. So although you could, in theory, create a valid transaction with thousands of steps, it'd be rejected because of the maximum gas cost limit per block. 
+The gas cost bounds the number of steps in a single transaction. So although you could, in theory, create a valid transaction with thousands of steps, it'd be rejected because of the maximum gas cost limit per block. 
 
-Because the loan has to be repaid within one transaction, there is no risk of borrowers not repaying their borrowed amount.
+Remember that a flash loan has to be borrowed and repaid within the same transaction, so there is no risk that borrowers will not repay their borrowed amount.
 
 ![](../../static/img/defi/flash-loan.svg)
 <small className="figure">FIGURE 1: Operation flow of a flash loan in case of successful repayment (green arrows) or failed repayment (red arrows)</small>
 
 ## Use cases
-There are three most common use cases for flash loans:
+Here are three of the most common use cases for flash loans:
 
 ### Arbitrage
 Arbitrage is the simultaneous purchase and sale of the same asset in different exchanges to profit from tiny differences in the asset's listed price. It exploits short-lived variations in the price of identical or similar financial instruments in other markets and various forms.

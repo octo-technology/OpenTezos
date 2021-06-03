@@ -15,18 +15,23 @@ Why is DeFi often compared to _Money Bricks_ ?
 
 ### Question 2
 
-Consider two liquidity pools:
-- One containing 120,000 wXTZ and 4 BTCtz
-- The other containing 30 BTCtz and 1,800,000 kUSD
+Consider a liquidity pool with 120,000 wXTZ and 4 BTCtz. I want to exchange 1 BTCtz. What is the marginal price of 1 BTCtz?
 
-I want to exchange my 1,000 wXTZ against some kUSD. How much kUSD will I get (not considering transaction fees)?
-
-- [ ] 1,000 kUSD
-- [x] 2,000 kUSD
-- [ ] 3,000 kUSD
-- [ ] 4,000 kUSD
+- [ ] 20,000 wXTZ 
+- [ ] 24,000 wXTZ 
+- [x] 30,000 wXTZ
+- [ ] 36,000 wXTZ
 
 ### Question 3
+
+Consider a liquidity pool with 120,000 wXTZ and 4 BTCtz. I want to exchange 1 BTCtz. What is the effective swap price of my 1 BTCtz?
+
+- [ ] 20,000 wXTZ 
+- [x] 24,000 wXTZ 
+- [ ] 30,000 wXTZ
+- [ ] 36,000 wXTZ
+
+### Question 4
 
 The FA2 token standards allow Tezos developers to:
 
@@ -35,7 +40,7 @@ The FA2 token standards allow Tezos developers to:
 - [x] Create non-transferable tokens (equivalent to ERC-1238 on Ethereum)
 - [x] Create multi-asset contracts (equivalent to ERC-1151 on Ethereum)
 
-### Question 4
+### Question 5
 
 A wrapped asset can be pegged to:
 
@@ -44,28 +49,28 @@ A wrapped asset can be pegged to:
 - [x] a security
 - [x] a stock
 
-### Question 5
+### Question 6
 
 All stablecoins are collateralized by a reserve:
 
 - [ ] true
 - [x] false
 
-### Question 6
+### Question 7
 
 Using an exchange is required to make an Atomic Swap:
 
 - [ ] true
 - [x] false
 
-### Question 7
+### Question 8
 
 Synthetics are wrapped tokens pegged to their original asset:
 
 - [ ] true
 - [x] false
 
-### Question 8
+### Question 9
 
 An oracle can:
 
@@ -74,7 +79,7 @@ An oracle can:
 - [x] process the data
 - [ ] guarantee the fetched data is valid
 
-### Question 9
+### Question 10
 
 If I do not repay a flash loan in the same block,
 
@@ -83,7 +88,7 @@ If I do not repay a flash loan in the same block,
 - [ ] all my operations involving the borrowed money are canceled and my gas fee is refunded
 - [x] all my operations involving the borrowed money are canceled but my gas fee is not refunded
 
-### Question 10
+### Question 11
 
 Can I exchange an FA1.2 token against an FA2 token on DEXs?
 

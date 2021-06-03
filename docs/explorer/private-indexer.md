@@ -77,7 +77,7 @@ In `package.json`, one script is defined:
 ```
 
 <NotificationBar>
-  <p>The npm repository of ganache can be found <a href="https://www.npmjs.com/package/ganache-cli/v/6.4.2">here</a> :
+  <p>The npm repository of ganache can be found <a href="https://www.npmjs.com/package/ganache-cli/v/6.4.2">here</a>:
 There are several versions of `ganache-cli`. 
 Only the versions suffixed by `-tezos` support the Tezos blockchain (you can find them under the versions tab). 
 The specific version used in the project can be found in the `devDependencies` section in `package.json`.

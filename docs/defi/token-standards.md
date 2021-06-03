@@ -6,7 +6,7 @@ author: Aymeric Bethencourt
 
 import NotificationBar from '../../src/components/docs/NotificationBar';
 
-In the Blockchain ecosystem, any digitally transferable asset between two people is called a **token**. Tokens can be native to a blockchain, e.g., BTC is the native token of Bitcoin. Tokens can also be created and hosted on an existing blockchain via a smart contract. Some tokens, called [stablecoins](/defi/stablecoins), are following the price of fiat currencies (e.g., USD, EUR). Others, called _NFT_, can enclose collectibles or art. Finally, tokens can represent rights of ownership of real-world estates or companies (i.e., [stock tokens](https://www.binance.com/en/stock-token)). In this chapter, we will see the main token types and token standards on Tezos.
+In the Blockchain ecosystem, any digitally transferable asset between two people is called a **token**. Tokens can be native to a blockchain, e.g., BTC is the native token of Bitcoin. Tokens can also be created and hosted on an existing blockchain via a smart contract. Some tokens, called [stablecoins](/defi/stablecoins), are following the price of fiat currencies (e.g., USD, EUR). Others, called _NFT_, can represent collectibles or art. Finally, tokens can represent rights of ownership of real-world estates or companies (i.e., [stock tokens](https://www.binance.com/en/stock-token)). In this chapter, we will see the main token types and token standards on Tezos.
 
 <NotificationBar>
   <p>"Everything will be tokenized and connected by a blockchain one day."
@@ -14,9 +14,9 @@ In the Blockchain ecosystem, any digitally transferable asset between two people
 </NotificationBar>
 
 ## Token standard
-A token standard is an interface and rules that a smart contract must respect to be compatible with such standards. Typically, token standards define how tokens are transferred and keep a consistent record of those transfers among tokens in the Tezos network.
+A token standard is an interface, and a set of rules, that a smart contract must respect to be compatible with such standards. Typically, token standards define how tokens are transferred and keep a consistent record of those transfers among tokens in the Tezos network.
 
-Multiple implementations of a standard can co-exist, but they must all respect the interface and rules of the standard. Standards ensure that smart contracts remain composable, so for instance, when a new project issue a token, it remains compatible with existing decentralized exchanges, wallets, etc.
+Multiple implementations of a standard can co-exist, but they must all respect the interface and rules of the standard. Standards ensure that smart contracts remain composable, so for instance, when a new project issues a token, it remains compatible with existing decentralized exchanges, wallets, etc.
 
 ![](../../static/img/defi/standards.svg)
 <small className="figure">FIGURE 1: Illustration of 2 implementations of the same token standard</small>
@@ -24,7 +24,7 @@ Multiple implementations of a standard can co-exist, but they must all respect t
 ## Fungible & Non-Fungible Tokens
 The most basic token is the _Fungible Token_, i.e., a class of identical, interchangeable tokens. For instance, two _XTZ_ tokens are identical and interchangeable, just like a US dollar is identical and interchangeable with another US dollar. One is exactly the same as the other.
 
-However, a token can represent much more than fungible assets. For instance, a concert ticket at the front row is obviously not equivalent to a concert ticket at the last row. These tickets are part of the same class (i.e., concert tickets), but they are not interchangeable: they are non-fungible. Two pieces of art are also non-fungible. The ownership of these assets can be enclosed in a _Non-Fungible Token_ (or _NFT_ for short) and bought, sold, exchanged, etc., just like any other token. NFTs are particularly interesting for collectibles as their scarcity can be demonstrated on the blockchain (i.e., an owner can prove that he has the only copy in the whole world.)
+However, a token can represent much more than fungible assets. For instance, a concert ticket at the front row is obviously not equivalent to a concert ticket at the last row. These tickets are part of the same class (i.e., concert tickets), but they are not interchangeable: they are non-fungible. Two pieces of art are also non-fungible. The ownership of these assets can be coded in a _Non-Fungible Token_ (or _NFT_ for short) and bought, sold, exchanged, etc., just like any other token. NFTs are particularly interesting for collectibles as their scarcity can be demonstrated on the blockchain (i.e., an owner can prove that he has the only copy in the whole world.)
 
 ## Token standards on Tezos
 On Tezos, the latest token standard is [FA2](https://gitlab.com/tzip/tzip/-/blob/master/proposals/tzip-12/tzip-12.md) (standing for _Financial Application 2_). It supports a wide range of token types: 
@@ -49,7 +49,7 @@ If you plan to create a token, make sure to check the regulations in your countr
 Always be cautious as anyone can create tokens on Tezos. Before purchasing a token, make sure to question its value. Is the smart contract of the token open-source? Has it been audited? Is there a hard cap? Indeed, any rule regarding creating the tokens or their transfer can be coded into the smart contract. For instance, uncapped tokens could be infinitely minted by their author and render their value null.
 
 <NotificationBar>
-  <p>Keep in mind that it does not mean it is safe when holding a token in your wallet. Indeed, holding a token means that the token's smart contract holds a record that associates your public address with a balance. If the smart contract is malicious or has bugs, that record could be altered, erased or frozen, making your tokens unusable even if they are in your wallet.</p>
+  <p>Keep in mind that holding a token in your wallet doesn't, in itself, guarantee that your token is safe. Indeed, holding a token means that the token's smart contract holds a record that associates your public address with a balance. If the smart contract is malicious or has bugs, that record could be altered, erased, or frozen, making your tokens unusable even if they are in your wallet.</p>
 </NotificationBar> 
 
 ## Resources on Tezos

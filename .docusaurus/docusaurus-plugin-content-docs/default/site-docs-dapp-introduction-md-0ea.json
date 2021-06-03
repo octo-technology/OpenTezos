@@ -3,7 +3,7 @@
   "id": "dapp/introduction",
   "isDocsHomePage": false,
   "title": "Introduction",
-  "description": "",
+  "description": "One of the main features of blockchains is decentralization:",
   "source": "@site/docs/dapp/introduction.md",
   "sourceDirName": "dapp",
   "slug": "/dapp",

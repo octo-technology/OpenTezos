@@ -13,10 +13,10 @@ In this chapter, we will use the [TzStats](https://tzstats.com/) explorer to ill
 
 Each Tezos network has its own _TzStats_ version:
 
-- **Mainnet** : [tzstats.com](https://tzstats.com)
-- **Delphinet** : [delphi.tzstats.com](https://delphi.tzstats.com)
-- **Edonet** : [edo.tzstats.com](https://edo.tzstats.com)
-- **Florencenet** : [florence.tzstats.com](https://florence.tzstats.com)
+- **Mainnet**: [tzstats.com](https://tzstats.com)
+- **Delphinet**: [delphi.tzstats.com](https://delphi.tzstats.com)
+- **Edonet**: [edo.tzstats.com](https://edo.tzstats.com)
+- **Florencenet**: [florence.tzstats.com](https://florence.tzstats.com)
 
 ## TzStats' main features
 

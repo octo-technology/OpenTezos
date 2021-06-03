@@ -24,7 +24,7 @@ In this chapter, we will deploy the Raffle smart contract, written in LIGO, onto
 *Truffle* is part of a suite of tools which make it easier to deploy written smart contracts onto a blockchain, 
 called *The Truffle Suite*.
 
-* **Truffle** : used for the compilation and deployment of smart contracts onto a network
+* **Truffle**: used for the compilation and deployment of smart contracts onto a network
 * **Ganache**: used to easily set-up and deploy a blockchain network
 * **drizzle**: used to easily write front-end applications, which interact with a deployed smart-contract.
 * **Truffle teams**: integration and smart contracts monitoring tools
@@ -106,7 +106,7 @@ Using *Truffle* can be divided into two steps:
 
 A *Truffle* follows this structure:
 
-* **build** (not present at the unpacking of the box) : the folder containing the Michelson code, compiled by *Truffle*
+* **build** (not present at the unpacking of the box): the folder containing the Michelson code, compiled by *Truffle*
   and used for the contracts deployment
 * **contract**: the folder containing all the Ligo smart contracts that *Truffle* has to compile.
 * **migrations**: the folder containing the *Truffle* migration scripts for the deployment of the contrat

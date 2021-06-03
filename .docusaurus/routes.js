@@ -39,7 +39,7 @@ export default [
 },
 {
   path: '/',
-  component: ComponentCreator('/','f0e'),
+  component: ComponentCreator('/','b5e'),
   
   routes: [
 {
@@ -58,6 +58,11 @@ export default [
   exact: true,
 },
 {
+  path: '/baking',
+  component: ComponentCreator('/baking','93f'),
+  exact: true,
+},
+{
   path: '/baking/bakers_list',
   component: ComponentCreator('/baking/bakers_list','605'),
   exact: true,
@@ -70,11 +75,6 @@ export default [
 {
   path: '/baking/exam',
   component: ComponentCreator('/baking/exam','7b0'),
-  exact: true,
-},
-{
-  path: '/baking/introduction',
-  component: ComponentCreator('/baking/introduction','fb4'),
   exact: true,
 },
 {
@@ -153,8 +153,28 @@ export default [
   exact: true,
 },
 {
+  path: '/dapp/basics',
+  component: ComponentCreator('/dapp/basics','6b8'),
+  exact: true,
+},
+{
   path: '/dapp/exam',
   component: ComponentCreator('/dapp/exam','bb1'),
+  exact: true,
+},
+{
+  path: '/dapp/front_user_experience',
+  component: ComponentCreator('/dapp/front_user_experience','111'),
+  exact: true,
+},
+{
+  path: '/dapp/taquito',
+  component: ComponentCreator('/dapp/taquito','b99'),
+  exact: true,
+},
+{
+  path: '/dapp/temple',
+  component: ComponentCreator('/dapp/temple','588'),
   exact: true,
 },
 {
@@ -223,6 +243,11 @@ export default [
   exact: true,
 },
 {
+  path: '/explorer',
+  component: ComponentCreator('/explorer','9c5'),
+  exact: true,
+},
+{
   path: '/explorer/available-tezos-indexers',
   component: ComponentCreator('/explorer/available-tezos-indexers','fba'),
   exact: true,
@@ -235,11 +260,6 @@ export default [
 {
   path: '/explorer/indexer-explained',
   component: ComponentCreator('/explorer/indexer-explained','791'),
-  exact: true,
-},
-{
-  path: '/explorer/introduction',
-  component: ComponentCreator('/explorer/introduction','3d2'),
   exact: true,
 },
 {

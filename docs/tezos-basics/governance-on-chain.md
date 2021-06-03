@@ -9,10 +9,7 @@ Tezos is a self-amending blockchain network that incorporates an on-chain mechan
 ## What is self-amendment?
 Tezos is a blockchain that can improve itself over time by using a formalized process to upgrade its protocol. In practice, it is similar to the structure of a corporation, where shareholders get to vote on the future direction.
 
-Many other blockchains do not have this type of formal governance structure. Consequently, the direction of these projects is often decided by a small group and imposed on the whole ecosystem. If not, the process results in many _hard forks_ by participants that did not agree with the decisions. Thus, two or more chains can co-exist and split the community. Self-amendment aims to avoid this scenario, and Tezos *has had no hard fork so far*.
-
-![](../../static/img/tezos-basics/tezos-hard-forks.svg)
-<small className="figure">FIGURE 1: Bitcoin hard-forks vs. Tezos hard-forks</small>
+Many other blockchains do not have this type of formal governance structure. Consequently, the direction of these projects is often decided by a small group and imposed on the whole ecosystem. If not, the process results in many _hard forks_ by participants that did not agree with the decisions. Thus, two or more chains can co-exist and split the community. Self-amendment aims to avoid this scenario, in a way that token holders can vote on the future development of the blockchain.
 
 ## Definitions of main concepts 
 
@@ -136,7 +133,7 @@ At the time of writing (March 2021), 43 periods have passed. There were 8 submit
 The diagram below sums up the self-amendment process:
 
 ![](../../static/img/tezos-basics/Governance_mechanism_uml.svg)
-<small className="figure">FIGURE 2: Self-amendment process</small>
+<small className="figure">FIGURE 1: Self-amendment process</small>
 
 ## Voting examples
 Let's illustrate this process:

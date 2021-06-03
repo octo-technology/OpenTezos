@@ -88,9 +88,9 @@ Let's illustrate the ADT formalization by defining a set with PRODUCT (a product
 The Michelson language can be modeled as a mathematical object (set) with a set of rules (PRODUCT and SUM) describing possible operations on datatypes. 
 
 PRODUCT type = `(a b)` (i.e., Michelson pair)
-- reflexivity: (up to an isomorphism) _swap_ : `(a b) ~ (b a)`
-- associativity: (up to an isomorphism) _assoc_ :  `((a, b), c) ~ (a, (b, c))`
-- neutral element: (up to an isomorphism) _first_ : `(a,()) ~ a`
+- reflexivity: (up to an isomorphism) _swap_: `(a b) ~ (b a)`
+- associativity: (up to an isomorphism) _assoc_:  `((a, b), c) ~ (a, (b, c))`
+- neutral element: (up to an isomorphism) _first_: `(a,()) ~ a`
 
 Programmatically speaking, a tuple `(int bool)` does not match a tuple `(bool int)`, but both contain the same information. These two tuples are equivalent up to an isomorphism (which is the function "swap"; i.e. `swap x = (snd x, fst x)`). Notice that the inverse function of _swap_ is _swap_. Also _assoc_ and _first_ are invertible (up to an isomorphism).
 

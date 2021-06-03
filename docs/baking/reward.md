@@ -10,7 +10,7 @@ To maintain the network, Tezos needs bakers and endorsers. They stake their toke
 
 Each new block generates 80 new XTZ as a reward. 40 XTZ for the bakers and 40 XTZ for the endorsers.
 A new block is created each minute witch generates 42 Million of XTZ per year ($\approx$ 80ꜩ $\times$ 60 mins $\times$ 24 hours $\times$ 365 days). At the Tezos launch, the network was composed of 763 Millions XTZ.
-Therefore the inflation rate of the XTZ token is **5.5%** :
+Therefore the inflation rate of the XTZ token is **5.5%**:
 $$
 \frac{42,000,000}{763,000,000}=\frac{42}{763}\approx5.5\%
 $$

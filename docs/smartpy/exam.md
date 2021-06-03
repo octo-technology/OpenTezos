@@ -119,7 +119,7 @@ class Hello(sp.Contract):
 
     @sp.entry_point
     def set_x(newX):
-        # Todo : set x from the storage to newX
+        # Todo: set x from the storage to newX
 ```
 
 What is the correct way to set x from the storage to `newX`.
