@@ -19,3 +19,6 @@ The node is the main actor of the Tezos blockchain and it has two main functions
 
 Other than passively observing the network, your node can also inject its own new operations when instructed by the tezos-client and even send new blocks when guided by the tezos-baker-*. The node has also a view of the multiple chains that may exist concurrently and selects the best one based on its fitness (see Proof-of-stake in Tezos).
 
+## References
+
+[1] https://tezos.gitlab.io/introduction/howtouse.html#node
