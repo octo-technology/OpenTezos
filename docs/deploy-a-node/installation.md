@@ -15,7 +15,7 @@ Type your password when prompted.
 
 ### Install Rust
 
-Compiling Tezos requires the Rust compiler, version 1.44.0, and the Cargo package manager to be installed.
+Compiling Tezos requires the Rust compiler, and the Cargo package manager to be installed.
 
 ```shell
 $ cd $HOME
@@ -60,6 +60,8 @@ $ opam init --bare
 $ make build-deps
 ```
 
+> Note that when you run `make build-deps` you will see: `[ERROR] No repository tezos found`, you can ignore this error.
+
 ### Compile sources
 
 ```shell
@@ -67,7 +69,7 @@ $ eval $(opam env)
 $ make
 ```
 
-### Optional setup
+### PATH setup
 
 ```shell
 export PATH=~/tezos:$PATH
@@ -98,6 +100,15 @@ If this is the case then run the following command to update your xcode install 
 $ xcode-select --install
 ```
 
+### Install Rust
+
+Compiling Tezos requires the Rust compiler, and the Cargo package manager to be installed.
+
+```shell
+curl https://sh.rustup.rs -sSf | sh
+source $HOME/.cargo/env
+```
+
 ### Get sources
 
 ```shell
@@ -123,11 +134,20 @@ $ cd tezos
 $ make build-deps 
 ```
 
+> Note that when you run `make build-deps` you will see: `[ERROR] No repository tezos found`, you can ignore this error.
+
 ### Compile sources
 
 ```shell
 $ eval $(opam env)
 $ make
+```
+
+### PATH setup
+
+```shell
+export PATH=~/tezos:$PATH
+export TEZOS_CLIENT_UNSAFE_DISABLE_DISCLAIMER=Y
 ```
 
 ## References
