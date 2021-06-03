@@ -10,9 +10,9 @@
   "permalink": "/ligo/deploy-a-contract",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/deploy-a-contract.md",
   "version": "current",
-  "lastUpdatedBy": "Author",
-  "lastUpdatedAt": 1539502055,
-  "formattedLastUpdatedAt": "10/14/2018",
+  "lastUpdatedBy": "Aymeric BETHENCOURT",
+  "lastUpdatedAt": 1622492989,
+  "formattedLastUpdatedAt": "5/31/2021",
   "frontMatter": {
     "id": "deploy-a-contract",
     "title": "Deploy a contract",

@@ -10,9 +10,9 @@
   "permalink": "/baking/baking_explained",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/baking/baking_explained.md",
   "version": "current",
-  "lastUpdatedBy": "Author",
-  "lastUpdatedAt": 1539502055,
-  "formattedLastUpdatedAt": "10/14/2018",
+  "lastUpdatedBy": "ThomasZoughebi",
+  "lastUpdatedAt": 1622628810,
+  "formattedLastUpdatedAt": "6/2/2021",
   "frontMatter": {
     "id": "baking_explained",
     "title": "How baking works?",
