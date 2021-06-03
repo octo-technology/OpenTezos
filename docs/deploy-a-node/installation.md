@@ -6,11 +6,11 @@ authors: Maxime Sallerin
 
 ## Build from source (Ubuntu)
 
-```shell
-sudo apt install -y rsync git m4 build-essential patch unzip bubblewrap wget pkg-config libgmp-dev libev-dev libhidapi-dev
-```
+### Install the libraries that Tezos is dependent on
 
-//TODO Est-ce que ça vaut le coup de rajouter un `sudo apt update &&` ?
+```shell
+sudo apt update && sudo apt install -y rsync git m4 build-essential patch unzip bubblewrap wget pkg-config libgmp-dev libev-dev libhidapi-dev
+```
 
 Type your password when prompted.
 `[sudo] password for username:`
@@ -66,8 +66,6 @@ Answers the prompts with 'N' then 'y'.
 You may also be prompted for your `sudo` password.
 
 You may encounter a "switch" error: You can ignore it. You may encounter failures in the processes for the `make build-deps` command. In that case, just re-type the command to re-initiate.
-
-> Note that when you run `make build-deps` you will see: `[ERROR] No repository tezos found`, you can ignore this error.
 
 ### Compile sources
 
@@ -163,6 +161,12 @@ make
 ```shell
 export PATH=~/tezos:$PATH
 export TEZOS_CLIENT_UNSAFE_DISABLE_DISCLAIMER=Y
+```
+
+You can quickly check the correct installations of some files:
+```shell
+tezos-client --version
+tezos-admin-client --version
 ```
 
 ## References
