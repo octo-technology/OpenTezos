@@ -38,7 +38,7 @@ Indeed the Michelson language has been designed in order to take the formal veri
 
 ### Formal verification benefits
 
-There is a real benefit to be able to prove the behavior of a smart contract, (i.e. to verify that a smart contract comply to some specifications). 
+There is a real benefit to be able to prove the behavior of a smart contract, (i.e. to verify that a smart contract complies to some specifications). 
 
 Generally speaking, smart contracts have specific characteristics making them more bound to be verified than other common programs:
 - Due to the blockchain context, a smart contract is not intended to be modified (hard to modify once deployed), and thus can be proven once and for all.
@@ -60,6 +60,7 @@ Many proof assistants can be used to translate a smart contract into a formal de
 - K-Michelson is based on K-framework which is a generic tool for specifications and proofs languages.
 
 
+
 #### Mi-Cho-Coq
 
 Allow to directly verify smart contracts (Michelson scripts) in _Coq_
@@ -78,10 +79,58 @@ section under development
 #### K-Michelson
 section under development
 
+#### Juvix
+section under development
 
-### Examples of famous proven smart contracts
+#### Lmot (Haskell)
+section under development
+
+
+
+
+
+
+### Modeling specifications
+
+All these proof assistants provides tools for formal verification but also provides a way to express the semantic of a program (e.i. formal semantic). They share the same purpose which is to define what a program is meant to do and to verify that the program does comply to these intentions (called **specifications**).
+
+#### Expressivity vs automation
+
+Proof assistants have chosen different ways to model specifications. For example, Mi-Cho-Coq is a Coq library allowing to verify at Michelson level, and specifications are designed in Coq as logical objects (with all the **expressivity** power of the Gallina language).
+
+Whereas Archetype design specifications by adding annotations directly inside the smart contract (written in a high-level language). Using annotations for expressing specifications, has the benefit to allow the **automatic generation of the proof**. This automatic proof cannot be done in all cases (it depends on the complexity) but is It introduces an inconvenience which is to limit the expressivity of these specifications to the annotation grammar. 
+
+
+![](../../static/img/formal-verification/proof_assistants_comparison.svg)
+<small className="figure">FIGURE 1: Comparison of proof assistants approaches.</small>
+
+Due to these different approaches and their implementations, the time of verification may vary. Automated generated proofs take more time to verify correctness (i.e. time spent for running the proof). Obviously, automation reduces drastically the time spent on writing the proof ! 
+
+####  Verification level
+
+It's worth to mention that these proof assistants have different approaches concerning the level at which the verification is applied.
+
+The Mi-Cho-Coq approach is to apply formal verification on the low-level language (Michelson) and provides trust on the smart contract. 
+
+Another approach is to apply formal verification on a high-level language and provides trust in the high-level language compiler (which produces Michelson). (e.g. Archetype).
+
+#### Specification based on resources
+
+By default, specifications are expressed on impacts of execution of a smart contract (i.e. on modifications of the smart contract storage).
+
+Some proof assistants also express specifications based on resources (such as the storage size, or the gaz consumption). The size of storage could be bounded, and thus specifications could reason on these boundaries.
+The gaz consumption (equivalent to the execution time) could also be a criterion useful for specifying the intention of the smart contract.
+
+
+#### Verification applied on interactions of multiple contracts
+
+As a stand-alone, Mi-Cho-Coq approach provides a solid (full-expressivity) manner for expressing specifications and for verifying a proof but does not provide a way to verify interactions between multiple smart contracts.
+
+Th _Concert_ library for Coq provides a way to model each smart contract as a Coq function and allows to reason on these functions (which can call each other). _Concert_ is a generic tool and not a tezos-specific library such as Mi-Cho-Coq.
+
+
+#### Examples of famous proven smart contracts
 
 There smart contracts that have already been proven such as Dexter thus providing trust on the _Dexter_ decentralized exchange platform.
 
 Liquidity Baking smart contracts have also been proven.
-
