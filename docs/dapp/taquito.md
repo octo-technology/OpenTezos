@@ -7,7 +7,7 @@ title: Taquito
 Interactions with a Tezos blockchain can be done thanks to the Tezos cli. 
 However, it is not suitable to build Dapps, since it has to be integrated into applications, mostly web interfaces.
 
-Fortunately, the Tezos ecosystem offers libraries in several languages, that enable developers to build easily such dapps.
+Fortunately, the Tezos ecosystem offers libraries in several languages, that enable developers to build such dapps.
 _Taquito_ is one of these libraries: it is a Typescript library developed and maintained by _ECAD Labs_.
 This library offers all the expected interactions with the blockchain: retrieving information about a Tezos network, sending a transaction, contract origination and interactions (calling an entrypoint, fetching the storage...), delegation, metadata...
 
@@ -15,20 +15,19 @@ All the wallets ([AirGap](https://airgap.it/), [Galleon](https://cryptonomic.tec
 
 A full reference is available [here](https://tezostaquito.io/docs/quick_start).
 
-This chapter is an introduction to _Taquito_: through some interactions with a deployed Raffle smart contract,
-the basic instructions of Taquito will be explained.
+This chapter is an introduction to _Taquito_: through some interactions with a deployed Raffle smart contract, the basic instructions of Taquito will be explained.
 
 # Installation
 
 The _Taquito_ library is broken down into several modules:
-- [@taquito/taquito](https://www.npmjs.com/package/@taquito/taquito): High level functionality that builds upon the other packages in the Tezos Typescript Library Suite.
-- [@taquito/ledger-signer](https://www.npmjs.com/package/@taquito/ledger-signer): Ledger signer provider
-- [@taquito/rpc](https://www.npmjs.com/package/@taquito/rpc): Provides low level methods, and types to invoke RPC calls from a Nomadic Tezos RPC node
-- [@taquito/utils](https://www.npmjs.com/package/@taquito/utils): Converts michelson data and types into convenient JS/TS objects
-- [@taquito/michelson-encoder](https://www.npmjs.com/package/@taquito/michelson-encoder): Converts michelson data and types into convenient JS/TS objects
-- [@taquito/michel-codec](https://www.npmjs.com/package/@taquito/michel-codec): Michelson parser/validator/formatter
-- [@taquito/local-forging](https://www.npmjs.com/package/@taquito/local-forging): Provide local forging functionality
-- [@taquito/signer](https://www.npmjs.com/package/@taquito/signer): Provide signing functionality
+- [@taquito/taquito](https://www.npmjs.com/package/@taquito/taquito): High-level functionalities that build upon the other packages in the Tezos Typescript Library Suite.
+- [@taquito/ledger-signer](https://www.npmjs.com/package/@taquito/ledger-signer): Ledger signer provider.
+- [@taquito/rpc](https://www.npmjs.com/package/@taquito/rpc): Provides low-level methods, and types to invoke RPC calls from a Nomadic Tezos RPC node.
+- [@taquito/utils](https://www.npmjs.com/package/@taquito/utils): Converts michelson data and types into convenient JS/TS objects.
+- [@taquito/michelson-encoder](https://www.npmjs.com/package/@taquito/michelson-encoder): Converts michelson data and types into convenient JS/TS objects.
+- [@taquito/michel-codec](https://www.npmjs.com/package/@taquito/michel-codec): Michelson parser/validator/formatter.
+- [@taquito/local-forging](https://www.npmjs.com/package/@taquito/local-forging): Provide local forging functionality.
+- [@taquito/signer](https://www.npmjs.com/package/@taquito/signer): Provide signing functionality.
 
 The main module is `@taquito/taquito`: it will be used for most actions. The other modules are used by the `@taquito/taquito` methods, as complementary features.
 
@@ -50,7 +49,7 @@ new App().main();
 
 ```
 
-Let's create the `App` class, with a `main` method. We will import the `TezosToolkit` class, to check if `@taquito/taquito` is indeed installed:
+Let's create the `App` class with a `main` method. We will import the `TezosToolkit` class to check if `@taquito/taquito` is indeed installed:
 
 ``` typescript
 import { TezosToolkit } from '@taquito/taquito';
@@ -64,14 +63,14 @@ export class App {
 Let's run it with:
 
 ``` shell
-npx ts-node main.ts
+$ npx ts-node main.ts
 ```
 
-It should raise any exception. Let's start to use Taquito !
+It should not raise any exception. Let's start to use _Taquito_!
 
 # Taquito configuration
 
-First, we need to configure _Taquito_ with an RPC URL. We will use the `TezosToolkit`: it is the "facade class that surfaces all of the libraries capability and allow it's configuration". When it is created, it accepts an RPC url. We will use the _SmartPy_ RPC url: [https://edonet.smartpy.io/](https://edonet.smartpy.io/)
+First, we need to configure _Taquito_ with an RPC URL. We will use the `TezosToolkit`: it is the "facade class that surfaces all of the libraries capability and allow its configuration". When it is created, it accepts an RPC url. We will use the _SmartPy_ RPC url: [https://florencenet.smartpy.io/](https://florencenet.smartpy.io/)
 
 
 ``` typescript
@@ -92,7 +91,7 @@ export class App {
 // main.ts
 import { App } from './src/app';
 
-const RPC_URL = "https://edonet.smartpy.io/"
+const RPC_URL = "https://florencenet.smartpy.io/"
 
 new App(RPC_URL).main();
 ```
@@ -101,7 +100,7 @@ new App(RPC_URL).main();
 
 _Taquito_ is already ready for some actions: it can retrieve all the information about the Tezos network, the accounts, the smart contracts...
 
-For instance, let's retrieve the balance of an account:
+For instance, let's retrieve the balance of an account, with the `getBalance` method:
 ``` typescript
 // src/app.ts
 import { TezosToolkit } from '@taquito/taquito';
@@ -123,15 +122,15 @@ export class App {
     public async main() { }
 ```
 
-Every interaction with the Tezos network, through _Taquito_ will be handled with `Promise`.
+Every interaction with the Tezos network through _Taquito_  will be handled with a `Promise`.
 
-Let's call this method for the tz1YWK1gDPQx9N1Jh4JnmVre7xN6xhGGM4uC address
+Let's call this method for the `tz1YWK1gDPQx9N1Jh4JnmVre7xN6xhGGM4uC` address
 
 ``` typescript
 // main.ts
 import { App } from './src/app';
 
-const RPC_URL = "https://edonet.smartpy.io/"
+const RPC_URL = "https://florencenet.smartpy.io/"
 const ACCOUNT_TO_CHECK = "tz1YWK1gDPQx9N1Jh4JnmVre7xN6xhGGM4uC"
 
 new App(RPC_URL).getBalance(ACCOUNT_TO_CHECK);
@@ -179,7 +178,7 @@ export class App {
     public async main() { }
 ```
 
-We will use a simple `Counter` contract on Florence.
+We will use a simple `Counter` contract on Florencenet.
 ``` typescript
 import { App } from './src/app';
 
@@ -207,7 +206,7 @@ $ npx ts-node main.ts
 
 # Interactions with an account
 
-_Taquito_ can of course sign and send transactions, but it needs a private key for that. Let retrieve a faucet from [https://faucet.tzalpha.net/](https://faucet.tzalpha.net/) and put it in the project directory.
+_Taquito_ can of course sign and send transactions, but it needs a private key for that. Let's retrieve a faucet from [https://faucet.tzalpha.net/](https://faucet.tzalpha.net/) and put it in the project directory.
 
 ## Activating the account from _Taquito_
 
@@ -219,12 +218,13 @@ First, we will need to install the `@taquito/signer` module: it is used to sign 
 $ yarn add @taquito/signer
 ```
 
-We will use the `InMemorySigner`, which loads a private key in memory and uses it to sign transactions.
+We will use the `InMemorySigner`: it loads a private key in memory and uses it to sign transactions.
 
-> Storing private keys in memory is suitable for development workflows but risky for production use-cases! Use the InMemorySigner appropriately given your risk profile
+> Storing private keys in memory is suitable for development workflows but risky for production use-cases! Use the `InMemorySigner` appropriately given your risk profile
 
 You can find a complete reference [here](https://tezostaquito.io/docs/inmemory_signer), and find more _signers_ [here](https://tezostaquito.io/docs/tezbridge_signer) and [here](https://tezostaquito.io/docs/ledger_signer).
 
+First, we need to set the signer of our TezosToolkit with `setSignerProvider`. The signer will load a private key from our faucet with the `fromFundraiser` method.
 
 ``` typescript
 // src/app.ts
@@ -244,7 +244,7 @@ export class App {
     public async main() { }
 ```
 
-We can now add an `activateAccount` method:
+We can now add an `activateAccount` method, with an `activate` method taking the address and the secret key as inputs.
 ``` typescript
 // src/app.ts
 import { TezosToolkit } from '@taquito/taquito';
@@ -292,7 +292,7 @@ If you take a look on an explorer ([https://florence.tzstats.com/](https://flore
 
 Now that _Taquito_ is configured with an activated account, we can send transactions. Let's send some to another address.
 
-Transactions can be sent with `this.tezos.contract.transfer`. It returns a `Promise<TransactionOperation>`. A `TransactionOperation` contains the information about this transaction. It also has a `confirmation` method. This method wait for a number of confirmation (that can be passed as input). Thus, we can be notified when a transaction is baked.
+Transactions can be sent with `this.tezos.contract.transfer`. It returns a `Promise<TransactionOperation>`. A `TransactionOperation` contains the information about this transaction. It also has a `confirmation` method. This method waits for a number of confirmations (that can be passed as input). Thus, we can be notified when a transaction is confirmed.
 
 Let's create a `sendTz` method that will send some an `amount` of tz to the recipient `address`.
 
@@ -498,7 +498,7 @@ Error: {
 opYNFzprpcnTCS2dWP9STdJJ8HUpcMGeJNcczmKnBK1SNpXQeoC
 ```
 
-The error message is `Counter 334156 already used for contract tz1YWK1gDPQx9N1Jh4JnmVre7xN6xhGGM4uC`: a transaction (contract call) is already in the mempool when the transfer transaction is sent. Thus, it cannot be sent. 
+The meaningful part is `Counter 334156 already used for contract tz1YWK1gDPQx9N1Jh4JnmVre7xN6xhGGM4uC`: a transaction (contract call) is already in the mempool when the transfer transaction is sent. Thus, it fails. 
 
 However, _Taquito_ offers a `batch` method, which enables the dapp to send several transactions at the same time.
 
@@ -534,7 +534,7 @@ Our three transfer transactions and our contract call are indeed batched togethe
 
 # Conclusion
 
-_Taquito_ provides developpers with all the possible interactions with a Tezos network: it can read all the data from a blockchain, send transactions, originate a contract... Dapps can be built with such a tool.
+_Taquito_ provides developers with all the possible interactions with a Tezos network: it can read all the data from a blockchain, send transactions, originate a contract... Dapps can be built with such a tool.
 
-However, dapps require a keys management. In our example, there was a single key to manage. In real-life dapps, each user will want to use a key that he owns. That is were _wallets_ come in play: those tools are built upon _Taquito_ and make dapps more user-friendly. _Taquito_ can also be used alon with those wallets.
+However, dapps require a keys management. In our example, there was a single key to manage. In real-life dapps, each user will want to safely use a key that he owns. That is where _wallets_ come in play: those tools are built upon _Taquito_ and make dapps more user-friendly. _Taquito_ can also be used along with those wallets.
 
