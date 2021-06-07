@@ -8,14 +8,14 @@ author: Aymeric Bethencourt
 
 Why is DeFi often compared to _Money Bricks_ ?
 
-- [x] DeFi apps form layers that rely on other DeFi apps just like bricks would with each other.
+- [x] DeFi apps form layers that rely on other DeFi apps just like bricks with each other.
 - [x] DeFi apps respect common standards that allow them to interact with each other.
 - [ ] DeFi apps relies on banks to perform KYCs
 - [x] DeFi apps are often open-source, allowing developers to fork them and modify them to create their apps.
 
 ### Question 2
 
-Consider a liquidity pool with 120,000 wXTZ and 4 BTCtz. I want to exchange 1 BTCtz. What is the marginal price of 1 BTCtz?
+Consider a liquidity pool with 120,000 wXTZ and 4 BTCtz. I want to exchange 1 BTCtz. What is the marginal price for 1 BTCtz?
 
 - [ ] 20,000 wXTZ 
 - [ ] 24,000 wXTZ 
@@ -81,7 +81,7 @@ An oracle can:
 
 ### Question 10
 
-If I do not repay a flash loan in the same block,
+If I do not repay a flash loan in the same block:
 
 - [ ] the loan is postponed to the next block
 - [ ] the loan is canceled but all my other operation involving the borrowed money are still executed
@@ -90,7 +90,7 @@ If I do not repay a flash loan in the same block,
 
 ### Question 11
 
-Can I exchange an FA1.2 token against an FA2 token on DEXs?
+I can exchange an FA1.2 token against an FA2 token on DEXs:
 
 - [x] true
 - [ ] false
