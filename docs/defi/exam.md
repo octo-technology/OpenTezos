@@ -10,7 +10,7 @@ Why is DeFi often compared to _Money Bricks_ ?
 
 - [x] DeFi apps form layers that rely on other DeFi apps just like bricks with each other.
 - [x] DeFi apps respect common standards that allow them to interact with each other.
-- [ ] DeFi apps relies on banks to perform KYCs
+- [ ] DeFi apps rely on banks to perform KYCs
 - [x] DeFi apps are often open-source, allowing developers to fork them and modify them to create their apps.
 
 ### Question 2
@@ -84,9 +84,9 @@ An oracle can:
 If I do not repay a flash loan in the same block:
 
 - [ ] the loan is postponed to the next block
-- [ ] the loan is canceled but all my other operation involving the borrowed money are still executed
-- [ ] all my operations involving the borrowed money are canceled and my gas fee is refunded
-- [x] all my operations involving the borrowed money are canceled but my gas fee is not refunded
+- [ ] the loan is cancelled but all my other operation involving the borrowed money are still executed
+- [ ] all my operations involving the borrowed money are cancelled and my gas fee is refunded
+- [x] all my operations involving the borrowed money are cancelled but my gas fee is not refunded
 
 ### Question 11
 
