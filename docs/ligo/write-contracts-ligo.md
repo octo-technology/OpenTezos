@@ -1,50 +1,42 @@
 ---
 id: write-contracts-ligo
-title: Smart contract development in Pascaligo
+title: Smart contract development in PascaLIGO
 authors: Maxime Sallerin and Benjamin Pilia
 ---
 
 import NotificationBar from '../../src/components/docs/NotificationBar';
 
-The language of smart contracts is Michelson, a stack-based language. 
-However, this kind of language is not commonly used by developers. 
-Besides, the more a smart contract grows, the more tedious it becomes to keep the code readable and clean.
-As a result, it can deter many developers from trying to develop smart contracts for the Tezos Blockchain.
-Luckily, some high-level languages have been developed, in order to make it easier for developers to write smart contracts for the Tezos Blockchain.
+
+
+The language of smart contracts on Tezos is [Michelson](/michelson/introduction), a stack-based language. However, this kind of language is not commonly used by developers. Besides, the more a smart contract grows, the harder it becomes to keep the code readable and clean.
+However, the Tezos ecosystem offers some high-level languages, which make smart contracts development as usual as any application development.
 LIGO is one of these languages.
 
+In this chapter, PascaLIGO will be taught, based on the development of a smart contract: the most important aspects of Ligo will be covered.
+If you want to learn the comple LIGO syntax, you can take a look at:
+1. [The official Ligolang documentation](https://ligolang.org/docs/intro/introduction): a complete reference maintained by the developers team.
+2. [Tezos academy](https://tezosacademy.io/): courses with examples which cover all the LIGO syntax. The first twenty chapters will teach you the basic aspects of the syntax.
 
-In this chapter, Pascaligo will be taught, based on the development of a raffle smart contract.
-The most important aspects of Ligo will be covered, however, it is not a full development reference.
-This chapter focuses on the way to develop a smart contract, each step introducing a new notion of the language.
-For a full reference of the ligo language, see:
-1. [Official Ligolang documentation](https://ligolang.org/docs/intro/introduction)
-2. [Tezos academy](https://tezosacademy.io/)
+This chapter is driven by a smart contract development approach. Each part starts with an explanation of the LIGO syntax (called "LIGO prerequisite sections") that will be later used for the smart contract development.
 
-To learn the LIGO syntax from scratch, the best way is to start with some Tezos academy courses (the first 10 chapters are a good start).
-
-
-This chapter is driven by a smart contract development approach. 
-Every LIGO syntax needed for the example is explained in the LIGO prerequisite sections. 
-Then, these LIGO notions will be used in the development of the smart contract.
-
-The "LIGO prerequisite" parts can be skipped when there is no need no learn Pascaligo syntax
+The "LIGO prerequisite" parts can be skipped when you do not need no learn PascaLIGO syntax.
 
 <NotificationBar>
   <p>
-<b>DISCLAIMER: this smart contract is meant for educational purpose only,
-and is not suitable for any other use. OpenTezos cannot be held responsible for any other use.</b>
+<b>DISCLAIMER: this smart contract is meant for educational purpose only, and is not suitable for any other use. OpenTezos cannot be held responsible for any other use.</b>
   </p>
 </NotificationBar>
 
 # Raffle smart contract
-In this chapter, a simple raffle example is considered: 
-an address (called the administrator) wants to organize a raffle, whose reward is a tz amount.
-The administrator pays the reward to the winner with its own funds. 
-Anyone can participate in the raffle, with a little fee. However, each address can participate only once.
-Each ticket has the same probability to be picked.
-After a given time, defined at the beginning of the raffle, the administrator closes the raffle, and rewards the winner.
-This raffle can be divided into 3 steps:
+In this chapter, a simple [raffle](https://en.wikipedia.org/wiki/Raffle) example is considered. A raffle is a gambling game, where players buy tickets. The winning ticket is then drawn. In our case, a raffle will be development in a smart contract with those rules: 
+- An address (called the administrator) wants to organize a raffle, whose reward is a tz amount.
+- The administrator pays the reward to the winner with its own funds. 
+- Anyone can participate in the raffle, with the same participation fee for everyone. However, each address can participate only once.
+- Each ticket has the same probability of being picked.
+- After a given time, defined at the beginning of the raffle, the administrator closes the raffle, and rewards the winner.
+
+
+This raffle can be divided into three steps:
 1. a raffle is opened, with a reward, for a given time
 2. during the raffle time, anyone can buy a raffle ticket.
 3. the raffle is closed, the winner is randomly selected and rewarded with the prize.
@@ -66,12 +58,10 @@ When developing smart contracts, two tools are extremely useful:
 1. a Ligo syntax support for your IDE
 2. a Ligo compiler
 
-These two tools will point out syntax errors and type errors. 
-It is recommended to compile a ligo smart contract as often as possible: 
-errors will be found early and will more easily be addressed.
+These two tools will point out syntax errors and type errors. However, it is recommended to compile a ligo smart contract as often as possible. The compilation will detect errors that the IDE linter won't. Thus, errors will be found early and will more easily be addressed.
 
 # Smart contract initialization
-> LIGO prerequisites in this part: everything that is required to create an empty smart contract.
+> LIGO concepts used in this part: everything that is required to create an empty smart contract.
 > - Types, built-in types
 > - Constants, Variables
 > - Introduction to functions
@@ -84,18 +74,24 @@ A Michelson smart contract can be broken down into three parts:
    It can be read by everyone, but can only be changed by the contract itself.
 3. **code**: a sequence of instructions to be executed when invoking a smart contract
 
-These three pieces of information must also be defined in the Ligo code, in order to compile.
+These three pieces of information must also be defined in the Ligo code.
 
-The first step is to create a .ligo file. It can be named anything.
-Let's create a file called raffle.ligo , which would compile a 'minimum' but viable contract.
+The first step is to create a .ligo file.
+Let's create a file called raffle.ligo, which would compile a 'minimum' but viable contract.
 
+<details>
+  <summary>Click to expand!</summary>
+  
+  ## Heading
+  1. A numbered
+  2. list
+     * With some
+     * Sub bullets
 
-## Ligo Prerequisites
+## LIGO concepts used in this part
 
-LIGO is strongly and statically typed. This means that the compiler checks how a contract processes data,
-ensuring that each function's expectations are met.
-If it passes the test, the contract will not fail at run-time due to some inconsistent assumptions on data.
-This is called type checking.
+LIGO is strongly and statically typed. This means that the compiler checks how a contract processes data, ensuring that each function's expectations are met.
+If it passes the test, the contract will not fail at run-time due to some inconsistent assumptions on data. This is called type checking.
 
 LIGO types are built on top of Michelson's type system.
 
@@ -137,15 +133,14 @@ type breed is string
 const dog_breed : breed = "Saluki"
 ```
 
-The real value of types aliases lies in the alias for complex data structures, such as records (described below).
+The real value of type aliases lies in the alias for complex data structures, such as records (described below).
 This way, these structures are more easily handled.
 
 ### Constants & Variables
 
 #### Constants
 
-Constants are by design immutable, which means their values cannot be reassigned.
-Put in another way, they can only be assigned once, at their declaration.
+Constants are by design immutable, which means they can only be assigned once, at their declaration.
 A constant is defined by a name, type and a value:
 
 ```js
@@ -166,21 +161,18 @@ c := c - 3
 ⚠️ The assignment operator is different: `:=` for var, instead of `=` for constants.
 
 
-### Introduction to function
-As in any other language, functions can be defined in Ligo.
-There are several ways to define a function, but the header is always the same:
+### Introduction to functions
+As in any other language, functions can be defined in Ligo. There are several ways to define a function, but the header is always the same:
 ```js
 function <functionName> (const param1 : <param2Type>, const param2 : <param2Type>...): <returnType> is
     <code>
 ```
 
-Functions will be detailed below. At this point, since this main function does nothing,
-it will use a blockless function definition.
+Functions will be detailed below. At this point, since this main function does nothing, it will use a blockless function definition.
 
 ### Main function
 A main function takes two parameters,
-the **contract parameter** and the **on-chain storage**,
-and returns a pair made of a **list of operations** and a **(new) storage**.
+the **contract parameter** and the **on-chain storage**, and returns a pair made of a **list of operations** and a **(new) storage**.
 
 <br/>
 
@@ -189,11 +181,9 @@ and returns a pair made of a **list of operations** and a **(new) storage**.
 
 <br/>
 
-The type of the contract parameter and the storage are up to the contract designer,
-but the type for the list operations is not.
+The type of the contract parameter and the storage are up to the contract designer, but the type for the list operations is not.
 
-The return type of main function is as follows,
-assuming that the `storage` type  has been defined elsewhere.
+The return type of main function is as follows, assuming that the `storage` type  has been defined elsewhere.
 
 ```js
 type storage is ...  // Any name, any type
@@ -202,10 +192,8 @@ type return is list (operation) * storage
 
 Lists and tuple will be detailed in the Collections part.
 
-The contract storage can only be modified by activating a main function:
-given the state of the storage on-chain,
-a main function specifies how to create another state for it,
-depending on the contract's parameter.
+Only the smart contract itself can modify its storage:
+given the state of the storage on-chain, a main function specifies how to create another state for it, depending on the contract's parameter.
 
 Here is an example where the storage is a single natural number without any entrypoint.
 ```js
@@ -226,6 +214,8 @@ $ ligo compile-contract <ligoFile> <mainFunction>
 If the compilation is successful, the output will be the Michelson code.
 
 It is recommended to run this command as often as possible, to check both code syntax and types.
+
+</details>
 
 ## Storage definition
 
@@ -273,7 +263,7 @@ $ ligo compile-contract raffle.ligo main
 ```
 
 # Smart Contract development : launch raffle entrypoint
-> LIGO prerequisites in this part: you will learn how to define a more complex storage, 
+> LIGO concepts used in this part: you will learn how to define a more complex storage, 
 > how to add an entrypoint, how to dispatch the control flow in the main function and
 > perform checks and access control
 > - Record
@@ -297,7 +287,7 @@ the smart contract should perform three actions:
 3. close the raffle, and reward the winner
 
 Each one of these actions can be coded into an entrypoint.
-## LIGO prerequisites
+## LIGO concepts used in this part
 
 ### Records
 The record` type is a structure that holds several pieces of information: each piece is accessed thanks to a field name.
@@ -498,7 +488,7 @@ At the moment,
 recursive function are limited to one (possibly tupled) parameter
 and recursion is limited to tail recursion (i.e the recursive call should be the last expression of the function)
 
-In PascaLigo recursive functions are defined using the `recursive` keyword.
+In PascaLIGO recursive functions are defined using the `recursive` keyword.
 
 ```js
 recursive function sum (const n : int; const acc: int) : int is
@@ -622,7 +612,7 @@ It is useful when the smart contract needs to know who is calling an entrypoint,
 
 ## Modifying the storage
 
-The first entrypoint of the Raffle smart contract illutrates the basics of Pascaligo, covered above.
+The first entrypoint of the Raffle smart contract illustrates the basics of PascaLIGO, covered above.
 
 Before coding the logic of the first action (opening a raffle session), the storage has to be modified to hold such a raffle.
 The contract needs an **administrator**: he will launch a raffle session, with a **description**.
@@ -917,7 +907,7 @@ function open_raffle (const jackpot_amount : tez; const close_date : timestamp; 
 
 
 # Smart Contract development : Buy ticket entrypoint
-> LIGO prerequisites in this part: you will learn how to use collections with this second entrypoint.
+> LIGO concepts used in this part: you will learn how to use collections with this second entrypoint.
 > It will also be the opportunity for you to use again functions and performs checks
 
 
@@ -930,7 +920,7 @@ Two additional pieces of information have to be kept:
 
 The storage has to be modified. Collections are going to come in handy for the modification of the storage
 
-## LIGO prerequisites: collections
+## LIGO concepts used in this part: collections
 
 ### Lists
 
@@ -1268,7 +1258,7 @@ block {
 ```
 
 # Smart Contract development: Close Raffle Entrypoint
-> LIGO prerequisites in this part: you will learn how to use transactions, be warned about some limitations of the language
+> LIGO concepts used in this part: you will learn how to use transactions, be warned about some limitations of the language
 > and manipulate a little more collections.
 > In addition, this entrypoint sums up a lof of what has been done before:
 > - transactions
@@ -1291,7 +1281,7 @@ However, the third step raises a problem: how should the winner be picked ?
 2. the winner is randomly chosen when calling this entrypoint
 3. the winner is chosen at the beginning by the administrator, but this piece of information is only revealed at the end of the raffle.
 
-## LIGO prerequisites: Transactions
+## LIGO concepts used in this part: Transactions
 
 You can transfer tez to an account, and invoke a function of another smart contract.
 For this, use :
