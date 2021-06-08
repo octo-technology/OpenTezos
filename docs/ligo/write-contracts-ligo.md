@@ -47,11 +47,6 @@ Only one raffle session can be ongoing.
 
 <NotificationBar>
   <p>
-<b>Warning: the word "ticket" refers to a raffle ticket, and NOT to the ticket, introduced by Edo.</b>
-  </p>
-</NotificationBar>
-<NotificationBar>
-  <p>
 <b>About the word "ticket" :</b>
 ticket is a reserved word in Michelson and Ligo, introduced by the Edo protocol. 
 In this chapter, the word "ticket" only refers to a raffle ticket. 
