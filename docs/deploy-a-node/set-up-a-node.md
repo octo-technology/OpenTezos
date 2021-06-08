@@ -6,7 +6,7 @@ authors: Maxime Sallerin
 
 ### PATH Setup
 
-Note that at the opening of each new terminal you should set up the PATH. Otherwise, just add `./` at the beginning of each command in this chapter.
+Note that at the opening of each new terminal, you should set up the PATH. Otherwise, just add `./` at the beginning of each command in this chapter.
 
 ```shell
 export PATH=~/tezos:$PATH
@@ -29,14 +29,14 @@ The identity comprises a pair of cryptographic keys that nodes use to encrypt me
 
 Whenever a node starts, it tries to retrieve the most current head of the chain from its peers. This can be a long process if there are many blocks to retrieve.
 
-So, rather than taking days to download the Tezos blockchain from the p2p network, a node can be quickly synchronized in a few minutes from **snapshot**.
+So, rather than taking days to download the Tezos blockchain from the P2P network, a node can be quickly synchronized in a few minutes from **snapshot**.
 
-> The term snapshot is a bit of an unfortunate term as it already has another meaning in Tezos, which is the schedule for baking rights. To be clear the snapshot we are talking about is completely different from the baking rights snapshot. This snapshot is a compressed copy of the chain at a certain block.
+> The term snapshot is a bit of an unfortunate term as it already has another meaning in Tezos, which is the schedule for baking rights. To be clear, the snapshot we are talking about is completely different from the baking rights snapshot. This snapshot is a compressed copy of the chain at a certain block.
 > To learn more about snapshots, [here](https://blog.nomadic-labs.com/introducing-snapshots-and-history-modes-for-the-tezos-node.html) is an article from Nomadics Labs.
 
 #### Downloading snapshot
 
-1. Download the last rolling snapshot on this site [snapshots-tezos.giganode.io](https://snapshots-tezos.giganode.io/)
+1. Download the last **rolling** snapshot on this site [snapshots-tezos.giganode.io](https://snapshots-tezos.giganode.io/) (use the 'WEB' link)
    > The file is about 1.3 GB and should take a few minutes to download.
 2. Copy the file into the `/tezos` folder.
 
@@ -47,7 +47,7 @@ So, rather than taking days to download the Tezos blockchain from the p2p networ
 
 The mechanism of Snapshots can help in reducing the synchronization time.
 
-The following command bootstrap a Tezos node from the `<snapshot.rolling>` file to an empty Tezos node directory.
+The following command bootstrap an empty Tezos node from the <snapshot.rolling> file to a rolling Tezos node.
 
 ```shell
 tezos-node snapshot import <snapshot.rolling>
@@ -67,22 +67,23 @@ Watch the progress by viewing tezos.log
 ```shell
 tail -f tezos.log
 ```
+To stop viewing the log, press CTRL+C (Ubuntu and Mac OS).
 
-Tezos client can be used to interact with the node, it can query its status or ask the node to perform some actions. For example, after starting your node you can check if it has finished synchronizing using in an other terminal.
+The Tezos client can be used to interact with the node. It can query its status or ask the node to perform some actions. For example, after starting your node, you can check if it has finished synchronizing with the following command (you can use another terminal window if you still watch the log) :
 
 ```shell
 tezos-client bootstrapped
 ```
 
-When you see the message `Node is Bootstrapped`, your tezos node is synced with the blockchain and you may now perform operations on the blockchain.
+When you see the message `Node is Bootstrapped`, your Tezos node is synced with the blockchain, and you may now perform operations on the latter.
 
-Congratulations on setting up a node !
+Congratulations on setting up a node!
 
 ## Conclusion
 
-In this module we have seen how to install Tezos from sources, create its own node, synchronize it with the blockchain and finally launch it.
+In this module, we have seen how to install Tezos from sources, create its own node, synchronize it with the blockchain and finally launch it.
 
-This module is a prerequisite to become a baker and the [Deploy Bakers](/baker) module explains how to become a baker to start earning XTZ rewards.
+This module is a prerequisite to becoming a baker, and the [Deploy Bakers](/baker) module explains how to become a baker and start earning XTZ rewards.
 
 ## References
 
@@ -93,6 +94,3 @@ This module is a prerequisite to become a baker and the [Deploy Bakers](/baker) 
 [3] https://quantifyfitness.com/how-to-solo-bake-tezos-step-by-step-guide/
 
 [4] https://blog.nomadic-labs.com/introducing-snapshots-and-history-modes-for-the-tezos-node.html
-
-
-
