@@ -47,7 +47,7 @@ So, rather than taking days to download the Tezos blockchain from the p2p networ
 
 The mechanism of Snapshots can help in reducing the synchronization time.
 
-The following command bootstrap a Tezos node from the <snapshot.rolling> file to an empty Tezos node directory.
+The following command bootstrap a Tezos node from the `<snapshot.rolling>` file to an empty Tezos node directory.
 
 ```shell
 tezos-node snapshot import <snapshot.rolling>
@@ -77,6 +77,12 @@ tezos-client bootstrapped
 When you see the message `Node is Bootstrapped`, your tezos node is synced with the blockchain and you may now perform operations on the blockchain.
 
 Congratulations on setting up a node !
+
+## Conclusion
+
+In this module we have seen how to install Tezos from sources, create its own node, synchronize it with the blockchain and finally launch it.
+
+This module is a prerequisite to become a baker and the [Deploy Bakers](/baker) module explains how to become a baker to start earning XTZ rewards.
 
 ## References
 
