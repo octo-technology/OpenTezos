@@ -35,7 +35,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Deploy a node',
-      items: ['deploy-a-node/introduction', 'deploy-a-node/installation', 'deploy-a-node/set-up-a-node', 'deploy-a-node/to-go-further', 'deploy-a-node/exam'],
+      items: ['deploy-a-node/introduction', 'deploy-a-node/installation', 'deploy-a-node/set-up-a-node', 'deploy-a-node/networks', 'deploy-a-node/to-go-further', 'deploy-a-node/exam'],
     },
     {
       type: 'category',

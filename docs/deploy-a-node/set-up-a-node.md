@@ -18,8 +18,11 @@ First, you must generate a new identity in order to connect to the Tezos network
 
 ```shell
 cd tezos
-tezos-node identity generate 26
+tezos-node identity generate
 ```
+
+> By default the network is Mainnet but you can specify the network with the `--network` option in the following command for Florencenet Network: `tezos-node config init --network florencenet`.
+> More about Networks in the [next chapter](/deploy-a-node/networks).
 
 The identity comprises a pair of cryptographic keys that nodes use to encrypt messages sent to each other.
 
@@ -78,6 +81,10 @@ When you see the message `Node is Bootstrapped`, your tezos node is synced with 
 
 Congratulations on setting up a node !
 
+## Node configuration
+
+If you want to know more about possible alternative node configurations, check out [Node Configuration](https://tezos.gitlab.io/user/node-configuration.html)
+
 ## Conclusion
 
 In this module we have seen how to install Tezos from sources, create its own node, synchronize it with the blockchain and finally launch it.
@@ -94,5 +101,5 @@ This module is a prerequisite to become a baker and the [Deploy Bakers](/baker) 
 
 [4] https://blog.nomadic-labs.com/introducing-snapshots-and-history-modes-for-the-tezos-node.html
 
-
+[5] https://tezos.gitlab.io/user/node-configuration.html
 
