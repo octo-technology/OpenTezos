@@ -158,6 +158,8 @@ make
 
 ### PATH setup
 
+Setting the path as below allows you to access tezos commands without having specified `./` at the beginning of the command.
+
 ```shell
 export PATH=~/tezos:$PATH
 export TEZOS_CLIENT_UNSAFE_DISABLE_DISCLAIMER=Y

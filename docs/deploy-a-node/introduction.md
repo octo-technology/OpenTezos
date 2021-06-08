@@ -7,7 +7,7 @@ authors: Maxime Sallerin
 
 This module will guide you into the complete installation and setup of your own Tezos node on Ubuntu and Mac OS. You will also see a few examples to use it.
 
-In this chapter, the reader will grasp what a node is, what it means to have and set up one.
+In this chapter, the reader will grasp what a node is.
 
 ## What is a node?
 The node is the main actor of the Tezos blockchain and has two main functions: running the *gossip network* and updating the *context*.  
@@ -17,14 +17,6 @@ The shell receives blocks from the gossip network and uses them to keep up-to-da
 The *last block* received on a chain is also called the "*head*" of that chain. Each new head is then advertised by the node to its peers, disseminating this information to build a *consensus* across the network.
 
 Other than passively observing the network, your node can inject its own new operations when instructed by the "`tezos-client`" application and even send new blocks when guided by the "`tezos-baker-`" prefix. The node has also a view of the multiple chains that may exist concurrently and selects the best one based on its fitness (see [*Liquid Proof-of-Stake*](/tezos-basics/liquid-proof-of-stake) chapter in [*Tezos Basics*](/tezos-basics/introduction) module).
-
-## What does it mean to build a node?
-
-
-## What does it mean to set up a node?
-
-
-## What is the point of building a node?
 
 
 ## References
