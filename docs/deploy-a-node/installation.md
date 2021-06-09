@@ -4,7 +4,7 @@ title: Installation
 authors: Maxime Sallerin and Thomas Zoughebi
 ---
 
-In this chapter we will see how to install Tezos from source with unbuntu and MacOs.
+In this chapter, we will see how to install Tezos from source with Unbuntu and macOS.
 
 ## Build from source (Ubuntu)
 
@@ -19,7 +19,7 @@ Type your password when prompted.
 
 ### Install Rust
 
-Compiling Tezos requires the Rust compiler, and the Cargo package manager to be installed.
+Compiling Tezos requires the Rust compiler and the Cargo package manager to be installed.
 //TODO On se retrouve avec les scripts dans Home, peut-être pour faire plus propre on pourrait créer un répertoire dédié ?
 
 ```shell
@@ -111,7 +111,7 @@ brew install hidapi libev
 On Catalina you may see the following error if you have xcode installed:
 `“xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun"`
 
-If this is the case then run the following command to update your xcode install and restart the terminal.
+If this is the case, then run the following command to update your xcode install and restart the terminal.
 
 ```shell
 xcode-select --install
@@ -119,7 +119,7 @@ xcode-select --install
 
 ### Install Rust
 
-Compiling Tezos requires the Rust compiler, and the Cargo package manager to be installed.
+Compiling Tezos requires the Rust compiler and the Cargo package manager to be installed.
 
 ```shell
 curl https://sh.rustup.rs -sSf | sh

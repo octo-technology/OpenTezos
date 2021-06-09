@@ -4,7 +4,7 @@ title: Set-up a node
 authors: Maxime Sallerin
 ---
 
-In this chapter we will see how to create and deploy your own node.
+In this chapter, we will see how to create and deploy your own node.
 
 ### PATH Setup
 
@@ -72,7 +72,7 @@ With the following command, the node will now catch up syncing with the live net
 tezos-node run --rpc-addr 127.0.0.1:8732 --log-output tezos.log &
 ```
 
-The parameter `--rpc-addr url:port` to activate the RPC interface that will allow to communicate with the node. By default, it runs on port `8732`, so it is not mandatory to specify it.
+The parameter `--rpc-addr url:port` activates the RPC interface that will allow communication with the node. By default, it runs on port `8732`, so it is not mandatory to specify it.
 
 Watch the progress by viewing tezos.log
 ```shell
