@@ -21,10 +21,14 @@ cd tezos
 tezos-node identity generate
 ```
 
-> By default the network is Mainnet but you can specify the network with the `--network` option in the following command for Florencenet Network: `tezos-node config init --network florencenet`.
-> More about Networks in the [next chapter](/deploy-a-node/networks).
-
 The identity comprises a pair of cryptographic keys that nodes use to encrypt messages sent to each other.
+
+It will take some time to generate the keys. An `identity.json` file will then be generated in the `~/.tezos-node` directory. It will contain our public and private keys. Keep it safe and secure!
+
+It is possible to define the directory where the data will be stored with `--data-dir` (by default, in .tezos-node)
+
+By default the network is Mainnet but you can specify the network with the `--network` option in the following command for Florencenet Network (for example): `tezos-node config init --network florencenet`.
+More about Networks in the [next chapter](/deploy-a-node/networks).
 
 > Note that this is merely a network identity. It is not related in any way to a Tezos address on the blockchain.
 
@@ -65,6 +69,8 @@ With the following command, the node will now catch up syncing with the live net
 ```shell
 tezos-node run --rpc-addr 127.0.0.1:8732 --log-output tezos.log &
 ```
+
+The parameter `--rpc-addr url:port` to activate the RPC interface that will allow to communicate with the node. By default, it runs on port `8732`, so it is not mandatory to specify it.
 
 Watch the progress by viewing tezos.log
 ```shell
