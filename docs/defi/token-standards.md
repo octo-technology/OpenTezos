@@ -14,7 +14,7 @@ In the Blockchain ecosystem, any digitally transferable asset between two people
 </NotificationBar>
 
 ## Token standard
-A token standard is an interface, and a set of rules, that a smart contract must respect to be compatible with the common standards. Typically, token standards define how tokens can be transferred and keep a consistent record of those transfers among tokens in the Tezos network.
+A token standard is an interface, and a set of rules, that a smart contract must respect to be compatible with the common standards. Typically, token standards define how tokens can be transferred and how to keep a consistent record of those transfers on the Tezos network.
 
 Multiple implementations of a standard can co-exist, but they must all respect the interface and rules of the standard. Standards ensure that smart contracts remain compatible, so for instance, when a new project issues a token, it remains compatible with the existing decentralized exchanges, wallets, etc.
 
