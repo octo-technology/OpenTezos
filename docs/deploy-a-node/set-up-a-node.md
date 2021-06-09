@@ -54,7 +54,7 @@ So, rather than taking days to download the Tezos blockchain from the P2P networ
 
 The mechanism of Snapshots can help in reducing the synchronization time.
 
-The following command bootstrap an empty Tezos node from the <snapshot.rolling> file to a rolling Tezos node.
+The following command bootstrap an empty Tezos node from the `<snapshot.rolling>` file to a rolling Tezos node.
 
 ```shell
 tezos-node snapshot import <snapshot.rolling>
