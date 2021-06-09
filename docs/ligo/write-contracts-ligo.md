@@ -184,6 +184,7 @@ type storage is ...  // Any name, any type
 type returnMainFunction is list (operation) * storage
 ```
 
+//TODO ⚠️ The word _return_ is not a reserved word of the LIGO language, and the example above shows how to use type aliasing on what is returned byt the execution of the smart contract.
 
 ### Ligo compilation
 
