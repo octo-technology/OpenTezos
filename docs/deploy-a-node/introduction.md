@@ -5,7 +5,7 @@ slug: /deploy-a-node
 authors: Maxime Sallerin and Thomas Zoughebi
 ---
 
-This module will guide you into the complete installation and setup of your own Tezos node on Ubuntu and Mac OS. You will also see a few examples to use it.
+This module will guide you into the complete installation and setup of your own Tezos node on Ubuntu and Mac OS.
 
 In this chapter, the reader will grasp what a node is.
 

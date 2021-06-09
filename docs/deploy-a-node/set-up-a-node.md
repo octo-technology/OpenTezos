@@ -4,6 +4,8 @@ title: Set-up a node
 authors: Maxime Sallerin
 ---
 
+In this chapter we will see how to create and deploy your own node.
+
 ### PATH Setup
 
 Note that at the opening of each new terminal, you should set up the PATH. Otherwise, just add `./` at the beginning of each command in this chapter.
@@ -27,7 +29,7 @@ It will take some time to generate the keys. An `identity.json` file will then b
 
 It is possible to define the directory where the data will be stored with `--data-dir` (by default, in .tezos-node)
 
-By default the network is Mainnet but you can specify the network with the `--network` option in the following command for Florencenet Network (for example): `tezos-node config init --network florencenet`.
+By default, the network is Mainnet but, you can specify the network with the `--network` option in the following command for Florencenet Network (for example): `tezos-node config init --network florencenet`.
 More about Networks in the [next chapter](/deploy-a-node/networks).
 
 > Note that this is merely a network identity. It is not related in any way to a Tezos address on the blockchain.

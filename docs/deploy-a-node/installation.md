@@ -4,6 +4,8 @@ title: Installation
 authors: Maxime Sallerin and Thomas Zoughebi
 ---
 
+In this chapter we will see how to install Tezos from source with unbuntu and MacOs.
+
 ## Build from source (Ubuntu)
 
 ### Install the libraries that Tezos is dependent on
