@@ -1,31 +1,54 @@
 ---
 id: exam
 title: Exam
-authors: Benjamin Pilia
+authors: Maxime Sallerin
 ---
 
 ### Question 1
 
-What notions are defined inside the smart contract ?
+What are the two main functions of a Tezos node ?
 
-- [x] The type definition of the storage
-- [ ] The balance of the contract
-- [ ] The initial value of the storage
-- [ ] The value of the entrypoint and its related parameters
-- [x] The type definition of the entrypoint
-- [ ] The size of the storage
-- [x] The code of the smart contract
-- [ ] The list of users allowed to call the smart contract
+- [ ] Creating and endorsing new blocks.
+- [x] Running the gossip network and updating the context.
+
 
 ### Question 2
 
-What is returned by the execution of a smart contract ?
+What is true about a node identity ?
 
-- [ ] The current storage state when invoking the smart contract
-- [x] The modified storage state after invoking the smart contract
-- [ ] The entrypoint that has been called (and its related parameters)
-- [x] The list of emitted operations produced by the execution of the smart contract
-- [ ] The balance of the contract
-- [ ] The size of the storage
-- [ ] The code of the smart contract
-- [ ] The list of users allowed to call the smart contract
+- [ ] It is a tz1 address.
+- [x] It comprises a pair of cryptographic keys that nodes use to encrypt messages sent to each other.
+- [x] It is like a network identity.
+- [ ] It is a KT1 address.
+
+### Question 3
+
+What's true about snapshot for node configuration?
+
+- [ ] Snapshot is a compressed copy of the chain at a certain block.
+- [x] It allows the node to synchronize to the Tezos blockchain from the P2P network.
+- [x] The mechanism of Snapshots can help in reducing the synchronization time.
+- [ ] Snapshots of owned rolls are done every 256 blocks and define who can bake.
+- [x] `tezos-node snapshot import <snapshot>` is a correct command for importing a snapshot.
+
+
+### Question 4
+
+What is the default network?
+
+- [ ] Florencenet
+- [x] Mainnet
+- [ ] Sandbox
+- [ ] Granadanet
+
+### Question 5
+
+What is the right command to launch your tezos node?
+
+- [ ] `tezos-node start`
+- [ ] `tezos-client run`
+- [x] `tezos-node run`
+- [ ] `tezos-node bootstrapped`
+- [ ] `tezos-client bootstrapped`
+- [ ] `tezos-client start`
+
