@@ -121,9 +121,13 @@ Below is a table of the most used built-in types. Most of them will be used in t
 
 Type aliasing consists of renaming a given type when the context calls for a more precise name.
 
-It can be used to express our intent for more clarity: for instance, a `coordinates` type defined by a tuple of two int is clearer than just using a tuple.
+It can be used to express our intent for more clarity: for instance, a `coordinates` type defined by a tuple of two integers is clearer than just using a tuple.
 
-//TODO (what is a tuple)
+```
+type coordinates is (int * int)
+```
+
+⚠️ tuples will be explained later.
 
 It is also useful to define a type for complex structures, such as the expected input and return of a function, or the contract storage.
 
@@ -179,14 +183,14 @@ It takes two parameters, the **contract parameter** and the **on-chain storage**
 
 The type of the contract parameter and the storage are up to the contract designer, but the type for the list operations is not.
 
-The return type of main function is as follows, assuming that the `storage` type has been defined elsewhere.
+The return type of "main" function is as follows, assuming that the `storage` type has been defined elsewhere.
 
 ```js
 type storage is ...  // Any name, any type
 type return is list (operation) * storage
 ```
 
-//TODO ⚠️ The word _return_ is not a reserved word of the LIGO language, and the example above shows how to use type aliasing on what is returned byt the execution of the smart contract.
+//TODO ⚠️ The word _return_ is not a reserved word of the LIGO language, and the example above shows how to use type aliasing on what is returned by the execution of the smart contract.
 
 ### Ligo compilation
 
@@ -200,9 +204,9 @@ It is recommended to run this command as often as possible, to check both code s
 
 ## Raffle storage initialization
 
-Now that we have introduce basics LIGO concepts (type,constant, variable, function and last but not least the main function prototype), let's design our _Raffle_ smart contract.
+//TODO Now that we have introduce basics LIGO concepts (type,constant, variable, function and last but not least the main function prototype), let's design our _Raffle_ smart contract.
 
-The first step is to define the storage type.
+The first step is to define the storage.
 Contract storage holds the contract data: it can be a single value or a complex structure.
 The storage definition is a `type` instruction. First, the storage will be as simple as possible: empty
 
@@ -1060,7 +1064,7 @@ a **random** function is directly usable from the standard API. With smart contr
 Indeed, each smart contract execution has to be verified by any node in the network. 
 However, how could this execution be verified if there is a random variable (that would change every time)?
 
-It might seem to be a good idea to use blockchain events (transaction hash, block timestamp...) as source of randomness.
+It might seem to be a good idea to use blockchain events (transaction hash, block timestamp...) as a source of randomness.
 However, in the end, bakers which create blocks could use this to their advantage.
 
 The only solution seems to use an external source of randomness or a secure cryptographic scheme. 
