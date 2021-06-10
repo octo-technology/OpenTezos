@@ -10,9 +10,9 @@
   "permalink": "/formal-verification/modeling-theorem",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/formal-verification/modeling-theorem.md",
   "version": "current",
-  "lastUpdatedBy": "AymericBethencourt",
-  "lastUpdatedAt": 1621464537,
-  "formattedLastUpdatedAt": "5/20/2021",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "id": "modeling-theorem",
     "title": "Formal verification on smart contracts",

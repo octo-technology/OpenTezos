@@ -10,9 +10,9 @@
   "permalink": "/michelson/smart-contracts",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/michelson/smart-contracts.md",
   "version": "current",
-  "lastUpdatedBy": "AymericBethencourt",
-  "lastUpdatedAt": 1622492036,
-  "formattedLastUpdatedAt": "5/31/2021",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "id": "smart-contracts",
     "title": "Smart Contracts",

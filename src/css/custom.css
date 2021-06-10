@@ -161,3 +161,11 @@ html[data-theme='light'] .menu__list > li:nth-child(15) > a::before {
 html[data-theme='dark'] .menu__list > li:nth-child(15) > a::before {
   background: url('/img/icons/contribute-small-dark.svg') no-repeat;
 }
+
+.green {
+  color: #00ff28;
+}
+
+.red {
+  color: #ff0000;
+}

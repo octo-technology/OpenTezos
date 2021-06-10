@@ -10,9 +10,9 @@
   "permalink": "/contribute/tezos-core",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/contribute/tezos-core.md",
   "version": "current",
-  "lastUpdatedBy": "AymericBethencourt",
-  "lastUpdatedAt": 1620316866,
-  "formattedLastUpdatedAt": "5/6/2021",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "id": "tezos-core",
     "title": "Contribute to the Tezos Core Protocol",
