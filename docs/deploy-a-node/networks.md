@@ -6,6 +6,12 @@ authors: Maxime Sallerin and Thomas Zoughebi
 
 In this chapter, we will see how Tezos is multi-networks. We will learn what the "*main network*" and the "*test networks*" are. Finally, we will discover how to configure our node on a chosen network.
 
+## Mainnet
+
+The Tezos network is the current incarnation of the Tezos blockchain. It runs with real tez that have been allocated to the donors of July 2017 ICO.
+
+The Tezos network has been live and open since June 30th 2018.
+
 ## Multinetwork Node
 
 Tezos is run on several networks, such as the **Mainnet** (the *main* network) and various **testnets** (test networks). Some users may also want to run their own networks for various reasons. Networks differ in multiple ways:
