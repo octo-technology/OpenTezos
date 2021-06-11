@@ -29,7 +29,7 @@ It will take some time to generate the keys. An `identity.json` file will then b
 
 It is possible to define the directory where the data will be stored with `--data-dir` (by default, in .tezos-node)
 
-By default, the network is Mainnet but, you can specify the network with the `--network` option in the following command for Florencenet Network (for example): `tezos-node config init --network florencenet`.
+By default, the network is Mainnet but, you can specify the network with the `--network` option in the following command for Florencenet Network (for example): `tezos-node config init --data-dir ~/tezos-florencenet --network florencenet`.
 More about Networks in the [next chapter](/deploy-a-node/networks).
 
 > Note that this is merely a network identity. It is not related in any way to a Tezos address on the blockchain.
@@ -44,6 +44,8 @@ So, rather than taking days to download the Tezos blockchain from the P2P networ
 > To learn more about snapshots, [here](https://blog.nomadic-labs.com/introducing-snapshots-and-history-modes-for-the-tezos-node.html) is an article from Nomadics Labs.
 
 #### Downloading snapshot
+
+Download the correct snapshot depending on whether you want to configure your node on the [Mainnet](/deploy-a-node/networks#Mainnet) or on a [Testnet](/deploy-a-node/networks#est-networks).
 
 1. Download the last **rolling** snapshot on this site [snapshots-tezos.giganode.io](https://snapshots-tezos.giganode.io/) (use the 'WEB' link)
    > The file is about 1.3 GB and should take a few minutes to download.
@@ -90,10 +92,11 @@ When you see the message `Node is Bootstrapped`, your Tezos node is synced with 
 
 Congratulations on setting up a node!
 
+> Be careful closing terminal windows because **this stops the node**.
+
 ## Node configuration
 
 If you want to know more about possible alternative node configurations, check out [Node Configuration](https://tezos.gitlab.io/user/node-configuration.html)
-> Be careful closing terminal windows because **this stops the node**.
 
 ## Conclusion
 
