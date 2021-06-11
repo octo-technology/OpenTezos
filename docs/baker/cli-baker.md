@@ -208,7 +208,7 @@ Fortunately, we are on a testnet. And on testnets, the number of blocks per cycl
 
 So, 5 days later, we must appear in the list of bakers of [Florencenet](https://florence.tzstats.com/bakers).
 
-To launch the baker for the account "john", simply type the following command to run the baker:
+To launch the baker for the account "john", simply type the following command:
 
 ```shell
 tezos-baker-009-PsFLoren run with local node ~/tezos-florencenet john
