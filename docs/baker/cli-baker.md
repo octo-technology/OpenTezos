@@ -90,6 +90,182 @@ There are different command lines depending on the network on which your node is
 tezos-accuser-alpha run
 ```
 
+Baking on florencenet
+
+## Example for the Florencenet testnet
+
+At this point you have already [installed tezos](/deploy-a-node/installation) and you know how to [set-up-a-node](deploy-a-node/set-up-a-node).
+
+Open a new terminal and paste:
+
+```shell
+cd tezos
+export PATH=~/tezos:$PATH
+```
+
+Or put `./` before each following command line.
+
+
+### Download a snapshot for your target network
+
+Go to [snapshots-tezos.giganode.io](https://snapshots-tezos.giganode.io/) and download the last rolling snapshot for a testnet.
+
+
+### Configure the node for running on Florencenet
+
+```shell
+tezos-node config init --data-dir ~/tezos-florencenet --network florencenet
+```
+
+This command will generate a `tezos-florencenet` folder with a _config.json_ file
+
+### Generate node identity
+
+```shell
+tezos-node identity generate --data-dir ~/tezos-florencenet
+```
+
+This command will add an _identity.json_ file which is like a network identity.
+
+### Import the snapshot into the node data directory
+
+```shell
+tezos-node snapshot --data-dir ~/tezos-florencenet import <snapshot-file>
+```
+
+### Run the node
+
+```shell
+tezos-node run --data-dir ~/tezos-florencenet --rpc-addr 127.0.0.1
+```
+
+### Bootstrapped
+
+Tezos client can be used to interact with the node, it can query its status or ask the node to perform some actions. For example, after starting your node you can check if it has finished synchronizing using:
+
+```shell
+tezos-client bootstrapped
+```
+
+### Get Free Tez
+To test the networks and help users get familiar with the system, on test networks you can obtain free tez from a [faucet](https://faucet.tzalpha.net/).
+
+This will provide a faucet account in the form of a JSON file _tz1__xxxxxxxxx__.json_, that can be activated with the following command:
+
+```shell
+tezos-client activate account john with "tz1__xxxxxxxxx__.json"
+```
+
+The output should be something like:
+
+```shell
+Warning:
+  
+                 This is NOT the Tezos Mainnet.
+  
+           Do NOT use your fundraiser keys on this network.
+
+Node is bootstrapped.
+Operation successfully injected in the node.
+Operation hash is 'ooq6rk6Q6qSx7wq6kWdmNLdr68QCxe62hCoAdmdfSSQHqfuHuwD'
+Waiting for the operation to be included...
+Operation found in block: BLjyt74qgSQLityQ5gjgPKX7iwz2W1CJNHUR9riQkng5YXrMo82 (pass: 2, offset: 0)
+This sequence of operations was run:
+  Genesis account activation:
+    Account: tz1bNibySZy7kjNE3e17FUBFp9fMwfTKyfGQ
+    Balance updates:
+      tz1bNibySZy7kjNE3e17FUBFp9fMwfTKyfGQ ... +ꜩ15943.746838
+
+The operation has only been included 0 blocks ago.
+We recommend to wait more.
+Use command
+  tezos-client wait for ooq6rk6Q6qSx7wq6kWdmNLdr68QCxe62hCoAdmdfSSQHqfuHuwD to be included --confirmations 30 --branch BLj7wyDrpunegjsAJRHHPAgD7HkcK4itLxvAyQo5Td5sa6exj2j
+and/or an external block explorer.
+Account john (tz1bNibySZy7kjNE3e17FUBFp9fMwfTKyfGQ) activated with ꜩ15943.746838.
+```
+
+Notice that you have a warning saying that you are not on the Mainnet, which is intended in our case.
+
+Also you can see that john has 15943.746838ꜩ. 
+You can check the john balance with the following command:
+
+```shell
+tezos-client get balance for john
+```
+
+### Register as a delegate
+
+Since john has at more than 8000ꜩ, we will be able to register as a delegate.
+
+```shell
+ tezos-client register key john as delegate
+```
+
+The output should be something like:
+
+```shell
+Warning:
+  
+                 This is NOT the Tezos Mainnet.
+  
+           Do NOT use your fundraiser keys on this network.
+
+Node is bootstrapped.
+Estimated storage: no bytes added
+Estimated gas: 1000 units (will add 100 for safety)
+Estimated storage: no bytes added
+Operation successfully injected in the node.
+Operation hash is 'ooXECeWHxRdFALj9Cz35Md7N6MvDiEbTzwRLaDoBVNtSb7WgT9b'
+Waiting for the operation to be included...
+Operation found in block: BLPAe6EFU7qWCCCrdWprWvV2ifa6dF6ViBiixEgNT65qYWkiovm (pass: 3, offset: 0)
+This sequence of operations was run:
+  Manager signed operations:
+    From: tz1bNibySZy7kjNE3e17FUBFp9fMwfTKyfGQ
+    Fee to the baker: ꜩ0.000359
+    Expected counter: 417640
+    Gas limit: 1000
+    Storage limit: 0 bytes
+    Balance updates:
+      tz1bNibySZy7kjNE3e17FUBFp9fMwfTKyfGQ ............. -ꜩ0.000359
+      fees(tz1VWasoyFGAWZt5K2qZRzP3cWzv3z7MMhP8,125) ... +ꜩ0.000359
+    Revelation of manager public key:
+      Contract: tz1bNibySZy7kjNE3e17FUBFp9fMwfTKyfGQ
+      Key: edpkvahU5mcFFtmE3E2NfHiYMxarLyfM3ZovQH3wF6gvUaaNM6ocD5
+      This revelation was successfully applied
+      Consumed gas: 1000
+  Manager signed operations:
+    From: tz1bNibySZy7kjNE3e17FUBFp9fMwfTKyfGQ
+    Fee to the baker: ꜩ0.000262
+    Expected counter: 417641
+    Gas limit: 1100
+    Storage limit: 0 bytes
+    Balance updates:
+      tz1bNibySZy7kjNE3e17FUBFp9fMwfTKyfGQ ............. -ꜩ0.000262
+      fees(tz1VWasoyFGAWZt5K2qZRzP3cWzv3z7MMhP8,125) ... +ꜩ0.000262
+    Delegation:
+      Contract: tz1bNibySZy7kjNE3e17FUBFp9fMwfTKyfGQ
+      To: tz1bNibySZy7kjNE3e17FUBFp9fMwfTKyfGQ
+      This delegation was successfully applied
+      Consumed gas: 1000
+
+The operation has only been included 0 blocks ago.
+We recommend to wait more.
+Use command
+  tezos-client wait for ooXECeWHxRdFALj9Cz35Md7N6MvDiEbTzwRLaDoBVNtSb7WgT9b to be included --confirmations 30 --branch BKr46rgrNRP4onUFbfFirny6qjtgWWr7tU2P5RcgeVgxMt45WgU
+and/or an external block explorer.
+```
+
+### Run baker
+
+```shell
+tezos-baker-009-PsFLoren run with local node ~/tezos-florencenet john
+```
+
+The output should be something like:
+
+```shell
+```
+
 
 ## References
 
