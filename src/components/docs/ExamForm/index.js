@@ -7,7 +7,7 @@ class ExamForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      name: '',
+      userName: '',
       sucess: undefined,
     }
 
@@ -28,9 +28,8 @@ class ExamForm extends React.Component {
       }
     })
 
-    // alert('Errors: ' + errorCount + ' responseCount: ' + responseCount + ' errorPercent: ' + parseInt(errorCount / responseCount * 100))
 
-    if(parseInt(errorCount / responseCount * 100) <= 10) {
+    if(parseInt(errorCount / responseCount * 100) <= 10) { // 10% of errors accepted
       const doc = new jsPDF({
         orientation: 'landscape',
         unit: 'px',
@@ -38,10 +37,10 @@ class ExamForm extends React.Component {
       })
       doc.addImage('/certif/certificate.jpg', 'JPEG', 0, 0, 1100, 800)
       doc.setFontSize(50)
-      doc.text(this.state.name || '', 550, 440, { align: 'center' })
+      doc.text(this.state.userName || '', 550, 440, { align: 'center' })
       doc.text(this.props.moduleName || '', 550, 600, { align: 'center' })
   
-      doc.save('certificate.pdf')
+      doc.save(`Certificate${this.props.moduleName}.pdf`)
   
       this.setState({ success: true })
     } else {
@@ -62,23 +61,22 @@ class ExamForm extends React.Component {
   }
 
   handleNameChange(event) {
-    this.setState({name: event.target.value});
+    this.setState({userName: event.target.value});
   }
 
   render() {
-    console.log(this.state)
-
     return (
       <form onSubmit={this.handleSubmit}>
         {this.props.children.map((elem) => {
-          if (elem.props.mdxType === 'ExamCheckbox')
+          if (elem.props && elem.props.mdxType === 'ExamCheckbox')
             return (
-              <div key={elem.props.children}>
+              <div key={elem.props.name}>
                 <label>
                   <input
+                    className="exam-checkbox"
                     name={elem.props.name}
                     type="checkbox"
-                    checked={this.state[elem.props.name]}
+                    checked={!!this.state[elem.props.name]}
                     onChange={this.handleChange}
                   />
                   {elem.props.children}
@@ -86,9 +84,9 @@ class ExamForm extends React.Component {
                 <br />
               </div>
             )
-          else if (elem.props.mdxType === 'h3')
+          else if (elem.props && elem.props.mdxType === 'h3')
             return (
-              <div>
+              <div key={elem.props.children}>
                 <br />
                 <br />
                 {elem}
@@ -106,9 +104,9 @@ class ExamForm extends React.Component {
             {this.state.success === false && <div className="red">Sorry, you made too many mistakes, please try again.</div>}
             <label>
               Your name:
-              <input type="text" value={this.state.name} onChange={this.handleNameChange} />
+              <input type="text" value={this.state.name} onChange={this.handleNameChange} className="exam-name" />
             </label>
-            <input type="submit" value="Submit" />
+            <input type="submit" value="Submit" className="exam-submit" />
           </div>
         )}
       </form>

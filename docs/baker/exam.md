@@ -4,28 +4,20 @@ title: Exam
 authors: --
 ---
 
+import {ExamForm, ExamCheckbox} from '../../src/components/docs/ExamForm';
+
+<ExamForm moduleName="Deploy Bakers">
+
 ### Question 1
 
-What notions are defined inside the smart contract ?
+What is the consensus protocol of the Tezos Blockchain?
 
-- [x] The type definition of the storage
-- [ ] The balance of the contract
-- [ ] The initial value of the storage
-- [ ] The value of the entrypoint and its related parameters
-- [x] The type definition of the entrypoint
-- [ ] The size of the storage
-- [x] The code of the smart contract
-- [ ] The list of users allowed to call the smart contract
+<ExamCheckbox name="00" isCorrect="false">Proof-of-Work (PoW)</ExamCheckbox>
+<ExamCheckbox name="01" isCorrect="false">Proof-of-Stake (PoS)</ExamCheckbox>
+<ExamCheckbox name="02" isCorrect="false">Delegated Proof-of-Stake (DPoS)</ExamCheckbox>
+<ExamCheckbox name="03" isCorrect="true">Liquid Proof-of-Stake (LPoS)</ExamCheckbox>
+<ExamCheckbox name="04" isCorrect="false">Secure Proof-of-Stake (SPoS)</ExamCheckbox>
+<ExamCheckbox name="05" isCorrect="false">Proof-of-History (PoH)</ExamCheckbox>
+<ExamCheckbox name="06" isCorrect="false">Zero-Knowledge-Proof (ZKP)</ExamCheckbox>
 
-### Question 2
-
-What is returned by the execution of a smart contract ?
-
-- [ ] The current storage state when invoking the smart contract
-- [x] The modified storage state after invoking the smart contract
-- [ ] The entrypoint that has been called (and its related parameters)
-- [x] The list of emitted operations produced by the execution of the smart contract
-- [ ] The balance of the contract
-- [ ] The size of the storage
-- [ ] The code of the smart contract
-- [ ] The list of users allowed to call the smart contract
+</ExamForm>

@@ -169,3 +169,45 @@ html[data-theme='dark'] .menu__list > li:nth-child(15) > a::before {
 .red {
   color: #ff0000;
 }
+
+html[data-theme='light'] .exam-submit {
+  color: var(--ifm-font-color-base);
+  background-color: transparent;
+  border: 1px solid var(--ifm-font-color-base);
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+html[data-theme='dark'] .exam-submit {
+  color: #fff;
+  background-color: transparent;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+html[data-theme='light'] .exam-name {
+  color: var(--ifm-font-color-base);
+  background-color: transparent;
+  border: 1px solid var(--ifm-font-color-base);
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin-left: 10px;
+}
+
+html[data-theme='dark'] .exam-name {
+  color: #fff;
+  background-color: transparent;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin-left: 10px;
+}
+
+.exam-checkbox {
+  margin-right: 5px;
+}
