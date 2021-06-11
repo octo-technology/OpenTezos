@@ -4,7 +4,7 @@ title: CLI to become a baker
 authors: Maxime Sallerin
 ---
 
-In this chapter we will see the CLI command lines for registering as a delegate and then we will see how to exercise your rights as a baker, endorser and accuser.
+In this chapter, we will see the CLI command lines for registering as a delegate and, then we will see how to exercise your rights as a baker, endorser and, accuser.
 
 To learn more about how baking works, take a look at the [Baking](/baking) module.
 
@@ -12,7 +12,7 @@ This module requires the deployment of its own Tezos node explained in the modul
 
 ## Running a Delegate
 
-A delegate is responsible for baking blocks, endorsing blocks and accusing other delegates in case they try to double bake or double endorse.
+A delegate is responsible for baking blocks, endorsing blocks and, accusing other delegates in case they try to double bake or double endorse.
 
 ### What you need
 
@@ -42,9 +42,15 @@ Once registered, you need to wait 7 cycles (~ 20 days) for your rights to be con
 
 ### Baker
 
-The baker is a daemon that, once connected to an account, computes the baking rights for that account, collects transactions from the mempool and bakes a block. Note that the baker is the only program that needs direct access to the node data directory for performance reasons.
+The baker is a daemon that, once connected to an account, computes the baking rights for that account, collects transactions from the mempool and, bakes a block. Note that the baker is the only program that needs direct access to the node data directory for performance reasons.
 
 Let’s launch the daemon pointing to the standard node directory and baking for user *bob*
+
+There are different command lines depending on the network on which your node is configured
+
+- Florencenet: `tezos-baker-009-PsFLoren`
+- Granadanet: `tezos-baker-010-PtGRANAD`
+- Mainnet: `tezos-baker-alpha`
 
 ```shell
 tezos-baker-alpha run with local node ~/.tezos-node bob
@@ -55,6 +61,12 @@ tezos-baker-alpha run with local node ~/.tezos-node bob
 ### Endorser
 
 The endorser is a daemon that, once connected to an account, computes the endorsing rights for that account and, upon reception of a new block, verifies the validity of the block and emits an endorsement operation. It can endorse for a specific account or if omitted it endorses for all accounts.
+
+There are different command lines depending on the network on which your node is configured
+
+- Florencenet: `tezos-endorser-009-PsFLoren`
+- Granadanet: `tezos-endorser-010-PtGRANAD`
+- Mainnet: `tezos-endorser-alpha`
 
 ```shell
 tezos-endorser-alpha run
@@ -68,9 +80,16 @@ The accuser is a daemon that monitors all blocks received on all chains and look
 
 Upon finding such irregularity, it will emit respectively a double-baking or double-endorsing denunciation operation, which will cause the offender to lose its security deposit.
 
+There are different command lines depending on the network on which your node is configured
+
+- Florencenet: `tezos-accuser-009-PsFLoren`
+- Granadanet: `tezos-accuser-010-PtGRANAD`
+- Mainnet: `tezos-accuser-alpha`
+
 ```shell
 tezos-accuser-alpha run
 ```
+
 
 ## References
 
