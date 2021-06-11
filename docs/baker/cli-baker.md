@@ -117,7 +117,7 @@ Go to [snapshots-tezos.giganode.io](https://snapshots-tezos.giganode.io/) and do
 tezos-node config init --data-dir ~/tezos-florencenet --network florencenet
 ```
 
-This command will generate a `tezos-florencenet` folder with a _config.json_ file
+This command will generate a _tezos-florencenet_ folder with a _config.json_ file
 
 ### Generate node identity
 
@@ -201,70 +201,19 @@ Since john has at more than 8000ꜩ, we will be able to register as a delegate.
  tezos-client register key john as delegate
 ```
 
-The output should be something like:
-
-```shell
-Warning:
-  
-                 This is NOT the Tezos Mainnet.
-  
-           Do NOT use your fundraiser keys on this network.
-
-Node is bootstrapped.
-Estimated storage: no bytes added
-Estimated gas: 1000 units (will add 100 for safety)
-Estimated storage: no bytes added
-Operation successfully injected in the node.
-Operation hash is 'ooXECeWHxRdFALj9Cz35Md7N6MvDiEbTzwRLaDoBVNtSb7WgT9b'
-Waiting for the operation to be included...
-Operation found in block: BLPAe6EFU7qWCCCrdWprWvV2ifa6dF6ViBiixEgNT65qYWkiovm (pass: 3, offset: 0)
-This sequence of operations was run:
-  Manager signed operations:
-    From: tz1bNibySZy7kjNE3e17FUBFp9fMwfTKyfGQ
-    Fee to the baker: ꜩ0.000359
-    Expected counter: 417640
-    Gas limit: 1000
-    Storage limit: 0 bytes
-    Balance updates:
-      tz1bNibySZy7kjNE3e17FUBFp9fMwfTKyfGQ ............. -ꜩ0.000359
-      fees(tz1VWasoyFGAWZt5K2qZRzP3cWzv3z7MMhP8,125) ... +ꜩ0.000359
-    Revelation of manager public key:
-      Contract: tz1bNibySZy7kjNE3e17FUBFp9fMwfTKyfGQ
-      Key: edpkvahU5mcFFtmE3E2NfHiYMxarLyfM3ZovQH3wF6gvUaaNM6ocD5
-      This revelation was successfully applied
-      Consumed gas: 1000
-  Manager signed operations:
-    From: tz1bNibySZy7kjNE3e17FUBFp9fMwfTKyfGQ
-    Fee to the baker: ꜩ0.000262
-    Expected counter: 417641
-    Gas limit: 1100
-    Storage limit: 0 bytes
-    Balance updates:
-      tz1bNibySZy7kjNE3e17FUBFp9fMwfTKyfGQ ............. -ꜩ0.000262
-      fees(tz1VWasoyFGAWZt5K2qZRzP3cWzv3z7MMhP8,125) ... +ꜩ0.000262
-    Delegation:
-      Contract: tz1bNibySZy7kjNE3e17FUBFp9fMwfTKyfGQ
-      To: tz1bNibySZy7kjNE3e17FUBFp9fMwfTKyfGQ
-      This delegation was successfully applied
-      Consumed gas: 1000
-
-The operation has only been included 0 blocks ago.
-We recommend to wait more.
-Use command
-  tezos-client wait for ooXECeWHxRdFALj9Cz35Md7N6MvDiEbTzwRLaDoBVNtSb7WgT9b to be included --confirmations 30 --branch BKr46rgrNRP4onUFbfFirny6qjtgWWr7tU2P5RcgeVgxMt45WgU
-and/or an external block explorer.
-```
+Fortunately, we are on a testnet. And on testnets, the number of blocks per cycle is only 2048 instead of 4096 and that a block is created every 30 seconds instead of every minute. This gives cycles of about 17 hours. 7 cycles will only last 5 days.
 
 ### Run baker
+
+So, 5 days later we must appear in the list of bakers of [Florencenet](https://florence.tzstats.com/bakers).
+
+To launch it, for the account John :
 
 ```shell
 tezos-baker-009-PsFLoren run with local node ~/tezos-florencenet john
 ```
 
-The output should be something like:
-
-```shell
-```
+As long as the message `No slot found at level xxxxxx (max_priority = 64)` is displayed, it means that our baker has not yet obtained the right to create a block.
 
 
 ## References
