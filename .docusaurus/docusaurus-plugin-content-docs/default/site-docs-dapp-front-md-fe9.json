@@ -3,7 +3,7 @@
   "id": "dapp/basics",
   "isDocsHomePage": false,
   "title": "Build a dapp - basics",
-  "description": "Now that we have a deployed contract and a ready-to-use Wallet, we can start to develop a frontend part of the dapp: it will interact",
+  "description": "Now that we have a deployed contract and a ready-to-use Wallet, we can start to develop the frontend part of the dapp: it will interact",
   "source": "@site/docs/dapp/front.md",
   "sourceDirName": "dapp",
   "slug": "/dapp/basics",

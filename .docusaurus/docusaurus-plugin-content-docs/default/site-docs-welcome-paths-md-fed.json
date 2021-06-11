@@ -3,7 +3,7 @@
   "id": "welcome/paths",
   "isDocsHomePage": false,
   "title": "Paths",
-  "description": "Under construction",
+  "description": "Choose your own path",
   "source": "@site/docs/welcome/paths.md",
   "sourceDirName": "welcome",
   "slug": "/paths",

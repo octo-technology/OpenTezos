@@ -123,6 +123,26 @@
           },
           {
             "type": "link",
+            "label": "Installation",
+            "href": "/deploy-a-node/installation"
+          },
+          {
+            "type": "link",
+            "label": "Set-up a node",
+            "href": "/deploy-a-node/set-up-a-node"
+          },
+          {
+            "type": "link",
+            "label": "What about networks?",
+            "href": "/deploy-a-node/networks"
+          },
+          {
+            "type": "link",
+            "label": "To go further",
+            "href": "/deploy-a-node/to-go-further"
+          },
+          {
+            "type": "link",
             "label": "Exam",
             "href": "/deploy-a-node/exam"
           }
@@ -566,7 +586,11 @@
     "/defi/token-standards": "docs",
     "/defi/wrapped-assets": "docs",
     "/deploy-a-node/exam": "docs",
+    "/deploy-a-node/installation": "docs",
     "/deploy-a-node": "docs",
+    "/deploy-a-node/networks": "docs",
+    "/deploy-a-node/set-up-a-node": "docs",
+    "/deploy-a-node/to-go-further": "docs",
     "/explorer/available-tezos-indexers": "docs",
     "/explorer/exam": "docs",
     "/explorer/indexer-explained": "docs",

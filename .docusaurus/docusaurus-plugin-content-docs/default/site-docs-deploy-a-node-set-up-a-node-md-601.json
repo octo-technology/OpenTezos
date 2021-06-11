@@ -1,0 +1,30 @@
+{
+  "unversionedId": "deploy-a-node/set-up-a-node",
+  "id": "deploy-a-node/set-up-a-node",
+  "isDocsHomePage": false,
+  "title": "Set-up a node",
+  "description": "In this chapter, we will see how to create and deploy your own node.",
+  "source": "@site/docs/deploy-a-node/set-up-a-node.md",
+  "sourceDirName": "deploy-a-node",
+  "slug": "/deploy-a-node/set-up-a-node",
+  "permalink": "/deploy-a-node/set-up-a-node",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/deploy-a-node/set-up-a-node.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "set-up-a-node",
+    "title": "Set-up a node",
+    "authors": "Maxime Sallerin"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Installation",
+    "permalink": "/deploy-a-node/installation"
+  },
+  "next": {
+    "title": "What about networks?",
+    "permalink": "/deploy-a-node/networks"
+  }
+}

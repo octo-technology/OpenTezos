@@ -2,11 +2,9 @@
   align-items: center;
   background-color: var(--doc-component-background);
   display: inline-flex;
-  padding:
-    calc( 19px + var(--border-width) )
-    calc( 14px + var(--border-width) )
-    calc( 19px + var(--border-width) )
-    calc( 19px + var(--border-width) );
+  padding: calc(19px + var(--border-width)) calc(14px + var(--border-width)) calc(19px + var(--border-width))
+    calc(19px + var(--border-width));
+  cursor: pointer;
 }
 
 .image {

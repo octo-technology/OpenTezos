@@ -1,0 +1,30 @@
+{
+  "unversionedId": "deploy-a-node/to-go-further",
+  "id": "deploy-a-node/to-go-further",
+  "isDocsHomePage": false,
+  "title": "To go further",
+  "description": "To go further on the command lines and their possible applications, we invite you to browse the different chapters of OpenTezos, which deal with this subject:",
+  "source": "@site/docs/deploy-a-node/to-go-further.md",
+  "sourceDirName": "deploy-a-node",
+  "slug": "/deploy-a-node/to-go-further",
+  "permalink": "/deploy-a-node/to-go-further",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/deploy-a-node/to-go-further.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "to-go-further",
+    "title": "To go further",
+    "authors": "Maxime Sallerin"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "What about networks?",
+    "permalink": "/deploy-a-node/networks"
+  },
+  "next": {
+    "title": "Exam",
+    "permalink": "/deploy-a-node/exam"
+  }
+}

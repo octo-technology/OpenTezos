@@ -3,7 +3,7 @@
   "id": "dapp/front_user_experience",
   "isDocsHomePage": false,
   "title": "Build a dapp - User Experience",
-  "description": "In the previous chapter, the most basic usages of the Temple Wallet have been covered. The React app developed is functional.",
+  "description": "In the previous chapter, the basic usages of the Temple Wallet were covered. The React app that was developed is functional.",
   "source": "@site/docs/dapp/front-user-experience.md",
   "sourceDirName": "dapp",
   "slug": "/dapp/front_user_experience",
