@@ -2,7 +2,7 @@
 id: introduction
 title: Introduction
 slug: /ligo
-authors: Maxime Sallerin and Benjamin Pilia
+authors: Maxime Sallerin, Benjamin Pilia and Frank Hillard
 ---
 
 import Tabs from '@theme/Tabs';
@@ -12,8 +12,8 @@ import NotificationBar from '../../src/components/docs/NotificationBar';
 Tezos smart contracts are written in [Michelson](https://opentezos.com/michelson), which is a stack-based language and the lowest level of language for a Tezos smart contract. The Michelson code can be deployed as-is on the Tezos network.
 
 However, if reading or writing Michelson code is still easy for small smart contracts, it can become tedious for more complex smart contracts, as:
-- there are no variables or functions
-- there are no syntactic sugar
+- there are no variables or functions (//TODO ben en fait on  peux faire des LAMBDA, donc function possible en Michelson)
+- there are no syntactic sugar (//TODO Michelson est bourré de sucre syntaxique, ... CADAADADDDAR, CMPLE )
 - the Michelson code cannot be broken down into several files
 - stack-based languages are not commonly used when it comes to web development
 
