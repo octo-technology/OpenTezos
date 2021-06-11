@@ -27,8 +27,8 @@ The "LIGO prerequisite" parts can be skipped if you do not need to learn the Pas
   </p>
 </NotificationBar>
 
-# Raffle smart contract
-In this chapter, a simple [raffle](https://en.wikipedia.org/wiki/Raffle) example is used. A raffle is a gambling game, where players buy tickets and the winning ticket is drawn. In our case, a raffle will be developed in a smart contract with those rules: 
+## Raffle smart contract
+In this chapter, a simple [raffle](https://en.wikipedia.org/wiki/Raffle) example is considered. A raffle is a gambling game, where players buy tickets. The winning ticket is then drawn. In our case, a raffle will be developed in a smart contract with those rules: 
 - An address (called the administrator) wants to organize a raffle, whose reward is a tz amount.
 - The administrator pays the reward to the winner with their own funds. 
 - Anyone can participate in the raffle, and the participation fee is the same for everyone. However, each address can participate only once.
@@ -53,14 +53,14 @@ In this chapter, the word "ticket" only refers to a raffle ticket.
   </p>
 </NotificationBar>
 
-# Prerequisites for smart contracts development
+## Prerequisites for smart contracts development
 When developing smart contracts, two tools are extremely useful:
 1. a Ligo syntax support for your IDE
 2. a Ligo compiler
 
 These two tools will point out syntax errors and type-checking errors. However, it is recommended to compile a ligo smart contract as often as possible. The compilation will detect errors that the IDE linter won't. Thus, errors will be found early and should be more easily be addressed.
 
-# Smart contract initialization
+## Smart contract initialization
 > LIGO concepts used in this part: everything that is required to create an empty smart contract.
 > - Types, built-in types
 > - Constants, Variables
@@ -80,15 +80,15 @@ These three pieces of information must also be defined in the Ligo code.
 The first step is to create a .ligo file.
 Let's create a file called raffle.ligo, which will compile a 'minimum' but viable contract.
 
-## LIGO concepts used in this part
+### LIGO concepts used in this part
 
-## Types
+#### Types
 LIGO is strongly and statically typed. This means that the compiler checks how a contract processes data, ensuring that each function's expectations are met.
 If it passes the test, the contract will not fail at run-time due to some inconsistent assumptions on the data. This is called type checking.
 
 LIGO types are built on top of Michelson's type system.
 
-#### Built-in types
+##### Built-in types
 
 LIGO supports all Michelson types, from basic primitives (such as `string` or `int`) to composites types (such as `option`, `list` or `map`), including contract-specific types (such as `address` or `tez`).
 
@@ -116,7 +116,7 @@ Below is a table of the most used built-in types. Most of them will be used in t
 
 > As you may have noticed, there is no `float` type. Indeed, `float` is not deterministic and depend on the hardware that runs the node.
 
-#### Type aliases
+##### Type aliases
 
 Type aliasing consists of renaming a given type when the context calls for a more precise name.
 
@@ -131,9 +131,9 @@ const my_position : coordinates = (2, 1)
 
 It is also useful to define a type for complex structures, such as the expected input and return of a function, or the contract storage.
 
-### Constants & Variables declaration
+#### Constants & Variables declaration
 
-#### Constants
+##### Constants
 
 Constants are by design immutable, which means they can only be assigned once, at their declaration.
 A constant is defined by a name, a type and a value:
@@ -142,7 +142,7 @@ A constant is defined by a name, a type and a value:
 const age : int = 25
 ```
 
-#### Variables
+##### Variables
 
 Variables, unlike constants, are mutable. They cannot be declared in a global scope, but they can be declared and used within functions, or as function parameters.
 
@@ -154,7 +154,7 @@ c := c - 3
 ⚠️ The assignment operator is different: `:=` for var, instead of `=` for constants.
 
 
-### Introduction to functions
+#### Introduction to functions
 As in any other language, functions can be defined in Ligo. There are several ways to define a function, but the header is always the same:
 ```js
 function <functionName> (const param1 : <param2Type>, const param2 : <param2Type>...): <returnType> is
@@ -163,7 +163,7 @@ function <functionName> (const param1 : <param2Type>, const param2 : <param2Type
 
 Functions will be detailed below. At this point, since the main function does nothing, it will use a [blockless function](/docs/ligo/write-contracts-ligo#blockless-functions) definition.
 
-### Main function
+#### Main function
 Every LIGO smart contract must define a main function. This main function defines the **code** section of the Michelson code: it creates _operations_ and update the contract _storage_, depending on the contract parameter.
 
 It takes two parameters, the **contract parameter** and the **on-chain storage**, and returns a pair made of a **list of operations** and a **(new) storage**. 
@@ -185,7 +185,7 @@ type returnMainFunction is list (operation) * storage
 ```
 
 
-### Ligo compilation
+#### Ligo compilation
 
 The ligo code above should now compile with this command:
 ```shell
@@ -195,7 +195,7 @@ If the compilation is successful, the output will be the Michelson code.
 
 It is recommended to run this command as often as possible, to check both code syntax and types.
 
-## Raffle storage initialization
+### Raffle storage initialization
 
 Now that we have introduced some basics LIGO concepts (type, constant, variable, function and last but not least the main function prototype), let's design our _Raffle_ smart contract.
 
@@ -207,7 +207,7 @@ type storage is unit
 
 ⚠️ The word _unit_ is a reserved word of the language and represents an _empty type_.
 
-## Raffle parameter initialization
+### Raffle parameter initialization
 Smart contracts generally have one or several parameters, but it is not mandatory.
 At this point, the parameter definition will be skipped. They will be defined later on, in this chapter.
 To define a smart contract without any parameter:
@@ -217,7 +217,7 @@ type raffleEntrypoints is unit
 ```
 
 
-## Raffle code definition
+### Raffle code definition
 
 The last piece of information of the smart contract is the code definition. A smart contract can of course execute no instruction, but it must always return two things:
 1. a list of operations
@@ -241,7 +241,7 @@ The raffle smart contract can now be compiled:
 $ ligo compile-contract raffle.ligo main
 ```
 
-## Summing-up
+### Summing-up
 
 The three Michelson parts have an equivalence in LIGO
 | Michelson | LIGO                                                                                                                                     |
@@ -250,7 +250,7 @@ The three Michelson parts have an equivalence in LIGO
 | storage   | `type storage is`                                                                                                                        |
 | code      | `function main (const action : raffleEntrypoints; const store : storage): list (operation) * storage is ((nil: list(operation)), store)` |
 
-# Smart Contract development: launch raffle entrypoint
+## Smart Contract development : launch raffle entrypoint
 > LIGO concepts used in this part: 
 > We are going to add our first entrypoint. We will need to dispatch the control flow in the main function. We are also going to complexify the storage, with new types. Finally, we are going to implement some logic. We are going to check the access rights, raise an exception if they are not respected and finally interact with some part of the Tezos blockchain.
 > - Record
@@ -272,9 +272,9 @@ The LIGO code is compiling, but the Michelson code does nothing:  there is an em
 
 Each one of these actions can be coded into an entrypoint.
 
-## LIGO concepts used in this part
+### LIGO concepts used in this part
 
-### Records
+#### Records
 The record` type is a structure that holds several pieces of information: each piece is referenced thanks to a field name.
 
 Records are used:
@@ -283,7 +283,7 @@ Records are used:
 
 For more details about `record`, see [Ligolang records documentation](https://ligolang.org/docs/language-basics/maps-records#records)
 
-### Tuples
+#### Tuples
 
 Tuples gather multiple fields into a single structure. A tuple data structure is ordered, which means we can access each element of the tuple by its position. Unlike `record` type, the tuple fields are unnamed.
 
@@ -294,7 +294,7 @@ Tuples are used:
 For more details about `tuple`, see [Ligolang `tuple` documentation](https://ligolang.org/docs/language-basics/sets-lists-tuples#tuples)
 
 
-### Conditional branching
+#### Conditional branching
 
 There are two ways to write `if` conditions:
 1. For a single expression logic
@@ -314,7 +314,7 @@ else skip;
 
 For more details about `if` conditions, see [https://ligolang.org/docs/language-basics/boolean-if-else#conditionals](https://ligolang.org/docs/language-basics/boolean-if-else#conditionals)
 
-### Error handling
+#### Error handling
 
 A smart contract can raise an exception, that will stop the smart contract execution, with the use of the keyword `failwith` (with an error message):
 
@@ -323,7 +323,7 @@ failwith(<string_message>)
 ```
 For more details about `failwith`, see [https://ligolang.org/docs/language-basics/exceptions](https://ligolang.org/docs/language-basics/exceptions)
 
-### Interactions with a Tezos network: Tezos Module
+#### Interactions with a Tezos network: Tezos Module
 
 The Tezos module is a set of LIGO instructions, that query the state of the Tezos blockchain.
 It is useful when the smart contract needs to know who is calling an entrypoint, to send a transaction, if enough funds have been transferred ect...
@@ -341,7 +341,7 @@ It is useful when the smart contract needs to know who is calling an entrypoint,
 
 For more details about the `failwith` instruction, see [https://ligolang.org/docs/reference/current-reference](https://ligolang.org/docs/reference/current-reference)
 
-### Functions in ligo
+#### Functions in ligo
 
 LIGO functions are the basic building block of contracts. Each entrypoint of a contract executes a function and each smart contract must have at least one **main** function that dispatches the control flow to other functions.
 
@@ -351,7 +351,7 @@ Therefore, any modification to these will not be reflected outside the scope of 
 
 There are two syntaxes for functions in PascaLIGO, Block Functions and Blockless Functions:
 
-#### Block functions
+##### Block functions
 
 Block functions in PascaLIGO are defined using the following syntax:
 
@@ -373,7 +373,7 @@ function <name> (<parameters>) : <return_type> is
   } with <returned_value>
 ```
 
-#### Blockless functions
+##### Blockless functions
 
 Functions containing all of their logic into a single expression can be defined without a block. The add function above can be re-written as a blockless function:
 
@@ -383,7 +383,7 @@ function add (const a: int; const b : int) : int is a + b
 
 For more details about functions, see  [https://ligolang.org/docs/language-basics/functions](https://ligolang.org/docs/language-basics/functions)
 
-### Dispatching the control flow in the main function
+#### Dispatching the control flow in the main function
 
 In LIGO, the design pattern is to have one main function called `main`, that dispatches the control flow according to its parameters. The functions called-for for those actions are called entrypoints.
 
@@ -391,7 +391,7 @@ As an analogy, in the C programming language, the `main` function is the unique 
 
 The parameter of the contract is then a variant type (described below), and, depending on the constructors of that type, different functions in the contract are called. In other terms, the unique main function dispatches the control flow depending on a pattern matching the contract parameter.
 
-#### Variant type
+##### Variant type
 
 A variant type is a user-defined, or a built-in type (in case of options) that defines a type by cases. A number of cases are defined in the type definition. The value of a variable of this type must be included in these cases. The simplest variant type is equivalent to the enumerated types found in Java, C++, JavaScript etc.
 
@@ -413,7 +413,7 @@ type entrypoints is
 |  <nthEntrypoint> of <nthEntrypointParameterType>
 ```
 
-#### Pattern Matching (Variant type handling)
+##### Pattern Matching (Variant type handling)
 
 Pattern matching is similar to the `switch` construct in Javascript, and can be used to route the program's control flow based on the value of a variant. Consider for example the definition of a power switch that turns on/off a light.
 
@@ -446,7 +446,7 @@ block {
     end;
  } with return
 ```
-## Customizing the Raffle storage
+### Customizing the Raffle storage
 
 The first entrypoint of the Raffle smart contract illustrates the basics of PascaLIGO, covered above.
 
@@ -483,7 +483,7 @@ type storage is record [
 ]
 ```
 
-## Creating a raffle session: entrypoint definition
+### Creating a raffle session: entrypoint definition
 
 The contract storage can now hold a raffle session. The contract has to provide the users with a way of creating a raffle session. To do that, it needs an entrypoint that perform such an action: this new entrypoint should be named "OpenRaffle" and would allow the administrator to open a raffle.
 
@@ -590,7 +590,7 @@ It outputs a Michelson code, which does nothing, but there is a slight change in
 The openRaffleParameter is expected in the parameter section.
 
 
-## Adding the OpenRaffle logic
+### Adding the OpenRaffle logic
 
 The last step is to implement the logic of this entrypoint, in a function, which will update the storage.
 
@@ -724,9 +724,9 @@ function open_raffle (const jackpot_amount : tez; const close_date : timestamp; 
 > - the storage is used and updated in an entrypoint
 
 
-# Smart Contract development: Buy ticket entrypoint
-> LIGO concepts used in this part: with this second entrypoint, we will need to register players and map a raffle ticket for each player. Thus, we will learn how to use collections.
-> It will also be the opportunity for you to use functions again and performs checks
+## Smart Contract development: Buy ticket entrypoint
+> LIGO concepts used in this part: with this second entrypoint, we will need to register players and map a raffle ticket to each player. Thus, we will learn how to use collections.
+> It will also be the opportunity for you to use again functions and performs checks
 
 
 The second entrypoint can be freely called by everyone who wants to buy a ticket. In this use case, each address can only buy one ticket, which costs 1 tz.
@@ -737,9 +737,9 @@ Two additional pieces of information have to be kept:
 
 The storage has to be modified. Collections are going to come in handy for the modification of the storage
 
-## LIGO concepts used in this part: collections
+### LIGO concepts used in this part: collections
 
-### Lists
+#### Lists
 
 Lists are **linear collections of elements of the same type**.
 Linear means that, in order to reach an element in a list, all the elements before have to be browsed (sequential access). Elements can be repeated, as only their order in the collection matters. The first element is called the `head`, and the sub-list after the head is called the `tail`.
@@ -748,14 +748,14 @@ Lists are used for returning operations from a smart contract's main function an
 
 For more information, see [https://ligolang.org/docs/reference/list-reference](https://ligolang.org/docs/reference/list-reference)
 
-### Sets
+#### Sets
 
 _Sets_ are **unordered collections of values of the same type**, like lists are ordered collections.
 Like the mathematical _sets_ and _lists_, _sets_ can be empty and, if not, elements of _sets_ in LIGO are unique, even tho they can be repeated in a _list_.
 
 For more information, see [https://ligolang.org/docs/reference/set-reference](https://ligolang.org/docs/reference/set-reference)
 
-### Maps
+#### Maps
 
 A _Map_ is a data structure which associates a value to a key, thus creating a key-value binding. All keys have the same type and all values have the same type. 
 An additional requirement is that the type of the keys must be comparable.
@@ -769,7 +769,7 @@ An additional requirement is that the type of the keys must be comparable.
 For more information, see [https://ligolang.org/docs/language-basics/maps-records#maps](https://ligolang.org/docs/language-basics/maps-records#maps) and [https://ligolang.org/docs/language-basics/maps-records#big-maps](https://ligolang.org/docs/language-basics/maps-records#big-maps)
 
 
-## Customizing the Raffle storage
+### Customizing the Raffle storage
 
 Thanks to these collections, the second entrypoint of the Raffle smart contract can be implemented. A list of participants must be kept, as well as the ticket/owner pair.
 
@@ -796,7 +796,7 @@ type storage is record [
   ]
 ```
 
-## Adding the BuyTicket Entrypoint
+### Adding the BuyTicket entrypoint
 
 The smart contract needs to expose another entrypoint. The method is the same as the one detailed for the first entrypoint:
 
@@ -822,7 +822,7 @@ block {
 } with return
 ```
 
-## Implementing the BuyTicket logic
+### Implementing the BuyTicket logic
 
 The last step is to implement the logic of this entrypoint.  Just as for the first entrypoint, this logic will be implemented in a function, buy_ticket:
 
@@ -967,8 +967,8 @@ block {
 } with return
 ```
 
-# Smart Contract development: Close Raffle Entrypoint
-> LIGO concepts used in this section: with this last entrypoint, you will learn how to use transactions in order to send the reward to the winner. In addition, > this will be the opportunity to warn you about some of the limitations of the language and to manipulate collections a bit more.
+## Smart Contract development: Close raffle entrypoint
+> LIGO concepts used in this part: with this last entrypoint, you will learn how to use transactions in order to send the reward to the winner. In addition, > this will be the opportunity to warn you about some limitations of the language and to manipulate a little more collections.
 
 The last step is therefore to close the raffle, pick a winner and send the reward. This last entrypoint will show how to send a transaction from the contract and some collections manipulations
 
@@ -985,7 +985,7 @@ New pieces of information won't be stored: as the storage is not expected to be 
 2. the winner is therefore randomly chosen when calling this entrypoint
 3. the winner is chosen at the beginning by the administrator, but this piece of information is only revealed at the end of the raffle.
 
-## LIGO concepts used in this part: Transactions
+### LIGO concepts used in this part: Transactions
 
 You can transfer tez to an account, and invoke a function from another smart contract.
 For this, use :
@@ -1017,8 +1017,8 @@ Notice that the `Tezos.get_contract_opt` built-in function call will return an `
 
 
 
-## About randomness in smart contracts
-The second option is not easily implemented in smart contracts. In any classical programming language (Python, C, Java...), a **random** function is directly usable from the standard API. But in smart contracts, this is not a possibility.
+### About randomness in smart contracts
+The second option is not easily implemented in smart contracts. In any classical programming language (Python, C, Java...), a **random** function is directly usable from the standard API. With smart contracts, it is not possible.
 
 Indeed, each smart contract execution has to be verified by any node in the network. However, how could this execution be verified if there is a random variable (one that would change every time)?
 
@@ -1027,7 +1027,7 @@ It might seem to be a good idea to use blockchain events (transaction hash, bloc
 The only solution seems to be the use of an external source of randomness or a secure cryptographic scheme. This topic goes well beyond this course. 
 For educational purpose, we will at first hardcode a ticket id winner. Then, the smart contract will be refactored, using the Bytes and Crypto modules.
 
-## Adding the CloseRaffle entrypoint
+### Adding the CloseRaffle entrypoint
 
 The smart contract needs to expose this last entrypoint. The method is the same that has been detailed for the first and second entrypoint:
 
@@ -1055,7 +1055,7 @@ block {
 } with return
 ```
 
-## Implementing the CloseRaffle logic
+### Implementing the CloseRaffle logic
 Let's create an empty function for this entrypoint:
 ```js
   function close_raffle (const param: unit; const store : storage) : returnType is
@@ -1205,8 +1205,8 @@ function close_raffle (const param : unit; const store : storage) : returnType i
   } with (operations, store)
 ```
 
-# Smart contract refactoring
-Just like any other project, smart contracts will need refactoring during their development. In this part, we will use how the winner is chosen to be refactored. 
+## Smart contract refactoring
+Just as any other project, smart contracts will need refactoring during their development. In this part, the way the winner is chosen will be refactored. 
 
 Everyone, by reading the code, knows that the winning ticket is `407 mod Set.size(store.players)`. By tampering with the number of bought tickets, it is easy for everyone to get the winning ticket. In this part, we will make it harder to guess the winning ticker number. However, **the method that will be used is not security compliant**. This refactoring is meant for educational purposes: to show some advanced features of LIGO and is NOT to be used for any other purpose.
 
@@ -1220,7 +1220,7 @@ You can find a full reference [here](https://ligolang.org/docs/reference/bytes-r
 The `Crypto` module performs a few basic operations: hashing and the signature verification.
 You can find a full reference [here](https://ligolang.org/docs/reference/crypto-reference).
 
-## Winner selection scheme
+### Winner selection scheme
 
 1. The administrator will choose a large random number and keeps it to himself. 
 2. He hashes it and sends the hash when it calls the OpenRaffle entrypoint.
@@ -1234,8 +1234,8 @@ As warned above, this method is still rife with loopholes:
 - everyone can try to bruteforce the hash in order to find what number yielded this hash. This method just makes it a little harder to guess the number.
 
 
-## Refactoring the OpenRaffle entrypoint
-The OpenRaffle entrypoint expects a new input: the number hash, which should be saved into the storage. Both the storage and entrypoint have to be modified. The method is very similar to what has been done before:
+### Refactoring the OpenRaffle entrypoint
+The OpenRaffle entrypoint expects a new input: the number hash, that should be saved into the storage. Both the storage and entrypoint have to be modified.The method is very similar to what has been done before:
 
 
 1. Refactoring the storage: it must store a hash. According to the LIGO documentation, a hash has a `bytes` type:
@@ -1314,7 +1314,7 @@ The smart contract now compiles:
 $ ligo compile-contract raffle.ligo main
 ```
 
-## Refactoring the CloseRaffle entrypoint
+### Refactoring the CloseRaffle entrypoint
 The method is the same here. 
 So the step-by-step changes won't be detailed: try to do this refactoring. 
 The ligo documentation will tell you how to hash a number and compare it.
@@ -1456,7 +1456,7 @@ block {
 
 **************************************************************
 
-# Conclusion
+## Conclusion
 
 Ligo is meant for smart contract development and always yields a Michelson code. The method for developing such smart contracts is pretty much always the same, and follows an order very close to the Michelson smart contract structure:
 

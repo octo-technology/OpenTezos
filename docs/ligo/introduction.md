@@ -151,7 +151,7 @@ let main = ([action, store]: [parameter, storage]) : return_ => {
 </Tabs>
 
 ## What's next
-in the following chapter, we will develop smart contracts in LIGO, compile them and deploy them.
+In the following chapter, we will develop smart contracts in LIGO, compile them and deploy them.
 
 We chose to write this module in PascaLIGO. The main difference between the syntaxes is that PascaLIGO is more imperative while ReasonLIGO and CameLIGO are more functional. 
 Moreover, 'for' and 'while' loops are only implemented in PascalIGO, which is why we chose it for this module.
