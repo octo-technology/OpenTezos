@@ -202,20 +202,19 @@ Since "john" has more than 8000 ꜩ, we will be able to register as a delegate:
  tezos-client register key john as delegate
 ```
 
-Fortunately, we are on a testnet. And on testnets, the number of blocks per cycle is only 2048 instead of 4096 and that a block is created every 30 seconds instead of every minute. This gives cycles of about 17 hours. 7 cycles will only last 5 days.
+Fortunately, we are on a testnet. And on testnets, the number of blocks per cycle is only 2048 instead of 4096. Furthermore, a block is created every 30 seconds instead of every minute. This gives cycles of about 17 hours. So, 7 cycles will *only* last 5 days.
 
-### Run baker
+### Run the baker
 
-So, 5 days later we must appear in the list of bakers of [Florencenet](https://florence.tzstats.com/bakers).
+So, 5 days later, we must appear in the list of bakers of [Florencenet](https://florence.tzstats.com/bakers).
 
-To launch it, for the account John :
+To launch the baker for the account "john", simply type the following command to run the baker:
 
-Simply type the following command to run the baker:
 ```shell
 tezos-baker-009-PsFLoren run with local node ~/tezos-florencenet john
 ```
 
-As long as the message `No slot found at level xxxxxx (max_priority = 64)` is displayed, it means that our baker has not yet obtained the right to create a block.
+As long as the message `No slot found at level xxxxxx (max_priority = 64)` is displayed, our baker has not yet obtained the right to create a block.
 
 ## References
 
