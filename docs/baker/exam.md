@@ -4,7 +4,8 @@ title: Exam
 authors: --
 ---
 
-import {ExamForm, ExamCheckbox} from '../../src/components/docs/ExamForm';
+import ExamForm from '../../src/components/docs/ExamForm';
+import ExamCheckbox from '../../src/components/docs/ExamCheckbox';
 
 <ExamForm moduleName="Deploy Bakers">
 

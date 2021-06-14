@@ -1,4 +1,4 @@
-import { jsPDF } from 'jspdf'
+// import { jsPDF } from 'jspdf'
 import React from 'react'
 
 import styles from './styles.module.css'
@@ -10,10 +10,6 @@ class ExamForm extends React.Component {
       userName: '',
       sucess: undefined,
     }
-
-    this.handleChange = this.handleChange.bind(this)
-    this.handleNameChange = this.handleNameChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleSubmit(event) {
@@ -30,17 +26,17 @@ class ExamForm extends React.Component {
 
 
     if(parseInt(errorCount / responseCount * 100) <= 10) { // 10% of errors accepted
-      const doc = new jsPDF({
-        orientation: 'landscape',
-        unit: 'px',
-        format: [1100, 800],
-      })
-      doc.addImage('/certif/certificate.jpg', 'JPEG', 0, 0, 1100, 800)
-      doc.setFontSize(50)
-      doc.text(this.state.userName || '', 550, 440, { align: 'center' })
-      doc.text(this.props.moduleName || '', 550, 600, { align: 'center' })
+      // const doc = new jsPDF({
+      //   orientation: 'landscape',
+      //   unit: 'px',
+      //   format: [1100, 800],
+      // })
+      // doc.addImage('/certif/certificate.jpg', 'JPEG', 0, 0, 1100, 800)
+      // doc.setFontSize(50)
+      // doc.text(this.state.userName || '', 550, 440, { align: 'center' })
+      // doc.text(this.props.moduleName || '', 550, 600, { align: 'center' })
   
-      doc.save(`Certificate${this.props.moduleName}.pdf`)
+      // doc.save(`Certificate${this.props.moduleName}.pdf`)
   
       this.setState({ success: true })
     } else {
@@ -51,6 +47,7 @@ class ExamForm extends React.Component {
   }
 
   handleChange(event) {
+    event.preventDefault()
     const target = event.target
     const value = target.type === 'checkbox' ? target.checked : target.value
     const name = target.name
@@ -61,12 +58,13 @@ class ExamForm extends React.Component {
   }
 
   handleNameChange(event) {
+    event.preventDefault()
     this.setState({userName: event.target.value});
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={(e) => this.handleSubmit(e)}>
         {this.props.children.map((elem) => {
           if (elem.props && elem.props.mdxType === 'ExamCheckbox')
             return (
@@ -77,7 +75,7 @@ class ExamForm extends React.Component {
                     name={elem.props.name}
                     type="checkbox"
                     checked={!!this.state[elem.props.name]}
-                    onChange={this.handleChange}
+                    onChange={(e) => this.handleChange(e)}
                   />
                   {elem.props.children}
                 </label>
@@ -104,7 +102,7 @@ class ExamForm extends React.Component {
             {this.state.success === false && <div className="red">Sorry, you made too many mistakes, please try again.</div>}
             <label>
               Your name:
-              <input type="text" value={this.state.name} onChange={this.handleNameChange} className="exam-name" />
+              <input type="text" value={this.state.name} onChange={(e) => this.handleNameChange(e)} className="exam-name" />
             </label>
             <input type="submit" value="Submit" className="exam-submit" />
           </div>
@@ -114,10 +112,4 @@ class ExamForm extends React.Component {
   }
 }
 
-class ExamCheckbox extends React.Component {
-  render() {
-    return <div />
-  }
-}
-
-export { ExamForm, ExamCheckbox }
+export default ExamForm

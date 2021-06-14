@@ -1,384 +1,362 @@
 {
-  "/__docusaurus/debug-3d6": {
-    "component": "component---theme-debug-config-23-a-2ff"
-  },
-  "/__docusaurus/debug/config-914": {
-    "component": "component---theme-debug-config-23-a-2ff"
-  },
-  "/__docusaurus/debug/content-c28": {
-    "component": "component---theme-debug-contentba-8-ce7",
-    "allContent": "allContent---docusaurus-debug-content-246-9aa"
-  },
-  "/__docusaurus/debug/globalData-3cf": {
-    "component": "component---theme-debug-global-dataede-0fa"
-  },
-  "/__docusaurus/debug/metadata-31b": {
-    "component": "component---theme-debug-site-metadata-68-e-3d4"
-  },
-  "/__docusaurus/debug/registry-0da": {
-    "component": "component---theme-debug-registry-679-501"
-  },
-  "/__docusaurus/debug/routes-244": {
-    "component": "component---theme-debug-routes-946-699"
-  },
   "/-466": {
-    "component": "component---theme-doc-page-1-be-9be",
-    "versionMetadata": "versionMetadata---935-fcf"
+    "component": "1be78505",
+    "versionMetadata": "935f2afb"
   },
   "/-9e2": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---3-c-0-681"
+    "component": "17896441",
+    "content": "3c0291d6"
   },
   "/baker-414": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---baker-8-ec-13f"
+    "component": "17896441",
+    "content": "8ec71dac"
   },
   "/baker/exam-369": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---baker-exam-588-0cb"
+    "component": "17896441",
+    "content": "588652d4"
   },
   "/baking-93f": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---bakingd-59-cec"
+    "component": "17896441",
+    "content": "d59298da"
   },
   "/baking/bakers_list-605": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---baking-bakers-list-7-dc-ae4"
+    "component": "17896441",
+    "content": "7dc30f03"
   },
   "/baking/baking_explained-b2d": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---baking-baking-explaineda-8-d-5d0"
+    "component": "17896441",
+    "content": "a8d43054"
   },
   "/baking/exam-7b0": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---baking-examb-65-f59"
+    "component": "17896441",
+    "content": "b65a8641"
   },
   "/baking/reward-3ae": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---baking-reward-789-c09"
+    "component": "17896441",
+    "content": "789c9133"
   },
   "/blockchain-basics-783": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---blockchain-basics-140-a89"
+    "component": "17896441",
+    "content": "14056b2e"
   },
   "/blockchain-basics/exam-ffe": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---blockchain-basics-exam-2-b-4-e05"
+    "component": "17896441",
+    "content": "2b43537d"
   },
   "/blockchain-basics/main-properties-83f": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---blockchain-basics-main-properties-4-c-6-eca"
+    "component": "17896441",
+    "content": "4c63967c"
   },
   "/blockchain-basics/other-consensuses-cf5": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---blockchain-basics-other-consensuses-4-d-5-bdd"
+    "component": "17896441",
+    "content": "4d550f99"
   },
   "/blockchain-basics/proof-of-work-606": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---blockchain-basics-proof-of-work-462-186"
+    "component": "17896441",
+    "content": "462a1462"
   },
   "/blockchain-basics/smart-contracts-e70": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---blockchain-basics-smart-contractsdd-7-c80"
+    "component": "17896441",
+    "content": "dd7ced0d"
   },
   "/contribute-41f": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---contributebb-1-5ab"
+    "component": "17896441",
+    "content": "bb1a7bb2"
   },
   "/contribute/baker-1d4": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---contribute-baker-8-f-0-31e"
+    "component": "17896441",
+    "content": "8f047c43"
   },
   "/contribute/exam-210": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---contribute-exam-13-b-2d8"
+    "component": "17896441",
+    "content": "13b27404"
   },
   "/contribute/grant-616": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---contribute-grant-00-b-2da"
+    "component": "17896441",
+    "content": "00b1dcd3"
   },
   "/contribute/opentezos-b1b": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---contribute-opentezos-711-d5e"
+    "component": "17896441",
+    "content": "711265a9"
   },
   "/contribute/report-issue-321": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---contribute-report-issue-953-0b3"
+    "component": "17896441",
+    "content": "953990b0"
   },
   "/contribute/tezos-core-a02": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---contribute-tezos-core-2-cd-5ab"
+    "component": "17896441",
+    "content": "2cd7dee3"
   },
   "/dapp-f74": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---dapp-0-ea-407"
+    "component": "17896441",
+    "content": "0eafec62"
   },
   "/dapp/basics-6b8": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---dapp-basicsfe-9-90c"
+    "component": "17896441",
+    "content": "fe9b7d39"
   },
   "/dapp/exam-bb1": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---dapp-exam-5-cf-b69"
+    "component": "17896441",
+    "content": "5cfbf023"
   },
   "/dapp/front_user_experience-111": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---dapp-front-user-experience-21-f-71b"
+    "component": "17896441",
+    "content": "21fa7ab8"
   },
   "/dapp/taquito-b99": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---dapp-taquito-17-e-792"
+    "component": "17896441",
+    "content": "17eb7450"
   },
   "/dapp/temple-588": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---dapp-temple-4-c-5-83b"
+    "component": "17896441",
+    "content": "4c519da4"
   },
   "/dapp/truffle_compilation_migration-cc7": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---dapp-truffle-compilation-migrationd-86-a88"
+    "component": "17896441",
+    "content": "d8698a02"
   },
   "/defi-d45": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---defi-437-c33"
+    "component": "17896441",
+    "content": "437452c5"
   },
   "/defi/cross-chain-swaps-a3e": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---defi-cross-chain-swaps-14-b-8b9"
+    "component": "17896441",
+    "content": "14bdd128"
   },
   "/defi/dexs-252": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---defi-dexsc-67-4a5"
+    "component": "17896441",
+    "content": "c67f201a"
   },
   "/defi/exam-a30": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---defi-examcb-7-5ea"
+    "component": "17896441",
+    "content": "cb77ab9d"
   },
   "/defi/lending-9c4": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---defi-lendingf-91-9a1"
+    "component": "17896441",
+    "content": "f91eaf27"
   },
   "/defi/oracles-df5": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---defi-oraclesf-7-e-8b9"
+    "component": "17896441",
+    "content": "f7e669aa"
   },
   "/defi/stablecoins-5fa": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---defi-stablecoins-40-d-7d7"
+    "component": "17896441",
+    "content": "40deb340"
   },
   "/defi/synthetics-750": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---defi-synthetics-1-c-8-6ff"
+    "component": "17896441",
+    "content": "1c88c030"
   },
   "/defi/token-standards-850": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---defi-token-standardsb-3-d-6aa"
+    "component": "17896441",
+    "content": "b3d80657"
   },
   "/defi/wrapped-assets-0fe": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---defi-wrapped-assets-5-a-6-465"
+    "component": "17896441",
+    "content": "5a66baac"
   },
   "/deploy-a-node-fef": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---deploy-a-node-174-8e3"
+    "component": "17896441",
+    "content": "1745024d"
   },
   "/deploy-a-node/exam-849": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---deploy-a-node-examc-94-6d2"
+    "component": "17896441",
+    "content": "c94eaf45"
   },
   "/deploy-a-node/installation-d1c": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---deploy-a-node-installation-82-f-6fc"
+    "component": "17896441",
+    "content": "82fd396c"
   },
   "/deploy-a-node/networks-d4d": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---deploy-a-node-networks-159-85a"
+    "component": "17896441",
+    "content": "1594c775"
   },
   "/deploy-a-node/set-up-a-node-4e2": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---deploy-a-node-set-up-a-node-601-fa7"
+    "component": "17896441",
+    "content": "6012274e"
   },
   "/deploy-a-node/to-go-further-596": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---deploy-a-node-to-go-further-7-eb-903"
+    "component": "17896441",
+    "content": "7ebc32c5"
   },
   "/explorer-9c5": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---explorer-28-d-f30"
+    "component": "17896441",
+    "content": "28de5552"
   },
   "/explorer/available-tezos-indexers-fba": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---explorer-available-tezos-indexers-928-087"
+    "component": "17896441",
+    "content": "9287b210"
   },
   "/explorer/exam-a71": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---explorer-exam-188-54f"
+    "component": "17896441",
+    "content": "188b7f87"
   },
   "/explorer/indexer-explained-791": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---explorer-indexer-explained-96-e-1e9"
+    "component": "17896441",
+    "content": "96e94c26"
   },
   "/explorer/private-indexer-f11": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---explorer-private-indexerca-9-373"
+    "component": "17896441",
+    "content": "ca9d311c"
   },
   "/explorer/tzstats-main-features-927": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---explorer-tzstats-main-features-26-e-a5a"
+    "component": "17896441",
+    "content": "26e06287"
   },
   "/explorer/tzstats-smart-contract-c7c": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---explorer-tzstats-smart-contract-485-762"
+    "component": "17896441",
+    "content": "485f6b8b"
   },
   "/formal-verification-c07": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---formal-verification-392-cff"
+    "component": "17896441",
+    "content": "39218319"
   },
   "/formal-verification/exam-dae": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---formal-verification-examec-2-297"
+    "component": "17896441",
+    "content": "ec2c4156"
   },
   "/formal-verification/gadt-coq-3c3": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---formal-verification-gadt-coq-5-c-7-fd8"
+    "component": "17896441",
+    "content": "5c74e276"
   },
   "/formal-verification/michocoq-f43": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---formal-verification-michocoq-36-c-cbd"
+    "component": "17896441",
+    "content": "36c09fe3"
   },
   "/formal-verification/modeling-theorem-d9a": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---formal-verification-modeling-theorem-22-b-651"
+    "component": "17896441",
+    "content": "22b3c256"
   },
   "/ligo-f43": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---ligo-90-f-7cd"
+    "component": "17896441",
+    "content": "90f37560"
   },
   "/ligo/deploy-a-contract-cc7": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---ligo-deploy-a-contract-9-ce-0e7"
+    "component": "17896441",
+    "content": "9cea2bcd"
   },
   "/ligo/exam-85a": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---ligo-exam-881-a94"
+    "component": "17896441",
+    "content": "881479f8"
   },
   "/ligo/examples-024": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---ligo-examples-453-3db"
+    "component": "17896441",
+    "content": "4536c837"
   },
   "/ligo/installation-d04": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---ligo-installation-655-8bc"
+    "component": "17896441",
+    "content": "655a3197"
   },
   "/ligo/language-basics-c54": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---ligo-language-basicsaa-3-3b5"
+    "component": "17896441",
+    "content": "aa32c400"
   },
   "/ligo/take-away-3aa": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---ligo-take-away-151-b34"
+    "component": "17896441",
+    "content": "15117723"
   },
   "/ligo/unit-testing-e9e": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---ligo-unit-testing-2-a-9-480"
+    "component": "17896441",
+    "content": "2a921290"
   },
   "/ligo/write-contracts-ligo-3af": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---ligo-write-contracts-ligod-78-d58"
+    "component": "17896441",
+    "content": "d78a7bab"
   },
   "/michelson-e49": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---michelson-416-728"
+    "component": "17896441",
+    "content": "416e4355"
   },
   "/michelson/exam-e33": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---michelson-exama-77-21a"
+    "component": "17896441",
+    "content": "a7751fda"
   },
   "/michelson/examples-d19": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---michelson-examples-3-d-9-2e7"
+    "component": "17896441",
+    "content": "3d9f340d"
   },
   "/michelson/instructions-reference-25f": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---michelson-instructions-referencec-24-493"
+    "component": "17896441",
+    "content": "c24c15aa"
   },
   "/michelson/language-basics-857": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---michelson-language-basics-08-b-074"
+    "component": "17896441",
+    "content": "08b1621a"
   },
   "/michelson/smart-contracts-71a": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---michelson-smart-contractsf-78-9e5"
+    "component": "17896441",
+    "content": "f785f217"
   },
   "/michelson/take-away-477": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---michelson-take-away-44-f-88f"
+    "component": "17896441",
+    "content": "44f5e60e"
   },
   "/michelson/tutorial-865": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---michelson-tutorial-712-172"
+    "component": "17896441",
+    "content": "712b48dc"
   },
   "/paths-7a5": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---pathsfed-263"
+    "component": "17896441",
+    "content": "feda3973"
   },
   "/private-89e": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---private-533-aa6"
+    "component": "17896441",
+    "content": "533966e6"
   },
   "/private/exam-cc9": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---private-examaa-4-51a"
+    "component": "17896441",
+    "content": "aa4fddc1"
   },
   "/smartpy-080": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---smartpyad-1-a42"
+    "component": "17896441",
+    "content": "ad123792"
   },
   "/smartpy/exam-efb": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---smartpy-exam-031-d3a"
+    "component": "17896441",
+    "content": "0319aecb"
   },
   "/smartpy/installation-e5f": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---smartpy-installation-0-f-6-24e"
+    "component": "17896441",
+    "content": "0f65c759"
   },
   "/smartpy/write-contract-smartpy-758": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---smartpy-write-contract-smartpy-610-2f2"
+    "component": "17896441",
+    "content": "610d823f"
   },
   "/tezos-basics-40c": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---tezos-basics-3-ac-cbd"
+    "component": "17896441",
+    "content": "3ac224be"
   },
   "/tezos-basics/cli-and-rpc-1ab": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---tezos-basics-cli-and-rpcdc-9-26e"
+    "component": "17896441",
+    "content": "dc900be6"
   },
   "/tezos-basics/economics-and-rewards-adc": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---tezos-basics-economics-and-rewardsb-67-f2e"
+    "component": "17896441",
+    "content": "b67bde24"
   },
   "/tezos-basics/exam-68b": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---tezos-basics-exam-1-e-4-fba"
+    "component": "17896441",
+    "content": "1e4ddc07"
   },
   "/tezos-basics/governance-on-chain-630": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---tezos-basics-governance-on-chain-461-7fe"
+    "component": "17896441",
+    "content": "4613f71c"
   },
   "/tezos-basics/history-of-amendments-4cb": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---tezos-basics-history-of-amendments-011-5ee"
+    "component": "17896441",
+    "content": "0119c0df"
   },
   "/tezos-basics/liquid-proof-of-stake-435": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---tezos-basics-liquid-proof-of-stake-249-9e6"
+    "component": "17896441",
+    "content": "2491d0d9"
   },
   "/tezos-basics/operations-752": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---tezos-basics-operationse-94-1f3"
+    "component": "17896441",
+    "content": "e949fdff"
   },
   "/tezos-basics/smart-contracts-a47": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---tezos-basics-smart-contracts-9-f-2-472"
+    "component": "17896441",
+    "content": "9f28657b"
   }
 }

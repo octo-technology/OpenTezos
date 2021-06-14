@@ -10,9 +10,9 @@
   "permalink": "/ligo/write-contracts-ligo",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/write-contracts-ligo.md",
   "version": "current",
-  "lastUpdatedBy": "Author",
-  "lastUpdatedAt": 1539502055,
-  "formattedLastUpdatedAt": "10/14/2018",
+  "lastUpdatedBy": "frankhillard",
+  "lastUpdatedAt": 1623318225,
+  "formattedLastUpdatedAt": "6/10/2021",
   "frontMatter": {
     "id": "write-contracts-ligo",
     "title": "Smart contract development in PascaLIGO",

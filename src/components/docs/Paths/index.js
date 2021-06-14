@@ -1,4 +1,3 @@
-import { jsPDF } from 'jspdf'
 import React from 'react'
 
 import styles from './styles.module.css'

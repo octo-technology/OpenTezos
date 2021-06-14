@@ -4,7 +4,8 @@ title: Exam
 authors: Benjamin Pilia
 ---
 
-import {ExamForm, ExamCheckbox} from '../../src/components/docs/ExamForm';
+import ExamForm from '../../src/components/docs/ExamForm';
+import ExamCheckbox from '../../src/components/docs/ExamCheckbox';
 
 <ExamForm moduleName="How to build a Dapp">
 
