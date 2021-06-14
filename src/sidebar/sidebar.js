@@ -96,7 +96,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Deploy Bakers',
-      items: ['baker/introduction', 'baker/cli-baker', 'baker/delegating', 'baker/exam'],
+      items: ['baker/introduction', 'baker/cli-baker', 'baker/delegating','baker/voting', 'baker/exam'],
     },
     {
       type: 'category',
