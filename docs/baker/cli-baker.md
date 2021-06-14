@@ -8,7 +8,7 @@ In this chapter, we will see the CLI command lines for registering as a delegate
 
 To learn more about how baking works, take a look at the [Baking](/baking) module.
 
-This module requires the deployment of its own Tezos node, explained in the module [Deploy a node](/deploy-a-node).
+This chapter requires the deployment of its own Tezos node, explained in the module [Deploy a node](/deploy-a-node).
 
 ## Running a Delegate
 

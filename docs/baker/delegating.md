@@ -16,8 +16,43 @@ Delegation in Tezos is safe! Your funds are not locked or frozen and do not move
 
 In short, delegation is much better for an average user. Yes, Tezos bakers get slightly more staking rewards. Still, they pay for hosting; they spend time maintaining a node, and they have a risk of losing money on double baking (e.g., if the node was misconfigured). Thus, delegation is the most preferred and safe way for an average user to participate in Tezos staking.
 
-
 ## CLI delegation
+
+Both implicit accounts and smart contracts can have a delegate. 
+
+### Implicit account
+
+Setting or resetting the delegate of an implicit account is achieved by the following command:
+
+```shell
+tezos-client set delegate for <implicit_account> to <delegate>
+```
+
+where:
+- `<implicit_account>` is the address or alias of the implicit account to delegate.
+- `<delegate>` is the address or alias of the delegate (which has to be registered).
+
+To stop a delegation, the following command can be used:
+
+```shell
+tezos-client withdraw delegate from <implicit_account>
+```
+
+### Smart contract
+
+Smart contract can also delegate the tokens they hold to registered delegates. 
+
+The initial delegate of a smart contract can be set at origination using the `--delegate option`:
+
+```shell
+tezos-client originate contract <contract_alias> transferring <initial_balance> from <originator> running <script> --delegate <delegate> --burn-cap <cap>
+```
+
+Once the contract is originated, the only way to stop or modify its delegation is by using the SET_DELEGATE Michelson instruction (see the [Michelson documentation](/michelson/instructions-reference#set_delegate) for more details).
+
+> Notice that only implicit accounts can be delegates, so your delegate must be a tz address.
+
+> Funds in implicit accounts which are not registered as delegates do not participate in baking.
 
 
 ## Built-in delegation
@@ -27,7 +62,7 @@ Wallets like [Atomex](https://atomex.me/), [Exodus](https://www.exodus.com/), [T
 The few main steps are as follows:
 
 1. Create a wallet
-2. Suplly your wallet with XTZ
+2. Supply your wallet with XTZ
 3. Click on "Delegation" part
 4. Choose a baker
 5. Choose the amount to delegate
@@ -49,3 +84,7 @@ That's it. The only thing you should worry about is choosing an excellent and re
 - *Security*: Is this baker's staking setup secure? Does this baker have a track record? Has this baker double-baked in the past and lost coins?
 
 > For more details, check out the [List of Bakers](baking/bakers_list) chapter of the [Baking](/baking) module.
+
+## References
+
+- [1] https://tezos.gitlab.io/introduction/howtorun.html#delegating-your-coins
