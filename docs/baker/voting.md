@@ -37,9 +37,9 @@ Tezos’ client provides a command to show the status of a voting period. It dis
 tezos-client show voting period
 ```
 
-### Submit proposal
+### Submit proposals
 
-**Proposals** are requests for addition, adjustment, or removal of a protocol feature.
+**Proposal** is a request for addition, adjustment, or removal of a protocol feature.
 
 During a **proposal period**, the list of proposals can be submitted with:
 
