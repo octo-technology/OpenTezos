@@ -56,7 +56,7 @@ tezos-client get balance for bob
 
 #### Register as a delagate
 
-To run a delegate, you first need to register as one using your implicit account:
+To run a delegate, you first need to register as one using the alias of your account.
 
 ```shell
 tezos-client register key bob as delegate
