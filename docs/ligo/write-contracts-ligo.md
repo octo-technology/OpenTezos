@@ -285,7 +285,7 @@ For more details about `record`, see [Ligolang records documentation](https://li
 
 ### Tuples
 
-Tuples gather multiple fields into a single structure. Tuple definition combines multiple types into a single type. A tuple data structure is ordered, which means we can access each element of the tuple by its position. Unlike `record` type, the tuple fields are unnamed.
+Tuples gather multiple fields into a single structure. A tuple data structure is ordered, which means we can access each element of the tuple by its position. Unlike `record` type, the tuple fields are unnamed.
 
 Tuples are used:
 - for the return type of the **main** function
