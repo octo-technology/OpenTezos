@@ -4,10 +4,10 @@ title: CLI and RPC
 authors: Thomas Zoughebi, Aymeric Bethencourt, and Maxime Fernandez
 ---
 
-In this chapter, the reader will learn how to install the official "tezos-client" and "tezos-admin-client" applications and run them with the Command Line Interface. These commands call remote procedures of a Tezos node (local or remote). There are many commands, but we'll see some examples.
+In this chapter, the reader will learn how to install the official "tezos-client" and "tezos-admin-client" applications and run them using the Command Line Interface. These commands call on the remote procedures of a Tezos node (local or remote). There are many commands, but we'll see some examples.
 
 ## Connecting to the network
-The _tezos-client_ and _Tezos RPC_ need a connection to a Tezos node. You can connect to your own [tezos node](/deploy-a-node/introduction), or you can use a *community node*. In both cases, you can set it for the *mainnet* or the *testnet*.
+The _tezos-client_ and _Tezos RPC_ need to connect to a Tezos node. You can connect to your own [tezos node](/deploy-a-node/introduction), or you can use a *community node*. In both cases, you can set it for the *mainnet* or the *testnet*.
 
 You can find a list of *community nodes* [here](https://tezostaquito.io/docs/rpc_nodes/).
 
@@ -44,24 +44,24 @@ RPC[[1]](/tezos-basics/cli-and-rpc#references) is a client-server protocol where
 
 Tezos nodes provide a JSON/RPC interface to interact with the Tezos network. Although it uses RPC and is JSON-based, it does **not** follow the *JSON-RPC* protocol.
 
-A complete list of calls is available [here](http://tezos.gitlab.io/shell/rpc.html#rpc-index-shell). Make sure to check the protocol version before using these calls. The available calls in the *Edo* protocol (see "[*History of Amendments*](/tezos-basics/history-of-amendments#edo-ptedotezd)" chapter) are [here](https://tezos.gitlab.io/protocols/008_edo.html?highlight=edo#rpcs).
+A complete list of calls is available [here](http://tezos.gitlab.io/shell/rpc.html#rpc-index-shell). Make sure to check the protocol version before you use these calls. The available calls in the *Edo* protocol (see "[*History of Amendments*](/tezos-basics/history-of-amendments#edo-ptedotezd)" chapter) are [here](https://tezos.gitlab.io/protocols/008_edo.html?highlight=edo#rpcs).
 
 ### RPC examples
 #### GET 'block'
-This call returns all the information about a block. The associated metadata may not be present depending on the history mode and block's distance from the head.
+This call returns all the information about a block. But the associated metadata may not be present, it depends on the history mode and block's distance from the head.
 
 ```bash
 GET NodeUrl/chains/[chain_id]/blocks/[blocks_id]
 ```
 
-Example to get the block number **1400114** from the mainnet using *giganode.io*:
+Here is an example, of how to get the block number **1400114** from the mainnet using *giganode.io*:
 
 ```bash
 GET https://mainnet-tezos.giganode.io/chains/main/blocks/1400114
 ```
 [https://mainnet-tezos.giganode.io/chains/main/blocks/1400114](https://mainnet-tezos.giganode.io/chains/main/blocks/1400114)
 
-To test this call, simply click the address above (or copy-paste it) to open it in your web browser. You'll discover a pretty long JSON object. Depending on the used browser, the visualization may be better (e.g. Firefox will format the appearance to make it easier to read).
+To test this call, simply click the address above (or copy-paste it, to open it in your web browser). You'll discover a pretty long JSON object. Depending on the used browser, the visualization may be better (e.g. Firefox will format the appearance to make it easier to read).
 
 #### GET 'contract storage'
 This call accesses the storage of a contract.
@@ -77,7 +77,7 @@ GET https://mainnet-tezos.giganode.io/chains/main/blocks/1400114/context/contrac
 ```
 [https://mainnet-tezos.giganode.io/chains/main/blocks/1400114/context/contracts/KT1Hkg5qeNhfwpKW4fXvq7HGZB9z2EnmCCA9/storage](https://mainnet-tezos.giganode.io/chains/main/blocks/1400114/context/contracts/KT1Hkg5qeNhfwpKW4fXvq7HGZB9z2EnmCCA9/storage)
 
-You can test this call exactly the same way as with the "GET block" call.
+You can test this call exactly the same way as the "GET block" call.
 
 ## Tezos-client (CLI)
 _Tezos-client_ is the official client to interact with a Tezos node via RPC. Let's take a look at the installation and some examples.
@@ -108,7 +108,7 @@ Below we'll connect to a community node (https://edonet-tezos.giganode.io/) on t
 tezos-client --endpoint https://edonet-tezos.giganode.io/ config update
 ```
 
-The result should look like below:
+The result should look like the lines below:
 ```bash
 Warning:
   
@@ -125,7 +125,7 @@ On Ubuntu, the config file should be written in "/.tezos-client/config" under yo
 ```
 
 ### Account activation
-Activate your account by replacing "accountName" and "faucet" below with an account name and the path to your downloaded faucet file (which can be different from "~/Downloads/"):
+Activate your account by replacing "accountName" and "faucet" below with an account name and the path to your downloaded faucet file (this can be different from "~/Downloads/"):
 
 ```bash
 tezos-client activate account accountName with ~/Downloads/faucet.json
@@ -156,7 +156,7 @@ This sequence of operations was run:
       tz1f5bQSLzsFAB9vpTWFqNSH1KTkew4kVFUc ... +ꜩ62593.128795
 
 The operation has only been included 0 blocks ago.
-We recommend to wait more.
+We recommend to wait longer.
 Use command
   tezos-client wait for opAqABPnAHz5u6oHh8qAVhNKs38oytcMUGgT2yFZogtSeXRPYqa to be included --confirmations 30 --branch BLusSi35mANMCFezjxaGT8ycnW4JztW7ZhnNogWuwepRo1bQRM4
 and/or an external block explorer.
@@ -188,7 +188,7 @@ The full commands' list on _Tezos client_ is available [here](https://tezos.gitl
 
 ### Tezos Client examples
 #### Get balance
-To get the balance of the account "accountName":
+To get the balance of the account use "accountName":
 ```bash
 tezos-client get balance for accountName
 ```
@@ -209,10 +209,10 @@ Warning:
 62593.128795 ꜩ
 ```
 
-The previous response is also a way to check if the account is activated on the testnet (first transfer).
+The previous response is also a way of checking if the account is activated on the testnet (first transfer).
 
 #### Get timestamp
-Call to return the UTC of the latest downloaded block. Timezones may differ from your local time:
+Is a call to return the UTC of the latest downloaded block. Keep in mind, timezones may differ from your local time:
 
 ```bash
 tezos-client get timestamp
@@ -268,13 +268,13 @@ testnetEdo-User_1: tz1f5bQSLzsFAB9vpTWFqNSH1KTkew4kVFUc
 Everything is correct: We don't have any *originated* account and only one *implicit* account!
 
 #### Transfers and receipts
-The command below transfers 42 ꜩ from the account _user1_ to _user2_ (you can use Tezos addresses directly):
+The command below transfers 42 ꜩ from the account _user1_ to _user2_ (you can use a Tezos addresses directly):
 
 ```bash
 tezos-client transfer 42 from user1 to user2
 ```
 
-Notice that you can specify the maximum fee for this operation appending "`--fee-cap`" (defaults to 1.0). The network would determine the actual fee lesser than this cap:
+Notice that you can specify the maximum fee for this operation appending, "`--fee-cap`" (defaults to 1.0). The network would determine the actual fee, lower than this cap:
 
 ```bash
 tezos-client transfer 42 from user1 to user2 --fee-cap 0.9
@@ -287,7 +287,7 @@ For our example, let's first activate another account with another faucet file:
 tezos-client activate account testnetEdo-User_2 with ./tz1X3oQvEieBBL3Zgg8LJVnUXD45phTZsBeh.json
 ```
 
-Let's verify its balance (and activation):
+Let's verify the balance (and activation):
 ```bash
 tezos-client get balance for testnetEdo-User_2
 ```
@@ -302,7 +302,7 @@ Let's finally try a transfer of 10,000 ꜩ from testnetEdo-User_1 to testnetEdo-
 tezos-client transfer 10000 from testnetEdo-User_1 to testnetEdo-User_2 --fee-cap 2.5
 ```
 
-Response (without the warning message):
+Response (without the warning message) should be:
 ```bash
 Node is bootstrapped.
 Estimated storage: no bytes added
@@ -377,7 +377,7 @@ The admin client allows you to interact with the peer-to-peer layer:
 - to force connections to known peers
 - to ban/un-ban peers
 
-To use the Tezos Admin Client commands, we need a node we can administrate. In the above examples, we learned how to use remote community nodes. Let's now install a local node we can pretend to be an administrator. This section will also be useful to follow along the "[*Deploy a Node*](/docs/deploy-a-node/introduction)" module.
+To use the Tezos Admin Client commands, we need a node we can administrate. In the above examples, we learned how to use remote community nodes. Let's now install a local node, we can pretend to be an administrator. This section will also be useful to follow along the "[*Deploy a Node*](/docs/deploy-a-node/introduction)" module.
 
 We'll need several prerequisites. Main ones are [Docker](https://www.docker.com/) and [Flextesa](https://gitlab.com/tezos/flextesa).
 
@@ -425,7 +425,7 @@ sudo usermod -a -G docker $USER
 At this point, please **save your work and reboot the system**.
 
 ### Flextesa Tezos Sandbox
-Thanks to Docker, the following command integrates Flextesa and start the Tezos sandbox in the background:
+Thanks to Docker, the following command integrates Flextesa and will start the Tezos sandbox in the background:
 ```bash
 docker run --rm --name my-sandbox --detach -p 20000:20000 tqtezos/flextesa:20210514 flobox start
 ```
@@ -494,7 +494,7 @@ dnf install -y tezos-admin-client
 
 #### From [sources with OPAM](https://tezos.gitlab.io/introduction/howtoget.html#building-from-sources-via-opam)
 
-### Admin-client user manual and version
+### Admin-client use manual and version
 #### Global options
 ```bash
 tezos-admin-client --help
@@ -681,7 +681,7 @@ PtYuensgYBb3G3x1hLLbCmcav8ue8Kyd2khADcL5LsT5R1hcXex
 tezos-admin-client p2p stat
 ```
 
-Though, in our case with a single local node, the result is not interesting:
+Though, in our case with the single local node, the result is not very interesting:
 ```bash
 GLOBAL STATS
   ↗ 0 B (0 B/s) ↘ 0 B (0 B/s)
@@ -690,10 +690,10 @@ KNOWN PEERS
 KNOWN POINTS
 ```
 
-## What have we learned so far?
-In this chapter, we saw how to install the CLI. We also introduced you to simple remote procedure calls to a Tezos node. Along the way, we understood how to connect to a remote community node or a local node using a sandbox.
+## What we have learned so far!
+In this chapter, we saw how to install the CLI. We also introduced you to simple remote procedure calls for a Tezos node. Along the way, we understood how to connect to a remote community node or to a local node using a sandbox.
 
-In the next chapter, we will learn in detail how Tezos allows on-chain decentralized governance without hard forks' troubles.
+In the next chapter, we will learn in detail how Tezos allows on-chain decentralized governance without reliyng on the problematic hard forks.
 
 ## References
 [1] https://en.wikipedia.org/wiki/Remote_procedure_call
