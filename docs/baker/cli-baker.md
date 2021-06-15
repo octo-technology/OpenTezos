@@ -22,13 +22,37 @@ A delegate is responsible for baking blocks, endorsing blocks, and accusing othe
 
 ### Registration
 
-#### Create an implicit account
+#### Create a basic wallet
 
-//TODO
+The client is also a basic wallet and after the activation above you will notice that the client data directory (by default, `~/.tezos-client`) has been populated with 3 files `public_key_hashs`, `public_keys` and `secret_keys`. The content of each file is in JSON and keeps the mapping between aliases (e.g., bob) and the kind of keys indicated by the name of each file
 
-#### Supply the implicit account
+```shell
+tezos-client gen keys bob
+```
 
-//TODO
+#### Supply your wallet
+
+Now that you have created an account you need supply it with real tez.
+
+> Warning! Be sure you are on the mainnet if you send real tez.
+
+You can get the address of the previously created wallet with the command: 
+
+```shell
+tezos-client list known addresses
+```
+
+You can now send to bob any number of XTZ from a wallet of your choice.
+
+> Be careful, if you are not sure what you are doing, start by sending a small amount. Then send the whole amount. (8,000 XTZ is the minimum to register as a delegate).
+
+Copy and paste the destination address into the search bar of an explorer like [TzStats](https://tzstats.com/) to see the transaction. The address should be visible on the explorer after a first transaction.
+
+You can check the amount that bob holds with:
+
+```shell
+tezos-client get balance for bob
+```
 
 #### Register as a delagate
 
