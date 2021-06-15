@@ -8,7 +8,7 @@ In this chapter, we will see the CLI command lines for registering as a delegate
 
 To learn more about how baking works, take a look at the [Baking](/baking) module.
 
-This chapter requires the deployment of its own Tezos node, explained in the module [Deploy a node](/deploy-a-node).
+This chapter requires the deployment of your own Tezos node, explained in the module [Deploy a node](/deploy-a-node).
 
 ## Running a Delegate
 
@@ -24,7 +24,12 @@ A delegate is responsible for baking blocks, endorsing blocks, and accusing othe
 
 #### Create a basic wallet
 
-The client is also a basic wallet and after the activation above you will notice that the client data directory (by default, `~/.tezos-client`) has been populated with 3 files `public_key_hashs`, `public_keys` and `secret_keys`. The content of each file is in JSON and keeps the mapping between aliases (e.g., bob) and the kind of keys indicated by the name of each file
+The Tezos client is also a basic wallet. After the below activation command, you will notice that the Tezos client data directory (by default, `~/.tezos-client`) has been populated with 3 files:
+- `public_key_hashs`
+- `public_keys`
+- `secret_keys`
+
+The content of each file is in JSON format and keeps the mapping between aliases (*e.g.* "bob") and the kind of keys indicated by the name of each file
 
 ```shell
 tezos-client gen keys bob
@@ -32,23 +37,23 @@ tezos-client gen keys bob
 
 #### Supply your wallet
 
-Now that you have created an account you need supply it with real tez.
+Now that you have created an account, you need to supply it with real tez.
 
-> Warning! Be sure you are on the mainnet if you send real tez.
+> Warning! Be sure you are on the **mainnet** if you send **real tez**.
 
-You can get the address of the previously created wallet with the command: 
+You can get the address of the previously created wallet with the following command: 
 
 ```shell
 tezos-client list known addresses
 ```
 
-You can now send to bob any number of XTZ from a wallet of your choice.
+You can now send to "bob" any number of XTZ from a wallet of your choice.
 
-> Be careful, if you are not sure what you are doing, start by sending a small amount. Then send the whole amount. (8,000 XTZ is the minimum to register as a delegate).
+> Be careful if you are not sure what you are doing and start by sending a small amount. Then send the whole amount. (8,000 XTZ is the minimum to register as a delegate).
 
-Copy and paste the destination address into the search bar of an explorer like [TzStats](https://tzstats.com/) to see the transaction. The address should be visible on the explorer after a first transaction.
+Copy and paste the destination address into the search bar of an explorer (like [TzStats](https://tzstats.com/)) to see the transaction. The address should be visible in the explorer after the first transaction.
 
-You can check the amount that bob holds with:
+You can check the amount that "bob" holds with:
 
 ```shell
 tezos-client get balance for bob
@@ -56,7 +61,7 @@ tezos-client get balance for bob
 
 #### Register as a delagate
 
-To run a delegate, you first need to register as one using the alias of your account.
+To run a delegate, you first need to register as one using the alias of your account:
 
 ```shell
 tezos-client register key bob as delegate
