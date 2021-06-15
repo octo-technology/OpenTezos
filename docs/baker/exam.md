@@ -36,20 +36,18 @@ During the Baking process, what fraudulent motive results in the loss of its fro
 
 ### Question 4
 
-What is the correct command line to run a baker on the Mainnet, supposing the account alias is bob?
+What is the correct command line to run a baker on the Mainnet, supposing the account alias is "bob"?
 
 - [ ] `tezos-baker-009-PsFLoren run with local node ~/.tezos-node bob`
 - [ ] `tezos-baker-010-PtGRANAD run with local node ~/.tezos-node bob`
 - [x] `tezos-baker-alpha run with local node ~/.tezos-node bob`
 
-
 ### Question 5
 
-What are the two periods in which you can realize a ballot operation?
+What are the two periods in which you can realize a "*ballot*" operation?
 
 - [ ] Proposal period
 - [x] Exploration period
 - [ ] Cooldown period
 - [x] Promotion period
 - [ ] Adoption period
-
