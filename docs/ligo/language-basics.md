@@ -1092,9 +1092,13 @@ end
 ```
 
 
+## Conclusion
 
-##TODO//Conclusion
+PascaLigo provides developers with all the necessary commands to write smart contracts. Thanks to a syntax close to other languages, it is possible for anyone to develop complex smart contracts without using the stack-based language Michelson. All the Michelson instructions have an equivalent in Ligo: comparisons, sending transactions, checking a sender address, handling amounts, calling other entrypoints...
 
+However, Michelson remains the Tezos smart contract language: Ligo compiles to Michelson code, that will be deployed onto the Blockchain.
+
+Ligo is always improving: the Ligo team releases a new version every other week. It fixes bugs and adds functionalities, but it also may induce breaking changes. You can refer to the release notes [here](https://ligolang.org/docs/next/intro/changelog/).
 
 
 
