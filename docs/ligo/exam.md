@@ -1,7 +1,7 @@
 ---
 id: exam
 title: Exam
-authors: Maxime Sallerin and Benjamin Pilia
+authors: Maxime Sallerin, Benjamin Pilia and Frank Hillard
 ---
 
 import ExamForm from '../../src/components/docs/ExamForm';

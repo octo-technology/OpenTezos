@@ -1,7 +1,7 @@
 ---
 id: examples
 title: Examples
-authors: Maxime Sallerin and Benjamin Pilia
+authors: Maxime Sallerin, Benjamin Pilia and Frank Hillard
 ---
 
 ## Function

@@ -2,7 +2,7 @@
 id: introduction
 title: Introduction
 slug: /ligo
-authors: Maxime Sallerin and Benjamin Pilia
+authors: Maxime Sallerin, Benjamin Pilia and Frank Hillard
 ---
 
 import Tabs from '@theme/Tabs';
@@ -12,8 +12,8 @@ import NotificationBar from '../../src/components/docs/NotificationBar';
 Tezos smart contracts are written in [Michelson](https://opentezos.com/michelson), which is a stack-based language and the lowest level of language for a Tezos smart contract. The Michelson code can be deployed as-is on the Tezos network.
 
 However, if reading or writing Michelson code is still easy for small smart contracts, it can become tedious for more complex smart contracts, as:
-- there are no variables or functions
-- there are no syntactic sugar
+- there are no variables and functions are not easy to use
+- there is syntactic sugar to combine multiple instructions but stack manipulation remains painful
 - the Michelson code cannot be broken down into several files
 - stack-based languages are not commonly used when it comes to web development
 
@@ -24,7 +24,7 @@ Smart contracts can be written in Ligo, then compiled into a single Michelson co
 This Michelson file becomes the smart contract that will be deployed on a Tezos network.
 
 ![](../../static/img/ligo/intro_schema.svg)
-<small className="figure">FIGURE 1: Contextualisation of LIGO in the Tezos ecosystem</small>
+<small className="figure">FIGURE 1: Contextualization of LIGO in the Tezos ecosystem</small>
 
 LIGO currently offers four _flavours_ of syntaxes:
 
@@ -151,7 +151,7 @@ let main = ([action, store]: [parameter, storage]) : return_ => {
 </Tabs>
 
 ## What's next
-in the following chapter, we will develop smart contracts in LIGO, compile them and deploy them.
+In the following chapter, we will develop smart contracts in LIGO, compile them and deploy them.
 
 We chose to write this module in PascaLIGO. The main difference between the syntaxes is that PascaLIGO is more imperative while ReasonLIGO and CameLIGO are more functional. 
 Moreover, 'for' and 'while' loops are only implemented in PascalIGO, which is why we chose it for this module.
