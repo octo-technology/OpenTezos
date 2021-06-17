@@ -1,21 +1,10 @@
 ---
 id: introduction
-disable_pagination: true
 title: Introduction
 slug: /baker
-authors: --
+authors: Maxime Sallerin
 ---
 
-import NotificationBar from '../../src/components/docs/NotificationBar';
+For a better understanding of this module, it is recommended to have some knowledge of [how Baking works](/baking) as well as [how to deploy a node](/deploy-a-node).
 
-<h1 className="p">Under construction.</h1>
-
-<NotificationBar>
-  <p>
-    Lorem ipsum
-  </p>
-</NotificationBar>
-
-### Lorem ipsum
-
-Lorem ipsum
+In this module, we will cover the aspects that allow you to earn XTZ by taking part in the proper functioning of the Tezos blockchain. More precisely, we will expose the various lines of commands allowing to register as a delegate (baker, endorser, and accuser). But also to play its role as a *delegator*. And finally, how to be a good Tezos citizen by proposing and voting for the evolutions of the Tezos protocol.
