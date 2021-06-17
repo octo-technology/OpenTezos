@@ -397,6 +397,21 @@
           },
           {
             "type": "link",
+            "label": "CLI to become a baker",
+            "href": "/baker/cli-baker"
+          },
+          {
+            "type": "link",
+            "label": "Delegating",
+            "href": "/baker/delegating"
+          },
+          {
+            "type": "link",
+            "label": "Voting",
+            "href": "/baker/voting"
+          },
+          {
+            "type": "link",
             "label": "Exam",
             "href": "/baker/exam"
           }
@@ -548,8 +563,11 @@
     ]
   },
   "permalinkToSidebar": {
+    "/baker/cli-baker": "docs",
+    "/baker/delegating": "docs",
     "/baker/exam": "docs",
     "/baker": "docs",
+    "/baker/voting": "docs",
     "/baking/bakers_list": "docs",
     "/baking/baking_explained": "docs",
     "/baking/exam": "docs",

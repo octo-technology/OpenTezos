@@ -10,9 +10,9 @@
   "permalink": "/defi/lending",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/lending.md",
   "version": "current",
-  "lastUpdatedBy": "Theotime-Akeare",
-  "lastUpdatedAt": 1623083507,
-  "formattedLastUpdatedAt": "6/7/2021",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "id": "lending",
     "title": "Lending and Flash Loans",

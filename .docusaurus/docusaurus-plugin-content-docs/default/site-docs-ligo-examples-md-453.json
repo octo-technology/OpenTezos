@@ -10,13 +10,13 @@
   "permalink": "/ligo/examples",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/examples.md",
   "version": "current",
-  "lastUpdatedBy": "Theotime-Akeare",
-  "lastUpdatedAt": 1622026837,
-  "formattedLastUpdatedAt": "5/26/2021",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "id": "examples",
     "title": "Examples",
-    "authors": "Maxime Sallerin and Benjamin Pilia"
+    "authors": "Maxime Sallerin, Benjamin Pilia and Frank Hillard"
   },
   "sidebar": "docs",
   "previous": {

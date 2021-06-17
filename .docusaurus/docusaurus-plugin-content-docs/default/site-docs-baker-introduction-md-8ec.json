@@ -3,22 +3,21 @@
   "id": "baker/introduction",
   "isDocsHomePage": false,
   "title": "Introduction",
-  "description": "Under construction.",
+  "description": "For a better understanding of this module, it is recommended to have some knowledge of how Baking works as well as how to deploy a node.",
   "source": "@site/docs/baker/introduction.md",
   "sourceDirName": "baker",
   "slug": "/baker",
   "permalink": "/baker",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/baker/introduction.md",
   "version": "current",
-  "lastUpdatedBy": "AymericBethencourt",
-  "lastUpdatedAt": 1620316866,
-  "formattedLastUpdatedAt": "5/6/2021",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "id": "introduction",
-    "disable_pagination": true,
     "title": "Introduction",
     "slug": "/baker",
-    "authors": "--"
+    "authors": "Maxime Sallerin"
   },
   "sidebar": "docs",
   "previous": {
@@ -26,7 +25,7 @@
     "permalink": "/baking/exam"
   },
   "next": {
-    "title": "Exam",
-    "permalink": "/baker/exam"
+    "title": "CLI to become a baker",
+    "permalink": "/baker/cli-baker"
   }
 }

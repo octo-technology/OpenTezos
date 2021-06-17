@@ -3,8 +3,43 @@ import React from 'react';
 import ComponentCreator from '@docusaurus/ComponentCreator';
 export default [
 {
+  path: '/__docusaurus/debug',
+  component: ComponentCreator('/__docusaurus/debug','3d6'),
+  exact: true,
+},
+{
+  path: '/__docusaurus/debug/config',
+  component: ComponentCreator('/__docusaurus/debug/config','914'),
+  exact: true,
+},
+{
+  path: '/__docusaurus/debug/content',
+  component: ComponentCreator('/__docusaurus/debug/content','c28'),
+  exact: true,
+},
+{
+  path: '/__docusaurus/debug/globalData',
+  component: ComponentCreator('/__docusaurus/debug/globalData','3cf'),
+  exact: true,
+},
+{
+  path: '/__docusaurus/debug/metadata',
+  component: ComponentCreator('/__docusaurus/debug/metadata','31b'),
+  exact: true,
+},
+{
+  path: '/__docusaurus/debug/registry',
+  component: ComponentCreator('/__docusaurus/debug/registry','0da'),
+  exact: true,
+},
+{
+  path: '/__docusaurus/debug/routes',
+  component: ComponentCreator('/__docusaurus/debug/routes','244'),
+  exact: true,
+},
+{
   path: '/',
-  component: ComponentCreator('/','466'),
+  component: ComponentCreator('/','d48'),
   
   routes: [
 {
@@ -18,8 +53,23 @@ export default [
   exact: true,
 },
 {
+  path: '/baker/cli-baker',
+  component: ComponentCreator('/baker/cli-baker','9ba'),
+  exact: true,
+},
+{
+  path: '/baker/delegating',
+  component: ComponentCreator('/baker/delegating','5b4'),
+  exact: true,
+},
+{
   path: '/baker/exam',
   component: ComponentCreator('/baker/exam','369'),
+  exact: true,
+},
+{
+  path: '/baker/voting',
+  component: ComponentCreator('/baker/voting','04d'),
   exact: true,
 },
 {

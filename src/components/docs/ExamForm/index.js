@@ -1,4 +1,4 @@
-// import { jsPDF } from 'jspdf'
+import { jsPDF } from 'jspdf'
 import React from 'react'
 
 import styles from './styles.module.css'
@@ -25,18 +25,18 @@ class ExamForm extends React.Component {
     })
 
 
-    if(parseInt(errorCount / responseCount * 100) <= 10) { // 10% of errors accepted
-      // const doc = new jsPDF({
-      //   orientation: 'landscape',
-      //   unit: 'px',
-      //   format: [1100, 800],
-      // })
-      // doc.addImage('/certif/certificate.jpg', 'JPEG', 0, 0, 1100, 800)
-      // doc.setFontSize(50)
-      // doc.text(this.state.userName || '', 550, 440, { align: 'center' })
-      // doc.text(this.props.moduleName || '', 550, 600, { align: 'center' })
+    if(parseInt(errorCount / responseCount * 100) <= 90) { // 10% of errors accepted
+      const doc = new jsPDF({
+        orientation: 'landscape',
+        unit: 'px',
+        format: [1100, 800],
+      })
+      doc.addImage('/certif/certificate.jpg', 'JPEG', 0, 0, 1100, 800)
+      doc.setFontSize(50)
+      doc.text(this.state.userName || '', 550, 440, { align: 'center' })
+      doc.text(this.props.moduleName || '', 550, 600, { align: 'center' })
   
-      // doc.save(`Certificate${this.props.moduleName}.pdf`)
+      doc.save(`Certificate ${this.props.moduleName}.pdf`)
   
       this.setState({ success: true })
     } else {
@@ -47,7 +47,7 @@ class ExamForm extends React.Component {
   }
 
   handleChange(event) {
-    event.preventDefault()
+    console.log(event)
     const target = event.target
     const value = target.type === 'checkbox' ? target.checked : target.value
     const name = target.name
@@ -58,7 +58,6 @@ class ExamForm extends React.Component {
   }
 
   handleNameChange(event) {
-    event.preventDefault()
     this.setState({userName: event.target.value});
   }
 

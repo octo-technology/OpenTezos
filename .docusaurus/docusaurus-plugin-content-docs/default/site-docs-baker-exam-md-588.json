@@ -10,9 +10,9 @@
   "permalink": "/baker/exam",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/baker/exam.md",
   "version": "current",
-  "lastUpdatedBy": "AymericBethencourt",
-  "lastUpdatedAt": 1623413479,
-  "formattedLastUpdatedAt": "6/11/2021",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "id": "exam",
     "title": "Exam",
@@ -20,8 +20,8 @@
   },
   "sidebar": "docs",
   "previous": {
-    "title": "Introduction",
-    "permalink": "/baker"
+    "title": "Voting",
+    "permalink": "/baker/voting"
   },
   "next": {
     "title": "Introduction",

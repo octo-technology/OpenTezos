@@ -4047,7 +4047,7 @@ domhandler@^4.0.0, domhandler@^4.2.0:
   dependencies:
     domelementtype "^2.2.0"
 
-dompurify@^2.2.0:
+dompurify@^2.0.12:
   version "2.2.9"
   resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-2.2.9.tgz#4b42e244238032d9286a0d2c87b51313581d9624"
   integrity sha512-+9MqacuigMIZ+1+EwoEltogyWGFTJZWU3258Rupxs+2CGs4H914G9er6pZbsme/bvb5L67o2rade9n21e4RW/w==
@@ -4585,11 +4585,6 @@ feed@^4.2.2:
   integrity sha512-u5/sxGfiMfZNtJ3OvQpXcvotFpYkL0n9u9mM2vkui2nGo8b4wvDkJ8gAkYqbA8QpGyFCv3RK0Z+Iv+9veCS9bQ==
   dependencies:
     xml-js "^1.6.11"
-
-fflate@^0.4.8:
-  version "0.4.8"
-  resolved "https://registry.yarnpkg.com/fflate/-/fflate-0.4.8.tgz#f90b82aefbd8ac174213abb338bd7ef848f0f5ae"
-  integrity sha512-FJqqoDBR00Mdj9ppamLa/Y7vxm+PRmNWA67N846RvsoYVMKB4q3y/de5PA7gUmRMYK/8CMz2GDZQmCRN1wBcWA==
 
 figgy-pudding@^3.5.1:
   version "3.5.2"
@@ -6128,18 +6123,17 @@ jsonfile@^6.0.1:
   optionalDependencies:
     graceful-fs "^4.1.6"
 
-jspdf@^2.3.1:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/jspdf/-/jspdf-2.3.1.tgz#313d117234b546469694a1fd81a1e02411647576"
-  integrity sha512-1vp0USP1mQi1h7NKpwxjFgQkJ5ncZvtH858aLpycUc/M+r/RpWJT8PixAU7Cw/3fPd4fpC8eB/Bj42LnsR21YQ==
+jspdf@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/jspdf/-/jspdf-2.0.0.tgz#cade1cb458cdb75487197284ba942f952d7f4116"
+  integrity sha512-4qDyU2T6jp0IcTun1mXO1azrZhoQnY2fbaegwBETa6faN7gXKTLRVHYT7cZ4rUNwoqDpz+XydW/sWJ7YT+An+A==
   dependencies:
     atob "^2.1.2"
     btoa "^1.2.1"
-    fflate "^0.4.8"
   optionalDependencies:
     canvg "^3.0.6"
     core-js "^3.6.0"
-    dompurify "^2.2.0"
+    dompurify "^2.0.12"
     html2canvas "^1.0.0-rc.5"
 
 jsprim@^1.2.2:

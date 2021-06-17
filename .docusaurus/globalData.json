@@ -11,6 +11,16 @@
           "mainDocId": "welcome/modules",
           "docs": [
             {
+              "id": "baker/cli-baker",
+              "path": "/baker/cli-baker",
+              "sidebar": "docs"
+            },
+            {
+              "id": "baker/delegating",
+              "path": "/baker/delegating",
+              "sidebar": "docs"
+            },
+            {
               "id": "baker/exam",
               "path": "/baker/exam",
               "sidebar": "docs"
@@ -18,6 +28,11 @@
             {
               "id": "baker/introduction",
               "path": "/baker",
+              "sidebar": "docs"
+            },
+            {
+              "id": "baker/voting",
+              "path": "/baker/voting",
               "sidebar": "docs"
             },
             {
