@@ -1,0 +1,30 @@
+{
+  "unversionedId": "deploy-a-node/installation",
+  "id": "deploy-a-node/installation",
+  "isDocsHomePage": false,
+  "title": "Installation",
+  "description": "In this chapter, we will see how to install Tezos from source with Unbuntu and macOS.",
+  "source": "@site/docs/deploy-a-node/installation.md",
+  "sourceDirName": "deploy-a-node",
+  "slug": "/deploy-a-node/installation",
+  "permalink": "/deploy-a-node/installation",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/deploy-a-node/installation.md",
+  "version": "current",
+  "lastUpdatedBy": "Maxime Sallerin",
+  "lastUpdatedAt": 1623334006,
+  "formattedLastUpdatedAt": "6/10/2021",
+  "frontMatter": {
+    "id": "installation",
+    "title": "Installation",
+    "authors": "Maxime Sallerin and Thomas Zoughebi"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Introduction",
+    "permalink": "/deploy-a-node"
+  },
+  "next": {
+    "title": "Set-up a node",
+    "permalink": "/deploy-a-node/set-up-a-node"
+  }
+}

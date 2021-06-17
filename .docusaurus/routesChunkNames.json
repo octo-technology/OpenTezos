@@ -1,5 +1,5 @@
 {
-  "/-b5e": {
+  "/-466": {
     "component": "1be78505",
     "versionMetadata": "935f2afb"
   },
@@ -162,6 +162,22 @@
   "/deploy-a-node/exam-849": {
     "component": "17896441",
     "content": "c94eaf45"
+  },
+  "/deploy-a-node/installation-d1c": {
+    "component": "17896441",
+    "content": "82fd396c"
+  },
+  "/deploy-a-node/networks-d4d": {
+    "component": "17896441",
+    "content": "1594c775"
+  },
+  "/deploy-a-node/set-up-a-node-4e2": {
+    "component": "17896441",
+    "content": "6012274e"
+  },
+  "/deploy-a-node/to-go-further-596": {
+    "component": "17896441",
+    "content": "7ebc32c5"
   },
   "/explorer-9c5": {
     "component": "17896441",

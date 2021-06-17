@@ -201,8 +201,28 @@
               "sidebar": "docs"
             },
             {
+              "id": "deploy-a-node/installation",
+              "path": "/deploy-a-node/installation",
+              "sidebar": "docs"
+            },
+            {
               "id": "deploy-a-node/introduction",
               "path": "/deploy-a-node",
+              "sidebar": "docs"
+            },
+            {
+              "id": "deploy-a-node/networks",
+              "path": "/deploy-a-node/networks",
+              "sidebar": "docs"
+            },
+            {
+              "id": "deploy-a-node/set-up-a-node",
+              "path": "/deploy-a-node/set-up-a-node",
+              "sidebar": "docs"
+            },
+            {
+              "id": "deploy-a-node/to-go-further",
+              "path": "/deploy-a-node/to-go-further",
               "sidebar": "docs"
             },
             {

@@ -10,13 +10,13 @@
   "permalink": "/baking/exam",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/baking/exam.md",
   "version": "current",
-  "lastUpdatedBy": "MASA",
-  "lastUpdatedAt": 1622448948,
-  "formattedLastUpdatedAt": "5/31/2021",
+  "lastUpdatedBy": "AymericBethencourt",
+  "lastUpdatedAt": 1623413479,
+  "formattedLastUpdatedAt": "6/11/2021",
   "frontMatter": {
     "id": "exam",
     "title": "Exam",
-    "authors": "--"
+    "authors": "Maxime Sallerin"
   },
   "sidebar": "docs",
   "previous": {

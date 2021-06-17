@@ -37,7 +37,7 @@ Often contracts require complex data structures,
 which in turn require the use of well-typed storage or functions to work with. 
 LIGO offers a simple way to compose simple types into structured types.
 
-The first of those structured types is the record, 
+The first of those structured types is the _record_, 
 which aggregates types as fields and indexes them with a field name. 
 In the example below, you can see the definition of data types 
 for a ledger that keeps the balance and the number of the previous transactions of a given account.
@@ -216,7 +216,7 @@ Strings are defined using the built-in `string` type as follows:
 const a : string = "Hello Captain Rogers"
 ```
 
-## Concatenating Strings
+## Concatenating strings
 
 Strings can be concatenated using the `^` operator.
 
@@ -226,7 +226,7 @@ const greeting : string = "Hello"
 const full_greeting : string = greeting ^ " " ^ name
 ```
 
-## Slicing Strings
+## Slicing strings
 
 Strings can be sliced using a built-in function `String.sub` which takes three parameters:
 - an **offset** describing the index of the first character that will be copied. The index starts at `0n`
@@ -241,7 +241,7 @@ const family_name : string = String.sub (8n, 6n, name) //Rogers
 
 ⚠️ Notice that the offset and length of the slice are natural numbers.
 
-## Length of Strings
+## Length of strings
 
 The length of a `string` value can be found using a built-in function `String.length` as follows:
 
@@ -254,7 +254,7 @@ const length : nat = String.length (name) // length = 14
 
 LIGO functions are the basic building block of contracts. 
 Each entrypoint of a contract is a function 
-and each smart contract must have at least one function named _main_ 
+and each smart contract must have at least one _main_ function 
 that dispatches the control flow to other functions.
 
 When calling a function, 
@@ -375,7 +375,7 @@ const b : bool = False  // Also: false
 |  **>=**  | ```const gte: bool = 4 >= 3;```                |
 |  **<=**  | ```const lte: bool = 4 <= 3;```                |
 
-## Comparing Values
+## Comparing values
 
 Only values of the same type can be natively compared, 
 i.e. int, nat, string, tez, timestamp, address, etc. 
@@ -384,7 +384,7 @@ However some values of the same type are not natively comparable,
 i.e. maps, sets or lists. 
 You will have to write your own comparison functions for those values.
 
-### Comparing Strings
+### Comparing strings
 
 ```js
 const a : string = "Captain Rogers"
@@ -443,7 +443,7 @@ called components,
 can be retrieved by their index (position).
 Probably the most common tuple is the pair `(x,y)`.
 
-### Defining Tuples
+### Defining tuples
 
 To define a tuple type, use the * operator:
 
@@ -458,7 +458,7 @@ const captain_full_name : full_name = ("Roger", "Johnson")
 > const captain_full_name : (string * string) = ("Roger", "Johnson")
 > ```
 
-### Accessing Components
+### Accessing components
 
 You can access each component of a tuple by their position:
 
@@ -469,7 +469,7 @@ const captain_last_name : string = captain_full_name.1
 
 ⚠️ Tuple components are zero-indexed, that is, the first component has the index `0`.
 
-### Update Components
+### Update components
 
 You can modify a component of a tuple by assigning values as if they were a variable:
 
@@ -488,7 +488,7 @@ and the sub-list after the head is called the tail.
 
 > 💡 Lists are needed when returning operations from a smart contract's main function.
 
-### Defining Lists
+### Defining lists
 
 To define an empty list and a list with values:
 
@@ -499,7 +499,7 @@ const my_list : list (int) = list [1; 2; 2]
 
 > You can also use `nil` instead of `list []`
 
-### Adding to Lists
+### Adding to lists
 
 You can add elements to an existing list using the cons operator `#` or `cons(<value>, <list>)`:
 
@@ -529,7 +529,7 @@ sets can be empty and, if not,
 then the elements of the sets in LIGO are unique,
 but they can be repeated in a list.
 
-### Defining Sets
+### Defining sets
 
 ```js
 const empty_set : set (int) = set []
@@ -588,7 +588,7 @@ const rogers : user =
   ]
 ```
 
-### Accessing Record Fields
+### Accessing record fields
 
 You can access the contents of a given field with the `.` infix operator.
 
@@ -624,7 +624,7 @@ function change_name (const u : user) : user is
 Maps are data structures that associate a value to a key, thus creating a key-value binding. All keys have the same type and all values have the same type.
 An additional requirement is that the type of the keys must be comparable.
 
-### Defining a Map
+### Defining a map
 
 ```js
 type balances is map (string, nat)
@@ -638,7 +638,7 @@ const user_balances : balances =
     ]
 ```
 
-### Accessing Map Bindings
+### Accessing map bindings
 
 Use the postfix [] operator to read a value of the map:
 
@@ -671,7 +671,7 @@ remove "tim" from map user_balances
 
 LIGO integrates 2 kinds of loops. General `while` iterations and bounded for `loops`.
 
-## While Loops
+## While loops
 
 While loops are defined as follows:
 
@@ -715,7 +715,7 @@ function gcd (var x : nat; var y : nat) : nat is
 > however the default strategy of the baking software (that forges blocks) 
 > de facto does require it.
 
-## For Loops
+## For loops
 
 For-loops iterates, over bounded intervals and are defined as follows:
 
@@ -763,7 +763,7 @@ Sets and maps follow the same logic:
 
 # Unit, Variant & Option
 
-## Unit Type
+## Unit type
 
 The `unit` type in Michelson or LIGO is a predefined type 
 that contains only one value that carries no information. 
@@ -787,7 +787,7 @@ Here is how we define a bit as being either 1 or 0 (and nothing else):
 ```js
 type bit is One | Zero
 const closed_switch : bit = One
-const open_switch : coin = Zero
+const open_switch : bit = Zero
 ```
 
 ## Pattern Matching
@@ -1092,9 +1092,13 @@ end
 ```
 
 
+## Conclusion
 
-##TODO//Conclusion
+PascaLigo provides developers with all the necessary commands to write smart contracts. Thanks to a syntax close to other languages, it is possible for anyone to develop complex smart contracts without using the stack-based language Michelson. All the Michelson instructions have an equivalent in Ligo: comparisons, sending transactions, checking a sender address, handling amounts, calling other entrypoints...
 
+However, Michelson remains the Tezos smart contract language: Ligo compiles to Michelson code, that will be deployed onto the Blockchain.
+
+Ligo is always improving: the Ligo team releases a new version every other week. It fixes bugs and adds functionalities, but it also may induce breaking changes. You can refer to the release notes [here](https://ligolang.org/docs/next/intro/changelog/).
 
 
 

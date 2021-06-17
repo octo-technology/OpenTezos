@@ -5,17 +5,17 @@ title: Taquito
 ---
 
 Interactions with a Tezos blockchain can be done thanks to the Tezos cli. 
-However, it is not suitable to build Dapps, since it has to be integrated into applications, mostly web interfaces.
+However, it is not suitable to build Dapps, since it needs to be integrated into applications, mostly web interfaces.
 
-Fortunately, the Tezos ecosystem offers libraries in several languages, that enable developers to build such dapps.
+Fortunately, the Tezos ecosystem offers libraries in several languages, that enable developers to build efficient dapps.
 _Taquito_ is one of these libraries: it is a Typescript library developed and maintained by _ECAD Labs_.
-This library offers all the expected interactions with the blockchain: retrieving information about a Tezos network, sending a transaction, contract origination and interactions (calling an entrypoint, fetching the storage...), delegation, metadata...
+This library offers developers all the expected interactions with the blockchain: retrieving information about a Tezos network, sending a transaction, contract origination and interactions (calling an entrypoint, fetching the storage...), delegation, metadata...
 
-All the wallets ([AirGap](https://airgap.it/), [Galleon](https://cryptonomic.tech/galleon.html), [Kukai](https://wallet.kukai.app/), [Spire](https://spirewallet.com/), [Temple](https://templewallet.com/download/) ) use this library under the hood.
+All these wallets ([AirGap](https://airgap.it/), [Galleon](https://cryptonomic.tech/galleon.html), [Kukai](https://wallet.kukai.app/), [Spire](https://spirewallet.com/), [Temple](https://templewallet.com/download/) ) use this library to fonction.
 
 A full reference is available [here](https://tezostaquito.io/docs/quick_start).
 
-This chapter is an introduction to _Taquito_: through some interactions with a deployed Raffle smart contract, the basic instructions of Taquito will be explained.
+This chapter is an introduction to _Taquito_: using interactions with a deployed Raffle smart contract, the basic instructions of Taquito will be explained.
 
 # Installation
 
@@ -66,11 +66,11 @@ Let's run it with:
 $ npx ts-node main.ts
 ```
 
-It should not raise any exception. Let's start to use _Taquito_!
+It should not raise any exception. Let's start _Taquito_!
 
 # Taquito configuration
 
-First, we need to configure _Taquito_ with an RPC URL. We will use the `TezosToolkit`: it is the "facade class that surfaces all of the libraries capability and allow its configuration". When it is created, it accepts an RPC url. We will use the _SmartPy_ RPC url: [https://florencenet.smartpy.io/](https://florencenet.smartpy.io/)
+First, we need to configure _Taquito_ with an RPC URL. To do that we will use the `TezosToolkit`: it is the "facade class that surfaces all of the libraries capability and allow its configuration". When created, it accepts an RPC url. Here, we will use the _SmartPy_ RPC url: [https://florencenet.smartpy.io/](https://florencenet.smartpy.io/)
 
 
 ``` typescript
@@ -122,9 +122,9 @@ export class App {
     public async main() { }
 ```
 
-Every interaction with the Tezos network through _Taquito_  will be handled with a `Promise`.
+Every interaction with the Tezos network through _Taquito_  will be handled using a `Promise`.
 
-Let's call this method for the `tz1YWK1gDPQx9N1Jh4JnmVre7xN6xhGGM4uC` address
+Let's call this method for the address: `tz1YWK1gDPQx9N1Jh4JnmVre7xN6xhGGM4uC`
 
 ``` typescript
 // main.ts
@@ -206,13 +206,13 @@ $ npx ts-node main.ts
 
 # Interactions with an account
 
-_Taquito_ can of course sign and send transactions, but it needs a private key for that. Let's retrieve a faucet from [https://faucet.tzalpha.net/](https://faucet.tzalpha.net/) and put it in the project directory.
+_Taquito_ can of course sign and send transactions, but it needs a private key to do that. Let's retrieve a faucet from [https://faucet.tzalpha.net/](https://faucet.tzalpha.net/) and put it in the project directory.
 
 ## Activating the account from _Taquito_
 
 Every implicit address must be activated on a public network. Let's activate ours on Florencenet.
 
-First, we will need to install the `@taquito/signer` module: it is used to sign transactions.
+First, we need to install the `@taquito/signer` module, used to sign the transactions.
 
 ``` shell
 $ yarn add @taquito/signer
@@ -224,7 +224,7 @@ We will use the `InMemorySigner`: it loads a private key in memory and uses it t
 
 You can find a complete reference [here](https://tezostaquito.io/docs/inmemory_signer), and find more _signers_ [here](https://tezostaquito.io/docs/tezbridge_signer) and [here](https://tezostaquito.io/docs/ledger_signer).
 
-First, we need to set the signer of our TezosToolkit with `setSignerProvider`. The signer will load a private key from our faucet with the `fromFundraiser` method.
+First, we need to set the signer of our TezosToolkit using `setSignerProvider`. The signer will load a private key from our faucet with the `fromFundraiser` method.
 
 ``` typescript
 // src/app.ts
@@ -286,15 +286,15 @@ const COUNTER_CONTRACT = "KT1BEMULAGQ58C5NNdWQM3WYLjUtwgJ8X8aN"
 new App(RPC_URL).activateAccount();
 ```
 
-If you take a look on an explorer ([https://florence.tzstats.com/](https://florence.tzstats.com/) for instance), you will see your activated account.
+If you take a look on an explorer ([https://florence.tzstats.com/](https://florence.tzstats.com/) for instance), you will see your activated account on it.
 
 ## Sending a transaction
 
 Now that _Taquito_ is configured with an activated account, we can send transactions. Let's send some to another address.
 
-Transactions can be sent with `this.tezos.contract.transfer`. It returns a `Promise<TransactionOperation>`. A `TransactionOperation` contains the information about this transaction. It also has a `confirmation` method. This method waits for a number of confirmations (that can be passed as input). Thus, we can be notified when a transaction is confirmed.
+Transactions can be sent with `this.tezos.contract.transfer`. It returns a `Promise<TransactionOperation>`. A `TransactionOperation` contains the information about this transaction. It also has a `confirmation` method. This method will wait for several of confirmations (that can be passed as input). But, we will be notified when a transaction is confirmed.
 
-Let's create a `sendTz` method that will send some an `amount` of tz to the recipient `address`.
+Let's create a `sendTz` method that will send an `amount` of tz to the recipient `address`.
 
 ``` typescript
 // src/app.ts
@@ -354,16 +354,16 @@ We can then check the transaction on an explorer: [https://florence.tzstats.com/
 
 ## Making a contract call
 
-_Taquito_ can of course make a contract call. We will use a simple Counter contract. First, we need to know what are the available entrypoints. We can use the `getContractEntrypoints` defined in the [Contract data subsection](##contract-data).
+_Taquito_ can obviously make a contract call. We will use a simple Counter contract. First, we need to know what are the available entrypoints. We can use here the `getContractEntrypoints` defined in the [Contract data subsection](##contract-data).
 
 Let's call the `increment` entrypoint. It takes as an input an int.
 
 To do so, we need:
 1. to get the contract: `this.tezos.contract.at(contract)`. It returns a `Promise<ContractAbstraction<ContractProvider>>`
-2. get the entrypoints: The `ContractAbstraction<ContractProvider>` has a `methods` method: it contrains the entrypoints `increment` and `decrement`
+2. get the entrypoints: The `ContractAbstraction<ContractProvider>` has a `methods`: it contrains the entrypoints `increment` and `decrement`
 3. get the increment entrypoint: `methods.increment(2)`. It increments the counter by `2`
-4. send the contract call / inspect the transaction: `contract.methods.increment(i).send()` / `contract.methods.increment(i).toTransferParams()`
-5. If the transaction is sent, wait for a number of confirmations (just like for a transfer transaction)
+4. send the contract call and inspect the transaction: `contract.methods.increment(i).send()` / `contract.methods.increment(i).toTransferParams()`
+5. If the transaction is sent, wait for a number of confirmations (just like in a transfer transaction)
 
 
 ``` typescript
@@ -411,7 +411,7 @@ new App(RPC_URL).increment(INCREMENT, COUNTER_CONTRACT);
 
 ```
 
-The `send()` can take as an input an object with fields such as `amount` (which defines an amount to send with the contract call), `storageLimit`...
+The `send()` can take as an input an object with fields such as `amount` (which defines an amount to be sent with the contract call), `storageLimit`...
 
 
 ## Sending several transactions
@@ -480,7 +480,7 @@ app.increment(INCREMENT, COUNTER_CONTRACT);
 app.sendTz(RECIPIENT, AMOUNT);
 ```
 
-Here, we make a contract call and then we send some funds to an address. Let's try it:
+Here, we make a contract call, then we send some funds to an address. Let's try it:
 
 ``` shell
 $ npx ts-node main.ts 
@@ -498,7 +498,7 @@ Error: {
 opYNFzprpcnTCS2dWP9STdJJ8HUpcMGeJNcczmKnBK1SNpXQeoC
 ```
 
-The meaningful part is `Counter 334156 already used for contract tz1YWK1gDPQx9N1Jh4JnmVre7xN6xhGGM4uC`: a transaction (contract call) is already in the mempool when the transfer transaction is sent. Thus, it fails. 
+The meaningful part is `Counter 334156 already used for contract tz1YWK1gDPQx9N1Jh4JnmVre7xN6xhGGM4uC`: a transaction (contract call) was already in the mempool when the transfer transaction was sent. Thus, it failed. 
 
 However, _Taquito_ offers a `batch` method, which enables the dapp to send several transactions at the same time.
 
@@ -526,15 +526,15 @@ To do so, we will need to:
 
 ```
 
-The call to this method will give this output on _Tzstats_:
+The calling of this method will give this output on _Tzstats_:
 [https://florence.tzstats.com/opNz4g3XTd9oAAyPe4jMiEqXLQ67EfPPTZkXhhvXje8DoMg5D5u/2402084](https://florence.tzstats.com/opNz4g3XTd9oAAyPe4jMiEqXLQ67EfPPTZkXhhvXje8DoMg5D5u/2402084)
 
-Our three transfer transactions and our contract call are indeed batched together in an operation.
+Our three transfer transactions and our contract call are now indeed batched together in an operation.
 
 
 # Conclusion
 
-_Taquito_ provides developers with all the possible interactions with a Tezos network: it can read all the data from a blockchain, send transactions, originate a contract... Dapps can be built with such a tool.
+_Taquito_ facilitates the interactions of developers with the Tezos network: it can read all the data from a blockchain, send transactions, originate a contract...and Dapps can be built with this tool.
 
-However, dapps require a keys management. In our example, there was a single key to manage. In real-life dapps, each user will want to safely use a key that he owns. That is where _wallets_ come in play: those tools are built upon _Taquito_ and make dapps more user-friendly. _Taquito_ can also be used along with those wallets.
+However, dapps require the ability to manage keys. In our example, there was only a single key to manage. In real-life dapps, each user will want to safely use a key that they owns. That is where _wallets_ come in play: those tools are built upon _Taquito_ and make dapps more user-friendly and accessible. _Taquito_ can also be used along with those wallets.
 

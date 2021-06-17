@@ -4,6 +4,9 @@ title: Exam
 authors: --
 ---
 
+import ExamForm from '../../src/components/docs/ExamForm';
+import ExamCheckbox from '../../src/components/docs/ExamCheckbox';
+
 ### Question 1
 
 Which of the following Tezos blockchain actors is considered a delegate?
@@ -51,3 +54,4 @@ What are the two periods in which you can realize a "*ballot*" operation?
 - [ ] Cooldown period
 - [x] Promotion period
 - [ ] Adoption period
+

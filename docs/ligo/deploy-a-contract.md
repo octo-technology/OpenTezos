@@ -15,9 +15,6 @@ It also defines the **storage** of the smart contract (i.e. the data structure o
 ![](../../static/img/ligo/smart_contract.svg)
 <small className="figure">FIGURE 1: Smart contract</small>
 
-![](../../static/img/ligo/smart_contract.svg)
-<small className="figure">FIGURE 1: Smart contract</small>
-
 ## Storage
 
 The storage is an allocated memory space associated with a smart contract. 

@@ -6,10 +6,10 @@ title: Build a dapp - basics
 
 
 
-Now that we have a deployed contract and a ready-to-use Wallet, we can start to develop a frontend part of the dapp: it will interact
-with a deployed raffle smart contract.
+Now that we have a deployed contract and a ready-to-use Wallet, we can start to develop the frontend part of the dapp: it will interact
+with the deployed, raffle smart contract.
 
-This chapter is not a tutorial about React, nor how to build a nice UI: it shows the basics usage of the Temple Wallet for a dapp use case. Thus, it requires knowledge about [CSS](https://www.w3schools.com/css/), [React](https://reactjs.org/docs/getting-started.html) and [React Hooks](https://reactjs.org/docs/hooks-intro.html).
+This chapter is not a tutorial about React, nor how to build a nice UI: its purpose is to shows the basics usage of the Temple Wallet in a dapp use case. Thus, it requires some knowledge about [CSS](https://www.w3schools.com/css/), [React](https://reactjs.org/docs/getting-started.html) and [React Hooks](https://reactjs.org/docs/hooks-intro.html).
 
 # Project initialisation
 
@@ -20,11 +20,11 @@ $ cd my-dapp
 $ yarn start # run project
 ```
 
-We have a running React application, that displays some text. So far, it does not do anything. The first step is to integrate the Temple Wallet within our application.
+We have a running React application, that displays texts. So far, it doesn't do anything. The first step to begin is to integrate the Temple Wallet within our application.
 
 # Temple Integration
 
-The [temple-wallet/dapp](https://www.npmjs.com/package/@temple-wallet/dapp) module enables a React application to use the Temple Wallet to interact with a Tezos blockchain. This module uses the [@taquito/taquito](https://www.npmjs.com/package/@taquito/taquito) and [constate](https://www.npmjs.com/package/constate) Let's install this module:
+The [temple-wallet/dapp](https://www.npmjs.com/package/@temple-wallet/dapp) module enables a React application to use the Temple Wallet to interact with a Tezos blockchain. This module uses the [@taquito/taquito](https://www.npmjs.com/package/@taquito/taquito) and [constate](https://www.npmjs.com/package/constate). Let's install this module:
 
 ```shell
 $ yarn add @temple-wallet/dapp
@@ -46,16 +46,16 @@ $ curl https://raw.githubusercontent.com/madfish-solutions/counter-dapp/master/s
 It exports a [React context](https://reactjs.org/docs/context.html) and the necessary functions to interact with a Tezos
 network:
 
-- **DAppProvider**: React context that will contain all the below hooks
-- **useWallet**: returns a Wallet instance
+- **DAppProvider**: a react context that will contain all the below hooks
+- **useWallet**: it returns a Wallet instance
 - **useTezos**: returns a TezosToolkit, using the wallet instance
 - **useAccountPkh**: returns the current wallet account address
 - **useReady**: returns a boolean indicating if the wallet is connected to the tezos network
-- **useConnect**: react callback to change the used account
-- **useOnBlock**: react effect to retrieve the latest baked block. It subscribe to the stream of block (watching head),
+- **useConnect**: react callback to change the user account
+- **useOnBlock**: react effect to retrieve the latest baked block. It subscribe to the stream of blocks (watching head),
   thanks to the `SubscribeProvider` _Taquito_ class.
 
-These hooks will connect our React frontend to the Temple wallet extension.
+These hooks will connect our React frontend to the Temple Wallet extension.
 
 Let's modify the src/App.tsx. 
 We will remove all the HTML elements and add the `DAppProvider` context, from the `dapp/dapp.js` file.
@@ -114,7 +114,7 @@ export default App;
 Now that we have our context, we can start using the provided hooks.
 
 ## Wallet connexion 
-The first step is to connect our react app to the _Temple Wallet_.
+The first step is to connect your react app to the _Temple Wallet_.
 
 Let's create a `Page` component, that will contain all our components:
 
@@ -140,7 +140,7 @@ function App() {
 export default App;
 ```
 
-Let's add a connexion button: when it is clicked, the app connects to the _Temple Wallet_. 
+Let's add a connexion button: when clicked, the app will connects to the _Temple Wallet_. 
 We will use the `useConnect` hook from `src/dapp/dapp.js`. Let's take a look at this callback definition:
 
 ```js
@@ -166,7 +166,7 @@ const connect = React.useCallback(
     [setState, wallet],
   )
 ```
-`useConnect` expects two arguments: a Tezos network and some options. Let's define a `NETWORK` global variable into `dapp/default.ts`
+`useConnect` expects two arguments: a Tezos network and some options. Let's define a `NETWORK`'s global variable into `dapp/default.ts`
 
 ```typescript
 // src/dapp/default.ts
@@ -176,9 +176,9 @@ export const NETWORK = 'edo2net';
 
 Our smart contract is deployed on _Edonet_: the network is therefore set to `edo2net`.
 
-We can now use the `useConnect` callback. We define a `ConnexionButton` component that will execute a connexion callback when clicked.
+We can now use the `useConnect` callback. We can define a `ConnexionButton` component that will execute a connexion callback when clicked.
 The application connects the wallet to the specified `NETWORK` (_Edonet_ in our case). 
-We add the option `forcePermission: true` to force a new connexion if the button is clicked with an already authenticated user:
+We should add the option `forcePermission: true` to force a new connexion if the button is clicked with an already authenticated user:
 ```typescript jsx
 function ConnexionButton() {
   const connect = useConnect()
@@ -232,17 +232,17 @@ function App() {
 export default App;
 ```
 
-Our application contains a single button: if we push it, a pop-up appears and offers the user the possibility to connect the address of its choice.
+Our application contains a single button: if we push it, a pop-up appears and offers the user the possibility to connect to the address of its choice.
 
 ![](../../static/img/dapp/front1.png)
 
 ## Wallet information
 Our application now connects to an account, with the _Temple Wallet_. 
-However, the application does not display some crucial information: the used address and its balance.
+However, the application doesn't display some of the crucial information: the used address and its balance.
 The user needs to know which address is going to interact with the smart contract. This address must therefore hold some funds.
 
 Let's add the used address. We will use the `useAccountPkh` callback from `dapp/dapp.js`.
-The information is set when the connexion is established:
+The information is therefor set when the connexion is established:
 
 ````typescript jsx
   const connect = React.useCallback(
@@ -268,7 +268,7 @@ The information is set when the connexion is established:
 ````
 
 We will call the `useAccountPkh` hook, and reformat the address. 
-The user needs to know which address he is using but does not need to know the full address: the beginning and the end of the address will be enough.
+The user needs to know which address he's using but doesn't need to know the full address: the beginning and the end of the address will be enough.
 
 ```typescript jsx
 function ConnectionSection() {
@@ -299,16 +299,16 @@ function ConnectionSection() {
 The `accountPkhPreview` variable must of course be updated when the connected account changes.
 
 Next, we will display the balance associated with the connected account.
-We will need to interact with the Tezos network, so we will need the `useTezos` hook.
+This requires to interact with the Tezos network, so we need the `useTezos` hook.
 
 The balance is likely to change when:
 - the network changes
 - the account changes
 - a new block is baked
 
-We will write our balance update into a react callback, what will be updated if the network, connected account or the page changes.
+We will write our balance update into a react callback, which will be updated if the network, connected account or the page changes.
 
-This callback will be used in an effect (if the callback has changed).
+The callback that will be used is in effect if the callback has changed.
 It will also be used in the `useOnBlock` hook. When a new block is baked, the application will update the balance if it has changed.
 
 ```typescript jsx
@@ -380,10 +380,10 @@ function ConnectionSection() {
 
 # Displaying Storage
 
-So far, our application uses the Temple Wallet to connect to a Tezos network, with an address. It is time now to connect our React application to our Raffle smart contract and then to retrieve the contract information (entrypoints and storage)
+So far, our application uses the Temple Wallet to connect to a Tezos network, using an address. It is now time to connect our React application to our Raffle smart contract and then to retrieve the contract information (entrypoints and storage)
 
 Let's create a new component, that will display the information from the storage. First, we need to retrieve the contract. 
-We will need:
+We need:
 - the contract address
 - to connect to a Tezos network, so we will use the `useTezos` hook
 - to save the contract into the component state
@@ -441,8 +441,8 @@ type RaffleStorage = {
 
 `BigMapAbstraction` is an abstraction exported by `@taquito/taquito`: it allows the application to handle [maps and big maps](https://tezostaquito.io/typedoc/classes/_taquito_taquito.bigmapabstraction.html)
 
-Let's fetch the storage from the contract. We will put the logic of fetching the storage in a react callback: `loadStorage`. 
-The storage is likely to change if the contract object changes and if a new block is baked. So, this callback will be called from an effect and from the `useOnBlock` hook
+Let's fetch the storage from the contract. Let's put the logic of fetching the storage in a react callback: `loadStorage`. 
+The storage is likely to change if the contract's object changes and if a new block is baked. So, this callback will be called from an effect and from the `useOnBlock` hook
 
 ``` typescript jsx
 
@@ -510,29 +510,29 @@ winning_ticket_number_hash: "74657374"
 Almost all the values are fetched with `contract.storage()`, except the `sold_tickets`  big map.
 
 ## Big map handling
-_Taquito_ does not directly retrieve big maps. This comes as no surprise. Indeed big maps are meant to store a huge amount of data: retrieving the whole big map can take a long time. That is why the wallet returns a `BigMapAbstraction`. This object will be used to retrieve specific values of the big map.
+_Taquito_ does not directly retrieve big maps. This is no surprise as indeed big maps are meant to store a huge amount of data: retrieving the whole big map would take a long time. That is why the wallet returns a `BigMapAbstraction`. This object will be used to retrieve specific values of the big map.
 
-In our case, we want to display the tickets and their owner: we need to retrieve all the values. So, we need to know the keys, which means that we need to get the sold ticket ids. When this article was written, [big map keys discovery](https://github.com/ecadlabs/taquito/projects/2#card-34204687) was not yet implemented.
+In our case, we want to display the tickets and their owner: we need to retrieve all the values. So, we need to know the keys, which means that we need to get the ids of the sold ticket. When this article was written, [big map keys discovery](https://github.com/ecadlabs/taquito/projects/2#card-34204687) was not yet implemented.
 
-Usually, there are two ways of getting big map keys:
-- making an api call on an [indexer api](/explorer/tzstats-smart-contract/#api-calls). An indexer monitors a tezos network and extract and transform data so it can be easily fetched. Those indexers retrieve the contract big maps, which can be called on an API endpoint. First, you need to retrieve the big map number. You can find this number in the `BigMapAbstraction` or from an explorer. Once you have this number, you can fetch its keys (and values) with an API key (we use [tzstats](https://tzstats.com/))
+There are, usually two ways of getting keys of big maps:
+- making an api call on an [indexer api](/explorer/tzstats-smart-contract/#api-calls). An indexer monitors a tezos network and extract and transform data so that it can be easily fetched. Those indexers retrieve the contract big maps, which can be called on from an API endpoint. First, you need to retrieve the big map number. You can find this number in the `BigMapAbstraction` or from an explorer. Once you have this number, you can fetch its keys (and values) with an API key (we use [tzstats](https://tzstats.com/))
 
 ``` shell
 $ GET https://api.edo.tzstats.com/explorer/bigmap/108024/keys
 [{"key":"0","key_hash":"exprtZBwZUeYYYfUs9B9Rg2ywHezVHnCCnmF9WsDQVrs582dSK63dC","key_binary":"0"},{"key":"1","key_hash":"expru2dKqDfZG8hu4wNGkiyunvq2hdSKuVYtcKta7BWP6Q18oNxKjS","key_binary":"1"},{"key":"2","key_hash":"expruDuAZnFKqmLoisJqUGqrNzXTvw7PJM2rYk97JErM5FHCerQqgn","key_binary":"2"}]
 ```
 
-- refactoring the smart contract: a `set` can be added in the storage and hold all the big map keys.
+- When refactoring the smart contract: a `set` can be added in the storage and that will hold all the big map keys.
 
-In our raffle smart contract, we don't need this. There is a one-to-one correspondence between the tickets and the players: if there are five players, it means that exactly five tickets have been sold. Since all tickets are numbered in an ascending order, we can infer that the big map keys range from zero to four.
+In our raffle smart contract, we don't need this. As there is a clear one-to-one correspondence between the tickets and the players: if there are five players, it means that exactly five tickets have been sold. Since all tickets are numbered in an ascending order, we can infer that the big map keys range from zero to four.
 
 
 So, we will create an array of number, which ranges from `0` to `players.length`.
-Once that we have our keys, we will retrieve the mapped values.
+Once we have our keys, we will retrieve the mapped values.
 
 
 A `BigMapAbstraction` exposes two asynchronous methods: 
-- `get`: takes a big map key as input. It fetches one value.
+- `get`: takes a big map's key as input. It fetches one value.
 - `getMultipleValues`: takes a list of big map keys as input. It fetches several values at the same time.
 
 The correct way to retrieve several values is to use the `getMultipleValues` method. Putting `get` into a `for` loop to retrieve `n` values will make `n` calls: it is not effective when the big map grows.
@@ -716,7 +716,7 @@ export default App;
 
 # Launching a new raffle
 
-It is time now to add interactions with the smart contract: let's add the possibility to launch a raffle. For this, the user will have to enter the raffle pieces of information, and then call the `openRaffle` entrypoint.
+Its now time to add interactions with the smart contract: let's add the possibility to launch a raffle. For this, the user will have to enter the raffle pieces of information, and then call the `openRaffle` entrypoint.
 
 Let's create a `LaunchRaffleSection` component, that will contain a `form` to enter the raffle information, and a button to call the entrypoint.
 
@@ -797,18 +797,18 @@ function LaunchRaffleSection() {
 ## New raffle button
 
 ### web3 installation
-In this part, we will need the standard [web3 package](https://www.npmjs.com/package/web3). It is used to interact with _Ethereum_ networks. In our case, we will use the `utils.asciiToHex` function, to convert `string` into `bytes`.
+In this part, we will need the standard [web3 package](https://www.npmjs.com/package/web3). It is used to interact with _Ethereum_ networks. In our case, we will be using the `utils.asciiToHex` function, to convert `string` into `bytes`.
 
 ``` shell
 $ yarn add web3
 ```
 
 ### Implementation
-The contract call to the `openRaffle` entrypoint will use The raffle information entered by the user. First, let's add a button that will trigger this call.
+The contract calls the `openRaffle` entrypoint and will use the raffle information entered by the user. First, let's add a button that will trigger this call.
 
 Let's create a `LaunchRaffleButton` component. This component will contain the contract call logic.
 
-We will call the `openRaffle` entrypoint: it needs the four pieces of information from the form. Let's create a props type for this component:
+We will call the `openRaffle` entrypoint: it will needs the four pieces of information from the form. Let's create a props type for this component:
 
 
 
@@ -820,7 +820,7 @@ function LaunchRaffleButton({ raffleReward, raffleDescription, raffleClosingDate
 }
 ```
 
-Before making this contract call, we need to connect to the Tezos network (using the `useTezos` hook) and to get the contract (the same way as for the `RaffleInformation`) component.
+Before making this contract call, we need to connect to the Tezos network (using the `useTezos` hook) and to get the contract component (the same way we got the `RaffleInformation`).
 
 ``` typescript jsx
 type launchRaffleButtonProps = { raffleReward: number; raffleDescription: string; raffleClosingDate: Date; raffleWinningHashNumber: string };
@@ -847,7 +847,8 @@ The `ContractAbstraction` holds the callable entrypoints in `methods`.
 
 ![](../../static/img/dapp/front3.png)
 
-It returns three callbacks, matching our three entrypoints: we will use the `openRaffle` function. It expects four arguments: the order the arguments are expected can be found in `entrypoints` in the `ContractAbstraction`.
+It returns three callbacks, matching our three entrypoints: we will use the `openRaffle` function to start. 
+It will expect four arguments: the order that the arguments are expected in can be found in `entrypoints` of the `ContractAbstraction`.
 
 
 ![](../../static/img/dapp/front4.png)
@@ -858,7 +859,7 @@ The order is given by the type order:
 3. description (`option`)
 4. winning ticket hash (`bytes`)
 
-We can write our callback
+We can now write our callback
 
 ``` typescript jsx
   type launchRaffleParameters = { reward: number; description: string; closingDate: Date; winningTicketHash: string };
@@ -873,7 +874,7 @@ We can write our callback
 ```
 `web3.utils.asciiToHex(string).slice(2)` is the way to convert a string into a bytes, using the standard [web3 package](https://www.npmjs.com/package/web3).
 
-However, even though the contract arguments are correct, the execution will fail. Indeed, when a raffle is opened, the reward must be sent to the smart contract: an `amount` must be specified. It can be carried out with the `send` method, which specifies some parameters of the call:
+However, even though the contract arguments are correct, the execution will fail. Indeed, when a raffle is opened, the reward must be sent to the smart contract: and an `amount` must be specified. It can be carried out using the `send` method, which specifies some of the parameters of the call:
 ``` typescript jsx
   type launchRaffleParameters = { reward: number; description: string; closingDate: Date; winningTicketHash: string };
 
@@ -887,7 +888,7 @@ However, even though the contract arguments are correct, the execution will fail
   );
 ```
 
-The last thing is to connect this callback to a button. Our final component is:
+The last thing is to connect this callback to a button. Our final component is therefore:
 
 ``` typescript jsx
 type launchRaffleButtonProps = { raffleReward: number; raffleDescription: string; raffleClosingDate: Date; raffleWinningHashNumber: string };
@@ -1181,21 +1182,21 @@ The page should look like this:
 
 ![](../../static/img/dapp/front5.png)
 
-Let's connect our wallet by clicking on "Connect account". A Temple pop-up appears and displays the available accounts:
+Let's connect our wallet by clicking on "Connect account". A Temple pop-up should appear and displays the available accounts:
 ![](../../static/img/dapp/front6.png)
 
 The account information are loaded and displayed:
 ![](../../static/img/dapp/front7.png)
 
-Let's create a new raffle: the closing date will be the same day, and there will be no winner. Let's click on launch. A pop-up appears, summing up the contract call:
+Let's create a new raffle: the closing date will be the same day and there will be no winner. Let's click on launch. A pop-up should appear, summing up the contract call:
 ![](../../static/img/dapp/front8.png)
 
 The detailed transaction information can be found under the "Raw" section
 ![](../../static/img/dapp/front9.png)
-There is a warning message: `"Warning! Transaction is likely to fail"`. The Temple Wallet before sending the transaction can check if the Michelson code execution will succeed. In this case, the closing date is too early. Let's try to send the transaction. If we check in the console, an exception is raised.
+There is a warning message: `"Warning! Transaction is likely to fail"`. The Temple Wallet is capable, before sending the transaction, to check if the Michelson code will execute successfully. In this case, the closing date is too early. Let's try to send the transaction. If we check in the console, an exception is raised.
 ![](../../static/img/dapp/front10.png)
 
-The cause of the failure is indeed the closing date. Let's try again: the reward will be 200 tz, and the end of the raffle will be a month later:
+The cause of the failure is indeed the closing date. Let's try again: the reward is set at 200 tz and the end of the raffle is a month later:
 
 ![](../../static/img/dapp/front11.png)
 
@@ -1203,19 +1204,19 @@ The warning is gone. Instead, the fees are displayed. The transaction seems vali
 
 ![](../../static/img/dapp/front12.png)
 
-A raffle just opened. 200 tz (the reward) have been substracted from our account balance and the raffle information has been updated.
+A raffle just opened. 200 tz (the reward) has been subtracted from our account balance and the raffle information has been updated.
 
-We can try to launch a new raffle, but the transaction will fail since there is already an ongoing raffle. This is detected by the Temple Wallet.
+We can try to launch a new raffle, but the transaction will fail since a raffle is already ongoing. This is detected by the Temple Wallet.
 
 # Buying tickets
 
 ## Implementation
-Let's add the feature of buying a ticket to our application. There is no information to provide: the only thing to do is to call the entrypoint.
+Let's add the feature of buying tickets to our application. There is no information to provide: the only thing required is to call the entrypoint.
 
-Just like for the opening of a raffle, we will add a button component, that makes that contract call when it is clicked.
-We will need to interact with a contract on a tezos network, so we will use the `useTezos` hook and the `RAFFLE_ADDRESS` variable into an effect.
+Just like the opening of a raffle, we need to add a button component, that makes that contract call when clicked.
+As we will need to interact with a contract, on a tezos network, we will use the `useTezos` hook and the `RAFFLE_ADDRESS` variable as an effect.
 
-The logic of calling the `buyTicket` entrypoint will be written into a React callback. The ticket costs one XTZ.
+The logic of calling the `buyTicket` entrypoint will be written into a React callback. The ticket cost is one XTZ.
 
 Note that `buyTicket` expects `unit`. It does not mean that he should not be passed any argument: it expects a `"unit"` string
 
@@ -1522,7 +1523,7 @@ Let's test it. The button to buy a ticket has been added: it can be clicked. A T
 
 ![](../../static/img/dapp/front13.png)
 
-After a while, the UI is re-rendered: the bought ticket is displayed.
+After a while, the UI is re-rendered: bought ticket is displayed.
 ![](../../static/img/dapp/front14.png)
 
 
@@ -1533,6 +1534,4 @@ Integrating the Temple wallet into a React app can be broken down into three ste
 2. connecting the React app to the Wallet (with `useConnect`)
 3. interacting with the contract (storage or contract calls)
 
-The _Temple Wallet_ offers all the possible interactions on a Tezos network: connecting to an address and sending transactions will use the _Wallet Extension_.
-
-We have covered the basic functionalities of the _Temple dapp_ module. In the next chapter, we will improve the user experience regarding all the blockchain interactions.
+We have covered the basic functionalities of the _Temple dapp_ module. In the next chapter, we will improve the user experience for all the blockchain interactions.

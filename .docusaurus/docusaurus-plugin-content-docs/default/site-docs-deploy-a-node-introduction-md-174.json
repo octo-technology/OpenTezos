@@ -3,22 +3,21 @@
   "id": "deploy-a-node/introduction",
   "isDocsHomePage": false,
   "title": "Introduction",
-  "description": "Under construction.",
+  "description": "This module will guide you into the complete installation and setup of your own Tezos node on Ubuntu and Mac OS.",
   "source": "@site/docs/deploy-a-node/introduction.md",
   "sourceDirName": "deploy-a-node",
   "slug": "/deploy-a-node",
   "permalink": "/deploy-a-node",
   "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/deploy-a-node/introduction.md",
   "version": "current",
-  "lastUpdatedBy": "AymericBethencourt",
-  "lastUpdatedAt": 1620327772,
-  "formattedLastUpdatedAt": "5/6/2021",
+  "lastUpdatedBy": "Maxime Sallerin",
+  "lastUpdatedAt": 1623334006,
+  "formattedLastUpdatedAt": "6/10/2021",
   "frontMatter": {
     "id": "introduction",
-    "disable_pagination": true,
     "title": "Introduction",
     "slug": "/deploy-a-node",
-    "authors": "Benjamin Pilia"
+    "authors": "Maxime Sallerin and Thomas Zoughebi"
   },
   "sidebar": "docs",
   "previous": {
@@ -26,7 +25,7 @@
     "permalink": "/tezos-basics/exam"
   },
   "next": {
-    "title": "Exam",
-    "permalink": "/deploy-a-node/exam"
+    "title": "Installation",
+    "permalink": "/deploy-a-node/installation"
   }
 }

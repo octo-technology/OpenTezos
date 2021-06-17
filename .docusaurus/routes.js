@@ -4,7 +4,7 @@ import ComponentCreator from '@docusaurus/ComponentCreator';
 export default [
 {
   path: '/',
-  component: ComponentCreator('/','b5e'),
+  component: ComponentCreator('/','466'),
   
   routes: [
 {
@@ -205,6 +205,26 @@ export default [
 {
   path: '/deploy-a-node/exam',
   component: ComponentCreator('/deploy-a-node/exam','849'),
+  exact: true,
+},
+{
+  path: '/deploy-a-node/installation',
+  component: ComponentCreator('/deploy-a-node/installation','d1c'),
+  exact: true,
+},
+{
+  path: '/deploy-a-node/networks',
+  component: ComponentCreator('/deploy-a-node/networks','d4d'),
+  exact: true,
+},
+{
+  path: '/deploy-a-node/set-up-a-node',
+  component: ComponentCreator('/deploy-a-node/set-up-a-node','4e2'),
+  exact: true,
+},
+{
+  path: '/deploy-a-node/to-go-further',
+  component: ComponentCreator('/deploy-a-node/to-go-further','596'),
   exact: true,
 },
 {
