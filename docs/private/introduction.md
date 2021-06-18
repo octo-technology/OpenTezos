@@ -1,21 +1,27 @@
 ---
 id: introduction
-disable_pagination: true
 title: Introduction
 slug: /private
 authors: Maxime Sallerin
 ---
 
-import NotificationBar from '../../src/components/docs/NotificationBar';
+Tezos is a public blockchain network that includes innovative features such as on-chain governance and proof of stake. Smart contracts on Tezos are compiled to Michelson, a stack-based, functional language that lends itself to formal verification.
 
-<h1 className="p">Under construction.</h1>
+A private or permissioned chain of Tezos provides a controlled environment for development, testing, or consortium-governed networks popular in enterprise settings.
 
-<NotificationBar>
-  <p>
-    Lorem ipsum
-  </p>
-</NotificationBar>
+This module will use the scripts available on the [Github Serokell](https://github.com/serokell/private-tezos-blockchain) for the configuration and deployment of a private Tezos blockchain.
 
-### Lorem ipsum
+In order to run a private blockchain, you should do the following:
 
-Lorem ipsum
+1- Initial Configuration
+2- Genesis Block & Bootstrap-bakers
+3- VPN configuration
+4- Start and use the Blockchain
+
+Docker containers will do most of the work in setting up the environment needed for a healthy Tezos deployment.
+
+
+## References
+
+- [1] https://github.com/serokell/private-tezos-blockchain
+

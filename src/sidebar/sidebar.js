@@ -126,7 +126,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Private Blockchain',
-      items: ['private/introduction', 'private/exam'],
+      items: ['private/introduction', 'private/installation', 'private/exam'],
     },
     {
       type: 'category',
