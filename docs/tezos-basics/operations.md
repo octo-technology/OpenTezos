@@ -1,7 +1,7 @@
 ---
 id: operations
 title: Operations
-authors: Thomas Zoughebi, Aymeric Bethencourt, and Maxime Fernandez
+authors: Thomas Zoughebi, Aymeric Bethencourt and Maxime Fernandez
 ---
 
 This chapter introduces the notion of _Operations_ on Tezos. These are more commonly known as _Transactions_ on other blockchains.
@@ -78,13 +78,13 @@ Example of a transaction between two **implicit** accounts:
 }
 ```
 
-Such an operation can be sent from an implicit account (if signed using the manager's private key) or programmatically by contract code execution. When the operation is received, the amount is added to the destination contract's balance, and the destination contract's code is executed. This code can make use of the parameters passed on to it. It can read and write the contract's storage and post operations to other contracts.
+Such an operation can be sent from an implicit account (if signed using the manager's private key) or programmatically by contract code execution. When the operation is received, the amount is added to the destination's contract balance and the destination's contract code is executed. This code can make use of the parameters passed on to it. It can read and write the contract's storage and post operations to other contracts.
 
 As the example shows, there is also a _counter_ field, whose purpose is to prevent [replay attacks](https://en.wikipedia.org/wiki/Replay_attack). An operation is only valid if the contract's _counter_ is equal to the operation's _counter_. Once an operation is applied, the _counter_ increases by one, preventing the operation from being reused.
 
-The operation also includes the block hash ("*branch*" field) of a recent block that the client considers valid. If an attacker ever succeeds in forcing a long reorganization with a fork, he will be unable to include this operation making the fork obviously fake.
+The operation also includes the block hash ("*branch*" field) of a recent block that the client considers valid. If an attacker ever succeeds in forcing a long reorganization with a fork, he will be unable to include this operation, thereby making the fork obviously fake.
 
-This last line of defense is named "*TAPOS*": a statistical detection of a *Long Range Attack* (see [*Liquid Proof of Stake*](/tezos-basics/liquid-proof-of-stake#long-range-attack) chapter) based on the fraction of moving coins. This kind of system prevents long reorganizations but is inefficient with short-term double-spending.
+This last line of defence is named "*TAPOS*": a statistical detection of a *Long Range Attack* (see [*Liquid Proof of Stake*](/tezos-basics/liquid-proof-of-stake#long-range-attack) chapter) based on the fraction of moving coins. This kind of system prevents long reorganizations but is inefficient with short-term double-spending.
 
 Currently the Tezos network can process 40 TPS (operations (transactions) per second) and has an operation confirmation time of 30 minutes [[3]](/tezos-basics/operations#references). This speed may vary with future protocols. Operation confirmation time is the time it takes for an operation to be considered secure. As a comparison, _Bitcoin_ can process 7 TPS and has a confirmation time of 60 minutes (6 valid blocks).
 
@@ -111,7 +111,7 @@ The pre-validation consists of 3 steps:
    Checks whether the operation is in adequacy with the current state of the Tezos chain
 
 3. The **Post_filter** step  
-   Decides whether to add the operation to the *mempool*. If yes, broadcasts the result
+   Decides whether to add the operation to the *mempool*. If yes, it broadcasts the result
 
 If *any* of these steps triggers an error, the pre-validator doesn't add the operation to the mempool.
 
@@ -130,17 +130,17 @@ There are two different kinds:
 
 Operations in the mempool are broadcasted to peers whenever the mempool is updated. A node fetches an operation from another remote peer's advertisement using the operation's hash.
 
-A valid operation lives in the mempool until its addition to a valid block on a chain the node considers canonical. If an operation isn't added to a block during its "*`time-to-live`*" duration, it quits the mempool. As long as a transaction is in the mempool, the sender's address cannot issue another. However, it is possible to send multiple transactions at the same time in a batch.
+A valid operation lives in the mempool until its addition to a valid block on a chain the node is considered canonical. If an operation isn't added to a block during its "*`time-to-live`*" duration, it quits the mempool. As long as a transaction is in the mempool, the sender's address cannot issue another. However, it is possible to send multiple transactions at the same time in a batch.
 
 ### Baking and endorsement 
-Bakers are free to select operations from the mempool, but they usually use a minimum fee filter. After a block creation, endorsers check its validity. At the end of the allotted time, the selected baker collects endorsers' opinions, adds them to the block, and forges it.
+Bakers are free to select operations from the mempool, but they usually use a minimum fee filter. After a block creation, endorsers check its validity. At the end of the allotted time, the selected baker collects the endorsers' opinions, adds them to the block, and forges it.
 
 ### Validator
-The selected baker sends the created block to a node. Once received, the node starts the block validation by calling the *Apply_block* function. This function validates the block header by using protocol parameters and verifies all the operations.
+The selected baker sends the created block to a node. Once received, the node starts the block validation by calling the *Apply_block* function. This function validates the block header by using the protocol parameters and verifies all the operations.
 
 The block validation checks for errors such as too many operations, oversized operations, incorrect protocol versions, unauthorized validation passes, invalid fitness, unavailable protocols, errors while applying a transaction, and more [[5]](/tezos-basics/operations#references).
 
-Once a block is validated and is a candidate for the new head of the chain, it arrives the "*chain validator*" which checks if the fitness score[[6]](/tezos-basics/operations#references) of the new head is higher than the fitness score of the current one. If it is not, the block is ignored. If it is, then this block replaces the current head. The *chain validator* then calls the *pre-validator* to flush the *mempool*. Finally, the new head is advertised to the peers using the *distributed_db's Advertise module*[[7]](/tezos-basics/operations#references). Of course, this block only becomes part of the canonical chain if future bakers decide to bake on top of it.
+Once a block is validated and is a candidate for the new head of the chain, it arrives to the "*chain validator*" which checks if the fitness score[[6]](/tezos-basics/operations#references) of the new head is higher than the fitness score of the current one. If it is not, the block is ignored. If it is, then this block replaces the current head of the chain. The *chain validator* then calls the *pre-validator* to flush the *mempool*. Finally, the new head is advertised to the peers using the *distributed_db's Advertise module*[[7]](/tezos-basics/operations#references). Of course, this block only becomes part of the canonical chain if future bakers decide to bake on top of it.
 
 ## What have we learned so far?
 In this chapter, we discovered the Tezos operations and how they are validated.
