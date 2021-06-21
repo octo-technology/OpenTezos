@@ -70,7 +70,7 @@ A smart contract is a **code** stored inside the *blockchain*. It executes a set
 Strictly speaking, a Bitcoin transaction is a smart contract. The **promise** to open the *vault* from one party is fulfilled, given that the other party has the right *key* to open it. Note that *the way* this key is provided is also meaningful here. It must follow **protocols**.
 
 ## Halting problem of Turing-complete machines and Gas
-To increase the possibilities for smart contracts, more *OP_codes* had to be incorporated than inside blockchain systems. With Ethereum, adding these *OP_codes* made its low-level language _Turing-complete_. This meant that from this moment on, one could program any operation, including *jumps* and *loops*.
+To increase the possibilities for smart contracts, more *OP_codes* had to be incorporated inside blockchain systems. With Ethereum, adding these *OP_codes* made its low-level language _Turing-complete_. This meant that from this moment on, one could program any operation, including *jumps* and *loops*.
 
 A loop is a problem for Turing-complete machine, especially the ones that use a currency to function. If we can't control the halt of the machine and it starts an endless loop, we can't control the infinite spending of the currency either.
 

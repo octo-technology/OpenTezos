@@ -6,7 +6,7 @@ authors: Thomas Zoughebi, Aymeric Bethencourt, and Maxime Fernandez
 In this chapter, you will learn the Tezos smart contracts basics. Their components and the workflow to record and use them on the Tezos *blockchain*.
 
 ## General definition of a Tezos smart contract
-A smart contract is a code stored inside the *blockchain*. It executes a set of pre-defined instructions (promises). Once deployed (stored), it becomes **immutable**. A smart contract is deployed using a **transaction**, so we embed spending conditions inside it, which are **immutable**. Though for smart contracts, the key difference is a user *can trigger the execution of the code without modifying it. Therefore without moving it to another transaction or block*. It stays where it has been stored **forever**. Tezos doesn't use an [UTXO model](https://en.wikipedia.org/wiki/Unspent_transaction_output) (no "*vaults*", see *Blockchain Basics*) but a **stateful accounts** one.
+A smart contract is a code stored inside the *blockchain*. It executes a set of pre-defined instructions ([promises](/blockchain-basics/smart-contracts#definition-of-a-smart-contract)). Once deployed (stored), it becomes **immutable**. A smart contract is deployed using a **transaction**, so we embed spending conditions inside it, which are **immutable**. Though for smart contracts, the key difference is a user *can trigger the execution of the code without modifying it. Therefore without moving it to another transaction or block*. It stays where it has been stored **forever**. Tezos doesn't use an [UTXO model](https://en.wikipedia.org/wiki/Unspent_transaction_output) (no "*vaults*", see *Blockchain Basics*) but a **stateful accounts** one.
 
 Like in Ethereum, Tezos uses 2 types of accounts:
 1. Classic accounts with a primary address, simply storing tez (ꜩ) coins
@@ -38,40 +38,16 @@ The deployment of a Tezos smart contract is named "**origination**".
 
 When a smart contract is deployed, an **address** and a corresponding *persistent space* called "**storage**" are allocated to this smart contract. The smart contract address is like its *identity* and *where* it lives on the ledger. Its storage is its *usable space* inside itself. The smart contract is inside the blockchain. The storage is inside the smart contract.
 
-A smart contract deployment also defines its *entrypoints*. These are special functions used to dispatch invocations of the smart contract. Each entrypoint is in charge of triggering an instruction (see below "*Call of a Tezos smart contract*").
-
-Once deployed, anyone or *anything* can call the smart contract (e.g. other contracts) with a transaction sent to its address and entrypoints. This call triggers the execution of the set of pre-defined instructions (promises).
+Once deployed, anyone or *anything* can call the smart contract (e.g. other contracts) with an *operation* (in Tezos vocabulary, *transactions* are a sub-type of *operations*; see more about them in the [*Operations*](/tezos-basics/operations) chapter) sent to its address with arguments. This call triggers the execution of the set of pre-defined instructions (promises).
 
 The origination of a Tezos smart contract must define its:
-* **Entrypoints** (functions where it receives calls)
+* **Complex type** in the low-level *Michelson* language  
+  
 * **Storage**
 * **Set of instructions** in the low-level *Michelson* language
 
 ![](../../static/img/tezos-basics/tezos_smart_contract_content.svg)
 <small className="figure">FIGURE 1: Content of a Tezos smart contract</small>
-
-### Code of a Tezos smart contract
-The code of a smart contract is a sequence of Michelson instructions. Calls to the smart contract execute these instructions.
-
-The execution of this sequence of instructions results in a modification of the *storage* content, or storage "**state**". The sequence defines how to modify this state.
-
-You can find the full description of the Michelson language in the [Michelson module](/michelson).
-
-### Storage of a Tezos smart contract
-During the origination, the process must specify the storage **initial state**.
-If needed for operations, calling transactions' fees pay for the allocation of extra storage space.
-
-For more details, check out the ["*Fees and Rewards*"](/tezos-basics/economics-and-rewards) chapter.
-
-### Call of a Tezos smart contract
-A smart contract can be called by a classic account whose address starts with "**tz1**" or by a smart contract's account whose address begins with "**KT1**". The transaction specifies *arguments* and to which *entrypoint* they are sent.
-
-![](../../static/img/tezos-basics/invoke_smart_contract.svg)
-<small className="figure">FIGURE 2: Call of a smart contract triggering its code and modifying its storage's state</small>
-
-One can use the Command Line Interface (CLI) provided by Tezos to interact with a node and make calls. The "`tezos-client`" application allows anyone to deploy and call Tezos smart contracts.
-
-The Remote Procedure Call (RPC) also provides ways to send requests to a Tezos node via HTTP (more details in ["*CLI and RPC*"](/tezos-basics/cli-and-rpc) chapter).
 
 The CLI command "`tezos-client originate`" is used to deploy a Tezos smart contract. Arguments are the following:
 - Name of the smart contract
@@ -85,8 +61,33 @@ The CLI command "`tezos-client originate`" is used to deploy a Tezos smart contr
 
 The command returns the newly deployed contract's address (more detail in the ["*CLI and RPC*"](/tezos-basics/cli-and-rpc) chapter).
 
+### Code of a Tezos smart contract
+The code of a smart contract is a sequence of Michelson instructions. Calls to the smart contract execute these instructions.
+
+The execution of this sequence of instructions results in a modification of the *storage* content, or storage "**state**". The sequence defines how to modify this state. The instructions may also lead to other operations, including originations of other smart contracts, and of course transactions.
+
+You can find the full description of the Michelson language in the [Michelson module](/michelson).
+
+### Storage of a Tezos smart contract
+During the origination, the process must specify the storage **initial state**.
+If needed for operations, calling transactions' fees pay for the allocation of extra storage space.
+
+For more details, check out the ["*Fees and Rewards*"](/tezos-basics/economics-and-rewards) chapter.
+
+### Call of a Tezos smart contract
+A smart contract can be called by a classic account whose address starts with "**tz1**" or by a smart contract's account whose address begins with "**KT1**". The operation or transaction specifies *arguments* and to which *entrypoint* they are sent.
+
+![](../../static/img/tezos-basics/invoke_smart_contract.svg)
+<small className="figure">FIGURE 2: Call of a smart contract triggering its code and modifying its storage's state</small>
+
+One can use the Command Line Interface (CLI) provided by Tezos to interact with a node and make calls. The "`tezos-client`" application allows anyone to deploy and call Tezos smart contracts.
+
+The Remote Procedure Call (RPC) also provides ways to send requests to a Tezos node via HTTP (more details in ["*CLI and RPC*"](/tezos-basics/cli-and-rpc) chapter).
+
 ## High-level languages for Tezos smart contracts implementations
 Michelson is a low-level stack-based language. Therefore its adoption is quite limited because most developers won't take time to learn it. Many Michelson *compilers* have been developed to avoid this friction and led to many high-level languages closer to developers habits: [*SmartPy*](/smartpy) (inspired by *Python*); [*LIGO*](/ligo) (inspired by *Camel* and *Pascal*); or [*Morley*](https://serokell.io/project-morley) (framework).
+
+A smart contract deployment also defines its *entrypoints*. These are special functions used to dispatch invocations of the smart contract. Each entrypoint is in charge of triggering an instruction (see below "*Call of a Tezos smart contract*").
 
 ![](../../static/img/tezos-basics/tezos_smart_contract_deploy_invoke.svg)
 <small className="figure">FIGURE 3: Deployment and call of a Tezos smart contract with high-level languages.</small>
