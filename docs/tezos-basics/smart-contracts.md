@@ -42,17 +42,17 @@ Once deployed, anyone or *anything* can call the smart contract (e.g. other cont
 
 The origination of a Tezos smart contract must define its:
 * **Complex type** in the low-level *Michelson* language  
-  
+  List or tuple of each parameter type (see more below with high-level languages)
 * **Storage**
 * **Set of instructions** in the low-level *Michelson* language
 
 ![](../../static/img/tezos-basics/tezos_smart_contract_content.svg)
 <small className="figure">FIGURE 1: Content of a Tezos smart contract</small>
 
-The CLI command "`tezos-client originate`" is used to deploy a Tezos smart contract. Arguments are the following:
+The CLI command "`tezos-client originate`" can be used to deploy a Tezos smart contract. Arguments are the following:
 - Name of the smart contract
 - Michelson script containing: 
-    - Entrypoints
+    - Complex type
     - Storage type
     - Set of instructions
 - Initial storage value
@@ -64,7 +64,7 @@ The command returns the newly deployed contract's address (more detail in the ["
 ### Code of a Tezos smart contract
 The code of a smart contract is a sequence of Michelson instructions. Calls to the smart contract execute these instructions.
 
-The execution of this sequence of instructions results in a modification of the *storage* content, or storage "**state**". The sequence defines how to modify this state. The instructions may also lead to other operations, including originations of other smart contracts, and of course transactions.
+The execution of this sequence of instructions results in a modification of the *storage* content, or storage "**state**". The sequence defines how to modify this state. The instructions may also lead to other operations, including originations of other smart contracts, and of course, transactions.
 
 You can find the full description of the Michelson language in the [Michelson module](/michelson).
 
@@ -75,9 +75,9 @@ If needed for operations, calling transactions' fees pay for the allocation of e
 For more details, check out the ["*Fees and Rewards*"](/tezos-basics/economics-and-rewards) chapter.
 
 ### Call of a Tezos smart contract
-A smart contract can be called by a classic account whose address starts with "**tz1**" or by a smart contract's account whose address begins with "**KT1**". The operation or transaction specifies *arguments* and to which *entrypoint* they are sent.
+A smart contract can be called by a classic account whose address starts with "**tz1**" or by a smart contract's account whose address begins with "**KT1**". The operation or transaction specifies *arguments*, that are ordered types. In the below example, we increase or decrease a value in the storage:
 
-![](../../static/img/tezos-basics/invoke_smart_contract.svg)
+![](../../static/img/tezos-basics/invoke_smart_contract_wo_entrypoint.svg)
 <small className="figure">FIGURE 2: Call of a smart contract triggering its code and modifying its storage's state</small>
 
 One can use the Command Line Interface (CLI) provided by Tezos to interact with a node and make calls. The "`tezos-client`" application allows anyone to deploy and call Tezos smart contracts.
@@ -87,10 +87,13 @@ The Remote Procedure Call (RPC) also provides ways to send requests to a Tezos n
 ## High-level languages for Tezos smart contracts implementations
 Michelson is a low-level stack-based language. Therefore its adoption is quite limited because most developers won't take time to learn it. Many Michelson *compilers* have been developed to avoid this friction and led to many high-level languages closer to developers habits: [*SmartPy*](/smartpy) (inspired by *Python*); [*LIGO*](/ligo) (inspired by *Camel* and *Pascal*); or [*Morley*](https://serokell.io/project-morley) (framework).
 
-A smart contract deployment also defines its *entrypoints*. These are special functions used to dispatch invocations of the smart contract. Each entrypoint is in charge of triggering an instruction (see below "*Call of a Tezos smart contract*").
+Depending on the high-level language used, a smart contract deployment also defines its *entrypoints* using the complex type. These are special functions used to dispatch invocations of the smart contract. Each entrypoint is in charge of triggering an instruction. Below is the same example as before, abstracting the complex type:
+
+![](../../static/img/tezos-basics/invoke_smart_contract.svg)
+<small className="figure">FIGURE 3: Call of a smart contract triggering its entrypoints, code, and modifying its storage's state</small>
 
 ![](../../static/img/tezos-basics/tezos_smart_contract_deploy_invoke.svg)
-<small className="figure">FIGURE 3: Deployment and call of a Tezos smart contract with high-level languages.</small>
+<small className="figure">FIGURE 4: Deployment and call of a Tezos smart contract with high-level languages.</small>
 
 ## Smart contracts versioning
 You need to remember the code of a smart contract is **immutable**. Only evolve the storage size and state. Hence, to handle smart contracts versioning, you should keep in mind **implementations structures** allowing transfer of information **from old contracts to new contracts**.
