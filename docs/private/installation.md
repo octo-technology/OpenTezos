@@ -39,6 +39,7 @@ Otherwise, go to the next step.
 The file Dockerfile will be used to build a docker image with all the required tezos dependencies. Run the following command:
 
 ```shell
+cd private-tezos-blockchain
 docker build -t ubuntu-tezos .
 ```
 
