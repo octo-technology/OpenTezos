@@ -7,7 +7,15 @@ authors: Maxime Sallerin
 
 ## Activating the procotol and starting the blockchain
 
-Leave the second shell running as well, and open a third session. In the new shell, first get the names of the two containers that are now running via the command:
+Leave the second shell running as well
+
+Open a third session and go to your workspace 
+
+```
+cd private-blockchain
+```
+
+Get the names of the two containers that are now running via the command:
 
 ```shell
 docker ps
@@ -36,8 +44,12 @@ The exisiting bootstrap accounts should remain in the file, and will be used lat
 
 ### Copying the edited parameter files to Docker
 
+Copy the edited parameters file to the two docker filesystems:
+
+```shell
 docker cp my-parameters.json <container_name>:/parameters.json
 docker cp my-parameters.json <container_name_1>:/parameters.json
+```
 
 where:
 - `my-parameters.json` is the file you have just edited. 
@@ -49,7 +61,16 @@ The last step is to run the activation script for the running docker containers.
 
 For this step, choose the container name corresponding to the first container we created (select the one shown to have been started earliest).
 
+```shell
+docker exec <container_name> ./scripts/activate-protocol.sh \
+  -A <container_ip> -P 8732 \
+  --base-dir /base-dir --tezos-client /base-dir/tezos-client \
+  --parameters /parameters.json
+```
 
+> If you want to browse the file system inside your Docker container, you can run the command: `docker exec -it <container_name> bash`.
+
+The protocol is now activated, let's see how to use our private blockchain in the next chapter.
 
 
 

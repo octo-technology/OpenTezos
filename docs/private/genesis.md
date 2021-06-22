@@ -68,11 +68,12 @@ Secret Key: unencrypted:edsk3mXNLyaNXdFv6Qjcxmfed3eJ7kSzJwgCjSNh4KTTpwRRLPMSpY
 
 At this point, you should also see 'Too few connections (0)' being printed repeatedly on the terminal. **Leave this terminal running and open another**.
 
-## RUnning the second baker
+## Running the second baker
 
-In this second terminal, run the following command:
+In this second terminal, run the following command to generate the genesis bloc for the second docker volume:
 
 ```shell
+cd private-tezos-blockchain
 docker run -v ubuntu-tezos-volume-1:/base-dir -i \
   -t ubuntu-tezos fetch-binaries --base-chain carthagenet
 ```
