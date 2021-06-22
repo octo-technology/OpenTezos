@@ -130,7 +130,7 @@ There are two different kinds:
 
 Operations in the mempool are broadcasted to peers whenever the mempool is updated. A node fetches an operation from another remote peer's advertisement using the operation's hash.
 
-A valid operation lives in the mempool until its addition to a valid block on a chain the node is considered canonical. If an operation isn't added to a block during its "*`time-to-live`*" duration, it quits the mempool. As long as a transaction is in the mempool, the sender's address cannot issue another. However, it is possible to send multiple transactions at the same time in a batch.
+A valid operation lives in the mempool until its addition to a valid block on a chain the node consideres canonical (correct chain for the common history). If an operation isn't added to a block during its "*`time-to-live`*" duration, it quits the mempool. As long as a transaction is in the mempool, the sender's address cannot issue another. However, it is possible to send multiple transactions at the same time in a batch.
 
 ### Baking and endorsement 
 Bakers are free to select operations from the mempool, but they usually use a minimum fee filter. After a block creation, endorsers check its validity. At the end of the allotted time, the selected baker collects the endorsers' results and adds them to the block.

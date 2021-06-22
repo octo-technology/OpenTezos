@@ -69,7 +69,7 @@ The _Quorum_ is the minimum number of voters required to deliberate. At Tezos ma
 
 The _Carthage_ amendment introduced two major changes to the calculation of the Quorum:
 
-* The calculation now takes into account the **E**xponential **M**oving **A**verage (EMA) of the _Voter Turnout_. With "$t$" a period, EMA is a function of "$t$".
+* The calculation now takes into account the **E**xponential **M**oving **A**verage (EMA)[[3]](/tezos-basics/governance-on-chain#references) of the _Voter Turnout_. With "$t$" a period, EMA is a function of "$t$".
   
 * The Quorum is now bounded between 30% and 70%. To calculate the Quorum we use the following formula:
 
@@ -85,7 +85,7 @@ $$
   \text{Q}=0.4\times\text{EMA}(t)+0.3
 $$
 
-With the **V**oter **T**urnout denoted "VT", the following formula is then used to update the EMA for the next vote:
+With the **V**oter **T**urnout denoted "VT", the following formula is then used to update the EMA for the next vote [[3]](/tezos-basics/governance-on-chain#references):
 
 $$
   \text{EMA}(t+1)=0.8\times\text{EMA}(t)+0.2\times\text{VT}
@@ -111,7 +111,7 @@ At the end of the _Proposal Period_, the network counts proposal votes, and the 
 In the _Exploration Vote Period_, delegates may vote for the top-ranked proposal from the previous _Proposal Period_. Delegates get to vote either _Yea_, _Nay_ or _Pass_ on a specific submission (voting rules are explained in the previous "_Super-majority_" and "_Quorum_" sections). If the voting participation fails to achieve the _Quorum_ or the 80% _Super-Majority_, the amendment process restarts from the beginning of the _Proposal Period_ (1.).
 
 ## Phase 3: Testing Period
-If a proposal is approved in the _Exploration Vote Period_ (2.), the _Testing Period_ begins with a **testnet** fork that runs in parallel to the mainnet for 48 hours. These forks have **access rights to the standard library** but in a *sandbox*.
+If a proposal is approved in the _Exploration Vote Period_ (2.), the _Testing Period_ begins with a **testnet** fork that runs in parallel to the mainnet for 48 hours. These forks have access rights to the standard library but in a [*sandbox*](https://en.wikipedia.org/wiki/Sandbox_(software_development)) (at node level).
 
 The purpose is to verify that the migration from the old protocol to the new one works correctly. This 48-hour duration has been conservatively set to reduce the risk of the network perceiving the testnet fork as the main chain. However, 48 hours of testing is too short to determine whether a proposal is worthwhile and a safe amendment or not. A testnet matching the amendment proposal is likely to run off-chain during the remaining ~7.3 cycles of the _Testing Period_ to find security vulnerabilities. These extra cycles allow stakeholders to evaluate and discuss the amendment and gain better knowledge of its properties.
 
@@ -244,7 +244,7 @@ Proposals : {
 
 `proposals` is a non-empty list of maximum 20 protocol hashes.
 
-This operation [[3]](/tezos-basics/governance-on-chain#references) can be submitted more than once but only if the cumulative number of active proposals is less than 20. Each time a delegate duplicates a proposal, a vote is counted with the 20 vote maximum applying.
+This operation [[4]](/tezos-basics/governance-on-chain#references) can be submitted more than once but only if the cumulative number of active proposals is less than 20. Each time a delegate duplicates a proposal, a vote is counted with the 20 vote maximum applying.
 
 ### The "*Ballot*" operation
 It is only possible to submit a ballot operation during the _Exploration Vote Period_ (2.) or the _Promotion Vote Period_ (4.), and only once per period.
@@ -281,12 +281,14 @@ In the next "*History of Amendments*" chapter, we will go over a short history o
 
 [2] https://tezos.gitlab.io/007/voting.html#super-majority-and-quorum
 
-[3] https://tezos.gitlab.io/007/voting.html#operations
+[3] https://en.wikipedia.org/wiki/Moving_average#Exponential_moving_average
 
-[4] https://www.tezosagora.org
+[4] https://tezos.gitlab.io/007/voting.html#operations
 
-[5] https://www.tezosagora.org/learn
+[5] https://www.tezosagora.org
 
-[6] https://blog.octo.com/tezos-une-blockchain-auto-evolutive-partie-1-3/
+[6] https://www.tezosagora.org/learn
 
-[7] https://gitlab.com/tezos-paris-hub/tezos-on-chain-governance/-/blob/master/Documentations/Amendements_Tezos_en.pdf
+[7] https://blog.octo.com/tezos-une-blockchain-auto-evolutive-partie-1-3/
+
+[8] https://gitlab.com/tezos-paris-hub/tezos-on-chain-governance/-/blob/master/Documentations/Amendements_Tezos_en.pdf
