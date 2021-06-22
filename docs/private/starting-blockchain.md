@@ -7,9 +7,9 @@ authors: Maxime Sallerin
 
 ## Activating the procotol and starting the blockchain
 
-Leave the second shell running as well
+Leave the second shell running as well.
 
-Open a third session and go to your workspace 
+Open a third session and go to your workspace.
 
 ```
 cd private-blockchain
@@ -34,7 +34,7 @@ Two sample JSON files are provided, depending on the version of the network you 
 
 In these files, `bootstrap_accounts` has information about account public keys that have access to tokens (4M of tez in these example files). 
 
-Note that all bakers should have some tokens, thus, we need to add the public key for the baker just created into bootstrap_accounts.
+Note that all bakers should have some tokens, thus, we need to add the public key for the baker we just created into `bootstrap_accounts`.
 
 - go to the `parameters` folder
 - open the appropriate sample file
@@ -42,9 +42,7 @@ Note that all bakers should have some tokens, thus, we need to add the public ke
 
 The exisiting bootstrap accounts should remain in the file, and will be used later in this example.
 
-### Copying the edited parameter files to Docker
-
-Copy the edited parameters file to the two docker filesystems:
+#### Copying the edited parameter files to Docker
 
 ```shell
 docker cp my-parameters.json <container_name>:/parameters.json
