@@ -11,7 +11,7 @@ import ExamCheckbox from '../../src/components/docs/ExamCheckbox';
 
 ### Question 1
 
-What are the particularities of Tezos compared to historical blockchains like Bitcoin and Ethereum
+What are the particularities of Tezos compared to historical blockchains like Bitcoin and Ethereum?
 
 <ExamCheckbox name="00" isCorrect="false">XTZ is a stable coin</ExamCheckbox>
 <ExamCheckbox name="01" isCorrect="true">The protocol has self-amendment</ExamCheckbox>
@@ -21,7 +21,7 @@ What are the particularities of Tezos compared to historical blockchains like Bi
 
 ### Question 2
 
-What are the advantages of the Liquid Proof-of-Stake consensus 
+What are the advantages of the Liquid Proof-of-Stake consensus?
 
 <ExamCheckbox name="10" isCorrect="true">Low transaction fees</ExamCheckbox>
 <ExamCheckbox name="11" isCorrect="false">No more delegating</ExamCheckbox>
@@ -48,7 +48,7 @@ On which elements are transaction fees calculated?
 
 ### Question 5
 
-What kind of operations is responsible for XTZ creation?
+What kind of operations is responsible for the creation of XTZ?
 
 <ExamCheckbox name="40" isCorrect="false">Run a node</ExamCheckbox>
 <ExamCheckbox name="41" isCorrect="true">Baking</ExamCheckbox>
@@ -138,7 +138,7 @@ Which CLI command is responsible for a smart contract deployment?
 
 ### Question 14
 
-How many XTZ are created with the validation of a high-priority block from *Delphi* amendment?
+How many XTZ are created with the validation of a high-priority block since the *Delphi* amendment?
 
 <ExamCheckbox name="130" isCorrect="false">250 µꜩ</ExamCheckbox>
 <ExamCheckbox name="131" isCorrect="false">1.25000 ꜩ</ExamCheckbox>
