@@ -41,9 +41,9 @@ When a smart contract is deployed, an **address** and a corresponding *persisten
 Once deployed, anyone or *anything* can call the smart contract (e.g. other contracts) with an *operation* (in Tezos vocabulary, *transactions* are a sub-type of *operations*; see more about them in the [*Operations*](/tezos-basics/operations) chapter) sent to its address with arguments. This call triggers the execution of the set of pre-defined instructions (promises).
 
 The origination of a Tezos smart contract must define its:
-* **Complex type** in the low-level *Michelson* language  
+* A complex **Parameter Type** in the low-level *Michelson* language  
   List or tuple of each parameter type (see more below with high-level languages)
-* **Storage**
+* **Storage Type**
 * **Set of instructions** in the low-level *Michelson* language
 
 ![](../../static/img/tezos-basics/tezos_smart_contract_content.svg)
@@ -52,12 +52,12 @@ The origination of a Tezos smart contract must define its:
 The CLI command "`tezos-client originate`" can be used to deploy a Tezos smart contract. Arguments are the following:
 - Name of the smart contract
 - Michelson script containing: 
-    - Complex type
-    - Storage type
+    - Parameter Type
+    - Storage Type
     - Set of instructions
 - Initial storage value
 - Amount of tez sent to the smart contract
-- (optional) Address of a delegate
+- An optional address of a delegate
 
 The command returns the newly deployed contract's address (more detail in the ["*CLI and RPC*"](/tezos-basics/cli-and-rpc) chapter).
 
@@ -69,7 +69,7 @@ The execution of this sequence of instructions results in a modification of the 
 You can find the full description of the Michelson language in the [Michelson module](/michelson).
 
 ### Storage of a Tezos smart contract
-During the origination, the process must specify the storage **initial state**.
+During the origination, the process must specify the storage **initial state** (and type).
 If needed for operations, calling transactions' fees pay for the allocation of extra storage space.
 
 For more details, check out the ["*Fees and Rewards*"](/tezos-basics/economics-and-rewards) chapter.
@@ -87,10 +87,17 @@ The Remote Procedure Call (RPC) also provides ways to send requests to a Tezos n
 ## High-level languages for Tezos smart contracts implementations
 Michelson is a low-level stack-based language. Therefore its adoption is quite limited because most developers won't take time to learn it. Many Michelson *compilers* have been developed to avoid this friction and led to many high-level languages closer to developers habits: [*SmartPy*](/smartpy) (inspired by *Python*); [*LIGO*](/ligo) (inspired by *Camel* and *Pascal*); or [*Morley*](https://serokell.io/project-morley) (framework).
 
-Depending on the high-level language used, a smart contract deployment also defines its *entrypoints* using the complex type. These are special functions used to dispatch invocations of the smart contract. Each entrypoint is in charge of triggering an instruction. Below is the same example as before, abstracting the complex type:
+Depending on the high-level language used, a smart contract deployment also defines its *entrypoints* using the complex **Parameter Type**. These are special functions used to dispatch invocations of the smart contract. Each entrypoint is in charge of triggering an instruction. Below is the same example as before, abstracting the complex Parameter Type:
 
 ![](../../static/img/tezos-basics/invoke_smart_contract.svg)
 <small className="figure">FIGURE 3: Call of a smart contract triggering its entrypoints, code, and modifying its storage's state</small>
+
+Each type and position of a parameter in the list (or tupple) allows to define an entrypoint (a function). For instance, in our example, there are two parameters, hence two types. Both types are integers (to increase or decrease a value). Because the type is the same, its position (left, right, or index number) determines which entrypoint is correct.  
+It could be:
+- Left type: "Increment" entrypoint
+- Right type: "Decrement" entrypoint
+
+Below is another illustration of this process:
 
 ![](../../static/img/tezos-basics/tezos_smart_contract_deploy_invoke.svg)
 <small className="figure">FIGURE 4: Deployment and call of a Tezos smart contract with high-level languages.</small>
