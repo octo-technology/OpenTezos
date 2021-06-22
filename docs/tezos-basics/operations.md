@@ -1,7 +1,7 @@
 ---
 id: operations
 title: Operations
-authors: Thomas Zoughebi, Aymeric Bethencourt and Maxime Fernandez
+authors: Thomas Zoughebi, Aymeric Bethencourt, and Maxime Fernandez
 ---
 
 This chapter introduces the notion of _Operations_ on Tezos. These are more commonly known as _Transactions_ on other blockchains.
@@ -14,7 +14,7 @@ A *transfer* operation to the account's address creates the account itself.
 Only *implicit* accounts can be registered as *delegates* and participate in the *baking process*.
 
 * **Smart contracts** are also called "**originated accounts**" and are created with an **origination** operation (see the [*Smart Contracts*](/tezos-basics/smart-contracts#deployment-of-a-tezos-smart-contract) chapter). They don't have a private key and public key pair. Originated accounts' addresses start with **_KT1_**.  
-They run their Michelson code each time they receive an operation.
+They run their Michelson code each time they receive a transaction.
 
 ## Tezos operations
 An operation is a *message* sent from one address to another.
@@ -78,11 +78,11 @@ Example of a transaction between two **implicit** accounts:
 }
 ```
 
-Such an operation can be sent from an implicit account (if signed using the manager's private key) or programmatically by contract code execution. When the operation is received, the amount is added to the destination's contract balance and the destination's contract code is executed. This code can make use of the parameters passed on to it. It can read and write the contract's storage and post operations to other contracts.
+Such an operation can be sent from an implicit account (if signed using the manager's private key) or programmatically by contract code execution. When the operation is received, and if the destination's contract code execution is valid, the amount is added to the destination's contract balance. This code can make use of the arguments passed on to it. It can read and write the contract's storage or post operations to other contracts.
 
 As the example shows, there is also a _counter_ field, whose purpose is to prevent [replay attacks](https://en.wikipedia.org/wiki/Replay_attack). An operation is only valid if the contract's _counter_ is equal to the operation's _counter_. Once an operation is applied, the _counter_ increases by one, preventing the operation from being reused.
 
-The operation also includes the block hash ("*branch*" field) of a recent block that the client considers valid. If an attacker ever succeeds in forcing a long reorganization with a fork, he will be unable to include this operation, thereby making the fork obviously fake.
+The operation also includes the block hash ("*branch*" field) of a recent block that the client considers valid. If an attacker ever succeeds in forcing a long reorganization with a fork, he will be unable to include this operation, thereby making the attack detectable.
 
 This last line of defence is named "*TAPOS*": a statistical detection of a *Long Range Attack* (see [*Liquid Proof of Stake*](/tezos-basics/liquid-proof-of-stake#long-range-attack) chapter) based on the fraction of moving coins. This kind of system prevents long reorganizations but is inefficient with short-term double-spending.
 
@@ -133,7 +133,7 @@ Operations in the mempool are broadcasted to peers whenever the mempool is updat
 A valid operation lives in the mempool until its addition to a valid block on a chain the node is considered canonical. If an operation isn't added to a block during its "*`time-to-live`*" duration, it quits the mempool. As long as a transaction is in the mempool, the sender's address cannot issue another. However, it is possible to send multiple transactions at the same time in a batch.
 
 ### Baking and endorsement 
-Bakers are free to select operations from the mempool, but they usually use a minimum fee filter. After a block creation, endorsers check its validity. At the end of the allotted time, the selected baker collects the endorsers' opinions, adds them to the block, and forges it.
+Bakers are free to select operations from the mempool, but they usually use a minimum fee filter. After a block creation, endorsers check its validity. At the end of the allotted time, the selected baker collects the endorsers' results and adds them to the block.
 
 ### Validator
 The selected baker sends the created block to a node. Once received, the node starts the block validation by calling the *Apply_block* function. This function validates the block header by using the protocol parameters and verifies all the operations.
