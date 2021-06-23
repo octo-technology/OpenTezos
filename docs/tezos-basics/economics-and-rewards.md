@@ -28,7 +28,7 @@ The transaction **default** values are:
 - $\text{min(nꜩ/B)}=\text{250,000 nꜩ/B}\text{ (250 µꜩ/B)}$
 - $\text{min(nꜩ/}\text{g}_u)=\text{100 nꜩ/}\text{g}_u$ [[2]](/tezos-basics/economics-and-rewards#references)
 
-In a Tezos transaction, we can add additional information such as smart contracts deployment, smart contract call, etc. These pieces informations have a storage cost which is represented in tez per byte. Since the *Delphi* update to the protocol [[3]](/tezos-basics/economics-and-rewards#references) this minimal cost has been reduced from 1ꜩ to 0.25 ꜩ per kilobyte (250 µꜩ/B). The minimal price of creating a new account has thus been lowered from 0.257 tez to 0.06425 tez (the cost of creating an account is important to protect the system from spams and Sybil attacks [[4]](/tezos-basics/economics-and-rewards#references)).
+In a Tezos operation, we can add additional information such as smart contracts deployment, smart contract call, etc. These have a storage cost which is represented in tez per byte. Since the *Delphi* update to the protocol [[3]](/tezos-basics/economics-and-rewards#references) this minimal cost has been reduced from 1ꜩ to 0.25 ꜩ per kilobyte (250 µꜩ/B). The minimal price of creating a new account has thus been lowered from 0.257 tez to 0.06425 tez (the cost of creating an account is important to protect the system from spams and Sybil attacks [[4]](/tezos-basics/economics-and-rewards#references)).
 
 On the Tezos blockchain, gas refers to the cost necessary to perform a transaction on the network. Bakers set the price **_in_** gas based on supply and demand for computational power on the network (needed to process smart contract calls and other transactions).
 

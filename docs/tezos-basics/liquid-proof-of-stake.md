@@ -4,9 +4,9 @@ title: Liquid Proof-of-Stake
 authors: Thomas Zoughebi, Aymeric Bethencourt, and Maxime Fernandez
 ---
 
-In ["*Blockchain Basics*"](/blockchain-basics/) module, you understood the main objective of a consensus mechanism is maintaining a common history throughout the whole peer-to-peer network. There are countless consensus algorithms, and they all have pros and cons. Notably, Bitcoin's *Proof-of-Work* has two flaws:
+In ["*Blockchain Basics*"](/blockchain-basics/) module, you understood that the main objective of a consensus mechanism is maintaining a common history throughout the whole peer-to-peer network. There are countless consensus algorithms, and they all have their pros and cons. Notably, Bitcoin's *Proof-of-Work* has two major flaws:
 - Energy consumption
-- Common users excluded from mining activity
+- Common users are excluded from the mining activity
 
 In this chapter, we will go into more details about the Tezos' "**_Liquid Proof-of-Stake_**", created to lift those flaws and the ones from its predecessors "**_Proof-of-Stake_**" and "**_Delegated Proof-of-Stake_**".
 
@@ -15,9 +15,9 @@ Let's first review these latter.
 ## Proof-of-Stake (PoS) [[1]](/tezos-basics/liquid-proof-of-stake#references)[[2]](/tezos-basics/liquid-proof-of-stake#references)
 While PoW assures that each network participant has performed a certain amount of work to receive rewards, PoS requires participants to prove that they are willing to guarantee the integrity of the blockchain by sequestering a certain amount of coins.
 
-In _Proof-of-Stake_, validators replace miners. A validator gathers transactions and creates blocks. Several methods exist to select a validator, which we will review in the following paragraphs. In this consensus, they must invest their funds to have a chance to be a validator, which makes it "Sybil resilient". This mechanism represents a low energy cost alternative to _PoW_. Moreover, a 51% attack would not be profitable as a hacker bets his own money and risks losing it if detected [[3]](/tezos-basics/liquid-proof-of-stake#references). Therefore validators would not benefit from a decision against the general opinion of the network. In addition, holding 51% of the token would demand enormous amounts of liquidity, making this scenario very unlikely.
+In _Proof-of-Stake_, validators replace miners. A validator gathers transactions and creates blocks. Several methods exist to select a validator, which we will review in the following paragraphs. In this consensus mechanism, they have to lock their funds to have a chance to be a validator, which makes it "Sybil resilient". This mechanism represents a low energy cost alternative to _PoW_. Moreover, a 51% attack would not be profitable as a hacker bets his own money and risks losing it if detected [[3]](/tezos-basics/liquid-proof-of-stake#references) (see also further the [*Nothing at Stake*](/tezos-basics/liquid-proof-of-stake#nothing-at-stake) section). Therefore validators would not benefit from a decision against the general opinion of the network. In addition, holding 51% of the token would demand enormous amounts of liquidity, making this scenario very unlikely.
 
-Removing PoW isn't without consequences. With the Nakamoto consensus, PoW allows chain selection, maintains regular blocks' issuance, regulates coins' creation, and selects the miner receiving rewards. PoW probably consumes too much energy. However, this energy connects to the physical world and supports the MAD property in return (miners' investments into machines and electricity). Hence, replacing PoW leads to previous fundamental questions about building a consensus to compensate the losses.
+Removing PoW isn't without consequences. With the Nakamoto consensus, PoW allows for chain selection, maintains regular blocks' issuance, regulates coins' creation, and selects the miner receiving rewards. PoW consumes too much energy. However, this energy connects to the physical world and supports the MAD property in return (miners' investments into machines and electricity). Hence, replacing PoW leads to previous fundamental questions about building a consensus to compensate for the losses.
 
 ### BFT in DLT
 In the "Blockchain Basics" module, we talked about the *Byzantine Fault Tolerance* and how Bitcoin roughly supports 50% faulty nodes. Three fundamental elements of research let us lay the foundations for a new consensus.
@@ -59,7 +59,7 @@ If rewards chances are proportional to previous holdings, wealth naturally conce
 **In chain-based PoS**, there weren't penalties and only rewards for producing blocks. Hence, there was no incentive to choose the correct chain. In PoW, the chain with the most accumulated work naturally attracts miners. They invest their electricity and power in the most probable part of the network where the next block should appear. Not doing so would lead to implicit penalties. On the contrary, in PoS, a validator can split his stake on every chain. He has nothing to lose. There will never be consensus in this case. This also makes the "*P+$\epsilon$ attack*"[[8]](/tezos-basics/liquid-proof-of-stake#references) possible.
 
 It seems apparent that introducing penalties would instantly solve this problem. The implementations of these penalties aren't that easy.  
-The first strategy is to punish validators who **simultaneously** create a block on different chains. To detect this behavior, we need to include a *proof of misbehavior*. Creating this proof requires correctly identify validators and control the timing of blocks' issuance and penalties. Nodes have to be frequently online.  
+The first strategy is to punish validators who **simultaneously** create a block on different chains. To detect this behaviour, we need to include a *proof of misbehaviour*. Creating this proof requires correctly identify validators and control the timing of blocks' issuance and penalties. Nodes have to be frequently online.  
 The second strategy is to punish validators who create a block on the *wrong* chain as if we were in a PoW system. This strategy requires less timing control but puts validators more at risk.
 
 **In BFT PoS**, we define four criteria with two sets of rules and two properties:
@@ -71,7 +71,7 @@ The second strategy is to punish validators who create a block on the *wrong* ch
   - Accountable safety: if conflicting valid blocks are finalized, then at least $\frac{1}{3}$ of all validators must have violated some slashing condition.
   - Plausible progression: there exists a set of messages that $\frac{2}{3}$ of validators can produce and finalize some value.
 
-Even if we can produce a *proof of misbehavior* and punish a validator, there is a major problem in the *misbehavior* qualification. Indeed, in the conflicting chains scenario, there can be **false positives**. Switching from a chain to another is a medium to establish consensus. Punishing this behavior is counter-productive. There can be no equilibrium between punishments and rewards, so no convergence.
+Even if we can produce a *proof of misbehaviour* and punish a validator, there is a major problem in the *misbehaviour* qualification. Indeed, in the conflicting chains scenario, there can be **false positives**. Switching from a chain to another is a medium to establish consensus. Punishing this behaviour is counter-productive. There can be no equilibrium between punishments and rewards, so no convergence.
 
 An idea would then be to introduce harder and harder punishments as time goes by. Validators could change their mind while multiple rounds of staking take place. Though, the more they wait, the severer the sanctions.
 
