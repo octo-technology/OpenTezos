@@ -24,11 +24,11 @@ git clone git@github.com:serokell/private-tezos-blockchain.git
 
 ## Docker
 
-Docker containers will do most of the work in setting up the environment needed for a healthy Tezos deployment.
+Docker containers will do most of the work for setting up the environment needed for a healthy Tezos deployment.
 
 ### Docker installation
 
-Docker takes away repetitive, mundane configuration tasks and is used throughout the development lifecycle for fast, easy and portable application development.
+Docker takes away repetitive, mundane configuration tasks and it is used throughout the development lifecycle for fast, easy and portable application development.
 
 If you don't already have docker installed on your machine, you can download [Docker Desktop](https://www.docker.com/products/docker-desktop).
 
@@ -36,7 +36,7 @@ Otherwise, go to the next step.
 
 ### Docker Build
 
-The file Dockerfile will be used to build a docker image with all the required tezos dependencies. Run the following command:
+The Dockerfile will be used to build a docker image with all the required Tezos dependencies. Run the following command:
 
 ```shell
 cd private-tezos-blockchain

@@ -35,7 +35,7 @@ Once the protocol is activated, you can play with the new chain. For example, yo
 
 ### Importing a faucet account
 
-We will use the alias 'alice' to refer to the `bootstrap_account`s entry with these values:
+We will use the alias 'alice' to refer to the `bootstrap_account` entry with these values:
 
 ```
 Hash: tz1akcPmG1Kyz2jXpS4RvVJ8uWr7tsiT9i6A
@@ -57,7 +57,7 @@ docker exec <container_name> /base-dir/tezos-client \
   get balance for alice
 ```
 
-> The secret keys used here are unencrypted, which is unsafe in general but used to for simplicity of the examples. Consider not using them if you care about privacy (even in a private blockchain without real money).   
+> The secret keys used here are unencrypted. This is unsafe in general but useful for the simplicity of the examples. Consider not using them if you care about privacy (even in a private blockchain without real money).
 > In order to encrypt bakers and genesis secret keys, you can provide an `--encrypted` flag to `fetch-binaries.sh` and `start-baker.sh` scripts.
 
 ### Generate new account
@@ -83,7 +83,7 @@ Hash: tz1UQiBLRbiWAUfGjZNUpNWKLvQez95ZXy2K
 Public Key: edpkvRZrUoDqw7PpZ5wLHeDDjSLx9e1WJt3tGJKWUbXNt4CQz7tzFA
 ```
 
-Bob has 0 XTZ since we just created its account, you can verify it.
+Bob has 0 XTZ since we just created his account.
 
 Now, let's transfer some XTZ from alice to bob with this command:
 
@@ -105,7 +105,15 @@ docker exec <container_name> /base-dir/tezos-client \
 100 ꜩ
 ```
 
-###
+### Conclusion 
+
+In conclusion we have seen how to create a private blockchain. This by generating a genesis block and bootstrapping at least two bakers. These two bakers will validate the first blocks allowing the realization of the first transactions of the blockchain.
+
+
+
+
+
+
 
 
 

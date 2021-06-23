@@ -9,7 +9,7 @@ authors: Maxime Sallerin
 
 Leave the second shell running as well.
 
-Open a third session and go to your workspace.
+Open a third shell and go to your workspace.
 
 ```
 cd private-blockchain
@@ -34,13 +34,13 @@ Two sample JSON files are provided, depending on the version of the network you 
 
 In these files, `bootstrap_accounts` has information about account public keys that have access to tokens (4M of tez in these example files). 
 
-Note that all bakers should have some tokens, thus, we need to add the public key for the baker we just created into `bootstrap_accounts`.
+Note that all bakers should have some tokens. We need to add the public key for the baker we just created into `bootstrap_accounts`.
 
 - go to the `parameters` folder
 - open the appropriate sample file
 - add an entry in the `bootstrap_accounts` section for each of the two public key provided in the previous step.
 
-The exisiting bootstrap accounts should remain in the file, and will be used later in this example.
+The existing bootstrap accounts should remain in the file and will be used later in this example.
 
 #### Copying the edited parameter files to Docker
 
@@ -55,7 +55,7 @@ where:
 
 ### Starting the blockchain
 
-The last step is to run the activation script for the running docker containers. 
+The last step is the activation of the protocol.
 
 For this step, choose the container name corresponding to the first container we created (select the one shown to have been started earliest).
 
@@ -68,7 +68,7 @@ docker exec <container_name> ./scripts/activate-protocol.sh \
 
 > If you want to browse the file system inside your Docker container, you can run the command: `docker exec -it <container_name> bash`.
 
-The protocol is now activated, let's see how to use our private blockchain in the next chapter.
+The protocol is now activated! Let's see how to use our private blockchain in the next chapter.
 
 
 

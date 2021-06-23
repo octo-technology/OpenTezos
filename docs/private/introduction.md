@@ -11,14 +11,13 @@ A private chain of Tezos provides a controlled environment for development, test
 
 This module will use the scripts available on the [Github Serokell](https://github.com/serokell/private-tezos-blockchain) for the configuration and deployment of a private Tezos blockchain on a Testnet network.
 
-To, run a private blockchain, you should do the following:
+To run a private blockchain using those scripts, you should do the following:
 
-1- Initial Configuration
-2- Genesis Block & Bootstrap-bakers
-3- Start and use the Blockchain
+1. Set up your workspace environment
+2. Generate genesis block and bootstrap bakers
+3. Start and use the Blockchain
 
 You can also add a VPN Configuration
-
 
 ## References
 
