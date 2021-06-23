@@ -8,7 +8,12 @@ authors: Maxime Sallerin
 
 The genesis public key is the public key associated to the genesis bloc, the first bloc of your private blockchain.
 
-The **genesis block** differs from other blocks in that it has no predecessor block. Since it has no predecessor, some small parameters had to be specified for its creation.
+The **genesis block** is the first block in any blockchain-based protocol. It is the basis on which additional blocks are added to form a chain of blocks, hence the term blockchain.
+
+![](../../static/img/private/genesis_block.svg)
+<small className="figure">FIGURE 1: Genesis block</small>
+
+It differs from other blocks in that it has no predecessor block. Since it has no predecessor, some small parameters had to be specified for its creation.
 
 To fetch Tezos binaries and create a new genesis public key, run the following:
 
@@ -77,7 +82,7 @@ At this point, you should also see 'Too few connections (0)' being printed repea
 
 ## Running the second baker
 
-In this second terminal, run the following command to generate the genesis block for the second docker volume:
+In this second terminal, enter:
 
 ```shell
 cd private-tezos-blockchain
