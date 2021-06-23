@@ -18,7 +18,7 @@ class ExamForm extends React.Component {
     let errorCount = 0
 
     this.props.children.forEach((elem) => {
-      if (elem.props.mdxType === 'ExamCheckbox') {
+      if (elem.props && elem.props.mdxType === 'ExamCheckbox') {
         responseCount += 1
         if ((elem.props.isCorrect === 'true') !== !!this.state[elem.props.name]) errorCount += 1
       }
