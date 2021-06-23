@@ -132,6 +132,7 @@ module.exports = {
         'private/genesis', 
         'private/starting-blockchain', 
         'private/using-blockchain', 
+        'private/vpn',
         'private/exam'],
     },
     {
