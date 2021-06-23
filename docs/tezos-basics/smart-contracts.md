@@ -178,4 +178,4 @@ These patterns aren't magical and just allow more flexibility. You still need to
 ## What have we learned so far?
 In this chapter, we described the Tezos smart contract's main components and properties. We also described its lifecycle. We explained how to construct Tezos smart contracts using different patterns to make evolving *dapps* and handle efficient *versioning*.
 
-In the next chapter, we will detail the Tezos consensus "*Liquid Proof-of-Stake*".
+In the next chapter, we will detail the Tezos consensus mechanism "*Liquid Proof-of-Stake*".
