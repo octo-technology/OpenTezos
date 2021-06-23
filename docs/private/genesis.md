@@ -33,9 +33,12 @@ docker run -v ubuntu-tezos-volume:/base-dir -i -t ubuntu-tezos fetch-binaries \
 
 ## Running the first baker
 
+Baking is the act of signing and publishing blocks to the Tezos blockchain. Therefore bakers are the people participating in the consensus by **creating** new blocks.
+Check out the [Baking](/baking) module to know more about the subject.
+
 The script `start-baker.sh` will do the following tasks:
 1. generate a [node identity](/deploy-a-node/set-up-a-node#node-identity)
-2. create a [baker](/baking) account
+2. create a baker account
 3. start the bootstrap-node baker to bake the chain
 
 This example will walk you through running two bakers, each running in its own Docker container. To run the first, enter the following:
