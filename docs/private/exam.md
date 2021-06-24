@@ -11,28 +11,47 @@ import ExamCheckbox from '../../src/components/docs/ExamCheckbox';
 
 ### Question 1
 
-What notions are defined inside the smart contract ?
+What is a private blockchain?
 
-<ExamCheckbox name="01" isCorrect="true">The type definition of the storage</ExamCheckbox>
-<ExamCheckbox name="02" isCorrect="false">The balance of the contract</ExamCheckbox>
-<ExamCheckbox name="03" isCorrect="false">The initial value of the storage</ExamCheckbox>
-<ExamCheckbox name="04" isCorrect="false">The value of the entrypoint and its related parameters</ExamCheckbox>
-<ExamCheckbox name="05" isCorrect="true">The type definition of the entrypoint</ExamCheckbox>
-<ExamCheckbox name="06" isCorrect="false">The size of the storage</ExamCheckbox>
-<ExamCheckbox name="07" isCorrect="true">The code of the smart contract</ExamCheckbox>
-<ExamCheckbox name="08" isCorrect="false">The list of users allowed to call the smart contract</ExamCheckbox>
+<ExamCheckbox name="01" isCorrect="false">A test blockchain for developers.</ExamCheckbox>
+<ExamCheckbox name="02" isCorrect="true">An invitation-only blockchain governed by a single entity.</ExamCheckbox>
+<ExamCheckbox name="03" isCorrect="false">A blockchain where everyone has access to the network and can take part in consensus.</ExamCheckbox>
 
 ### Question 2
 
-What is returned by the execution of a smart contract ?
+What is a true about private blockchains?
 
-<ExamCheckbox name="10" isCorrect="false">The current storage state when invoking the smart contract</ExamCheckbox>
-<ExamCheckbox name="11" isCorrect="true">The modified storage state after invoking the smart contract</ExamCheckbox>
-<ExamCheckbox name="12" isCorrect="false">The entrypoint that has been called (and its related parameters)</ExamCheckbox>
-<ExamCheckbox name="13" isCorrect="true">The list of emitted operations produced by the execution of the smart contract</ExamCheckbox>
-<ExamCheckbox name="14" isCorrect="false">The balance of the contract</ExamCheckbox>
-<ExamCheckbox name="15" isCorrect="false">The size of the storage</ExamCheckbox>
-<ExamCheckbox name="16" isCorrect="false">The code of the smart contract</ExamCheckbox>
-<ExamCheckbox name="17" isCorrect="false">The list of users allowed to call the smart contract</ExamCheckbox>
+<ExamCheckbox name="03" isCorrect="true">Transaction speed is faster than public blockchain</ExamCheckbox>
+<ExamCheckbox name="01" isCorrect="false">Private blockchains are fully immutable.</ExamCheckbox>
+<ExamCheckbox name="01" isCorrect="true">Private blockchains are partially decentralized.</ExamCheckbox>
+<ExamCheckbox name="03" isCorrect="false">Anyone has access to the network.</ExamCheckbox>
+
+
+### Question 3
+
+What is a genesis block?
+
+<ExamCheckbox name="01" isCorrect="false">The first block of a private blockchain.</ExamCheckbox>
+<ExamCheckbox name="03" isCorrect="false">A block that can be modified at any moment.</ExamCheckbox>
+<ExamCheckbox name="01" isCorrect="true">The first block of any blockchain-based protocol.</ExamCheckbox>
+<ExamCheckbox name="03" isCorrect="false">The last block of a private blockchain.</ExamCheckbox>
+
+### Question 4
+
+What is baking?
+
+<ExamCheckbox name="10" isCorrect="false">It is the act of delegating XTZ to earn passive interest.</ExamCheckbox>
+<ExamCheckbox name="11" isCorrect="true">It is the act of signing and publishing blocks to the Tezos blockchain.</ExamCheckbox>
+<ExamCheckbox name="12" isCorrect="false">It is the act of monitoring transaction of the Tezos blockchain.</ExamCheckbox>
+<ExamCheckbox name="13" isCorrect="true">It is a food cooking method using prolonged dry heat acting by convection, normally in an oven, but also in hot ashes, or on hot stones.</ExamCheckbox>
+
+### Question 5
+
+What binary should you use to transfer XTZ from one account to another?
+
+<ExamCheckbox name="10" isCorrect="false">tezos-node</ExamCheckbox>
+<ExamCheckbox name="11" isCorrect="true">tezos-client</ExamCheckbox>
+<ExamCheckbox name="12" isCorrect="false">tezos-baker</ExamCheckbox>
+<ExamCheckbox name="13" isCorrect="false">tezos-endorser</ExamCheckbox>
 
 </ExamForm>

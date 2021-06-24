@@ -126,7 +126,14 @@ module.exports = {
     {
       type: 'category',
       label: 'Private Blockchain',
-      items: ['private/introduction', 'private/exam'],
+      items: [
+        'private/introduction', 
+        'private/installation', 
+        'private/genesis', 
+        'private/starting-blockchain', 
+        'private/using-blockchain', 
+        'private/vpn',
+        'private/exam'],
     },
     {
       type: 'category',
