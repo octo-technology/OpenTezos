@@ -121,6 +121,16 @@ Any attempt to fraud is therefore punished.
 
 > Cryptocurrency tokens or coins are _burned_ when they are permanently removed from the circulating supply on purpose.
 
+## In summary
+
+- At each [cycle](/baking/baking_explained#cycle), a "baker" is chosen as "creator" and 32 other "bakers" are chosen as "endorsers". The endorsers are thus bakers who will validate the block of the other bakers. The bakers are elected [pseudo randomly](/baking/baking_explained#roll-selection) in proportion to the quantity of XTZ that they possess.
+   > By abuse of language we often designate by "bakers": "the bakers and the endorsers". Because in practice they are the same entities which carry out the operations of creation and validation of blocks. Of course a baker cannot be also an endorser for the same block. Otherwise, he could validate his own block. However, when he is not elected baker for a cycle, he can validate the blocks of other bakers.
+- To create a block, the baker/endorser must freeze a part of his tokens, at least 8000 XTZ, which will be made available to him only 5 cycles later(14 days).
+- A baker is a delegate and the one who delegates his XTZ is a delegator. Note that a baker does not necessarily need delegators to operate, he can play solo, but he will be less likely to be selected to create the block, because he will have less funds at his disposal.
+- Several bakers are candidates with a [priority list](/baking/baking_explained#rolls). The one with the highest priority will try to create a block. If he fails to do so within the time limit, the hand will pass to the next baker. And so on.
+- The first baker who manages to create the block will be able to add it to the blockchain. He will receive a certain number of XTZ as a [reward](/baking/reward). In exchange, bakers share the additional revenue generated from the delegated tokens with the delegators, in proportion to their participation.
+- The accusers monitor the process and punish the cheaters.
+
 ## Conclusion
 
 The Tezos consensus protocol uses the Liquid Proof of Stake algorithm. Delegates (people who have at least 8,000 ꜩ of delegated funds) are given the responsibility of creating and endorsing blocks. They are rewarded for their action. They are also required to stake some of their capital to ensure honest behavior.
