@@ -9,6 +9,9 @@ Tezos is a public blockchain network that includes innovative features such as o
 
 A private blockchain is an invitation-only blockchain. The blockchain is governed by a single entity. The participating parties require permission to read, write, or audit the blockchain.
 
+![](../../static/img/private/public_vs_private.svg)
+<small className="figure">FIGURE 1: Public vs Private</small>
+
 A private chain of Tezos provides a controlled environment for development, testing, or consortium-governed networks popular in enterprise settings.
 
 This module will use the scripts available on the [Github Serokell](https://github.com/serokell/private-tezos-blockchain) for the configuration and deployment of a private Tezos blockchain on a Testnet network.

@@ -19,21 +19,22 @@ What is a private blockchain?
 
 ### Question 2
 
+What is a true about private blockchains?
+
+<ExamCheckbox name="03" isCorrect="true">Transaction speed is faster than public blockchain</ExamCheckbox>
+<ExamCheckbox name="01" isCorrect="false">Private blockchains are fully immutable.</ExamCheckbox>
+<ExamCheckbox name="01" isCorrect="true">Private blockchains are partially decentralized.</ExamCheckbox>
+<ExamCheckbox name="03" isCorrect="false">Anyone has access to the network.</ExamCheckbox>
+
+
+### Question 3
+
 What is a genesis block?
 
 <ExamCheckbox name="01" isCorrect="false">The first block of a private blockchain.</ExamCheckbox>
 <ExamCheckbox name="03" isCorrect="false">A block that can be modified at any moment.</ExamCheckbox>
 <ExamCheckbox name="01" isCorrect="true">The first block of any blockchain-based protocol.</ExamCheckbox>
 <ExamCheckbox name="03" isCorrect="false">The last block of a private blockchain.</ExamCheckbox>
-
-### Question 3
-
-What is baking?
-
-<ExamCheckbox name="10" isCorrect="false">It is the act of delegating XTZ to earn passive interest.</ExamCheckbox>
-<ExamCheckbox name="11" isCorrect="true">It is the act of signing and publishing blocks to the Tezos blockchain.</ExamCheckbox>
-<ExamCheckbox name="12" isCorrect="false">It is the act of monitoring transaction of the Tezos blockchain.</ExamCheckbox>
-<ExamCheckbox name="13" isCorrect="true">It is a food cooking method using prolonged dry heat acting by convection, normally in an oven, but also in hot ashes, or on hot stones.</ExamCheckbox>
 
 ### Question 4
 
@@ -43,5 +44,14 @@ What is baking?
 <ExamCheckbox name="11" isCorrect="true">It is the act of signing and publishing blocks to the Tezos blockchain.</ExamCheckbox>
 <ExamCheckbox name="12" isCorrect="false">It is the act of monitoring transaction of the Tezos blockchain.</ExamCheckbox>
 <ExamCheckbox name="13" isCorrect="true">It is a food cooking method using prolonged dry heat acting by convection, normally in an oven, but also in hot ashes, or on hot stones.</ExamCheckbox>
+
+### Question 5
+
+What binary should you use to transfer XTZ from one account to another?
+
+<ExamCheckbox name="10" isCorrect="false">tezos-node</ExamCheckbox>
+<ExamCheckbox name="11" isCorrect="true">tezos-client</ExamCheckbox>
+<ExamCheckbox name="12" isCorrect="false">tezos-baker</ExamCheckbox>
+<ExamCheckbox name="13" isCorrect="false">tezos-endorser</ExamCheckbox>
 
 </ExamForm>
