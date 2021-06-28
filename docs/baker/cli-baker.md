@@ -73,6 +73,8 @@ Once registered, you need to wait for **7** cycles ($\approx$ 20 days) for your 
 
 The baker is a *daemon* that, once connected to an account, computes the baking rights for that account, collects transactions from the mempool, and bakes a block. Note that the baker is the only program that needs *direct access* to the node data directory for performance reasons.
 
+> The mempool is made of all transactions that have been submitted for inclusion in the chain but have not yet been included in a block by a baker.
+
 Let’s launch the daemon pointing to the standard node directory and baking for the user *bob*.
 
 There are different command lines depending on the *network* on which your node is configured:
@@ -134,7 +136,7 @@ cd tezos
 export PATH=~/tezos:$PATH
 ```
 
-Or, if you prefer, put `./` before each following command line.
+Or, if you prefer, put `./` before each following `tezos-` command line.
 
 ### Download a snapshot for your target network
 
