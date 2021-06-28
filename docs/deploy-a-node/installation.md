@@ -20,7 +20,6 @@ Type your password when prompted.
 ### Install Rust
 
 Compiling Tezos requires the Rust compiler and the Cargo package manager to be installed.
-//TODO On se retrouve avec les scripts dans Home, peut-être pour faire plus propre on pourrait créer un répertoire dédié ?
 
 ```shell
 cd $HOME

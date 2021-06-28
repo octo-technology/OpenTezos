@@ -8,11 +8,27 @@ In this chapter, we will see how to create and deploy your own node.
 
 ### PATH Setup
 
-Note that at the opening of each new terminal, you should set up the PATH. Otherwise, just add `./` at the beginning of each command in this chapter.
+Note that at the opening of each new terminal, you should set up the PATH. Otherwise, just add `./` at the beginning of each `tezos-` command in this chapter.
 
 ```shell
 export PATH=~/tezos:$PATH
 ```
+
+### Node initial configuration (optional)
+
+It is possible to define the directory where the data will be stored with `--data-dir` (by default, in .tezos-node)
+
+By default, the network is Mainnet but, you can specify the network with the `--network` option.
+
+For example, the following command configurse the node for the Florencenet Network and stores data in a specified directory:
+
+```shell
+tezos-node config init --data-dir ~/tezos-florencenet --network florencenet`.
+```
+
+More about Networks in the [Networks chapter](/deploy-a-node/networks).
+
+If you want to know more about possible alternative node configurations, check out [Node Configuration](https://tezos.gitlab.io/user/node-configuration.html)
 
 ### Node identity
 
@@ -23,16 +39,11 @@ cd tezos
 tezos-node identity generate
 ```
 
-The identity comprises a pair of cryptographic keys that nodes use to encrypt messages sent to each other.
-
-It will take some time to generate the keys. An `identity.json` file will then be generated in the `~/.tezos-node` directory. It will contain our public and private keys. Keep it safe and secure!
-
-It is possible to define the directory where the data will be stored with `--data-dir` (by default, in .tezos-node)
-
-By default, the network is Mainnet but, you can specify the network with the `--network` option in the following command for Florencenet Network (for example): `tezos-node config init --data-dir ~/tezos-florencenet --network florencenet`.
-More about Networks in the [next chapter](/deploy-a-node/networks).
+The identity comprises a pair of cryptographic keys that nodes use to encrypt messages sent to each other. 
 
 > Note that this is merely a network identity. It is not related in any way to a Tezos address on the blockchain.
+
+It will take some time to generate the keys. An `identity.json` file will then be generated in the `~/.tezos-node` (by default) directory. It will contain our public and private keys. Keep it safe and secure!
 
 ### Node synchronisation
 
@@ -93,10 +104,6 @@ When you see the message `Node is Bootstrapped`, your Tezos node is synced with 
 Congratulations on setting up a node!
 
 > Be careful closing terminal windows because **this stops the node**.
-
-## Node configuration
-
-If you want to know more about possible alternative node configurations, check out [Node Configuration](https://tezos.gitlab.io/user/node-configuration.html)
 
 ## Conclusion
 
