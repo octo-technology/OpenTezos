@@ -36,9 +36,22 @@ In these files, `bootstrap_accounts` has information about account public keys t
 
 Note that all bakers should have some tokens. We need to add the public key for the baker we just created into `bootstrap_accounts`.
 
-- go to the `parameters` folder
-- open the appropriate sample file
-- add an entry in the `bootstrap_accounts` section for each of the two public key provided in the previous step.
+1. go to the `parameters` folder
+2. open the appropriate sample file
+3. add an entry in the `bootstrap_accounts` section for each of the two public key provided in the previous step.
+
+e.g. paste entries like this into the `bootstrap_accounts` section:
+
+```shell
+[
+  "edpkvRTXYRCxCbWs4GF1shMxCab9nF3iNimPqqb2esiP5WyjAhT1dz",
+  "4000000000000"
+],
+[
+  "edpkum3W1vGfsF19uNNnjdThGvbTBXbBcKyCmEAuV5TPfensRxYyqA",
+  "4000000000000"
+],
+```
 
 The existing bootstrap accounts should remain in the file and will be used later in this example.
 
