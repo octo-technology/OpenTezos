@@ -292,7 +292,7 @@ If you take a look on an explorer ([https://florence.tzstats.com/](https://flore
 
 Now that _Taquito_ is configured with an activated account, we can send transactions. Let's send some to another address.
 
-Transactions can be sent with `this.tezos.contract.transfer`. It returns a `Promise<TransactionOperation>`. A `TransactionOperation` contains the information about this transaction. It also has a `confirmation` method. This method will wait for several of confirmations (that can be passed as input). But, we will be notified when a transaction is confirmed.
+Transactions can be sent with `this.tezos.contract.transfer`. It returns a `Promise<TransactionOperation>`. A `TransactionOperation` contains the information about this transaction. It also has a `confirmation` method. This method will wait for several confirmations (that can be passed as input). But, we will be notified when a transaction is confirmed.
 
 Let's create a `sendTz` method that will send an `amount` of tz to the recipient `address`.
 
@@ -354,13 +354,13 @@ We can then check the transaction on an explorer: [https://florence.tzstats.com/
 
 ## Making a contract call
 
-_Taquito_ can obviously make a contract call. We will use a simple Counter contract. First, we need to know what are the available entrypoints. We can use here the `getContractEntrypoints` defined in the [Contract data subsection](##contract-data).
+_Taquito_ can make contract calls. We will use a simple Counter contract. First, we need to know what are the available entrypoints. We can use the `getContractEntrypoints` defined in the [Contract data subsection](##contract-data).
 
-Let's call the `increment` entrypoint. It takes as an input an int.
+Let's call the `increment` entrypoint. It takes an int as an input.
 
 To do so, we need:
 1. to get the contract: `this.tezos.contract.at(contract)`. It returns a `Promise<ContractAbstraction<ContractProvider>>`
-2. get the entrypoints: The `ContractAbstraction<ContractProvider>` has a `methods`: it contrains the entrypoints `increment` and `decrement`
+2. get the entrypoints: The `ContractAbstraction<ContractProvider>` has a `methods` property: it contrains the entrypoints `increment` and `decrement`
 3. get the increment entrypoint: `methods.increment(2)`. It increments the counter by `2`
 4. send the contract call and inspect the transaction: `contract.methods.increment(i).send()` / `contract.methods.increment(i).toTransferParams()`
 5. If the transaction is sent, wait for a number of confirmations (just like in a transfer transaction)
@@ -411,7 +411,7 @@ new App(RPC_URL).increment(INCREMENT, COUNTER_CONTRACT);
 
 ```
 
-The `send()` can take as an input an object with fields such as `amount` (which defines an amount to be sent with the contract call), `storageLimit`...
+The `send()` function can take  an object with fields as an input, such as `amount` (which defines an amount to be sent with the contract call), `storageLimit`...
 
 
 ## Sending several transactions
@@ -463,7 +463,7 @@ export class App {
 }
 ```
 
-In a dapp, we might be facing a use-case where we need to send several transactions at the same time (contract calls, originations or transfer transactions). The easiest would be to make those calls one after the other:
+In a dapp, we might be facing a use-case where we need to send several transactions at the same time (contract calls, originations or transfer transactions). One could be tempted to make those calls one after the other:
 
 ``` typescript
 import { App } from './src/app';
@@ -480,7 +480,7 @@ app.increment(INCREMENT, COUNTER_CONTRACT);
 app.sendTz(RECIPIENT, AMOUNT);
 ```
 
-Here, we make a contract call, then we send some funds to an address. Let's try it:
+Here, we make a contract call then we send some funds to an address. Let's try it:
 
 ``` shell
 $ npx ts-node main.ts 
@@ -498,7 +498,8 @@ Error: {
 opYNFzprpcnTCS2dWP9STdJJ8HUpcMGeJNcczmKnBK1SNpXQeoC
 ```
 
-The meaningful part is `Counter 334156 already used for contract tz1YWK1gDPQx9N1Jh4JnmVre7xN6xhGGM4uC`: a transaction (contract call) was already in the mempool when the transfer transaction was sent. Thus, it failed. 
+The meaningful part is `Counter 334156 already used for contract tz1YWK1gDPQx9N1Jh4JnmVre7xN6xhGGM4uC`.
+Each transaction in our app is performed asynchronously: the application made the contract call to the `increment` entrypoint, did not wait for the confirmation and then made a transfer transaction. The contract call transaction was still in the mempool when the transfer transaction was sent. Thus, it failed. 
 
 However, _Taquito_ offers a `batch` method, which enables the dapp to send several transactions at the same time.
 

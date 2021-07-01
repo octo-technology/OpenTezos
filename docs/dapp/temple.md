@@ -17,7 +17,7 @@ They provide developers with a library that can be used in their dapp to connect
 In this chapter, we'll introduce you to the Temple Wallet, developed and maintained by _Madfish solutions_.
 This first part is a tutorial about how to install and use a Temple Wallet.
 
-# Installation
+## Installation
 
 The Temple wallet plugin can be downloaded from here:
 
@@ -35,7 +35,7 @@ You'll get to the main page:
 
 You should end up with an account that is activated but not funded.
 
-# Faucet import
+## Faucet import
 
 Let's import a faucet for the Florence network.
 First, download a faucet json from [https://faucet.tzalpha.net/](https://faucet.tzalpha.net/)
@@ -50,7 +50,7 @@ Once the activation is confirmed, you will automatically be redirected to the Te
 ![](../../static/img/dapp/temple2.png "Temple main page")
 
 
-# Send a transaction
+## Send a transaction
 
 Now that we have an account with some funds from the faucet, let's send some of them to our first account.
 Click on "Send".
@@ -98,6 +98,6 @@ All the transaction information can be found under the "Raw" tab:
 Once the transaction is confirmed, you can switch to your first account (by clicking on the top-right thumbnail) and observe that your account balance has indeed increased to 100 XTZ
 
 
-# Conclusion
+## Conclusion
 Temple Wallet is a user-friendly wallet for Tezos. Within a few clicks, a transaction can be sent to any address.
 Another benefit of using a wallet is the possibility of interacting with Dapps, this will be detailed in the next chapter.

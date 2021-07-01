@@ -10,12 +10,13 @@ The first step to creating a Dapp is to deploy a smart contract onto a Tezos net
 
 However, during development, the smart contracts and the associated storage are likely to change: new field, field removal, structure change. For each change, a new deployment must be done. 
 
-Thus, the way that the contract is deployed will change accordingly, especially the initial storage. A minimal change in the storage definition can make the next deployment extremely tiresome when using Tezos cli.
+Thus, the way that the contract is deployed will change accordingly, especially the initial storage. A minimal change in the storage definition can make the next deployment extremely tiresome when using Tezos cli. 
 
-*Truffle* solves this difficulty. This tool uses scripts to perform smart contract deployments: thanks to a cli and a few configuration files, they are easier
-and faster.
+Besides, there are situations where you need to deploy several smart contracts that will interact with one another. The deployment of a smart contract depends on the deployment of a previous one: its address. Instead of deploying one after the other the smart contracts and retrieveing their address, it should be possible to have an automated script that perform these actions. 
 
-In this chapter, we will deploy the Raffle smart contract, written in LIGO, onto a testnet, with the use of _Truffle_.
+*Truffle*, developped and maintained by _ConsenSys Software Inc_, solves these difficulties. This tool uses scripts to perform smart contract deployments: thanks to a cli and a few configuration files, they are easier and faster.
+
+In this chapter, we will deploy the Raffle smart contract, as developped in the [LIGO chapter](/docs/ligo/write-contracts-ligo.md), onto a testnet, with the use of _Truffle_.
 
 # About The *Truffle* Suite
 
@@ -37,8 +38,7 @@ The *Truffle* Suite is not available for all blockchains. It supports:
 
 Only *Truffle* and *Ganache* (still in beta) are available for Tezos.
 
-*Truffle* takes Ligo files, compiles them and deploys them on any Tezos network with a single command. It
-does not support Smartpy scripts nor Morlaix scripts.
+*Truffle* takes Ligo files, compiles them and deploys them on any Tezos network with a single command. It does not support Smartpy scripts nor Morlaix scripts.
 
 # *Truffle* Installation
 
@@ -52,6 +52,7 @@ Open a terminal and run:
 
 *Truffle* will be installed globally (-g option).
 
+For the installation official documentation, refer to [https://www.trufflesuite.com/docs/tezos/truffle/quickstart#installing-truffle](https://www.trufflesuite.com/docs/tezos/truffle/quickstart#installing-truffle)
 # Setting-up a *Truffle* project
 
 As described below, *Truffle* is working with configuration files and scripts, which must be located in specific repositories. 
@@ -76,10 +77,10 @@ $ truffle init
 
 A *Truffle* box is a project already set up, easily and quickly adjustable to the specific needs of a project.
 They can be launched instantly and modified with little work. *Truffle* provides users with a global boxes repository:
-[https://www.trufflesuite.com/boxes]
+(https://www.trufflesuite.com/boxes)[https://www.trufflesuite.com/boxes]
 
 A Tezos box is available here:
-[https://www.trufflesuite.com/boxes/tezos-example]
+(https://www.trufflesuite.com/boxes/tezos-example)[https://www.trufflesuite.com/boxes/tezos-example]
 
 The `tezos-example` box is useful for the deployment of a decentralized application (dapp).
 
@@ -131,7 +132,7 @@ compile   Compile contract source files
 init      Initialize new and empty project
 migrate   Run migrations to deploy contracts
 networks  Show addresses for deployed contracts on each network
-test      Run JavaScript and Solidity tests
+test      Run JavaScript tests
 ```
 
 ## Compiling smart contracts with *Truffle*
@@ -154,7 +155,7 @@ Output: *Truffle* artifacts, stored into the build/contracts directory.
 
 ### About ligo smart contracts
 
-*Truffle* can compile LIGO smart contracts (PascaLigo, Cameligo, ReasonLigo). But they MUST be stored in the *contract* folder.
+*Truffle* can compile LIGO smart contracts, using the installed LIGO compiler. But they MUST be stored in the *contract* folder.
 *Truffle* considers each ligo file as an independent smart contract. Thus, if a smart contract is split into several ligo files, *Truffle* will try to compile each file as a separate smart contract, resulting in a failed compilation. But there is a workaround for this behaviour:
 
 1. Create a new folder in the project root directory, called `src` for instance.
@@ -220,7 +221,7 @@ A new json file has been created in the `build/contracts/` directory.
 ## Deploying smart contracts with *Truffle*
 
 At this point, the smart contract is compiled and ready to be deployed. However, *Truffle* needs to be configured: deployment on a given network,
-with a given account, a given initial storage ect...
+with a given account, a given initial storage etc...
 
 ### Using an account for the deployment
 
@@ -243,7 +244,7 @@ const {mnemonic, secret, password, email} = require("/path/to/faucet.json");
 *Truffle* will activate this account before the contract origination.
 
 - Setting **already activated** accounts in the scripts folder:
-   Accounts can be defined according to the network. By default, a *sandbox* folder is present, with two defined acocunts (
+   Accounts can be defined according to the network. By default, a *sandbox* folder is present, with two defined accounts (
    these two accounts are found in any sandbox). New accounts can be defined by creating a new folder, named after the
    network name (convention), with an `accounts.js` file:
 
@@ -342,11 +343,12 @@ For instance, the `tezos-example` box comes with tree migrations:
 3_deploy_counter.js
 ```
 
-A migration defines:
+A migration script defines:
 
-* the initial storage
-* the contract deployment steps: order, networks, accounts
+* the initial storage of the smart contract(s)
+* the contract deployment steps: the order of deployment of smart contracts, networks, accounts
 
+These migration scripts are used the same way when you deploy your contracts for the first time and when you update your deployed smart contracts.
 #### Importing the smart contract to deploy
 
 The first step is to specify which smart contract is to be deployed:
@@ -449,9 +451,7 @@ module.exports = (deployer, network, account) => {
 The execution returns some pieces of information (such as the contract address, the cost ...)
 
 ##### Network
-It can be useful to deploy a smart contract differently according to the network. 
-For instance, if the storage holds an administator address, it's likely to be different on the mainnet and on testnet
-The migration can be branched according to the network, like this:
+It can be useful to deploy a smart contract differently according to the network. For instance, if the storage holds an administator address, it's likely to be different on the mainnet and on testnet. The migration can be branched according to the network, like this:
 
 ```js
 var MyContract = artifacts.require("MyContract");
@@ -487,7 +487,7 @@ This example sets the migration account as the contract administrator.
 ##### Migrating several contracts
 
 A migration can deploy several contracts at the same time. This is useful when the migration data have to be used for the deployment of another contract.
-Below, is an example with two contracts. The second contract needs to call on the first and with its address.
+Below, is an example with two contracts. The second contract needs to have the address of the first contract in its initial storage.
 
 ```js
 var firstContract = artifacts.require("firstContract");
@@ -520,8 +520,7 @@ Second, we need to define the initial storage, which should have the following f
 - raffle_is_open: `boolean`
 - winning_ticket_number_hash: `bytes`
 
-`taquito` and `web3` will be used for the `bytes` and `big_map` types.
-The initial storage that is defined contains an open raffle. (Step 2)
+`taquito` and `web3` will be used for the `big_map` and `bytes` types. The initial storage that is defined contains an open raffle. (Step 2)
 
 Finally, the deployment must be defined: the admin of the contract is the address used for the deployment (step 3).
 
@@ -602,10 +601,10 @@ Summary
 > Final cost:          0.592977 XTZ
 
 ```
-The most useful piece of information are the contract address (to interact with it) and the transaction hash (which refers to the origination on the blockchain). 
+The most useful pieces of information are the contract address (to interact with it), the fees and cost of the origination and the transaction hash. 
 
 
-Some of these pieces of information can be found in the json file under the `build/contracts` folder:
+You can find some of these pieces of information in the json file under the `build/contracts` folder:
 ```
 {
 "contractName": "Raffle",
@@ -635,7 +634,7 @@ Some of these pieces of information can be found in the json file under the `bui
 ## Interacting with a deployed contract
 
 Once the migration is done, it can be convenient to quickly verify that the contract is deployed.
-There are many tools for this: cli, libraries, GUI... In this section, we'll keep it simple with a GUI. 
+There are many tools for this: cli, libraries, explorers... In this section, we'll keep it simple with a GUI. 
 
 [tzstats.com](https://tzstats.com/) provides information about any public Tezos network: transactions, accounts, contracts (origination, storage, entrypoints)...
 
@@ -649,4 +648,4 @@ The first step in developing a Dapp is to deploy the smart contracts. _Truffle_ 
 
 Each migration needs an initial storage, that should be compliant with the storage section of the Michelson code. 
 
-Thanks to its configuration and easily readable and versioned migration files, _Truflle_ is an essential tool throughout the development and deployment of a dapp.
+Thanks to its configuration and easily readable and versioned migration files, _Truffle_ is an essential tool throughout the development and deployment of a dapp.

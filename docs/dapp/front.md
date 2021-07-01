@@ -7,11 +7,22 @@ title: Build a dapp - basics
 
 
 Now that we have a deployed contract and a ready-to-use Wallet, we can start to develop the frontend part of the dapp: it will interact
-with the deployed, raffle smart contract.
+with a deployed raffle smart contract.
 
-This chapter is not a tutorial about React, nor how to build a nice UI: its purpose is to shows the basics usage of the Temple Wallet in a dapp use case. Thus, it requires some knowledge about [CSS](https://www.w3schools.com/css/), [React](https://reactjs.org/docs/getting-started.html) and [React Hooks](https://reactjs.org/docs/hooks-intro.html).
+This chapter is not a tutorial about React, nor how to build a nice UI: its purpose is to show the basic usage of the Temple Wallet in a dapp use case. Thus, it requires some knowledge about [CSS](https://www.w3schools.com/css/), [React](https://reactjs.org/docs/getting-started.html) and [React Hooks](https://reactjs.org/docs/hooks-intro.html).
 
-# Project initialisation
+In this chapter, we will learn:
+1. [how to setup a new project](#project-initialisation)
+2. [how to connect a React application to a Wallet](#temple-integration): we will connect to the _Temple Wallet
+3. [how to fetch data from the blockchain](#displaying-storage): we will retrieve and present account balances and data from contract storage (including big maps)
+4. [how to interact with a smart contract](#launching-a-new-raffle) (with contract calls through the _Temple Wallet_). 
+  
+
+At the end, our application will look like:
+
+![](../../static/img/dapp/front21.png)
+
+## Project initialisation
 
 Let's create a React project. To do that, we can use the `npx create-react-app` command. We will use the `typescript` template:
 ```shell
@@ -20,11 +31,11 @@ $ cd my-dapp
 $ yarn start # run project
 ```
 
-We have a running React application, that displays texts. So far, it doesn't do anything. The first step to begin is to integrate the Temple Wallet within our application.
+We have a running React application, that displays texts. So far, it doesn't do anything other than displaying some text. The first step is to integrate the Temple Wallet within our application.
 
-# Temple Integration
+## Temple Integration
 
-The [temple-wallet/dapp](https://www.npmjs.com/package/@temple-wallet/dapp) module enables a React application to use the Temple Wallet to interact with a Tezos blockchain. This module uses the [@taquito/taquito](https://www.npmjs.com/package/@taquito/taquito) and [constate](https://www.npmjs.com/package/constate). Let's install this module:
+The [temple-wallet/dapp](https://www.npmjs.com/package/@temple-wallet/dapp) module enables a React application to use the Temple Wallet to interact with a Tezos blockchain. This module uses the [@taquito/taquito](https://www.npmjs.com/package/@taquito/taquito) and [constate](https://www.npmjs.com/package/constate) modules. Let's install this module:
 
 ```shell
 $ yarn add @temple-wallet/dapp
@@ -46,10 +57,10 @@ $ curl https://raw.githubusercontent.com/madfish-solutions/counter-dapp/master/s
 It exports a [React context](https://reactjs.org/docs/context.html) and the necessary functions to interact with a Tezos
 network:
 
-- **DAppProvider**: a react context that will contain all the below hooks
-- **useWallet**: it returns a Wallet instance
+- **DAppProvider**: a react context that will contain all the hooks below
+- **useWallet**: returns a Wallet instance
 - **useTezos**: returns a TezosToolkit, using the wallet instance
-- **useAccountPkh**: returns the current wallet account address
+- **useAccountPkh**: returns the current wallet account address (Pkh meaning Public Key Hash)
 - **useReady**: returns a boolean indicating if the wallet is connected to the tezos network
 - **useConnect**: react callback to change the user account
 - **useOnBlock**: react effect to retrieve the latest baked block. It subscribe to the stream of blocks (watching head),
@@ -113,7 +124,7 @@ export default App;
 ```
 Now that we have our context, we can start using the provided hooks.
 
-## Wallet connexion 
+### Wallet connexion 
 The first step is to connect your react app to the _Temple Wallet_.
 
 Let's create a `Page` component, that will contain all our components:
@@ -236,13 +247,13 @@ Our application contains a single button: if we push it, a pop-up appears and of
 
 ![](../../static/img/dapp/front1.png)
 
-## Wallet information
+### Wallet information
 Our application now connects to an account, with the _Temple Wallet_. 
 However, the application doesn't display some of the crucial information: the used address and its balance.
 The user needs to know which address is going to interact with the smart contract. This address must therefore hold some funds.
 
 Let's add the used address. We will use the `useAccountPkh` callback from `dapp/dapp.js`.
-The information is therefor set when the connexion is established:
+The information is therefore set when the connexion is established:
 
 ````typescript jsx
   const connect = React.useCallback(
@@ -378,7 +389,7 @@ function ConnectionSection() {
 }
 ```
 
-# Displaying Storage
+## Displaying Storage
 
 So far, our application uses the Temple Wallet to connect to a Tezos network, using an address. It is now time to connect our React application to our Raffle smart contract and then to retrieve the contract information (entrypoints and storage)
 
@@ -509,7 +520,7 @@ winning_ticket_number_hash: "74657374"
 
 Almost all the values are fetched with `contract.storage()`, except the `sold_tickets`  big map.
 
-## Big map handling
+### Big map handling
 _Taquito_ does not directly retrieve big maps. This is no surprise as indeed big maps are meant to store a huge amount of data: retrieving the whole big map would take a long time. That is why the wallet returns a `BigMapAbstraction`. This object will be used to retrieve specific values of the big map.
 
 In our case, we want to display the tickets and their owner: we need to retrieve all the values. So, we need to know the keys, which means that we need to get the ids of the sold ticket. When this article was written, [big map keys discovery](https://github.com/ecadlabs/taquito/projects/2#card-34204687) was not yet implemented.
@@ -714,13 +725,13 @@ export default App;
 ```
 
 
-# Launching a new raffle
+## Launching a new raffle
 
 Its now time to add interactions with the smart contract: let's add the possibility to launch a raffle. For this, the user will have to enter the raffle pieces of information, and then call the `openRaffle` entrypoint.
 
 Let's create a `LaunchRaffleSection` component, that will contain a `form` to enter the raffle information, and a button to call the entrypoint.
 
-## New raffle information
+### New raffle information
 
 First, we will add a form. Four pieces of information are needed:
 - the **reward**: a `string`
@@ -732,7 +743,7 @@ For the reward, description, and winning ticket hash, a simple `<input>` compone
 
 These four pieces of information will be kept in the component state.
 
-### DatePicker installation
+#### DatePicker installation
 
 Let's add the [react-datepicker](https://www.npmjs.com/package/react-datepicker) package:
 
@@ -746,7 +757,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 ```
 
-### Form creation
+#### Form creation
 
 The raffle information will be entered in a basic React component like this:
 
@@ -794,16 +805,16 @@ function LaunchRaffleSection() {
 }
 ```
 
-## New raffle button
+### New raffle button
 
-### web3 installation
+#### web3 installation
 In this part, we will need the standard [web3 package](https://www.npmjs.com/package/web3). It is used to interact with _Ethereum_ networks. In our case, we will be using the `utils.asciiToHex` function, to convert `string` into `bytes`.
 
 ``` shell
 $ yarn add web3
 ```
 
-### Implementation
+#### Implementation
 The contract calls the `openRaffle` entrypoint and will use the raffle information entered by the user. First, let's add a button that will trigger this call.
 
 Let's create a `LaunchRaffleButton` component. This component will contain the contract call logic.
@@ -927,7 +938,7 @@ function LaunchRaffleButton({ raffleReward, raffleDescription, raffleClosingDate
 }
 ```
 
-## End-to-end testing
+### End-to-end testing
 
 Our app now looks like: 
 
@@ -1208,9 +1219,9 @@ A raffle just opened. 200 tz (the reward) has been subtracted from our account b
 
 We can try to launch a new raffle, but the transaction will fail since a raffle is already ongoing. This is detected by the Temple Wallet.
 
-# Buying tickets
+## Buying tickets
 
-## Implementation
+### Implementation
 Let's add the feature of buying tickets to our application. There is no information to provide: the only thing required is to call the entrypoint.
 
 Just like the opening of a raffle, we need to add a button component, that makes that contract call when clicked.
@@ -1249,7 +1260,7 @@ function BuyTicketButton() {
 }
 ```
 
-## End-to-end testing
+### End-to-end testing
 
 ``` typescript jsx
 import React, { useState } from 'react';
@@ -1527,7 +1538,7 @@ After a while, the UI is re-rendered: bought ticket is displayed.
 ![](../../static/img/dapp/front14.png)
 
 
-# Conclusion
+## Conclusion
 
 Integrating the Temple wallet into a React app can be broken down into three steps:
 1. using the context provider
