@@ -21,7 +21,6 @@ The _Mi-Cho-Coq_ library provides a formal definition (in Gallina) of the **type
 
 
 #### Type system
-
 The **type system** consists of the definition of types (comparable types and non-comparable ones).
 
 ```
@@ -55,7 +54,6 @@ Inductive type : Set :=
 ```
 
 #### Syntax
-
 The ****syntax** and typing of Michelson instructions are formalized as a dependent inductive type to rule out ill-typed instructions.
 
 ```
@@ -69,10 +67,10 @@ Inductive instruction :
 ...
 ```
 
+Notice that the inductive type `instruction`  defines typing rules for each instruction (`SEQ`, `IF`, `LOOP`, ...).
+
 #### Semantics
-
-
-The **semantics** of types is defined by interpreting them by predefined Coq types (e.g. int -> Z, nat -> N, mutez -> int63). The semantics of Michelson is defined by an evaluator `eval` formalized as a _Fixpoint_. 
+The **semantics** of types is defined by interpreting them with predefined _Coq_ types (e.g. int -> Z, nat -> N, mutez -> int63). The semantics of Michelson is defined by an evaluator `eval` formalized as a _Fixpoint_. 
 
 ```
 Fixpoint eval {self_type} {tff} {env} {A : stack_type} {B : stack_type}
@@ -102,56 +100,14 @@ Fixpoint eval {self_type} {tff} {env} {A : stack_type} {B : stack_type}
 ...
 ```
 
-> Since evaluating a Michelson instruction might fail (which Coq functions cannot), the return type of this evaluator is wrapped in an exception monad (handling errors such as overflow, lexing, parsing, fuel).
-
-> Coq forbids non-terminating function so we use a common Coq trick to define the evaluator on diverging instructions such as LOOP: we make the evaluator structurally recursive on an extra argument of type Datatypes.nat called the fuel of the evaluator.
+Notice that the evaluator defines actions that must be performed for each type of instruction.
 
 
+> Since evaluating a Michelson instruction might fail (whereas _Coq_ functions cannot), the return type of this evaluator is wrapped in an exception monad (handling errors such as overflow, lexing, parsing, fuel).
+
+> Coq forbids non-terminating functions, so we use a common _Coq_ trick to define the evaluator on diverging instructions such as _LOOP_: we make the evaluator structurally recursive on an extra argument of type Datatypes.nat called the **fuel** of the evaluator.
 
 
-# ANNEXE 
-
-### Category theory
-
-Category theory formalizes mathematical structure and its concepts in terms of a labeled directed graph called a category, whose nodes are called objects, and whose labeled directed edges are called _arrows_ (or morphisms). A category has two basic properties: the ability to compose the arrows associatively, and the existence of an identity arrow for each object. The language of category theory has been used to formalize concepts of other high-level abstractions such as _sets_, _rings_, and _groups_. Informally, category theory is a general theory of functions. 
-
-The common usage of "type theory" is when those types are used with a term rewrite system. The most famous early example is Alonzo Church's simply typed lambda calculus. Church's theory of types helped the formal system avoid the Kleene–Rosser paradox that afflicted the original untyped lambda calculus. Church demonstrated that it could serve as a foundation of mathematics and it was referred to as a **higher-order logic**.
-
-In **category theory**, a category is **Cartesian closed** if, roughly speaking, any morphism defined on a product of two objects can be naturally identified with a morphism defined on one of the factors. These categories are particularly important in mathematical logic and the theory of programming, in that their internal language is the **simply typed lambda calculus**. They are generalized by closed monoidal categories, whose internal language, linear type systems, are suitable for both quantum and classical computation.
-
- Here is an embedding of the **simply typed lambda calculus** with an arbitrary collection of base types, tuples and a fixed point combinator: 
-
-```js
-data Lam :: * -> * where
-  Lift :: a                     -> Lam a        // lifted value
-  Pair :: Lam a -> Lam b        -> Lam (a, b)   // product
-  Lam  :: (Lam a -> Lam b)      -> Lam (a -> b) // lambda abstraction
-  App  :: Lam (a -> b) -> Lam a -> Lam b        // function application
-  Fix  :: Lam (a -> a)          -> Lam a        // fixed point
-```
-
-A fixed point of a function is a value that is mapped to itself by the function. In combinatory logic for computer science, a fixed-point combinator (or fixpoint combinator) is a higher-order function _fix_ that returns some fixed point of its argument function, if one exists.
-
-#### Monad
-
-In category theory, a monad (also triple, triad, standard construction and fundamental construction) is an endofunctor (a functor mapping a category to itself), together with two natural transformations required to fulfill certain coherence conditions. Monads are used in the theory of pairs of adjoint functors, and they generalize closure operators on partially ordered sets to arbitrary categories. 
-
-In functional programming, a **monad** is an abstraction that allows structuring programs generically. Supporting languages may use monads to abstract away boilerplate code needed by the program logic. Monads achieve this by providing their own data type, which represents a specific form of computation, along with two procedures:
-
-- One to wrap values of any basic type within the monad (yielding a **monadic value**);
-- Another to compose functions that output monadic values (called **monadic functions**)
-
-This allows monads to simplify a wide range of problems, like handling potential undefined values (with the Maybe monad), or keeping values within a flexible, well-formed list (using the List monad). With a monad, a programmer can turn a complicated sequence of functions into a succinct pipeline that abstracts away auxiliary data management, control flow, or side-effects.
 
 
-Without getting too much into mathematics, in programming a Monad is a Design Pattern. It’s a structure, a wrapper which “enriches” a value by giving it a context.
 
-//TODO ... 
-It's about having representations simulating exactly notions such as exceptions and side-effects while keeping the purety of functionnal languages.
-
-Famous examples of Monads are:
-
-    Option/Maybe monad (it can represent a missing/null value)
-    Either monad (it can represent a successful operation or a failure)
-    IO/Effect monad (it can represent side-effects)
-    Task monad (it can represent asynchronous side-effects)

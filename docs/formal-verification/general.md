@@ -61,12 +61,32 @@ Many proof assistants can be used to translate a smart contract into a formal de
 
 
 
-#### Mi-Cho-Coq
+#### Coq and Mi-Cho-Coq
 
-Allow to directly verify smart contracts (Michelson scripts) in _Coq_
+##### Coq
 
-- it can verify smart contracts written in high-level languages (LIGO, SmartPy, Archetype) since ultimately they are compiled to Michelson.
-- manual low-level approach (proof is manually written and Coq helps to build this proof).
+Initially developed by Thierry Coquand, _Coq_ [[1]](/formal-verification/modeling-theorem#references) is a proof assistant designed to develop mathematical proofs, and especially to write formal specifications, programs, and proofs that programs comply to their specifications. 
+
+Specifications, programs, and proofs are formalized in the _Coq_ language called _Gallina_, which follows the _Calculus of Inductive Constructions_ (CIC).
+
+A program is a sequence of instructions in a language. _Coq_ is a generic tool and can support many languages (e.g. Mi-Cho-Coq is a library for Michelson language support). A program represents **how** a modification is applied.
+The specification of a program represents **what** a program is meant to do. _Coq_ provides a language (called Gallina -Terms) for modeling logical objects such as theorems, axioms, assumptions). The proof is a sequence of logical deductions (based on axioms, assumptions and the inference rule) that verify the **compliance of a program to its specification**.
+
+##### Mi-Cho-Coq
+
+The _Mi-Cho-Coq_ library represents the bridge between Tezos smart contracts and formal proofs in Coq.
+
+The _Mi-Cho-Coq_ library [[2]](/formal-verification/modeling-theorem#references) is a formalization of the Michelson language [[9]](/formal-verification/modeling-theorem#references) using the Coq interactive theorem prover [[1]](/formal-verification/modeling-theorem#references).
+
+In practice, the _Mi-Cho-Coq_ library is used to produce a formal definition of a Michelson script (i.e., the "Modeling theorem" [section](/formal-verification/modeling-theorem#Example_vote)). Each Michelson instruction has its equivalent in the _Mi-Cho-Coq_ library.
+
+The _Mi-Cho-Coq_ library provides a formal definition (in _Gallina_) of the **type system** (Michelson types), the **syntax** (instructions of the Michelson), the **semantics** (evaluator) and the lexing and parsing (for type-checking). More details in the next [page](/formal-verification/michocoq).
+
+##### Pros and cons
+
+_Coq_ combined with _Mi-Cho-Coq_ provides a manual low-level approach to write manually a proof assisted by Coq. This approach performs verification at smart contract level (Michelson script).
+
+It also provides a way to perform formal verification on smart contracts written in high-level languages (LIGO, SmartPy) since ultimately they are compiled to Michelson.
 
 Mi-Cho-Coq limitations are:
 - data serialization/deserialization is not supported yet
