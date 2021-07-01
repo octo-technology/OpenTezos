@@ -21,9 +21,9 @@ The trust is based on the **existence of a proof** for a smart contract and the 
 
 The formal verification on Tezos smart contracts consist on:
 - describing formal specifications of the expected behavior of the smart contract
-- translate the smart contract, its formal specifications and specification of the language itself into a proof assistant language.
-- In the proof assistant, one can manually (or assisted by solvers tools) produce a formal proof that the smart contract comply to the given specifications.
-- publish this proof in order to allow anyone to verify automatically that the smart contract comply to its specifications.
+- translating the smart contract, its formal specifications and specification of the language itself into a proof assistant language.
+- writing a proof. In the proof assistant, one can manually (or assisted by solvers tools) produce a formal proof that the smart contract comply to the given specifications.
+- publishing this proof in order to allow anyone to verify automatically that the smart contract comply to its specifications.
 
 
 ### Formal verification made possible
@@ -34,7 +34,7 @@ Indeed the Michelson language has been designed in order to take the formal veri
 - introducing typing system on a stack-based language for facilitating formal verification.
 - preventing JUMP instructions which make the formal verification more complex
 - prevent floating-point number (because of overflow and rounding)
-- less execution error with explicit failure (e.g. EDIV by 0)
+- less execution error with explicit failure (e.g. division by 0)
 
 ### Formal verification benefits
 
@@ -73,20 +73,23 @@ Mi-Cho-Coq limitations are:
 - cryptographic functions are considered as a black box and used as such.
 - gas model is not taken into account.
 
+Mi-Cho-Coq official repository is available at https://gitlab.com/nomadic-labs/mi-cho-coq
+
 #### Archetype
-section under development
+
+Archetype official documentation is available at https://docs.archetype-lang.org/
 
 #### K-Michelson
-section under development
+
+K-Michelson official documentation is available at https://runtimeverification.github.io/michelson-semantics/
 
 #### Juvix
-section under development
 
-#### Lmot (Haskell)
-section under development
+Juvix official documentation is available at https://juvix.org/docs/proof-system
 
+#### Lorentz (Haskell)
 
-
+Lorentz official documentation is available at https://serokell.io/blog/lorentz
 
 
 
@@ -126,7 +129,7 @@ The gaz consumption (equivalent to the execution time) could also be a criterion
 
 As a stand-alone, Mi-Cho-Coq approach provides a solid (full-expressivity) manner for expressing specifications and for verifying a proof but does not provide a way to verify interactions between multiple smart contracts.
 
-Th _Concert_ library for Coq provides a way to model each smart contract as a Coq function and allows to reason on these functions (which can call each other). _Concert_ is a generic tool and not a tezos-specific library such as Mi-Cho-Coq.
+The _Concert_ library for Coq provides a way to model each smart contract as a Coq function and allows to reason on these functions (which can call each other). _Concert_ is a generic tool and not a tezos-specific library such as Mi-Cho-Coq.
 
 
 #### Examples of famous proven smart contracts
