@@ -103,25 +103,14 @@ Below is another illustration of this process:
 <small className="figure">FIGURE 4: Deployment and call of a Tezos smart contract with high-level languages.</small>
 
 ## Smart contracts versioning
-You need to remember the code of a smart contract is **immutable**. Only evolve the storage size and state. Hence, to handle smart contracts versioning, you should keep in mind **implementations structures** allowing transfer of information **from old contracts to new contracts**.
+You need to remember the code of a smart contract is **immutable**. Only evolve the storage size and state. Hence, to handle smart contracts [versioning](https://en.wikipedia.org/wiki/Software_versioning) (handle new developments and versions of the smart contracts), you should keep in mind **implementations structures** allowing transfer of information **from old contracts to new contracts**.
 
-Hopefully, the above high-level languages make this kind of complex implementation easier. We will present to you three patterns to build evolutive smart contracts or *Dapps*.
-
-### Map pattern
-The idea of this pattern is to make smart contract storage more dynamic. We put key data inside a table or "data mapping". This mapping or "map" makes a classic "Key / Value" association between two data types. What's interesting here, like in an *array*, is that it's evolutive, even in the storage. Of course, the data types are fixed, but it is possible to add or remove pairs or change a *value* associated with the same *key*.
-
-For example, it is common to define a *map* of users in a DAO, so the users' list can change following various organization's rules. The same users aren't carved in stone forever.
-
-Note that even if a value or pair is deleted from a map, the blockchain ledger keeps the complete history of its state.  
-In the DAO example, a user would be able to quit but you'd still find his trace exploring the past blocks.
-
-![](../../static/img/tezos-basics/map-pattern.svg)  
-<small className="figure">FIGURE 4: <i>Map pattern</i> illustration.</small>
+Hopefully, the above high-level languages make this kind of complex implementation easier. We will present to you two patterns to build evolutive smart contracts or *Dapps*.
 
 ### Lambda pattern
 The Lambda pattern is based on *lambda functions*. These anonymous functions only have a mandatory *type* (function!); non-mandatory *parameters*; and non-mandatory *return values*. The idea is to exchange the **body** of a classic function with a **lambda function**. While the classic function is immutable, the lambda function is stored in the storage, therefore mutable.
 
-Instead of simply sealing the classic function's body as an immutable structure, you make it a mutable *variable* of the storage.  
+Instead of simply sealing the classic function's body as an immutable structure, you make it a mutable *data* of the storage.  
 In an **imaginary** high-level language syntax:
 
 - *An entrypoint*
@@ -147,14 +136,10 @@ lambdaFunction = function (p1, ... , pP) return (v1, ... , vR) {
 ```
 
 **Warnings**:  
-In this algorithmic example, almost all types are implicit, which limits syntax length. Furthermore, the syntax isn't as functional as in languages used for Tezos smart contracts (e.g. *LIGO*).
+>In this algorithmic example, almost all types are implicit, which limits syntax length. Furthermore, the syntax isn't as functional as in languages used for Tezos smart contracts (e.g. *LIGO*).
 
 ![](../../static/img/tezos-basics/lambda-pattern.svg)  
 <small className="figure">FIGURE 5: <i>Lambda pattern</i> illustration.</small>
-
-You could use a *map pattern* as well. Inside the map, you can store each lambda function as a *value*. To be executed, the code would find the correct lambda function at the corresponding *key*.
-
-Later, in an upgrading process, it would be possible to **modify the lambda function** in **just changing** the **_value_** in the *map* for the **_same key_**. It would also be possible to **batch changes on the whole *map***.
 
 ### Data-Proxy pattern
 
@@ -167,13 +152,24 @@ When you need to update the logic (e.g. new features; corrections...) you only d
 ![](../../static/img/tezos-basics/data-proxy.svg)  
 <small className="figure">FIGURE 6: <i>Data-Proxy</i> pattern illustration.</small>
 
-Once the Data-Proxy architecture is in place, we can make the Data smart contract more dynamic with a Map pattern and the Logic smart contract upgradable with a Lambda pattern.
+Once the Data-Proxy architecture is in place, we can make the Data smart contract more dynamic with a Map structure and the Logic smart contract upgradable with a Lambda pattern.
 
-The idea we described is actually a basic form of [modular programming](https://en.wikipedia.org/wiki/Modular_programming).
+#### Map structure
+The idea is to make the Data smart contract storage more dynamic. We put key data inside a table or "data mapping". This mapping or "map" makes a classic "Key / Value" association between two data types. What's interesting here, like in an *array*, is that it's evolutive, even in the storage. Of course, the data types are fixed, but it is possible to add or remove pairs or change a *value* associated with the same *key*.
+
+For example, in our Data smart contract, we can define a Map with versions' numbers as keys and logic smart contracts addresses as values:
+
+![](../../static/img/tezos-basics/map-structure-example.svg)  
+<small className="figure">FIGURE 4: Map structure example.</small>
+
+Note that even if a value or pair is deleted from a map, the blockchain ledger keeps the complete history of its state.  
+In the versions' example, you can still see all versions' history (and addresses) using a block explorer.
+
+The idea we described in this Data-Proxy pattern is actually a basic form of [modular programming](https://en.wikipedia.org/wiki/Modular_programming).
 
 This pattern isn't limited to 2 smart contracts only. You can imagine various architectures combining various patterns. For instance, you can imagine a central Data smart contract and multiple upgradable other smart contracts revolving around it. This example implies a single point of failure in the Data smart contract, but there are other questions you should keep in mind, like access rights (to get and set data, to upgrade logic, etc.).
 
-These patterns aren't magical and just allow more flexibility. You still need to think about the best architecture for your *dapp*. Patterns can notably increase the deployment and *gaz* using fees.
+These patterns aren't magical and just allow more flexibility. You still need to think about the best architecture for your *dapp*. Patterns can still notably increase the deployment and *gaz* using fees.
 
 ## What have we learned so far?
 In this chapter, we described the Tezos smart contract's main components and properties. We also described its lifecycle. We explained how to construct Tezos smart contracts using different patterns to make evolving *dapps* and handle efficient *versioning*.
