@@ -103,7 +103,7 @@ Below is another illustration of this process:
 <small className="figure">FIGURE 4: Deployment and call of a Tezos smart contract with high-level languages.</small>
 
 ## Smart contracts versioning
-You need to remember the code of a smart contract is **immutable**. Only evolve the storage size and state. Hence, to handle smart contracts [versioning](https://en.wikipedia.org/wiki/Software_versioning) (handle new developments and versions of the smart contracts), you should keep in mind **implementations structures** allowing transfer of information **from old contracts to new contracts**.
+You need to remember the code of a smart contract is **immutable**. Only evolve the storage size and state. Hence, to handle smart contracts [versioning](https://en.wikipedia.org/wiki/Software_versioning) (handle new developments and versions of the smart contracts), you should keep in mind **implementations structures** allowing transfer of information **from old contracts to new contracts**. If you don't, you risk increasing errors and costs during the transfer.
 
 Hopefully, the above high-level languages make this kind of complex implementation easier. We will present to you two patterns to build evolutive smart contracts or *Dapps*.
 
