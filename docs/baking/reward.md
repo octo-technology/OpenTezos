@@ -4,16 +4,31 @@ title: Rewards
 authors: Maxime Sallerin
 ---
 
-To maintain the network, Tezos needs bakers and endorsers. They stake their tokens and use their computing power to create blocks, manage transactions, vote, and secure the network. In exchange for the completion of these tasks, bakers are rewarded with tokens from the transaction fees or tokens created by the network. Since the [Carthage update](https://blog.nomadic-labs.com/a-new-reward-formula-for-carthage.html), the reward system has been updated to make the network more robust against non-cooperative baking strategies.
+To maintain the network, Tezos needs bakers and endorsers. They stake their tokens and use their memory space and connection to create blocks, manage transactions, vote, and secure the network. In exchange for the completion of these tasks, bakers are rewarded with tokens from the transaction fees or tokens created by the network. Since the [Carthage update](https://blog.nomadic-labs.com/a-new-reward-formula-for-carthage.html), the reward system has been updated to make the network more robust against non-cooperative baking strategies.
 
 ## Inflation
 
 Each new block generates 80 new XTZ as a reward. 40 XTZ for the bakers and 40 XTZ for the endorsers.
 A new block is created each minute witch generates 42 Million of XTZ per year ($\approx$ 80ꜩ $\times$ 60 mins $\times$ 24 hours $\times$ 365 days). At the Tezos launch, the network was composed of 763 Millions XTZ.
-Therefore the inflation rate of the XTZ token is **5.5%**:
+
+Therefore the inflation rate of the XTZ token for the first year was **5.5%**:
 $$
 \frac{42,000,000}{763,000,000}=\frac{42}{763}\approx5.5\%
 $$
+
+For the second year it was **5.2%**:
+$$
+\frac{42}{763 + 42}=\frac{42}{805}\approx5.2\%
+$$
+
+For the third year it was **5.0%**:
+$$
+\frac{42}{805 + 42 }=\frac{42}{847}\approx5.0\%
+$$
+
+etc ... 
+
+The inflation rate decreases a bit each year.
 
 ## Baking reward
 
@@ -139,7 +154,7 @@ The accuser monitors the network, detects double-baking or double-endorsing.
 
 If two endorsements are made for the same slot or two blocks baked at the same height, the evidence can be collected by an accuser and included in a block for a period of 5 cycles, including the current cycle.
 
-This accusation forfeits the entirety of the safety deposit and future reward up to that point in the cycle. Half is burned, half goes to the accuser in the form of a block reward.
+This accusation forfeits the entirety safety deposit and future rewards up to that point in the cycle. Half is burned, half goes to the accuser in the form of a block reward.
 
 ## References
 
