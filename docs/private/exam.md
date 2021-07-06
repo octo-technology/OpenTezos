@@ -43,7 +43,6 @@ What is baking?
 <ExamCheckbox name="30" isCorrect="false">It is the act of delegating XTZ to earn passive interest.</ExamCheckbox>
 <ExamCheckbox name="31" isCorrect="true">It is the act of signing and publishing blocks to the Tezos blockchain.</ExamCheckbox>
 <ExamCheckbox name="32" isCorrect="false">It is the act of monitoring transaction of the Tezos blockchain.</ExamCheckbox>
-<ExamCheckbox name="33" isCorrect="true">It is a food cooking method using prolonged dry heat acting by convection, normally in an oven, but also in hot ashes, or on hot stones.</ExamCheckbox>
 
 ### Question 5
 

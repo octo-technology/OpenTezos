@@ -13,7 +13,7 @@ To achieve its consensus, Tezos implements the [Liquid Proof of Stake (LPoS)](/t
 
 ### What is baking?
 
-**Baking** is the act of creating, signing and publishing blocks to the Tezos blockchain. Bakers are a crucial component of the Tezos Liquid Proof-of-Stake consensus algorithm by ensuring that all transactions in a block are correct and that the order of transactions is agreed upon.
+**Baking** is the act of creating, signing and, publishing blocks to the Tezos blockchain. Bakers are a crucial component of the Tezos Liquid Proof-of-Stake consensus algorithm by ensuring that all transactions in a block are correct and that the order of transactions is agreed upon.
 Note that a baker also has to accept to play the role of endorser, which means taking part in the validation of blocks created by bakers.
 
 To bake blocks, a baker needs to participate in the network, which requires:
@@ -25,7 +25,7 @@ The more rolls of Tez a baker owns, the higher are his chances to bake blocks an
 
 ### What is delegating?
 
-If a Tez holder does not have 8,000 XTZ or does not want to set up a computing infrastructure to bake blocks, they may delegate their coins to a baker. Delegating lets coin holders (i.e. **delegators**) "lend" their coins to a baker (i.e. a **delegate**), giving the baker a higher probability of being selected to bake and endorse blocks. In exchange, bakers share the additional revenue generated from the delegated tokens with the delegators, in proportion to their participation. Importantly, this process does not actually transfer ownership of coins. Hence bakers cannot spend or control the Tez delegated to them, ensuring that bakers cannot appropriate the delegators funds.
+If a Tez holder does not have 8,000ꜩ or does not want to set up a computing infrastructure to bake blocks, they may delegate their coins to a baker. Delegating lets coin holders (i.e. **delegators**) "lend" their coins to a baker (i.e. a **delegate**), giving the baker a higher probability of being selected to bake and endorse blocks. In turn, bakers share the additional revenue generated from the delegated tokens with the delegators, in proportion to their participation. Importantly, this process does not actually transfer ownership of coins. Hence bakers cannot spend or control the Tez delegated to them, ensuring that bakers cannot appropriate the delegators funds.
 
 With LPoS the number of bakers is unlimited (everyone can participate), and delegation is optional.
 

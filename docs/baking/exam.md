@@ -28,7 +28,6 @@ What is baking?
 <ExamCheckbox name="10" isCorrect="false">It is the act of delegating XTZ to earn passive interest.</ExamCheckbox>
 <ExamCheckbox name="11" isCorrect="true">It is the act of creating, signing and publishing blocks to the Tezos blockchain.</ExamCheckbox>
 <ExamCheckbox name="12" isCorrect="false">It is the act of monitoring transaction of the Tezos blockchain.</ExamCheckbox>
-<ExamCheckbox name="13" isCorrect="true">It is a food cooking method using prolonged dry heat acting by convection, normally in an oven, but also in hot ashes, or on hot stones.</ExamCheckbox>
 
 ### Question 3
 
@@ -52,13 +51,12 @@ How many blocks are in a cycle?
 
 ### Question 5
 
-How long a baker will have to freeze part of his tokens to create a block?
+Once selected, how long will a baker have to freeze part of his tokens to bake a block?
 
 <ExamCheckbox name="40" isCorrect="false">1 cycle</ExamCheckbox>
 <ExamCheckbox name="41" isCorrect="false">2 cycles</ExamCheckbox>
 <ExamCheckbox name="42" isCorrect="true">5 cycles</ExamCheckbox>
 <ExamCheckbox name="43" isCorrect="false">10 cycles</ExamCheckbox>
-<ExamCheckbox name="44" isCorrect="false">Until he wants to stop baking.</ExamCheckbox>
 
 ### Question 6
 
@@ -73,7 +71,7 @@ What is true about baker and endorser selection?
 
 ### Question 7
 
-What monitors an accuser?
+What does an accuseer monitor?
 <ExamCheckbox name="60" isCorrect="true">He monitors that a baker does not create two competing blocks at the same level.</ExamCheckbox>
 <ExamCheckbox name="61" isCorrect="false">He monitors that a baker does not steal his delegators' rewards.</ExamCheckbox>
 <ExamCheckbox name="62" isCorrect="true">He monitors that an endorser does not endorse a block twice or more at the same baking slot.</ExamCheckbox>
@@ -84,9 +82,11 @@ What monitors an accuser?
 What is true about the XTZ inflation?
 
 <ExamCheckbox name="70" isCorrect="true">Each new block generates 80 new XTZ as a reward.</ExamCheckbox>
-<ExamCheckbox name="71" isCorrect="false">The inflation rate is about 2.0%.</ExamCheckbox>
+<ExamCheckbox name="71" isCorrect="false">The inflation rate for the first year was about 2.0%.</ExamCheckbox>
 <ExamCheckbox name="72" isCorrect="false">Each new block generates 40 new XTZ as a reward.</ExamCheckbox>
-<ExamCheckbox name="73" isCorrect="true">The inflation rate is about 5.5%.</ExamCheckbox>
+<ExamCheckbox name="73" isCorrect="true">The action of burning Tez decreases the inflation rate.</ExamCheckbox>
+<ExamCheckbox name="74" isCorrect="true">The inflation rate for the first year was about 5.5%.</ExamCheckbox>
+<ExamCheckbox name="75" isCorrect="true">The inflation rate decreases each year.</ExamCheckbox>
 
 ### Question 9
 

@@ -4,7 +4,7 @@ title: List of bakers
 authors: Maxime Sallerin
 ---
 
-In this section, we will present the lists of bakers. Then as a delegator, we will see how to choose a baker.
+In this section, we will present how to find lists of bakers. Then as a delegator, we will see how to choose a baker.
 
 ## List of baker
 
@@ -23,7 +23,7 @@ For example, [Baking Bad](https://tzkt.io/bakers/), [TzStats](https://tzstats.co
 
 ### What kind of baker?
 
-You have probably come across terms like **public baker**, **private baker** or **corporate baker**. How are they different? In terms of protocol, i.e. participation in block validation, there is no difference. But there is one somewhere else.
+You have probably come across terms like **public baker**, **private baker** or **corporate baker**. How are they different? In terms of protocol, i.e. participation in block validation, there is no difference. The difference lies somewhere else.
 
 #### Public bakers
 
@@ -31,7 +31,7 @@ A public baker is different from a private one by functioning as a public stakin
 
 #### Private bakers
 
-A private baker doesn’t offer everyone to delegate their stakes. Technically speaking, they can’t forbid you to delegate your XTZ to them and, they are under no obligation to share their baking profits with you.
+A private baker doesn’t offer everyone to delegate their stakes. Technically speaking, they can’t forbid you to delegate your XTZ to them, but they are under no obligation to share their baking profits with you.
 
 These days, it is the centralized exchanges like Coinbase, Binance or Kraken, that hold the biggest stakes. They offer their users an opportunity to stake XTZ from their exchange accounts and get profit.
 
@@ -43,9 +43,9 @@ A corporate baker only means that someone wants to emphasize that it is a corpor
 
 ## How to choose a baker?
 
-### Criterias
+### Criteria
 
-There are a few factors to consider when choosing a baker to delegate with:
+There are a few factors to consider when choosing a baker to delegate to:
 
 #### Staking
 

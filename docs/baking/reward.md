@@ -4,14 +4,14 @@ title: Rewards
 authors: Maxime Sallerin
 ---
 
-To maintain the network, Tezos needs bakers and endorsers. They stake their tokens and use their memory space and connection to create blocks, manage transactions, vote, and secure the network. In exchange for the completion of these tasks, bakers are rewarded with tokens from the transaction fees or tokens created by the network. Since the [Carthage update](https://blog.nomadic-labs.com/a-new-reward-formula-for-carthage.html), the reward system has been updated to make the network more robust against non-cooperative baking strategies.
+To maintain the network, Tezos needs bakers and endorsers. They stake their tokens and use their memory space and an internet connection to create blocks, manage transactions, vote, and secure the network. In exchange for the completion of these tasks, bakers are rewarded with tokens from the transaction fees or tokens created by the network. Since the [Carthage update](https://blog.nomadic-labs.com/a-new-reward-formula-for-carthage.html), the reward system has been updated to make the network more robust against non-cooperative baking strategies.
 
 ## Inflation
 
 Each new block generates 80 new XTZ as a reward. 40 XTZ for the bakers and 40 XTZ for the endorsers.
-A new block is created each minute witch generates 42 Million of XTZ per year ($\approx$ 80ꜩ $\times$ 60 mins $\times$ 24 hours $\times$ 365 days). At the Tezos launch, the network was composed of 763 Millions XTZ.
+A new block is created each minute, which generates 42 Million of XTZ per year ($\approx$ 80ꜩ $\times$ 60 mins $\times$ 24 hours $\times$ 365 days). At the Tezos launch, the network was composed of 763 Millions XTZ.
 
-Therefore the inflation rate of the XTZ token for the first year was **5.5%**:
+Therefore the inflation rate of the Tez token for the first year was **5.5%**:
 $$
 \frac{42,000,000}{763,000,000}=\frac{42}{763}\approx5.5\%
 $$
@@ -26,9 +26,11 @@ $$
 \frac{42}{805 + 42 }=\frac{42}{847}\approx5.0\%
 $$
 
-etc ... 
+etc, ... 
 
 The inflation rate decreases a bit each year.
+
+> Note that this calculation of the inflation rate is based only on the generation of new Tez. The burned Tez are ignored in the formula. It is, therefore, an approximation, and in reality, the inflation rate is a bit lower.
 
 ## Baking reward
 
@@ -36,7 +38,7 @@ When a baker bakes a block, he receives a reward composed of all the [transactio
 
 With:
 - $n_e$: the number of endorsements the block receives  
-  **32** endorsements are required to validate a block.
+  As 32 endorsements are needed to validate a block $n_e=32$ in this case.
 
 - $Br_e$: the baking reward per endorsement
 - $Br_b$: the network baking reward per block
@@ -51,14 +53,18 @@ $$
 For $p=0$, a **high priority** baking:
 
 To make deflationary baking irrational, for all profitability criteria, the reward for including an endorsement is set to the same amount as the reward to have one endorsement included. In other words, the function makes a non-cooperative baker lose as many rewards per censored endorsement as the endorser who loses the endorsement. This property holds only for high priority.
+> **Deflationary baking** corresponds to actively refusing to include endorsements of other bakers in one’s blocks.
+
 
 $$
 \bm{Br_e}=\frac{40}{32}=\text{1.2500 ꜩ}  
 $$
 
-For $p=1$, a **low priority** baking:
+For $p>0$, a **low priority** baking:
 
 To make block stealing less profitable, and since the previous point needs to equalize the rewards for the baker and the endorsers of a block, the reward for baking at low priority is set to much less than the reward for baking at high priority. The decreasing factor is **0.15**.
+
+> **Block stealing** is a non-cooperative baking strategy, in which a baker of priority p>0 will withhold his endorsements in order to slow down the blocks of priority 0,..,p−1 enough for his block to be the fastest one.
 
 $$
 \bm{Br_e}=\frac{40}{32}\times0.15=\frac{6}{32}=\text{0.1875 ꜩ}
@@ -144,9 +150,9 @@ $$
 
 Rewards for cycle `n` come in the cycle `n + 1` (after $\approx$ 3 days) so, you will then receive your delegating reward every **3 days**.
 
-There are no direct risks of delegating XTZ. The only risk you take is not earning the potential rewards. Carefully choose your baker to ensure the quality of service and rewards.
+There are no direct risks of delegating Tez. The only risk you take is not earning the potential rewards. Carefully choose your baker to ensure the quality of service and rewards.
 
-When delegating, your XTZ are completely liquid. You are free to move your tokens anytime as there are no freezing periods when delegating to a baker.
+When delegating, your Tez are completely liquid. You are free to move your tokens anytime as there are no freezing periods when delegating to a baker.
 
 ## Accusation reward
 
@@ -154,7 +160,7 @@ The accuser monitors the network, detects double-baking or double-endorsing.
 
 If two endorsements are made for the same slot or two blocks baked at the same height, the evidence can be collected by an accuser and included in a block for a period of 5 cycles, including the current cycle.
 
-This accusation forfeits the entirety safety deposit and future rewards up to that point in the cycle. Half is burned, half goes to the accuser in the form of a block reward.
+This accusation forfeits the entirety safety deposit of the accused baker and future rewards up to that point in the cycle. Half is burned, half goes to the accuser in the form of a block reward.
 
 ## References
 
