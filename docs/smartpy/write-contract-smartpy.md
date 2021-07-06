@@ -52,25 +52,22 @@ class Raffle(sp.Contract):
     def open_raffle(self):
         pass
 
-if "templates" not in __name__:
     @sp.add_test(name = "Raffle")
     def test():
         r = Raffle()
         scenario = sp.test_scenario()
         scenario.h1("Raffle")
         scenario += r
-
-    sp.add_compilation_target("Raffle_comp", Raffle())
 ```
 
 #### A few concepts first
-**A _SmartPy_ contract** consists of a storage with one or several entry points. It is a class definition that inherits from the `sp.Contract`.
+**A _SmartPy_ contract** is a class definition that inherits from the `sp.Contract`.
 > **A class** is a code template for creating objects. Objects have member variables and have a behaviour associated with them. In python a class is created by the keyword `class`.  
 > **Inheritance** allows us to define a class that can inherit all the methods and properties of another class.
 
 - **The _SmartPy_ storage** is defined into the constructor `__init__` which makes a call to `self.init()` that initializes the fields and sets up the storage.
 
-- **Entrypoints** are a type of contract class that can be called on from the outside. Entrypoints need to be marked with the `@sp.entry_point` decorator.
+- **Entrypoints** are a method of a contract class that can be called on from the outside. Entrypoints need to be marked with the `@sp.entry_point` decorator.
     > **Decorators** are functions that modify the functionality of other functions. They are introduced by `@` and are placed before the function.
 
 **Test Scenarios** are good tools to make sure our smart contracts are working correctly.
@@ -97,7 +94,7 @@ code
   };
 ```
 
-### The *open_raffle* entrypoint
+### open_raffle entrypoint
 `open_raffle` is the entrypoint that only the administrator can call. If the invocation is successful, then the raffle will open, and the smart contract's storage will be updated with the chosen amount and the hash of the winning ticket number.
 
 #### Link to referential manual
@@ -109,6 +106,9 @@ code
 - [Typing](https://smartpy.io/reference.html#_typing)
 
 #### Code
+
+Here is the first version of this contract. We will go through its different parts one at a time.
+
 ```python
 # Raffle Contract - Example for illustrative purposes only.
 
@@ -137,14 +137,10 @@ class Raffle(sp.Contract):
         self.data.hash_winning_ticket = hash_winning_ticket
         self.data.raffle_is_open = True
 
-
-if "templates" not in __name__:
-    alice = sp.test_account("Alice")
-    admin = sp.test_account("Administrator")
-
-
     @sp.add_test(name="Raffle")
     def test():
+        alice = sp.test_account("Alice")
+        admin = sp.test_account("Administrator")
         r = Raffle(admin.address)
         scenario = sp.test_scenario()
         scenario.h1("Raffle")
@@ -191,8 +187,6 @@ if "templates" not in __name__:
             .run(source=admin.address, amount=sp.tez(10), now=sp.timestamp_from_utc_now(),
                  valid=False)
 
-
-    sp.add_compilation_target("Raffle_comp", Raffle(admin.address))
 ```
 
 #### Storage definition
@@ -213,7 +207,7 @@ The definition of the storage is done in the constructor `__init__` and the diff
 where:
 
 - `field1`, `field2`, `field3` are the names of the variables and are accessible via `self.data` (e.g. `self.data.field1`)
-- `value1`, `value2`, `value3` are initial values or variables passed as constructors like `__init__(self, value1)` as we did above for the `admin=address` field. (This can be useful if you want to initialize the storage with some specific values)
+- `value1`, `value2`, `value3` are initial values or variables passed as constructors like `__init__(self, value1)` as we did above for the `admin=address` field.
 
 <NotificationBar>
   <p>
@@ -232,6 +226,8 @@ sp.TString
 
 Types are usually automatically inferred and not explicitly needed. However, it is still possible to add constraints on types, e.g. check out [Setting a type of constraint in SmartPy](https://smartpy.io/reference.html#_setting_a_type_constraint_in_smartpy).
 
+They are then compiled into their corresponding Michelson type.
+
   </p>
 </NotificationBar>
 
@@ -242,12 +238,15 @@ For the storage of the raffle contract, we have defined five fields for the mome
 - **close_date** is a `timestamp` to indicate the closing date of the raffle. The raffle must remain open for at least seven days.
 - **jackpot** is the amount in `tez` that will be distributed to the winner.
 - **raffle_is_open** is a `boolean` to indicate if the raffle is open or not.
-- **hash_winning_ticket** is the hash of the winning ticket indicated by the admin.
+- **hash_winning_ticket** is the hash of the winning ticket indicated by the admin. It is of type `bytes`.
+  
 
 <NotificationBar>
   <p>
   
-  It's not possible to generate a truly random number from a smart contract, so an easy alternative is to use a hash. This example is for educational purposes and is not intended to be deployed on the real Tezos network.
+  It's not possible to generate a truly random number from a smart contract, so an easy alternative is to use a hash that the admin will reveal the value later. 
+  
+  This example is for educational purposes and is not intended to be deployed on the real Tezos network.
 
   </p>
 </NotificationBar>
@@ -270,9 +269,9 @@ def open_raffle(self, jackpot_amount, close_date, hash_winning_ticket):
     self.data.raffle_is_open = True
 ```
 
-An entrypoint is a method of the contract class and is always preceded by the keyword `@sp.entry_point`. It can take on several parameters. In our case, the first entrypoint we use, is called `open_raffle` and does the following:
+An entrypoint is a method of the contract class and is always preceded by the keyword `@sp.entry_point`. It can take several parameters. In our case, the first entrypoint we use, is called `open_raffle` and does the following:
 
-- With `sp.verify()` or `sp.verify_equal()` we check that a statement is true or if it return an error message (more info at [Checking a Condition](https://smartpy.io/reference.html#_checking_a_condition)). Here we check four statements :
+- With `sp.verify()` or `sp.verify_equal()`, we check that a statement is true or if it returns an error message (more info at [Checking a Condition](https://smartpy.io/reference.html#_checking_a_condition)). Here we check four statements :
   
   1. The address that calls the entrypoint must be the administrator one indicated in the storage. We compare here `sp.source` and `self.data.admin`.
      > `sp.sender` is the address that calls the current entrypoint.  
@@ -296,15 +295,19 @@ self.data.raffle_is_open = True
 
 #### Test Scenario
 
+In a scenario, we simulate the origination and a number of calls to entry point, that can be made from different accounts. The execution of the test generates html code that can help visualize it.
+
 The purpose of the test scenario is to ensure that the smart contract functions properly by triggering the conditions and checking the changes made to the storage.
 
 On _SmartPy_, a test is a method of the contract class, preceded by `@sp.add_test`.
 
-Inside this method, you need to instantiate your contract class and your scenarios, to which you will add the contract instance and all the calls related that you want to test. For instance:
+Inside this method, you need to instantiate your contract class and your scenarios, to which you will add the contract instance and all the relate calls that you want to test. For instance:
 
 ```python
 @sp.add_test(name="Raffle")
 def test():
+    alice = sp.test_account("Alice")
+    admin = sp.test_account("Administrator")
     r = Raffle(admin.address)
     scenario = sp.test_scenario()
     scenario.h1("Raffle")
@@ -473,6 +476,8 @@ If the invocation is successful, the address of the sender will be added to the 
 
 #### Code
 
+Here is the second version of this contract with the addition of a new entrypoint. We will go through the additonal parts one at a time.
+
 ```python
 # Raffle Contract - Example for illustrative purposes only.
 
@@ -516,14 +521,12 @@ class Raffle(sp.Contract):
         self.data.sold_tickets[ticket_id] = current_player
 
 
-if "templates" not in __name__:
-    alice = sp.test_account("Alice")
-    jack = sp.test_account("Jack")
-    admin = sp.test_account("Administrator")
-
-
     @sp.add_test(name="Raffle")
     def test():
+        alice = sp.test_account("Alice")
+        jack = sp.test_account("Jack")
+        admin = sp.test_account("Administrator")
+    
         r = Raffle(admin.address)
         scenario = sp.test_scenario()
         scenario.h1("Raffle")
@@ -591,9 +594,6 @@ if "templates" not in __name__:
         scenario.verify(r.data.players.contains(alice.address))
         scenario.verify_equal(r.data.sold_tickets[alice_ticket_id], alice.address)
         scenario.verify_equal(r.data.sold_tickets[jack_ticket_id], jack.address)
-
-
-    sp.add_compilation_target("Raffle_comp", Raffle(admin.address))
 ```
 
 #### Storage definition
@@ -612,8 +612,26 @@ def __init__(self, address):
 
 With the addition of this entrypoint we have defined two new fields in the storage:
 
-- **players**, is a `set` that receives the addresses of each new player who bought a raffle ticket.
-- **sold_tickets**, is a `map` that associates each player's address with a ticket number.
+- **players**, is a `Set` that receives the addresses of each new player who bought a raffle ticket.
+- **sold_tickets**, is a `Map` that associates each player's address with a ticket number.
+
+##### Sets
+
+- Sets are unordered collections of values of the same type, unlike lists, which are ordered collections.
+- [Sets](https://smartpy.io/reference.html#_sets) in SmartPy are of type `sp.TSet(element)`. It will be then compiled into the corresponding type in Michelson which is `set`.
+- For SmartPy expressions, we must use `sp.set([e1, e2, …​, en])` to define a set.
+
+##### Maps
+
+- Map is a data structure which associates a value to a key, thus creating a key-value binding. All keys have the same type and all values have the same type. An additional requirement is that the type of the keys must be comparable.
+- [Maps](https://smartpy.io/reference.html#_maps) in SmartPy are of type sp.TMap(key, value). It will be then compiled into the corresponding type in Michelson which is `set`.
+- For SmartPy expressions, we can define a map as follows: `my_map = sp.map(l = …​, tkey = …​, tvalue = …​)`.
+- To add or replace an element in a map, we use: `my_map[key] = value`
+
+> `Maps` load their entries into the environment, which is fine for small maps, but for maps holding millions of entries, the cost of loading them would be too expensive. For this we use `BigMaps`. Their syntax is the same as for regular maps.
+
+Note that `Set` and a `Map` are used here to store the players. But in case there would be a very large number of players this can block the contract.
+The solution would be to use only a `BigMap`. Indeed, a `Map` uses more storage but costs less gas, whereas a `BigMap` consumes less storage but has higher gas costs during the Smart Contract's execution.
 
 #### Entrypoint implementation
 
@@ -651,7 +669,9 @@ Only the administrator can call on the entrypoint `close_raffle`. If the invocat
 
 - [Bytes](https://smartpy.io/reference.html#_bytes)
 
-### Full code
+#### Full code
+
+Here is the code in its final form with the implementation of the last entrypoint.
 
 ```python
 # Raffle Contract - Example for illustrative purposes only.
@@ -715,15 +735,11 @@ class Raffle(sp.Contract):
         self.data.sold_tickets = sp.map()
         self.data.raffle_is_open = False
 
-
-if "templates" not in __name__:
-    alice = sp.test_account("Alice")
-    jack = sp.test_account("Jack")
-    admin = sp.test_account("Administrator")
-
-
     @sp.add_test(name="Raffle")
     def test():
+        alice = sp.test_account("Alice")
+        jack = sp.test_account("Jack")
+        admin = sp.test_account("Administrator")
         r = Raffle(admin.address)
         scenario = sp.test_scenario()
         scenario.h1("Raffle")
@@ -818,12 +834,9 @@ if "templates" not in __name__:
 
         scenario.h3("Alice unsuccessfully call buy_ticket because the raffle is closed")
         scenario += r.buy_ticket().run(sender=alice.address, amount=sp.tez(1), valid=False)
-
-
-    sp.add_compilation_target("Raffle_comp", Raffle(admin.address))
 ```
 
-### Entrypoint implementation
+#### Entrypoint implementation
 
 The storage definition has not been modified by the addition of this entrypoint, so we can directly explain its implementation.
 
@@ -861,6 +874,16 @@ If the conditions are met, then:
 
 - The jackpot is sent to the winner's address.
 - The storage is reset to the default values.
+
+##### Bytes
+
+Here are some precisions about the `sp.TBytes` type and its functionality which are used here in the *close_raffle* entrypoint.
+
+- Bytes are sequences of byte, such as `0x12e4` in hexadecimal notation.
+- [Bytes](https://smartpy.io/reference.html#_bytes) in SmartPy are of type `sp.TBytes`. It will be then compiled into the corresponding type in Michelson which is `bytes`.
+- For SmartPy expressions, we must use `sp.bytes('Ox...')` to define bytes.
+- We use `sp.pack(x)` to serialize a piece of data x to its optimized binary representation. It then returns an object of type `sp.TBytes`.
+- The function `sp.sha256(value)` take a `sp.TBytes` value and return the corresponding hash as a new `sp.TBytes` value.
 
 ### Run and watch the output
 
