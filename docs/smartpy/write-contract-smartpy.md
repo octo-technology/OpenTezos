@@ -44,6 +44,16 @@ sp.verify(self.data.x > 2)
 
 Here, `sp.verify()`checks that the field `x` is larger than `2` and raises an error if it is not. This is performed at run time, i.e., in the blockchain, once translated into Michelson.
 
+Since Python does not allow its control statements to be overloaded, certain language constructs are desugared by a pre-processor: `sp.if`, `sp.else`, `sp.for`, `sp.while` are SmartPy commands.
+
+For example, we will use:
+
+```python
+sp.if self.data.x > 2:
+    self.data.x += 1
+```
+
+If we would have used the `if` native to Python it could not be interpreted and compiled in Michelson. 
 
 ## About the raffle contract
 A raffle is a game of chance that distributes a winning prize.
