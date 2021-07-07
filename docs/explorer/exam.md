@@ -14,7 +14,7 @@ import ExamCheckbox from '../../src/components/docs/ExamCheckbox';
 What is true about a block indexer?
 
 <ExamCheckbox name="01" isCorrect="true">Indexers fetches the raw data from the node, then processes it and stores it in a database in an optimized way.</ExamCheckbox>
-<ExamCheckbox name="02" isCorrect="false">It enables cryptocurrency transaction.</ExamCheckbox>
+<ExamCheckbox name="02" isCorrect="false">It enables cryptocurrency transactions.</ExamCheckbox>
 <ExamCheckbox name="03" isCorrect="true">It provides fast access to the blockchain data.</ExamCheckbox>
 <ExamCheckbox name="04" isCorrect="false">It allows the writing and deployment of smart contracts.</ExamCheckbox>
 <ExamCheckbox name="05" isCorrect="false">Indexers exist only for the Tezos blockchain.</ExamCheckbox>

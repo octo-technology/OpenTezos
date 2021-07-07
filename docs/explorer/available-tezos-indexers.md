@@ -4,6 +4,8 @@ title: Available Tezos Explorers
 authors: Maxime Sallerin
 ---
 
+> __Coming soon__: A more in-depth comparison of all availables Tezos explorers.
+
 The purpose of this chapter is to list the main explorers of the Tezos blockchain and presents the pros and cons of some.
 
 ## Tezos Blockchain Explorers
@@ -25,7 +27,7 @@ The purpose of this chapter is to list the main explorers of the Tezos blockchai
 
 ## Indexers potential features
 
-- **Full-text search** in smart contract storage. For example, you can retrieve a smart contract by specifying a part of the Michelson code of the storage.
+- **Full-text search** in smart contract storage. For example, you can retrieve a smart contract by specifying a part of the Michelson code of the contract.
 - **Michelson decoding**: The Michelson code is interpreted to be presented in a more readable way.
 - **Bigmap support** Allows you to access and observe the content of Big Maps in the storage of smart contracts.
 - **Mempool access**: some explorers provide access to the content of the mempool. The mempool is made of all transactions that have been submitted for inclusion in the chain but have not yet been included in a block by a baker.
@@ -97,7 +99,7 @@ Nomadic Labs Indexer is the first indexer made by the Tezos team in July 2019.
 
 **Cons**
 
-- ETL only, no API server, no User Interface (command lines only)
+- ETL only, no API server, no User Interface (command line only)
 - no smart contract support
 
 ## Arronax
@@ -113,7 +115,7 @@ Arronax is Cyrptonomic Conseil's block explorer and was released in beta in Apri
 **Pros**
 
 - API server
-- full-text search in contracts & storage and smart filter
+- smart filter and full-text search in contracts & storage
 
 **Cons**
 

@@ -4,10 +4,7 @@ title: How to use the tzStats blockchain explorer?
 authors: Maxime Sallerin
 ---
 
-In this chapter, we will use the [TzStats](https://tzstats.com/) explorer to illustrate the different features of an explorer, but similar features are usually available on others.
-
-![](../../static/img/explorer/tzStats_first_page.png)
-<small className="figure">TzStats Main Dashboard</small>
+In this chapter, we will use the [TzStats](https://tzstats.com/) explorer to illustrate the different features of an explorer, but similar features are usually available on others. Concerning the observation of smart contracts, the different aspects are discussed in the [following chapter](./tzstats-smart-contract).
 
 [TzStats](https://tzstats.com/) is developed by _Blockwatch Data Inc._ It is a block explorer for public and private Tezos networks and, it is based on the [TzIndex indexer](https://github.com/blockwatch-cc/tzindex).
 
