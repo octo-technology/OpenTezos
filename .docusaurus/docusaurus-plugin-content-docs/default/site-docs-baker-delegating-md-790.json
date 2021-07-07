@@ -1,0 +1,30 @@
+{
+  "unversionedId": "baker/delegating",
+  "id": "baker/delegating",
+  "isDocsHomePage": false,
+  "title": "Delegating",
+  "description": "In this chapter, we will see how to delegate your coins. We'll use command lines or simple wallets' built-in options.",
+  "source": "@site/docs/baker/delegating.md",
+  "sourceDirName": "baker",
+  "slug": "/baker/delegating",
+  "permalink": "/baker/delegating",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/baker/delegating.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "delegating",
+    "title": "Delegating",
+    "authors": "Maxime Sallerin"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "CLI to become a baker",
+    "permalink": "/baker/cli-baker"
+  },
+  "next": {
+    "title": "Voting",
+    "permalink": "/baker/voting"
+  }
+}

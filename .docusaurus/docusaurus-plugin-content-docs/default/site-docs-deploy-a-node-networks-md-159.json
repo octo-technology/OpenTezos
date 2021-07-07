@@ -1,0 +1,30 @@
+{
+  "unversionedId": "deploy-a-node/networks",
+  "id": "deploy-a-node/networks",
+  "isDocsHomePage": false,
+  "title": "What about networks?",
+  "description": "In this chapter, we will see how Tezos is multi-networks. We will learn what the \"main network\" and the \"test networks\" are. Finally, we will discover how to configure our node on a chosen network.",
+  "source": "@site/docs/deploy-a-node/networks.md",
+  "sourceDirName": "deploy-a-node",
+  "slug": "/deploy-a-node/networks",
+  "permalink": "/deploy-a-node/networks",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/deploy-a-node/networks.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "networks",
+    "title": "What about networks?",
+    "authors": "Maxime Sallerin and Thomas Zoughebi"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Set-up a node",
+    "permalink": "/deploy-a-node/set-up-a-node"
+  },
+  "next": {
+    "title": "To go further",
+    "permalink": "/deploy-a-node/to-go-further"
+  }
+}

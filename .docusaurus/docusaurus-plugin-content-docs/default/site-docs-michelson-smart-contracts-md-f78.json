@@ -20,8 +20,8 @@
   },
   "sidebar": "docs",
   "previous": {
-    "title": "Language Basics",
-    "permalink": "/michelson/language-basics"
+    "title": "Introduction",
+    "permalink": "/michelson"
   },
   "next": {
     "title": "Tutorial",

@@ -1,0 +1,30 @@
+{
+  "unversionedId": "baking/baking_explained",
+  "id": "baking/baking_explained",
+  "isDocsHomePage": false,
+  "title": "How baking works?",
+  "description": "In this section, we will discuss how baking works. The different actors of the mechanism and the technological solutions will be presented.",
+  "source": "@site/docs/baking/baking_explained.md",
+  "sourceDirName": "baking",
+  "slug": "/baking/baking_explained",
+  "permalink": "/baking/baking_explained",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/baking/baking_explained.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "baking_explained",
+    "title": "How baking works?",
+    "authors": "Maxime Sallerin"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Introduction",
+    "permalink": "/baking"
+  },
+  "next": {
+    "title": "Rewards",
+    "permalink": "/baking/reward"
+  }
+}

@@ -12,7 +12,7 @@ In this chapter, we're going to explain how and why Bitcoin's programming featur
 ## Limitations of Bitcoin
 The primary use case of Bitcoin is to be *distributed digital currency*. It's also an *augmented* currency that is a *programmable* currency, with such things as programmable **spending conditions**.
 
-The metaphor of **vaults** is often used as bitcoins are seen as **always locked inside _vaults_**.
+The metaphor of **vaults** is meaningful as bitcoins are **always locked inside _transactions_**.
 
 Programable conditions for Bitcoin describe **how** vaults can be opened and *bitcoins moved to other vaults*.
 
@@ -40,7 +40,7 @@ Because *Bitcoin Script* is stack-based, the complete code executed is:
 
 So, in the stack, the solution "`<sig> <pubKey>`" (key to open the vault) has to be provided here first, before the problem "`OP_DUP OP_HASH160 <pubKeyHash> OP_EQUALVERIFY OP_CHECKSIG`" (lock of the vault).
 
-The fact that *Bitcoin Script* is a low-level and stack-based language does not actually limit coding possibilities. It makes it hard to optimize (script size and fees to pay). For instance, at the same low-level, *Ethereum* also uses [OP_codes](https://www.ethervm.io/) and a stack [[5]](/blockchain-basics/smart-contracts#references). EVM code is the _Bitcoin Script_ of _Ethereum_.
+The fact that *Bitcoin Script* is a low-level and stack-based language does not actually limit coding possibilities. For instance, at the same low-level, *Ethereum* also uses [OP_codes](https://www.ethervm.io/) and a stack [[5]](/blockchain-basics/smart-contracts#references). EVM code is the _Bitcoin Script_ of _Ethereum_.
 
 The first limitation is the number and types of usable *OP_codes*. For security purposes, various *OP_codes* are either absent, or have been disabled [[1]](/blockchain-basics/smart-contracts#references) following the discovery of vulnerabilities.
 
@@ -51,8 +51,8 @@ The transaction's structure also limits possibilities. Two critical points shoul
 - a Bitcoin script is **unaware of anything happening outside the stack**. It **can't access the blockchain data**.
 
 Finally, because of the "*vaults*" system, knowing the balance of someone means checking all his/her vaults [[6]](/blockchain-basics/smart-contracts#references). 
-This means you need to sum up the amounts of all the transactions sent to the same address in the ledger.
-This is a significant difference with systems like Ethereum, which have an *account* point of view.
+This means you need to sum up the amounts of all the transactions sent to the same address in the ledger. This impacts the coding logic of Bitcoin's spending conditions, again because you can't use the balance of a private key inside the code.
+This is a significant difference with systems like Ethereum, which have an *account* point of view: you can directly use the amounts and balances inside your codes.
 
 ## Definition of a "smart" contract
 The very first definition of "*Smart Contracts*" is originally from Nick Szabo [[7]](/blockchain-basics/smart-contracts#references) in 1996 [[8]](/blockchain-basics/smart-contracts#references):
@@ -65,10 +65,12 @@ The very first definition of "*Smart Contracts*" is originally from Nick Szabo [
 
 This definition is pretty hard to understand because very general.
 
+A smart contract is a **code** stored inside the *blockchain*. It executes a set of pre-defined instructions (promises). Once deployed (stored), it becomes **immutable**. A smart contract is deployed using a **transaction**, so we embed spending conditions inside it, which are then **immutable**. We will go into more detail about this immutability in the [Tezos Basics module](/tezos-basics/introduction).
+
 Strictly speaking, a Bitcoin transaction is a smart contract. The **promise** to open the *vault* from one party is fulfilled, given that the other party has the right *key* to open it. Note that *the way* this key is provided is also meaningful here. It must follow **protocols**.
 
 ## Halting problem of Turing-complete machines and Gas
-To increase the possibilities for smart contracts, more *OP_codes* had to be incorporated than inside blockchain systems. With Ethereum, adding these *OP_codes* made its low-level language _Turing-complete_. This meant that from this moment on, one could program any operation, including *jumps* and *loops*.
+To increase the possibilities for smart contracts, more *OP_codes* had to be incorporated inside blockchain systems. With Ethereum, adding these *OP_codes* made its low-level language _Turing-complete_. This meant that from this moment on, one could program any operation, including *jumps* and *loops*.
 
 A loop is a problem for Turing-complete machine, especially the ones that use a currency to function. If we can't control the halt of the machine and it starts an endless loop, we can't control the infinite spending of the currency either.
 

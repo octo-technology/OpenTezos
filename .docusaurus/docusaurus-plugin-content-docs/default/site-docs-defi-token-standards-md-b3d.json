@@ -3,7 +3,7 @@
   "id": "defi/token-standards",
   "isDocsHomePage": false,
   "title": "Token Standards",
-  "description": "In the Blockchain ecosystem, any digitally transferable asset between two people is called a token. Tokens can be native to a blockchain, e.g., BTC is the native token of Bitcoin. Tokens can also be created and hosted on an existing blockchain via a smart contract. Some tokens, called stablecoins, are following the price of fiat currencies (e.g., USD, EUR). Others, called NFT, can enclose collectibles or art. Finally, tokens can represent rights of ownership of real-world estates or companies (i.e., stock tokens). In this chapter, we will see the main token types and token standards on Tezos.",
+  "description": "In the Blockchain ecosystem, any digitally transferable asset between two people is called a token. Tokens can be native to a blockchain, e.g., BTC is the native token of Bitcoin or tokens can also be created and hosted on an existing blockchain via a smart contract. Some tokens, called stablecoins, follow the price of fiat currencies (e.g., USD, EUR). Others, called NFT, can represent collectables or art pieces. Finally, tokens can represent rights of ownership of real-world estates or companies (i.e., stock tokens). In this chapter, we will see the main types of token and the token standards on Tezos.",
   "source": "@site/docs/defi/token-standards.md",
   "sourceDirName": "defi",
   "slug": "/defi/token-standards",

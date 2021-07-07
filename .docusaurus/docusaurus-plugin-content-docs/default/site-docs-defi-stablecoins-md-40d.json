@@ -3,7 +3,7 @@
   "id": "defi/stablecoins",
   "isDocsHomePage": false,
   "title": "Stablecoins",
-  "description": "A stablecoin is a cryptocurrency whose price is fixed to another asset. Most stablecoins are pegged (fixed) to fiat currencies (currencies issued by a central bank) like the US Dollar.",
+  "description": "A stablecoin is a cryptocurrency whose price is fixed to another asset. Most stablecoins are pegged (fixed) to fiat currencies (currencies issued by the central bank of a soveign state) like the US Dollar.",
   "source": "@site/docs/defi/stablecoins.md",
   "sourceDirName": "defi",
   "slug": "/defi/stablecoins",

@@ -16,15 +16,15 @@
   "frontMatter": {
     "id": "exam",
     "title": "Exam",
-    "authors": "Benjamin Pilia"
+    "authors": "Maxime Sallerin"
   },
   "sidebar": "docs",
   "previous": {
-    "title": "Introduction",
-    "permalink": "/deploy-a-node"
+    "title": "To go further",
+    "permalink": "/deploy-a-node/to-go-further"
   },
   "next": {
     "title": "Introduction",
-    "permalink": "/explorer/introduction"
+    "permalink": "/explorer"
   }
 }

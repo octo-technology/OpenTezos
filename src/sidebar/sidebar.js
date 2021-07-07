@@ -35,7 +35,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Deploy a node',
-      items: ['deploy-a-node/introduction', 'deploy-a-node/exam'],
+      items: ['deploy-a-node/introduction', 'deploy-a-node/installation', 'deploy-a-node/set-up-a-node', 'deploy-a-node/networks', 'deploy-a-node/to-go-further', 'deploy-a-node/exam'],
     },
     {
       type: 'category',
@@ -86,17 +86,17 @@ module.exports = {
     {
       type: 'category',
       label: 'Build a Dapp',
-      items: ['dapp/introduction', 'dapp/truffle_compilation_migration'],
+      items: ['dapp/introduction', 'dapp/truffle_compilation_migration', 'dapp/taquito', 'dapp/temple', 'dapp/basics', 'dapp/front_user_experience', 'dapp/exam'],
     },
     {
       type: 'category',
       label: 'Baking',
-      items: ['baking/introduction', 'baking/exam'],
+      items: ['baking/introduction', 'baking/baking_explained', 'baking/reward','baking/bakers_list', 'baking/exam'],
     },
     {
       type: 'category',
       label: 'Deploy Bakers',
-      items: ['baker/introduction', 'baker/exam'],
+      items: ['baker/introduction', 'baker/cli-baker', 'baker/delegating','baker/voting', 'baker/exam'],
     },
     {
       type: 'category',
@@ -127,7 +127,14 @@ module.exports = {
     {
       type: 'category',
       label: 'Private Blockchain',
-      items: ['private/introduction', 'private/exam'],
+      items: [
+        'private/introduction', 
+        'private/installation', 
+        'private/genesis', 
+        'private/starting-blockchain', 
+        'private/using-blockchain', 
+        'private/vpn',
+        'private/exam'],
     },
     {
       type: 'category',

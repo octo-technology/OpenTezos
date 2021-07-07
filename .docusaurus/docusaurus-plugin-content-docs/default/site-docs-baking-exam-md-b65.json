@@ -16,12 +16,12 @@
   "frontMatter": {
     "id": "exam",
     "title": "Exam",
-    "authors": "--"
+    "authors": "Maxime Sallerin"
   },
   "sidebar": "docs",
   "previous": {
-    "title": "Introduction",
-    "permalink": "/baking"
+    "title": "List of bakers",
+    "permalink": "/baking/bakers_list"
   },
   "next": {
     "title": "Introduction",

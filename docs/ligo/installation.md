@@ -4,20 +4,26 @@ title: Installation
 authors: Maxime Sallerin and Benjamin Pilia
 ---
 
-There are currently four ways to get started with LIGO. You can choose to use a Docker image, a static Linux binary, to install packages for your Debian Linux distribution, or you can try directly on the [online editor](https://ide.ligolang.org/).
+There are currently four ways to get started with LIGO. You can choose to use a Docker image, a static Linux binary, or install packages for your Debian Linux distribution, or you can try directly on the [online editor](https://ide.ligolang.org/).
 
 ## Dockerized installation (recommended)
-If you've [installed 🐳 Docker](https://docs.docker.com/install/), you can run the latest LIGO release 0.11.0:
+If you've [installed 🐳 Docker](https://docs.docker.com/install/), you are able to run the latest LIGO release 0.11.0:
 
 Linux or OSX:
-> `docker run --rm -v "$PWD":"$PWD" -w "$PWD" ligolang/ligo:0.11.0`
+
+```bash
+docker run --rm -v "$PWD":"$PWD" -w "$PWD" ligolang/ligo:0.11.0
+```
 
 Windows:
-> `docker run --rm -v "%CD%":/cd -w /cd ligolang/ligo:0.11.0`
+
+```bash
+docker run --rm -v "%CD%":/cd -w /cd ligolang/ligo:0.11.0
+```
 
 Or if you want the development version, replace the version above with `next`.
 
-Or run one of the older versions found on [DockerHub](https://hub.docker.com/r/ligolang/ligo/tags).
+Or run one of the older versions found at [DockerHub](https://hub.docker.com/r/ligolang/ligo/tags).
 
 ## Static Linux binary
 
@@ -39,7 +45,7 @@ sudo cp ./ligo /usr/local/bin
 ## Debian Linux package installation
 
 A `.deb` package containing the static `ligo` executable is also available.
-You can download [this package](https://ligolang.org/deb/ligo.deb) or go [here](https://gitlab.com/ligolang/ligo/-/releases), and then install using:
+You can download [this package](https://ligolang.org/deb/ligo.deb) or go [here](https://gitlab.com/ligolang/ligo/-/releases), and then install it using:
 
 ```zsh
 sudo apt install ./ligo.deb

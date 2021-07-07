@@ -1,0 +1,30 @@
+{
+  "unversionedId": "dapp/basics",
+  "id": "dapp/basics",
+  "isDocsHomePage": false,
+  "title": "Build a dapp - basics",
+  "description": "Now that we have a deployed contract and a ready-to-use Wallet, we can start to develop the frontend part of the dapp: it will interact",
+  "source": "@site/docs/dapp/front.md",
+  "sourceDirName": "dapp",
+  "slug": "/dapp/basics",
+  "permalink": "/dapp/basics",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/dapp/front.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "basics",
+    "disable_pagination": true,
+    "title": "Build a dapp - basics"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Temple Wallet",
+    "permalink": "/dapp/temple"
+  },
+  "next": {
+    "title": "Build a dapp - User Experience",
+    "permalink": "/dapp/front_user_experience"
+  }
+}

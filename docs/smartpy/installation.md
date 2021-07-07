@@ -29,7 +29,7 @@ On the left screen of the online editor, you can:
 
 Once you run your code, you can visualize the result on the right screen, which contains:
 
-- Your python code
+- Your inlined python code
 - Your generated _Michelson_ contract and storage (also available in _JSON_ format)
 - A summary of your test scenario and the generated Michelson parameter code
 - An interface to deploy your Michelson contract on a testnet or the mainnet
@@ -104,9 +104,10 @@ Use the `SmartPy.sh` script to compile a _SmartPy_ smart contract:
 ```
 
 Compilation produces multiple possible outputs including:
-- generate _Michelson_ code for contract and storage
-- generate _JSON_ code for contract and storage 
-    > It is referring to Michelson source code in JSON representation.
+- _Michelson_ code for contract and storage
+- _JSON_ code for contract and storage 
+
+> It is referring to Michelson source code in JSON representation.
 
 #### Execute the tests of your SmartPy Script
 
@@ -119,11 +120,9 @@ Use the `SmartPy.sh` script to run the tests:
 This leads to multiple outputs: types of storage values and entrypoint parameters, generated Michelson code, pretty-printed scenario, etc.
 
 ## Conclusion
+Installing an environment for programming with SmartPy is easy to do. You need Python and the necessary libraries. Or you can simply start coding from the online editor.
 
-Installing a support for programming with SmartPy is easy to do. You need Python and the necessary libraries or to simply start coding from the online editor.
-
-## Reference
-
+## References
 [1] https://smartpy.io/reference.html#_command_line_interface
 
 [2] https://smartpy.io/ide

@@ -1,0 +1,30 @@
+{
+  "unversionedId": "dapp/taquito",
+  "id": "dapp/taquito",
+  "isDocsHomePage": false,
+  "title": "Taquito",
+  "description": "Interactions with a Tezos blockchain can be done thanks to the Tezos cli.",
+  "source": "@site/docs/dapp/taquito.md",
+  "sourceDirName": "dapp",
+  "slug": "/dapp/taquito",
+  "permalink": "/dapp/taquito",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/dapp/taquito.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "taquito",
+    "disable_pagination": true,
+    "title": "Taquito"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Smart contract deployment with Truffle",
+    "permalink": "/dapp/truffle_compilation_migration"
+  },
+  "next": {
+    "title": "Temple Wallet",
+    "permalink": "/dapp/temple"
+  }
+}

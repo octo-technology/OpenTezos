@@ -5,7 +5,7 @@ slug: /smartpy
 authors: Maxime Sallerin
 ---
 
-This module aim to enable developers to write smart contracts with _SmartPy_. It will take the form of a pedagogical course, illustrated through an example of a smart contract, to help the developer acquire the essentials to write, test, and analyze his smart contract.
+This module aims to teach developers to write smart contracts with _SmartPy_. It will take the form of a course, illustrated through an example of a smart contract, to help the developer acquire the essentials to write, test, and analyze his smart contract.
 
 Tezos smart contracts are written in [Michelson](https://opentezos.com/michelson), which is a stack-based language, that forms the lowest level of a Tezos smart contract. The Michelson code is what will be deployed on the Tezos network. However, while reading or writing a Michelson code is accessible for small smart contracts, it can become pretty tedious and complicated to use, for more complex smart contracts, as:
 
@@ -15,53 +15,33 @@ Tezos smart contracts are written in [Michelson](https://opentezos.com/michelson
 - the Michelson code cannot be broken down into several files
 - stack-based languages are not commonly used when it comes to web development.
 
-**SmartPy solves these issues.**
+**SmartPy offers an alternative.**
 
-SmartPy is a high-level smart contracts library, it comes with numerous tools in the form of [SmartPy.io](https://smartpy.io/) to greatly ease the accessibility, understandability and provability of smart contracts on Tezos. A few of the main advantages are:
+SmartPy is a Smart Contract library. It comes with numerous tools in the form of [SmartPy.io](https://smartpy.io/). It greatly eases the accessibility, understandability, and provability of smart contracts on Tezos. A few of the main advantages are:
 
 - It is based on a popular programming language: _Python_
-- It has a set of high-level primitives, called _SmartML_, written in _OCaml_ for new smart contracts virtual-machine that can be compiled into Michelson. These primitives also exist on their own and can be executed, simulated and analyzed.
+- It has a set of high-level primitives, called _SmartML_, written in _OCaml_ that can be compiled into Michelson. These primitives also exist on their own and can be executed, simulated and analyzed.
   > **OCaml** is an industrial-level programming language, that supports functional, imperative, and object-oriented styles.
   > Smart contracts in SmartML are abstract syntax trees, as it is normally done in OCaml, with values, expressions, commands, etc.
 - It has a compiler that translates _SmartML_ contracts into _Michelson_.
-- Analytics tools are elements of SmartPy that provide some automatic procedures to analyze and prove the properties of smart contracts. Such as the [user interface](https://smartpy.io/ide) which brings simulation, debugging, tests, and analytics capabilities straight to developers.
+- Analytics tools are elements of SmartPy that provide some automatic procedures to analyze and prove the properties of smart contracts, such as the [user interface](https://smartpy.io/ide), which brings simulation, debugging, tests, and analytics capabilities straight to developers.
 
 ![](../../static/img/smartpy/smartpy_intro.svg)
 <small className="figure">FIGURE 1: From SmartPy to Michelson, Tests, and Analytics </small>
 
 Once built, SmartPy contracts become _SmartML_ contracts and are handled in an OCaml library called _SmartEngine_.
 
-The Python interpreter then evaluates Python code containing SmartPy definitions. It creates a very simple expression, called an S-expression, that is parsed and typed while some properties are verified in the SmartEngine backend.
+The Python interpreter then evaluates Python code containing SmartPy definitions.
 
-The S-expression sent between SmartPy and SmartML has the following form, which is not supposed to be human-readable.
+It can then be easily analyzed or compiled into a single Michelson code file.
 
-```
-(storage (record (claimed (bool False)) (deck (array "int" (int 1)
-(int 2) (int 3) (int 4) (int 5))) (nextPlayer (int 1)) (size (int
-5)) (winner (int 0))) messages ((claim ((check (eq (sum (attrData
-"deck")) (int 0))) (set (attrData "claimed") (bool True)) (set
-(attrData "winner") (attrData "nextPlayer")))) (remove ((define
-"cell" (unknown 1)) (define "k" (unknown 2)) (check (ge (getParam
-cell (unknown 1)) (int 0))) (check (lt (getParam cell (unknown 1))
-(attrData "size"))) (check (ge (getParam k (unknown 2)) (int 1)))
-(check (le (getParam k (unknown 2)) (int 2))) (check (le (getParam
-k (unknown 2)) (getItem (attrData "deck") (getParam cell (unknown
-1))))) (set (getItem (attrData "deck") (getParam cell (unknown 1)))
-(sub (getItem (attrData "deck") (getParam cell (unknown 1)))
-(getParam k (unknown 2)))) (set (attrData "nextPlayer") (sub (int 3)
-(attrData "nextPlayer")))))))
-```
-
-This design aim to apply the same methodology to building this kind of simple S-expression for other languages and be able to use things like SmartJS instead of SmartPy, etc.
-
-It can then be easily compiled into a single Michelson code file.  
 This Michelson file is the smart contract that will be deployed on a Tezos network.
+
+> This design aims to apply the same methodology for other languages and potentially offer alternatives to SmartPy such as SmartJS.
 
 ## A few definitions
 
 ## What is a smart contract?
-
-What a smart contract is and what role _SmartPy_ plays in it.
 
 Fig. 1 helps to contextualize the role of _SmartPy_ in the Tezos ecosystem.
 
@@ -86,16 +66,14 @@ The entrypoints are the invocable functions of a smart contract. Executing an en
 <NotificationBar>
   <p>
 
-**Operations** are an ordered list of transactions. An operation can trigger a tez transfer or the entry point of another targeted contract. If the execution of an entry point produces operations then they are sent and executed in the order stated by the list of operations.
+An **operation** can trigger a tez transfer or the entry point of another targeted contract. If the execution of an entry point produces operations then they are sent and executed in the order stated by the list of operations.
 
   </p>
 </NotificationBar>
 
-
-In the rest of the module, we will see how to install SmartPy on his machine. But mainly, we will see how to use [the online editor](https://smartpy.io/ide) to start directly to code, test, and run his smart contract with SmartPy. The whole will be illustrated with an example of a raffle smart contract.
+In the rest of the module, we will see how to install SmartPy. But mainly, we will see how to use [the online editor](https://smartpy.io/ide) to directly start to code, test, and run a smart contract with SmartPy. We will illustrate this through an example of a raffle smart contract.
 
 ## References
-
-[1] https://tzstats.com/blog/next-gen-blockchain-indexing-for-tezos/https://smartpy.io/
+[1] https://smartpy.io/
 
 [2] https://smartpy-io.medium.com/introducing-smartpy-and-smartpy-io-d4013bee7d4e

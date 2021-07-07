@@ -77,7 +77,7 @@ In `package.json`, one script is defined:
 ```
 
 <NotificationBar>
-  <p>The npm repository of ganache can be found <a href="https://www.npmjs.com/package/ganache-cli/v/6.4.2">here</a> :
+  <p>The npm repository of ganache can be found <a href="https://www.npmjs.com/package/ganache-cli/v/6.4.2">here</a>:
 There are several versions of `ganache-cli`. 
 Only the versions suffixed by `-tezos` support the Tezos blockchain (you can find them under the versions tab). 
 The specific version used in the project can be found in the `devDependencies` section in `package.json`.
@@ -411,9 +411,17 @@ There are three operation modes, which retrieve more or less data:
 - _Validate_: state validation mode for checking accounts and balances at each block/cycle (use _--validate_ in the CLI)
 
 Note that whichever mode your choose, indexing a public network will take a significant amount of time due to the size of data to be
-fetched. Indexing a local node will be faster than indexing a public node (such as giganode), but you will have to retrieve the blockchain data first.
+fetched. 
 
-## Conclusion
+According to the _Tzstats_ team, it is possible to index 13 000 blocks per minute from a local node connected to the mainnet ([Cost and benefice section from this tzstats post](https://tzstats.com/blog/next-gen-blockchain-indexing-for-tezos/)). When indexing the mainnet from a public node (_Smartpy_ node on our case), we could index about 10 blocks per seconde. 
+
+The mainnet was about 1 400 000 blocks, so to index the mainnet, it should take:
+- about an hour and fifty minutes from a local node
+- about a day and a half from a public node. 
+
+Of course, these figures depend on your network connectivity and hardware.
+
+# Conclusion
 
 Running a private network does not condemn its user to be blind to whatever is happening on their network: private
 indexers and explorers can be set up to index and monitor a private network.
@@ -438,4 +446,6 @@ wallets. Decentralised apps can take advantage of these API calls to fetch data 
 [6] https://tezostaquito.io/
 
 [7] https://tzstats.com/
+
+[8] https://tzstats.com/blog/next-gen-blockchain-indexing-for-tezos/
 

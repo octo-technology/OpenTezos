@@ -3,7 +3,7 @@
   "id": "baking/introduction",
   "isDocsHomePage": false,
   "title": "Introduction",
-  "description": "Under construction.",
+  "description": "In this module, we will see how baking works for the Tezos blokchain. More precisely, we will see who are the different actors involved from the creation to the validation of a new block. Then we will see the associated reward system. And finally, we will present the list of existing bakers and the criteria to evaluate them.",
   "source": "@site/docs/baking/introduction.md",
   "sourceDirName": "baking",
   "slug": "/baking",
@@ -15,18 +15,17 @@
   "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "id": "introduction",
-    "disable_pagination": true,
     "title": "Introduction",
     "slug": "/baking",
-    "authors": "--"
+    "authors": "Maxime Sallerin"
   },
   "sidebar": "docs",
   "previous": {
-    "title": "Smart contract deployment with Truffle",
-    "permalink": "/dapp/truffle_compilation_migration"
+    "title": "Exam",
+    "permalink": "/dapp/exam"
   },
   "next": {
-    "title": "Exam",
-    "permalink": "/baking/exam"
+    "title": "How baking works?",
+    "permalink": "/baking/baking_explained"
   }
 }

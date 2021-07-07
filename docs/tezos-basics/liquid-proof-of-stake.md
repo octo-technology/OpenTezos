@@ -4,9 +4,9 @@ title: Liquid Proof-of-Stake
 authors: Thomas Zoughebi, Aymeric Bethencourt, and Maxime Fernandez
 ---
 
-In ["*Blockchain Basics*"](/blockchain-basics/) module, you understood the main objective of a consensus mechanism is maintaining a common history throughout the whole peer-to-peer network. There are countless consensus algorithms, and they all have pros and cons. Notably, Bitcoin's *Proof-of-Work* has two flaws:
+In ["*Blockchain Basics*"](/blockchain-basics/) module, you understood that the main objective of a consensus mechanism is maintaining a common history throughout the whole peer-to-peer network. There are countless consensus algorithms, and they all have their pros and cons. Notably, Bitcoin's *Proof-of-Work* has two major flaws:
 - Energy consumption
-- Common users excluded from mining activity
+- Common users are excluded from the mining activity
 
 In this chapter, we will go into more details about the Tezos' "**_Liquid Proof-of-Stake_**", created to lift those flaws and the ones from its predecessors "**_Proof-of-Stake_**" and "**_Delegated Proof-of-Stake_**".
 
@@ -15,14 +15,14 @@ Let's first review these latter.
 ## Proof-of-Stake (PoS) [[1]](/tezos-basics/liquid-proof-of-stake#references)[[2]](/tezos-basics/liquid-proof-of-stake#references)
 While PoW assures that each network participant has performed a certain amount of work to receive rewards, PoS requires participants to prove that they are willing to guarantee the integrity of the blockchain by sequestering a certain amount of coins.
 
-In _Proof-of-Stake_, validators replace miners. A validator gathers transactions and creates blocks. Several methods exist to select a validator, which we will review in the following paragraphs. In this consensus, they must invest their funds to have a chance to be a validator, which makes it "Sybil resilient". This mechanism represents a low energy cost alternative to _PoW_. Moreover, a 51% attack would not be profitable as a hacker bets his own money and risks losing it if detected [[3]](/tezos-basics/liquid-proof-of-stake#references). Therefore validators would not benefit from a decision against the general opinion of the network. In addition, holding 51% of the token would demand enormous amounts of liquidity, making this scenario very unlikely.
+In _Proof-of-Stake_, validators replace miners. A validator gathers transactions and creates blocks. Several methods exist to select a validator, which we will review in the following paragraphs. In this consensus mechanism, they have to lock their funds to have a chance to be a validator, which makes it "Sybil resilient". This mechanism represents a low energy cost alternative to _PoW_. Moreover, a 51% attack would not be profitable as a hacker bets his own money and risks losing it if detected [[3]](/tezos-basics/liquid-proof-of-stake#references) (see also further the [*Nothing at Stake*](/tezos-basics/liquid-proof-of-stake#nothing-at-stake) section). Therefore validators would not benefit from a decision against the general opinion of the network. In addition, holding 51% of the token would demand enormous amounts of liquidity, making this scenario very unlikely.
 
-Removing PoW isn't without consequences. With the Nakamoto consensus, PoW allows chain selection, maintains regular blocks' issuance, regulates coins' creation, and selects the miner receiving rewards. PoW probably consumes too much energy. However, this energy connects to the physical world and supports the MAD property in return (miners' investments into machines and electricity). Hence, replacing PoW leads to previous fundamental questions about building a consensus to compensate the losses.
+Removing PoW isn't without consequences. With the Nakamoto consensus, PoW allows for chain selection, maintains regular blocks' issuance, regulates coins' creation, and selects the miner receiving rewards. PoW consumes too much energy. However, this energy connects to the physical world and supports the MAD property in return (miners' investments into machines and electricity). Hence, replacing PoW leads to previous fundamental questions about building a consensus to compensate for the losses.
 
 ### BFT in DLT
 In the "Blockchain Basics" module, we talked about the *Byzantine Fault Tolerance* and how Bitcoin roughly supports 50% faulty nodes. Three fundamental elements of research let us lay the foundations for a new consensus.
 
-#### CAP Theorem [[4]](https://opentezos.com/tezos-basics/liquid-proof-of-stake#references)
+#### CAP Theorem [[4]](/tezos-basics/liquid-proof-of-stake#references)
 - **C**onsistency:  
   Every read receives the most recent write or an error
 - **A**vailability:  
@@ -32,16 +32,16 @@ In the "Blockchain Basics" module, we talked about the *Byzantine Fault Toleranc
 
 In cases of forks (partitions), you must **exclusively** choose between consistency **or** availability.
 
-#### FLP Impossibility [[5]](https://opentezos.com/tezos-basics/liquid-proof-of-stake#references)
+#### FLP Impossibility [[5]](/tezos-basics/liquid-proof-of-stake#references)
 The **F**isher, **L**ynch, and **P**atterson's Impossibility shows that, with no guaranteed bounds on network latency, it is impossible to reach consensus **even with a single faulty node**. This absence of limits for latency is characteristic of an **asynchronous setting**.
 
-#### FT's Bounds from DLS paper [[6]](https://opentezos.com/tezos-basics/liquid-proof-of-stake#references)
+#### FT's Bounds from DLS paper [[6]](/tezos-basics/liquid-proof-of-stake#references)
 The **D**work, **L**ynch, and **S**tockmeyer paper gives us three significant bounds on Fault Tolerance:
-- Consensuses running on a **partially synchronous** network can tolerate up to one third (1/3) faulty nodes
-- **Deterministic** consensuses running on an **asynchronous** network **cannot tolerate** faulty nodes (this becomes 1/3 with randomized algorithms)
+- Consensuses running on a **partially synchronous** network can tolerate up to one third ($\frac{1}{3}$) faulty nodes
+- **Deterministic** consensuses running on an **asynchronous** network **cannot tolerate** faulty nodes (this becomes $\frac{1}{3}$ with randomized algorithms)
 - Consensuses running on a **synchronous** network can tolerate **up to 100%** faulty nodes (with some restrictions exceeding 50%)
 
-PoW consensus is more reliant on a **synchronous model**, while PoS is more reliant on a **BFT model**. In PoW **synchronous models**, FT decreases with latency (around 1/3 at block time latency). PoS consensuses keep track of validators and validators' set size, thus making them **partially synchronous**.
+PoW consensus is more reliant on a **synchronous model**, while PoS is more reliant on a **BFT model**. In PoW **synchronous models**, FT decreases with latency (around $\frac{1}{3}$ at block time latency). PoS consensuses keep track of validators and validators' set size, thus making them **partially synchronous**.
 
 Keeping in mind validators' selection and rewards' distributions, we can distinguish two main categories for a PoS consensus:
 
@@ -49,17 +49,17 @@ Keeping in mind validators' selection and rewards' distributions, we can disting
 | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Pseudo-randomly** select a validator from a set **during a time slot**. The validator creates the next valid block. Example: Casper (with as much consistency as possible) | **Randomly** select validators who *propose* blocks. Then *voting* rounds elect the next block. There is a *chain* but blocks are *partially independent*. Validators have to be **honest and online**. Example: Tendermint |
 
-At this point, we already need to prevent *cartels* forming. For comparison with PoW, it is like to impede attacks like "*Selfish Mining*"[[7]](https://opentezos.com/tezos-basics/liquid-proof-of-stake#references). There are other problems and various solutions.
+At this point, we already need to prevent *cartels* forming. For comparison with PoW, it is like to impede attacks like "*Selfish Mining*"[[7]](/tezos-basics/liquid-proof-of-stake#references). There are other problems and various solutions.
 
 ### Main weaknesses of PoS
 #### "Rich get richer"
 If rewards chances are proportional to previous holdings, wealth naturally concentrates on the biggest ones. In turn, these holdings grow even bigger with time. A capped supply is an important point here. If it isn't, then creating new tokens allows only to keep almost the same share percentage. It is problematic in two ways: The concentration of power (always the identical validators) and the decreasing incentive. However, all users wouldn't be staking validators and would make payments.
 
 #### Nothing at Stake
-**In chain-based PoS**, there weren't penalties and only rewards for producing blocks. Hence, there was no incentive to choose the correct chain. In PoW, the chain with the most accumulated work naturally attracts miners. They invest their electricity and power in the most probable part of the network where the next block should appear. Not doing so would lead to implicit penalties. On the contrary, in PoS, a validator can split his stake on every chain. He has nothing to lose. There will never be consensus in this case. This also makes the "*P+$\epsilon$ attack*"[[8]](https://opentezos.com/tezos-basics/liquid-proof-of-stake#references) possible.
+**In chain-based PoS**, there weren't penalties and only rewards for producing blocks. Hence, there was no incentive to choose the correct chain. In PoW, the chain with the most accumulated work naturally attracts miners. They invest their electricity and power in the most probable part of the network where the next block should appear. Not doing so would lead to implicit penalties. On the contrary, in PoS, a validator can split his stake on every chain. He has nothing to lose. There will never be consensus in this case. This also makes the "*P+$\epsilon$ attack*"[[8]](/tezos-basics/liquid-proof-of-stake#references) possible.
 
 It seems apparent that introducing penalties would instantly solve this problem. The implementations of these penalties aren't that easy.  
-The first strategy is to punish validators who **simultaneously** create a block on different chains. To detect this behavior, we need to include a *proof of misbehavior*. Creating this proof requires correctly identify validators and control the timing of blocks' issuance and penalties. Nodes have to be frequently online.  
+The first strategy is to punish validators who **simultaneously** create a block on different chains. To detect this behaviour, we need to include a *proof of misbehaviour*. Creating this proof requires correctly identify validators and control the timing of blocks' issuance and penalties. Nodes have to be frequently online.  
 The second strategy is to punish validators who create a block on the *wrong* chain as if we were in a PoW system. This strategy requires less timing control but puts validators more at risk.
 
 **In BFT PoS**, we define four criteria with two sets of rules and two properties:
@@ -68,10 +68,10 @@ The second strategy is to punish validators who create a block on the *wrong* ch
   - Slashing conditions: rules that determine when a given validator can be deemed to have misbehaved.
 
 - Properties
-  - Accountable safety: if conflicting valid blocks are finalized, then at least 1/3 of all validators must have violated some slashing condition.
-  - Plausible progression: there exists a set of messages that 2/3 of validators can produce and finalize some value.
+  - Accountable safety: if conflicting valid blocks are finalized, then at least $\frac{1}{3}$ of all validators must have violated some slashing condition.
+  - Plausible progression: there exists a set of messages that $\frac{2}{3}$ of validators can produce and finalize some value.
 
-Even if we can produce a *proof of misbehavior* and punish a validator, there is a major problem in the *misbehavior* qualification. Indeed, in the conflicting chains scenario, there can be **false positives**. Switching from a chain to another is a medium to establish consensus. Punishing this behavior is counter-productive. There can be no equilibrium between punishments and rewards, so no convergence.
+Even if we can produce a *proof of misbehaviour* and punish a validator, there is a major problem in the *misbehaviour* qualification. Indeed, in the conflicting chains scenario, there can be **false positives**. Switching from a chain to another is a medium to establish consensus. Punishing this behaviour is counter-productive. There can be no equilibrium between punishments and rewards, so no convergence.
 
 An idea would then be to introduce harder and harder punishments as time goes by. Validators could change their mind while multiple rounds of staking take place. Though, the more they wait, the severer the sanctions.
 
@@ -110,9 +110,9 @@ A validator needs 8,000ꜩ (one "*roll*") to take part in the consensus (soon to
 
 ### Consensus mechanism
 #### Roll
-A roll represents 8,000ꜩ delegated to a given private key. So, the more rolls someone has, the higher the chance to bake the next block. If ten (10) rolls are active, and a baker owns 2/10 of these rolls, he has a 20% chance of being selected. Note that 8,000ꜩ or 15,999ꜩ stakeholders have the same probability of baking.
+A roll represents 8,000ꜩ delegated to a given private key. So, the more rolls someone has, the higher the chance to bake the next block. If 10 rolls are active, and a baker owns $\frac{2}{10}$ of these rolls, he has a 20% chance of being selected. Note that 8,000ꜩ or 15,999ꜩ stakeholders have the same probability of baking.
 
-Baking rights are called priorities and given in turns. For example, if ten (10) rolls were active, the protocol could randomly select a priority list as follows:
+Baking rights are called priorities and given in turns. For example, if 10 rolls were active, the protocol could randomly select a priority list as follows:
 
 ```
  Priority1 = Roll 6
@@ -133,19 +133,19 @@ Each validation establishes a new priority list.
 One cycle corresponds to 4096 blocks (≈ 2.8 days).
 
 ##### Cycles, rewards and fees
-It takes seven (7) cycles to accumulate rewards. It then takes another five (5) cycles before the delegation service receives them and can transfer those rewards. Finally, the tokens are frozen for several weeks. More details in chapter "[*Economics and Rewards*](https://opentezos.com/tezos-basics/economics-and-rewards)"
+It takes 7 cycles to accumulate rewards. It then takes another 5 cycles before the delegation service receives them and can transfer those rewards. Finally, the tokens are frozen for several weeks. More details in chapter "[*Economics and Rewards*](/tezos-basics/economics-and-rewards)"
 
 #### Roll selection
-At each cycle, a random seed is created. A pseudo-random number generator uses the seed to generate the priority list based on a snapshot of existing rolls two (2) cycles ago.
+At each cycle, a random seed is created. A pseudo-random number generator uses the seed to generate the priority list based on a snapshot of existing rolls 2 cycles ago.
  
 ##### The rolls snapshots
 Every 256 blocks, the system creates snapshots of **owned** rolls.
 
 ##### The Seed
-A secret number from all rolls' owners is requested. All secret numbers are gathered and hashed to produce the seed. Since the last owner to reveal his secret already knows the other numbers, a 2-phase process called "Commit & Reveal" is in place.
+A secret number from all rolls' owners is requested. All secret numbers are gathered and hashed to produce the seed. Since the last owner to reveal his secret already knows the other numbers, a 2-phase process called "Commit & Reveal" is in place. More details about the selection of the baker are available in the ["*How Baking Works*"](/baking/baking_explained#random-seed) chapter.
 
 ##### Bakers and endorsers selection
-The generated list of priorities identifies who forges a block (bakes) and who endorses it. It is a round-robin process[12](/tezos-basics/liquid-proof-of-stake#references) that cycles on the list of priorities until the end of the cycle (4096 blocks).
+The generated list of priorities identifies who forges a block (bakes) and who endorses it. It is a round-robin process[[12]](/tezos-basics/liquid-proof-of-stake#references) that cycles on the list of priorities until the end of the cycle (4096 blocks).
 
 ### Security
 A baker can't proceed to the next cycle before the complete verification of his roll. Endorsers also control the bakers' transactions. If endorsers find a security breach, they can cancel the baking. In that case, the bakers would lose their coins. Endorsers are, in turn, rewarded for each verification with tezs (more details in the [*Economics and rewards*](/tezos-basics/economics-and-reward) chapter).

@@ -3,7 +3,7 @@
   "id": "blockchain-basics/introduction",
   "isDocsHomePage": false,
   "title": "Introduction",
-  "description": "Welcome to OpenTezos, the most complete and open-source documentation on Tezos.",
+  "description": "Before we start digging into Tezos itself, let's review the basics of blockchain and cryptocurrencies. This module will present a brief history of the blockchain, its main components, consensus' mechanisms and introduce the notion of smart contract (smart contracts will be more detailed in the dedicated chapter of the \"Tezos Basics\" module). All these notions will later be helpful in the following modules to understand how Tezos works and how it builds upon Bitcoin and Ethereum to become part of a new generation of blockchains.",
   "source": "@site/docs/blockchain-basics/introduction.md",
   "sourceDirName": "blockchain-basics",
   "slug": "/blockchain-basics",

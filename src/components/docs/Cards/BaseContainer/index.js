@@ -13,6 +13,7 @@ const BaseContainer = ({
   hasRoundedCorners,
   overlay,
   to,
+  onClick,
 }) => (
   <a
     className={classnames(styles.root, {
@@ -23,7 +24,7 @@ const BaseContainer = ({
     href={to}
     target={isInternalUrl(to) ? '_self' : '_blank'}
   >
-    <div className={classnames(styles.children, className)}>{children}</div>
+    <div className={classnames(styles.children, className)} onClick={onClick}>{children}</div>
     {overlay &&
       <div className={styles.overlay}>
         <p>{overlay}</p>
@@ -33,6 +34,7 @@ const BaseContainer = ({
 );
 
 BaseContainer.propTypes = {
+  onClick: PropTypes.func,
   className: PropTypes.string,
   hasShadow: PropTypes.bool,
   hasRoundedCorners: PropTypes.bool,

@@ -1,0 +1,30 @@
+{
+  "unversionedId": "baking/bakers_list",
+  "id": "baking/bakers_list",
+  "isDocsHomePage": false,
+  "title": "List of bakers",
+  "description": "In this section, we will present the lists of bakers. Then as a delegator, we will see how to choose a baker.",
+  "source": "@site/docs/baking/bakers_list.md",
+  "sourceDirName": "baking",
+  "slug": "/baking/bakers_list",
+  "permalink": "/baking/bakers_list",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/baking/bakers_list.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "bakers_list",
+    "title": "List of bakers",
+    "authors": "Maxime Sallerin"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Rewards",
+    "permalink": "/baking/reward"
+  },
+  "next": {
+    "title": "Exam",
+    "permalink": "/baking/exam"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "unversionedId": "dapp/temple",
+  "id": "dapp/temple",
+  "isDocsHomePage": false,
+  "title": "Temple Wallet",
+  "description": "Dapp users need to have both addresses and the associated private keys of these addresses.",
+  "source": "@site/docs/dapp/temple.md",
+  "sourceDirName": "dapp",
+  "slug": "/dapp/temple",
+  "permalink": "/dapp/temple",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/dapp/temple.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "temple",
+    "disable_pagination": true,
+    "title": "Temple Wallet"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Taquito",
+    "permalink": "/dapp/taquito"
+  },
+  "next": {
+    "title": "Build a dapp - basics",
+    "permalink": "/dapp/basics"
+  }
+}

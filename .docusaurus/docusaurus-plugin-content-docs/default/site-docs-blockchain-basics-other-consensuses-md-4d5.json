@@ -2,8 +2,8 @@
   "unversionedId": "blockchain-basics/other-consensuses",
   "id": "blockchain-basics/other-consensuses",
   "isDocsHomePage": false,
-  "title": "Introduction to other consensuses",
-  "description": "In this chapter, we will briefly introduce some other public consensuses.",
+  "title": "Introduction to other consensus algorithms",
+  "description": "In this chapter, we will briefly introduce some other public consensus algorithms.",
   "source": "@site/docs/blockchain-basics/other-consensuses.md",
   "sourceDirName": "blockchain-basics",
   "slug": "/blockchain-basics/other-consensuses",
@@ -16,7 +16,7 @@
   "frontMatter": {
     "id": "other-consensuses",
     "disable_pagination": true,
-    "title": "Introduction to other consensuses",
+    "title": "Introduction to other consensus algorithms",
     "authors": "Thomas Zoughebi and Aymeric Bethencourt"
   },
   "sidebar": "docs",

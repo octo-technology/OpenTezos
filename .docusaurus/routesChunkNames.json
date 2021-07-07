@@ -21,7 +21,7 @@
   "/__docusaurus/debug/routes-244": {
     "component": "component---theme-debug-routes-946-699"
   },
-  "/-548": {
+  "/-d48": {
     "component": "component---theme-doc-page-1-be-9be",
     "versionMetadata": "versionMetadata---935-fcf"
   },
@@ -33,17 +33,41 @@
     "component": "component---theme-doc-item-178-a40",
     "content": "content---baker-8-ec-13f"
   },
+  "/baker/cli-baker-9ba": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---baker-cli-baker-549-8f7"
+  },
+  "/baker/delegating-5b4": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---baker-delegating-790-553"
+  },
   "/baker/exam-369": {
     "component": "component---theme-doc-item-178-a40",
     "content": "content---baker-exam-588-0cb"
+  },
+  "/baker/voting-04d": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---baker-voting-4-ac-5dd"
   },
   "/baking-93f": {
     "component": "component---theme-doc-item-178-a40",
     "content": "content---bakingd-59-cec"
   },
+  "/baking/bakers_list-605": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---baking-bakers-list-7-dc-ae4"
+  },
+  "/baking/baking_explained-b2d": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---baking-baking-explaineda-8-d-5d0"
+  },
   "/baking/exam-7b0": {
     "component": "component---theme-doc-item-178-a40",
     "content": "content---baking-examb-65-f59"
+  },
+  "/baking/reward-3ae": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---baking-reward-789-c09"
   },
   "/blockchain-basics-783": {
     "component": "component---theme-doc-item-178-a40",
@@ -101,9 +125,25 @@
     "component": "component---theme-doc-item-178-a40",
     "content": "content---dapp-0-ea-407"
   },
+  "/dapp/basics-6b8": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---dapp-basicsfe-9-90c"
+  },
   "/dapp/exam-bb1": {
     "component": "component---theme-doc-item-178-a40",
     "content": "content---dapp-exam-5-cf-b69"
+  },
+  "/dapp/front_user_experience-111": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---dapp-front-user-experience-21-f-71b"
+  },
+  "/dapp/taquito-b99": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---dapp-taquito-17-e-792"
+  },
+  "/dapp/temple-588": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---dapp-temple-4-c-5-83b"
   },
   "/dapp/truffle_compilation_migration-cc7": {
     "component": "component---theme-doc-item-178-a40",
@@ -157,6 +197,26 @@
     "component": "component---theme-doc-item-178-a40",
     "content": "content---deploy-a-node-examc-94-6d2"
   },
+  "/deploy-a-node/installation-d1c": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---deploy-a-node-installation-82-f-6fc"
+  },
+  "/deploy-a-node/networks-d4d": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---deploy-a-node-networks-159-85a"
+  },
+  "/deploy-a-node/set-up-a-node-4e2": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---deploy-a-node-set-up-a-node-601-fa7"
+  },
+  "/deploy-a-node/to-go-further-596": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---deploy-a-node-to-go-further-7-eb-903"
+  },
+  "/explorer-9c5": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---explorer-28-d-f30"
+  },
   "/explorer/available-tezos-indexers-fba": {
     "component": "component---theme-doc-item-178-a40",
     "content": "content---explorer-available-tezos-indexers-928-087"
@@ -168,10 +228,6 @@
   "/explorer/indexer-explained-791": {
     "component": "component---theme-doc-item-178-a40",
     "content": "content---explorer-indexer-explained-96-e-1e9"
-  },
-  "/explorer/introduction-3d2": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---explorer-introduction-28-d-2dd"
   },
   "/explorer/private-indexer-f11": {
     "component": "component---theme-doc-item-178-a40",
@@ -321,9 +377,9 @@
     "component": "component---theme-doc-item-178-a40",
     "content": "content---tezos-basics-governance-on-chain-461-7fe"
   },
-  "/tezos-basics/history-of-amendements-413": {
+  "/tezos-basics/history-of-amendments-4cb": {
     "component": "component---theme-doc-item-178-a40",
-    "content": "content---tezos-basics-history-of-amendementsd-65-84e"
+    "content": "content---tezos-basics-history-of-amendments-011-5ee"
   },
   "/tezos-basics/liquid-proof-of-stake-435": {
     "component": "component---theme-doc-item-178-a40",

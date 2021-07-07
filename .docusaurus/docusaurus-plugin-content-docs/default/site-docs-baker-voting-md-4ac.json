@@ -1,0 +1,30 @@
+{
+  "unversionedId": "baker/voting",
+  "id": "baker/voting",
+  "isDocsHomePage": false,
+  "title": "Voting",
+  "description": "In this chapter, we will have a brief overview of the voting process. We will also see different commands that allow a delegate to make a proposal and vote.",
+  "source": "@site/docs/baker/voting.md",
+  "sourceDirName": "baker",
+  "slug": "/baker/voting",
+  "permalink": "/baker/voting",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/baker/voting.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "voting",
+    "title": "Voting",
+    "authors": "Maxime Sallerin"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Delegating",
+    "permalink": "/baker/delegating"
+  },
+  "next": {
+    "title": "Exam",
+    "permalink": "/baker/exam"
+  }
+}

@@ -3,7 +3,7 @@
   "id": "ligo/introduction",
   "isDocsHomePage": false,
   "title": "Introduction",
-  "description": "Tezos smart contracts are written in Michelson, which is a stack-based language.",
+  "description": "Tezos smart contracts are written in Michelson, which is a stack-based language and the lowest level of language for a Tezos smart contract. The Michelson code can be deployed as-is on the Tezos network.",
   "source": "@site/docs/ligo/introduction.md",
   "sourceDirName": "ligo",
   "slug": "/ligo",
@@ -17,7 +17,7 @@
     "id": "introduction",
     "title": "Introduction",
     "slug": "/ligo",
-    "authors": "Maxime Sallerin and Benjamin Pilia"
+    "authors": "Maxime Sallerin, Benjamin Pilia and Frank Hillard"
   },
   "sidebar": "docs",
   "previous": {

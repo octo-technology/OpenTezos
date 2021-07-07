@@ -2,8 +2,8 @@
   "unversionedId": "ligo/write-contracts-ligo",
   "id": "ligo/write-contracts-ligo",
   "isDocsHomePage": false,
-  "title": "Smart contract development in Pascaligo",
-  "description": "The language of smart contracts is Michelson, a stack-based language.",
+  "title": "Smart contract development in PascaLIGO",
+  "description": "The language used in smart contracts on Tezos is Michelson, a stack-based language. However, this kind of language is not commonly used by developersa and as the code becomes complex and longer, it grows increasingly harder to keep readable and clean code in Michelson. However, the Tezos ecosystem provides some high-level languages alternatives, which make smart contracts development as easy as any application development.",
   "source": "@site/docs/ligo/write-contracts-ligo.md",
   "sourceDirName": "ligo",
   "slug": "/ligo/write-contracts-ligo",
@@ -15,7 +15,7 @@
   "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "id": "write-contracts-ligo",
-    "title": "Smart contract development in Pascaligo",
+    "title": "Smart contract development in PascaLIGO",
     "authors": "Maxime Sallerin and Benjamin Pilia"
   },
   "sidebar": "docs",

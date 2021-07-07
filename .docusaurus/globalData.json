@@ -11,6 +11,16 @@
           "mainDocId": "welcome/modules",
           "docs": [
             {
+              "id": "baker/cli-baker",
+              "path": "/baker/cli-baker",
+              "sidebar": "docs"
+            },
+            {
+              "id": "baker/delegating",
+              "path": "/baker/delegating",
+              "sidebar": "docs"
+            },
+            {
               "id": "baker/exam",
               "path": "/baker/exam",
               "sidebar": "docs"
@@ -21,6 +31,21 @@
               "sidebar": "docs"
             },
             {
+              "id": "baker/voting",
+              "path": "/baker/voting",
+              "sidebar": "docs"
+            },
+            {
+              "id": "baking/bakers_list",
+              "path": "/baking/bakers_list",
+              "sidebar": "docs"
+            },
+            {
+              "id": "baking/baking_explained",
+              "path": "/baking/baking_explained",
+              "sidebar": "docs"
+            },
+            {
               "id": "baking/exam",
               "path": "/baking/exam",
               "sidebar": "docs"
@@ -28,6 +53,11 @@
             {
               "id": "baking/introduction",
               "path": "/baking",
+              "sidebar": "docs"
+            },
+            {
+              "id": "baking/reward",
+              "path": "/baking/reward",
               "sidebar": "docs"
             },
             {
@@ -96,12 +126,33 @@
               "sidebar": "docs"
             },
             {
+              "id": "dapp/basics",
+              "path": "/dapp/basics",
+              "sidebar": "docs"
+            },
+            {
               "id": "dapp/exam",
-              "path": "/dapp/exam"
+              "path": "/dapp/exam",
+              "sidebar": "docs"
+            },
+            {
+              "id": "dapp/front_user_experience",
+              "path": "/dapp/front_user_experience",
+              "sidebar": "docs"
             },
             {
               "id": "dapp/introduction",
               "path": "/dapp",
+              "sidebar": "docs"
+            },
+            {
+              "id": "dapp/taquito",
+              "path": "/dapp/taquito",
+              "sidebar": "docs"
+            },
+            {
+              "id": "dapp/temple",
+              "path": "/dapp/temple",
               "sidebar": "docs"
             },
             {
@@ -165,8 +216,28 @@
               "sidebar": "docs"
             },
             {
+              "id": "deploy-a-node/installation",
+              "path": "/deploy-a-node/installation",
+              "sidebar": "docs"
+            },
+            {
               "id": "deploy-a-node/introduction",
               "path": "/deploy-a-node",
+              "sidebar": "docs"
+            },
+            {
+              "id": "deploy-a-node/networks",
+              "path": "/deploy-a-node/networks",
+              "sidebar": "docs"
+            },
+            {
+              "id": "deploy-a-node/set-up-a-node",
+              "path": "/deploy-a-node/set-up-a-node",
+              "sidebar": "docs"
+            },
+            {
+              "id": "deploy-a-node/to-go-further",
+              "path": "/deploy-a-node/to-go-further",
               "sidebar": "docs"
             },
             {
@@ -186,7 +257,7 @@
             },
             {
               "id": "explorer/introduction",
-              "path": "/explorer/introduction",
+              "path": "/explorer",
               "sidebar": "docs"
             },
             {
@@ -295,8 +366,7 @@
             },
             {
               "id": "michelson/language-basics",
-              "path": "/michelson/language-basics",
-              "sidebar": "docs"
+              "path": "/michelson/language-basics"
             },
             {
               "id": "michelson/smart-contracts",
@@ -364,8 +434,8 @@
               "sidebar": "docs"
             },
             {
-              "id": "tezos-basics/history-of-amendements",
-              "path": "/tezos-basics/history-of-amendements",
+              "id": "tezos-basics/history-of-amendments",
+              "path": "/tezos-basics/history-of-amendments",
               "sidebar": "docs"
             },
             {

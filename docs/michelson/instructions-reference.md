@@ -6,9 +6,9 @@ authors: Frank Hillard
 
 This chapter provides an explicit list of all the most commonly used instructions in Michelson. It intends to describe common Michelson instructions with a graphical illustration.
 
-It is not intended for you to read it as is but to use it as a reference during your developments.
+**It is not intended for you to be read as is but to be used as a reference during your developments.**
 
-An exhaustive list of Michelson instructions with a full detailed description is available in the official reference website (https://tezos.gitlab.io/michelson-reference/).
+An exhaustive list of Michelson instructions, with a full detailed description, is available on the official reference website (https://tezos.gitlab.io/michelson-reference/).
 
 ## Instructions
 

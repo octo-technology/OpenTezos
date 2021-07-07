@@ -3,7 +3,7 @@
   "id": "explorer/indexer-explained",
   "isDocsHomePage": false,
   "title": "How Indexers Work?",
-  "description": "This chapter aims to describe the functioning of a traditional indexer and its components.",
+  "description": "This chapter aims to describe the functioning of a typical indexer and its components.",
   "source": "@site/docs/explorer/indexer-explained.md",
   "sourceDirName": "explorer",
   "slug": "/explorer/indexer-explained",
@@ -21,10 +21,10 @@
   "sidebar": "docs",
   "previous": {
     "title": "Introduction",
-    "permalink": "/explorer/introduction"
+    "permalink": "/explorer"
   },
   "next": {
-    "title": "Available Tezos Indexers",
+    "title": "Available Tezos Explorers",
     "permalink": "/explorer/available-tezos-indexers"
   }
 }

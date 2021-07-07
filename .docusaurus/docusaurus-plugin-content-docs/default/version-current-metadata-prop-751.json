@@ -44,7 +44,7 @@
           },
           {
             "type": "link",
-            "label": "Introduction to other consensuses",
+            "label": "Introduction to other consensus algorithms",
             "href": "/blockchain-basics/other-consensuses"
           },
           {
@@ -96,8 +96,8 @@
           },
           {
             "type": "link",
-            "label": "History of amendements",
-            "href": "/tezos-basics/history-of-amendements"
+            "label": "History of amendments",
+            "href": "/tezos-basics/history-of-amendments"
           },
           {
             "type": "link",
@@ -123,6 +123,26 @@
           },
           {
             "type": "link",
+            "label": "Installation",
+            "href": "/deploy-a-node/installation"
+          },
+          {
+            "type": "link",
+            "label": "Set-up a node",
+            "href": "/deploy-a-node/set-up-a-node"
+          },
+          {
+            "type": "link",
+            "label": "What about networks?",
+            "href": "/deploy-a-node/networks"
+          },
+          {
+            "type": "link",
+            "label": "To go further",
+            "href": "/deploy-a-node/to-go-further"
+          },
+          {
+            "type": "link",
             "label": "Exam",
             "href": "/deploy-a-node/exam"
           }
@@ -136,7 +156,7 @@
           {
             "type": "link",
             "label": "Introduction",
-            "href": "/explorer/introduction"
+            "href": "/explorer"
           },
           {
             "type": "link",
@@ -145,7 +165,7 @@
           },
           {
             "type": "link",
-            "label": "Available Tezos Indexers",
+            "label": "Available Tezos Explorers",
             "href": "/explorer/available-tezos-indexers"
           },
           {
@@ -214,7 +234,7 @@
           },
           {
             "type": "link",
-            "label": "Smart contract development in Pascaligo",
+            "label": "Smart contract development in PascaLIGO",
             "href": "/ligo/write-contracts-ligo"
           },
           {
@@ -261,11 +281,6 @@
           },
           {
             "type": "link",
-            "label": "Language Basics",
-            "href": "/michelson/language-basics"
-          },
-          {
-            "type": "link",
             "label": "Smart Contracts",
             "href": "/michelson/smart-contracts"
           },
@@ -276,13 +291,13 @@
           },
           {
             "type": "link",
-            "label": "Instructions Reference",
-            "href": "/michelson/instructions-reference"
+            "label": "Examples",
+            "href": "/michelson/examples"
           },
           {
             "type": "link",
-            "label": "Examples",
-            "href": "/michelson/examples"
+            "label": "Instructions Reference",
+            "href": "/michelson/instructions-reference"
           },
           {
             "type": "link",
@@ -310,6 +325,31 @@
             "type": "link",
             "label": "Smart contract deployment with Truffle",
             "href": "/dapp/truffle_compilation_migration"
+          },
+          {
+            "type": "link",
+            "label": "Taquito",
+            "href": "/dapp/taquito"
+          },
+          {
+            "type": "link",
+            "label": "Temple Wallet",
+            "href": "/dapp/temple"
+          },
+          {
+            "type": "link",
+            "label": "Build a dapp - basics",
+            "href": "/dapp/basics"
+          },
+          {
+            "type": "link",
+            "label": "Build a dapp - User Experience",
+            "href": "/dapp/front_user_experience"
+          },
+          {
+            "type": "link",
+            "label": "Exam",
+            "href": "/dapp/exam"
           }
         ]
       },
@@ -322,6 +362,21 @@
             "type": "link",
             "label": "Introduction",
             "href": "/baking"
+          },
+          {
+            "type": "link",
+            "label": "How baking works?",
+            "href": "/baking/baking_explained"
+          },
+          {
+            "type": "link",
+            "label": "Rewards",
+            "href": "/baking/reward"
+          },
+          {
+            "type": "link",
+            "label": "List of bakers",
+            "href": "/baking/bakers_list"
           },
           {
             "type": "link",
@@ -339,6 +394,21 @@
             "type": "link",
             "label": "Introduction",
             "href": "/baker"
+          },
+          {
+            "type": "link",
+            "label": "CLI to become a baker",
+            "href": "/baker/cli-baker"
+          },
+          {
+            "type": "link",
+            "label": "Delegating",
+            "href": "/baker/delegating"
+          },
+          {
+            "type": "link",
+            "label": "Voting",
+            "href": "/baker/voting"
           },
           {
             "type": "link",
@@ -493,10 +563,16 @@
     ]
   },
   "permalinkToSidebar": {
+    "/baker/cli-baker": "docs",
+    "/baker/delegating": "docs",
     "/baker/exam": "docs",
     "/baker": "docs",
+    "/baker/voting": "docs",
+    "/baking/bakers_list": "docs",
+    "/baking/baking_explained": "docs",
     "/baking/exam": "docs",
     "/baking": "docs",
+    "/baking/reward": "docs",
     "/blockchain-basics/exam": "docs",
     "/blockchain-basics": "docs",
     "/blockchain-basics/main-properties": "docs",
@@ -510,7 +586,12 @@
     "/contribute/opentezos": "docs",
     "/contribute/report-issue": "docs",
     "/contribute/tezos-core": "docs",
+    "/dapp/basics": "docs",
+    "/dapp/exam": "docs",
+    "/dapp/front_user_experience": "docs",
     "/dapp": "docs",
+    "/dapp/taquito": "docs",
+    "/dapp/temple": "docs",
     "/dapp/truffle_compilation_migration": "docs",
     "/defi/cross-chain-swaps": "docs",
     "/defi/dexs": "docs",
@@ -523,11 +604,15 @@
     "/defi/token-standards": "docs",
     "/defi/wrapped-assets": "docs",
     "/deploy-a-node/exam": "docs",
+    "/deploy-a-node/installation": "docs",
     "/deploy-a-node": "docs",
+    "/deploy-a-node/networks": "docs",
+    "/deploy-a-node/set-up-a-node": "docs",
+    "/deploy-a-node/to-go-further": "docs",
     "/explorer/available-tezos-indexers": "docs",
     "/explorer/exam": "docs",
     "/explorer/indexer-explained": "docs",
-    "/explorer/introduction": "docs",
+    "/explorer": "docs",
     "/explorer/private-indexer": "docs",
     "/explorer/tzstats-main-features": "docs",
     "/explorer/tzstats-smart-contract": "docs",
@@ -548,7 +633,6 @@
     "/michelson/examples": "docs",
     "/michelson/instructions-reference": "docs",
     "/michelson": "docs",
-    "/michelson/language-basics": "docs",
     "/michelson/smart-contracts": "docs",
     "/michelson/take-away": "docs",
     "/michelson/tutorial": "docs",
@@ -562,7 +646,7 @@
     "/tezos-basics/economics-and-rewards": "docs",
     "/tezos-basics/exam": "docs",
     "/tezos-basics/governance-on-chain": "docs",
-    "/tezos-basics/history-of-amendements": "docs",
+    "/tezos-basics/history-of-amendments": "docs",
     "/tezos-basics": "docs",
     "/tezos-basics/liquid-proof-of-stake": "docs",
     "/tezos-basics/operations": "docs",

@@ -1,17 +1,19 @@
 ---
 id: tzstats-smart-contract
 title: Checkout your smart contract on TzStats
-authors: Maxime Sallerin
+authors: Benjamin Pila
 ---
 
 As a developer, you will often want to check the state of your deployed smart contracts. Using a blockchain explorer is a fast and easy way to do so. In this section, we will deploy a smart contract and check it out on _TzStats_.
 
 ## Step 1: Deploy your smart contract
+
 We are going to re-use the [raffle smart contract from the LIGO module](/ligo/contracts-ligo) and deploy it on a testnet.
 
 The complete source code of the raffle contract can be found [here](https://github.com/bepi-octo/raffle-smart-contract.git).
 
 It contains two smart contracts and their associated migrations:
+
 1. a raffle smart contract, using a _big map_
 2. a raffle smart contract, using a _map_
 
@@ -23,7 +25,7 @@ To set up the project, run the following commands:
 $ git clone https://github.com/bepi-octo/raffle-smart-contract.git
 $ cd
 $ npm install -g truffle@tezos
-$ npm install 
+$ npm install
 ```
 
 To deploy/migrate the smart contracts, run the following command:
@@ -115,6 +117,7 @@ Summary
 ```
 
 ## Step 2: Find your smart contract on _TzStats_
+
 Once you have the address of your smart contract, go to the _TzStats_ website associated with the network you deployed your contract on. In our case, it is the [Edo TzStats](https://edo.tzstats.com).
 
 Copy/paste your address in the search bar:
@@ -125,34 +128,40 @@ TzStats then shows a page with information related to your smart contract, e.g. 
 
 ![](../../static/img/explorer/tzStats_smart_contract_general_information.png)
 
-Below the general information, you have a list of tabs allowing you to see: 
-- the calls 
+Below the general information, you have a list of tabs allowing you to see:
+
+- the calls
 - the entry points
 - the contract code
 - the storage
 - the different _big maps_ of your smart contract (if there are any)
 
 ### Calls
+
 Here you have the history of all transactions related to your smart contract.
 
 ![](../../static/img/explorer/tzStats_smart_contract_calls.png)
 
 ### Entrypoints
+
 Here you have a list of all your entrypoints and their parameters. Furthermore, you can see how many calls each entrypoint has received.
 
 ![](../../static/img/explorer/tzStats_smart_contract_entrypoints.png)
 
 ### Contract Code
+
 Here you have the michelson code of your smart contract.
 
 ![](../../static/img/explorer/tzStats_smart_contract_code.png)
 
 ### Storage
+
 Here you have access to the content of your storage with the type of each variable and its current value. Notice that the content excludes big maps as they are specific tabs for them.
 
 ![](../../static/img/explorer/tzStats_smart_contract_storage.png)
 
 ### Big map
+
 Here you have the content of your bigmap.
 
 ![](../../static/img/explorer/tzStats_smart_contract_bigmap.png)
@@ -165,9 +174,10 @@ A full documentation is available [here](https://tzstats.com/docs/api#tezos-api)
 First, let's get the contract information.
 The "explorer" endpoints will be used (full reference [here](https://tzstats.com/docs/api#explorer-endpoints))
 
-In this example, one of the contracts has been migrated on edonet to KT1Vcj7ij2fP28MGuCstVGdGRTVafSTECyMV.
+In this example, one of the contracts has been deployed on edonet to KT1Vcj7ij2fP28MGuCstVGdGRTVafSTECyMV.
 
 Let's retrieve the contract details:
+
 ```shell
 $ GET https://api.edo.tzstats.com/explorer/contract/KT1Vcj7ij2fP28MGuCstVGdGRTVafSTECyMV
 {
@@ -199,11 +209,13 @@ $ GET https://api.edo.tzstats.com/explorer/contract/KT1Vcj7ij2fP28MGuCstVGdGRTVa
 }
 
 ```
+
 The pieces of information do match those from the web interface: address, creator, first_seen_time, last_seen_time...
 
 The call to the entrypoint "buyTicket" can be seen in the `call_stats` field: one call has indeed been made to this entrypoint.
 
 More details can be fetched about those calls:
+
 ```shell
 $ GET https://api.edo.tzstats.com/explorer/contract/KT1Vcj7ij2fP28MGuCstVGdGRTVafSTECyMV/calls
 [
@@ -313,12 +325,14 @@ $ GET https://api.edo.tzstats.com/explorer/contract/KT1Vcj7ij2fP28MGuCstVGdGRTVa
 ```
 
 The response holds the details about two calls:
+
 1. the contract origination
 2. the call to buy a ticket
 
 It details the inputs used for this entrypoint, the storage after the call, the differences in the big map that have changed after the call...
 
 The current storage can be fetched, with this endpoint:
+
 ```shell
 $ GET https://api.edo.tzstats.com/explorer/contract/KT1Vcj7ij2fP28MGuCstVGdGRTVafSTECyMV/storage
 {
@@ -338,12 +352,13 @@ $ GET https://api.edo.tzstats.com/explorer/contract/KT1Vcj7ij2fP28MGuCstVGdGRTVa
 }
 
 ```
+
 The storage returned by the API does match the one displayed in the web interface.
 The `sold_tickets` big map holds a big map id, instead of the values.  
 Indeed, a big map is meant to hold unbounded data size: thus, fetching the storage could quickly become expensive, if the big maps hold a lot of values.
 
-
 The values of a big map have to be retrieved from a separate endpoint, thanks to its id (`67645` in this case):
+
 ```shell
 $ GET https://api.edo.tzstats.com/explorer/bigmap/67645/values
 [
@@ -357,10 +372,8 @@ $ GET https://api.edo.tzstats.com/explorer/bigmap/67645/values
 
 ```
 
-
 All of the pieces of information displayed in the web interface can be retrieved from the API.
 All these API calls can of course be made by any libraries, and thus can be automated in any program.
-
 
 # Conclusion
 
@@ -368,15 +381,14 @@ tzstats.com is extremely useful to monitor what is going-on on the mainnet and p
 All the pieces of information regarding the cycles, the blocks, the transactions, the smarts contracts... can quickly be found,
 thanks to a user-friendly interface.
 
-In addition, tzstats provides a complete and free REST API, that can be called without restriction.
+In addition, _TzStats_ provides a complete and free REST API (for non-commercial use), without any authentication or enforcement of rate limits (as long as it remains reasonable). See the introduction of the [Tzstats API](https://tzstats.com/docs/api#tezos-api).
+
 Those calls can be performed by any library: the pieces of information retrieved about a public Tezos network can be used in another monitoring tool, or even in Dapps.
 
-Indeed, the handling of big maps can be troublesome with some libraries.
-For instance, _taquito_ (a typescript library to interact with a tezos node) is not able to retrieve all the values (and even the keys) of a big map with a simple call.
-A call to the tzstats API solves this issue.
+Indeed, API calls can be used within Dapps to retrieve those kinds of information. For instance, _taquito_ (a typescript library to interact with a tezos node) is not able to retrieve the keys of a big map with a simple call. A call to the _TzStats_ API solves this issue.
 
 Those tools are also available for private networks.
-This will be detailed in the next chapter, where a private tzstats is set up to monitor a private network.
+This will be detailed in the next chapter, where a private _TzStats_ is set up to monitor a private network.
 
 ## References
 
@@ -387,13 +399,3 @@ This will be detailed in the next chapter, where a private tzstats is set up to 
 [3] https://tzstats.com/docs/api#tezos-api
 
 [4] https://tzstats.com/docs/api#explorer-endpoints
-
-
-
-
-
-
-
-
-
-

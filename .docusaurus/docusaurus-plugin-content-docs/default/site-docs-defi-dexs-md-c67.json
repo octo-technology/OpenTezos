@@ -3,7 +3,7 @@
   "id": "defi/dexs",
   "isDocsHomePage": false,
   "title": "Decentralized Exchanges",
-  "description": "An exchange is a marketplace where coins and tokens are traded. The core function of an exchange is to ensure fair and orderly trading and the efficient dissemination of price information for any pair trading on that exchange. Exchanges give companies, traders, and crypto-enthusiasts a platform from which to sell and buy crypto-currencies publicly.",
+  "description": "An exchange is a marketplace where coins and tokens are traded. The core function of an exchange is to ensure fair, orderly trading and the efficient dissemination of price information for everyone trading on the exchange. Exchanges give companies, traders, and crypto-enthusiasts a platform from which to sell and buy crypto-currencies publicly.",
   "source": "@site/docs/defi/dexs.md",
   "sourceDirName": "defi",
   "slug": "/defi/dexs",

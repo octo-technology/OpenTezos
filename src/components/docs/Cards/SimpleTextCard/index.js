@@ -7,8 +7,8 @@ import WithBackgroundImage from '../../WithBackgroundImage'
 import classnames from 'classnames'
 import styles from './styles.module.css'
 
-const SimpleTextCard = ({ bolded, icon, iconDark, overlay, smallerImage, title, to }) => (
-  <BaseContainer className={styles.root} overlay={overlay} to={to}>
+const SimpleTextCard = ({ bolded, icon, iconDark, overlay, smallerImage, title, to, onClick }) => (
+  <BaseContainer className={styles.root} overlay={overlay} to={to} onClick={onClick}>
     <WithBackgroundImage
       className={classnames(styles.image, {
         [styles.smaller]: smallerImage,
@@ -27,6 +27,7 @@ const SimpleTextCard = ({ bolded, icon, iconDark, overlay, smallerImage, title, 
 )
 
 SimpleTextCard.propTypes = {
+  onClick: PropTypes.func,
   bolded: PropTypes.bool,
   icon: PropTypes.string.isRequired,
   iconDark: PropTypes.string,
