@@ -10,19 +10,19 @@ Tezos is also **fundamentally designed** to provide **code safety through Formal
 
 In this module, you will learn the basics of Tezos needed to understand the Tezos philosophy and structure. Later on, you'll be able to create your applications to contribute to the network.
 
-In this chapter, you will learn the context of Tezos's creation and how it was fundraised to properly benefit from the network effect of an all-new and innovative blockchain.
+In this chapter, you will learn the context of Tezos's creation and how the fundraiser took place to benefit from the best network effect of an all-new and innovative blockchain.
 
 ## Tezos Creation
-_Arthur Breitman_ had seen the main weaknesses of blockchains like Bitcoin and Ethereum:
+_Arthur Breitman_ knew the main weaknesses of blockchains like Bitcoin and Ethereum and wanted to address them:
 * their "*hard forks*" were highly complex and risky processes to update blockchains by splitting them into two
-* the heavy uses of _Proof-of-Work_ consensus is highly energy consuming and reserved for mining pools
-* the lack of verifiability of the main smart contract's low-level languages, reducing trust in reliability of code
+* the heavy uses of _Proof-of-Work_ consensus is highly energy consuming and concentrate this activity on mining facilities
+* the lack of code [verifiability](https://en.wikipedia.org/wiki/Formal_verification) (see also "[*testability*](https://en.wikipedia.org/wiki/Software_testability)") of the main smart contract's low-level languages, reducing trust in the reliability of code
 
 His goal was to keep the best bits from these early blockchains and overcome their existing defects.
 
 In August and September 2014, *Arthur Breitman* released the Tezos' [*Position Paper*](https://tezos.com/position-paper.pdf) and [*White Paper*](https://tezos.com/whitepaper.pdf), using the "*L.M Goodman*" pseudonym.
 
-From March 2014 to July 2017, the company *OCamlPro* [[1]](/tezos-basics/#references) took on the project of developing a Tezos prototype. The platform was thus written in their preferred language *OCaml*, an esteemed programming language in research.
+From March 2014 to July 2017, the company *OCamlPro* [[1]](/tezos-basics/#references), hired by Arthur Breitman, took on the project of developing a Tezos prototype. The platform was thus written in their preferred language *OCaml*, an esteemed programming language in research.
 
 ### The Tezos fundraiser
 On July 1st, 2017, Tezos launched its fundraiser as a call for donations. When the blockchain coins were created, donators received coins according to their contributions. This kind of open process allows for the dispatching of coins between as many users as possible. It also involves them in the launch of the blockchain.
@@ -33,10 +33,10 @@ The coins allocated to the fundraiser's contributors were (and still are) only a
 
 The Tezos fundraiser was a complete success: it stayed live for only 13 days and gathered 66,000 bitcoins and 361,000 ethers. At the time, this was valued at 232 million dollars ($230,000,000). Currently, with cryptocurrencies' success, this value is much higher.
 
-Initially aimed at 10,000,000,000 (10 billion) coins, the total supply was actually the number of coins issued during the fundraiser. Unlike, for example, Bitcoin, the total supply of Tezos coins has no limit. The Tezos coins are called "**tez**" and their symbol "**ꜩ**" (\ua729, "Latin small letter tz"). With the symbol "**XTZ**" is also used, especially on markets.
+The total supply was the number of coins issued during the fundraiser. Unlike, for example, Bitcoin, the total supply of Tezos coins has no limit. The Tezos coins are called "**tez**" and their symbol "**ꜩ**" (\ua729, "Latin small letter tz"). The symbol "**XTZ**" is also used, especially on markets.
 
 To promote Tezos, the founders created the **_Tezos Foundation_**. Based in Switzerland, its role is to help the network expand. It has no control over the blockchain and doesn't manage the Tezos network. Since the fundraiser, it used funds to support beneficial projects for the Tezos community's [[2]](/tezos-basics/#references).
-The Tezos Foundation supports the community and deploys resources to support the Tezos's long-term development.
+The Tezos Foundation supports the community and deploys resources to support Tezos's long-term development.
 
 The Tezos project has an established history of upholding and cooperating with educational and research institutions, developers and activists, who support it from all over the world.
 
@@ -44,11 +44,11 @@ The Tezos project has an established history of upholding and cooperating with e
 Compared to previous blockchains generation (mainly *Bitcoin* and *Ethereum*), Tezos stands out through 3 main characteristics:
 
 * Self-amending governance: avoiding *hard forks* (e.g. *Ethereum / Ethereum Classic*)
-* LPoS consensus mechanism: that consumes far less energy
-* Smart contracts codes can be written with "*Michelson*" language: allows for [Formal Verification](https://en.wikipedia.org/wiki/Formal_verification)
+* LPoS consensus mechanism: consuming far less energy
+* Smart contracts codes can be written with "*Michelson*" language: facilitating [Formal Verification](https://en.wikipedia.org/wiki/Formal_verification)
 
 ## What have we learned so far?
-In this first chapter, we learned the context of Tezos's creation and about its aim to enhance the capabilities of blockchains. We also learned how the fundraiser took place and how the community uses it to promote the network.
+In this first chapter, we learned about the context of Tezos's creation and its aim to enhance the capabilities of blockchains. We also learned how the fundraiser took place and how the community uses it to promote the network.
 
 In the next chapters, we will guide you through the basics of Tezos, from its consensus algorithm to your first interactions with it.
 
