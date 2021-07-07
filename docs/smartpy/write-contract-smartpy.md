@@ -8,6 +8,43 @@ import NotificationBar from '../../src/components/docs/NotificationBar';
 
 In this chapter, we will use _SmartPy_ to develop a smart contract based Raffle and cover the most important aspects of the framework. We will use this opportunity to introduce new notions as they appear. For a complete reference of _SmartPy_, please refer to the [Reference Manual](https://smartpy.io/reference.html).
 
+## About SmartPy
+
+SmartPy is a **Python library**. SmartPy scripts are regular Python scripts that use SmartPy constructions. This mechanism is useful because it brings very powerful **meta-programming** capabilities.
+
+**Meta-programming** is when we can write a program that writes a program, i.e., constructs a contract. Indeed, the functions of the SmartPy Library are used to construct a smart contract.
+
+Smart contracts are executed once they are deployed in the Tezos blockchain (although they can be simulated). 
+
+Like most languages, SmartPy has expressions. For example:
+- `self.data.x` represents the contract storage field `x`
+- `2` represents the number `2
+- `self.data.x + 2` represents their sum
+
+Inside a contract, when we write
+
+```python
+​y = self.data.x + 2
+```
+we declare `y` as an alias the SmartPy expression `self.data.x + 2`.
+
+Note that the actual addition is not carried out until the contract has been deployed and the [entrypoint](#a-few-concepts-first) is called.
+
+As you will see throughout this tutorial, SmartPy is a library that will be imported in the following way:
+
+```python
+import smartpy as sp
+```
+
+And the functions of SmartPy will be called with the prefix `sp.`. For example:
+
+```python
+sp.verify(self.data.x > 2)
+```
+
+Here, `sp.verify()`checks that the field `x` is larger than `2` and raises an error if it is not. This is performed at run time, i.e., in the blockchain, once translated into Michelson.
+
+
 ## About the raffle contract
 A raffle is a game of chance that distributes a winning prize.
 
@@ -61,6 +98,7 @@ class Raffle(sp.Contract):
 ```
 
 #### A few concepts first
+
 **A _SmartPy_ contract** is a class definition that inherits from the `sp.Contract`.
 > **A class** is a code template for creating objects. Objects have member variables and have a behaviour associated with them. In python a class is created by the keyword `class`.  
 > **Inheritance** allows us to define a class that can inherit all the methods and properties of another class.
@@ -301,7 +339,7 @@ The purpose of the test scenario is to ensure that the smart contract functions 
 
 On _SmartPy_, a test is a method of the contract class, preceded by `@sp.add_test`.
 
-Inside this method, you need to instantiate your contract class and your scenarios, to which you will add the contract instance and all the relate calls that you want to test. For instance:
+Inside this method, you need to instantiate your contract class and your scenarios, to which you will add the contract instance and all the related calls that you want to test. For instance:
 
 ```python
 @sp.add_test(name="Raffle")

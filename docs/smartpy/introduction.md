@@ -5,7 +5,7 @@ slug: /smartpy
 authors: Maxime Sallerin
 ---
 
-This module aims to enable to teach developers to write smart contracts with _SmartPy_. It will take the form of a course, illustrated through an example of a smart contract, to help the developer acquire the essentials to write, test, and analyze his smart contract.
+This module aims to teach developers to write smart contracts with _SmartPy_. It will take the form of a course, illustrated through an example of a smart contract, to help the developer acquire the essentials to write, test, and analyze his smart contract.
 
 Tezos smart contracts are written in [Michelson](https://opentezos.com/michelson), which is a stack-based language, that forms the lowest level of a Tezos smart contract. The Michelson code is what will be deployed on the Tezos network. However, while reading or writing a Michelson code is accessible for small smart contracts, it can become pretty tedious and complicated to use, for more complex smart contracts, as:
 
@@ -17,10 +17,10 @@ Tezos smart contracts are written in [Michelson](https://opentezos.com/michelson
 
 **SmartPy offers an alternative.**
 
-SmartPy is a Smart Contract library. It comes with numerous tools in the form of [SmartPy.io](https://smartpy.io/). It greatly eases the accessibility, understandability and, provability of smart contracts on Tezos. A few of the main advantages are:
+SmartPy is a Smart Contract library. It comes with numerous tools in the form of [SmartPy.io](https://smartpy.io/). It greatly eases the accessibility, understandability, and provability of smart contracts on Tezos. A few of the main advantages are:
 
 - It is based on a popular programming language: _Python_
-- It has a set of high-level primitives, called _SmartML_, written in _OCaml_ that can be compiled into Michelson. These primitives also exist on their own and can be executed, simulated and, analyzed.
+- It has a set of high-level primitives, called _SmartML_, written in _OCaml_ that can be compiled into Michelson. These primitives also exist on their own and can be executed, simulated and analyzed.
   > **OCaml** is an industrial-level programming language, that supports functional, imperative, and object-oriented styles.
   > Smart contracts in SmartML are abstract syntax trees, as it is normally done in OCaml, with values, expressions, commands, etc.
 - It has a compiler that translates _SmartML_ contracts into _Michelson_.
