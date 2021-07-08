@@ -17,14 +17,20 @@ A delegate is responsible for baking blocks, endorsing blocks, and accusing othe
 ### What you need
 
 - A reliable internet connection
-- At least 8,000 XTZ (1 roll) in your wallet
+- At least 8,000ꜩ (1 roll) in your wallet
 - A Tezos node configured and running (if not, please go [here](/deploy-a-node))
+
+### Deposit
+
+When baking or endorsing a block, a security deposit (>8,000ꜩ) is frozen for 5 cycles from the account of the delegate. Hence a delegate must have enough funds to be able to pay security deposits for all the blocks it can potentially bake/endorse during 5 cyles. The current deposits are 512ꜩ for baked block and 64ꜩ for endorsement.
+
+> Note that it is necessary to have at least 10% of your stake to follow the deposits.
 
 ### Registration
 
 #### Create a basic wallet
 
-The Tezos client is also a basic wallet. After the below activation command, you will notice that the Tezos client data directory (by default, `~/.tezos-client`) has been populated with 3 files:
+The Tezos client is also a basic wallet. After the activation command below, you will notice that the Tezos client data directory (by default, `~/.tezos-client`) has been populated with 3 files:
 - `public_key_hashs`
 - `public_keys`
 - `secret_keys`
@@ -49,7 +55,7 @@ tezos-client list known addresses
 
 You can now send to "bob" any number of XTZ from a wallet of your choice.
 
-> Be careful if you are not sure what you are doing and start by sending a small amount. Then send the whole amount. (8,000 XTZ is the minimum to register as a delegate).
+> Be careful if you are not sure what you are doing start by sending a small amount. Then send the whole amount. (8,000 ꜩ is the minimum to register as a delegate).
 
 Copy and paste the destination address into the search bar of an explorer (like [TzStats](https://tzstats.com/)) to see the transaction. The address should be visible in the explorer after the first transaction.
 
@@ -125,7 +131,7 @@ So, on the *Mainnet*, the command is as follow:
 tezos-accuser-alpha run
 ```
 
-## Example for **baking** on the *Florencenet* testnet
+## Example for baking on the Florencenet testnet
 
 At this point you have already [installed Tezos](/deploy-a-node/installation) and you know how to [set-up-a-node](deploy-a-node/set-up-a-node).
 
@@ -143,7 +149,7 @@ Or, if you prefer, put `./` before each following `tezos-` command line.
 Go to [snapshots-tezos.giganode.io](https://snapshots-tezos.giganode.io/) and download the last *rolling* snapshot for a **testnet**.
 
 
-### Configure the node for running on *Florencenet*
+### Configure the node for running on Florencenet
 
 ```shell
 tezos-node config init --data-dir ~/tezos-florencenet --network florencenet
@@ -218,7 +224,7 @@ Account john (tz1bNibySZy7kjNE3e17FUBFp9fMwfTKyfGQ) activated with ꜩ15943.7468
 
 Notice that you have a warning saying that you are **not** on the Mainnet, which is intended in our case.
 
-Also you can see that account "john" has 15943.746838 ꜩ.
+Also you can see that account "john" has 15943.746838ꜩ.
 You can check this account balance with the following command:
 
 ```shell
@@ -227,7 +233,7 @@ tezos-client get balance for john
 
 ### Register as a delegate
 
-Since "john" has more than 8000 ꜩ, we will be able to register as a delegate:
+Since "john" has more than 8000ꜩ, we will be able to register as a delegate:
 
 ```shell
  tezos-client register key john as delegate
@@ -246,6 +252,41 @@ tezos-baker-009-PsFLoren run with local node ~/tezos-florencenet john
 ```
 
 As long as the message `No slot found at level xxxxxx (max_priority = 64)` is displayed, our baker has not yet obtained the right to create a block.
+
+## Switching testnet
+
+Tezos is a fast evolving blockchain and testnets follow each other and replace each other. It will therefore be necessary from time to time to connect to a new network to prepare for a change.
+
+Let's say we already had a node configured on **Florencenet** (like in the [previous example](#example-for-baking-on-the-florencenet-testnet)) and that the new tesnet has just been released, let's say its name is **Newtestnet** (for the example). 
+
+To switch to Newtesnet, we will have to initialize another Tezos node.
+
+Let's create a directory that will contain all the elements of our second node:
+
+```shell
+mkdir ~/tezos-newtestnet
+```
+
+We then create the configuration, which initializes the connection to Newtestnet and the list of bootstrap peers:
+
+```shell
+tezos-node config init --data-dir ~/tezos-newtestnet --network newtestnet
+```
+
+Then we generate the identity
+
+```shell
+tezos-node identity generate --data-dir ~/tezos-newtestnet
+```
+
+And finally, we can launch it, with a different RPC port than the one already running on Florencenet:
+
+```shell
+tezos-node run --rpc-addr 127.0.0.1:8733 --data-dir ~/tezos-newtestnet
+```
+
+The day Florencenet is shut down, we can delete the contents of the `.tezos-florencenet` directory, the data of our node.
+
 
 ## References
 
