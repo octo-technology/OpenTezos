@@ -389,8 +389,33 @@
               "sidebar": "docs"
             },
             {
+              "id": "private/genesis",
+              "path": "/private/genesis",
+              "sidebar": "docs"
+            },
+            {
+              "id": "private/installation",
+              "path": "/private/installation",
+              "sidebar": "docs"
+            },
+            {
               "id": "private/introduction",
               "path": "/private",
+              "sidebar": "docs"
+            },
+            {
+              "id": "private/starting-blockchain",
+              "path": "/private/starting-blockchain",
+              "sidebar": "docs"
+            },
+            {
+              "id": "private/using-blockchain",
+              "path": "/private/using-blockchain",
+              "sidebar": "docs"
+            },
+            {
+              "id": "private/vpn",
+              "path": "/private/vpn",
               "sidebar": "docs"
             },
             {

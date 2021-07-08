@@ -3,7 +3,7 @@
   "id": "dapp/introduction",
   "isDocsHomePage": false,
   "title": "Introduction",
-  "description": "One of the main features of blockchains is the decentralization:",
+  "description": "One of the main features of blockchains is the decentralization: each transaction sent is verified by multiple nodes and its validation process does not rely on a single trusted third party.",
   "source": "@site/docs/dapp/introduction.md",
   "sourceDirName": "dapp",
   "slug": "/dapp",

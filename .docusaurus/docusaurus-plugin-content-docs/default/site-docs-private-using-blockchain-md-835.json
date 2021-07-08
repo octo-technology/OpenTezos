@@ -1,0 +1,30 @@
+{
+  "unversionedId": "private/using-blockchain",
+  "id": "private/using-blockchain",
+  "isDocsHomePage": false,
+  "title": "Using the blockchain",
+  "description": "Checking status",
+  "source": "@site/docs/private/using-blockchain.md",
+  "sourceDirName": "private",
+  "slug": "/private/using-blockchain",
+  "permalink": "/private/using-blockchain",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/private/using-blockchain.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "using-blockchain",
+    "title": "Using the blockchain",
+    "authors": "Maxime Sallerin"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Starting the blockchain",
+    "permalink": "/private/starting-blockchain"
+  },
+  "next": {
+    "title": "VPN Configuration",
+    "permalink": "/private/vpn"
+  }
+}

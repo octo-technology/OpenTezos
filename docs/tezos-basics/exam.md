@@ -7,7 +7,7 @@ authors: Thomas Zoughebi, Aymeric Bethencourt, and Maxime Fernandez
 import ExamForm from '../../src/components/docs/ExamForm';
 import ExamCheckbox from '../../src/components/docs/ExamCheckbox';
 
-<ExamForm moduleName="DeFi">
+<ExamForm moduleName="Tezos Basics">
 
 ### Question 1
 

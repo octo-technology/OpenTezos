@@ -513,6 +513,31 @@
           },
           {
             "type": "link",
+            "label": "Installation",
+            "href": "/private/installation"
+          },
+          {
+            "type": "link",
+            "label": "Genesis Bloc & Bootstrap Bakers",
+            "href": "/private/genesis"
+          },
+          {
+            "type": "link",
+            "label": "Starting the blockchain",
+            "href": "/private/starting-blockchain"
+          },
+          {
+            "type": "link",
+            "label": "Using the blockchain",
+            "href": "/private/using-blockchain"
+          },
+          {
+            "type": "link",
+            "label": "VPN Configuration",
+            "href": "/private/vpn"
+          },
+          {
+            "type": "link",
             "label": "Exam",
             "href": "/private/exam"
           }
@@ -637,7 +662,12 @@
     "/michelson/take-away": "docs",
     "/michelson/tutorial": "docs",
     "/private/exam": "docs",
+    "/private/genesis": "docs",
+    "/private/installation": "docs",
     "/private": "docs",
+    "/private/starting-blockchain": "docs",
+    "/private/using-blockchain": "docs",
+    "/private/vpn": "docs",
     "/smartpy/exam": "docs",
     "/smartpy/installation": "docs",
     "/smartpy": "docs",

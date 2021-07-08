@@ -39,7 +39,7 @@ export default [
 },
 {
   path: '/',
-  component: ComponentCreator('/','d48'),
+  component: ComponentCreator('/','5f3'),
   
   routes: [
 {
@@ -435,6 +435,31 @@ export default [
 {
   path: '/private/exam',
   component: ComponentCreator('/private/exam','cc9'),
+  exact: true,
+},
+{
+  path: '/private/genesis',
+  component: ComponentCreator('/private/genesis','63c'),
+  exact: true,
+},
+{
+  path: '/private/installation',
+  component: ComponentCreator('/private/installation','ab1'),
+  exact: true,
+},
+{
+  path: '/private/starting-blockchain',
+  component: ComponentCreator('/private/starting-blockchain','79b'),
+  exact: true,
+},
+{
+  path: '/private/using-blockchain',
+  component: ComponentCreator('/private/using-blockchain','692'),
+  exact: true,
+},
+{
+  path: '/private/vpn',
+  component: ComponentCreator('/private/vpn','6dd'),
   exact: true,
 },
 {

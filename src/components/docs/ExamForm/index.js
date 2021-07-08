@@ -25,7 +25,7 @@ class ExamForm extends React.Component {
     })
 
 
-    if(parseInt(errorCount / responseCount * 100) <= 90) { // 10% of errors accepted
+    if(parseInt(errorCount / responseCount * 100) <= 10) { // 10% of errors accepted
       const doc = new jsPDF({
         orientation: 'landscape',
         unit: 'px',

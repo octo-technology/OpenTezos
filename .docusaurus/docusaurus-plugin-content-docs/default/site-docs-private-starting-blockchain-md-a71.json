@@ -1,0 +1,30 @@
+{
+  "unversionedId": "private/starting-blockchain",
+  "id": "private/starting-blockchain",
+  "isDocsHomePage": false,
+  "title": "Starting the blockchain",
+  "description": "Activating the procotol and starting the blockchain",
+  "source": "@site/docs/private/starting-blockchain.md",
+  "sourceDirName": "private",
+  "slug": "/private/starting-blockchain",
+  "permalink": "/private/starting-blockchain",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/private/starting-blockchain.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "starting-blockchain",
+    "title": "Starting the blockchain",
+    "authors": "Maxime Sallerin"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Genesis Bloc & Bootstrap Bakers",
+    "permalink": "/private/genesis"
+  },
+  "next": {
+    "title": "Using the blockchain",
+    "permalink": "/private/using-blockchain"
+  }
+}

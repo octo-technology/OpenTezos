@@ -1,0 +1,30 @@
+{
+  "unversionedId": "private/vpn",
+  "id": "private/vpn",
+  "isDocsHomePage": false,
+  "title": "VPN Configuration",
+  "description": "Creating a peer-to-peer network",
+  "source": "@site/docs/private/vpn.md",
+  "sourceDirName": "private",
+  "slug": "/private/vpn",
+  "permalink": "/private/vpn",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/private/vpn.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "vpn",
+    "title": "VPN Configuration",
+    "authors": "Maxime Sallerin"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Using the blockchain",
+    "permalink": "/private/using-blockchain"
+  },
+  "next": {
+    "title": "Exam",
+    "permalink": "/private/exam"
+  }
+}

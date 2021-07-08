@@ -3,7 +3,7 @@
   "id": "explorer/tzstats-main-features",
   "isDocsHomePage": false,
   "title": "How to use the tzStats blockchain explorer?",
-  "description": "In this chapter, we will use the TzStats explorer to illustrate the different features of an explorer, but similar features are usually available on others.",
+  "description": "In this chapter, we will use the TzStats explorer to illustrate the different features of an explorer, but similar features are usually available on others. Concerning the observation of smart contracts, the different aspects are discussed in the following chapter.",
   "source": "@site/docs/explorer/tzstats-main-features.md",
   "sourceDirName": "explorer",
   "slug": "/explorer/tzstats-main-features",

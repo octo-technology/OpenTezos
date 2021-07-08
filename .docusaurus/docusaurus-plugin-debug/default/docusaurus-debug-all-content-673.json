@@ -442,6 +442,26 @@
                   },
                   {
                     "type": "doc",
+                    "id": "private/installation"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "private/genesis"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "private/starting-blockchain"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "private/using-blockchain"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "private/vpn"
+                  },
+                  {
+                    "type": "doc",
                     "id": "private/exam"
                   }
                 ]
@@ -558,7 +578,12 @@
             "/michelson/take-away": "docs",
             "/michelson/tutorial": "docs",
             "/private/exam": "docs",
+            "/private/genesis": "docs",
+            "/private/installation": "docs",
             "/private": "docs",
+            "/private/starting-blockchain": "docs",
+            "/private/using-blockchain": "docs",
+            "/private/vpn": "docs",
             "/smartpy/exam": "docs",
             "/smartpy/installation": "docs",
             "/smartpy": "docs",
@@ -732,7 +757,7 @@
               "id": "baking/bakers_list",
               "isDocsHomePage": false,
               "title": "List of bakers",
-              "description": "In this section, we will present the lists of bakers. Then as a delegator, we will see how to choose a baker.",
+              "description": "In this section, we will present how to find lists of bakers. Then as a delegator, we will see how to choose a baker.",
               "source": "@site/docs/baking/bakers_list.md",
               "sourceDirName": "baking",
               "slug": "/baking/bakers_list",
@@ -822,7 +847,7 @@
               "id": "baking/introduction",
               "isDocsHomePage": false,
               "title": "Introduction",
-              "description": "In this module, we will see how baking works for the Tezos blokchain. More precisely, we will see who are the different actors involved from the creation to the validation of a new block. Then we will see the associated reward system. And finally, we will present the list of existing bakers and the criteria to evaluate them.",
+              "description": "In this module, we will see how baking works for the Tezos blockhain. More precisely, we will see who are the different actors involved from the creation to the validation of a new block. Then we will see the associated reward system. And finally, we will present the list of existing bakers and the criteria to evaluate them.",
               "source": "@site/docs/baking/introduction.md",
               "sourceDirName": "baking",
               "slug": "/baking",
@@ -853,7 +878,7 @@
               "id": "baking/reward",
               "isDocsHomePage": false,
               "title": "Rewards",
-              "description": "To maintain the network, Tezos needs bakers and endorsers. They stake their tokens and use their computing power to create blocks, manage transactions, vote, and secure the network. In exchange for the completion of these tasks, bakers are rewarded with tokens from the transaction fees or tokens created by the network. Since the Carthage update, the reward system has been updated to make the network more robust against non-cooperative baking strategies.",
+              "description": "To maintain the network, Tezos needs bakers and endorsers. They stake their tokens and use their memory space and an internet connection to create blocks, manage transactions, vote, and secure the network. In exchange for the completion of these tasks, bakers are rewarded with tokens from the transaction fees or tokens created by the network. Since the Carthage update, the reward system has been updated to make the network more robust against non-cooperative baking strategies.",
               "source": "@site/docs/baking/reward.md",
               "sourceDirName": "baking",
               "slug": "/baking/reward",
@@ -1367,7 +1392,7 @@
               "id": "dapp/introduction",
               "isDocsHomePage": false,
               "title": "Introduction",
-              "description": "One of the main features of blockchains is the decentralization:",
+              "description": "One of the main features of blockchains is the decentralization: each transaction sent is verified by multiple nodes and its validation process does not rely on a single trusted third party.",
               "source": "@site/docs/dapp/introduction.md",
               "sourceDirName": "dapp",
               "slug": "/dapp",
@@ -1851,7 +1876,7 @@
               "id": "deploy-a-node/introduction",
               "isDocsHomePage": false,
               "title": "Introduction",
-              "description": "This module will guide you into the complete installation and setup of your own Tezos node on Ubuntu and Mac OS.",
+              "description": "This module will guide you through the complete installation and setup of your own Tezos node on Ubuntu and Mac OS.",
               "source": "@site/docs/deploy-a-node/introduction.md",
               "sourceDirName": "deploy-a-node",
               "slug": "/deploy-a-node",
@@ -1972,7 +1997,7 @@
               "id": "explorer/available-tezos-indexers",
               "isDocsHomePage": false,
               "title": "Available Tezos Explorers",
-              "description": "The purpose of this chapter is to list the main explorers of the Tezos blockchain and presents the pros and cons of some.",
+              "description": "Coming soon: A more in-depth comparison of all availables Tezos explorers.",
               "source": "@site/docs/explorer/available-tezos-indexers.md",
               "sourceDirName": "explorer",
               "slug": "/explorer/available-tezos-indexers",
@@ -2124,7 +2149,7 @@
               "id": "explorer/tzstats-main-features",
               "isDocsHomePage": false,
               "title": "How to use the tzStats blockchain explorer?",
-              "description": "In this chapter, we will use the TzStats explorer to illustrate the different features of an explorer, but similar features are usually available on others.",
+              "description": "In this chapter, we will use the TzStats explorer to illustrate the different features of an explorer, but similar features are usually available on others. Concerning the observation of smart contracts, the different aspects are discussed in the following chapter.",
               "source": "@site/docs/explorer/tzstats-main-features.md",
               "sourceDirName": "explorer",
               "slug": "/explorer/tzstats-main-features",
@@ -2154,7 +2179,7 @@
               "id": "explorer/tzstats-smart-contract",
               "isDocsHomePage": false,
               "title": "Checkout your smart contract on TzStats",
-              "description": "As a developer, you will often want to check the state of your deployed smart contracts. Using a blockchain explorer is a fast and easy way to do so. In this section, we will deploy a smart contract and check it out on TzStats.",
+              "description": "As a developer, you will often want to check the state of your deployed smart contracts. Using a blockchain explorer is a fast and easy way to do so. In this section, we will find a smart contract and check it out on TzStats.",
               "source": "@site/docs/explorer/tzstats-smart-contract.md",
               "sourceDirName": "explorer",
               "slug": "/explorer/tzstats-smart-contract",
@@ -2846,8 +2871,8 @@
               },
               "sidebar": "docs",
               "previous": {
-                "title": "Introduction",
-                "permalink": "/private"
+                "title": "VPN Configuration",
+                "permalink": "/private/vpn"
               },
               "next": {
                 "title": "Introduction",
@@ -2855,11 +2880,71 @@
               }
             },
             {
+              "unversionedId": "private/genesis",
+              "id": "private/genesis",
+              "isDocsHomePage": false,
+              "title": "Genesis Bloc & Bootstrap Bakers",
+              "description": "Generating a new genesis public key and fetching binaries",
+              "source": "@site/docs/private/genesis.md",
+              "sourceDirName": "private",
+              "slug": "/private/genesis",
+              "permalink": "/private/genesis",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/private/genesis.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
+              "frontMatter": {
+                "id": "genesis",
+                "title": "Genesis Bloc & Bootstrap Bakers",
+                "authors": "Maxime Sallerin"
+              },
+              "sidebar": "docs",
+              "previous": {
+                "title": "Installation",
+                "permalink": "/private/installation"
+              },
+              "next": {
+                "title": "Starting the blockchain",
+                "permalink": "/private/starting-blockchain"
+              }
+            },
+            {
+              "unversionedId": "private/installation",
+              "id": "private/installation",
+              "isDocsHomePage": false,
+              "title": "Installation",
+              "description": "Cloning the repository",
+              "source": "@site/docs/private/installation.md",
+              "sourceDirName": "private",
+              "slug": "/private/installation",
+              "permalink": "/private/installation",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/private/installation.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
+              "frontMatter": {
+                "id": "installation",
+                "title": "Installation",
+                "authors": "Maxime Sallerin"
+              },
+              "sidebar": "docs",
+              "previous": {
+                "title": "Introduction",
+                "permalink": "/private"
+              },
+              "next": {
+                "title": "Genesis Bloc & Bootstrap Bakers",
+                "permalink": "/private/genesis"
+              }
+            },
+            {
               "unversionedId": "private/introduction",
               "id": "private/introduction",
               "isDocsHomePage": false,
               "title": "Introduction",
-              "description": "Under construction.",
+              "description": "Tezos is a public blockchain network that includes innovative features such as on-chain governance and proof of stake. Smart contracts on Tezos are compiled to Michelson, a stack-based, functional language that lends itself to formal verification.",
               "source": "@site/docs/private/introduction.md",
               "sourceDirName": "private",
               "slug": "/private",
@@ -2871,7 +2956,6 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "introduction",
-                "disable_pagination": true,
                 "title": "Introduction",
                 "slug": "/private",
                 "authors": "Maxime Sallerin"
@@ -2880,6 +2964,96 @@
               "previous": {
                 "title": "Exam",
                 "permalink": "/formal-verification/exam"
+              },
+              "next": {
+                "title": "Installation",
+                "permalink": "/private/installation"
+              }
+            },
+            {
+              "unversionedId": "private/starting-blockchain",
+              "id": "private/starting-blockchain",
+              "isDocsHomePage": false,
+              "title": "Starting the blockchain",
+              "description": "Activating the procotol and starting the blockchain",
+              "source": "@site/docs/private/starting-blockchain.md",
+              "sourceDirName": "private",
+              "slug": "/private/starting-blockchain",
+              "permalink": "/private/starting-blockchain",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/private/starting-blockchain.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
+              "frontMatter": {
+                "id": "starting-blockchain",
+                "title": "Starting the blockchain",
+                "authors": "Maxime Sallerin"
+              },
+              "sidebar": "docs",
+              "previous": {
+                "title": "Genesis Bloc & Bootstrap Bakers",
+                "permalink": "/private/genesis"
+              },
+              "next": {
+                "title": "Using the blockchain",
+                "permalink": "/private/using-blockchain"
+              }
+            },
+            {
+              "unversionedId": "private/using-blockchain",
+              "id": "private/using-blockchain",
+              "isDocsHomePage": false,
+              "title": "Using the blockchain",
+              "description": "Checking status",
+              "source": "@site/docs/private/using-blockchain.md",
+              "sourceDirName": "private",
+              "slug": "/private/using-blockchain",
+              "permalink": "/private/using-blockchain",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/private/using-blockchain.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
+              "frontMatter": {
+                "id": "using-blockchain",
+                "title": "Using the blockchain",
+                "authors": "Maxime Sallerin"
+              },
+              "sidebar": "docs",
+              "previous": {
+                "title": "Starting the blockchain",
+                "permalink": "/private/starting-blockchain"
+              },
+              "next": {
+                "title": "VPN Configuration",
+                "permalink": "/private/vpn"
+              }
+            },
+            {
+              "unversionedId": "private/vpn",
+              "id": "private/vpn",
+              "isDocsHomePage": false,
+              "title": "VPN Configuration",
+              "description": "Creating a peer-to-peer network",
+              "source": "@site/docs/private/vpn.md",
+              "sourceDirName": "private",
+              "slug": "/private/vpn",
+              "permalink": "/private/vpn",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/private/vpn.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
+              "frontMatter": {
+                "id": "vpn",
+                "title": "VPN Configuration",
+                "authors": "Maxime Sallerin"
+              },
+              "sidebar": "docs",
+              "previous": {
+                "title": "Using the blockchain",
+                "permalink": "/private/using-blockchain"
               },
               "next": {
                 "title": "Exam",
@@ -2951,7 +3125,7 @@
               "id": "smartpy/introduction",
               "isDocsHomePage": false,
               "title": "Introduction",
-              "description": "This module aim to enable developers to write smart contracts with SmartPy. It will take the form of a pedagogical course, illustrated through an example of a smart contract, to help the developer acquire the essentials to write, test, and analyze his smart contract.",
+              "description": "This module aims to teach developers to write smart contracts with SmartPy. It will take the form of a course, illustrated through an example of a smart contract, to help the developer acquire the essentials to write, test, and analyze his smart contract.",
               "source": "@site/docs/smartpy/introduction.md",
               "sourceDirName": "smartpy",
               "slug": "/smartpy",
@@ -3193,7 +3367,7 @@
               "id": "tezos-basics/liquid-proof-of-stake",
               "isDocsHomePage": false,
               "title": "Liquid Proof-of-Stake",
-              "description": "In \"Blockchain Basics\" module, you understood the main objective of a consensus mechanism is maintaining a common history throughout the whole peer-to-peer network. There are countless consensus algorithms, and they all have pros and cons. Notably, Bitcoin's Proof-of-Work has two flaws:",
+              "description": "In \"Blockchain Basics\" module, you understood that the main objective of a consensus mechanism is maintaining a common history throughout the whole peer-to-peer network. There are countless consensus algorithms, and they all have their pros and cons. Notably, Bitcoin's Proof-of-Work has two major flaws:",
               "source": "@site/docs/tezos-basics/liquid-proof-of-stake.md",
               "sourceDirName": "tezos-basics",
               "slug": "/tezos-basics/liquid-proof-of-stake",
@@ -3253,7 +3427,7 @@
               "id": "tezos-basics/smart-contracts",
               "isDocsHomePage": false,
               "title": "Smart contracts",
-              "description": "In this chapter, you will learn the Tezos smart contracts basics. Their components and the workflow to record and use them on the Tezos blockchain.",
+              "description": "In this chapter, you will learn the basics of Tezos smart contracts. Their components and the workflow to deploy and use them on the Tezos blockchain.",
               "source": "@site/docs/tezos-basics/smart-contracts.md",
               "sourceDirName": "tezos-basics",
               "slug": "/tezos-basics/smart-contracts",

@@ -7,7 +7,7 @@ authors: Frank Hillard
 import ExamForm from '../../src/components/docs/ExamForm';
 import ExamCheckbox from '../../src/components/docs/ExamCheckbox';
 
-<ExamForm moduleName="DeFi">
+<ExamForm moduleName="Michelson">
 
 ### Question 1
 

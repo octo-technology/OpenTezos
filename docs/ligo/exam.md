@@ -7,7 +7,7 @@ authors: Maxime Sallerin, Benjamin Pilia and Frank Hillard
 import ExamForm from '../../src/components/docs/ExamForm';
 import ExamCheckbox from '../../src/components/docs/ExamCheckbox';
 
-<ExamForm moduleName="DeFi">
+<ExamForm moduleName="LIGO">
 
 ### Question 1
 
