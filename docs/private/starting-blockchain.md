@@ -7,7 +7,7 @@ authors: Maxime Sallerin
 
 ## Activating the procotol and starting the blockchain
 
-Leave the second shell running as well.
+Leave the second shell running of the [last chapter](/genesis).
 
 Open a third shell and go to your workspace.
 
@@ -32,7 +32,7 @@ Two sample JSON files are provided, depending on the version of the network you 
 - `./parameters/parameters_babylonnet.json`
 - `./parameters/parameters_carthagenet.json`
 
-In these files, `bootstrap_accounts` has information about account public keys that have access to tokens (4M of tez in these example files). 
+In these files, `bootstrap_accounts` has information about accounts (their public keys) that have access to tokens (4M of tez in these example files). 
 
 Note that all bakers should have some tokens. We need to add the public key for the baker we just created into `bootstrap_accounts`.
 

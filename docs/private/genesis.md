@@ -6,14 +6,14 @@ authors: Maxime Sallerin
 
 ## Generating a new genesis public key and fetching binaries
 
-The genesis public key is the public key associated to the genesis bloc, the first bloc of your private blockchain.
+The genesis public key is the public key associated to the genesis block, the first block of your private blockchain.
 
 The **genesis block** is the first block in any blockchain-based protocol. It is the basis on which additional blocks are added to form a chain of blocks, hence the term blockchain.
 
 ![](../../static/img/private/genesis_block.svg)
 <small className="figure">FIGURE 1: Genesis block</small>
 
-It differs from other blocks in that it has no predecessor block. Since it has no predecessor, some small parameters had to be specified for its creation.
+It differs from other blocks in that it has no predecessor block. Since it has no predecessor, some small parameters have to be specified for its creation.
 
 To fetch Tezos binaries and create a new genesis public key, run the following:
 
@@ -34,7 +34,7 @@ docker run -v ubuntu-tezos-volume:/base-dir -i -t ubuntu-tezos fetch-binaries \
 ## Running the first baker
 
 Baking is the act of signing and publishing blocks to the Tezos blockchain. Therefore bakers are the people participating in the consensus by **creating** new blocks.
-Check out the [Baking](/baking) module to go further.
+Check out the [Baking](/baking) module for more information.
 
 The script `start-baker.sh` will do the following tasks:
 1. generate a [node identity](/deploy-a-node/set-up-a-node#node-identity)
@@ -50,11 +50,11 @@ docker run --expose 8733 -p 8732:8732 -p 8733:8733 -v ubuntu-tezos-volume:/base-
 
 - `--expose` parameter makes a port available outside of Docker.
 - `-p` parameter maps host ports to Docker ports.
-- Port `8732` is used as a node rpc port and exposed by the docker image by default. 
+- Port `8732` is used as a rpc node port and exposed by the docker image by default. 
   >[RPC](/tezos-basics/cli-and-rpc#tezos-rpc-remote-procedure-call) is a client-server protocol where the requesting program is the client and the program providing the service is the server.   
   Tezos nodes provide a JSON/RPC interface to interact with the Tezos network. Although it uses RPC and is JSON-based, it does not follow the JSON-RPC protocol.
 
-After running this command you should see the following warning:
+After running this command, you should see the following warning:
 
 ```shell
 Warning:
@@ -109,7 +109,7 @@ p2p.maintenance: Too few connections (1)
 This means that each node now has **one** peer.
 
 Each terminal displays a different hash, private key and public key. 
-**Note them somewhere** because we will need them in the next chapter.
+**Write them down somewhere** because we will need them in the next chapter.
 
 
 

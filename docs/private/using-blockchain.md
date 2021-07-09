@@ -29,7 +29,7 @@ base-dir/baker.log
 > Reminder: If you want to browse the file system inside your Docker container, you can run the command: `docker exec -it <container_name> bash`.
 
 
-## Transferring token
+## Transferring tokens
 
 Once the protocol is activated, you can play with the new chain. For example, you can transfer some tokens from one account to another using `tezos-client`.
 
@@ -57,7 +57,7 @@ docker exec <container_name> /base-dir/tezos-client \
   get balance for alice
 ```
 
-> The secret keys used here are unencrypted. This is unsafe in general but useful for the simplicity of the examples. Consider not using them if you care about privacy (even in a private blockchain without real money).
+> The secret keys used here are unencrypted. This is unsafe in general but useful for the simplicity of the examples. Consider not using them if you care about security (even in a private blockchain without real money).
 > In order to encrypt bakers and genesis secret keys, you can provide an `--encrypted` flag to `fetch-binaries.sh` and `start-baker.sh` scripts.
 
 ### Generate new account
@@ -107,7 +107,7 @@ docker exec <container_name> /base-dir/tezos-client \
 
 ### Conclusion 
 
-In conclusion we have seen how to create a private blockchain. This by generating a genesis block and bootstrapping at least two bakers. These two bakers will validate the first blocks allowing the realization of the first transactions of the blockchain.
+To conclude, we have seen how to create a private blockchain by generating a genesis block and bootstrapping at least two bakers. These two bakers will validate the first blocks, allowing the realization of the first transactions of the blockchain.
 
 
 

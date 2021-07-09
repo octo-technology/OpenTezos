@@ -14,7 +14,9 @@ A private blockchain is an invitation-only blockchain. The blockchain is governe
 
 A private chain of Tezos provides a controlled environment for development, testing, or consortium-governed networks popular in enterprise settings.
 
-This module will use the scripts available on the [Github Serokell](https://github.com/serokell/private-tezos-blockchain) for the configuration and deployment of a private Tezos blockchain on a Testnet network.
+In a blockchain that is private, each user does not have equal rights within it. Users are granted permissions to access certain types of data and complete specific functions. Everything else remains closed. The mechanism of access depends on the rules set forth by the network creator. Existing participants could grant access to future entrants, a single authority could grant licenses, or an organization within the ecosystem could make the decisions.
+
+This module will use the scripts available on the [Github Serokell](https://github.com/serokell/private-tezos-blockchain) repository for the configuration and deployment of a private Tezos blockchain on a Testnet network.
 
 To run a private blockchain using those scripts, you should do the following:
 

@@ -6,7 +6,7 @@ authors: Maxime Sallerin
 
 ## Cloning the repository
 
-This module will use the scripts available on the [Github Serokell](https://github.com/serokell/private-tezos-blockchain).
+This module will use the scripts available on the [Github Serokell](https://github.com/serokell/private-tezos-blockchain) repository.
 
 We will open a terminal and clone the git repository on our machine.
 
