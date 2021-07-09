@@ -4,7 +4,7 @@ title: Operations
 authors: Thomas Zoughebi, Aymeric Bethencourt, and Maxime Fernandez
 ---
 
-This chapter introduces the notion of _Operations_ on Tezos. These are more commonly known as _Transactions_ on other blockchains.
+This chapter introduces the notion of _Operations_ on Tezos. These are more commonly known as _Transactions_ on other blockchains and in Tezos are a subset of operations.
 
 ## Implicit accounts and originated accounts
 Let's start by talking about the two types of addresses in Tezos [[1]](/tezos-basics/operations#references):
@@ -17,7 +17,7 @@ Only *implicit* accounts can be registered as *delegates* and participate in the
 They run their Michelson code each time they receive a transaction.
 
 ## Tezos operations
-An operation is a *message* sent from one address to another.
+An operation is usually a *message* sent from one address to another.
 
 Message representation:
 ```js
@@ -86,9 +86,7 @@ The operation also includes the block hash ("*branch*" field) of a recent block 
 
 This last line of defence is named "*TAPOS*": a statistical detection of a *Long Range Attack* (see [*Liquid Proof of Stake*](/tezos-basics/liquid-proof-of-stake#long-range-attack) chapter) based on the fraction of moving coins. This kind of system prevents long reorganizations but is inefficient with short-term double-spending.
 
-Currently the Tezos network can process 40 TPS (operations (transactions) per second) and has an operation confirmation time of 30 minutes [[3]](/tezos-basics/operations#references). This speed may vary with future protocols. Operation confirmation time is the time it takes for an operation to be considered secure. As a comparison, _Bitcoin_ can process 7 TPS and has a confirmation time of 60 minutes (6 valid blocks).
-
-Note that a Tezos operation's maximum size is **512kB**.
+Currently the Tezos network on Florence can process around 100 TPS (transactions per second) or 121 TPS for XTZ transfers and has an operation confirmation time of 30 minutes. This speed may vary with future protocols. Operation confirmation time is the time it takes for an operation to be considered secure. As a comparison, _Bitcoin_ can process 7 TPS and has a confirmation time of 60 minutes (6 valid blocks).
 
 ## Operation Flow
 
@@ -97,7 +95,7 @@ The diagram below represents the life cycle of an operation:
 ![](../../static/img/tezos-basics/operation_flow.svg)
 <small className="figure">FIGURE 1: Life cycle of an operation</small>
 
-Nodes receive operations from clients via RPC or from a network peer.
+Nodes receive operations from clients via RPC or from a peer in the network.
 
 ### Pre-validator
 The *Pre-validator*[[4]](/tezos-basics/operations#references) is an operation's validation subsystem. It decides which operation to add to the *mempool* (memory pool).
@@ -130,13 +128,13 @@ There are two different kinds:
 
 Operations in the mempool are broadcasted to peers whenever the mempool is updated. A node fetches an operation from another remote peer's advertisement using the operation's hash.
 
-A valid operation lives in the mempool until its addition to a valid block on a chain the node consideres canonical (correct chain for the common history). If an operation isn't added to a block during its "*`time-to-live`*" duration, it quits the mempool. As long as a transaction is in the mempool, the sender's address cannot issue another. However, it is possible to send multiple transactions at the same time in a batch.
+A valid operation lives in the mempool until its addition to a valid block on a chain the node considers canonical (correct chain for the common history). If an operation isn't added to a block during its "*`time-to-live`*" duration, it is removed from the mempool. As long as a transaction is in the mempool, the sender's address cannot normaly issue another. However, it is possible to send multiple transactions at the same time in a batch.
 
 ### Baking and endorsement 
-Bakers are free to select operations from the mempool, but they usually use a minimum fee filter. After a block creation, endorsers check its validity. At the end of the allotted time, the selected baker collects the endorsers' results and adds them to the block.
+The selected baker is free to select operations from the mempool, but he usually uses a minimum fee filter. After a block creation, endorsers check its validity. At the end of the allotted time, the selected baker collects the endorsers' results and adds them to the block.
 
 ### Validator
-The selected baker sends the created block to a node. Once received, the node starts the block validation by calling the *Apply_block* function. This function validates the block header by using the protocol parameters and verifies all the operations.
+The selected baker then shares the created block with the network. Once received, each node starts the block validation by calling the *Apply_block* function. This function validates the block header by using the protocol parameters and verifies all the operations.
 
 The block validation checks for errors such as too many operations, oversized operations, incorrect protocol versions, unauthorized validation passes, invalid fitness, unavailable protocols, errors while applying a transaction, and more [[5]](/tezos-basics/operations#references).
 
@@ -151,8 +149,6 @@ In the next "*CLI and RPC*" chapter, we will learn how to issue them with a node
 [1] https://tezos.gitlab.io/introduction/howtouse.html#implicit-accounts-and-smart-contracts
 
 [2] https://www.ocamlpro.com/2018/11/21/an-introduction-to-tezos-rpcs-signing-operations/
-
-[3] https://alephzero.org/blog/what-is-the-fastest-blockchain-and-why-analysis-of-43-blockchains/
 
 [4] https://medium.com/tqtezos/lifecycle-of-an-operation-in-tezos-248c51038ec2
 

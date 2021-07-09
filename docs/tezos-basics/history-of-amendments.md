@@ -19,7 +19,7 @@ For a full list of changes, be sure to read this corresponding blog [post](https
 ## [Brest A](https://www.tezosagora.org/proposal/3) (PtdRxBHv)
 *Brest A* was the first proposed amendment rejected during the _Exploration Period_. Submitted in June 2019, it received only 0.35% of the votes during the _Proposal Period_. But as it had no competition, the system promoted it. The amendment was then rejected in the _Exploration Period_ with only 0.26% of favourable votes. The 80% _Super-majority_ was not reached, neither was the minimum _Quorum_ required to validate it.
 
-This proposal would of fixing a security breach linked to the rehashing push during the _Athens_ protocol change. Moreover, it would have facilitated the amendment's invoice tracking. But the invoice for this proposal, 8,000 tez, was much higher than the usual cost.
+This proposal would have fixed a security breach linked to the rehashing push during the _Athens_ protocol change. Moreover, it would have facilitated the amendment's invoice tracking. But the invoice for this proposal, 8,000 tez, was much higher than the usual cost.
 
 ## [Babylon](https://www.tezosagora.org/proposal/5) (PsBABY5nk)
 The *Babylon* proposal was composed of two proposals made in July/August 2019: [Babylon](https://www.tezosagora.org/proposal/4) and [Babylon 2](https://www.tezosagora.org/proposal/5). *Babylon 2* was built by Nomadic Labs, Cryptium Labs (Metastate), and Marigold, after receiving feedback on the first _Babylon_ proposal. The teams proposed a new tweaked version in the same proposal period.

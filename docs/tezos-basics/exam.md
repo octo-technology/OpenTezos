@@ -48,19 +48,19 @@ On which elements are transaction fees calculated?
 
 ### Question 5
 
-What kind of operations is responsible for the creation of XTZ?
+Which kinds of operations are responsible for the creation of XTZ?
 
-<ExamCheckbox name="40" isCorrect="false">Run a node</ExamCheckbox>
+<ExamCheckbox name="40" isCorrect="false">Running a node</ExamCheckbox>
 <ExamCheckbox name="41" isCorrect="true">Baking</ExamCheckbox>
 <ExamCheckbox name="42" isCorrect="true">Endorsing</ExamCheckbox>
-<ExamCheckbox name="43" isCorrect="true">Amendment Proposal</ExamCheckbox>
+<ExamCheckbox name="43" isCorrect="true">Proposing an amendment</ExamCheckbox>
 
 ### Question 6
 
 How many periods are required in the self-amending process?
 
 <ExamCheckbox name="50" isCorrect="false">2</ExamCheckbox>
-<ExamCheckbox name="51" isCorrect="true">4</ExamCheckbox>
+<ExamCheckbox name="51" isCorrect="true">5</ExamCheckbox>
 <ExamCheckbox name="52" isCorrect="false">6</ExamCheckbox>
 <ExamCheckbox name="53" isCorrect="false">8</ExamCheckbox>
 
@@ -105,12 +105,12 @@ If we want to update the Tezos protocol, we need to:
 
 ### Question 11
 
-What is defined inside a smart contract?
+What is defined inside a smart contract's code?
 
 <ExamCheckbox name="100" isCorrect="true">The type of the storage variables</ExamCheckbox>
 <ExamCheckbox name="101" isCorrect="false">The balance of the contract</ExamCheckbox>
 <ExamCheckbox name="102" isCorrect="false">The value of the entrypoints</ExamCheckbox>
-<ExamCheckbox name="103" isCorrect="true">The type of the entrypoints</ExamCheckbox>
+<ExamCheckbox name="103" isCorrect="false">The type of the entrypoints</ExamCheckbox>
 <ExamCheckbox name="104" isCorrect="false">The fixed size of the storage</ExamCheckbox>
 <ExamCheckbox name="105" isCorrect="true">The code of the smart contract</ExamCheckbox>
 <ExamCheckbox name="106" isCorrect="false">The list of users allowed to call the smart contract</ExamCheckbox>

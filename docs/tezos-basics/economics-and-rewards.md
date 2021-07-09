@@ -4,10 +4,10 @@ title: Economics and rewards
 authors: Thomas Zoughebi, Aymeric Bethencourt, and Maxime Fernandez
 ---
 
-In this chapter, we will dig deeper into the fees of the Tezos network and the baking and endorsing rewards. The calculations you'll learn about are helpful from the simplest transaction issuance to the most complex application built on Tezos. That is why it is importent to understand the basics of fees and gas optimizations. Of course, this will be particularly useful if you are a baker or an endorser.
+In this chapter, we will dig deeper into the fees of the Tezos network and the baking and endorsing rewards. The calculations you'll learn about are helpful from the simplest transaction issuance to the most complex application built on Tezos. That is why it is important to understand the basics of fees and gas optimizations. Of course, this will be particularly useful if you are a baker or an endorser.
 
 ## Transaction cost
-Each transaction on Tezos has a cost. To account for this, the user must include a gas fee when submitting transactions. Bakers will then choose transactions using a **minimal fee filter**. If the baker chooses a transaction, he will add it to the block and propagate it. The fee is therefore used to pay the bakers. They are calculated by using the following formula [[1]](/tezos-basics/economics-and-rewards#references):
+Each transaction on Tezos has a cost for the user. To account for this, the user must include a gas fee when submitting transactions. Bakers will then choose transactions using a **minimal fee filter**. If the baker chooses a transaction, he will add it to the block and propagate it. The fee is therefore used to pay the bakers. They are calculated by using the following formula [[1]](/tezos-basics/economics-and-rewards#references):
 
 Let:
 - Minimal Fees: $\text{min}_{F}$
@@ -38,15 +38,15 @@ Each *Delphi* transaction has a gas limit: 1,040,000 $\text{g}_u$. If the contra
 
 The *Delphi* update also increased the *number of computation per unit of gas*. The minimal amount of gas units to achieve operations has been reduced from 10,000 to 1,000. With this update, the execution cost of smart contracts decreased by approximately 75% [[6]](/tezos-basics/economics-and-rewards#references). This evolution allowed more complex smart contracts' executions and was a demonstration of Tezos's adaptability.
 
-Note that a baker also takes into account the gas limit **per block**. In *Delphi*, the limit is 10,400,000 $\text{g}_u$ (10 times the gas limit per operation). So, of course, it limits the number of transactions to include in a block. However, the storage cost isn't a fee that rewards a baker. Actually, this particular fee is "burned", meaning nobody receives it.
+Note that a baker also takes into account the gas limit **per block**. In *Delphi*, the limit is 10,400,000 $\text{g}_u$ (10 times the gas limit per operation). So, of course, it limits the number of transactions to include in a block. However, for the storage cost, it isn't a fee that rewards the baker. Actually, this particular fee is "burned", meaning nobody receives it.
 
 ## Smart contract execution and optimization
-The gas limit is an important parameter for the usability of the smart contract. But there is also a second major limit: each serialized operation has a maximum size of 16,384 bytes. It is, therefore, impossible to upload a smart contract bigger than this limit (origination).
+There are two limits to take into account when developing a smart contract. The gas limit is an important parameter for the usability of the smart contract. But there is also a second major limit: each serialized operation has a maximum size of 16,384 bytes. It is, therefore, impossible to upload a smart contract bigger than this limit (origination).
 
 One must account for these two variables to optimize a contract:
 
 1. The gas consumption  
-   Many options are possible [[7]](/tezos-basics/economics-and-rewards#references). However, note that the majority of the gas is spent on the conversions from byte sequences to protocol-specific typed representations (and vice versa). These conversions can be:
+   Many options are possible [[7]](/tezos-basics/economics-and-rewards#references). However, note that a large proportion of the gas is spent on the conversions from byte sequences to protocol-specific typed representations (and vice versa). These conversions can be:
    - reading
    - deserialization
    - parsing of bytes

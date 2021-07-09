@@ -26,7 +26,7 @@ Many other blockchains do not have any form of formal governance structure. Cons
 * **Proposal**: A request for addition, adjustment, or removal of a protocol's feature.
 
 ## How does it work?
-Five periods split the self-amendment process:
+The self-amendment process is composed of five periods:
 
 1. _Proposal Period_
 2. _Exploration Vote Period_
@@ -36,7 +36,7 @@ Five periods split the self-amendment process:
 
 Each of these five periods lasts five baking cycles (i.e. 20,480 blocks or roughly 14 days), taking almost two months from the proposal to activation. The latest and current self-amendments are available at [tezosagora.org](https://www.tezosagora.org).
 
-Should there be any failure in a given period, the whole process will reverts to the _Proposal Period_ (1.), effectively aborting and restarting the process.
+Should there be any failure in a given period, the whole process will revert to the _Proposal Period_ (1.), effectively aborting and restarting the process.
 
 ## Positive Voter Turnout & Super-majority; Voter Turnout & Quorum
 The _Exploration Vote Period_ (2.) and _Promotion Vote Period_ (4.) work the same way. During a *vote*, each delegate has to use a single ballot: `Yea` (For), `Nay` (Against), or `Pass` (Neutral). A vote is successful if there is a _Super-majority_ and if the participation has reaches the current quorum [[2]](/tezos-basics/governance-on-chain#references).
@@ -203,7 +203,7 @@ $$
 
 **The proposal is rejected**.
 
-Even though, let's calculate the **PVT** to illustrate a subtlety:
+Regardless, let's calculate the **PVT** to illustrate a subtlety:
 
 $$
   \text{PVT}=\frac{45}{45+10}=\frac{45}{55}\approx81\%
