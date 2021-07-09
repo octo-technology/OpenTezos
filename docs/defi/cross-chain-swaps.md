@@ -54,6 +54,8 @@ Consequently, the need for trust between the individuals is removed as the use o
 To learn more about HTLCs, you can read [this article](https://medium.com/blockchainio/what-are-atomic-swaps-bc1d034634c9).
 
 ## Cross-chain swaps on Tezos
+- [Atomex](https://atomex.me/) is the first implementation of atomic swap cross-chain DEX with Tezos and FA 1.2 tokens (tzBTC, kUSD, etc.), open-source and granted by Tezos Foundation
+
 - [StakerBridge](https://medium.com/stakerdao/stakerbridge-eth-tez-is-live-1841cb75557d) by [StakerDAO](https://www.stakerdao.com/) is an open-source, trustless method of bi-directional transfer of tokens between Ethereum and Tezos.
   
 - [TEZEX](https://tezex.io/) is currently in development and will enable cross-chain swaps between Ethereum and Tezos.

@@ -61,8 +61,9 @@ extending the functionality of traditional block explorers with comprehensive da
 
 ## Baking Bad TzKT Indexer
 
-Baking Bad is a software development company and active Tezos tools contributor.  
-Their block explorer **TzKT** was released in December 2021.
+TzKT has high data detalization, user-friendly interface for both desktop and mobile devices, and free open-source lightweight Tezos blockchain indexer, developing by the Baking Bad team.
+Baking Bad is a software development company and active Tezos tools contributor.
+**TzKT** was released in 2019.
 
 ![](../../static/img/explorer/screenshot_TzKT_explorer.png)
 <small className="figure">FIGURE 1: TzKT Explorer</small>
@@ -72,13 +73,17 @@ Their block explorer **TzKT** was released in December 2021.
 
 **Pros**
 
-- API server
-- mempool access
+- feature-rich API
+- mempool observing
+- DEX trading
+- live data via WebSocket
+- true open-source
 
 **Cons**
 
-- requires Microsoft Toolchain
-- no time-series data
+- no translations (english only)
+- no detailed statistics charts
+- no dark theme
 
 > The Baking Bad team has developed another tool, [Better Call Dev](https://better-call.dev/), which allows the exploration of smart contracts.
 
