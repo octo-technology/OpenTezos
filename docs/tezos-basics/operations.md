@@ -4,7 +4,7 @@ title: Operations
 authors: Thomas Zoughebi, Aymeric Bethencourt, and Maxime Fernandez
 ---
 
-This chapter introduces the notion of _Operations_ on Tezos. These are more commonly known as _Transactions_ on other blockchains and in Tezos are a subset of operations.
+This chapter introduces the notion of _Operations_ on Tezos. These are more commonly known as _Transactions_ on other blockchains and in Tezos are a **subset** of operations. On Tezos, *transactions* are transfers of tokens and smart contracts calls. A few examples of operations that are **not** transactions on Tezos: *Originations; endorsements; proposals; ballots...*
 
 ## Implicit accounts and originated accounts
 Let's start by talking about the two types of addresses in Tezos [[1]](/tezos-basics/operations#references):
@@ -95,7 +95,7 @@ The diagram below represents the life cycle of an operation:
 ![](../../static/img/tezos-basics/operation_flow.svg)
 <small className="figure">FIGURE 1: Life cycle of an operation</small>
 
-Nodes receive operations from clients via RPC or from a peer in the network.
+Nodes receive operations from clients via RPC or from a peer in the network. Note that this is how a typical Tezos node works on protocol "*Alpha*".
 
 ### Pre-validator
 The *Pre-validator*[[4]](/tezos-basics/operations#references) is an operation's validation subsystem. It decides which operation to add to the *mempool* (memory pool).
@@ -128,7 +128,7 @@ There are two different kinds:
 
 Operations in the mempool are broadcasted to peers whenever the mempool is updated. A node fetches an operation from another remote peer's advertisement using the operation's hash.
 
-A valid operation lives in the mempool until its addition to a valid block on a chain the node considers canonical (correct chain for the common history). If an operation isn't added to a block during its "*`time-to-live`*" duration, it is removed from the mempool. As long as a transaction is in the mempool, the sender's address cannot normaly issue another. However, it is possible to send multiple transactions at the same time in a batch.
+A valid operation lives in the mempool until its addition to a valid block on a chain the node considers canonical (correct chain for the common history). If an operation isn't added to a block during its "*`time-to-live`*" duration, it is removed from the mempool. As long as a transaction is in the mempool, the sender's address cannot normally issue another. However, it is possible to send multiple transactions at the same time in a batch.
 
 ### Baking and endorsement 
 The selected baker is free to select operations from the mempool, but he usually uses a minimum fee filter. After a block creation, endorsers check its validity. At the end of the allotted time, the selected baker collects the endorsers' results and adds them to the block.
