@@ -4,11 +4,11 @@ title: Installation
 authors: Maxime Sallerin and Thomas Zoughebi
 ---
 
-In this chapter, we will see how to install Tezos from source with Unbuntu and macOS.
+In this chapter, we will see how to install Tezos from the source with Unbuntu and macOS.
 
 ## Build from source (Ubuntu)
 
-### Install the libraries that Tezos is dependent on
+### Fisrt install the libraries that Tezos is dependent on
 
 ```shell
 sudo apt update && sudo apt install -y rsync git m4 build-essential patch unzip bubblewrap wget pkg-config libgmp-dev libev-dev libhidapi-dev
@@ -19,7 +19,7 @@ Type your password when prompted.
 
 ### Install Rust
 
-Compiling Tezos requires the Rust compiler and the Cargo package manager to be installed.
+Compiling Tezos requires, the Rust compiler and the Cargo package manager, to be installed.
 
 ```shell
 cd $HOME
@@ -66,7 +66,7 @@ Answers the prompts with 'N' then 'y'.
 
 You may also be prompted for your `sudo` password.
 
-You may encounter a "switch" error: You can ignore it. You may encounter failures in the processes for the `make build-deps` command. In that case, just re-type the command to re-initiate.
+You may encounter a "switch" error, but you can ignore it. You may encounter failures in the processes of the `make build-deps` command. In that case, just re-type the command to re-initiate.
 
 ### Compile sources
 
@@ -98,10 +98,10 @@ The commands should return appropriate versions.
 brew install hidapi libev
 ```
 
-On Catalina you may see the following error if you have xcode installed:
+On Catalina you may see the following error, if you have xcode installed:
 `“xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun"`
 
-If this is the case, then run the following command to update your xcode install and restart the terminal.
+If this is the case, then run the following command to update your xcode, then install and restart the terminal.
 
 ```shell
 xcode-select --install
@@ -141,7 +141,7 @@ cd tezos
 make build-deps 
 ```
 
-You may encounter a "switch" error: You can ignore it. You may encounter failures in the processes for the `make build-deps` command. In that case, just re-type the command to re-initiate.
+You may encounter a "switch" error: You can ignore it. You may encounter failures in the processes of the `make build-deps` command. In that case, just re-type the command to re-initiate.
 
 ### Compile sources
 
