@@ -6,9 +6,9 @@ authors: Maxime Sallerin
 
 In this chapter, we will see how to create and deploy your own node.
 
-### Node initial configuration (optional)
+### Node initial configuration (This is optional)
 
-It is possible to define the directory where the data will be stored with `--data-dir` (by default, in .tezos-node)
+It is possible to define the directory where the data will be stored with `--data-dir` (by default, it is in .tezos-node)
 
 By default, the network is Mainnet but, you can specify the network with the `--network` option.
 
@@ -31,7 +31,7 @@ cd tezos
 ./tezos-node identity generate
 ```
 
-The identity comprises a pair of cryptographic keys that nodes use to encrypt messages sent to each other. 
+The identity comprises a pair of cryptographic keys that nodes use to encrypt the messages sent to each other. 
 
 > Note that this is merely a network identity. It is not related in any way to a Tezos address on the blockchain.
 
@@ -39,11 +39,11 @@ It will take some time to generate the keys. An `identity.json` file will then b
 
 ### Node synchronisation
 
-Whenever a node starts, it tries to retrieve the most current head of the chain from its peers and all the block from Genesis to that head. This can be a long process if there are many blocks to retrieve.
+Whenever a node starts, it tries to retrieve the most current head of the chain from its peers and all the block from the Genesis to that head. This can be a long process if there are many blocks to retrieve.
 
 So, rather than taking days to download the Tezos blockchain from the P2P network, a node can be quickly synchronized in a few minutes from a **snapshot**.
 
-> The term snapshot is a bit of an unfortunate term as it already has another meaning in Tezos, which is the schedule for baking rights. To be clear, the snapshot we are talking about is completely different from the baking rights snapshot. This snapshot is a compressed copy of the chain at a certain block.
+> The term snapshot is a bit of an unfortunate term as it already has another meaning in Tezos, which is the schedule for baking rights. To be clear, the snapshot we are talking about is completely different from the baking rights snapshot. This snapshot is a compressed copy of the chain from a certain block.
 > To learn more about snapshots, [here](https://blog.nomadic-labs.com/introducing-snapshots-and-history-modes-for-the-tezos-node.html) is an article from Nomadics Labs.
 
 #### Downloading snapshot
@@ -56,12 +56,12 @@ Download the correct snapshot depending on whether you want to configure your no
 
 A snapshot contains all the blocks from genesis to some point or at least x cycles in the past.
 
-- **rolling mode** are the most lightweight snapshots. Keeps a minimal rolling fragment of the chain and deleting everything before this fragment. Safe for baking, endorsing, and validating new blocks.
+- **rolling mode** are the most lightweight snapshots. Keeping a minimal rolling fragment of the chain and deleting everything before this fragment. Safe for baking, endorsing, and validating new blocks.
 - **full mode** store all chain data since the genesis block of the chain, but drop the archived contexts below the current checkpoint. Safe for baking, endorsing, and validating new blocks.
 
 #### Importing a snapshot
 
-The mechanism of Snapshots can help in reducing the synchronization time.
+The mechanism of Snapshots can help to reduce the synchronization time.
 
 The following command bootstraps an empty Tezos node from the `<snapshot.rolling>` file to a rolling Tezos node.
 
@@ -97,7 +97,7 @@ With the following command, the node will now catch up syncing with the live net
 ./tezos-node run --rpc-addr 127.0.0.1:8732 --log-output tezos.log &
 ```
 
-The parameter `--rpc-addr url:port` activates the RPC interface that will allow communication with the node. By default, it runs on port `8732`, so it is not mandatory to specify it.
+The parameter `--rpc-addr url:port` activate's the RPC interface that will allow communication with the node. By default, it runs on port `8732`, so it is not mandatory to specify it.
 
 Watch the progress by viewing tezos.log
 ```shell
@@ -111,7 +111,7 @@ The Tezos client can be used to interact with the node. It can query its status 
 ./tezos-client bootstrapped
 ```
 
-When you see the message `Node is Bootstrapped`, your Tezos node is synced with the blockchain, and you may now perform operations on the latter.
+When you see the message `Node is Bootstrapped`, your Tezos node is synced with the blockchain, and you may now perform operations on it.
 
 Congratulations on setting up a node!
 
