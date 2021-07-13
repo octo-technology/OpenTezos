@@ -4,11 +4,11 @@ title: What about networks?
 authors: Maxime Sallerin and Thomas Zoughebi
 ---
 
-In this chapter, we will see how Tezos is multi-networks. We will learn what the "*main network*" and the "*test networks*" are. Finally, we will discover how to configure our node on a chosen network.
+In this chapter, we will see how Tezos is multi-network. We will learn what the "*main network*" and the "*test networks*" are and finally, we will discover how to configure our node on a chosen network.
 
 ## Mainnet
 
-The Tezos network is the current incarnation of the Tezos blockchain. The Tezos network has been live and open since June 30th 2018, when the genesis block was created, and tez were allocated to the donors of the July 2017 ICO.
+The Tezos network is the current incarnation of the Tezos blockchain. The Tezos network has been live and open since June 30th 2018, when the genesis block was created, and the tez were allocated to the donors of the July 2017 ICO.
 
 ## Multinetwork Node
 
@@ -18,7 +18,7 @@ Tezos is run on several networks, such as the **Mainnet** (the *main* network) a
 - they have **different names** so that nodes know not to talk to other networks
 - they may run (or have run) **different protocols**
 - protocols may run with **different constants** (for instance, test networks move faster)
-- they have **different bootstrap peers** (nodes that new nodes connect to initially)
+- they have **different bootstrap peers** (nodes that the new nodes connect to initially)
 - they may have had user-activated upgrades or user-activated protocol **overrides** to change the protocol *without going through the voting process*.
 
 By default, the multinetwork node connects to **Mainnet**. To connect to other networks, you can either use one of the **Built-In Networks** or configure the node to connect to [Custom Networks](https://tezos.gitlab.io/user/multinetwork.html#custom-networks).
@@ -27,9 +27,9 @@ By default, the multinetwork node connects to **Mainnet**. To connect to other n
 
 ### Test Networks
 
-Mainnet is the main Tezos network, and as such, it is not appropriate for testing. *is not appropriate for testing*. Other networks are available to this end. Test networks usually run with different constants *to speed up the chain*.
+Mainnet is the main Tezos network, and as such, it is not appropriate for testing. *is not appropriate for testing*. Other networks are available for this. Test networks usually run with different constants *to speed up the chain*.
 
-Test networks have a list of built-in accounts with some funds. You can obtain the keys to these accounts from a faucet to claim the funds. All networks share the same faucet: [faucet.tzalpha.net](https://faucet.tzalpha.net/). The keys obtained from this faucet from this faucet work **on all test networks**.
+Test networks have a list of built-in accounts with some provided funds. You can obtain the keys to these accounts from a faucet to claim the funds. All networks share the same faucet: [faucet.tzalpha.net](https://faucet.tzalpha.net/). The keys obtained from this faucet work **on all test networks**.
 
 The last two built-in networks to be used as a test network are:
 
@@ -55,13 +55,13 @@ The `--network option` is **not** case-sensitive and can be used with the follow
 - florencenet (available from version 9.0)
 - granadanet (available from version 9.2)
 
-If you did not initialize your node configuration, or if your configuration file doesn't contain a "network" field, the node assumes you want to run **Mainnet**. You can use the `--network` option with `tezos-node run` to make sure your node runs on the expected network. For instance, to make sure that it runs on **Florencenet**:
+If you did not initialize your node configuration or if your configuration file doesn't contain a "network" field, the node assumes you want to run **Mainnet**. You can use the `--network` option with `tezos-node run` to make sure your node runs on the expected network. For instance, to make sure that it runs on **Florencenet**:
 
 ```shell
 ./tezos-node run --data-dir ~/tezos-florencenet --network florencenet
 ```
 
-This command will fail with an error if the configured network is **not** *Florencenet*. The node also displays the chain name (such as `TEZOS_MAINNET`) when it starts. Also mind opening the RPC interface as appropriate.
+This command will fail with an error if the configured network is **not** *Florencenet*. The node also displays the chain name (such as `TEZOS_MAINNET`) when it starts.
 
 ## References
 
