@@ -6,14 +6,13 @@ authors: Frank Hillard
 
 To better understand formal verification, let's first describe the theory and tools behind the formal analysis.
 
-In order to perform a formal verification, we need a _proof assistant_. _Coq_ is the default proof assistant for formal verification on Tezos smart contracts. _Coq_ provides a language for defining theorems and for proving these theorems. The proof process relies on:
+In order to perform a formal verification, we need a _proof assistant_. _Coq_ is a proof assistant which can be used for formal verification on Tezos smart contracts. Other proof assistants can also be used such as _Archetype_ or _K-framework_. But in this section, we will focus on _Coq_ which provides a language (_Gallina_) for defining theorems and for proving these theorems. The proof process relies on:
 
 - A theory (i.e. a base foundation of mathematic): We will introduce a branch of mathematics called **Type theory**, and more specifically, the _Calculus of Construction_ (CoC), the building principle of _Coq_.
 
 - An expression of the Michelson language as a formal definition: We use _GADT_ for the theory and _Mi-Cho-Coq_ in practice.
 
-- A formalization of the Michelson script into a theorem to prove this theorem (we'll see this in the next [chapter](/formal-verification/modeling-theorem)).
-//TODO: What is the script? Is it the smart contract?
+- A formalization of the Michelson script (code of the smart contract) into a theorem to prove this theorem (we'll see this in the next [chapter](/formal-verification/modeling-theorem)).
 
 The goal is to:
 
@@ -34,14 +33,16 @@ In mathematics, logic and computer science, a _type system_ is a formal system i
 
 Type theory is closely linked to many fields of active research, including the Curry–Howard correspondence [[6] [7]](/formal-verification/gadt-coq#references) that provides a deep isomorphism between _intuitionistic logic_, typed _λ-calculus_ and _cartesian closed categories_. 
 
-Some type theories serve as alternatives to set theory as a foundation of mathematics. Two famous theories are _Alonzo Church's typed λ-calculus_ and _Per Martin-Löf's intuitionistic type theory_. The _Per Martin-Löf's intuitionistic type theory_ has been the foundation of constructive mathematics. For instance, Thierry Coquand's **Calculus of constructions** and its derivatives are the foundation used by **Coq** (the proof assistant) [[1]](/formal-verification/gadt-coq#references).
+Some Type theories serve as alternatives to set theory as a foundation of mathematics. Two famous theories are _Alonzo Church's typed λ-calculus_ and _Per Martin-Löf's intuitionistic type theory_. The _Per Martin-Löf's intuitionistic type theory_ has been the foundation of constructive mathematics. For instance, Thierry Coquand's **Calculus of constructions** and its derivatives are the foundation used by **Coq** (the proof assistant) [[1]](/formal-verification/gadt-coq#references).
 
 ### Coq
-Initially developed by Thierry Coquand, _Coq_ [[1]](/formal-verification/gadt-coq#references) is a proof assistant designed to develop mathematical proofs, and especially to write formal specifications, programs, and proofs. Programs chave to comply to their specifications. 
+Initially developed by Thierry Coquand, _Coq_ [[1]](/formal-verification/gadt-coq#references) is a proof assistant, designed to develop mathematical proofs and especially made to write formal specifications, programs, and proofs that programs comply with their specifications. 
 
-Properties, programs, and proofs are formalized in the _Coq_ language called _Gallina_, which follows the _Calculus of Inductive Constructions_ (CIC).
+Specifications, programs, and proofs are formalized in the _Coq_ language called _Gallina_, which follows the _Calculus of Inductive Constructions_ (CIC).
 
-//TODO: What are "properties", "programs" and "proofs" ?
+A program is a sequence of instructions in a language. _Coq_ is a generic tool and can support many languages (e.g. Mi-Cho-Coq is a library for Michelson language support). A program represents **how** a modification is applied.
+The specification of a program represents **what** a program is meant to do. _Coq_ provides a language (called Gallina -Terms) for modelling logical objects such as theorems, axioms, assumptions). The proof is a sequence of logical deductions (based on axioms, assumptions and the inference rule) that verify the **compliance of a program to its specification**.
+
 
 #### CoC - CiC
 Initially developed by Thierry Coquand, the _Calculus of Constructions_ [[13]](/formal-verification/gadt-coq#references) (or CoC) is a typed high-order _λ-calculus_ (i.e. a typed formal system taking the logic of second-order into account). The CoC is used as a typed programming language. 
@@ -85,7 +86,7 @@ The _Algebraic Data Type_ (ADT) formalizes a language into a composite type and 
 #### Example with Michelson pairs and variants
 Let's illustrate the ADT formalization by defining a set with PRODUCT (a product type) and SUM (a sum type) thus forming a _semi-ring_ that can model Michelson language structures (_Pairs_ and _Variants_). Defining Michelson data structures as an ADT provides a robust type-checking mechanism on Michelson scripts.
 
-The Michelson language can be modeled as a mathematical object (set) with a set of rules (PRODUCT and SUM) describing possible operations on datatypes. 
+The Michelson language can be modelled as a mathematical object (set) with a set of rules (PRODUCT and SUM) describing possible operations on datatypes. 
 
 PRODUCT type = `(a b)` (i.e., Michelson pair)
 - reflexivity: (up to an isomorphism) _swap_: `(a b) ~ (b a)`
@@ -117,7 +118,7 @@ In algebra, a set equipped with PRODUCT and SUM is a semi-ring. Notice that the 
 
 In mathematics, **rings are algebraic structures that generalize fields**: multiplication need not be commutative and multiplicative inverses do not have to exist. In other words, a ring is a set equipped with two binary operations satisfying properties analogous to those of addition and multiplication of integers. Ring elements may be numbers, such as integers or complex numbers, but they may also be non-numerical objects, such as polynomial numbers or functions.
 
-To conclude, the formalization of a language into an algebra of data types (ADT) allows to specify a mathematical representation of a language; and thus allows to use CoC principles to prove theorems on this algebra (i.e., verifying a script in this language). The **Mi-Cho-Coq** library is the formal _Coq_ representation of the Michelson language and allows to specify a formal representation of a Tezos smart contract.
+To conclude, the formalization of a language into an algebra of data types (ADT) allows to specify a mathematical representation of a language; and thus allows you to use CoC principles to prove theorems on this algebra (i.e., verifying a script in this language). The **Mi-Cho-Coq** library is the formal _Coq_ representation of the Michelson language and allows to specify a formal representation of a Tezos smart contract.
 
 ### Mi-Cho-Coq
 The _Mi-Cho-Coq_ library represents the bridge between Tezos smart contracts and formal proofs in Coq.
@@ -177,6 +178,8 @@ Inductive instruction :
 ...
 ```
 
+Notice that the inductive type `instruction`  defines typing rules for each instruction (`SEQ`, `IF`, `LOOP`, ...).
+
 #### Semantics
 The **semantics** of types is defined by interpreting them with predefined _Coq_ types (e.g. int -> Z, nat -> N, mutez -> int63). The semantics of Michelson is defined by an evaluator `eval` formalized as a _Fixpoint_. 
 
@@ -208,14 +211,22 @@ Fixpoint eval {self_type} {tff} {env} {A : stack_type} {B : stack_type}
 ...
 ```
 
-//TODO: I didn't understand a single thing in the code examples above...
+Notice that the evaluator defines actions that must be performed for each type of instruction.
+
 
 > Since evaluating a Michelson instruction might fail (whereas _Coq_ functions cannot), the return type of this evaluator is wrapped in an exception monad (handling errors such as overflow, lexing, parsing, fuel).
 
 > Coq forbids non-terminating functions, so we use a common _Coq_ trick to define the evaluator on diverging instructions such as _LOOP_: we make the evaluator structurally recursive on an extra argument of type Datatypes.nat called the **fuel** of the evaluator.
 
 ## Conclusion
-//TODO: Conclusion, small summary of this chapter and what's next
+
+Proof assistants are built upon the Calculus of Construction, a branch of the Type theory. _Coq_ is proof assistant and can be seen as a formal engine.
+
+We saw how the Michelson language can be represented as an Algebraic Data Type (GADT) by giving an example of building a semi-ring for representing _pairs_ and _variants_. 
+
+Mi-Cho-Coq is a GADT formalizing the Michelson language (data structures and instructions (a formal definition for each) and is used in combination with _Coq_ to verify a Michelson script.
+
+Coq and Mi-Cho-Coq are the tools allowing the formal verification of Tezos smart contract. Other similar tools can be used such as Archetype or K-framework.  
 
 ## References
 
@@ -256,3 +267,50 @@ Fixpoint eval {self_type} {tff} {env} {A : stack_type} {B : stack_type}
 [19] Michelson - https://www.michelson-lang.com/why-michelson.html
 
 [20] Vote example - https://gitlab.com/nomadic-labs/mi-cho-coq/-/blob/master/src/contracts_coq/vote.v
+
+# ANNEXE 
+
+### Category theory
+
+Category theory formalizes mathematical structure and its concepts in terms of a labelled directed graph called a category, whose nodes are called objects, and whose labelled directed edges are called _arrows_ (or morphisms). A category has two basic properties: the ability to compose the arrows associatively, and the existence of an identity arrow for each object. The language of category theory has been used to formalize concepts of other high-level abstractions such as _sets_, _rings_, and _groups_. Informally, category theory is a general theory of functions. 
+
+The common usage of "type theory" is when those types are used with a term rewrite system. The most famous early example is Alonzo Church's simply typed lambda calculus. Church's theory of types helped the formal system avoid the Kleene–Rosser paradox that afflicted the original untyped lambda calculus. Church demonstrated that it could serve as a foundation of mathematics and it was referred to as a **higher-order logic**.
+
+In **category theory**, a category is **Cartesian closed** if, roughly speaking, any morphism defined on a product of two objects can be naturally identified with a morphism defined on one of the factors. These categories are particularly important in mathematical logic and the theory of programming, in that their internal language is the **simply typed lambda calculus**. They are generalized by closed monoidal categories, whose internal language, linear type systems, are suitable for both quantum and classical computation.
+
+ Here is an embedding of the **simply typed lambda calculus** with an arbitrary collection of base types, tuples and a fixed point combinator: 
+
+```js
+data Lam :: * -> * where
+  Lift :: a                     -> Lam a        // lifted value
+  Pair :: Lam a -> Lam b        -> Lam (a, b)   // product
+  Lam  :: (Lam a -> Lam b)      -> Lam (a -> b) // lambda abstraction
+  App  :: Lam (a -> b) -> Lam a -> Lam b        // function application
+  Fix  :: Lam (a -> a)          -> Lam a        // fixed point
+```
+
+A fixed point of a function is a value that is mapped to itself by the function. In combinatory logic for computer science, a fixed-point combinator (or fixpoint combinator) is a higher-order function _fix_ that returns some fixed point of its argument function, if one exists.
+
+#### Monad
+
+In category theory, a monad (also triple, triad, standard construction and fundamental construction) is an endofunctor (a functor mapping a category to itself), together with two natural transformations required to fulfil certain coherence conditions. Monads are used in the theory of pairs of adjoint functors, and they generalize closure operators on partially ordered sets to arbitrary categories. 
+
+In functional programming, a **monad** is an abstraction that allows structuring programs generically. Supporting languages may use monads to abstract away boilerplate code needed by the program logic. Monads achieve this by providing their own data type, which represents a specific form of computation, along with two procedures:
+
+- One to wrap values of any basic type within the monad (yielding a **monadic value**);
+- Another to compose functions that output monadic values (called **monadic functions**)
+
+This allows monads to simplify a wide range of problems, like handling potential undefined values (with the Maybe monad), or keeping values within a flexible, well-formed list (using the List monad). With a monad, a programmer can turn a complicated sequence of functions into a succinct pipeline that abstracts away auxiliary data management, control flow, or side-effects.
+
+
+Without getting too much into mathematics, in programming a Monad is a Design Pattern. It’s a structure, a wrapper which “enriches” a value by giving it a context.
+
+//TODO ... 
+It's about having representations simulating exactly notions such as exceptions and side-effects while keeping the purety of functionnal languages.
+
+Famous examples of Monads are:
+
+    Option/Maybe monad (it can represent a missing/null value)
+    Either monad (it can represent a successful operation or a failure)
+    IO/Effect monad (it can represent side-effects)
+    Task monad (it can represent asynchronous side-effects)
