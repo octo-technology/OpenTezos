@@ -2,6 +2,7 @@
 id: front_user_experience
 disable_pagination: true 
 title: Build a dapp - User Experience
+authors: Benjamin Pilia
 ---
 
 In the previous chapter, the basic usages of the _Temple Wallet_ were covered. The React app that was developed is functional.
@@ -71,7 +72,7 @@ function App() {
 export default App;
 ```
 
-Let's test it: we will display a notification when connecting a new account. There are three types of alert:
+Let's test it: we will display a notification when connecting a new account. There are three types of alerts:
 - `info`: display some information
 - `success`: display the success of an operation
 - `error`: display the failure of an operation
@@ -176,7 +177,7 @@ An error notification displaying the error message from the smart contract shoul
 
 # Preventing the user from using the same counter
 
-Let's try to make two contract calls to the `buyTicket` entrypoint in a row. If we click quickly enough twice on the "Buy" button, a `Counter already in use` error may be raised as shown below:
+Let's try to make two contract calls to the `buyTicket` entrypoint in a row. If we quicly click twice on the "Buy" button, a `Counter already in use` error may be raised as shown below:
 
 ![](../../static/img/dapp/front17.png)
 
@@ -184,7 +185,7 @@ It means that our first transaction is still in the mempool: the second transact
 
 The user should not be able to send a transaction if one is already in the mempool. These buttons need to be disabled.
 
-We need to know if there is a pending transaction in the app: a boolean updated, before and after each transaction will be enough.
+We need to know if there is a pending transaction in the app: a boolean that we update before and after each transaction will be enough.
 
 ``` typescript jsx
 function App() {

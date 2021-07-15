@@ -6,17 +6,17 @@ authors: Benjamin Pilia
 
 import NotificationBar from '../../src/components/docs/NotificationBar';
 
-The first step to creating a Dapp is to deploy a smart contract onto a Tezos network, whether for testing or real-life use. There are several ways to do this, like using the Tezos cli.  
+The first step to creating a Dapp is to deploy a smart contract onto a Tezos network, whether for testing or real-life use. There are several ways to do this, like using the Tezos CLI.  
 
 However, during development, the smart contracts and the associated storage are likely to change: new field, field removal, structure change. For each change, a new deployment must be done. 
 
-Thus, the way that the contract is deployed will change accordingly, especially the initial storage. A minimal change in the storage definition can make the next deployment extremely tiresome when using Tezos cli. 
+Thus, the way that the contract is deployed will change accordingly, especially the initial storage. A minimal change in the storage definition can make the next deployments tiresome when using the Tezos cli, especially if changes are made several times. 
 
 Besides, there are situations where you need to deploy several smart contracts that will interact with one another. The deployment of a smart contract depends on the deployment of a previous one: its address. Instead of deploying one after the other the smart contracts and retrieveing their address, it should be possible to have an automated script that perform these actions. 
 
 *Truffle*, developped and maintained by _ConsenSys Software Inc_, solves these difficulties. This tool uses scripts to perform smart contract deployments: thanks to a cli and a few configuration files, they are easier and faster.
 
-In this chapter, we will deploy the Raffle smart contract, as developped in the [LIGO chapter](/docs/ligo/write-contracts-ligo.md), onto a testnet, with the use of _Truffle_.
+In this chapter, we will deploy the Raffle smart contract, as developed in the [LIGO chapter](/docs/ligo/write-contracts-ligo.md), onto a testnet, with the use of _Truffle_.
 
 # About The *Truffle* Suite
 
@@ -38,7 +38,7 @@ The *Truffle* Suite is not available for all blockchains. It supports:
 
 Only *Truffle* and *Ganache* (still in beta) are available for Tezos.
 
-*Truffle* takes Ligo files, compiles them and deploys them on any Tezos network with a single command. It does not support Smartpy scripts nor Morlaix scripts.
+*Truffle* can compile and deploy Ligo or Smartpy scripts on any Tezos network with a single command.
 
 # *Truffle* Installation
 
@@ -77,10 +77,10 @@ $ truffle init
 
 A *Truffle* box is a project already set up, easily and quickly adjustable to the specific needs of a project.
 They can be launched instantly and modified with little work. *Truffle* provides users with a global boxes repository:
-(https://www.trufflesuite.com/boxes)[https://www.trufflesuite.com/boxes]
+[https://www.trufflesuite.com/boxes](https://www.trufflesuite.com/boxes)
 
 A Tezos box is available here:
-(https://www.trufflesuite.com/boxes/tezos-example)[https://www.trufflesuite.com/boxes/tezos-example]
+[https://www.trufflesuite.com/boxes/tezos-example](https://www.trufflesuite.com/boxes/tezos-example)
 
 The `tezos-example` box is useful for the deployment of a decentralized application (dapp).
 
@@ -94,6 +94,7 @@ $ truffle unbox tezos-example
 
 The *Truffle* unbox command will not create a new tezos-example folder, but will unpack all the content in the current folder.
 
+> You can find a *Truffle* box with *Smartpy* scripts here: [https://github.com/truffle-box/tezos-smartpy-example-box](https://github.com/truffle-box/tezos-smartpy-example-box)
 # Using *Truffle*
 
 Using *Truffle* can be divided into two steps:
@@ -267,9 +268,9 @@ Of course, the faucet can be imported into the `accounts.js` file.
 #### Defining networks
 The networks are defined in the `truffle-config.js` file. It exports an object that defines networks.
 Each key in *networks* sets a network, which requires:
-- a host: An RPC node ([https://tezostaquito.io/docs/rpc_nodes/]) or a local node (as shown in the development network)
+- a host: An RPC node ([https://tezostaquito.io/docs/rpc_nodes/](https://tezostaquito.io/docs/rpc_nodes/)) or a local node (as shown in the development network)
 - a port: running node port
-- network_id: `*` by default to match any network
+- network_id: each Tezos network has an id. For instance, _Florencenet_ id is `NetXxkAx4woPLyu`. `*` matches any network. 
 - type: network type
 - A way to create transaction:
    - secretKey
@@ -322,7 +323,7 @@ module.exports = {
             type: "tezos"
         },
         [...]
-}
+    }
 }
 ;
 
@@ -332,7 +333,7 @@ module.exports = {
 
 ### Writing the migration scripts
 
-The smart contracts are ready, the network where it has to be deployed too, the next step is to write the deployment script (also called a migration). These scripts are located in the *migrations* directory. 
+Now that the smart contracts and the deployment network are ready, the next step is to write the deployment script. Such scripts are also called migrations: they usually update the storage structure or initial data and the smart contract code. These scripts are located in the *migrations* directory. 
 
 Each migration is a javascript file, defining the deployment tasks. It can execute any javascript code. Each migration starts with a number, followed by a title: *Truffle* will run the migrations in an ascending order.
 For instance, the `tezos-example` box comes with tree migrations:
@@ -348,7 +349,8 @@ A migration script defines:
 * the initial storage of the smart contract(s)
 * the contract deployment steps: the order of deployment of smart contracts, networks, accounts
 
-These migration scripts are used the same way when you deploy your contracts for the first time and when you update your deployed smart contracts.
+These migration scripts are used the same way whether you deploy your smart contract for the first time or you update a new version of a smart contract.
+
 #### Importing the smart contract to deploy
 
 The first step is to specify which smart contract is to be deployed:
@@ -448,7 +450,7 @@ module.exports = (deployer, network, account) => {
 };
 ```
 
-The execution returns some pieces of information (such as the contract address, the cost ...)
+The execution returns some pieces of information, such as the contract address, the cost ...
 
 ##### Network
 It can be useful to deploy a smart contract differently according to the network. For instance, if the storage holds an administator address, it's likely to be different on the mainnet and on testnet. The migration can be branched according to the network, like this:

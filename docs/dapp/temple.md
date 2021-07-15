@@ -2,20 +2,22 @@
 id: temple
 disable_pagination: true
 title: Temple Wallet
+authors: Benjamin Pilia
 ---
 
 
-Dapp users need to have both addresses and the associated private keys of these addresses.
-They want to be able to securely store their private keys, easily use and manage their addresses, and easily use the different dapps.
-All of this can be performed by some tools called wallets.
-They can be desktop applications, browser plugins, hardware or smart contracts...
+Dapp users need to have both addresses and the associated private keys of these addresses. They want to be able to securely store their private keys, easily use and manage their addresses, and easily use the different dapps. All of this can be performed by some tools called wallets. They can be desktop applications, browser plugins, hardware or smart contracts...
 
-In the case of dapps, the best option is to opt for a browser plugin.
-These are easy to find and to install. 
-They provide developers with a library that can be used in their dapp to connect with the user wallet.
+In the case of dapps, the best option is to opt for a browser plugin. These are easy to find and to install. They provide developers with a library that can be used in their dapp to connect with the user wallet.
 
-In this chapter, we'll introduce you to the Temple Wallet, developed and maintained by _Madfish solutions_.
-This first part is a tutorial about how to install and use a Temple Wallet.
+The most common wallets are:
+- [AirGap](https://airgap.it/)
+- [Galleon](https://cryptonomic.tech/galleon.html)
+- [Kukai](https://wallet.kukai.app/)
+- [Spire](https://spirewallet.com/)
+- [Temple](https://templewallet.com/download/) ) 
+
+In this chapter, we will take the Temple Wallet as an example, developed and maintained by _Madfish solutions_. This first part is a tutorial about how to install and use a Temple Wallet.
 
 ## Installation
 

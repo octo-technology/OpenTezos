@@ -2,6 +2,7 @@
 id: basics
 disable_pagination: true
 title: Build a dapp - basics
+authors: Benjamin Pilia
 ---
 
 
@@ -13,7 +14,7 @@ This chapter is not a tutorial about React, nor how to build a nice UI: its purp
 
 In this chapter, we will learn:
 1. [how to setup a new project](#project-initialisation)
-2. [how to connect a React application to a Wallet](#temple-integration): we will connect to the _Temple Wallet
+2. [how to connect a React application to a Wallet](#temple-integration): we will connect our React application to the _Temple Wallet_.
 3. [how to fetch data from the blockchain](#displaying-storage): we will retrieve and present account balances and data from contract storage (including big maps)
 4. [how to interact with a smart contract](#launching-a-new-raffle) (with contract calls through the _Temple Wallet_). 
   
@@ -151,7 +152,7 @@ function App() {
 export default App;
 ```
 
-Let's add a connexion button: when clicked, the app will connects to the _Temple Wallet_. 
+Let's add a connexion button: when clicked, the app will connect to the _Temple Wallet_. 
 We will use the `useConnect` hook from `src/dapp/dapp.js`. Let's take a look at this callback definition:
 
 ```js
@@ -177,7 +178,7 @@ const connect = React.useCallback(
     [setState, wallet],
   )
 ```
-`useConnect` expects two arguments: a Tezos network and some options. Let's define a `NETWORK`'s global variable into `dapp/default.ts`
+`useConnect` expects two arguments: a Tezos network and some options. Let's define a `NETWORK` global variable into `dapp/default.ts`
 
 ```typescript
 // src/dapp/default.ts
@@ -204,7 +205,7 @@ function ConnexionButton() {
 }
 ```
 
-The app looks now:
+The app is now:
 
 ```typescript jsx
 import React from 'react';
@@ -340,7 +341,7 @@ It will also be used in the `useOnBlock` hook. When a new block is baked, the ap
   useOnBlock(tezos, loadBalance)
 ```
 
-Let's change our component into an array of three elements: the balance, the connected user, and the connect button
+Let's change our component into an array of three elements: the balance, the connected user, and the connect button:
 
 
 ``` typescript jsx
@@ -870,7 +871,7 @@ The order is given by the type order:
 3. description (`option`)
 4. winning ticket hash (`bytes`)
 
-We can now write our callback
+We can now write our callback:
 
 ``` typescript jsx
   type launchRaffleParameters = { reward: number; description: string; closingDate: Date; winningTicketHash: string };

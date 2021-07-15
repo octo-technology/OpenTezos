@@ -2,16 +2,17 @@
 id: taquito
 disable_pagination: true
 title: Taquito
+authors: Benjamin Pilia
 ---
 
-Interactions with a Tezos blockchain can be done thanks to the Tezos cli. 
+Interactions with a Tezos blockchain can be done thanks to the Tezos CLI. 
 However, it is not suitable to build Dapps, since it needs to be integrated into applications, mostly web interfaces.
 
 Fortunately, the Tezos ecosystem offers libraries in several languages, that enable developers to build efficient dapps.
 _Taquito_ is one of these libraries: it is a Typescript library developed and maintained by _ECAD Labs_.
 This library offers developers all the expected interactions with the blockchain: retrieving information about a Tezos network, sending a transaction, contract origination and interactions (calling an entrypoint, fetching the storage...), delegation, metadata...
 
-All these wallets ([AirGap](https://airgap.it/), [Galleon](https://cryptonomic.tech/galleon.html), [Kukai](https://wallet.kukai.app/), [Spire](https://spirewallet.com/), [Temple](https://templewallet.com/download/) ) use this library to fonction.
+For example, all these wallets ([AirGap](https://airgap.it/), [Galleon](https://cryptonomic.tech/galleon.html), [Kukai](https://wallet.kukai.app/), [Spire](https://spirewallet.com/), [Temple](https://templewallet.com/download/) ) make use this library to fonction.
 
 A full reference is available [here](https://tezostaquito.io/docs/quick_start).
 
@@ -499,7 +500,7 @@ opYNFzprpcnTCS2dWP9STdJJ8HUpcMGeJNcczmKnBK1SNpXQeoC
 ```
 
 The meaningful part is `Counter 334156 already used for contract tz1YWK1gDPQx9N1Jh4JnmVre7xN6xhGGM4uC`.
-Each transaction in our app is performed asynchronously: the application made the contract call to the `increment` entrypoint, did not wait for the confirmation and then made a transfer transaction. The contract call transaction was still in the mempool when the transfer transaction was sent. Thus, it failed. 
+Each transaction in our app is performed asynchronously: the application made the contract call to the `increment` entrypoint, did not wait for the confirmation and then made a transfer transaction. The contract call transaction was s  till in the mempool when the transfer transaction was sent. Thus, it failed. 
 
 However, _Taquito_ offers a `batch` method, which enables the dapp to send several transactions at the same time.
 
