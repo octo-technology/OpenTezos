@@ -4,7 +4,7 @@ title: Stablecoins
 author: Aymeric Bethencourt
 ---
 
-A **stablecoin** is a cryptocurrency whose price is fixed to another asset. Most stablecoins are pegged (fixed) to fiat currencies (currencies issued by the central bank of a soveign state) like the US Dollar. 
+A **stablecoin** is a cryptocurrency whose price is fixed to another asset. Most stablecoins are pegged (fixed) to fiat currencies (currencies issued by the central bank of a sovereign state) like the US Dollar. 
 
 ![](../../static/img/defi/stablecoin.svg)
 <small className="figure">FIGURE 1: Illustration of a stablecoin volatility compared to his pegged asset (e.g. USD).</small>
@@ -19,10 +19,10 @@ Stablecoins achieve their price stability via **collateralization** (backing) or
 Fiat-collateralized stablecoins are backed by centralized entities that guarantee an exchange rate at the same price as the asset (minus potential fees). They mint new stablecoins when they receive fiat and burn stablecoins when they give fiat back. These centralized entities guarantee that you can always exchange 1 stable-USD against 1 USD, and the other way around. These entities are regularly audited to ensure that they always have enough reserves to match the minted tokens. However, these entities are single points of failure, as they are not decentralized.
 
 #### Example
-If Alice wants 100 stable-USD, she needs to send 100 USD to the entity's bank account. The entity will, in turn, mint 100 stable-USD and send it to Alice. Note that to exchange with these entities, you will need to pass a [KYC](https://en.wikipedia.org/wiki/Know_your_customer) (Know-Your-Customer) as illustrated in Fig. 2. Alice can then use the stable-USD for any operation, such as sending them to Bob. Bob may then want to exchange the 100 stable-USD against some USD. Bob will passes a KYC with the entity and then sends them the 100 stable-USD. The company burns the tokens and sends 100 USD from their bank account to Bob's bank account, usually minus a small convergence fee.
+If Alice wants 100 stable-USD, she needs to send 100 USD to the entity's bank account. The entity will, in turn, mint 100 stable-USD and send it to Alice. Note that to exchange with these entities, you will need to pass a [KYC](https://en.wikipedia.org/wiki/Know_your_customer) (Know-Your-Customer) as illustrated in Fig. 2. Alice can then use the stable-USD for any operation, such as sending them to Bob. Bob may then want to exchange the 100 stable-USD against some USD. Bob passes a KYC with the entity and then sends them the 100 stable-USD. The company burns the tokens and sends 100 USD from their bank account to Bob's bank account, usually minus a small convergence fee.
 
 #### Risks
-As shown above, these entities must keep as much USD in their bank account as they have minted stable-USD. A malicious company could spend or invest the USD from their bank account and therefor not be able to pay back users in case of a massive exchange of stable-USD to USD. (Note that this problem is similar to the practice of _fractional reserve banking_ as presented [in the first module](/blockchain-basics/introduction).)
+As shown above, these entities must keep as much USD in their bank account as they have minted stable-USD. A malicious company could spend or invest the USD from their bank account and therefor not be able to pay back users in case of a massive exchange of stable-USD to USD. (Note that this problem is similar to the practice of _fractional reserve banking_ as presented [in the first module](/blockchain-basics/introduction))
 
 ![](../../static/img/defi/stablecoin-kyc.svg)
 <small className="figure">FIGURE 2: Exchanging stable coins against fiat currencies (or the other way around) is secured by a KYC. Exchanging stable coins between users do not require a KYC (i.e. as long as it stays inside the world of crypto)</small>
@@ -42,11 +42,10 @@ If XTZ go below $150 / 40 = 3.75$ USD, her collateral would go below 150%. If Al
 #### Risks
 The greatest threat to a crypto-collateralized stablecoin is a massive crash of the collateral cryptocurrency [[4]](/defi/stablecoins#references). When a CDP gets liquidated, other traders must buy the XTZ to make up for the debt in stable-USD. They make a nice profit as they usually buy it just below 150% of valuation. Now, if XTZ crashes significantly and so fast that liquidated CDPs' collateral drops below 100% of their debt, then nobody will want to buy them. This would ultimately make CDPs worthless and derail the stable-USD off its peg.
 
-The most popular crypto-collateralized stablecoin is [DAI from MakerDAO](https://makerdao.com/) on Ethereum. Their white paper can be found [here](https://makerdao.com/whitepaper/DaiDec17WP.pdf)
+The most popular crypto-collateralized stablecoin is [DAI from MakerDAO](https://makerdao.com/) on Ethereum. Their white paper can be found [here](https://makerdao.com/whitepaper/DaiDec17WP.pdf).
 
 ### Non-Collateralized (algorithmic) Stablecoins
 Non-collateralized stablecoins don't use any reserve but rely on an algorithm that will automatically burn tokens when supply is high (to increase the price) or mint new tokens when supply is low (to decrease the price). This is similar to what central banks are doing to maintain the valuations of a fiat currency. It can be achieved by implementing a smart contract on a decentralized platform that can run autonomously.
-
 
 #### Example
 For example, assume a stablecoin is priced at $1. When the price drops to $0.80, an algorithm recognizes that an imbalance between supply and demand exists and automatically sets a market order to buy, pushing the price back up. If the price goes above $1, the algorithm sells assets to maintain the price on the predefined level that keeps the peg. 
