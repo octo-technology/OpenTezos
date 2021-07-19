@@ -33,17 +33,17 @@ This message clearly showed the intention of Satoshi Nakamoto and his Bitcoin to
 <small className="figure">FIGURE 1: <em>The Times</em> newspaper from January 3rd, 2009</small>
 
 ### What is Bitcoin?
-Bitcoin is a computer program made of various cryptographic components (e.g., asymmetric cryptography, hash functions, proof-of-work, etc.), ensuring its functionality and security. This is why the Bitcoin currency and other digital coins are referred to as **crypto-currencies**.
+Bitcoin is a [decentralized network protocol](https://en.wikipedia.org/wiki/Decentralized_network_protocol) made of various cryptographic components (e.g., asymmetric cryptography, hash functions, proof-of-work, etc.), ensuring its functionality and security. This is why the Bitcoin currency and other digital coins are referred to as **crypto-currencies**.
 
 Contrary to popular belief, Bitcoin wasn't the first attempt at creating a crypto-currency. _Digicash_ (1989), _CyberCash_ (1994), _E-gold_ (1996), _HashCash_ (from Adam Back in 1997), _Bit Gold_ (1998) and _B-money_ (from Wei Dai in 1998) were all very close to such a goal, but all failed because of technical or security issues. _Bit Gold_ and _B-money_ even used a decentralized database for transactions and an older version of Bitcoin's _Proof-of-Work_ (consensus mechanism which will be detailed in the ["*Proof-of-Work*"](/blockchain-basics/proof-of-work) chapter). But Bitcoin was the first to have components assembled in such a way that made it viable.
 
-Bitcoin's components were not new either and were based on technologies used for years before that. Bitcoin relies on a lot of "old" Information Technologies (IT). Some from as far back as 1973 and up until the Genesis Block in 2009.
+The key concepts underlying Bitcoin were not new either and were based on technologies used for years before that. Bitcoin relies on a lot of "old" Information Technologies (IT). Some from as far back as 1973 and up until the Genesis Block in 2009.
 
 Bitcoin's system was actually born from 36 years of research, trials, experiments, and failures. It wouldn't be useful to know the precise history but to understand that Bitcoin didn't come from thin air here are some of them:
 
 First of all, Bitcoin relies on the Internet, which itself has been relying on _TCP/IP_ since 1974.
 
-Bitcoin also relies heavily on so-called _Modern Cryptography_, e.g., the Diffie-Hellman protocol (1976, in collaboration with Ralph Merkle), the Merkle Tree (1979), and the RSA (Rivest–Shamir–Adleman) public-key cryptosystem (1977).
+Bitcoin also relies heavily on _Modern Cryptography_, e.g., the Diffie-Hellman protocol (1976, in collaboration with Ralph Merkle), the Merkle Tree (1979), and the RSA (Rivest–Shamir–Adleman) public-key cryptosystem (1977).
 
 The blocks of data are cryptographically chained with [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_block_chaining_(CBC)) a principle from 1976. The aim and the creation of this chain of blocks will be explained in the following chapters (["*Main Properties of the First Blockchain*"](/blockchain-basics/main-properties) and ["*Proof-of-Work*"](/blockchain-basics/proof-of-work)).
 
@@ -56,9 +56,9 @@ Finally, before the bankruptcy of Lehman Brothers and the global financial crisi
 ### The 2nd generation of blockchains
 Following the success of Bitcoin, many forked its code and started creating new blockchains with differentiating features or capabilities.
 
-Note here that Bitcoin's transactions are programmable. One can program how funds are spent using scripts. However, going beyond these basic uses is quite difficult as Bitcoin's underlying scripting language is very limited.
+Note here that Bitcoin's transactions are programmable. One can program how funds are spent using scripts. However, only a small set of basic uses is possible in practice as Bitcoin's underlying scripting language is very limited.
 
-In 2011, Vitalik Buterin encountered Bitcoin, and two years later (October 2013) began work on a proposal for [_Mastercoin_](https://web.archive.org/web/20150627031414/http://vbuterin.com/ultimatescripting.html) a protocol with more programmable capabilities than Bitcoin.
+In 2011, Vitalik Buterin encountered Bitcoin, and two years later (October 2013) began work on a proposal for [_Mastercoin_](https://web.archive.org/web/20150627031414/http://vbuterin.com/ultimatescripting.html), a protocol with more programmable capabilities than Bitcoin.
 
 However, the team at _Mastercoin_ didn't want to go in this direction, and Vitalik Buterin began to re-work his proposal into another project named _Ethereum_ (December 2013). The interest into [_**D**ecentralized **A**utonomous **O**rganizations_](https://en.wikipedia.org/wiki/Decentralized_autonomous_organization) (or DAO) drove the need for even more complex scripts. A "DAO" is a form of investor-directed venture capital fund that no blockchain could so far implement. It was also in December 2013 that Gavin Wood (protocol-side) and Jeffrey Wilcke (client-side) joined forces with Vitalik Buterin to work on Ethereum, and a [white paper was first published in January 2014](https://ethereum.org/en/whitepaper/).
 
@@ -76,11 +76,11 @@ Today, Bitcoin and Ethereum remain the two main protocols with the most adoption
 <small className="figure">FIGURE 2: A non-hexaustive timeline</small>
 
 ## Terminology
-A *blockchain* is a particular type of [_**D**istributed **L**edger **T**echnology_](https://en.wikipedia.org/wiki/Distributed_ledger) (DLT), a consensus of replicated, shared, and synchronized digital data, geographically spread across multiple sites.
+A *blockchain* is a particular type of [_**D**istributed **L**edger **T**echnology_](https://en.wikipedia.org/wiki/Distributed_ledger) (DLT), a consensus on replicated, shared, and synchronized digital data, geographically spread across multiple sites.
 
 Not all blockchains are cryptocurrencies. For instance, [Corda](https://www.corda.net/) and [Fabric](https://www.hyperledger.org/use/fabric) are blockchains often used for immutable and cryptographically verified storage of data in various domains: Secure sharing of medical data, music royalties tracking, personal identity security, supply chain, logistics monitoring or voting mechanism, etc.
 
-It is important not to confuse a cryptocurrency (first made to exchange value) with its supporting component: a *blockchain*. Note that **originally** the word "*blockchain*" did **not** designate a technology, but the name of the **data-structure** used to store the data (find more about this in the next chapter [here](/blockchain-basics/main-properties#chained-data-structure)).
+It is important not to confuse a cryptocurrency (first made to exchange value) with its supporting component: a *blockchain*. Note that **originally**, the word "*blockchain*" did **not** designate a technology, but the name of the **data-structure** used to store the data (find more about this in the next chapter [here](/blockchain-basics/main-properties#chained-data-structure)).
 
 The exact word "blockchain" doesn't even appear in the Bitcoin whitepaper but it **now reflects the technology** used to arrange and chain data to ensure _immutability_ and _cryptographic verifiability_.
 
