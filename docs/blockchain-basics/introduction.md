@@ -76,7 +76,7 @@ Today, Bitcoin and Ethereum remain the two main protocols with the most adoption
 <small className="figure">FIGURE 2: A non-hexaustive timeline</small>
 
 ## Terminology
-A *blockchain* is a particular type of [_**D**istributed **L**edger **T**echnology_](https://en.wikipedia.org/wiki/Distributed_ledger) (DLT), a consensus on replicated, shared, and synchronized digital data, geographically spread across multiple sites.
+A *blockchain* is a particular type of [_**D**istributed **L**edger **T**echnology_](https://en.wikipedia.org/wiki/Distributed_ledger) (DLT), a consensus on replicated, shared, and synchronized digital information, geographically spread across multiple sites.
 
 Not all blockchains are cryptocurrencies. For instance, [Corda](https://www.corda.net/) and [Fabric](https://www.hyperledger.org/use/fabric) are blockchains often used for immutable and cryptographically verified storage of data in various domains: Secure sharing of medical data, music royalties tracking, personal identity security, supply chain, logistics monitoring or voting mechanism, etc.
 
