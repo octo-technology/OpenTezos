@@ -14,12 +14,12 @@ This chapter is not a tutorial about React, nor how to build a nice UI: its purp
 
 In this chapter, we will learn:
 1. [how to setup a new project](#project-initialisation)
-2. [how to connect a React application to a Wallet](#temple-integration): we will connect our React application to the _Temple Wallet_.
+2. [how to connect a React application to a Wallet](#temple-integration): we will connect our React application to the wallet:  _Temple Wallet_.
 3. [how to fetch data from the blockchain](#displaying-storage): we will retrieve and present account balances and data from contract storage (including big maps)
 4. [how to interact with a smart contract](#launching-a-new-raffle) (with contract calls through the _Temple Wallet_). 
   
 
-At the end, our application will look like:
+In the end, our application will look like:
 
 ![](../../static/img/dapp/front21.png)
 
@@ -152,7 +152,7 @@ function App() {
 export default App;
 ```
 
-Let's add a connexion button: when clicked, the app will connect to the _Temple Wallet_. 
+Let's add a connexion button. When clicked, the app will connect to the _Temple Wallet_. 
 We will use the `useConnect` hook from `src/dapp/dapp.js`. Let's take a look at this callback definition:
 
 ```js
@@ -539,7 +539,7 @@ $ GET https://api.edo.tzstats.com/explorer/bigmap/108024/keys
 In our raffle smart contract, we don't need this. As there is a clear one-to-one correspondence between the tickets and the players: if there are five players, it means that exactly five tickets have been sold. Since all tickets are numbered in an ascending order, we can infer that the big map keys range from zero to four.
 
 
-So, we will create an array of number, which ranges from `0` to `players.length`.
+So, we will create an array of numbers, which ranges from `0` to `players.length`.
 Once we have our keys, we will retrieve the mapped values.
 
 
@@ -728,7 +728,7 @@ export default App;
 
 ## Launching a new raffle
 
-Its now time to add interactions with the smart contract: let's add the possibility to launch a raffle. For this, the user will have to enter the raffle pieces of information, and then call the `openRaffle` entrypoint.
+It's now time to add interactions with the smart contract: let's add the possibility to launch a raffle. For this, the user will have to enter the raffle pieces of information, and then call the `openRaffle` entrypoint.
 
 Let's create a `LaunchRaffleSection` component, that will contain a `form` to enter the raffle information, and a button to call the entrypoint.
 
@@ -1535,7 +1535,7 @@ Let's test it. The button to buy a ticket has been added: it can be clicked. A T
 
 ![](../../static/img/dapp/front13.png)
 
-After a while, the UI is re-rendered: bought ticket is displayed.
+After a while, the UI is re-rendered: The bought ticket is displayed.
 ![](../../static/img/dapp/front14.png)
 
 
