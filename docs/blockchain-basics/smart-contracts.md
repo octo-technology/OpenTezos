@@ -7,12 +7,12 @@ authors: Thomas Zoughebi
 
 import NotificationBar from '../../src/components/docs/NotificationBar';
 
-In this chapter, we're going to explain how and why Bitcoin's programming features are limited. We'll define what are _Smart Contracts_ and how they are already present on Bitcoin. And finally, what is _Gas_ and why it was introduced on Ethereum.
+In this chapter, we're going to explain how and why Bitcoin's programming features are limited. We'll define what _Smart Contracts_ are and how they are already present on Bitcoin. And finally, we'll define what _Gas_ is and why it was introduced on Ethereum.
 
 ## Limitations of Bitcoin
-The primary use case of Bitcoin is to be *distributed digital currency*. It's also an *augmented* currency that is a *programmable* currency, with such things as programmable **spending conditions**.
+The primary use case of Bitcoin is to be a *distributed digital currency*. It's also an *augmented* currency that is a *programmable* currency, with such things as programmable **spending conditions**.
 
-The metaphor of **vaults** is meaningful as bitcoins are **always locked inside _transactions_**.
+The metaphor of **vaults** is meaningful and often used, as bitcoins are **always locked inside _transactions_**.
 
 Programable conditions for Bitcoin describe **how** vaults can be opened and *bitcoins moved to other vaults*.
 
@@ -63,23 +63,23 @@ The very first definition of "*Smart Contracts*" is originally from Nick Szabo [
   </p>
 </NotificationBar>
 
-This definition is pretty hard to understand because very general.
+This definition is pretty hard to understand because very generic.
 
-A smart contract is a **code** stored inside the *blockchain*. It executes a set of pre-defined instructions (promises). Once deployed (stored), it becomes **immutable**. A smart contract is deployed using a **transaction**, so we embed spending conditions inside it, which are then **immutable**. We will go into more detail about this immutability in the [Tezos Basics module](/tezos-basics/introduction).
+A smart contract is a **piece of code** stored inside the *blockchain*. It executes a set of pre-defined instructions (promises). Once deployed (stored), it becomes **immutable**. A smart contract is deployed using a **transaction**, so we embed spending conditions inside it, which are then **immutable**. We will go into more detail about this immutability in the [Tezos Basics module](/tezos-basics/introduction).
 
 Strictly speaking, a Bitcoin transaction is a smart contract. The **promise** to open the *vault* from one party is fulfilled, given that the other party has the right *key* to open it. Note that *the way* this key is provided is also meaningful here. It must follow **protocols**.
 
 ## Halting problem of Turing-complete machines and Gas
 To increase the possibilities for smart contracts, more *OP_codes* had to be incorporated inside blockchain systems. With Ethereum, adding these *OP_codes* made its low-level language _Turing-complete_. This meant that from this moment on, one could program any operation, including *jumps* and *loops*.
 
-A loop is a problem for Turing-complete machine, especially the ones that use a currency to function. If we can't control the halt of the machine and it starts an endless loop, we can't control the infinite spending of the currency either.
+A loop is a problem for Turing-complete machines, especially the ones that use a currency to function. If we can't control the halt of the machine, it can start an endless loop.
 
 So the idea in Ethereum was to introduce another variable to stop the machine: **_Gas_**. A machine running on gas can't move endlessly without enough gas. That's exactly what's happening with Ethereum smart contracts. Gas, which is a sub-unit of the *Ether* currency, is consumed with each operation.
 
 Gas consumption isn't the same for all operations because certain operations are more complex than others. The miners who also execute these operations receive the Gas as fees for using their computational power.
 
 ## What have we learned so far?
-In this chapter, we learned what are *Smart Contracts*, the limiting factors of Bitcoin's smart contracts, and how *Gas* was introduced to lift them.
+In this chapter, we learned what *Smart Contracts* are, the limiting factors of Bitcoin's smart contracts, and why *Gas* was introduced.
 
 This chapter concludes the "*Blockchain Basics*" module. The next module will focus on the basics of Tezos.
 
