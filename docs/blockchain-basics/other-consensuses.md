@@ -6,7 +6,7 @@ authors: Thomas Zoughebi and Aymeric Bethencourt
 
 ---
 
-In this chapter, we will briefly introduce some other *public* consensus algorithms.  
+In this chapter, we will briefly introduce some other *public* consensus mechanisms.  
 Remember we defined what's a consensus, in IT, in the *Main properties of the first "blockchain"* chapter [here](blockchain-basics/main-properties#what-is-a-consensus):
 <NotificationBar>
     <p>
@@ -28,8 +28,8 @@ Examples: *Ethereum 2.0, Peercoin, Blackcoin, NXT...*
 We'll go into more details about PoS in the [Tezos Basics Module](/tezos-basics) as Tezos uses a variation of PoS called Liquid Proof-of-Stake.
 
 ## Delegated Proof-of-Stake (DPoS)
-DPoS has an added *Delegation* phase. During this phase, decentralized *votes* are made by the *witnesses* to elect validators. The witness group has the same function as the parliament in a parliamentary democracy.  
-Another special *committee* group decides parameters like fees, rewards, or how many witnesses in the witness group. This committee *does not receive any reward* and these parameters can only change by vote during another *maintenance phase*.  
+DPoS has an added *Delegation* phase. During this phase, decentralized *votes* are made by the *witnesses* (*witnesses* are users that ask other users to transfer voting rights to them, thereby maximising their chance of being elected validators). The witness group has the same function as the parliament in a parliamentary democracy.  
+Another special *committee* group decides on the value of parameters such as fees, rewards, or how many witnesses compose the witness group. This committee *does not receive any reward* and these parameters can only change by vote during another *maintenance phase*.  
 We'll go back to DPoS in the ["*Delegated Proof-of-Stake (DPoS)* section"](/tezos-basics/liquid-proof-of-stake#delegated-proof-of-stake-dpos) of the ["*Liquid Proof-of-Stake*" chapter](/tezos-basics/liquid-proof-of-stake) in the ["*Tezos Basics*" module](/tezos-basics/).
 
 Examples: *Steem, Graphene, BitShares...*
@@ -90,7 +90,7 @@ Each **validator** randomly selects $N$ nodes among all the other validators. Th
 
 Each queried validator responds with its decision.
 
-If most responses differ from the asking node's decision, it will change its answer to that of the others. In case of disagreement between nodes, more nodes are brought into the decision, and more, and more until convergence (thus the name avalanche as it resembles this forme of consensus).
+If most responses differ from the asking node's decision, it will change its answer to that of the others. In case of disagreement between nodes, more nodes are brought into the decision, and more, and more until convergence (thus the name avalanche as it resembles this form of consensus).
 
 Examples: *Avalanche*
 
