@@ -11,7 +11,7 @@ import ExamCheckbox from '../../src/components/docs/ExamCheckbox';
 
 ### Question 1
 
-Which year did Nick Szabo invent the *Smart Contracts*?
+Which year did Nick Szabo invent *Smart Contracts*?
 
 <ExamCheckbox name="00" isCorrect="false">1995</ExamCheckbox>
 <ExamCheckbox name="01" isCorrect="true">1996</ExamCheckbox>
@@ -20,7 +20,7 @@ Which year did Nick Szabo invent the *Smart Contracts*?
 
 ### Question 2
 
-When was the *Bitcoin's White Paper* released?
+When was the *Bitcoin White Paper* released?
 
 <ExamCheckbox name="10" isCorrect="false">October 31st, 2006</ExamCheckbox>
 <ExamCheckbox name="11" isCorrect="false">October 31st, 2007</ExamCheckbox>
@@ -29,7 +29,7 @@ When was the *Bitcoin's White Paper* released?
 
 ### Question 3
 
-Which year was the *Ethereum Yellow Paper* and the *Tezeos White Paper* released?
+Which year were the *Ethereum Yellow Paper* and the *Tezos White Paper* released?
 
 <ExamCheckbox name="20" isCorrect="false">2013</ExamCheckbox>
 <ExamCheckbox name="21" isCorrect="true">2014</ExamCheckbox>
@@ -94,14 +94,14 @@ Which type of consensus is used in Tezos?
 
 ### Question 10
 
-A Bitcoin's miner validates a block when:
+A Bitcoin miner validates a block when:
 
 <ExamCheckbox name="90" isCorrect="true">he finds a value lesser than the *Target*</ExamCheckbox>
 <ExamCheckbox name="91" isCorrect="false">he finds a value greater than the *Target*</ExamCheckbox>
 
 ### Question 11
 
-A new Bitcoin's block is added every:
+A new Bitcoin block is added every:
 
 <ExamCheckbox name="100" isCorrect="false">1 minute</ExamCheckbox>
 <ExamCheckbox name="101" isCorrect="true">10 minutes</ExamCheckbox>
@@ -125,7 +125,7 @@ If two miners find a valid block, The winner is the one:
 
 ### Question 14
 
-At Bitcoin's launch the reward for a blocks was:
+At Bitcoin's launch, the reward for a blocks was:
 
 <ExamCheckbox name="130" isCorrect="false">100 bitcoins</ExamCheckbox>
 <ExamCheckbox name="131" isCorrect="true">50 bitcoins</ExamCheckbox>
@@ -144,7 +144,7 @@ The Bitcoin's "*Halving*" happens every:
 
 ### Question 16
 
-In 2021, the block's reward was:
+In 2021, the block reward was:
 
 <ExamCheckbox name="150" isCorrect="false">12.5 bitcoins</ExamCheckbox>
 <ExamCheckbox name="151" isCorrect="false">10 bitcoins</ExamCheckbox>
