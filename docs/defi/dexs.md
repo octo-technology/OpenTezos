@@ -49,7 +49,7 @@ If exchanges were to thrive on the blockchain, there was a need for a new model.
 
 The most important property of a liquidity pool is to respect the notion of **constant product**, ruled by the following equation:
 
-$R_x * Ry = k$
+$R_x * R_y = k$
 
 where:
 - $R_x$ is the reserve quantity of the $x$ token in the pool (e.g., _USDtz_)
