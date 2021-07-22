@@ -31,7 +31,7 @@ Of course, smart contracts like the Tezos ones go beyond this metaphor. Thanks t
 
 For example, it is common to create financial instruments like various *tokens* (usually worth a fraction of the blockchain's *coin*) with different usability and characteristics inside a multiple smart contracts system. Other more or less complex projects can propose *lending*, *stablecoins*, or *crowdfundings*.
 
-In most cases, smart contracts remove *intermediate* and drastically reduce costs compared to classic paper contracts and their validations.
+In most cases, smart contracts remove *intermediates* and drastically reduce costs compared to classic paper contracts and their validations.
 
 Notice that like any other, a Tezos smart contract can only run and interact with the blockchain it's stored on (Bitcoin's smart contracts are exceptions here). It can't interact with the outside world. That's where *decentralized applications* or "_Dapps_" come in because they provide interfaces for the outside world.
 
