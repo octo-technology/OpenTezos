@@ -6,7 +6,7 @@ slug: /blockchain-basics
 authors: Aymeric Bethencourt and Thomas Zoughebi
 ---
 
-Before we start digging into Tezos itself, let's review the basics of blockchain and cryptocurrencies. This module will present a brief history of the blockchain, its main components, consensus' mechanisms and introduce the notion of _smart contract_ (smart contracts will be more detailed in [the dedicated chapter of the "*Tezos Basics*" module](/tezos-basics/smart-contracts)). All these notions will later be helpful in the following modules to understand how Tezos works and how it builds upon Bitcoin and Ethereum to become part of a new generation of blockchains.
+Before we start digging into Tezos itself, let's review the basics of blockchain and cryptocurrencies. This module will present a brief history of the blockchain, its main components, consensus' mechanisms and introduce the notion of _smart contract_ (smart contracts will be more detailed in [the dedicated chapter of the "*Tezos Basics*" module](/tezos-basics/smart-contracts)). All these notions will later be helpful in the following modules to understand how Tezos works and how it goes beyond Bitcoin and Ethereum to become part of a new generation of blockchains.
 
 ## A brief history of blockchain
 ### The tipping points
@@ -25,7 +25,7 @@ All these factors, the lack of faith in governments to protect their fiat curren
 ### And then came Bitcoin
 On **October 31st, 2008**, under the _pseudonym_ of "Satoshi Nakamoto", the [Bitcoin whitepaper](https://bitcoin.org/bitcoin.pdf) was discreetly released. From its very title and abstract, one could understand that the aim of _his_ invention was to create an "electronic cash system", an alternative to fiat currency, able to function free of control or manipulation from a centralized entity.
 
-On **January 3rd, 2009**, this "blockchain" went live, and the first _block_ was created, called the "Genesis Block" (you will learn about what is a _block_ in the next chapter). The Genesis block contained the first few exchanges of this newly created electronic currency called Bitcoin and some data. It is indeed possible to store some raw data inside a block, and Satoshi Nakamoto included in the first block a message saying: "_Chancellor on the brink of second bailout for banks_", the title of _The Times_ newspaper of the day describing the second bank bailout following the subprime crisis.
+On **January 3rd, 2009**, this "blockchain" went live, and the first _block_ was created, called the "Genesis Block" (you will learn about what a _block_ is, in the next chapter). The Genesis block contained the first few exchanges of this newly created electronic currency called Bitcoin and some data. It is indeed possible to store some raw data inside a block, and Satoshi Nakamoto included in the first block a message saying: "_Chancellor on the brink of second bailout for banks_", the title of _The Times_ newspaper of the day describing the second bank bailout following the subprime crisis.
 
 This message clearly showed the intention of Satoshi Nakamoto and his Bitcoin to trigger the so-called **de-centralization of money**.
 
@@ -39,13 +39,13 @@ Contrary to popular belief, Bitcoin wasn't the first attempt at creating a crypt
 
 The key concepts underlying Bitcoin were not new either and were based on technologies used for years before that. Bitcoin relies on a lot of "old" Information Technologies (IT). Some from as far back as 1973 and up until the Genesis Block in 2009.
 
-Bitcoin's system was actually born from 36 years of research, trials, experiments, and failures. It wouldn't be useful to know the precise history but to understand that Bitcoin didn't come from thin air here are some of them:
+Bitcoin's system was actually born from 36 years of research, trials, experiments, and failures. It wouldn't be useful to know the precise history but to understand that Bitcoin didn't come from thin air here are some key elements:
 
 First of all, Bitcoin relies on the Internet, which itself has been relying on _TCP/IP_ since 1974.
 
 Bitcoin also relies heavily on _Modern Cryptography_, e.g., the Diffie-Hellman protocol (1976, in collaboration with Ralph Merkle), the Merkle Tree (1979), and the RSA (Rivest–Shamir–Adleman) public-key cryptosystem (1977).
 
-The blocks of data are cryptographically chained with [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_block_chaining_(CBC)) a principle from 1976. The aim and the creation of this chain of blocks will be explained in the following chapters (["*Main Properties of the First Blockchain*"](/blockchain-basics/main-properties) and ["*Proof-of-Work*"](/blockchain-basics/proof-of-work)).
+The blocks of data are cryptographically chained with [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_block_chaining_(CBC)) a principle, from 1976. The aim and the creation of this chain of blocks will be explained in the following chapters (["*Main Properties of the First Blockchain*"](/blockchain-basics/main-properties) and ["*Proof-of-Work*"](/blockchain-basics/proof-of-work)).
 
 From there, countless reflections and research on ethics in technologies, and of course cryptography have taken place: Email traceability and privacy in 1981, Elliptic Curve Cryptography in 1985 (used for _Public Key Cryptography_ in most blockchains), PGP in 1991 (developed for privacy providing authentication and encryption), etc. Even "smart contracts" were pre-existing, having been first conceptualized by Nick Szabo in 1997.
 
@@ -56,9 +56,9 @@ Finally, before the bankruptcy of Lehman Brothers and the global financial crisi
 ### The 2nd generation of blockchains
 Following the success of Bitcoin, many forked its code and started creating new blockchains with differentiating features or capabilities.
 
-Note here that Bitcoin's transactions are programmable. One can program how funds are spent using scripts. However, only a small set of basic uses is possible in practice as Bitcoin's underlying scripting language is very limited.
+Note here that Bitcoin's transactions are, to a certain degree programmable. One can program how funds are spent using scripts. However, only a small set of basic uses is possible in practice as Bitcoin's underlying scripting language is very limited.
 
-In 2011, Vitalik Buterin encountered Bitcoin, and two years later (October 2013) began work on a proposal for [_Mastercoin_](https://web.archive.org/web/20150627031414/http://vbuterin.com/ultimatescripting.html), a protocol with more programmable capabilities than Bitcoin.
+In 2011, Vitalik Buterin discovered Bitcoin, and two years later (October 2013) began work on a proposal for an extention of [_Mastercoin_] (https://web.archive.org/web/20150627031414/http://vbuterin.com/ultimatescripting.html), a protocol with more programmable capabilities than Bitcoin.
 
 However, the team at _Mastercoin_ didn't want to go in this direction, and Vitalik Buterin began to re-work his proposal into another project named _Ethereum_ (December 2013). The interest into [_**D**ecentralized **A**utonomous **O**rganizations_](https://en.wikipedia.org/wiki/Decentralized_autonomous_organization) (or DAO) drove the need for even more complex scripts. A "DAO" is a form of investor-directed venture capital fund that no blockchain could so far implement. It was also in December 2013 that Gavin Wood (protocol-side) and Jeffrey Wilcke (client-side) joined forces with Vitalik Buterin to work on Ethereum, and a [white paper was first published in January 2014](https://ethereum.org/en/whitepaper/).
 
@@ -68,7 +68,7 @@ Crowdfunding in bitcoins during the same summer took place, and Ethereum was lau
 
 Ethereum was a revolution, a new generation of blockchain, thanks to its **EVM** ([Ethereum Virtual Machine](https://ethereum.org/en/developers/docs/evm/)), a [Turing Complete](https://en.wikipedia.org/wiki/Turing_completeness) system able to solve any computation problem using its new low-level scripting language called "[_EVM Code_](https://ethereum.org/en/whitepaper/#code-execution)". Ethreum also provided a high-level language called "[_Solidity_](https://soliditylang.org/)".
 
-The first DAO on Ethereum, simply called "[_The DAO_](https://en.wikipedia.org/wiki/The_DAO_(organization))" was created, and more than 150 million US Dollars in Ethers were raised in June 2016. However, an error in a *smart contract* (a program that was written in the Solidity language) [permitted a hacker to steal 50 million](https://www.nytimes.com/2016/06/18/business/dealbook/hacker-may-have-removed-more-than-50-million-from-experimental-cybercurrency-project.html). To recover the stolen funds, it was decided to modify the history of transactions. This decision was not approved by the entire community and it created a split of the history ("*hard fork*") into two different blockchains: _Ethereum_ and _Ethereum Classic_. The various technologies protect the history of a blockchain. It should be immutable (find more about this in the next chapter [here](/blockchain-basics/main-properties#chained-data-structure)). Hence, the disapproval of a part of the community. *Ethereum Classic* users chose to respect this immutability and so **kept the theft** in their blockchain history.
+The first DAO on Ethereum, simply called "[_The DAO_](https://en.wikipedia.org/wiki/The_DAO_(organization))" was created, and more than 150 million US Dollars in Ethers were raised in June 2016. However, an error in a *smart contract* (a program that was written in the Solidity language) [permitted a hacker to steal 50 million](https://www.nytimes.com/2016/06/18/business/dealbook/hacker-may-have-removed-more-than-50-million-from-experimental-cybercurrency-project.html). To recover the stolen funds, it was decided to modify the history of transactions. This decision was not approved by the entire community and it created a split of the history (this is called a "*hard fork*", we will explain this concept later on) into two different blockchains: _Ethereum_ and _Ethereum Classic_. The various technologies protect the history of a blockchain. It should be immutable (find more about this in the next chapter [here](/blockchain-basics/main-properties#chained-data-structure)). Hence, the disapproval of a part of the community. *Ethereum Classic* users chose to respect this immutability and so **kept the theft** in their blockchain history.
 
 Today, Bitcoin and Ethereum remain the two main protocols with the most adoption, but many exciting alternatives have been created, notably Tezos in 2018.
 
