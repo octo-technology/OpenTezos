@@ -7,7 +7,7 @@ authors: Thomas Zoughebi and Aymeric Bethencourt
 ---
 
 In this chapter, we will briefly introduce some other *public* consensus mechanisms.  
-Remember we defined what's a consensus, in IT, in the *Main properties of the first "blockchain"* chapter [here](blockchain-basics/main-properties#what-is-a-consensus):
+Remember we defined what a consensus is, in IT, in the *Main properties of the first "blockchain"* chapter [here](blockchain-basics/main-properties#what-is-a-consensus):
 <NotificationBar>
     <p>
         <blockquote>
@@ -17,9 +17,9 @@ Remember we defined what's a consensus, in IT, in the *Main properties of the fi
 </NotificationBar>
 
 ## Proof-of-Stake (PoS)
-_PoS_ requires a system where _validators_ are not the creators of coins, so that transaction fees provide their only rewards (no coinbase).
+The first rule of this mechanism is for blocks to be *validated* by **validators** that **have invested coins** in the system. The more a validator has coins in an escrow, the more chances he has to validate a block and earn rewards. This requires that coins are mined early enough so blocks can be validated from the launch.
 
-The first rule of this mechanism is for blocks to be *validated* by **validators** that **have invested coins** in the system. The more a validator has coins in an escrow, the more he has chances to validate a block and earn rewards. This requires that coins are made early enough so blocks can be validated from the launch.
+_PoS_ is a system where _validators_ are not the creators of coins, so that transaction fees provide their only rewards (no coinbase).
 
 Blocks deemed valid and pushed by validators are always verified afterward by the network. If a validator has tried to cheat, he loses all of his funds held in collateral.
 
@@ -37,7 +37,7 @@ Examples: *Steem, Graphene, BitShares...*
 ## Liquid Proof-of-Stake (LPoS)
 Tezos has developed LPoS, an evolution of DPoS. Though delegation is optional. As opposed to DPoS, any user can become a validator if he has enough coins. If he doesn't, then he has the choice to delegate. The idea is to dilute even more the mining activity and to increase inclusion.
 
-In LPoS, a validator is called a **baker**. Any user owning enough coins can become a baker. Suppose a user wants to benefit from baking but doesn't own enough coins or have enough technical knowledge. In that case, he can _delegate_ his coins to _bakers_, thereby benefiting from a portion of the transaction fees.
+In LPoS, a validator is called a **baker**. Any user owning enough coins can become a baker. Suppose a user wants to benefit from baking but doesn't own enough coins or doesn't have enough technical knowledge. In that case, he can _delegate_ his coins to _bakers_, thereby benefiting from a portion of the transaction fees.
 
 The probability of winning a bake is proportional to the amount invested. The baking time is organized in cycles, and coins are locked during this time.
 
@@ -70,7 +70,7 @@ In this consensus, each node of the network awaits messages from the others. The
 Examples: *Evernym, Chain...*
 
 ## Federated​ ​Byzantine​ ​Agreement​ ​(FBA)
-In this distributed network *sets of enough nodes* to validate data are established. It means the sufficient number of nodes in a group is determined to best reach an agreement **for that group**.
+In this distributed network, *sets of enough nodes* to validate data are established. It means the sufficient number of nodes in a group is determined to best reach an agreement **for that group**.
 
 A single *set* of nodes is called a "*quorum*".
 
@@ -86,7 +86,7 @@ To summarise, validator groups with sufficient base size can aggregate single no
 Examples: *Stellar, Ripple*.
 
 ## Avalanche
-Each **validator** randomly selects $N$ nodes among all the other validators. The more a validator has coins, the more chances it has to be selected (see also PoS above).
+Each **validator** randomly selects $N$ nodes among all the other validators. The more coins a validator has, the more chances it has to be selected (see also PoS above).
 
 Each queried validator responds with its decision.
 
@@ -113,19 +113,19 @@ Examples: *Decred*.
 
 ## Pros & Cons
 
-| #    | Consensus | Advantages                                                       | Disadvantages                                                                                                                                         |
-| :--- | :-------- | :--------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0    | PoW       | Extreme robustness (MAD + SHA256 + CBC)                          | High Energy consumption                                                                                                                               |
-| 1    | PoB       | Robustness similar to PoW                                        | Still wastes ressources needlessly; Mining power to money burners                                                                                     |
-| 2    | PoC       | Less energy consumption; mimic mining                            | Nothing at Stake (no MAD); tends to detroy hard-drives                                                                                                |
-| 3    | LBC       | Less energy consumption                                          | Leader centralized; Sybil Attack[[1]](/blockchain-basics/other-consensuses#references) weakness                                                       |
-| 4    | PBFT      | Very easy to implement                                           | Absence of privacy; Sybil Attack[[1]](/blockchain-basics/other-consensuses#references) weakness                                                       |
-| 5    | FBA       | Modest computing & financial requirements                        | Quorum slices centralization; Sybil Attack[[1]](/blockchain-basics/other-consensuses#references) weakness                                             |
-| 6    | Avalanche | Fast; highly distributed (lots of nodes)                         | Groups of nodes centralization; Sybil Attack[[1]](/blockchain-basics/other-consensuses#references) weakness                                           |
-| 7    | PoS       | Less energy consumption                                          | Coins owners centralization; other problems (see ["*Liquid Proof-of-Stake*"](/tezos-basics/liquid-proof-of-stake) chapter in "*Tezos Basics*" module) |
-| 8    | PoA       | More distribution on transaction's selection and fees rewards    | Combines PoW & PoS disadvantages                                                                                                                      |
-| 9    | DPoS      | Less energy consumption; Mitigating PoS centralization           | Coins owners & witnesses centralization                                                                                                               |
-| 10   | LPoS      | Less energy consumption; Mitigating even more PoS centralization | Still some coins owners centralization                                                                                                                |
+| #    | Consensus Algorithm                 | Advantages                                                       | Disadvantages                                                                                                                                         |
+| :--- | :---------------------------------- | :--------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0    | Proof-of-Work                       | Extreme robustness (MAD + SHA256 + CBC)                          | High Energy consumption                                                                                                                               |
+| 1    | Proof-of-Burn                       | Robustness similar to PoW                                        | Still wastes ressources needlessly; Mining power to money burners                                                                                     |
+| 2    | Proof-of-Capacity                   | Less energy consumption; mimic mining                            | Nothing at Stake (no MAD); tends to detroy hard-drives                                                                                                |
+| 3    | Leader-Based Consensus              | Less energy consumption                                          | Leader centralized; Sybil Attack[[1]](/blockchain-basics/other-consensuses#references) weakness                                                       |
+| 4    | Practical Byzantine Fault Tolerance | Very easy to implement                                           | Absence of privacy; Sybil Attack[[1]](/blockchain-basics/other-consensuses#references) weakness                                                       |
+| 5    | Federated Byzantine Agreement       | Modest computing & financial requirements                        | Quorum slices centralization; Sybil Attack[[1]](/blockchain-basics/other-consensuses#references) weakness                                             |
+| 6    | Avalanche                           | Fast; highly distributed (lots of nodes)                         | Groups of nodes centralization; Sybil Attack[[1]](/blockchain-basics/other-consensuses#references) weakness                                           |
+| 7    | Proof-of-Stake                      | Less energy consumption                                          | Coins owners centralization; other problems (see ["*Liquid Proof-of-Stake*"](/tezos-basics/liquid-proof-of-stake) chapter in "*Tezos Basics*" module) |
+| 8    | Proof-of-Activity                   | More distribution on transaction's selection and fees rewards    | Combines PoW & PoS disadvantages                                                                                                                      |
+| 9    | Delegated Proof-of-Stake            | Less energy consumption; Mitigating PoS centralization           | Coins owners & witnesses centralization                                                                                                               |
+| 10   | Liquid Proof-of-Stake               | Less energy consumption; Mitigating even more PoS centralization | Still some coins owners centralization                                                                                                                |
 
 ## What have we learned so far?
 In this chapter, we briefly described ten consensus algorithms that can be used for public blockchains. There are many others.
