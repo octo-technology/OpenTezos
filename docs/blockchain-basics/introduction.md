@@ -62,7 +62,7 @@ In 2011, Vitalik Buterin discovered Bitcoin, and two years later (October 2013) 
 
 However, the team at _Mastercoin_ didn't want to go in this direction, and Vitalik Buterin began to re-work his proposal into another project named _Ethereum_ (December 2013). The interest into [_**D**ecentralized **A**utonomous **O**rganizations_](https://en.wikipedia.org/wiki/Decentralized_autonomous_organization) (or DAO) drove the need for even more complex scripts. A "DAO" is a form of investor-directed venture capital fund that no blockchain could so far implement. It was also in December 2013 that Gavin Wood (protocol-side) and Jeffrey Wilcke (client-side) joined forces with Vitalik Buterin to work on Ethereum, and a [white paper was first published in January 2014](https://ethereum.org/en/whitepaper/).
 
-In April 2014, Gavin Wood published a [Yellow paper](https://ethereum.github.io/yellowpaper/paper.pdf) (a yellow paper is a document containing research that has not yet been formally accepted or published in an academic journal. It usually contains unannotated statements with sufficient details to implement an idea).
+In April 2014, Gavin Wood published a [Yellow paper](https://ethereum.github.io/yellowpaper/paper.pdf). A yellow paper is a document containing research that has not yet been formally accepted or published in an academic journal. It usually contains unannotated statements with sufficient details to implement an idea. A white paper is an authoritative report or guide that informs readers concisely about a complex issue and presents the issuing body's philosophy on the matter.
 
 Crowdfunding in bitcoins during the same summer took place, and Ethereum was launched on July 30th, 2015, with its own cryptocurrency called "_Ether_".
 

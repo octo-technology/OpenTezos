@@ -32,7 +32,7 @@ From now on, "node" refers to a *full node*. All these full nodes communicate wi
 ### Chained Data-structure
 The ledger's structure has to be very special to meet the following constraints:
 
-- The ledger is distributed over the planet, and everyone should be able to agree on its state at the same time (minus latency): This is an asynchronous network. Transactions (transfers of bitcoins) are grouped inside packages named "**blocks**" to ease management. The size of the blocks impacts the transmission's speed. If blocks are relatively small, more blocks circulate on the network. If blocks are relatively big, fewer of them circulate in the same amount of time. Almost every node (computers) of the network has to check each block for roughly the same time. So, in an asynchronous network, to assure maximum participation in the reconciliation ([the finding of the consensus on the replicated, shared, and synchronized digital information](/blockchain-basics#terminology)), the size of a block is a key factor. Finding a good size allows for smooth and regular transmissions.
+- The ledger is distributed over the planet, and everyone should be able to agree on its state at the same time (minus latency): This is an asynchronous network. Transactions (transfers of bitcoins) are grouped inside packages named "**blocks**" to ease management. The size of the blocks impacts the transmission speed. If blocks are relatively small, more blocks circulate on the network. If blocks are relatively big, fewer of them circulate in the same amount of time. Almost every node (computers) of the network has to check each block for roughly the same time. So, in an asynchronous network, to assure maximum participation in the reconciliation ([the finding of the consensus on the replicated, shared, and synchronized digital information](/blockchain-basics#terminology)), the size of a block is a key factor. Finding a good size allows for smooth and regular transmissions.
   
 - The ledger's history of transactions must not be modifiable (immutability)
   
@@ -93,7 +93,7 @@ More details on that in the [next chapter on Proof-of-Work](/blockchain-basics/p
 ## Account Unit and Economy Basics
 Miners use their computational power and electricity to mine. That's why they are rewarded for it. The rewards are in the account unit. Bitcoin uses bitcoins, while Ethereum uses ethers.
 
-To get these rewards, they must _work_, and then _proove they worked_. In Bitcoin, they work by using up electricity and computing time. So to make this activity profitable, miners have to find efficient calculators and low-cost electricity.
+To get these rewards, they must _work_, and then _proove they have worked_. In Bitcoin, they work by using up electricity and computing time. So to make this activity profitable, miners have to find efficient calculators and low-cost electricity.
 
 Over time, miners have grouped to use more and more powerful machines together as more people began this activity. This increases the number of attempts (the number of lottery tickets) of the global network to find a valid block. Because the function used for that is a **hash** function (_SHA256_), this network efficiency is called "**hashing power**".
 

@@ -74,7 +74,7 @@ To increase the possibilities for smart contracts, more *OP_codes* had to be inc
 
 A loop is a problem for Turing-complete machines, especially the ones that use a currency to function. If we can't control the halt of the machine, it can start an endless loop.
 
-So the idea in Ethereum was to introduce another variable to stop the machine: **_Gas_**. A machine running on gas can't move endlessly without enough gas. That's exactly what's happening with Ethereum smart contracts. Gas, which is a sub-unit of the *Ether* currency, is consumed with each operation.
+So the idea in Ethereum was to introduce another variable to stop the machine: **_Gas_**. A machine running on gas can't move endlessly without enough gas. That's exactly what's happening with Ethereum smart contracts. Gas is the fuel of the Ethereum system and a sub-unit of the *Ether* currency. It is consumed with each operation.
 
 Gas consumption isn't the same for all operations because certain operations are more complex than others. The miners who also execute these operations receive the Gas as fees for using their computational power.
 

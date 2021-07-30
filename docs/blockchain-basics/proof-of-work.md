@@ -110,14 +110,14 @@ When we talk about "blockchains", we do not necessarily talk about "cryptocurren
 In the case of a crypto-currency, we use the "DATA" field to store financial transactions, among other things. Figures 10 and 11 respectively show a block and a blockchain with transactions in "_TX_" instead of "_DATA_" (e.g., _$13 from John to Chris_). By _"\$"_, we denote a monetary value that is not necessarily dollars, but which could be any "coin" or "token", such as Bitcoin (BTC), Ethereum (ETH), etc.
 
 ![](../../static/img/blockchain-basics/tx_block.svg)
-<small className="figure">FIGURE 10: A block containing financial transactions</small>
+<small className="figure">FIGURE 10: A block containing financial transactions (this is a simplified representation)</small>
 
 ![](../../static/img/blockchain-basics/tx_chain.svg)
 <small className="figure">FIGURE 11: A blockchain containing financial transactions</small>
 
 However, in our example, how do we know that John has enough money to send Chris $13?
 
-The Bitcoin blockchain does not contain a ledger showing the balance of each account at all times. Instead, when John attempts to complete a transaction, the process will go back in time on the blockchain and calculate the difference between his *inbound* transactions against all of his *outbound* transactions deduce how much money John can spend.
+The Bitcoin blockchain does not contain a ledger showing the balance of each account at all times. Instead, when John attempts to complete a transaction, the process will check history on the blockchain and calculate the difference between his *inbound* transactions against all of his *outbound* transactions and deduce how much money John can spend.
 
 ## Coinbase & Mining
 You now understand how the blockchain can calculate each person's balance and whether or not to authorize their transactions. However, where does all this money come from in the first place? If we were to completely trace the blockchain all the way back to its first block, there would be a point where the money had to be created. If the users' balances are only calculated from transactions between users, there would be no creation of new tokens. Therefore there would be 0 bitcoin.
