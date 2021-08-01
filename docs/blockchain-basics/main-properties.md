@@ -32,17 +32,17 @@ From now on, "node" refers to a *full node*. All these full nodes communicate wi
 ### Chained Data-structure
 The ledger's structure has to be very special to meet the following constraints:
 
-- The ledger is distributed over the planet, and everyone should be able to agree on its state at the same time (minus latency): This is an asynchronous network. Transactions (transfers of bitcoins) are grouped inside packages named "**blocks**" to ease management. The size of the blocks impacts the transmission's speed. If blocks are relatively small, more blocks circulate on the network. If blocks are relatively big, fewer of them circulate in the same delay. Almost every node (computers) of the network has to check each block for roughly the same time. So, in an asynchronous network, to assure maximum participation in the reconciliation ([the finding of the consensus on the replicated, shared, and synchronized digital information](/blockchain-basics#terminology)), the size of a block is a key factor. Finding a good size allows for smooth and regular transmissions.
+- The ledger is distributed over the planet, and everyone should be able to agree on its state at the same time (minus latency): This is an asynchronous network. Transactions (transfers of bitcoins) are grouped inside packages named "**blocks**" to ease management. The size of the blocks impacts the transmission speed. If blocks are relatively small, more blocks circulate on the network. If blocks are relatively big, fewer of them circulate in the same amount of time. Almost every node (computers) of the network has to check each block for roughly the same time. So, in an asynchronous network, to assure maximum participation in the reconciliation ([the finding of the consensus on the replicated, shared, and synchronized digital information](/blockchain-basics#terminology)), the size of a block is a key factor. Finding a good size allows for smooth and regular transmissions.
   
-- The ledger's history of transactions must not be modifiable (immutability) to prevent double-spending
+- The ledger's history of transactions must not be modifiable (immutability)
   
-- Verifying the history or picking specific information inside the ledger has to be fast (e.g., check a balance)
+- Verifying the history or picking and verifying the presence of specific information inside the ledger has to be fast (e.g., check a balance)
   
 - The part of the community validating the blocks (i.e., the "*miners*", as we will see) must be rewarded in a fair way
 
 The data structure which permits all of the above is a chain of blocks, a.k.a. "blockchain".
 
-Valid transactions are grouped and enclosed inside a block. Every 10 minutes with Bitcoin, a new block should be mined. The number of transactions inside a block is only limited by the available space, which is currently (2021) around 2 MB (comparatively, the "_Bitcoin Cash_" blockchain has a block size of around 32 MB).
+Valid transactions are grouped and enclosed inside a block. On average, every 10 minutes with Bitcoin, a new block should be mined. The number of transactions inside a block is only limited by the available space, which is currently (2021) around 2 MB per block (comparatively, the "_Bitcoin Cash_" blockchain has a block size of around 32 MB).
 
 Each new block is linked to the previous one: they are chained. The more blocks there are, the more difficult it is to modify anything in the ledger. They are cryptographically chained. This means that if you want to cheat (e.g., make a double-spend or spend money you don't have), you would need to modify everything from the first block ever created (called the "_Genesis Block_").
 
@@ -54,9 +54,9 @@ This process is achieved through the [Cipher Block Chaining (CBC)](https://en.wi
 More on that in the [next chapter on Proof-of-Work](/blockchain-basics/proof-of-work).
 
 ### Introduction to Mining
-The blocks validators are called the **miners**. They put valid transactions inside a block, and then try to validate that block. When the block is found valid, they get two types of rewards:
-- A fee in bitcoins from each transaction that each **sender** chose
-- And a **Pre-determined** quantity of bitcoins for the valid block found (called the _coinbase_)
+The blocks validators are called the **miners**. They put valid transactions inside a block, and then try to validate that block. When the block is found valid, the miner who created it receives two types of rewards:
+- A fee in bitcoin for each included transaction, **chosen** and sent by the **author** of that transaction
+- And a **pre-determined** quantity of newly created bitcoins for the valid block found (called the _coinbase_)
 
 The fees are **the sum of the transactions values** ($S_v$) minus **the sum of the amounts sent** ($S_a$).
 
@@ -72,13 +72,13 @@ $$
 \text{Fees} = S_v - S_a
 $$
 
-Senders choose the fee they want to pay. The more they give, the faster the transaction is included in a block. As block size is limited, miners promote transactions with the highest fees. A transaction could have zero fees, but it would take months or years until a miner decides to include it in a block (if ever). 
+Senders choose the fee they want to pay. The more they give, the faster the transaction is included in a block. As block size is limited, miners prioritize transactions with the highest fees. A transaction could have zero fees, but it would take months or years until a miner decides to include it in a block (if ever). 
 
 The block reward is sent through a particular transaction called a "_Coinbase Transaction_" directly to the miner. It's always the first transaction of a validated ("*mined*") block.
 
-To get these two rewards, a miner basically plays a lottery, a game of chance. This game is to find a binary number lesser than a target (called "_Target_") with the specific hash function _SHA256_. The fact is a miner can't guess in advance the result of this function. He **must** try values (by [*Brute Force*](https://en.wikipedia.org/wiki/Brute-force_attack)). He must *hash* the previous block header (twice) with a random number called the *nonce* (details in the ["*Proof-of-Work*"](/blockchain-basics/proof-of-work) chapter).
+To get these two rewards, a miner basically plays a lottery, a game of chance. This game is to find a binary number lesser than a specified value (called "_Target_") with the specific hash function _SHA256_. The fact is a miner can't guess in advance the result of this function. He **must** try values (by [*Brute Force*](https://en.wikipedia.org/wiki/Brute-force_attack)). He must *hash* the previous block header (twice) with a random number called the *nonce* (details in the ["*Proof-of-Work*"](/blockchain-basics/proof-of-work) chapter).
 
-The more a miner tries values (the more he has lottery tickets), and the more energy he uses to make his computers work.
+The more a miner tries values (the more he has lottery tickets), the more energy he uses.
 
 When a miner finds a valid number, he finally produces a valid block. His node spreads this new block to the network. The final *nonce* is then included in the block so that anyone can verify it.
 
@@ -93,7 +93,7 @@ More details on that in the [next chapter on Proof-of-Work](/blockchain-basics/p
 ## Account Unit and Economy Basics
 Miners use their computational power and electricity to mine. That's why they are rewarded for it. The rewards are in the account unit. Bitcoin uses bitcoins, while Ethereum uses ethers.
 
-To get these rewards, they must _work_, and then _proove they worked_. In Bitcoin, they work by using up electricity and computing time. So to make this activity profitable, miners have to find efficient calculators and low-cost electricity.
+To get these rewards, they must _work_, and then _proove they have worked_. In Bitcoin, they work by using up electricity and computing time. So to make this activity profitable, miners have to find efficient calculators and low-cost electricity.
 
 Over time, miners have grouped to use more and more powerful machines together as more people began this activity. This increases the number of attempts (the number of lottery tickets) of the global network to find a valid block. Because the function used for that is a **hash** function (_SHA256_), this network efficiency is called "**hashing power**".
 
@@ -101,11 +101,11 @@ While the network gains more hashing power, constraints stay the same. Each bloc
 
 The _Difficulty_ modifies the binary _Target_. To increase the difficulty, the _Target_ becomes smaller and smaller. This means that this binary number has more and more leading zeros.
 
-The _Difficulty_ is calculated every 2016 blocks (~2 weeks).
+A new _Difficulty_ is calculated every 2016 blocks (~2 weeks).
 
-Economically, it is more and more challenging to get rewards. A sign that more and more people are trying to find bitcoins, so the *demand* increases.
+Economically, it becomes more and more challenging to get rewards. A sign that more and more people are trying to find bitcoins, so the *demand* increases.
 
-Bitcoin's value relies on the simple free market of *supply* and *demand*. But its model is intrinsically **deflationary**. The more bitcoins are hard to get, the higher their price.
+Bitcoin's value relies on the simple free market of *supply* and *demand*. But its model is intrinsically **deflationary**. The more bitcoins are hard to mine, the higher their price.
 
 The total *theoric* limited *supply* of bitcoins is pre-determined and hardcoded in the protocol at 21 million [[4]](/blockchain-basics/main-properties#references).
 
@@ -116,7 +116,7 @@ The total *theoric* limited *supply* of bitcoins is pre-determined and hardcoded
 It is the point where independent actors reach a common agreement on a decision.  
 
 In IT, a consensus algorithm is a computer program allowing users to reach common **agreements** on the states of data in a distributed network.  
-*Examples*: Distributed Calculation, Distributed Database, etc.
+For example, consensus algorithms are used in Distributed Calculation, Distributed Database, etc.
 
 ### Agreements and *Deflation*
 
@@ -138,7 +138,7 @@ To recap, the _Nakamoto Consensus_, which Bitcoin is based on, is driven by:
 - A probabilistic solution to the [Byzantine General Problem](https://en.wikipedia.org/wiki/Byzantine_fault) (a quick word on that below)
 - The _MAD_ property (defined below)
 
-In the Bitcoin mesh network, the **rewards** make it possible to support up to 50% of bad actors ($\frac{1}{2}$). The network uses "Byzantine Fault Tolerant" (BFT). Probabilistically, Bitcoin's solution is more efficient than the main mathematical solution: The actual main solution requires less than one-third of bad actors($\frac{1}{3}$).
+In the Bitcoin mesh network, the **rewards** make it possible to sustain up to 50% of bad actors ($\frac{1}{2}$). The network uses "Byzantine Fault Tolerant" (BFT). Probabilistically, Bitcoin's solution is more efficient than the main mathematical solution: The actual main solution requires less than one-third of bad actors($\frac{1}{3}$).
 
 The _**M**utual **A**ssured **D**estruction_ (**_MAD_**) property reinforces this BFT solution:  
 

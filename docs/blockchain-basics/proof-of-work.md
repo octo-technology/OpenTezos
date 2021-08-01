@@ -14,7 +14,7 @@ We will see that blockchain technology is a brilliant assembly of cryptographic 
 ## Hash
 Let's start with the basics: the **hash**. A hash is a hexadecimal number calculated from a set of data. In a way, it is similar to a unique fingerprint used to identify the initial data quickly. There are several hash functions. The most common is _SHA256_, used among others by Bitcoin. The _SHA256_ algorithm transforms any string of characters into a hexadecimal number of 64 characters (or 256 bits). For example, fig. 1 shows the hash of the small string "Cake" and fig. 2 shows the hash of a longer string. Note that the two hashes are completely different, but both are 64 characters long.
 
-In the same way, you could enter all the books from a library or nothing at all (empty string), and you would still get a hash of 64 hexadecimal characters. Note that you will always have the same hash for two identical strings. You will always have two different hashes for two different strings (except for a very few statistically improbable collisions). This allows you to quickly verify that the initial data has not been modified, or else the hash would have changed. 
+In the same way, you could enter all the books from a library or nothing at all (empty string), and you would still get a hash of 64 hexadecimal characters. Note that you will always have the same hash for two identical strings. You will always have two different hashes for two different strings except for very few statistically improbable collisions. This allows you to quickly verify that the initial data has not been modified, or else the hash would have changed. 
 
 ![](../../static/img/blockchain-basics/small_hash.svg)
 <small className="figure">FIGURE 1: The hash of a small string of characters</small>
@@ -42,7 +42,7 @@ Fig. 3 shows an example of a block. Notice that the hash of the block starts wit
 ![](../../static/img/blockchain-basics/invalid_block.svg)
 <small className="figure">FIGURE 3: The hash of DATA, NONCE and block number does not start with 000: The block is invalid.</small>
 
-For example, a widely used validation rule is that the hash must start with _000_. Therefore, the block will have to be "mined"; that is to say, it will be necessary to find a random _NONCE_ such that the hash of the block (including the _NONCE_) starts with _000_. Note that this problem is arbitrary. Other consensus mechanisms choose to use a hash starting with _123_ or that the hash in base 10 is lower than 1000 (in the case of Ethereum). You just need a rule that proves that a validation work has been done on the block and that allows for the finding of one validator in the world (i.e., the first one to find a valid _NONCE_). When the rule is validated, the block is then valid.
+For example, a widely used validation rule is that the hash must start with _000_. Therefore, the block will have to be "mined"; that is to say, it will be necessary to find a suitable _NONCE_ such that the hash of the block (including the _NONCE_) starts with _000_. Note that this problem is arbitrary. Other consensus mechanisms choose to use a hash starting with _123_ or that the hash in base 10 is lower than 1000 (in the case of Ethereum). You just need a rule that proves that a validation work has been done on the block and that allows for the finding of one validator in the world (i.e., the first one to find a valid _NONCE_). When the rule is validated, the block is then valid.
 
 In fig. 4, we have repeatedly incremented _NONCE_ and calculated the hash of the block until we got a hash starting with "000". The duration of this process can vary significantly because each NONCE is *equally probable*. In this case, we have incremented the _NONCE_ up to 29258. The block is now valid.
 
@@ -57,7 +57,7 @@ In fig. 4, we have repeatedly incremented _NONCE_ and calculated the hash of the
   </p>
 </NotificationBar>
 
-Therefore, mining consists of calculating the hash of a block repeatedly until the validation rule is validated. This is why it is possible to create _ASICs_ (Application Specific Integrated Circuit) optimized for mining. For Bitcoin, ASICs integrate chips specifically designed to do only SHA256 and to find _NONCE_ very quickly [[5]](/blockchain-basics/proof-of-work#references). 
+Therefore, mining consists in calculating the hash of a block repeatedly until the validation rule is validated. This is why it is possible to create _ASICs_ (Application Specific Integrated Circuit) optimized for mining. For Bitcoin, ASICs integrate chips specifically designed to do only SHA256 and to find _NONCE_ very quickly [[5]](/blockchain-basics/proof-of-work#references). 
 
 Finally, note that if you try to modify anything in a validated block, it loses its validity because you change the hash of the block, and you would have to mine the block again to find a new hash starting with "000".
 
@@ -102,22 +102,22 @@ Even if node "_C_" *validated all of its blocks again* as shown in fig. 9, the f
 
 The only known way to corrupt Proof-of-Work is through the infamous "51% attack" [[8]](/blockchain-basics/proof-of-work#references), which consists, for an attacker, to obtain more than 50% of the world's mining power, allowing him to rewrite the history (the technical details are explained [here](https://hackernoon.com/ethereum-classic-attacked-how-does-the-51-attack-occur-a5f3fa5d852e)).
 
-Fortunately, getting 51% of the world's mining power for a popular blockchain is very difficult. For instance, it would cost several billion for Bitcoin. However, for less popular blockchains (with fewer nodes), this is quite doable and happens quite regularly [[9]](/blockchain-basics/proof-of-work#references). Some blockchains are trying to solve this problem by implementing different consensus algorithms, such as Tezos, seen in the following chapters.
+Fortunately, getting 51% of the world's mining power for a popular blockchain is very difficult. For instance, it would cost several billion in the case of Bitcoin. However, for less popular blockchains (with fewer nodes), this is quite doable and happens quite regularly [[9]](/blockchain-basics/proof-of-work#references). Some blockchains are trying to solve this problem by implementing different consensus algorithms. This is the case for Tezos, as we will show in the following chapters.
 
 ## Transactions' immutable history
 When we talk about "blockchains", we do not necessarily talk about "cryptocurrencies". "Blockchain" has been used for many non-financial applications [[10]](/blockchain-basics/proof-of-work#references). Note that until now, the data stored in the blocks of our examples were simple strings. You can store any type of data: identities, electronic documents, insurance contracts, etc. Whenever it is necessary to have an **immutable record**, or a system of secure exchanges between parties without trust, or on an unsecured network, you should ask yourself whether or not a blockchain can and should be used.
 
-If we use the "_DATA_" field to store financial transactions, we do indeed have a crypto-currency. Figures 10 and 11 respectively show a block and a blockchain with transactions in "_TX_" instead of "_DATA_" (e.g., _$13 from John to Chris_). By _"\$"_, we denote a monetary value that is not necessarily dollars, but which could be any "coin" or "token", such as Bitcoin (BTC), Ethereum (ETH), etc.
+In the case of a crypto-currency, we use the "DATA" field to store financial transactions, among other things. Figures 10 and 11 respectively show a block and a blockchain with transactions in "_TX_" instead of "_DATA_" (e.g., _$13 from John to Chris_). By _"\$"_, we denote a monetary value that is not necessarily dollars, but which could be any "coin" or "token", such as Bitcoin (BTC), Ethereum (ETH), etc.
 
 ![](../../static/img/blockchain-basics/tx_block.svg)
-<small className="figure">FIGURE 10: A block containing financial transactions</small>
+<small className="figure">FIGURE 10: A block containing financial transactions (this is a simplified representation)</small>
 
 ![](../../static/img/blockchain-basics/tx_chain.svg)
 <small className="figure">FIGURE 11: A blockchain containing financial transactions</small>
 
 However, in our example, how do we know that John has enough money to send Chris $13?
 
-The Bitcoin blockchain does not contain a ledger showing the balance of each account at all times. Instead, when John attempts to complete a transaction, the process will go back in time on the blockchain and calculate the difference between his *inbound* transactions against all of his *outbound* transactions deduce how much money John can spend.
+The Bitcoin blockchain does not contain a ledger showing the balance of each account at all times. Instead, when John attempts to complete a transaction, the process will check history on the blockchain and calculate the difference between his *inbound* transactions against all of his *outbound* transactions and deduce how much money John can spend.
 
 ## Coinbase & Mining
 You now understand how the blockchain can calculate each person's balance and whether or not to authorize their transactions. However, where does all this money come from in the first place? If we were to completely trace the blockchain all the way back to its first block, there would be a point where the money had to be created. If the users' balances are only calculated from transactions between users, there would be no creation of new tokens. Therefore there would be 0 bitcoin.
