@@ -164,10 +164,12 @@ html[data-theme='dark'] .menu__list > li:nth-child(15) > a::before {
 
 .green {
   color: #00ff28;
+  margin-bottom: 10px;
 }
 
 .red {
   color: #ff0000;
+  margin-bottom: 10px;
 }
 
 html[data-theme='light'] .exam-submit {
@@ -176,7 +178,6 @@ html[data-theme='light'] .exam-submit {
   border: 1px solid var(--ifm-font-color-base);
   border-radius: 10px;
   padding: 10px 20px;
-  margin-left: 10px;
   cursor: pointer;
 }
 
@@ -186,7 +187,6 @@ html[data-theme='dark'] .exam-submit {
   border: 1px solid #fff;
   border-radius: 10px;
   padding: 10px 20px;
-  margin-left: 10px;
   cursor: pointer;
 }
 

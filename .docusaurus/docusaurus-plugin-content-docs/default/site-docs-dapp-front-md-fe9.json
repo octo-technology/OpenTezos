@@ -16,7 +16,8 @@
   "frontMatter": {
     "id": "basics",
     "disable_pagination": true,
-    "title": "Build a dapp - basics"
+    "title": "Build a dapp - basics",
+    "authors": "Benjamin Pilia"
   },
   "sidebar": "docs",
   "previous": {

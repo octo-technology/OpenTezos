@@ -33,7 +33,7 @@ What are the advantages of the Liquid Proof-of-Stake consensus?
 What is a roll?
 
 <ExamCheckbox name="20" isCorrect="false">A transaction cycle for approving or refusing an amendment period</ExamCheckbox>
-<ExamCheckbox name="21" isCorrect="true">8000 staked XTZ, which give the right to vote on amendments and to participate in the baking process</ExamCheckbox>
+<ExamCheckbox name="21" isCorrect="true">8000 staked Tez, which give the right to vote on amendments and to participate in the baking process</ExamCheckbox>
 <ExamCheckbox name="22" isCorrect="false">A security mechanism to prevent double-spending</ExamCheckbox>
 <ExamCheckbox name="23" isCorrect="false">The process of bakers' selection</ExamCheckbox>
 
@@ -48,7 +48,7 @@ On which elements are transaction fees calculated?
 
 ### Question 5
 
-Which kinds of operations are responsible for the creation of XTZ?
+Which kinds of operations are responsible for the creation of Tez?
 
 <ExamCheckbox name="40" isCorrect="false">Running a node</ExamCheckbox>
 <ExamCheckbox name="41" isCorrect="true">Baking</ExamCheckbox>
@@ -138,7 +138,7 @@ Which CLI command is responsible for a smart contract deployment?
 
 ### Question 14
 
-How many XTZ are created with the validation of a high-priority block since the *Delphi* amendment?
+How many Tez are created with the validation of a high-priority block since the *Delphi* amendment?
 
 <ExamCheckbox name="130" isCorrect="false">250 µꜩ</ExamCheckbox>
 <ExamCheckbox name="131" isCorrect="false">1.25000 ꜩ</ExamCheckbox>

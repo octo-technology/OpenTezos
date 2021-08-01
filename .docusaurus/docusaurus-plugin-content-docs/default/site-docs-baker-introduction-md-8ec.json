@@ -18,14 +18,5 @@
     "title": "Introduction",
     "slug": "/baker",
     "authors": "Maxime Sallerin"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Exam",
-    "permalink": "/baking/exam"
-  },
-  "next": {
-    "title": "CLI to become a baker",
-    "permalink": "/baker/cli-baker"
   }
 }

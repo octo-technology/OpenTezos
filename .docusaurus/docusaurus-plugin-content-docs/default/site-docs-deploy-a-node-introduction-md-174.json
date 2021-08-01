@@ -3,7 +3,7 @@
   "id": "deploy-a-node/introduction",
   "isDocsHomePage": false,
   "title": "Introduction",
-  "description": "This module will guide you through the complete installation and setup of your own Tezos node on Ubuntu and Mac OS.",
+  "description": "This module will guide you through the complete installation and setup of your own Tezos node on Ubuntu and on Mac OS.",
   "source": "@site/docs/deploy-a-node/introduction.md",
   "sourceDirName": "deploy-a-node",
   "slug": "/deploy-a-node",

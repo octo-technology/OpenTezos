@@ -68,7 +68,7 @@ The Michelson language provides basic operations on these types:
 - string: split, concatenation, comparison
 - crypto: standard hash function
 - collection: standard collection manipulation (create, insert, remove, access, modification) 
-- currency: standard operations on XTZ crypto-currency
+- currency: standard operations on Tez crypto-currency
 - smart contract: contract interactions, transfer, invocation of smart contracts, delegation
 
 A description of some of these operators is provided in the "Tutorial" section.

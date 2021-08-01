@@ -48,9 +48,14 @@ We have a few basic rules for contributors, which are designed for quality contr
 
 - Contributors should attempt to adhere to the prevailing **Markdown** style, language, and layout.
 
-- Correct grammar should be used at all times. Pull requests with typos will not be merged until fixed. All content contributions must be made in English.
+- Correct grammar should be used at all times. Pull requests with typos will not be merged until fixed. All content contributions must be made in English. We advise that you install [Grammarly](https://www.grammarly.com/) to spell-check your work before submitting it. (Note that it has a VSCode extension). All the authors of OpenTezos are actively using Grammarly as it is a great tool.
 
 - Care should be taken to remain as objective and informative as possible. There should be no editorializing, nor should there be any external bias.
+
+## Diagrams
+
+You might want to edit a diagram or create a new one. As you can see, OpenTezos has its own UI theme for diagrams and we ask all contributors to follow the same theme. To help you with this, you can find the source Figma file [here](https://www.figma.com/file/adw1YDUdxJYMLdIUoRE8m4/OpenTezos.com?node-id=654%3A0). Duplicate it to edit existing diagrams. The page *GRAPHIC STYLE* contains examples of new diagrams along with all the graphic elements such as boxes and arrows. Note that you should never use custom colors, all allowed colors are saved in the Figma colors profile. Just pick colors from there when you need one.
+
 
 ## To go further
 

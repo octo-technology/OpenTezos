@@ -17,9 +17,9 @@ Many other blockchains do not have any form of formal governance structure. Cons
 
 * **Endorsement**: Each baked block is validated by other bakers who have not baked the block. These are known as endorsers of the block and they receive compensation for this.
 
-* **Delegation**: All holders of the XTZ crypto-currency can delegate their baking and voting rights to a baker called a _delegate_, while still maintaining control of their funds.
+* **Delegation**: All holders of the Tez crypto-currency can delegate their baking and voting rights to a baker called a _delegate_, while still maintaining control of their funds.
 
-* **Roll**: An amount of XTZ which is used as the unit of measure for baking and voting rights. Weight in the baking and voting process is indexed to an integral number of rolls. At present, one roll is equal to 8,000 XTZ.
+* **Roll**: An amount of Tez which is used as the unit of measure for baking and voting rights. Weight in the baking and voting process is indexed to an integral number of rolls. At present, one roll is equal to 8,000 Tez.
 
 * **Cycle**: The time equal to the creation of 4,096 blocks' on Tezos (around 2 days, 20 hours, and 16 minutes (1 minute per block, if all bakers cooperate effectively)).
 

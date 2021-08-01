@@ -3,7 +3,7 @@
   "id": "formal-verification/modeling-theorem",
   "isDocsHomePage": false,
   "title": "Formal verification on smart contracts",
-  "description": "This section describes how to bridge the Tezos world (and the Michelson language) with the formal world of Coq. For this, we are going to model a theorem representing a smart contract and its intentions.",
+  "description": "This section describes how to bridge the Tezos world (and the Michelson language) with the formal world of Coq. For this, we are going to model a theorem representing a smart contract and its purpose (i.e. the goal of the smart contract).",
   "source": "@site/docs/formal-verification/modeling-theorem.md",
   "sourceDirName": "formal-verification",
   "slug": "/formal-verification/modeling-theorem",
@@ -20,8 +20,8 @@
   },
   "sidebar": "docs",
   "previous": {
-    "title": "Coq, GADT and Mi-Cho-Coq",
-    "permalink": "/formal-verification/gadt-coq"
+    "title": "Mi-Cho-Coq",
+    "permalink": "/formal-verification/michocoq"
   },
   "next": {
     "title": "Exam",

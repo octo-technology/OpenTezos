@@ -39,37 +39,12 @@ export default [
 },
 {
   path: '/',
-  component: ComponentCreator('/','5f3'),
+  component: ComponentCreator('/','06e'),
   
   routes: [
 {
   path: '/',
   component: ComponentCreator('/','9e2'),
-  exact: true,
-},
-{
-  path: '/baker',
-  component: ComponentCreator('/baker','414'),
-  exact: true,
-},
-{
-  path: '/baker/cli-baker',
-  component: ComponentCreator('/baker/cli-baker','9ba'),
-  exact: true,
-},
-{
-  path: '/baker/delegating',
-  component: ComponentCreator('/baker/delegating','5b4'),
-  exact: true,
-},
-{
-  path: '/baker/exam',
-  component: ComponentCreator('/baker/exam','369'),
-  exact: true,
-},
-{
-  path: '/baker/voting',
-  component: ComponentCreator('/baker/voting','04d'),
   exact: true,
 },
 {
@@ -85,6 +60,16 @@ export default [
 {
   path: '/baking/baking_explained',
   component: ComponentCreator('/baking/baking_explained','b2d'),
+  exact: true,
+},
+{
+  path: '/baking/cli-baker',
+  component: ComponentCreator('/baking/cli-baker','a2d'),
+  exact: true,
+},
+{
+  path: '/baking/delegating',
+  component: ComponentCreator('/baking/delegating','698'),
   exact: true,
 },
 {
@@ -199,7 +184,7 @@ export default [
 },
 {
   path: '/defi',
-  component: ComponentCreator('/defi','d45'),
+  component: ComponentCreator('/defi','f0b'),
   exact: true,
 },
 {
@@ -325,6 +310,11 @@ export default [
 {
   path: '/formal-verification/gadt-coq',
   component: ComponentCreator('/formal-verification/gadt-coq','3c3'),
+  exact: true,
+},
+{
+  path: '/formal-verification/general',
+  component: ComponentCreator('/formal-verification/general','11c'),
   exact: true,
 },
 {
@@ -525,6 +515,11 @@ export default [
 {
   path: '/tezos-basics/smart-contracts',
   component: ComponentCreator('/tezos-basics/smart-contracts','a47'),
+  exact: true,
+},
+{
+  path: '/tezos-basics/voting',
+  component: ComponentCreator('/tezos-basics/voting','dcc'),
   exact: true,
 },
 ]

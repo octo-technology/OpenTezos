@@ -7,7 +7,7 @@ author: Aymeric Bethencourt
 ## Wrapped XTZ
 Let's consider the following facts:
 
-- XTZ is the native currency built on the Tezos blockchain.
+- Tez (XTZ) is the native currency built on the Tezos blockchain.
 
 - When a dApp (decentralized application) is built from the Tezos Blockchain, it usually either implements its own form of token or needs to work with existing tokens, both are based on [FA standards](/defi/token-standards). 
 

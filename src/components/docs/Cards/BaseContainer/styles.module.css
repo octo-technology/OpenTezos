@@ -59,11 +59,15 @@
 
 /* Properties */
 .hasRoundedCorners {
-  border-radius: 5px;
+  /* border-radius: 5px; */
 }
 
 .hasShadow {
   box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, 0.15);
+}
+
+.selected {
+  box-shadow: 0px 12px 15px 0px rgba(0, 0, 0, 0.2);
 }
 
 @media small-tablet-breakpoint-query {
@@ -81,6 +85,11 @@ html[data-theme='dark'] .root {
 }
 
 html[data-theme='dark'] .root:hover {
+  border-color: white;
+  transition: border-color 0.2s ease-in-out;
+}
+
+html[data-theme='dark'] .selected {
   border-color: white;
   transition: border-color 0.2s ease-in-out;
 }

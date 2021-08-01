@@ -25,7 +25,7 @@ What is the consensus protocol of the Tezos Blockchain?
 
 What is baking?
 
-<ExamCheckbox name="10" isCorrect="false">It is the act of delegating XTZ to earn passive interest.</ExamCheckbox>
+<ExamCheckbox name="10" isCorrect="false">It is the act of delegating Tez to earn passive interest.</ExamCheckbox>
 <ExamCheckbox name="11" isCorrect="true">It is the act of creating, signing and publishing blocks to the Tezos blockchain.</ExamCheckbox>
 <ExamCheckbox name="12" isCorrect="false">It is the act of monitoring transaction of the Tezos blockchain.</ExamCheckbox>
 
@@ -79,11 +79,11 @@ What does an accuseer monitor?
 
 ### Question 8
 
-What is true about the XTZ inflation?
+What is true about the Tez inflation?
 
-<ExamCheckbox name="70" isCorrect="true">Each new block generates 80 new XTZ as a reward.</ExamCheckbox>
+<ExamCheckbox name="70" isCorrect="true">Each new block generates 80 new Tez as a reward.</ExamCheckbox>
 <ExamCheckbox name="71" isCorrect="false">The inflation rate for the first year was about 2.0%.</ExamCheckbox>
-<ExamCheckbox name="72" isCorrect="false">Each new block generates 40 new XTZ as a reward.</ExamCheckbox>
+<ExamCheckbox name="72" isCorrect="false">Each new block generates 40 new Tez as a reward.</ExamCheckbox>
 <ExamCheckbox name="73" isCorrect="true">The action of burning Tez decreases the inflation rate.</ExamCheckbox>
 <ExamCheckbox name="74" isCorrect="true">The inflation rate for the first year was about 5.5%.</ExamCheckbox>
 <ExamCheckbox name="75" isCorrect="true">The inflation rate decreases each year.</ExamCheckbox>
@@ -105,5 +105,53 @@ If an endorser has been attributed 3 slots for a low priority block, how much wi
 <ExamCheckbox name="91" isCorrect="false">1.2500 ꜩ</ExamCheckbox>
 <ExamCheckbox name="92" isCorrect="true">2.5000 ꜩ</ExamCheckbox>
 <ExamCheckbox name="93" isCorrect="false">3.7500 ꜩ</ExamCheckbox>
+
+### Question 11
+
+Which of the following Tezos blockchain actors is considered a delegate?
+
+<ExamCheckbox name="100" isCorrect="false">A delegator.</ExamCheckbox>
+<ExamCheckbox name="101" isCorrect="true">A baker.</ExamCheckbox>
+<ExamCheckbox name="102" isCorrect="true">An endorser.</ExamCheckbox>
+<ExamCheckbox name="103" isCorrect="true">An accuser.</ExamCheckbox>
+<ExamCheckbox name="104" isCorrect="false">A voter.</ExamCheckbox>
+
+### Question 12
+
+What is the minimum amount required to become a baker?
+
+<ExamCheckbox name="110" isCorrect="false">None</ExamCheckbox>
+<ExamCheckbox name="111" isCorrect="false">1 ꜩ</ExamCheckbox>
+<ExamCheckbox name="112" isCorrect="false">32 ꜩ</ExamCheckbox>
+<ExamCheckbox name="113" isCorrect="false">512 ꜩ</ExamCheckbox>
+<ExamCheckbox name="114" isCorrect="true">8000 ꜩ</ExamCheckbox>
+<ExamCheckbox name="115" isCorrect="false">16 000 ꜩ</ExamCheckbox>
+
+### Question 13
+
+During the Baking process, what fraudulent motive results in the loss of its frozen Tez? 
+
+<ExamCheckbox name="120" isCorrect="true">Double baking.</ExamCheckbox>
+<ExamCheckbox name="121" isCorrect="false">Inactivity during baking process.</ExamCheckbox>
+<ExamCheckbox name="122" isCorrect="true">Double endorsement.</ExamCheckbox>
+<ExamCheckbox name="123" isCorrect="false">Baker that's not paying his delegators.</ExamCheckbox>
+
+### Question 14
+
+What is the correct command line to run a baker on the Mainnet, supposing the account alias is "bob"?
+
+<ExamCheckbox name="130" isCorrect="false">`tezos-baker-009-PsFLoren run with local node ~/.tezos-node bob`</ExamCheckbox>
+<ExamCheckbox name="131" isCorrect="false">`tezos-baker-010-PtGRANAD run with local node ~/.tezos-node bob`</ExamCheckbox>
+<ExamCheckbox name="132" isCorrect="true">`tezos-baker-alpha run with local node ~/.tezos-node bob`</ExamCheckbox>
+
+### Question 15
+
+What are the two periods in which you can realize a "*ballot*" operation?
+
+<ExamCheckbox name="140" isCorrect="false">Proposal period</ExamCheckbox>
+<ExamCheckbox name="141" isCorrect="true">Exploration period</ExamCheckbox>
+<ExamCheckbox name="142" isCorrect="false">Cooldown period</ExamCheckbox>
+<ExamCheckbox name="143" isCorrect="true">Promotion period</ExamCheckbox>
+<ExamCheckbox name="144" isCorrect="false">Adoption period</ExamCheckbox>
 
 </ExamForm>

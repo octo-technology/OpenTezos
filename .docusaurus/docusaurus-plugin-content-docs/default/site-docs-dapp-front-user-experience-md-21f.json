@@ -16,7 +16,8 @@
   "frontMatter": {
     "id": "front_user_experience",
     "disable_pagination": true,
-    "title": "Build a dapp - User Experience"
+    "title": "Build a dapp - User Experience",
+    "authors": "Benjamin Pilia"
   },
   "sidebar": "docs",
   "previous": {

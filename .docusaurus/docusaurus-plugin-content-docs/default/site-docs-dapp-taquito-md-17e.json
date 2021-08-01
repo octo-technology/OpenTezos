@@ -3,7 +3,7 @@
   "id": "dapp/taquito",
   "isDocsHomePage": false,
   "title": "Taquito",
-  "description": "Interactions with a Tezos blockchain can be done thanks to the Tezos cli.",
+  "description": "Interactions with a Tezos blockchain can be done thanks to the Tezos CLI.",
   "source": "@site/docs/dapp/taquito.md",
   "sourceDirName": "dapp",
   "slug": "/dapp/taquito",
@@ -16,7 +16,8 @@
   "frontMatter": {
     "id": "taquito",
     "disable_pagination": true,
-    "title": "Taquito"
+    "title": "Taquito",
+    "authors": "Benjamin Pilia"
   },
   "sidebar": "docs",
   "previous": {

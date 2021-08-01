@@ -93,6 +93,10 @@
                   },
                   {
                     "type": "doc",
+                    "id": "tezos-basics/voting"
+                  },
+                  {
+                    "type": "doc",
                     "id": "tezos-basics/history-of-amendments"
                   },
                   {
@@ -326,38 +330,19 @@
                   },
                   {
                     "type": "doc",
+                    "id": "baking/cli-baker"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "baking/delegating"
+                  },
+                  {
+                    "type": "doc",
                     "id": "baking/bakers_list"
                   },
                   {
                     "type": "doc",
                     "id": "baking/exam"
-                  }
-                ]
-              },
-              {
-                "collapsed": true,
-                "type": "category",
-                "label": "Deploy Bakers",
-                "items": [
-                  {
-                    "type": "doc",
-                    "id": "baker/introduction"
-                  },
-                  {
-                    "type": "doc",
-                    "id": "baker/cli-baker"
-                  },
-                  {
-                    "type": "doc",
-                    "id": "baker/delegating"
-                  },
-                  {
-                    "type": "doc",
-                    "id": "baker/voting"
-                  },
-                  {
-                    "type": "doc",
-                    "id": "baker/exam"
                   }
                 ]
               },
@@ -419,7 +404,11 @@
                   },
                   {
                     "type": "doc",
-                    "id": "formal-verification/gadt-coq"
+                    "id": "formal-verification/general"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "formal-verification/michocoq"
                   },
                   {
                     "type": "doc",
@@ -504,13 +493,10 @@
             ]
           },
           "permalinkToSidebar": {
-            "/baker/cli-baker": "docs",
-            "/baker/delegating": "docs",
-            "/baker/exam": "docs",
-            "/baker": "docs",
-            "/baker/voting": "docs",
             "/baking/bakers_list": "docs",
             "/baking/baking_explained": "docs",
+            "/baking/cli-baker": "docs",
+            "/baking/delegating": "docs",
             "/baking/exam": "docs",
             "/baking": "docs",
             "/baking/reward": "docs",
@@ -558,8 +544,9 @@
             "/explorer/tzstats-main-features": "docs",
             "/explorer/tzstats-smart-contract": "docs",
             "/formal-verification/exam": "docs",
-            "/formal-verification/gadt-coq": "docs",
+            "/formal-verification/general": "docs",
             "/formal-verification": "docs",
+            "/formal-verification/michocoq": "docs",
             "/formal-verification/modeling-theorem": "docs",
             "/ligo/deploy-a-contract": "docs",
             "/ligo/exam": "docs",
@@ -597,161 +584,11 @@
             "/tezos-basics/liquid-proof-of-stake": "docs",
             "/tezos-basics/operations": "docs",
             "/tezos-basics/smart-contracts": "docs",
+            "/tezos-basics/voting": "docs",
             "/": "docs",
             "/paths": "docs"
           },
           "docs": [
-            {
-              "unversionedId": "baker/cli-baker",
-              "id": "baker/cli-baker",
-              "isDocsHomePage": false,
-              "title": "CLI to become a baker",
-              "description": "In this chapter, we will see the CLI command lines for registering as a delegate. Then we will see how to exercise your rights as a baker, endorser, and accuser.",
-              "source": "@site/docs/baker/cli-baker.md",
-              "sourceDirName": "baker",
-              "slug": "/baker/cli-baker",
-              "permalink": "/baker/cli-baker",
-              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/baker/cli-baker.md",
-              "version": "current",
-              "lastUpdatedBy": "Author",
-              "lastUpdatedAt": 1539502055,
-              "formattedLastUpdatedAt": "10/14/2018",
-              "frontMatter": {
-                "id": "cli-baker",
-                "title": "CLI to become a baker",
-                "authors": "Maxime Sallerin"
-              },
-              "sidebar": "docs",
-              "previous": {
-                "title": "Introduction",
-                "permalink": "/baker"
-              },
-              "next": {
-                "title": "Delegating",
-                "permalink": "/baker/delegating"
-              }
-            },
-            {
-              "unversionedId": "baker/delegating",
-              "id": "baker/delegating",
-              "isDocsHomePage": false,
-              "title": "Delegating",
-              "description": "In this chapter, we will see how to delegate your coins. We'll use command lines or simple wallets' built-in options.",
-              "source": "@site/docs/baker/delegating.md",
-              "sourceDirName": "baker",
-              "slug": "/baker/delegating",
-              "permalink": "/baker/delegating",
-              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/baker/delegating.md",
-              "version": "current",
-              "lastUpdatedBy": "Author",
-              "lastUpdatedAt": 1539502055,
-              "formattedLastUpdatedAt": "10/14/2018",
-              "frontMatter": {
-                "id": "delegating",
-                "title": "Delegating",
-                "authors": "Maxime Sallerin"
-              },
-              "sidebar": "docs",
-              "previous": {
-                "title": "CLI to become a baker",
-                "permalink": "/baker/cli-baker"
-              },
-              "next": {
-                "title": "Voting",
-                "permalink": "/baker/voting"
-              }
-            },
-            {
-              "unversionedId": "baker/exam",
-              "id": "baker/exam",
-              "isDocsHomePage": false,
-              "title": "Exam",
-              "description": "Question 1",
-              "source": "@site/docs/baker/exam.md",
-              "sourceDirName": "baker",
-              "slug": "/baker/exam",
-              "permalink": "/baker/exam",
-              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/baker/exam.md",
-              "version": "current",
-              "lastUpdatedBy": "Author",
-              "lastUpdatedAt": 1539502055,
-              "formattedLastUpdatedAt": "10/14/2018",
-              "frontMatter": {
-                "id": "exam",
-                "title": "Exam",
-                "authors": "--"
-              },
-              "sidebar": "docs",
-              "previous": {
-                "title": "Voting",
-                "permalink": "/baker/voting"
-              },
-              "next": {
-                "title": "Introduction",
-                "permalink": "/defi"
-              }
-            },
-            {
-              "unversionedId": "baker/introduction",
-              "id": "baker/introduction",
-              "isDocsHomePage": false,
-              "title": "Introduction",
-              "description": "For a better understanding of this module, it is recommended to have some knowledge of how Baking works as well as how to deploy a node.",
-              "source": "@site/docs/baker/introduction.md",
-              "sourceDirName": "baker",
-              "slug": "/baker",
-              "permalink": "/baker",
-              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/baker/introduction.md",
-              "version": "current",
-              "lastUpdatedBy": "Author",
-              "lastUpdatedAt": 1539502055,
-              "formattedLastUpdatedAt": "10/14/2018",
-              "frontMatter": {
-                "id": "introduction",
-                "title": "Introduction",
-                "slug": "/baker",
-                "authors": "Maxime Sallerin"
-              },
-              "sidebar": "docs",
-              "previous": {
-                "title": "Exam",
-                "permalink": "/baking/exam"
-              },
-              "next": {
-                "title": "CLI to become a baker",
-                "permalink": "/baker/cli-baker"
-              }
-            },
-            {
-              "unversionedId": "baker/voting",
-              "id": "baker/voting",
-              "isDocsHomePage": false,
-              "title": "Voting",
-              "description": "In this chapter, we will have a brief overview of the voting process. We will also see different commands that allow a delegate to make a proposal and vote.",
-              "source": "@site/docs/baker/voting.md",
-              "sourceDirName": "baker",
-              "slug": "/baker/voting",
-              "permalink": "/baker/voting",
-              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/baker/voting.md",
-              "version": "current",
-              "lastUpdatedBy": "Author",
-              "lastUpdatedAt": 1539502055,
-              "formattedLastUpdatedAt": "10/14/2018",
-              "frontMatter": {
-                "id": "voting",
-                "title": "Voting",
-                "authors": "Maxime Sallerin"
-              },
-              "sidebar": "docs",
-              "previous": {
-                "title": "Delegating",
-                "permalink": "/baker/delegating"
-              },
-              "next": {
-                "title": "Exam",
-                "permalink": "/baker/exam"
-              }
-            },
             {
               "unversionedId": "baking/bakers_list",
               "id": "baking/bakers_list",
@@ -774,8 +611,8 @@
               },
               "sidebar": "docs",
               "previous": {
-                "title": "Rewards",
-                "permalink": "/baking/reward"
+                "title": "Delegating",
+                "permalink": "/baking/delegating"
               },
               "next": {
                 "title": "Exam",
@@ -813,6 +650,66 @@
               }
             },
             {
+              "unversionedId": "baking/cli-baker",
+              "id": "baking/cli-baker",
+              "isDocsHomePage": false,
+              "title": "CLI to become a baker",
+              "description": "In this chapter, we will see the CLI command lines for registering as a delegate. Then we will see how to exercise your rights as a baker, endorser, and accuser.",
+              "source": "@site/docs/baking/cli-baker.md",
+              "sourceDirName": "baking",
+              "slug": "/baking/cli-baker",
+              "permalink": "/baking/cli-baker",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/baking/cli-baker.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
+              "frontMatter": {
+                "id": "cli-baker",
+                "title": "CLI to become a baker",
+                "authors": "Maxime Sallerin"
+              },
+              "sidebar": "docs",
+              "previous": {
+                "title": "Rewards",
+                "permalink": "/baking/reward"
+              },
+              "next": {
+                "title": "Delegating",
+                "permalink": "/baking/delegating"
+              }
+            },
+            {
+              "unversionedId": "baking/delegating",
+              "id": "baking/delegating",
+              "isDocsHomePage": false,
+              "title": "Delegating",
+              "description": "In this chapter, we will see how to delegate your coins. We'll use command lines or simple wallets' built-in options.",
+              "source": "@site/docs/baking/delegating.md",
+              "sourceDirName": "baking",
+              "slug": "/baking/delegating",
+              "permalink": "/baking/delegating",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/baking/delegating.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
+              "frontMatter": {
+                "id": "delegating",
+                "title": "Delegating",
+                "authors": "Maxime Sallerin"
+              },
+              "sidebar": "docs",
+              "previous": {
+                "title": "CLI to become a baker",
+                "permalink": "/baking/cli-baker"
+              },
+              "next": {
+                "title": "List of bakers",
+                "permalink": "/baking/bakers_list"
+              }
+            },
+            {
               "unversionedId": "baking/exam",
               "id": "baking/exam",
               "isDocsHomePage": false,
@@ -839,7 +736,7 @@
               },
               "next": {
                 "title": "Introduction",
-                "permalink": "/baker"
+                "permalink": "/defi"
               }
             },
             {
@@ -847,7 +744,7 @@
               "id": "baking/introduction",
               "isDocsHomePage": false,
               "title": "Introduction",
-              "description": "In this module, we will see how baking works for the Tezos blockhain. More precisely, we will see who are the different actors involved from the creation to the validation of a new block. Then we will see the associated reward system. And finally, we will present the list of existing bakers and the criteria to evaluate them.",
+              "description": "In this module, we will see how baking works for the Tezos blockchain. More precisely, we will see the different actors involved, from creating new blocks to their validation. We will then see the associated reward system, and how to deploy your own baker. Finally, we will present a list of existing bakers and the criteria to evaluate them.",
               "source": "@site/docs/baking/introduction.md",
               "sourceDirName": "baking",
               "slug": "/baking",
@@ -878,7 +775,7 @@
               "id": "baking/reward",
               "isDocsHomePage": false,
               "title": "Rewards",
-              "description": "To maintain the network, Tezos needs bakers and endorsers. They stake their tokens and use their memory space and an internet connection to create blocks, manage transactions, vote, and secure the network. In exchange for the completion of these tasks, bakers are rewarded with tokens from the transaction fees or tokens created by the network. Since the Carthage update, the reward system has been updated to make the network more robust against non-cooperative baking strategies.",
+              "description": "To maintain the network, Tezos needs bakers and endorsers. They stake their tokens and use their CPU, memory space and internet connection to create blocks, manage transactions, vote, and secure the network. In exchange for the completion of these tasks, bakers are rewarded with tokens from the transaction fees or tokens created by the network. Since the Carthage update, the reward system has been updated to make the network more robust against non-cooperative baking strategies.",
               "source": "@site/docs/baking/reward.md",
               "sourceDirName": "baking",
               "slug": "/baking/reward",
@@ -899,8 +796,8 @@
                 "permalink": "/baking/baking_explained"
               },
               "next": {
-                "title": "List of bakers",
-                "permalink": "/baking/bakers_list"
+                "title": "CLI to become a baker",
+                "permalink": "/baking/cli-baker"
               }
             },
             {
@@ -1001,7 +898,7 @@
               "id": "blockchain-basics/other-consensuses",
               "isDocsHomePage": false,
               "title": "Introduction to other consensus algorithms",
-              "description": "In this chapter, we will briefly introduce some other public consensus algorithms.",
+              "description": "In this chapter, we will briefly introduce some other public consensus mechanisms.",
               "source": "@site/docs/blockchain-basics/other-consensuses.md",
               "sourceDirName": "blockchain-basics",
               "slug": "/blockchain-basics/other-consensuses",
@@ -1063,7 +960,7 @@
               "id": "blockchain-basics/smart-contracts",
               "isDocsHomePage": false,
               "title": "Smart Contracts",
-              "description": "In this chapter, we're going to explain how and why Bitcoin's programming features are limited. We'll define what are Smart Contracts and how they are already present on Bitcoin. And finally, what is Gas and why it was introduced on Ethereum.",
+              "description": "In this chapter, we're going to explain how and why Bitcoin's programming features are limited. We'll define what Smart Contracts are and how they are already present on Bitcoin. And finally, we'll define what Gas is and why it was introduced on Ethereum.",
               "source": "@site/docs/blockchain-basics/smart-contracts.md",
               "sourceDirName": "blockchain-basics",
               "slug": "/blockchain-basics/smart-contracts",
@@ -1315,7 +1212,8 @@
               "frontMatter": {
                 "id": "basics",
                 "disable_pagination": true,
-                "title": "Build a dapp - basics"
+                "title": "Build a dapp - basics",
+                "authors": "Benjamin Pilia"
               },
               "sidebar": "docs",
               "previous": {
@@ -1375,7 +1273,8 @@
               "frontMatter": {
                 "id": "front_user_experience",
                 "disable_pagination": true,
-                "title": "Build a dapp - User Experience"
+                "title": "Build a dapp - User Experience",
+                "authors": "Benjamin Pilia"
               },
               "sidebar": "docs",
               "previous": {
@@ -1424,7 +1323,7 @@
               "id": "dapp/taquito",
               "isDocsHomePage": false,
               "title": "Taquito",
-              "description": "Interactions with a Tezos blockchain can be done thanks to the Tezos cli.",
+              "description": "Interactions with a Tezos blockchain can be done thanks to the Tezos CLI.",
               "source": "@site/docs/dapp/taquito.md",
               "sourceDirName": "dapp",
               "slug": "/dapp/taquito",
@@ -1437,7 +1336,8 @@
               "frontMatter": {
                 "id": "taquito",
                 "disable_pagination": true,
-                "title": "Taquito"
+                "title": "Taquito",
+                "authors": "Benjamin Pilia"
               },
               "sidebar": "docs",
               "previous": {
@@ -1454,7 +1354,7 @@
               "id": "dapp/temple",
               "isDocsHomePage": false,
               "title": "Temple Wallet",
-              "description": "Dapp users need to have both addresses and the associated private keys of these addresses.",
+              "description": "Dapp users need to have both addresses and the associated private keys of these addresses. They want to be able to securely store their private keys, easily use and manage their addresses, and easily use the different dapps. All of this can be performed by some tools called wallets. They can be desktop applications, browser plugins, hardware or smart contracts...",
               "source": "@site/docs/dapp/temple.md",
               "sourceDirName": "dapp",
               "slug": "/dapp/temple",
@@ -1467,7 +1367,8 @@
               "frontMatter": {
                 "id": "temple",
                 "disable_pagination": true,
-                "title": "Temple Wallet"
+                "title": "Temple Wallet",
+                "authors": "Benjamin Pilia"
               },
               "sidebar": "docs",
               "previous": {
@@ -1484,7 +1385,7 @@
               "id": "dapp/truffle_compilation_migration",
               "isDocsHomePage": false,
               "title": "Smart contract deployment with Truffle",
-              "description": "The first step to creating a Dapp is to deploy a smart contract onto a Tezos network, whether for testing or real-life use. There are several ways to do this, like using the Tezos cli.",
+              "description": "The first step to creating a Dapp is to deploy a smart contract onto a Tezos network, whether for testing or real-life use. There are several ways to do this, like using the Tezos CLI.",
               "source": "@site/docs/dapp/truffle_compilation_migration.md",
               "sourceDirName": "dapp",
               "slug": "/dapp/truffle_compilation_migration",
@@ -1605,11 +1506,11 @@
               "isDocsHomePage": false,
               "title": "Introduction",
               "description": "What is DeFi?",
-              "source": "@site/docs/defi/introdution.md",
+              "source": "@site/docs/defi/introduction.md",
               "sourceDirName": "defi",
               "slug": "/defi",
               "permalink": "/defi",
-              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/introdution.md",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/defi/introduction.md",
               "version": "current",
               "lastUpdatedBy": "Author",
               "lastUpdatedAt": 1539502055,
@@ -1624,7 +1525,7 @@
               "sidebar": "docs",
               "previous": {
                 "title": "Exam",
-                "permalink": "/baker/exam"
+                "permalink": "/baking/exam"
               },
               "next": {
                 "title": "Token Standards",
@@ -1696,7 +1597,7 @@
               "id": "defi/stablecoins",
               "isDocsHomePage": false,
               "title": "Stablecoins",
-              "description": "A stablecoin is a cryptocurrency whose price is fixed to another asset. Most stablecoins are pegged (fixed) to fiat currencies (currencies issued by the central bank of a soveign state) like the US Dollar.",
+              "description": "A stablecoin is a cryptocurrency whose price is fixed to another asset. Most stablecoins are pegged (fixed) to fiat currencies (currencies issued by the central bank of a sovereign state) like the US Dollar.",
               "source": "@site/docs/defi/stablecoins.md",
               "sourceDirName": "defi",
               "slug": "/defi/stablecoins",
@@ -1846,7 +1747,7 @@
               "id": "deploy-a-node/installation",
               "isDocsHomePage": false,
               "title": "Installation",
-              "description": "In this chapter, we will see how to install Tezos from source with Unbuntu and macOS.",
+              "description": "In this chapter, we will see how to install Tezos from the source with Unbuntu and macOS.",
               "source": "@site/docs/deploy-a-node/installation.md",
               "sourceDirName": "deploy-a-node",
               "slug": "/deploy-a-node/installation",
@@ -1876,7 +1777,7 @@
               "id": "deploy-a-node/introduction",
               "isDocsHomePage": false,
               "title": "Introduction",
-              "description": "This module will guide you through the complete installation and setup of your own Tezos node on Ubuntu and Mac OS.",
+              "description": "This module will guide you through the complete installation and setup of your own Tezos node on Ubuntu and on Mac OS.",
               "source": "@site/docs/deploy-a-node/introduction.md",
               "sourceDirName": "deploy-a-node",
               "slug": "/deploy-a-node",
@@ -1907,7 +1808,7 @@
               "id": "deploy-a-node/networks",
               "isDocsHomePage": false,
               "title": "What about networks?",
-              "description": "In this chapter, we will see how Tezos is multi-networks. We will learn what the \"main network\" and the \"test networks\" are. Finally, we will discover how to configure our node on a chosen network.",
+              "description": "In this chapter, we will see how Tezos is multi-network. We will learn what the \"main network\" and the \"test networks\" are and finally, we will discover how to configure our node on a chosen network.",
               "source": "@site/docs/deploy-a-node/networks.md",
               "sourceDirName": "deploy-a-node",
               "slug": "/deploy-a-node/networks",
@@ -1967,7 +1868,7 @@
               "id": "deploy-a-node/to-go-further",
               "isDocsHomePage": false,
               "title": "To go further",
-              "description": "To go further on the command lines and their possible applications, we invite you to browse the different chapters of OpenTezos, which deal with this subject:",
+              "description": "To go further on command lines and their possible applications, we invite you to browse the different chapters of OpenTezos dealing with this subject:",
               "source": "@site/docs/deploy-a-node/to-go-further.md",
               "sourceDirName": "deploy-a-node",
               "slug": "/deploy-a-node/to-go-further",
@@ -2253,6 +2154,27 @@
                 "id": "gadt-coq",
                 "title": "Coq, GADT and Mi-Cho-Coq",
                 "authors": "Frank Hillard"
+              }
+            },
+            {
+              "unversionedId": "formal-verification/general",
+              "id": "formal-verification/general",
+              "isDocsHomePage": false,
+              "title": "Generalities",
+              "description": "Formal verification is a complex task but made possible and easier on Tezos smart contracts with proof assistant tools (such as Coq) and Michelson conception choices.",
+              "source": "@site/docs/formal-verification/general.md",
+              "sourceDirName": "formal-verification",
+              "slug": "/formal-verification/general",
+              "permalink": "/formal-verification/general",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/formal-verification/general.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
+              "frontMatter": {
+                "id": "general",
+                "title": "Generalities",
+                "authors": "Frank Hillard"
               },
               "sidebar": "docs",
               "previous": {
@@ -2260,8 +2182,8 @@
                 "permalink": "/formal-verification"
               },
               "next": {
-                "title": "Formal verification on smart contracts",
-                "permalink": "/formal-verification/modeling-theorem"
+                "title": "Mi-Cho-Coq",
+                "permalink": "/formal-verification/michocoq"
               }
             },
             {
@@ -2291,8 +2213,8 @@
                 "permalink": "/defi/exam"
               },
               "next": {
-                "title": "Coq, GADT and Mi-Cho-Coq",
-                "permalink": "/formal-verification/gadt-coq"
+                "title": "Generalities",
+                "permalink": "/formal-verification/general"
               }
             },
             {
@@ -2314,6 +2236,15 @@
                 "id": "michocoq",
                 "title": "Mi-Cho-Coq",
                 "authors": "Frank Hillard"
+              },
+              "sidebar": "docs",
+              "previous": {
+                "title": "Generalities",
+                "permalink": "/formal-verification/general"
+              },
+              "next": {
+                "title": "Formal verification on smart contracts",
+                "permalink": "/formal-verification/modeling-theorem"
               }
             },
             {
@@ -2321,7 +2252,7 @@
               "id": "formal-verification/modeling-theorem",
               "isDocsHomePage": false,
               "title": "Formal verification on smart contracts",
-              "description": "This section describes how to bridge the Tezos world (and the Michelson language) with the formal world of Coq. For this, we are going to model a theorem representing a smart contract and its intentions.",
+              "description": "This section describes how to bridge the Tezos world (and the Michelson language) with the formal world of Coq. For this, we are going to model a theorem representing a smart contract and its purpose (i.e. the goal of the smart contract).",
               "source": "@site/docs/formal-verification/modeling-theorem.md",
               "sourceDirName": "formal-verification",
               "slug": "/formal-verification/modeling-theorem",
@@ -2338,8 +2269,8 @@
               },
               "sidebar": "docs",
               "previous": {
-                "title": "Coq, GADT and Mi-Cho-Coq",
-                "permalink": "/formal-verification/gadt-coq"
+                "title": "Mi-Cho-Coq",
+                "permalink": "/formal-verification/michocoq"
               },
               "next": {
                 "title": "Exam",
@@ -3216,7 +3147,7 @@
               "id": "tezos-basics/economics-and-rewards",
               "isDocsHomePage": false,
               "title": "Economics and rewards",
-              "description": "In this chapter, we will dig deeper into the fees of the Tezos network and the baking and endorsing rewards. The calculations you'll learn about are helpful from the simplest transaction issuance to the most complex application built on Tezos. That is why it is importent to understand the basics of fees and gas optimizations. Of course, this will be particularly useful if you are a baker or an endorser.",
+              "description": "In this chapter, we will dig deeper into the fees of the Tezos network and the baking and endorsing rewards. The calculations you'll learn about are helpful from the simplest transaction issuance to the most complex application built on Tezos. That is why it is important to understand the basics of fees and gas optimizations. Of course, this will be particularly useful if you are a baker or an endorser.",
               "source": "@site/docs/tezos-basics/economics-and-rewards.md",
               "sourceDirName": "tezos-basics",
               "slug": "/tezos-basics/economics-and-rewards",
@@ -3297,8 +3228,8 @@
                 "permalink": "/tezos-basics/cli-and-rpc"
               },
               "next": {
-                "title": "History of amendments",
-                "permalink": "/tezos-basics/history-of-amendments"
+                "title": "Voting",
+                "permalink": "/tezos-basics/voting"
               }
             },
             {
@@ -3323,8 +3254,8 @@
               },
               "sidebar": "docs",
               "previous": {
-                "title": "Governance on-chain",
-                "permalink": "/tezos-basics/governance-on-chain"
+                "title": "Voting",
+                "permalink": "/tezos-basics/voting"
               },
               "next": {
                 "title": "Economics and rewards",
@@ -3397,7 +3328,7 @@
               "id": "tezos-basics/operations",
               "isDocsHomePage": false,
               "title": "Operations",
-              "description": "This chapter introduces the notion of Operations on Tezos. These are more commonly known as Transactions on other blockchains.",
+              "description": "This chapter introduces the notion of Operations on Tezos. These are more commonly known as Transactions on other blockchains and in Tezos are a subset of operations. On Tezos, transactions are transfers of tokens and smart contracts calls. A few examples of operations that are not transactions on Tezos: Originations; endorsements; proposals; ballots...",
               "source": "@site/docs/tezos-basics/operations.md",
               "sourceDirName": "tezos-basics",
               "slug": "/tezos-basics/operations",
@@ -3453,11 +3384,41 @@
               }
             },
             {
+              "unversionedId": "tezos-basics/voting",
+              "id": "tezos-basics/voting",
+              "isDocsHomePage": false,
+              "title": "Voting",
+              "description": "In this chapter, we will have a brief overview of the voting process. We will also see different commands that allow a delegate to make a proposal and vote.",
+              "source": "@site/docs/tezos-basics/voting.md",
+              "sourceDirName": "tezos-basics",
+              "slug": "/tezos-basics/voting",
+              "permalink": "/tezos-basics/voting",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/tezos-basics/voting.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
+              "frontMatter": {
+                "id": "voting",
+                "title": "Voting",
+                "authors": "Maxime Sallerin"
+              },
+              "sidebar": "docs",
+              "previous": {
+                "title": "Governance on-chain",
+                "permalink": "/tezos-basics/governance-on-chain"
+              },
+              "next": {
+                "title": "History of amendments",
+                "permalink": "/tezos-basics/history-of-amendments"
+              }
+            },
+            {
               "unversionedId": "welcome/modules",
               "id": "welcome/modules",
               "isDocsHomePage": false,
               "title": "Welcome to OpenTezos",
-              "description": "Welcome Tezos Developers! Explore the technical and economic concepts behind the Tezos Network, experiment with our tutorials, or start building your own Tezos Dapp. Each module will teach you a full concept of Tezos, ending with a quizz that will get you an official completion certification if you succeed.",
+              "description": "Welcome Tezos Developers! Explore the technical and economic concepts behind the Tezos Network, experiment with our tutorials, or start building your own Tezos Dapp. Each module will teach you a full concept of Tezos, ending with a quiz that will get you an official completion certification if you succeed.",
               "source": "@site/docs/welcome/modules.md",
               "sourceDirName": "welcome",
               "slug": "/",

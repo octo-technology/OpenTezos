@@ -1,0 +1,30 @@
+{
+  "unversionedId": "formal-verification/general",
+  "id": "formal-verification/general",
+  "isDocsHomePage": false,
+  "title": "Generalities",
+  "description": "Formal verification is a complex task but made possible and easier on Tezos smart contracts with proof assistant tools (such as Coq) and Michelson conception choices.",
+  "source": "@site/docs/formal-verification/general.md",
+  "sourceDirName": "formal-verification",
+  "slug": "/formal-verification/general",
+  "permalink": "/formal-verification/general",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/formal-verification/general.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "general",
+    "title": "Generalities",
+    "authors": "Frank Hillard"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Introduction",
+    "permalink": "/formal-verification"
+  },
+  "next": {
+    "title": "Mi-Cho-Coq",
+    "permalink": "/formal-verification/michocoq"
+  }
+}

@@ -17,14 +17,5 @@
     "id": "gadt-coq",
     "title": "Coq, GADT and Mi-Cho-Coq",
     "authors": "Frank Hillard"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Introduction",
-    "permalink": "/formal-verification"
-  },
-  "next": {
-    "title": "Formal verification on smart contracts",
-    "permalink": "/formal-verification/modeling-theorem"
   }
 }

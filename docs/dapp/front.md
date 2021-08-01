@@ -1228,7 +1228,7 @@ Let's add the feature of buying tickets to our application. There is no informat
 Just like the opening of a raffle, we need to add a button component, that makes that contract call when clicked.
 As we will need to interact with a contract, on a tezos network, we will use the `useTezos` hook and the `RAFFLE_ADDRESS` variable as an effect.
 
-The logic of calling the `buyTicket` entrypoint will be written into a React callback. The ticket cost is one XTZ.
+The logic of calling the `buyTicket` entrypoint will be written into a React callback. The ticket cost is one Tez.
 
 Note that `buyTicket` expects `unit`. It does not mean that he should not be passed any argument: it expects a `"unit"` string
 

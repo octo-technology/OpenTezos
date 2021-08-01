@@ -17,14 +17,5 @@
     "id": "exam",
     "title": "Exam",
     "authors": "--"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Voting",
-    "permalink": "/baker/voting"
-  },
-  "next": {
-    "title": "Introduction",
-    "permalink": "/defi"
   }
 }

@@ -25,7 +25,7 @@
     "permalink": "/defi/exam"
   },
   "next": {
-    "title": "Coq, GADT and Mi-Cho-Coq",
-    "permalink": "/formal-verification/gadt-coq"
+    "title": "Generalities",
+    "permalink": "/formal-verification/general"
   }
 }

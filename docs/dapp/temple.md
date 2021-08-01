@@ -5,7 +5,6 @@ title: Temple Wallet
 authors: Benjamin Pilia
 ---
 
-
 Dapp users need to have both addresses and the associated private keys of these addresses. They want to be able to securely store their private keys, easily use and manage their addresses, and easily use the different dapps. All of this can be performed by some tools called wallets. They can be desktop applications, browser plugins, hardware or smart contracts...
 
 In the case of dapps, the best option is to opt for a browser plugin. These are easy to find and to install. They provide developers with a library that can be used in their dapp to connect with the user wallet.
@@ -15,7 +14,7 @@ The most common wallets are:
 - [Galleon](https://cryptonomic.tech/galleon.html)
 - [Kukai](https://wallet.kukai.app/)
 - [Spire](https://spirewallet.com/)
-- [Temple](https://templewallet.com/download/) ) 
+- [Temple](https://templewallet.com/download/)
 
 In this chapter, we will take the Temple Wallet as an example, developed and maintained by _Madfish solutions_. This first part is a tutorial about how to install and use a Temple Wallet.
 
@@ -62,7 +61,7 @@ Click on "Send".
 You can send funds to any address by manually filling the recipient.
 Or you can choose from one of your addresses by clicking on the list at the bottom of the page (third spot)
 
-Send 100 XTZ (or another amount) to your first account. 
+Send 100 Tez (or another amount) to your first account. 
 A confirmation page will pop up. 
 You can review some information on this page: transaction amount, receiver and fees.
 
@@ -97,7 +96,7 @@ All the transaction information can be found under the "Raw" tab:
 }
 ```
 
-Once the transaction is confirmed, you can switch to your first account (by clicking on the top-right thumbnail) and observe that your account balance has indeed increased to 100 XTZ
+Once the transaction is confirmed, you can switch to your first account (by clicking on the top-right thumbnail) and observe that your account balance has indeed increased to 100 Tez
 
 
 ## Conclusion

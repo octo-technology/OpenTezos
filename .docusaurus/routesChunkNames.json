@@ -21,33 +21,13 @@
   "/__docusaurus/debug/routes-244": {
     "component": "component---theme-debug-routes-946-699"
   },
-  "/-5f3": {
+  "/-06e": {
     "component": "component---theme-doc-page-1-be-9be",
     "versionMetadata": "versionMetadata---935-fcf"
   },
   "/-9e2": {
     "component": "component---theme-doc-item-178-a40",
     "content": "content---3-c-0-681"
-  },
-  "/baker-414": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---baker-8-ec-13f"
-  },
-  "/baker/cli-baker-9ba": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---baker-cli-baker-549-8f7"
-  },
-  "/baker/delegating-5b4": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---baker-delegating-790-553"
-  },
-  "/baker/exam-369": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---baker-exam-588-0cb"
-  },
-  "/baker/voting-04d": {
-    "component": "component---theme-doc-item-178-a40",
-    "content": "content---baker-voting-4-ac-5dd"
   },
   "/baking-93f": {
     "component": "component---theme-doc-item-178-a40",
@@ -60,6 +40,14 @@
   "/baking/baking_explained-b2d": {
     "component": "component---theme-doc-item-178-a40",
     "content": "content---baking-baking-explaineda-8-d-5d0"
+  },
+  "/baking/cli-baker-a2d": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---baking-cli-baker-180-0b5"
+  },
+  "/baking/delegating-698": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---baking-delegating-989-378"
   },
   "/baking/exam-7b0": {
     "component": "component---theme-doc-item-178-a40",
@@ -149,9 +137,9 @@
     "component": "component---theme-doc-item-178-a40",
     "content": "content---dapp-truffle-compilation-migrationd-86-a88"
   },
-  "/defi-d45": {
+  "/defi-f0b": {
     "component": "component---theme-doc-item-178-a40",
-    "content": "content---defi-437-c33"
+    "content": "content---defi-485-647"
   },
   "/defi/cross-chain-swaps-a3e": {
     "component": "component---theme-doc-item-178-a40",
@@ -252,6 +240,10 @@
   "/formal-verification/gadt-coq-3c3": {
     "component": "component---theme-doc-item-178-a40",
     "content": "content---formal-verification-gadt-coq-5-c-7-fd8"
+  },
+  "/formal-verification/general-11c": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---formal-verification-general-149-e4b"
   },
   "/formal-verification/michocoq-f43": {
     "component": "component---theme-doc-item-178-a40",
@@ -412,5 +404,9 @@
   "/tezos-basics/smart-contracts-a47": {
     "component": "component---theme-doc-item-178-a40",
     "content": "content---tezos-basics-smart-contracts-9-f-2-472"
+  },
+  "/tezos-basics/voting-dcc": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---tezos-basics-voting-3-a-1-1aa"
   }
 }

@@ -40,13 +40,13 @@ What is a genesis block?
 
 What is baking?
 
-<ExamCheckbox name="30" isCorrect="false">It is the act of delegating XTZ to earn passive interest.</ExamCheckbox>
+<ExamCheckbox name="30" isCorrect="false">It is the act of delegating Tez to earn passive interest.</ExamCheckbox>
 <ExamCheckbox name="31" isCorrect="true">It is the act of signing and publishing blocks to the Tezos blockchain.</ExamCheckbox>
 <ExamCheckbox name="32" isCorrect="false">It is the act of monitoring transaction of the Tezos blockchain.</ExamCheckbox>
 
 ### Question 5
 
-What binary should you use to transfer XTZ from one account to another?
+What binary should you use to transfer Tez from one account to another?
 
 <ExamCheckbox name="40" isCorrect="false">tezos-node</ExamCheckbox>
 <ExamCheckbox name="41" isCorrect="true">tezos-client</ExamCheckbox>

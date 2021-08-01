@@ -6,8 +6,6 @@ authors: Maxime Sallerin
 
 In this chapter, we will see the CLI command lines for registering as a delegate. Then we will see how to exercise your rights as a baker, endorser, and accuser.
 
-To learn more about how baking works, take a look at the [Baking](/baking) module.
-
 This chapter requires the deployment of your own Tezos node, explained in the module [Deploy a node](/deploy-a-node).
 
 ## Running a Delegate
@@ -35,7 +33,7 @@ The Tezos client is also a basic wallet. After the activation command below, you
 - `public_keys`
 - `secret_keys`
 
-The content of each file is in JSON format and keeps the mapping between aliases (*e.g.* "bob") and the kind of keys indicated by the name of each file
+The content of each file is in JSON format and keeps the mapping between aliases (*e.g.* _bob_) and the kind of keys indicated by the name of each file
 
 ```shell
 tezos-client gen keys bob
@@ -43,9 +41,9 @@ tezos-client gen keys bob
 
 #### Supply your wallet
 
-Now that you have created an account, you need to supply it with real tez.
+Now that you have created an account, you need to supply it with real Tez.
 
-> Warning! Be sure you are on the **mainnet** if you send **real tez**.
+> Warning! Be sure you are on the **mainnet** if you send **real Tez**.
 
 You can get the address of the previously created wallet with the following command: 
 
@@ -53,13 +51,13 @@ You can get the address of the previously created wallet with the following comm
 tezos-client list known addresses
 ```
 
-You can now send to "bob" any number of XTZ from a wallet of your choice.
+You can now send to _bob_ any number of Tez from a wallet of your choice.
 
-> Be careful if you are not sure what you are doing start by sending a small amount. Then send the whole amount. (8,000 ꜩ is the minimum to register as a delegate).
+> Be careful, if you are not sure what you are doing, start by sending a small amount. Then send the whole amount. (8,000ꜩ is the minimum to register as a delegate).
 
 Copy and paste the destination address into the search bar of an explorer (like [TzStats](https://tzstats.com/)) to see the transaction. The address should be visible in the explorer after the first transaction.
 
-You can check the amount that "bob" holds with:
+You can check the amount that _bob_ holds with:
 
 ```shell
 tezos-client get balance for bob
@@ -77,7 +75,9 @@ Once registered, you need to wait for **7** cycles ($\approx$ 20 days) for your 
 
 ### Baker
 
-The baker is a *daemon* that, once connected to an account, computes the baking rights for that account, collects transactions from the mempool, and bakes a block. Note that the baker is the only program that needs *direct access* to the node data directory for performance reasons.
+The baker is a *daemon* that, once connected to an account, computes the baking rights for that account, collects transactions from the *mempool*, and bakes a block. Note that the baker is the only program that needs *direct access* to the node data directory for performance reasons.
+
+> A daemon is a computer program that runs as a background process. 
 
 > The mempool is made of all transactions that have been submitted for inclusion in the chain but have not yet been included in a block by a baker.
 
@@ -90,6 +90,7 @@ There are different command lines depending on the *network* on which your node 
 - Mainnet: `tezos-baker-alpha`
 
 So, for *bob* on the *Mainnet*, the command is as follow:
+
 ```shell
 tezos-baker-alpha run with local node ~/.tezos-node bob
 ```
@@ -142,7 +143,7 @@ cd tezos
 export PATH=~/tezos:$PATH
 ```
 
-Or, if you prefer, put `./` before each following `tezos-` command line.
+Or, if you prefer, put `./` before each command line below that starts with `tezos-`.
 
 ### Download a snapshot for your target network
 
@@ -185,8 +186,8 @@ Tezos client can be used to interact with the node. It can query its status or a
 tezos-client bootstrapped
 ```
 
-### Get Free Tez
-To test the networks and help users get familiar with the system, you can obtain free *testnets* XTZ from a [faucet](https://faucet.tzalpha.net/).
+### Get free testnet Tez
+To test the networks and help users get familiar with the system, you can obtain free *testnets* Tez from a [faucet](https://faucet.tzalpha.net/).
 
 This will provide a faucet account in the form of a JSON file "_tz1xxxxxxxxx.json_", activated with the following command:
 
@@ -198,10 +199,8 @@ The output should be something like:
 
 ```shell
 Warning:
-  
-                 This is NOT the Tezos Mainnet.
-  
-           Do NOT use your fundraiser keys on this network.
+This is NOT the Tezos Mainnet.
+Do NOT use your fundraiser keys on this network.
 
 Node is bootstrapped.
 Operation successfully injected in the node.
@@ -224,7 +223,7 @@ Account john (tz1bNibySZy7kjNE3e17FUBFp9fMwfTKyfGQ) activated with ꜩ15943.7468
 
 Notice that you have a warning saying that you are **not** on the Mainnet, which is intended in our case.
 
-Also you can see that account "john" has 15943.746838ꜩ.
+Also you can see that account _john_ has 15943.746838ꜩ.
 You can check this account balance with the following command:
 
 ```shell
@@ -233,7 +232,7 @@ tezos-client get balance for john
 
 ### Register as a delegate
 
-Since "john" has more than 8000ꜩ, we will be able to register as a delegate:
+Since _john_ has more than 8000ꜩ, we will be able to register as a delegate:
 
 ```shell
  tezos-client register key john as delegate
@@ -245,7 +244,7 @@ Fortunately, we are on a testnet. And on testnets, the number of blocks per cycl
 
 So, 5 days later, we must appear in the list of bakers of [Florencenet](https://florence.tzstats.com/bakers).
 
-To launch the baker for the account "john", simply type the following command:
+To launch the baker for the account _john_, type the following command:
 
 ```shell
 tezos-baker-009-PsFLoren run with local node ~/tezos-florencenet john
@@ -255,11 +254,11 @@ As long as the message `No slot found at level xxxxxx (max_priority = 64)` is di
 
 ## Switching testnet
 
-Tezos is a fast evolving blockchain and testnets follow each other and replace each other. It will therefore be necessary from time to time to connect to a new network to prepare for a change.
+Tezos is a fast-evolving blockchain and testnets follow each other and replace each other. It will therefore be necessary from time to time to connect to a new network to prepare for a change.
 
 Let's say we already had a node configured on **Florencenet** (like in the [previous example](#example-for-baking-on-the-florencenet-testnet)) and that the new tesnet has just been released, let's say its name is **Newtestnet** (for the example). 
 
-To switch to Newtesnet, we will have to initialize another Tezos node.
+To switch to _Newtesnet_, we will have to initialize another Tezos node.
 
 Let's create a directory that will contain all the elements of our second node:
 
@@ -273,7 +272,7 @@ We then create the configuration, which initializes the connection to Newtestnet
 tezos-node config init --data-dir ~/tezos-newtestnet --network newtestnet
 ```
 
-Then we generate the identity
+Then we generate the identity:
 
 ```shell
 tezos-node identity generate --data-dir ~/tezos-newtestnet
@@ -286,7 +285,6 @@ tezos-node run --rpc-addr 127.0.0.1:8733 --data-dir ~/tezos-newtestnet
 ```
 
 The day Florencenet is shut down, we can delete the contents of the `.tezos-florencenet` directory, the data of our node.
-
 
 ## References
 

@@ -121,7 +121,7 @@ Congratulations on setting up a node!
 
 In this module, we have seen how to install Tezos from sources, create our own node, synchronize it with the blockchain and finally launch it.
 
-This module is a prerequisite to becoming a baker, and the [Deploy Bakers](/baker) module explains how to become a baker and start earning XTZ rewards.
+This module is a prerequisite to becoming a baker, and the [Deploy Bakers](/baker) module explains how to become a baker and start earning Tez rewards.
 
 ## References
 

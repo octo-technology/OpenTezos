@@ -1,18 +1,16 @@
 import React from 'react'
 
-import styles from './styles.module.css'
-
-import NotificationBar from '../NotificationBar'
 import CardsWrapper from '../Cards/CardsWrapper'
 import OverlayCard from '../Cards/OverlayCard'
 import SimpleTextCard from '../Cards/SimpleTextCard'
+import NotificationBar from '../NotificationBar'
+import styles from './styles.module.css'
 
 const paths = {
   ALL: 'All',
-  SMARTPY_DEV: 'Developer (SmartPy)',
-  LIGO_DEV: 'Developer (LIGO)',
+  DEV: 'Developer',
   SCIENTIST: 'Scientist',
-  C_LEVEL: 'C Level',
+  C_LEVEL: 'C-Level (CEO, CTO, etc.)',
   STARTUPPER: 'Startupper',
 }
 
@@ -44,7 +42,7 @@ class Paths extends React.Component {
 
         <h2>Modules in path</h2>
         <CardsWrapper>
-          {[paths.ALL, paths.SMARTPY_DEV, paths.LIGO_DEV, paths.SCIENTIST, paths.C_LEVEL, paths.STARTUPPER].includes(
+          {[paths.ALL, paths.DEV, paths.SCIENTIST, paths.C_LEVEL, paths.STARTUPPER].includes(
             this.state.path,
           ) && (
             <OverlayCard
@@ -55,7 +53,7 @@ class Paths extends React.Component {
               to="/blockchain-basics"
             />
           )}
-          {[paths.ALL, paths.SMARTPY_DEV, paths.LIGO_DEV, paths.SCIENTIST, paths.C_LEVEL, paths.STARTUPPER].includes(
+          {[paths.ALL, paths.DEV, paths.SCIENTIST, paths.C_LEVEL, paths.STARTUPPER].includes(
             this.state.path,
           ) && (
             <OverlayCard
@@ -66,7 +64,7 @@ class Paths extends React.Component {
               to="/tezos-basics"
             />
           )}
-          {[paths.ALL, paths.SMARTPY_DEV, paths.LIGO_DEV, paths.SCIENTIST].includes(
+          {[paths.ALL, paths.DEV, paths.SCIENTIST].includes(
             this.state.path,
           ) && (
             <OverlayCard
@@ -77,7 +75,7 @@ class Paths extends React.Component {
               to="/deploy-a-node"
             />
           )}
-          {[paths.ALL, paths.SMARTPY_DEV, paths.LIGO_DEV].includes(
+          {[paths.ALL, paths.DEV, paths.DEV].includes(
             this.state.path,
           ) && (
             <OverlayCard
@@ -88,7 +86,7 @@ class Paths extends React.Component {
               to="/explorer"
             />
           )}
-          {[paths.ALL, paths.SMARTPY_DEV].includes(
+          {[paths.ALL, paths.DEV].includes(
             this.state.path,
           ) && (
             <OverlayCard
@@ -99,7 +97,7 @@ class Paths extends React.Component {
               to="/smartpy"
             />
           )}
-          {[paths.ALL, paths.LIGO_DEV].includes(
+          {[paths.ALL, paths.DEV].includes(
             this.state.path,
           ) && (
             <OverlayCard
@@ -121,7 +119,7 @@ class Paths extends React.Component {
               to="/michelson"
             />
           )}
-          {[paths.ALL, paths.SMARTPY_DEV, paths.LIGO_DEV, paths.STARTUPPER].includes(
+          {[paths.ALL, paths.DEV, paths.STARTUPPER].includes(
             this.state.path,
           ) && (
             <OverlayCard
@@ -132,7 +130,7 @@ class Paths extends React.Component {
               to="/dapp"
             />
           )}
-          {[paths.ALL, paths.SMARTPY_DEV, paths.LIGO_DEV, paths.SCIENTIST, paths.C_LEVEL, paths.STARTUPPER].includes(
+          {[paths.ALL, paths.DEV, paths.SCIENTIST, paths.C_LEVEL, paths.STARTUPPER].includes(
             this.state.path,
           ) && (
             <OverlayCard
@@ -143,7 +141,7 @@ class Paths extends React.Component {
               to="/baking"
             />
           )}
-          {[paths.ALL, paths.SMARTPY_DEV, paths.LIGO_DEV, paths.STARTUPPER].includes(
+          {[paths.ALL, paths.DEV, paths.STARTUPPER].includes(
             this.state.path,
           ) && (
             <OverlayCard
@@ -154,7 +152,7 @@ class Paths extends React.Component {
               to="/baker"
             />
           )}
-          {[paths.ALL, paths.SMARTPY_DEV, paths.LIGO_DEV, paths.C_LEVEL, paths.STARTUPPER].includes(
+          {[paths.ALL, paths.DEV, paths.C_LEVEL, paths.STARTUPPER].includes(
             this.state.path,
           ) && (
             <OverlayCard
@@ -187,7 +185,7 @@ class Paths extends React.Component {
               to="/private"
             />
           )}
-          {[paths.ALL, paths.SMARTPY_DEV, paths.LIGO_DEV].includes(
+          {[paths.ALL, paths.DEV, paths.DEV].includes(
             this.state.path,
           ) && (
             <OverlayCard

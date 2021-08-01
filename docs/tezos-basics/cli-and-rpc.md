@@ -11,7 +11,7 @@ The _tezos-client_ and _Tezos RPC_ need to connect to a Tezos node. You can conn
 
 You can find a list of *community nodes* [here](https://tezostaquito.io/docs/rpc_nodes/).
 
-If you use a testnet, you can download a *faucet file* with free **test**'s XTZ [here](https://faucet.tzalpha.net). Below is an example of such a JSON file:
+If you use a testnet, you can download a *faucet file* with free **test**'s Tez [here](https://faucet.tzalpha.net). Below is an example of such a JSON file:
 ```json
 {
   "mnemonic": [

@@ -3,7 +3,7 @@
   "id": "deploy-a-node/networks",
   "isDocsHomePage": false,
   "title": "What about networks?",
-  "description": "In this chapter, we will see how Tezos is multi-networks. We will learn what the \"main network\" and the \"test networks\" are. Finally, we will discover how to configure our node on a chosen network.",
+  "description": "In this chapter, we will see how Tezos is multi-network. We will learn what the \"main network\" and the \"test networks\" are and finally, we will discover how to configure our node on a chosen network.",
   "source": "@site/docs/deploy-a-node/networks.md",
   "sourceDirName": "deploy-a-node",
   "slug": "/deploy-a-node/networks",

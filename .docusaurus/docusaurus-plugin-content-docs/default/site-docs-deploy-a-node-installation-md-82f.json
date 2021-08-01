@@ -3,7 +3,7 @@
   "id": "deploy-a-node/installation",
   "isDocsHomePage": false,
   "title": "Installation",
-  "description": "In this chapter, we will see how to install Tezos from source with Unbuntu and macOS.",
+  "description": "In this chapter, we will see how to install Tezos from the source with Unbuntu and macOS.",
   "source": "@site/docs/deploy-a-node/installation.md",
   "sourceDirName": "deploy-a-node",
   "slug": "/deploy-a-node/installation",

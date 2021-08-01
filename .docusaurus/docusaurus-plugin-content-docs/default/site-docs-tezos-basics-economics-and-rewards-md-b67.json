@@ -3,7 +3,7 @@
   "id": "tezos-basics/economics-and-rewards",
   "isDocsHomePage": false,
   "title": "Economics and rewards",
-  "description": "In this chapter, we will dig deeper into the fees of the Tezos network and the baking and endorsing rewards. The calculations you'll learn about are helpful from the simplest transaction issuance to the most complex application built on Tezos. That is why it is importent to understand the basics of fees and gas optimizations. Of course, this will be particularly useful if you are a baker or an endorser.",
+  "description": "In this chapter, we will dig deeper into the fees of the Tezos network and the baking and endorsing rewards. The calculations you'll learn about are helpful from the simplest transaction issuance to the most complex application built on Tezos. That is why it is important to understand the basics of fees and gas optimizations. Of course, this will be particularly useful if you are a baker or an endorser.",
   "source": "@site/docs/tezos-basics/economics-and-rewards.md",
   "sourceDirName": "tezos-basics",
   "slug": "/tezos-basics/economics-and-rewards",

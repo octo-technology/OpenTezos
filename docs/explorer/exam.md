@@ -44,7 +44,7 @@ Which of the following block explorers is designed for the Tezos Blockchain?
 
 What does a block explorer such as _TzStats_ allow you to do?
 
-<ExamCheckbox name="30" isCorrect="true">Get an overview of the main activity on the Tezos network, e.g. staking activity, gas price, XTZ offer, transaction volume, etc.</ExamCheckbox>
+<ExamCheckbox name="30" isCorrect="true">Get an overview of the main activity on the Tezos network, e.g. staking activity, gas price, Tez offer, transaction volume, etc.</ExamCheckbox>
 <ExamCheckbox name="31" isCorrect="true">Get general information about a specific block number.</ExamCheckbox>
 <ExamCheckbox name="32" isCorrect="false">Delete a block.</ExamCheckbox>
 <ExamCheckbox name="33" isCorrect="true">Get an overview of the Tezos baker landscape.</ExamCheckbox>

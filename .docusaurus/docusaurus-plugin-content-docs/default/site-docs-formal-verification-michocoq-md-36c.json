@@ -17,5 +17,14 @@
     "id": "michocoq",
     "title": "Mi-Cho-Coq",
     "authors": "Frank Hillard"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Generalities",
+    "permalink": "/formal-verification/general"
+  },
+  "next": {
+    "title": "Formal verification on smart contracts",
+    "permalink": "/formal-verification/modeling-theorem"
   }
 }

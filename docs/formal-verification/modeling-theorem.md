@@ -140,7 +140,7 @@ Here is the code of the smart contract:
 
 Notice that candidates are identified by a `string` value (entrypoint argument) and the storage is a `map string int`.
 
-Notice that amount of XTZ transferred must be lower than five million; otherwise the execution fails.
+Notice that amount of Tez transferred must be lower than five million; otherwise the execution fails.
 
 Notice also that the candidate must be registered; otherwise the execution fails.
 
@@ -274,7 +274,7 @@ The rule "Only the storage is modified" can be expressed by verifying that no op
 returned_operations = nil
 ```
 
-As seen previously, the smart contract can be executed only if the amount of XTZ transferred is lower than 5000000; otherwise the execution fails. This constraint can be written in Coq (Gallina - Terms) with the following:
+As seen previously, the smart contract can be executed only if the amount of Tez transferred is lower than 5000000; otherwise the execution fails. This constraint can be written in Coq (Gallina - Terms) with the following:
 
 ```
 (Z.ge (tez.to_Z (amount env)) 5000000)

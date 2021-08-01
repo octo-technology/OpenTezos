@@ -8,13 +8,13 @@ Becoming a baker or a delegate on Tezos is a great way to contribute to the ecos
 
 ## How to bake?
 
-Everyone with at least 8,000 XTZ can produce, sign and validate blocks and get rewards in proportion to their stake. The only thing you need to exercise your baking rights is to run a node with baking software and keep it online and up to date.
+Everyone with at least 8,000 Tez can produce, sign and validate blocks and get rewards in proportion to their stake. The only thing you need to exercise your baking rights is to run a node with baking software and keep it online and up to date.
 
 OpenTezos has dedicated modules on [How baking works](/baking) and [How to set up your baker](/baker). However, this might be pretty complicated for inexperienced users — a more accessible alternative is to delegate instead of baking.
 
 ## Delegation
 
-Self-baking lets a baker earn a higher yield but requires technical expertise and time to set up a baker node and run the baking software reliably with as little downtime as possible. By delegating Tezos tokens, a token holder avoids this process altogether but usually earns a lower yield. In the current protocol, token holders with less than 8,000 XTZ can only bake by delegating to another baker.
+Self-baking lets a baker earn a higher yield but requires technical expertise and time to set up a baker node and run the baking software reliably with as little downtime as possible. By delegating Tezos tokens, a token holder avoids this process altogether but usually earns a lower yield. In the current protocol, token holders with less than 8,000 Tez can only bake by delegating to another baker.
 
 Delegation is when you delegate your staking/baking rights to another person (the baker) rather than setting your Tezos node. It's a pretty helpful feature as it allows you to participate in staking and receive Tezos staking rewards without the necessity of maintaining a node.
 
@@ -25,10 +25,10 @@ Delegation in Tezos is safe! Your funds are not locked or frozen and do not move
 In short, delegation is much better for an average user. Yes, Tezos bakers get slightly more staking rewards. Still, they pay for hosting; they spend time maintaining a node, and they have a risk of losing money on double baking (e.g., if the node was misconfigured). Thus, delegation is the most preferred and safe way for an average user to participate in Tezos staking.
 
 ## How to delegate?
-Most wallet (e.g. [Atomex](https://atomex.me/), [Exodus](https://www.exodus.com/), etc.) offer built-in delegation, making the whole process very simple. Just open the wallet, select your XTZ balance, click delegate and choose a baker from the list. 
+Most wallet (e.g. [Atomex](https://atomex.me/), [Exodus](https://www.exodus.com/), etc.) offer built-in delegation, making the whole process very simple. Just open the wallet, select your Tez balance, click delegate and choose a baker from the list. 
 
 ![](../../static/img/contribute/delegate.gif)
-<small className="figure">FIGURE 1: Delegating your XTZ on _Atomex_.</small>
+<small className="figure">FIGURE 1: Delegating your Tez on _Atomex_.</small>
 
 That's it. The only thing you should worry about is choosing an excellent and reliable Tezos baker or delegation service. 
 
@@ -43,7 +43,7 @@ That's it. The only thing you should worry about is choosing an excellent and re
 - *Security*: Is this baker's staking setup secure? Does this baker have a track record? Has this baker double-baked in the past and lost coins?
 
 ## How much can I earn by baking or delegating?
-The current Tezos protocol increases the token supply by approximately 5.51% in the first year (based on constant block rewards of 16 XTZ/block and 2 XTZ/endorsement).
+The current Tezos protocol increases the token supply by approximately 5.51% in the first year (based on constant block rewards of 16 Tez/block and 2 Tez/endorsement).
 
 This inflation means that if *all* Tezos token holders bake with all of their tokens (i.e., the entire Tezos supply), baking rewards would be near ~5.51% per year. However, given the variance in time preferences, knowledge, and capabilities, it is unlikely that all token holders will bake, and the expected return on baking is in practice greater than 5.51% a year. By illustration, if 50% of the Tezos token supply is being staked, the baking reward will be closer to 11% (double the inflation rate).
 

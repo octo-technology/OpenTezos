@@ -1,0 +1,30 @@
+{
+  "unversionedId": "baking/cli-baker",
+  "id": "baking/cli-baker",
+  "isDocsHomePage": false,
+  "title": "CLI to become a baker",
+  "description": "In this chapter, we will see the CLI command lines for registering as a delegate. Then we will see how to exercise your rights as a baker, endorser, and accuser.",
+  "source": "@site/docs/baking/cli-baker.md",
+  "sourceDirName": "baking",
+  "slug": "/baking/cli-baker",
+  "permalink": "/baking/cli-baker",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/baking/cli-baker.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "id": "cli-baker",
+    "title": "CLI to become a baker",
+    "authors": "Maxime Sallerin"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Rewards",
+    "permalink": "/baking/reward"
+  },
+  "next": {
+    "title": "Delegating",
+    "permalink": "/baking/delegating"
+  }
+}

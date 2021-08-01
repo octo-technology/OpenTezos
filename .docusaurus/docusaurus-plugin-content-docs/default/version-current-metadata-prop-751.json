@@ -96,6 +96,11 @@
           },
           {
             "type": "link",
+            "label": "Voting",
+            "href": "/tezos-basics/voting"
+          },
+          {
+            "type": "link",
             "label": "History of amendments",
             "href": "/tezos-basics/history-of-amendments"
           },
@@ -375,6 +380,16 @@
           },
           {
             "type": "link",
+            "label": "CLI to become a baker",
+            "href": "/baking/cli-baker"
+          },
+          {
+            "type": "link",
+            "label": "Delegating",
+            "href": "/baking/delegating"
+          },
+          {
+            "type": "link",
             "label": "List of bakers",
             "href": "/baking/bakers_list"
           },
@@ -382,38 +397,6 @@
             "type": "link",
             "label": "Exam",
             "href": "/baking/exam"
-          }
-        ]
-      },
-      {
-        "collapsed": true,
-        "type": "category",
-        "label": "Deploy Bakers",
-        "items": [
-          {
-            "type": "link",
-            "label": "Introduction",
-            "href": "/baker"
-          },
-          {
-            "type": "link",
-            "label": "CLI to become a baker",
-            "href": "/baker/cli-baker"
-          },
-          {
-            "type": "link",
-            "label": "Delegating",
-            "href": "/baker/delegating"
-          },
-          {
-            "type": "link",
-            "label": "Voting",
-            "href": "/baker/voting"
-          },
-          {
-            "type": "link",
-            "label": "Exam",
-            "href": "/baker/exam"
           }
         ]
       },
@@ -486,8 +469,13 @@
           },
           {
             "type": "link",
-            "label": "Coq, GADT and Mi-Cho-Coq",
-            "href": "/formal-verification/gadt-coq"
+            "label": "Generalities",
+            "href": "/formal-verification/general"
+          },
+          {
+            "type": "link",
+            "label": "Mi-Cho-Coq",
+            "href": "/formal-verification/michocoq"
           },
           {
             "type": "link",
@@ -588,13 +576,10 @@
     ]
   },
   "permalinkToSidebar": {
-    "/baker/cli-baker": "docs",
-    "/baker/delegating": "docs",
-    "/baker/exam": "docs",
-    "/baker": "docs",
-    "/baker/voting": "docs",
     "/baking/bakers_list": "docs",
     "/baking/baking_explained": "docs",
+    "/baking/cli-baker": "docs",
+    "/baking/delegating": "docs",
     "/baking/exam": "docs",
     "/baking": "docs",
     "/baking/reward": "docs",
@@ -642,8 +627,9 @@
     "/explorer/tzstats-main-features": "docs",
     "/explorer/tzstats-smart-contract": "docs",
     "/formal-verification/exam": "docs",
-    "/formal-verification/gadt-coq": "docs",
+    "/formal-verification/general": "docs",
     "/formal-verification": "docs",
+    "/formal-verification/michocoq": "docs",
     "/formal-verification/modeling-theorem": "docs",
     "/ligo/deploy-a-contract": "docs",
     "/ligo/exam": "docs",
@@ -681,6 +667,7 @@
     "/tezos-basics/liquid-proof-of-stake": "docs",
     "/tezos-basics/operations": "docs",
     "/tezos-basics/smart-contracts": "docs",
+    "/tezos-basics/voting": "docs",
     "/": "docs",
     "/paths": "docs"
   }

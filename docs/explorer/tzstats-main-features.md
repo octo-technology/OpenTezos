@@ -19,7 +19,7 @@ Each Tezos network has its own _TzStats_ version:
 
 TzStats has a complete guide available [here](https://tzstats.com/docs/guide).
 
-- [Main Dashboard](https://tzstats.com/): This page provides a quick view of all the main activity on the Tezos network, e.g. staking activity, gas price, XTZ supply, transaction volume, etc.
+- [Main Dashboard](https://tzstats.com/): This page provides a quick view of all the main activity on the Tezos network, e.g. staking activity, gas price, Tez supply, transaction volume, etc.
   ![](../../static/img/explorer/tzStats_first_page.png)
   <small className="figure">TzStats Main Dashboard</small>
 

@@ -121,7 +121,7 @@ The Michelson language provides basic operations on these types:
 - string: split, concatenation, comparison
 - crypto: standard hash function
 - collection: standard collection manipulation (create, insert, remove, access, modification) 
-- currency: standard operations on XTZ crypto-currency
+- currency: standard operations on Tez crypto-currency
 - smart contract: contract interactions, transfer, invocation of smart contracts, delegation
 
 These instructions introduce basic programming concepts such as:
@@ -143,7 +143,7 @@ To be accessible to anyone on the Tezos network, a smart contract must be deploy
 
 Tezos smart contracts have built-in internal information available once the smart contract has been deployed:
 - its **address** of the smart contract, that is a unique identifier.
-- its **balance**, representing the quantity of XTZ owned by the smart contract.
+- its **balance**, representing the quantity of Tez owned by the smart contract.
 
 ## Invocation and transaction return (list of operations, storage)
 The **invocation** of a smart contract is an explicit call for executing the smart contract code. It requires a call parameter which is a tuple of two elements (`PAIR`) containing:

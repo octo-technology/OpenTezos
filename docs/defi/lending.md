@@ -40,7 +40,7 @@ Interests paid on loans are based on their APY. Lenders usually offer two kinds 
 - A variable APY, which is updated at every block depending on offer and demand.
 - A much higher but stable APY that will not change during the whole period of your loan.
 
-Variable rates may sometimes be low and attractive, but keep in mind that they can sharply move at any time. As seen above, if XTZ crashes, demand for loans increases, and variable APYs can skyrocket.
+Variable rates may sometimes be low and attractive, but keep in mind that they can sharply move at any time. As seen above, if the exchange rate of XTZ goes down, demand for loans increases, and variable APYs can skyrocket.
 
 For instance, if you borrow $100 for a year at a stable APY of 10%, you will pay $10 interest. Now consider borrowing at a 5% variable APY, but after 6 months, the APY jumps to 30% for the rest of the year. You would then have to pay $2.5 interest for the first 6 months and $15 for the last 6 months.
 

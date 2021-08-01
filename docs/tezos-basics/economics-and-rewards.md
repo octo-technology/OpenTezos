@@ -16,7 +16,7 @@ Let:
 - Gas used for the operation (in gas unit "$\text{g}_u$"): $\text{g}$
 - Minimal nano-tez per byte: $\text{min(nꜩ/B)}$
 - Minimal nano-tez per gas unit: $\text{min(nꜩ/}\text{g}_u\text{)}$  
-  Gas unit cost in XTZ is defined by the protocol. It does not depend on the fee market; it does not depend on arbitrary defaults in config files; etc [[2]](/tezos-basics/economics-and-rewards#references)
+  Gas unit cost in Tez is defined by the protocol. It does not depend on the fee market; it does not depend on arbitrary defaults in config files; etc [[2]](/tezos-basics/economics-and-rewards#references)
 
 Then:
 $$
@@ -143,8 +143,8 @@ The operation is the same for a low-priority block.
 For more detail about the Tezos baking process, please refer to the ["*Baking*"](/baking/introduction) module.
 
 ### Inflation
-It's important to note that the XTZ token is based on a model with inflation. By adding up the baking and endorsing block rewards, each new high-priority block generates 80 new XTZ. A new block is created roughly every minute. This represents 42 Million XTZ per year ($\approx$ 80 ꜩ $\times$ 60 mins $\times$ 24 hours $\times$ 365 days). At the Tezos launch, the network was composed of 763 Million XTZ.
-Therefore the inflation rate of the XTZ token is approximatively 5.5%:
+It's important to note that the Tez token is based on a model with inflation. By adding up the baking and endorsing block rewards, each new high-priority block generates 80 new Tez. A new block is created roughly every minute. This represents 42 Million Tez per year ($\approx$ 80 ꜩ $\times$ 60 mins $\times$ 24 hours $\times$ 365 days). At the Tezos launch, the network was composed of 763 Million Tez.
+Therefore the inflation rate of the Tez token is approximatively 5.5%:
 $$
 \frac{42,000,000}{763,000,000}=\frac{42}{763}\approx5.5\%
 $$

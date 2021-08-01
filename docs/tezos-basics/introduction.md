@@ -33,7 +33,7 @@ The coins allocated to the fundraiser's contributors were (and still are) only a
 
 The Tezos fundraiser was a complete success: it stayed live for only 13 days and gathered 66,000 bitcoins and 361,000 ethers. At the time, this was valued at 232 million dollars ($230,000,000). Currently, with cryptocurrencies' success, this value is much higher.
 
-The total supply was the number of coins issued during the fundraiser. Unlike, for example, Bitcoin, the total supply of Tezos coins has no limit. The Tezos coins are called "**tez**" and their symbol "**ꜩ**" (\ua729, "Latin small letter tz"). The symbol "**XTZ**" is also used, especially on markets.
+The total supply was the number of coins issued during the fundraiser. Unlike, for example, Bitcoin, the total supply of Tezos coins has no limit. The Tezos coins are called "**Tez**" and their symbol "**ꜩ**" (\ua729, "Latin small letter tz"). The symbol "**XTZ**" is also used, especially on markets.
 
 To promote Tezos, the founders created the **_Tezos Foundation_**. Based in Switzerland, its role is to help the network expand. It has no control over the blockchain and doesn't manage the Tezos network. Since the fundraiser, it used funds to support beneficial projects for the Tezos community's [[2]](/tezos-basics/#references).
 The Tezos Foundation supports the community and deploys resources to support Tezos's long-term development.

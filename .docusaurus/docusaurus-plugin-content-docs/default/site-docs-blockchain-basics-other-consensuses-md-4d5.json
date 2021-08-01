@@ -3,7 +3,7 @@
   "id": "blockchain-basics/other-consensuses",
   "isDocsHomePage": false,
   "title": "Introduction to other consensus algorithms",
-  "description": "In this chapter, we will briefly introduce some other public consensus algorithms.",
+  "description": "In this chapter, we will briefly introduce some other public consensus mechanisms.",
   "source": "@site/docs/blockchain-basics/other-consensuses.md",
   "sourceDirName": "blockchain-basics",
   "slug": "/blockchain-basics/other-consensuses",

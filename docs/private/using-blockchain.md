@@ -49,7 +49,7 @@ docker exec <container_name> /base-dir/tezos-client \
   import secret key alice unencrypted:edpkubXzL1rs3dQAGEdTyevfxLw3pBCTF53CdWKdJJYiBFwC1xZSct
 ```
 
-Account alice has 4,000,000 of XTZ. Check it out with this command:
+Account alice has 4,000,000 of Tez. Check it out with this command:
 
 ```shell
 docker exec <container_name> /base-dir/tezos-client \
@@ -83,9 +83,9 @@ Hash: tz1UQiBLRbiWAUfGjZNUpNWKLvQez95ZXy2K
 Public Key: edpkvRZrUoDqw7PpZ5wLHeDDjSLx9e1WJt3tGJKWUbXNt4CQz7tzFA
 ```
 
-Bob has 0 XTZ since we just created his account.
+Bob has 0 Tez since we just created his account.
 
-Now, let's transfer some XTZ from alice to bob with this command:
+Now, let's transfer some Tez from alice to bob with this command:
 
 ```shell
 docker exec <container_name> /base-dir/tezos-client \
@@ -93,7 +93,7 @@ docker exec <container_name> /base-dir/tezos-client \
   --wait none transfer 100 from alice to bob --burn-cap 0.257
 ```
  
- Finally, you can check that bob has indeed received 100 XTZ
+ Finally, you can check that bob has indeed received 100 Tez
 
 ```shell
 docker exec <container_name> /base-dir/tezos-client \

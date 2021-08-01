@@ -40,7 +40,7 @@ If XTZ goes up, the value of her collateral increases. She can either withdraw s
 If XTZ go below $150 / 40 = 3.75$ USD, her collateral would go below 150%. If Alice doesn't send more XTZ to the CDP to compensate, before it reaching 150%, her CDP would be liquidated, meaning that the contract is closed, and her XTZ are sold publicly to other traders. Alice still has the 100 stable-USD, but she just lost $150 worth of XTZ.
 
 #### Risks
-The greatest threat to a crypto-collateralized stablecoin is a massive crash of the collateral cryptocurrency [[4]](/defi/stablecoins#references). When a CDP gets liquidated, other traders must buy the XTZ to make up for the debt in stable-USD. They make a nice profit as they usually buy it just below 150% of valuation. Now, if XTZ crashes significantly and so fast that liquidated CDPs' collateral drops below 100% of their debt, then nobody will want to buy them. This would ultimately make CDPs worthless and derail the stable-USD off its peg.
+The greatest threat to a crypto-collateralized stablecoin is a massive crash of the collateral cryptocurrency [[4]](/defi/stablecoins#references). When a CDP gets liquidated, other traders must buy the collateral to make up for the debt in stable-USD. They make a nice profit as they usually buy it just below 150% of valuation. Now, if a crypto crashes significantly and so fast that liquidated CDPs' collateral drops below 100% of their debt, then nobody will want to buy them. This would ultimately make CDPs worthless and derail the stable-USD off its peg.
 
 The most popular crypto-collateralized stablecoin is [DAI from MakerDAO](https://makerdao.com/) on Ethereum. Their white paper can be found [here](https://makerdao.com/whitepaper/DaiDec17WP.pdf).
 

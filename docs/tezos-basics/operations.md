@@ -86,7 +86,7 @@ The operation also includes the block hash ("*branch*" field) of a recent block 
 
 This last line of defence is named "*TAPOS*": a statistical detection of a *Long Range Attack* (see [*Liquid Proof of Stake*](/tezos-basics/liquid-proof-of-stake#long-range-attack) chapter) based on the fraction of moving coins. This kind of system prevents long reorganizations but is inefficient with short-term double-spending.
 
-Currently the Tezos network on Florence can process around 100 TPS (transactions per second) or 121 TPS for XTZ transfers and has an operation confirmation time of 30 minutes. This speed may vary with future protocols. Operation confirmation time is the time it takes for an operation to be considered secure. As a comparison, _Bitcoin_ can process 7 TPS and has a confirmation time of 60 minutes (6 valid blocks).
+Currently the Tezos network on Florence can process around 100 TPS (transactions per second) or 121 TPS for Tez transfers and has an operation confirmation time of 30 minutes. This speed may vary with future protocols. Operation confirmation time is the time it takes for an operation to be considered secure. As a comparison, _Bitcoin_ can process 7 TPS and has a confirmation time of 60 minutes (6 valid blocks).
 
 ## Operation Flow
 

@@ -3,7 +3,7 @@
   "id": "tezos-basics/operations",
   "isDocsHomePage": false,
   "title": "Operations",
-  "description": "This chapter introduces the notion of Operations on Tezos. These are more commonly known as Transactions on other blockchains.",
+  "description": "This chapter introduces the notion of Operations on Tezos. These are more commonly known as Transactions on other blockchains and in Tezos are a subset of operations. On Tezos, transactions are transfers of tokens and smart contracts calls. A few examples of operations that are not transactions on Tezos: Originations; endorsements; proposals; ballots...",
   "source": "@site/docs/tezos-basics/operations.md",
   "sourceDirName": "tezos-basics",
   "slug": "/tezos-basics/operations",

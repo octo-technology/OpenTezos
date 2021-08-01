@@ -6,7 +6,7 @@ authors: Maxime Sallerin
 
 In this chapter, we will see how to delegate your coins. We'll use command lines or simple wallets' built-in options.
 
-Self-baking lets a baker earn a higher yield but requires technical expertise and time to set up a baker node and run the baking software reliably with as little downtime as possible. By delegating Tezos tokens, a token holder avoids this process altogether but usually earns a lower yield. In the current protocol, token holders with less than 8,000 XTZ can only bake by delegating to another baker.
+Self-baking lets a baker earn a higher yield but requires technical expertise and time to set up a baker node and run the baking software reliably with as little downtime as possible. By delegating Tezos tokens, a token holder avoids this process altogether but usually earns a lower yield. In the current protocol, token holders with less than 8,000 Tez can only bake by delegating to another baker.
 
 Delegation is when you delegate your staking/baking rights to another person (the baker) rather than setting your Tezos node. It's a pretty helpful feature as it allows you to participate in staking and receive Tezos staking rewards without the necessity of maintaining a node.
 
@@ -61,14 +61,14 @@ Wallets like [Atomex](https://atomex.me/), [Exodus](https://www.exodus.com/), [T
 The main steps are as follows:
 
 1. Create a wallet
-2. Supply your wallet with XTZ
+2. Supply your wallet with Tez
 3. Click on "Delegation" part
 4. Choose a baker
 5. Choose the amount to delegate
 6. Start earning interests
 
 ![](../../static/img/contribute/delegate.gif)
-<small className="figure">FIGURE 1: Delegating your XTZ on _Atomex_.</small>
+<small className="figure">FIGURE 1: Delegating your Tez on _Atomex_.</small>
 
 That's it. The only thing you should worry about is choosing an excellent and reliable Tezos baker or delegation service. 
 

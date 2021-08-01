@@ -277,7 +277,7 @@ You can see the history of calls, the entrypoints, the storage, etc. Notice the 
 origination of the contract and the purchase of a ticket.
 
 The storage page displays the storage definition, the type of each field and their associated current value. Note that
-one participant is registered in the raffle and the contract holds one XTZ (from selling one ticket).
+one participant is registered in the raffle and the contract holds one Tez (from selling one ticket).
 ![](../../static/img/explorer/tzstat-5.png "Smart contract storage page")
 
 ### About big maps

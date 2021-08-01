@@ -1,14 +1,13 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-
-import BaseContainer from '../BaseContainer'
-import WithBackgroundImage from '../../WithBackgroundImage'
-
 import classnames from 'classnames'
+import PropTypes from 'prop-types'
+import React from 'react'
+
+import WithBackgroundImage from '../../WithBackgroundImage'
+import BaseContainer from '../BaseContainer'
 import styles from './styles.module.css'
 
 const SimpleTextCard = ({ bolded, icon, iconDark, overlay, smallerImage, title, to, onClick }) => (
-  <BaseContainer className={styles.root} overlay={overlay} to={to} onClick={onClick}>
+  <BaseContainer selected={bolded} className={styles.root} overlay={overlay} to={to} onClick={onClick}>
     <WithBackgroundImage
       className={classnames(styles.image, {
         [styles.smaller]: smallerImage,

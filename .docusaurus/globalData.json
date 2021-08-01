@@ -11,31 +11,6 @@
           "mainDocId": "welcome/modules",
           "docs": [
             {
-              "id": "baker/cli-baker",
-              "path": "/baker/cli-baker",
-              "sidebar": "docs"
-            },
-            {
-              "id": "baker/delegating",
-              "path": "/baker/delegating",
-              "sidebar": "docs"
-            },
-            {
-              "id": "baker/exam",
-              "path": "/baker/exam",
-              "sidebar": "docs"
-            },
-            {
-              "id": "baker/introduction",
-              "path": "/baker",
-              "sidebar": "docs"
-            },
-            {
-              "id": "baker/voting",
-              "path": "/baker/voting",
-              "sidebar": "docs"
-            },
-            {
               "id": "baking/bakers_list",
               "path": "/baking/bakers_list",
               "sidebar": "docs"
@@ -43,6 +18,16 @@
             {
               "id": "baking/baking_explained",
               "path": "/baking/baking_explained",
+              "sidebar": "docs"
+            },
+            {
+              "id": "baking/cli-baker",
+              "path": "/baking/cli-baker",
+              "sidebar": "docs"
+            },
+            {
+              "id": "baking/delegating",
+              "path": "/baking/delegating",
               "sidebar": "docs"
             },
             {
@@ -282,7 +267,11 @@
             },
             {
               "id": "formal-verification/gadt-coq",
-              "path": "/formal-verification/gadt-coq",
+              "path": "/formal-verification/gadt-coq"
+            },
+            {
+              "id": "formal-verification/general",
+              "path": "/formal-verification/general",
               "sidebar": "docs"
             },
             {
@@ -292,7 +281,8 @@
             },
             {
               "id": "formal-verification/michocoq",
-              "path": "/formal-verification/michocoq"
+              "path": "/formal-verification/michocoq",
+              "sidebar": "docs"
             },
             {
               "id": "formal-verification/modeling-theorem",
@@ -481,6 +471,11 @@
             {
               "id": "tezos-basics/smart-contracts",
               "path": "/tezos-basics/smart-contracts",
+              "sidebar": "docs"
+            },
+            {
+              "id": "tezos-basics/voting",
+              "path": "/tezos-basics/voting",
               "sidebar": "docs"
             },
             {
