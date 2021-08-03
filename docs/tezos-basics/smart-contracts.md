@@ -6,7 +6,7 @@ authors: Thomas Zoughebi, Aymeric Bethencourt, and Maxime Fernandez
 In this chapter, you will learn the basics of Tezos smart contracts. Their components and the workflow to deploy and use them on the Tezos *blockchain*.
 
 ## General definition of a Tezos smart contract
-A smart contract is a piece of code stored on the *blockchain*. It countains a **set of instructions** and **rules** to trigger them (see the [promises](/blockchain-basics/smart-contracts#definition-of-a-smart-contract) from the "*Blockchain Basics*" module).
+A smart contract is a piece of code stored on the *blockchain*. It contains a **set of instructions** and **rules** to trigger them (see the [promises](/blockchain-basics/smart-contracts#definition-of-a-smart-contract) from the "*Blockchain Basics*" module).
 
 Once deployed (stored), it becomes **immutable**. A Tezos smart contract is deployed using an **operation** (note here the Tezos' vocabulary, we don't talk about a "transaction" for a deployment like before). This operation still requires payment of fees.
 
