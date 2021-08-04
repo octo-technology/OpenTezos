@@ -88,7 +88,7 @@ Which type of consensus was used at *Ethereum*'s launch?
 Which type of consensus is used in Tezos?
 
 <ExamCheckbox name="80" isCorrect="false">Delegated Proof-of-Stake</ExamCheckbox>
-<ExamCheckbox name="81" isCorrect="false">Absolut Proof-of-Stake</ExamCheckbox>
+<ExamCheckbox name="81" isCorrect="false">Absolute Proof-of-Stake</ExamCheckbox>
 <ExamCheckbox name="82" isCorrect="false">Proof-of-Stake</ExamCheckbox>
 <ExamCheckbox name="83" isCorrect="true">Liquid Proof-of-Stake</ExamCheckbox>
 

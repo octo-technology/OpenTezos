@@ -93,7 +93,7 @@ More details on that in the [next chapter on Proof-of-Work](/blockchain-basics/p
 ## Account Unit and Economy Basics
 Miners use their computational power and electricity to mine. That's why they are rewarded for it. The rewards are in the account unit. Bitcoin uses bitcoins, while Ethereum uses ethers.
 
-To get these rewards, they must _work_, and then _proove they have worked_. In Bitcoin, they work by using up electricity and computing time. So to make this activity profitable, miners have to find efficient calculators and low-cost electricity.
+To get these rewards, they must _work_, and then _prove they have worked_. In Bitcoin, they work by using up electricity and computing time. So to make this activity profitable, miners have to find efficient calculators and low-cost electricity.
 
 Over time, miners have grouped to use more and more powerful machines together as more people began this activity. This increases the number of attempts (the number of lottery tickets) of the global network to find a valid block. Because the function used for that is a **hash** function (_SHA256_), this network efficiency is called "**hashing power**".
 
