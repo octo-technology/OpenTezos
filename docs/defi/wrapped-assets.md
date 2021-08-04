@@ -20,7 +20,7 @@ Indeed, XTZ is the proto-token of the Tezos Blockchain, i.e., it was built befor
 ![](../../static/img/defi/non-compliant.svg)
 <small className="figure">FIGURE 1: XTZ can't interact with FA tokens</small>
 
-One solution consists of _wrapping_ XTZ into an FA-compliant token called _wXTZ_. Wrapping XTZ allows you to trade them directly with alt tokens. You need wXTZ to trade XTZ for other FA tokens on decentralized platforms like _Dexter_ and _Quipuswap_. Because decentralized platforms running on Tezos use smart contracts to facilitate trades, directly between users, every user needs to have the same standardized format for the tokens they trade. This ensures tokens don't get lost.
+One solution consists in _wrapping_ XTZ into an FA-compliant token called _wXTZ_. Wrapping XTZ allows you to trade them directly with alt tokens. You need wXTZ to trade XTZ for other FA tokens on decentralized platforms like _Dexter_ and _Quipuswap_. Because decentralized platforms running on Tezos use smart contracts to facilitate trades, directly between users, every user needs to have the same standardized format for the tokens they trade. This ensures tokens don't get lost.
 
 ![](../../static/img/defi/wrap.svg)
 <small className="figure">FIGURE 2: Wrapping XTZ and unwrapping wXTZ</small>

@@ -212,12 +212,31 @@
                     "id": "ligo/installation"
                   },
                   {
-                    "type": "doc",
-                    "id": "ligo/write-contracts-ligo"
-                  },
-                  {
-                    "type": "doc",
-                    "id": "ligo/language-basics"
+                    "collapsed": true,
+                    "type": "category",
+                    "label": "Raffle example",
+                    "items": [
+                      {
+                        "type": "doc",
+                        "id": "ligo/write-contract-ligo/1-raffle-contract"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "ligo/write-contract-ligo/2-launch-raffle"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "ligo/write-contract-ligo/3-buy-ticket"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "ligo/write-contract-ligo/4-close-raffle"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "ligo/write-contract-ligo/5-refactoring"
+                      }
+                    ]
                   },
                   {
                     "type": "doc",
@@ -330,15 +349,15 @@
                   },
                   {
                     "type": "doc",
-                    "id": "baking/cli-baker"
-                  },
-                  {
-                    "type": "doc",
                     "id": "baking/delegating"
                   },
                   {
                     "type": "doc",
                     "id": "baking/bakers_list"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "baking/cli-baker"
                   },
                   {
                     "type": "doc",
@@ -553,10 +572,13 @@
             "/ligo/examples": "docs",
             "/ligo/installation": "docs",
             "/ligo": "docs",
-            "/ligo/language-basics": "docs",
             "/ligo/take-away": "docs",
             "/ligo/unit-testing": "docs",
-            "/ligo/write-contracts-ligo": "docs",
+            "/ligo/write-contract-ligo/1-raffle-contract": "docs",
+            "/ligo/write-contract-ligo/2-launch-raffle": "docs",
+            "/ligo/write-contract-ligo/3-buy-ticket": "docs",
+            "/ligo/write-contract-ligo/4-close-raffle": "docs",
+            "/ligo/write-contract-ligo/5-refactoring": "docs",
             "/michelson/exam": "docs",
             "/michelson/examples": "docs",
             "/michelson/instructions-reference": "docs",
@@ -594,7 +616,7 @@
               "id": "baking/bakers_list",
               "isDocsHomePage": false,
               "title": "List of bakers",
-              "description": "In this section, we will present how to find lists of bakers. Then as a delegator, we will see how to choose a baker.",
+              "description": "In this section, we will see how to find lists of bakers. As a delegator, we will see how to choose a baker.",
               "source": "@site/docs/baking/bakers_list.md",
               "sourceDirName": "baking",
               "slug": "/baking/bakers_list",
@@ -615,8 +637,8 @@
                 "permalink": "/baking/delegating"
               },
               "next": {
-                "title": "Exam",
-                "permalink": "/baking/exam"
+                "title": "CLI to become a baker",
+                "permalink": "/baking/cli-baker"
               }
             },
             {
@@ -671,12 +693,12 @@
               },
               "sidebar": "docs",
               "previous": {
-                "title": "Rewards",
-                "permalink": "/baking/reward"
+                "title": "List of bakers",
+                "permalink": "/baking/bakers_list"
               },
               "next": {
-                "title": "Delegating",
-                "permalink": "/baking/delegating"
+                "title": "Exam",
+                "permalink": "/baking/exam"
               }
             },
             {
@@ -701,8 +723,8 @@
               },
               "sidebar": "docs",
               "previous": {
-                "title": "CLI to become a baker",
-                "permalink": "/baking/cli-baker"
+                "title": "Rewards",
+                "permalink": "/baking/reward"
               },
               "next": {
                 "title": "List of bakers",
@@ -731,8 +753,8 @@
               },
               "sidebar": "docs",
               "previous": {
-                "title": "List of bakers",
-                "permalink": "/baking/bakers_list"
+                "title": "CLI to become a baker",
+                "permalink": "/baking/cli-baker"
               },
               "next": {
                 "title": "Introduction",
@@ -796,8 +818,8 @@
                 "permalink": "/baking/baking_explained"
               },
               "next": {
-                "title": "CLI to become a baker",
-                "permalink": "/baking/cli-baker"
+                "title": "Delegating",
+                "permalink": "/baking/delegating"
               }
             },
             {
@@ -835,7 +857,7 @@
               "id": "blockchain-basics/introduction",
               "isDocsHomePage": false,
               "title": "Introduction",
-              "description": "Before we start digging into Tezos itself, let's review the basics of blockchain and cryptocurrencies. This module will present a brief history of the blockchain, its main components, consensus' mechanisms and introduce the notion of smart contract (smart contracts will be more detailed in the dedicated chapter of the \"Tezos Basics\" module). All these notions will later be helpful in the following modules to understand how Tezos works and how it builds upon Bitcoin and Ethereum to become part of a new generation of blockchains.",
+              "description": "Before we start digging into Tezos itself, let's review the basics of blockchain and cryptocurrencies. This module will present a brief history of the blockchain, its main components, consensus' mechanisms and introduce the notion of smart contract (smart contracts will be more detailed in the dedicated chapter of the \"Tezos Basics\" module). All these notions will later be helpful in the following modules to understand how Tezos works and how it goes beyond Bitcoin and Ethereum to become part of a new generation of blockchains.",
               "source": "@site/docs/blockchain-basics/introduction.md",
               "sourceDirName": "blockchain-basics",
               "slug": "/blockchain-basics",
@@ -2281,8 +2303,8 @@
               "unversionedId": "ligo/deploy-a-contract",
               "id": "ligo/deploy-a-contract",
               "isDocsHomePage": false,
-              "title": "Smart Contract",
-              "description": "A Tezos smart contract is a piece of code written in the Michelson language (a low-level stack-based Turing-complete language).",
+              "title": "Compiling and deploying",
+              "description": "Compiling a contract",
               "source": "@site/docs/ligo/deploy-a-contract.md",
               "sourceDirName": "ligo",
               "slug": "/ligo/deploy-a-contract",
@@ -2294,13 +2316,13 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "deploy-a-contract",
-                "title": "Deploy a contract",
+                "title": "Compiling and deploying",
                 "authors": "Maxime Sallerin and Benjamin Pilia"
               },
               "sidebar": "docs",
               "previous": {
-                "title": "Language basics",
-                "permalink": "/ligo/language-basics"
+                "title": "Refactoring",
+                "permalink": "/ligo/write-contract-ligo/5-refactoring"
               },
               "next": {
                 "title": "Unit Testing with PyTezos",
@@ -2329,7 +2351,7 @@
               },
               "sidebar": "docs",
               "previous": {
-                "title": "Examples",
+                "title": "More examples",
                 "permalink": "/ligo/examples"
               },
               "next": {
@@ -2341,7 +2363,7 @@
               "unversionedId": "ligo/examples",
               "id": "ligo/examples",
               "isDocsHomePage": false,
-              "title": "Examples",
+              "title": "More examples",
               "description": "Function",
               "source": "@site/docs/ligo/examples.md",
               "sourceDirName": "ligo",
@@ -2354,7 +2376,7 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "examples",
-                "title": "Examples",
+                "title": "More examples",
                 "authors": "Maxime Sallerin, Benjamin Pilia and Frank Hillard"
               },
               "sidebar": "docs",
@@ -2372,7 +2394,7 @@
               "id": "ligo/installation",
               "isDocsHomePage": false,
               "title": "Installation",
-              "description": "There are currently four ways to get started with LIGO. You can choose to use a Docker image, a static Linux binary, or install packages for your Debian Linux distribution, or you can try directly on the online editor.",
+              "description": "There are currently four ways to get started with LIGO. You can choose to use a Docker image, a static Linux binary, install packages for your Debian Linux distribution, or you can try directly on the online editor.",
               "source": "@site/docs/ligo/installation.md",
               "sourceDirName": "ligo",
               "slug": "/ligo/installation",
@@ -2393,8 +2415,8 @@
                 "permalink": "/ligo"
               },
               "next": {
-                "title": "Smart contract development in PascaLIGO",
-                "permalink": "/ligo/write-contracts-ligo"
+                "title": "Raffle contract",
+                "permalink": "/ligo/write-contract-ligo/1-raffle-contract"
               }
             },
             {
@@ -2402,7 +2424,7 @@
               "id": "ligo/introduction",
               "isDocsHomePage": false,
               "title": "Introduction",
-              "description": "Tezos smart contracts are written in Michelson, which is a stack-based language and the lowest level of language for a Tezos smart contract. The Michelson code can be deployed as-is on the Tezos network.",
+              "description": "Tezos smart contracts are written in Michelson, which is a stack-based language and the lowest level of language for a Tezos smart contract. Michelson code can be deployed as-is on the Tezos network.",
               "source": "@site/docs/ligo/introduction.md",
               "sourceDirName": "ligo",
               "slug": "/ligo",
@@ -2433,7 +2455,7 @@
               "id": "ligo/language-basics",
               "isDocsHomePage": false,
               "title": "Language basics",
-              "description": "In this chapter, all the following examples will use the PascaLigo syntax.",
+              "description": "//////// CHAPTER REMOVED ////////",
               "source": "@site/docs/ligo/language-basics.md",
               "sourceDirName": "ligo",
               "slug": "/ligo/language-basics",
@@ -2447,15 +2469,6 @@
                 "id": "language-basics",
                 "title": "Language basics",
                 "authors": "Maxime Sallerin and Benjamin Pilia"
-              },
-              "sidebar": "docs",
-              "previous": {
-                "title": "Smart contract development in PascaLIGO",
-                "permalink": "/ligo/write-contracts-ligo"
-              },
-              "next": {
-                "title": "Smart Contract",
-                "permalink": "/ligo/deploy-a-contract"
               }
             },
             {
@@ -2510,32 +2523,33 @@
               },
               "sidebar": "docs",
               "previous": {
-                "title": "Smart Contract",
+                "title": "Compiling and deploying",
                 "permalink": "/ligo/deploy-a-contract"
               },
               "next": {
-                "title": "Examples",
+                "title": "More examples",
                 "permalink": "/ligo/examples"
               }
             },
             {
-              "unversionedId": "ligo/write-contracts-ligo",
-              "id": "ligo/write-contracts-ligo",
+              "unversionedId": "ligo/write-contract-ligo/1-raffle-contract",
+              "id": "ligo/write-contract-ligo/1-raffle-contract",
               "isDocsHomePage": false,
-              "title": "Smart contract development in PascaLIGO",
-              "description": "The language used in smart contracts on Tezos is Michelson, a stack-based language. However, this kind of language is not commonly used by developersa and as the code becomes complex and longer, it grows increasingly harder to keep readable and clean code in Michelson. However, the Tezos ecosystem provides some high-level languages alternatives, which make smart contracts development as easy as any application development.",
-              "source": "@site/docs/ligo/write-contracts-ligo.md",
-              "sourceDirName": "ligo",
-              "slug": "/ligo/write-contracts-ligo",
-              "permalink": "/ligo/write-contracts-ligo",
-              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/write-contracts-ligo.md",
+              "title": "Raffle contract",
+              "description": "The language used in smart contracts on Tezos is Michelson, a stack-based language. However, this kind of language is not commonly used by developers and as the code becomes complex and longer, it gets increasingly harder to keep readable and clean code in Michelson. However, the Tezos ecosystem provides a number of high level languages, which make smart contracts development as easy as any application development. LIGO is one of these languages.",
+              "source": "@site/docs/ligo/write-contract-ligo/1-raffle-contract.md",
+              "sourceDirName": "ligo/write-contract-ligo",
+              "slug": "/ligo/write-contract-ligo/1-raffle-contract",
+              "permalink": "/ligo/write-contract-ligo/1-raffle-contract",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/write-contract-ligo/1-raffle-contract.md",
               "version": "current",
               "lastUpdatedBy": "Author",
               "lastUpdatedAt": 1539502055,
               "formattedLastUpdatedAt": "10/14/2018",
+              "sidebarPosition": 1,
               "frontMatter": {
-                "id": "write-contracts-ligo",
-                "title": "Smart contract development in PascaLIGO",
+                "id": "1-raffle-contract",
+                "title": "Raffle contract",
                 "authors": "Maxime Sallerin and Benjamin Pilia"
               },
               "sidebar": "docs",
@@ -2544,8 +2558,132 @@
                 "permalink": "/ligo/installation"
               },
               "next": {
-                "title": "Language basics",
-                "permalink": "/ligo/language-basics"
+                "title": "Launch raffle",
+                "permalink": "/ligo/write-contract-ligo/2-launch-raffle"
+              }
+            },
+            {
+              "unversionedId": "ligo/write-contract-ligo/2-launch-raffle",
+              "id": "ligo/write-contract-ligo/2-launch-raffle",
+              "isDocsHomePage": false,
+              "title": "Launch raffle",
+              "description": "Smart Contract development: launch raffle entrypoint",
+              "source": "@site/docs/ligo/write-contract-ligo/2-launch-raffle.md",
+              "sourceDirName": "ligo/write-contract-ligo",
+              "slug": "/ligo/write-contract-ligo/2-launch-raffle",
+              "permalink": "/ligo/write-contract-ligo/2-launch-raffle",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/write-contract-ligo/2-launch-raffle.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
+              "sidebarPosition": 2,
+              "frontMatter": {
+                "id": "2-launch-raffle",
+                "title": "Launch raffle",
+                "authors": "Maxime Sallerin and Benjamin Pilia"
+              },
+              "sidebar": "docs",
+              "previous": {
+                "title": "Raffle contract",
+                "permalink": "/ligo/write-contract-ligo/1-raffle-contract"
+              },
+              "next": {
+                "title": "Buy ticket",
+                "permalink": "/ligo/write-contract-ligo/3-buy-ticket"
+              }
+            },
+            {
+              "unversionedId": "ligo/write-contract-ligo/3-buy-ticket",
+              "id": "ligo/write-contract-ligo/3-buy-ticket",
+              "isDocsHomePage": false,
+              "title": "Buy ticket",
+              "description": "Smart Contract development: Buy ticket entrypoint",
+              "source": "@site/docs/ligo/write-contract-ligo/3-buy-ticket.md",
+              "sourceDirName": "ligo/write-contract-ligo",
+              "slug": "/ligo/write-contract-ligo/3-buy-ticket",
+              "permalink": "/ligo/write-contract-ligo/3-buy-ticket",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/write-contract-ligo/3-buy-ticket.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
+              "sidebarPosition": 3,
+              "frontMatter": {
+                "id": "3-buy-ticket",
+                "title": "Buy ticket",
+                "authors": "Maxime Sallerin and Benjamin Pilia"
+              },
+              "sidebar": "docs",
+              "previous": {
+                "title": "Launch raffle",
+                "permalink": "/ligo/write-contract-ligo/2-launch-raffle"
+              },
+              "next": {
+                "title": "Close raffle",
+                "permalink": "/ligo/write-contract-ligo/4-close-raffle"
+              }
+            },
+            {
+              "unversionedId": "ligo/write-contract-ligo/4-close-raffle",
+              "id": "ligo/write-contract-ligo/4-close-raffle",
+              "isDocsHomePage": false,
+              "title": "Close raffle",
+              "description": "Smart Contract development: Close raffle entrypoint",
+              "source": "@site/docs/ligo/write-contract-ligo/4-close-raffle.md",
+              "sourceDirName": "ligo/write-contract-ligo",
+              "slug": "/ligo/write-contract-ligo/4-close-raffle",
+              "permalink": "/ligo/write-contract-ligo/4-close-raffle",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/write-contract-ligo/4-close-raffle.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
+              "sidebarPosition": 4,
+              "frontMatter": {
+                "id": "4-close-raffle",
+                "title": "Close raffle",
+                "authors": "Maxime Sallerin and Benjamin Pilia"
+              },
+              "sidebar": "docs",
+              "previous": {
+                "title": "Buy ticket",
+                "permalink": "/ligo/write-contract-ligo/3-buy-ticket"
+              },
+              "next": {
+                "title": "Refactoring",
+                "permalink": "/ligo/write-contract-ligo/5-refactoring"
+              }
+            },
+            {
+              "unversionedId": "ligo/write-contract-ligo/5-refactoring",
+              "id": "ligo/write-contract-ligo/5-refactoring",
+              "isDocsHomePage": false,
+              "title": "Refactoring",
+              "description": "Smart contract refactoring",
+              "source": "@site/docs/ligo/write-contract-ligo/5-refactoring.md",
+              "sourceDirName": "ligo/write-contract-ligo",
+              "slug": "/ligo/write-contract-ligo/5-refactoring",
+              "permalink": "/ligo/write-contract-ligo/5-refactoring",
+              "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/write-contract-ligo/5-refactoring.md",
+              "version": "current",
+              "lastUpdatedBy": "Author",
+              "lastUpdatedAt": 1539502055,
+              "formattedLastUpdatedAt": "10/14/2018",
+              "sidebarPosition": 5,
+              "frontMatter": {
+                "id": "5-refactoring",
+                "title": "Refactoring",
+                "authors": "Maxime Sallerin and Benjamin Pilia"
+              },
+              "sidebar": "docs",
+              "previous": {
+                "title": "Close raffle",
+                "permalink": "/ligo/write-contract-ligo/4-close-raffle"
+              },
+              "next": {
+                "title": "Compiling and deploying",
+                "permalink": "/ligo/deploy-a-contract"
               }
             },
             {

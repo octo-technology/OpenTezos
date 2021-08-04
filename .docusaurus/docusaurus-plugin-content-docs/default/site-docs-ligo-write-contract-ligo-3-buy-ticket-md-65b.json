@@ -1,0 +1,31 @@
+{
+  "unversionedId": "ligo/write-contract-ligo/3-buy-ticket",
+  "id": "ligo/write-contract-ligo/3-buy-ticket",
+  "isDocsHomePage": false,
+  "title": "Buy ticket",
+  "description": "Smart Contract development: Buy ticket entrypoint",
+  "source": "@site/docs/ligo/write-contract-ligo/3-buy-ticket.md",
+  "sourceDirName": "ligo/write-contract-ligo",
+  "slug": "/ligo/write-contract-ligo/3-buy-ticket",
+  "permalink": "/ligo/write-contract-ligo/3-buy-ticket",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/write-contract-ligo/3-buy-ticket.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "id": "3-buy-ticket",
+    "title": "Buy ticket",
+    "authors": "Maxime Sallerin and Benjamin Pilia"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Launch raffle",
+    "permalink": "/ligo/write-contract-ligo/2-launch-raffle"
+  },
+  "next": {
+    "title": "Close raffle",
+    "permalink": "/ligo/write-contract-ligo/4-close-raffle"
+  }
+}

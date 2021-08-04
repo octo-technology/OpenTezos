@@ -17,7 +17,7 @@ _Mi-Cho-Coq_ is based on the _Curry-Howard isomorphism_ ([[5] [6] [7]](/formal-v
 
 The formal verification of a Michelson smart contract is done by providing the proof for this theorem. *Coq* will perform the verification of a given proof (and its related theorem) based on the *Mi-Cho-Coq* proof.
 
-The proof consists of a sequence of _tactics_ which the Coq engine will interpret. These instructions manipulate formal expressions (following logical laws (_Coq_ universe) and _Mi-Cho-Coq_ definitions) to formally assert the truth of a given theorem (based on given assumptions).
+The proof consists in a sequence of _tactics_ which the Coq engine will interpret. These instructions manipulate formal expressions (following logical laws (_Coq_ universe) and _Mi-Cho-Coq_ definitions) to formally assert the truth of a given theorem (based on given assumptions).
 
 Before going deeper, let's illustrate the workflow of formal verification of Tezos smart contracts in Fig. 1 below.
 
@@ -36,7 +36,7 @@ The theorem is based on
 - a Michelson script representing what the smart contract does.
 - post-conditions representing the rules of the smart contract in a formal form.
 
-Formal verification of a Tezos smart contract consists of verifying formally that **the execution of the Michelson script satisfies specific post-conditions**.
+Formal verification of a Tezos smart contract consists in verifying formally that **the execution of the Michelson script satisfies specific post-conditions**.
 
 ![](../../static/img/formal-verification/overview_theorem.svg)
 <small className="figure">FIGURE 2: Naive description of the theorem</small>
@@ -323,7 +323,7 @@ To conclude, the _Vote_ smart contract is defined by the `vote_spec` definition 
 
 
 #### Theorem definition
-As said previously, the formal verification of a Tezos smart contract consists of verifying formally that **the execution of the Michelson script satisfies specific post-conditions**.
+As said previously, the formal verification of a Tezos smart contract consists in verifying formally that **the execution of the Michelson script satisfies specific post-conditions**.
 
 Also, as said previously, the theorem can be formalized as:
 

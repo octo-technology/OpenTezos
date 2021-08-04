@@ -152,6 +152,7 @@ How high is the inflation rate from the *Delphi* amendment?
 
 <ExamCheckbox name="140" isCorrect="false">1.25%</ExamCheckbox>
 <ExamCheckbox name="141" isCorrect="false">2.50%</ExamCheckbox>
-<ExamCheckbox name="142" isCorrect="false">5.00%</ExamCheckbox>5.50%
+<ExamCheckbox name="142" isCorrect="false">5.00%</ExamCheckbox>
+<ExamCheckbox name="143" isCorrect="true">5.50%</ExamCheckbox>
 
 </ExamForm>

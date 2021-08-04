@@ -39,7 +39,7 @@ export default [
 },
 {
   path: '/',
-  component: ComponentCreator('/','06e'),
+  component: ComponentCreator('/','91b'),
   
   routes: [
 {
@@ -368,8 +368,28 @@ export default [
   exact: true,
 },
 {
-  path: '/ligo/write-contracts-ligo',
-  component: ComponentCreator('/ligo/write-contracts-ligo','3af'),
+  path: '/ligo/write-contract-ligo/1-raffle-contract',
+  component: ComponentCreator('/ligo/write-contract-ligo/1-raffle-contract','127'),
+  exact: true,
+},
+{
+  path: '/ligo/write-contract-ligo/2-launch-raffle',
+  component: ComponentCreator('/ligo/write-contract-ligo/2-launch-raffle','94d'),
+  exact: true,
+},
+{
+  path: '/ligo/write-contract-ligo/3-buy-ticket',
+  component: ComponentCreator('/ligo/write-contract-ligo/3-buy-ticket','0c8'),
+  exact: true,
+},
+{
+  path: '/ligo/write-contract-ligo/4-close-raffle',
+  component: ComponentCreator('/ligo/write-contract-ligo/4-close-raffle','cc7'),
+  exact: true,
+},
+{
+  path: '/ligo/write-contract-ligo/5-refactoring',
+  component: ComponentCreator('/ligo/write-contract-ligo/5-refactoring','8bc'),
   exact: true,
 },
 {

@@ -76,7 +76,7 @@ Why should the user be prevented from sending transactions in a row?
 <ExamCheckbox name="60" isCorrect="true">Because there can still be transactions in the mempool</ExamCheckbox>
 <ExamCheckbox name="61" isCorrect="false">The more transactions you send the higher the transaction fees will be </ExamCheckbox>
 <ExamCheckbox name="62" isCorrect="false">Sending too many transactions might slow the dapp down</ExamCheckbox>
-<ExamCheckbox name="63" isCorrect="false">To prevent users from spending too many tz in the app</ExamCheckbox>
+<ExamCheckbox name="63" isCorrect="false">To prevent users from spending too many Tez in the app</ExamCheckbox>
 
 ### Question 8
 

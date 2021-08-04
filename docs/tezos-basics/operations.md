@@ -100,7 +100,7 @@ Nodes receive operations from clients via RPC or from a peer in the network. Not
 ### Pre-validator
 The *Pre-validator*[[4]](/tezos-basics/operations#references) is an operation's validation subsystem. It decides which operation to add to the *mempool* (memory pool).
 
-The pre-validation consists of 3 steps:
+The pre-validation consists in 3 steps:
 
 1. The **Pre_filter** step  
    Checks that there is enough provided *gas* (and if the sender's account has enough funds to pay)

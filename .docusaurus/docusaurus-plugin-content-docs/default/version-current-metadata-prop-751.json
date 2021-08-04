@@ -238,18 +238,40 @@
             "href": "/ligo/installation"
           },
           {
-            "type": "link",
-            "label": "Smart contract development in PascaLIGO",
-            "href": "/ligo/write-contracts-ligo"
+            "collapsed": true,
+            "type": "category",
+            "label": "Raffle example",
+            "items": [
+              {
+                "type": "link",
+                "label": "Raffle contract",
+                "href": "/ligo/write-contract-ligo/1-raffle-contract"
+              },
+              {
+                "type": "link",
+                "label": "Launch raffle",
+                "href": "/ligo/write-contract-ligo/2-launch-raffle"
+              },
+              {
+                "type": "link",
+                "label": "Buy ticket",
+                "href": "/ligo/write-contract-ligo/3-buy-ticket"
+              },
+              {
+                "type": "link",
+                "label": "Close raffle",
+                "href": "/ligo/write-contract-ligo/4-close-raffle"
+              },
+              {
+                "type": "link",
+                "label": "Refactoring",
+                "href": "/ligo/write-contract-ligo/5-refactoring"
+              }
+            ]
           },
           {
             "type": "link",
-            "label": "Language basics",
-            "href": "/ligo/language-basics"
-          },
-          {
-            "type": "link",
-            "label": "Smart Contract",
+            "label": "Compiling and deploying",
             "href": "/ligo/deploy-a-contract"
           },
           {
@@ -259,7 +281,7 @@
           },
           {
             "type": "link",
-            "label": "Examples",
+            "label": "More examples",
             "href": "/ligo/examples"
           },
           {
@@ -380,11 +402,6 @@
           },
           {
             "type": "link",
-            "label": "CLI to become a baker",
-            "href": "/baking/cli-baker"
-          },
-          {
-            "type": "link",
             "label": "Delegating",
             "href": "/baking/delegating"
           },
@@ -392,6 +409,11 @@
             "type": "link",
             "label": "List of bakers",
             "href": "/baking/bakers_list"
+          },
+          {
+            "type": "link",
+            "label": "CLI to become a baker",
+            "href": "/baking/cli-baker"
           },
           {
             "type": "link",
@@ -636,10 +658,13 @@
     "/ligo/examples": "docs",
     "/ligo/installation": "docs",
     "/ligo": "docs",
-    "/ligo/language-basics": "docs",
     "/ligo/take-away": "docs",
     "/ligo/unit-testing": "docs",
-    "/ligo/write-contracts-ligo": "docs",
+    "/ligo/write-contract-ligo/1-raffle-contract": "docs",
+    "/ligo/write-contract-ligo/2-launch-raffle": "docs",
+    "/ligo/write-contract-ligo/3-buy-ticket": "docs",
+    "/ligo/write-contract-ligo/4-close-raffle": "docs",
+    "/ligo/write-contract-ligo/5-refactoring": "docs",
     "/michelson/exam": "docs",
     "/michelson/examples": "docs",
     "/michelson/instructions-reference": "docs",

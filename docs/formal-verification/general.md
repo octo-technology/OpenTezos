@@ -12,7 +12,7 @@ The main trait of the blockchain is that it ensures the execution of transaction
 
 A bug in a smart contract would destroy the trust.
 
-The formal verification consists of proving mathematically that a smart contract possesses properties described in its formal specification.
+The formal verification consists in proving mathematically that a smart contract possesses properties described in its formal specification.
 The mathematical proof is formal so its correctness can be verified automatically.
 
 The trust is based on the **existence of a proof** for a smart contract and the **understanding of the formal specifications** of the smart contracts. The formal specification of a smart contract describes without ambiguity the properties of the program.

@@ -1,0 +1,31 @@
+{
+  "unversionedId": "ligo/write-contract-ligo/4-close-raffle",
+  "id": "ligo/write-contract-ligo/4-close-raffle",
+  "isDocsHomePage": false,
+  "title": "Close raffle",
+  "description": "Smart Contract development: Close raffle entrypoint",
+  "source": "@site/docs/ligo/write-contract-ligo/4-close-raffle.md",
+  "sourceDirName": "ligo/write-contract-ligo",
+  "slug": "/ligo/write-contract-ligo/4-close-raffle",
+  "permalink": "/ligo/write-contract-ligo/4-close-raffle",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/write-contract-ligo/4-close-raffle.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "id": "4-close-raffle",
+    "title": "Close raffle",
+    "authors": "Maxime Sallerin and Benjamin Pilia"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Buy ticket",
+    "permalink": "/ligo/write-contract-ligo/3-buy-ticket"
+  },
+  "next": {
+    "title": "Refactoring",
+    "permalink": "/ligo/write-contract-ligo/5-refactoring"
+  }
+}

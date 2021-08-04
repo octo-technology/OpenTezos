@@ -2,7 +2,7 @@
   "unversionedId": "ligo/examples",
   "id": "ligo/examples",
   "isDocsHomePage": false,
-  "title": "Examples",
+  "title": "More examples",
   "description": "Function",
   "source": "@site/docs/ligo/examples.md",
   "sourceDirName": "ligo",
@@ -15,7 +15,7 @@
   "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "id": "examples",
-    "title": "Examples",
+    "title": "More examples",
     "authors": "Maxime Sallerin, Benjamin Pilia and Frank Hillard"
   },
   "sidebar": "docs",

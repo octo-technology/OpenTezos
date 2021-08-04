@@ -105,7 +105,7 @@ tail -f tezos.log
 ```
 To stop viewing the log, press CTRL+C (Ubuntu and Mac OS).
 
-The Tezos client can be used to interact with the node. It can query its status or ask the node to perform some actions. For example, after starting your node, you can check if it has finished synchronizing with the following command (you can use another terminal window if you still watch the log) :
+The Tezos client can be used to interact with the node. It can query its status or ask the node to perform some actions. For example, after starting your node, you can check if it has finished synchronizing with the following command (you can use another terminal window if you still watch the log):
 
 ```shell
 ./tezos-client bootstrapped

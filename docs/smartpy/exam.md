@@ -18,8 +18,7 @@ What notions are defined inside the smart contract?
 <ExamCheckbox name="02" isCorrect="false">The initial value of the storage</ExamCheckbox>
 <ExamCheckbox name="03" isCorrect="false">The value of the entrypoint and its related parameters</ExamCheckbox>
 <ExamCheckbox name="04" isCorrect="true">The type definition of the entrypoint</ExamCheckbox>
-<ExamCheckbox name="05" isCorrect="false">The size of the storage</ExamCheckbox>
-<ExamCheckbox name="06" isCorrect="true">The code of the smart contract</ExamCheckbox>
+<ExamCheckbox name="05" isCorrect="true">The code of the smart contract</ExamCheckbox>
 
 ### Question 2
 
@@ -48,7 +47,7 @@ What can you do with the SmartPy online editor?
 What is a _SmartPy_ smart contract?
 
 <ExamCheckbox name="30" isCorrect="false">It is a class of method called `main` taking as input a storage and parameters, returning a list of operations and a modified storage.</ExamCheckbox>
-<ExamCheckbox name="31" isCorrect="true">It is a class definition that inherits from `sp.Contract`. A SmartPy contract consists of a state with one or several entry points.</ExamCheckbox>
+<ExamCheckbox name="31" isCorrect="true">It is a class definition that inherits from `sp.Contract`. A SmartPy contract consists in a state with one or several entry points.</ExamCheckbox>
 
 ### Question 5
 

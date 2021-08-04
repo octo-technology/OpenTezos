@@ -12,7 +12,7 @@ However, during development, the smart contracts and the associated storage are 
 
 Thus, the way that the contract is deployed will change accordingly, especially the initial storage. A minimal change in the storage definition can make the next deployments tiresome when using the Tezos cli, especially if changes are made several times. 
 
-Besides, there are situations where you need to deploy several smart contracts that will interact with one another. The deployment of a smart contract depends on the deployment of a previous one: its address. Instead of deploying one after the other the smart contracts and retrieveing their address, it should be possible to have an automated script that perform these actions. 
+Besides, there are situations where you need to deploy several smart contracts that will interact with one another. The deployment of a smart contract depends on the deployment of a previous one: its address. Instead of deploying one after the other the smart contracts and retrieveing their address, it should be possible to have an automated script that performs these actions. 
 
 *Truffle*, developped and maintained by _ConsenSys Software Inc_, solves these difficulties. This tool uses scripts to perform smart contract deployments: thanks to a cli and a few configuration files, they are easier and faster.
 
@@ -38,7 +38,7 @@ The *Truffle* Suite is not available for all blockchains. It supports:
 
 Only *Truffle* and *Ganache* (still in beta) are available for Tezos.
 
-*Truffle* can compile and deploy Ligo or Smartpy scripts on any Tezos network with a single command.
+*Truffle* can compile and deployLIGOor Smartpy scripts on any Tezos network with a single command.
 
 # *Truffle* Installation
 
@@ -107,7 +107,7 @@ A *Truffle* follows this structure:
 
 * **build** (not present at the unpacking of the box): the folder containing the Michelson code, compiled by *Truffle*
   and used for the contract deployments
-* **contract**: the folder containing all the Ligo smart contracts that *Truffle* has to compile.
+* **contract**: the folder containing all theLIGOsmart contracts that *Truffle* has to compile.
 * **migrations**: the folder containing the *Truffle* migration scripts for the deployment of the contracts
 * **node_modules**: the node modules used by the *Truffle* project
 * **package.json**: contains a script command, which launches a sandbox with ganache
@@ -154,22 +154,22 @@ Output: *Truffle* artifacts, stored into the build/contracts directory.
 
 
 
-### About ligo smart contracts
+### AboutLigosmart contracts
 
 *Truffle* can compile LIGO smart contracts, using the installed LIGO compiler. But they MUST be stored in the *contract* folder.
-*Truffle* considers each ligo file as an independent smart contract. Thus, if a smart contract is split into several ligo files, *Truffle* will try to compile each file as a separate smart contract, resulting in a failed compilation. But there is a workaround for this behaviour:
+*Truffle* considers eachLigofile as an independent smart contract. Thus, if a smart contract is split into severalLigofiles, *Truffle* will try to compile each file as a separate smart contract, resulting in a failed compilation. But there is a workaround for this behaviour:
 
 1. Create a new folder in the project root directory, called `src` for instance.
 2. Move all your smart contracts files into `src/`
-3. Create a ligo file, importing the main file from `src/`
+3. Create aLigofile, importing the main file from `src/`
 
 *Truffle* will successfully compile your smart contract.
 
 ### *Truffle* artifacts
 
-For each ligo file found in the contract, *Truffle* will yield an artifact in build/contracts.
+For eachLigofile found in the contract, *Truffle* will yield an artifact in build/contracts.
 
-An artifact is a json file, containing the compiled smart contract, the ligo source code, the deployment information...
+An artifact is a json file, containing the compiled smart contract, theLigosource code, the deployment information...
 This example is the artifact yielded for the `Counter.ligo` file:
 
 ``` json5
@@ -177,7 +177,7 @@ This example is the artifact yielded for the `Counter.ligo` file:
   "contractName": "Counter",
   "abi": [],
   "michelson": "<Michelson code as json>",
-  "source": "<Content of the ligo file from contract>",
+  "source": "<Content of theLigofile from contract>",
   "sourcePath": "path/to/truffle-example/contracts/Counter.ligo",
   "compiler": {
     "name": "ligo",
@@ -193,7 +193,7 @@ These artifacts are then used in the deployment scripts.
 
 ### Hand-ons: 
 
-Let's create a truffle project for the Raffle Smart contract, and compile the ligo code into a Michelson code, with _Truffle_.
+Let's create a truffle project for the Raffle Smart contract, and compile theLigocode into a Michelson code, with _Truffle_.
 First, we will download the `tezos-example` box and then remove the example contracts.
 
 ``` shell
@@ -209,7 +209,7 @@ Let's put the [Raffle smart contract](/ligo/write-contracts-ligo#refactoring-the
 $ touch contracts/Raffle.ligo
 ```
 
-Let's copy and paste the ligo code into this file.
+Let's copy and paste theLigocode into this file.
 
 Everything is ready for the compilation:
 
@@ -221,8 +221,7 @@ A new json file has been created in the `build/contracts/` directory.
 
 ## Deploying smart contracts with *Truffle*
 
-At this point, the smart contract is compiled and ready to be deployed. However, *Truffle* needs to be configured: deployment on a given network,
-with a given account, a given initial storage etc...
+At this point, the smart contract is compiled and ready to be deployed. However, *Truffle* needs to be configured: deployment on a given network, with a given account, a given initial storage, etc.
 
 ### Using an account for the deployment
 
@@ -379,7 +378,7 @@ const web3 = require("web3"); // for bytes
 
 Below is the matching table between Javascript and Ligo.
 
-| Ligo            | Javascript                                                                                      |
+| LIGO            | Javascript                                                                                      |
 | --------------- | ----------------------------------------------------------------------------------------------- |
 | List, Tuple     | [ ]                                                                                             |
 | Big_map, Map    | const bigMap = new MichelsonMap() <br /> bigMap.set(key, values) <br /> *(from taquito module)* |
@@ -422,7 +421,7 @@ const initialStorage = {
 };
 ```
 
-Any type and structure change in the Ligo smart contract storage must be mirrored here, in the `initialStorage` variable.
+Any type and structure change in theLIGOsmart contract storage must be mirrored here, in the `initialStorage` variable.
 This way, the evolution of the storage used can be versioned.
 
 #### Deployment
@@ -646,7 +645,7 @@ You should see a "New Smart contract created by ..." line in the *Calls* section
 
 # Conclusion
 
-The first step in developing a Dapp is to deploy the smart contracts. _Truffle_ takes ligo code, compiles it into Michelson code and deploys it onto any public or private network. 
+The first step in developing a Dapp is to deploy the smart contracts. _Truffle_ takesLigocode, compiles it into Michelson code and deploys it onto any public or private network. 
 
 Each migration needs an initial storage, that should be compliant with the storage section of the Michelson code. 
 

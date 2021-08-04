@@ -316,8 +316,7 @@
             },
             {
               "id": "ligo/language-basics",
-              "path": "/ligo/language-basics",
-              "sidebar": "docs"
+              "path": "/ligo/language-basics"
             },
             {
               "id": "ligo/take-away",
@@ -330,8 +329,28 @@
               "sidebar": "docs"
             },
             {
-              "id": "ligo/write-contracts-ligo",
-              "path": "/ligo/write-contracts-ligo",
+              "id": "ligo/write-contract-ligo/1-raffle-contract",
+              "path": "/ligo/write-contract-ligo/1-raffle-contract",
+              "sidebar": "docs"
+            },
+            {
+              "id": "ligo/write-contract-ligo/2-launch-raffle",
+              "path": "/ligo/write-contract-ligo/2-launch-raffle",
+              "sidebar": "docs"
+            },
+            {
+              "id": "ligo/write-contract-ligo/3-buy-ticket",
+              "path": "/ligo/write-contract-ligo/3-buy-ticket",
+              "sidebar": "docs"
+            },
+            {
+              "id": "ligo/write-contract-ligo/4-close-raffle",
+              "path": "/ligo/write-contract-ligo/4-close-raffle",
+              "sidebar": "docs"
+            },
+            {
+              "id": "ligo/write-contract-ligo/5-refactoring",
+              "path": "/ligo/write-contract-ligo/5-refactoring",
               "sidebar": "docs"
             },
             {

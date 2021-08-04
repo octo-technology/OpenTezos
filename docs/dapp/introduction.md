@@ -31,7 +31,7 @@ However, these tools are meant for developers and not for the users, who need mo
 Thus, for each smart contract, a frontend and possibily a backend (containing parts of the business logic) has to be developed to display information from the contract, make contract calls and to interact with off-chain services.
 
 
-In the [Ligo](/ligo/contracts-ligo) and [Smartpy](/docs/smartpy/write-contract-smartpy.md) modules, we have developped a Raffle smart contract. In this module, we will use the Ligo version of this smart contract to create a dapp. To do so, we will:
+In the [Ligo](/ligo/contracts-ligo) and [Smartpy](/docs/smartpy/write-contract-smartpy.md) modules, we have developped a Raffle smart contract. In this module, we will use theLIGOversion of this smart contract to create a dapp. To do so, we will:
 1. learn how to make compilations and deployments easier during the dapp development with a tool called _Truffle_. 
 2. interact with a _Tezos_ network with a Javascript library: _Taquito_. This library interacts with a node, can fetch all kind of information about the network, can make transactions and contract calls.
 3. discover a _Tezos_ wallet (the _Temple Wallet_ in our case), a browser-embedded wallet that allows users to safely manage Tezos addresses and interact with the Tezos blockchain.

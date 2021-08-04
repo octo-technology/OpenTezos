@@ -3,7 +3,7 @@
   "id": "baking/bakers_list",
   "isDocsHomePage": false,
   "title": "List of bakers",
-  "description": "In this section, we will present how to find lists of bakers. Then as a delegator, we will see how to choose a baker.",
+  "description": "In this section, we will see how to find lists of bakers. As a delegator, we will see how to choose a baker.",
   "source": "@site/docs/baking/bakers_list.md",
   "sourceDirName": "baking",
   "slug": "/baking/bakers_list",
@@ -24,7 +24,7 @@
     "permalink": "/baking/delegating"
   },
   "next": {
-    "title": "Exam",
-    "permalink": "/baking/exam"
+    "title": "CLI to become a baker",
+    "permalink": "/baking/cli-baker"
   }
 }

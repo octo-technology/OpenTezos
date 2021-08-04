@@ -4,6 +4,13 @@ title: Language basics
 authors: Maxime Sallerin and Benjamin Pilia
 ---
 
+
+
+//////// CHAPTER REMOVED ////////
+
+
+
+
 In this chapter, all the following examples will use the PascaLigo syntax.
 
 # Types
@@ -22,7 +29,7 @@ You can find all of the built-in types on the [LIGO gitlab](https://gitlab.com/l
 
 ## Type aliases
 
-Type aliasing consists of renaming a given type when the context calls for a more precise name. 
+Type aliasing consists in renaming a given type when the context calls for a more precise name. 
 This increases the readability and maintainability of your smart contracts. 
 For example, we can choose to alias a _string_ type as an animal breed; this will allow us to communicate our intent with added clarity.
 
@@ -286,7 +293,6 @@ block { skip }
 ```
 
 Functions using PascaLIGO are defined with the following syntax:
-
 ```js
 function <name> (<parameters>) : <return_type> is 
   block {
@@ -295,7 +301,6 @@ function <name> (<parameters>) : <return_type> is
 ```
 
 For instance :
-
 ```js
 function add (const a : int; const b : int) : int is
   block {
@@ -305,9 +310,7 @@ function add (const a : int; const b : int) : int is
 
 ## Blockless functions
 
-Functions that can contain all of their own logic into a single expression can be defined without the need for a block. 
-The add function above can be re-written as a blockless function:
-
+Functions that can contain all of their own logic into a single expression can be defined without the need for a block. For instance:
 ```js
 function add (const a: int; const b : int) : int is a + b
 ```
@@ -435,7 +438,7 @@ y := y - 1
 else skip;
 ```
 
-# Tuples, lists, sets
+# Tuples, Lists, Sets
 
 ## Tuples
 Tuples gather a given number of values in a specific order. Then, those values,
@@ -782,7 +785,7 @@ A variant type is a user-defined or a built-in type (in case of options) that de
 so the value of a variant type is either this, or that, or... 
 The simplest variant type is equivalent to the enumerated types, found in Java, C++, JavaScript etc.
 
-Here is how we define a bit as being either 1 or 0 (and nothing else):
+Here is how we define a bit as being either `One` or `Zero`, and nothing else:
 
 ```js
 type bit is One | Zero
@@ -1096,9 +1099,9 @@ end
 
 PascaLigo provides developers with all the necessary commands to write smart contracts. Thanks to a syntax close to other languages, it is possible for anyone to develop complex smart contracts without using the stack-based language Michelson. All the Michelson instructions have an equivalent in Ligo: comparisons, sending transactions, checking a sender address, handling amounts, calling other entrypoints...
 
-However, Michelson remains the Tezos smart contract language: Ligo compiles to Michelson code, that will be deployed onto the Blockchain.
+However, Michelson remains the Tezos smart contract language:LIGOcompiles to Michelson code, that will be deployed onto the Blockchain.
 
-Ligo is always improving: the Ligo team releases a new version every other week. It fixes bugs and adds functionalities, but it also may induce breaking changes. You can refer to the release notes [here](https://ligolang.org/docs/next/intro/changelog/).
+Ligo is always improving: theLIGOteam releases a new version every other week. It fixes bugs and adds functionalities, but it also may induce breaking changes. You can refer to the release notes [here](https://ligolang.org/docs/next/intro/changelog/).
 
 
 

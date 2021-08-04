@@ -20,11 +20,11 @@
   },
   "sidebar": "docs",
   "previous": {
-    "title": "Smart Contract",
+    "title": "Compiling and deploying",
     "permalink": "/ligo/deploy-a-contract"
   },
   "next": {
-    "title": "Examples",
+    "title": "More examples",
     "permalink": "/ligo/examples"
   }
 }

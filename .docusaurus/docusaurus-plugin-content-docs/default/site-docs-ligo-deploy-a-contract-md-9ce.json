@@ -2,8 +2,8 @@
   "unversionedId": "ligo/deploy-a-contract",
   "id": "ligo/deploy-a-contract",
   "isDocsHomePage": false,
-  "title": "Smart Contract",
-  "description": "A Tezos smart contract is a piece of code written in the Michelson language (a low-level stack-based Turing-complete language).",
+  "title": "Compiling and deploying",
+  "description": "Compiling a contract",
   "source": "@site/docs/ligo/deploy-a-contract.md",
   "sourceDirName": "ligo",
   "slug": "/ligo/deploy-a-contract",
@@ -15,13 +15,13 @@
   "formattedLastUpdatedAt": "10/14/2018",
   "frontMatter": {
     "id": "deploy-a-contract",
-    "title": "Deploy a contract",
+    "title": "Compiling and deploying",
     "authors": "Maxime Sallerin and Benjamin Pilia"
   },
   "sidebar": "docs",
   "previous": {
-    "title": "Language basics",
-    "permalink": "/ligo/language-basics"
+    "title": "Refactoring",
+    "permalink": "/ligo/write-contract-ligo/5-refactoring"
   },
   "next": {
     "title": "Unit Testing with PyTezos",

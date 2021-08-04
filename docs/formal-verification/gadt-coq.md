@@ -132,7 +132,7 @@ The _Mi-Cho-Coq_ library provides a formal definition (in Gallina) of the **type
 > It is recommended to have notions of _Language theory_ in order to understand the following Mi-Cho-Coq definition (grammar rules).
 
 #### Type system
-The **type system** consists of the definition of types (comparable types and non-comparable ones).
+The **type system** consists in the definition of types (comparable types and non-comparable ones).
 
 ```
 Inductive simple_comparable_type : Set :=

@@ -20,8 +20,8 @@
   },
   "sidebar": "docs",
   "previous": {
-    "title": "List of bakers",
-    "permalink": "/baking/bakers_list"
+    "title": "CLI to become a baker",
+    "permalink": "/baking/cli-baker"
   },
   "next": {
     "title": "Introduction",
