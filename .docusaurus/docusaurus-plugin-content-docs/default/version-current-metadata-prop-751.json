@@ -350,7 +350,7 @@
           },
           {
             "type": "link",
-            "label": "Smart contract deployment with Truffle",
+            "label": "Deploy with Truffle",
             "href": "/dapp/truffle_compilation_migration"
           },
           {
@@ -365,12 +365,12 @@
           },
           {
             "type": "link",
-            "label": "Build a dapp - basics",
+            "label": "Frontend (Basics)",
             "href": "/dapp/basics"
           },
           {
             "type": "link",
-            "label": "Build a dapp - User Experience",
+            "label": "Frontend (Advanced)",
             "href": "/dapp/front_user_experience"
           },
           {

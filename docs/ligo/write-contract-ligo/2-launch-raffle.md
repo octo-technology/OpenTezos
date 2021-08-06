@@ -101,11 +101,11 @@ When calling a function, LIGO makes a copy of the arguments but also of the envi
 
 Therefore, any modification to these will not be reflected outside the scope of the function and will be lost if they are not explicitly returned by the function.
 
-There are two syntaxes for functions in PascaLIGO, _Block Functions_ and _Blockless Functions_.
+There are two syntaxes for functions in PascaLigo, _Block Functions_ and _Blockless Functions_.
 
 ##### Block functions
 
-Block functions in PascaLIGO are defined using the following syntax:
+Block functions in PascaLigo are defined using the following syntax:
 
 ```js
 function <name> (<parameters>) : <return_type> is 
@@ -197,7 +197,7 @@ block {
 
 ### Customizing the Raffle storage
 
-The first entrypoint of our Raffle smart contract illustrates the basics of PascaLIGO, covered above.
+The first entrypoint of our Raffle smart contract illustrates the basics of PascaLigo, covered above.
 
 Before coding the logic of the first action (opening a raffle session), the storage has to be modified to hold such a raffle. The contract needs an **administrator**: he will launch a raffle session, and provide a **description**. When the raffle is **opened**, it should be clearly noted in the storage. This raffle will need a **reward** and will be ongoing for a given **time**.
 

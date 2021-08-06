@@ -269,11 +269,11 @@ LIGO makes a copy of the arguments but also the environment variables.
 Therefore, any modification to these will not be reflected outside the scope of the function 
 and will be lost if not explicitly returned by the function.
 
-There are 2 types of functions in PascaLIGO, Block Functions and Blockless Functions:
+There are 2 types of functions in PascaLigo, Block Functions and Blockless Functions:
 
 # Block functions
 
-In PascaLIGO, blocks allow for the sequential composition of instructions into an isolated scope. 
+In PascaLigo, blocks allow for the sequential composition of instructions into an isolated scope. 
 Each block needs to include at least one instruction.
 
 ```js
@@ -292,7 +292,7 @@ mistake.
 block { skip }
 ```
 
-Functions using PascaLIGO are defined with the following syntax:
+Functions using PascaLigo are defined with the following syntax:
 ```js
 function <name> (<parameters>) : <return_type> is 
   block {
@@ -773,7 +773,7 @@ that contains only one value that carries no information.
 It is used when no relevant information is required or produced. 
 Here is how it used.
 
-In PascaLIGO, the unique value of the `unit` type is `Unit`.
+In PascaLigo, the unique value of the `unit` type is `Unit`.
 
 ```js
 const n : unit = Unit

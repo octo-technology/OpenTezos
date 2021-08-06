@@ -20,7 +20,7 @@ However, if reading or writing Michelson code is still easy for small smart cont
 **LIGO offers an alternative.**
 
 It is a high-level language for smart contract development.
-Smart contracts can be written in Ligo, then compiled into a single Michelson code file. 
+Smart contracts can be written in LIGO, then compiled into a single Michelson code file. 
 This Michelson file becomes the smart contract that will be deployed on a Tezos network.
 
 ![](../../static/img/ligo/intro_schema.svg)
@@ -28,13 +28,13 @@ This Michelson file becomes the smart contract that will be deployed on a Tezos 
 
 LIGO currently offers four _flavours_ of syntaxes:
 
-- **PascaLIGO**, a syntax inspired by the Pascal language, provides an imperative developer experience.
+- **PascaLigo**, a syntax inspired by the Pascal language, provides an imperative developer experience.
 
-- **CameLIGO**, a syntax inspired from [OCaml](https://ocaml.org/), that allows to write in a functional style.
+- **CameLigo**, a syntax inspired from [OCaml](https://ocaml.org/), that allows to write in a functional style.
 
-- **ReasonLIGO**, a syntax inspired from [ReasonML](https://reasonml.github.io/), that builds on the strong points of OCaml but still aims to be familiar JavaScript developers.
+- **ReasonLigo**, a syntax inspired from [ReasonML](https://reasonml.github.io/), that builds on the strong points of OCaml but still aims to be familiar JavaScript developers.
   
-- **JsLIGO**, the latest syntax released, inspired by the popular JavaScript language.
+- **JsLigo**, the latest syntax released, inspired by the popular JavaScript language.
 
 
 <NotificationBar>
@@ -52,10 +52,10 @@ Here is an example of a _Counter_ contract that handles a single integer `counte
 <Tabs
   defaultValue="pascaligo"
   values={[
-  { label: 'PascaLIGO', value: 'pascaligo', },
-  { label: 'CameLIGO', value: 'cameligo', },
-  { label: 'ReasonLIGO', value: 'reasonligo', },
-  { label: 'JsLIGO', value: 'jsligo', },
+  { label: 'PascaLigo', value: 'pascaligo', },
+  { label: 'CameLigo', value: 'cameligo', },
+  { label: 'ReasonLigo', value: 'reasonligo', },
+  { label: 'JsLigo', value: 'jsligo', },
   ]
 }>
 
@@ -154,7 +154,7 @@ let main = ([action, store]: [parameter, storage]) : return_ => {
 ## What's next
 In the following chapter, we will develop smart contracts in LIGO, compile them and deploy them.
 
-We chose to write this module in PascaLIGO. The main difference between the syntaxes is that PascaLIGO is more imperative while ReasonLIGO and CameLIGO are more functional. 
+We chose to write this module in PascaLigo. The main difference between the syntaxes is that PascaLigo is more imperative while ReasonLigo and CameLigo are more functional. 
 
 This module aims to teach developers the basics of LIGO by providing them with the essential skills to write and deploy their first smart contract onto the Tezos network. It will include the basics of the LIGO language, inspired from the [official LIGO documentation](https://ligolang.org/docs/language-basics/types), as well as detailed smart contract examples and a final exam to check your understanding.
 

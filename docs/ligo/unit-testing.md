@@ -16,7 +16,7 @@ This chapter aims to introduce the concept of unit testing and, especially, how 
 
 ## Unit Testing
 
-Just like any other programming language, writingLIGOcode (to be compiled into Michelson) is not the only task of a developer;
+Just like any other programming language, writing LIGO code (to be compiled into Michelson) is not the only task of a developer;
 writing the tests is as important as writing the code.
 
 Writing a test may take extra time, but some great benefits usually reward this effort:
@@ -45,7 +45,7 @@ This chapter details how to write Michelson code unit tests in Python.
 
 Two modules are needed:
 - the standard *unittest* module: used to write and run unit tests in Python
-- the *pytezos* module: used to call the entrypoints of a smart contract, without deploying the smart contract. This module is an interesting option because it is well-maintained and easy to use.
+- the *PyTezos* module: used to call the entrypoints of a smart contract, without deploying the smart contract. This module is an interesting option because it is well-maintained and easy to use.
   
 > **The execution time or CPU time** of a given task is defined as the time spent by the system executing that task.  
 > **Cost** can be seen as the complexity and time required for the developer to write a test.

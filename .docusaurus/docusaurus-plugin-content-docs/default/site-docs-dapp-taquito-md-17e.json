@@ -3,7 +3,7 @@
   "id": "dapp/taquito",
   "isDocsHomePage": false,
   "title": "Taquito",
-  "description": "Interactions with a Tezos blockchain can be done thanks to the Tezos CLI.",
+  "description": "Interacting with the Tezos blockchain can be done using to the Tezos CLI. However, it is not suitable for Dapps since it needs to be integrated into web interfaces.",
   "source": "@site/docs/dapp/taquito.md",
   "sourceDirName": "dapp",
   "slug": "/dapp/taquito",
@@ -21,7 +21,7 @@
   },
   "sidebar": "docs",
   "previous": {
-    "title": "Smart contract deployment with Truffle",
+    "title": "Deploy with Truffle",
     "permalink": "/dapp/truffle_compilation_migration"
   },
   "next": {

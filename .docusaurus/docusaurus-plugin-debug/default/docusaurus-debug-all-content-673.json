@@ -1220,8 +1220,8 @@
               "unversionedId": "dapp/basics",
               "id": "dapp/basics",
               "isDocsHomePage": false,
-              "title": "Build a dapp - basics",
-              "description": "Now that we have a deployed contract and a ready-to-use Wallet, we can start to develop the frontend part of the dapp: it will interact",
+              "title": "Frontend (Basics)",
+              "description": "So far, we have a deployed a contract and setup a wallet, we can now start to develop the frontend part of our Dapp. The frontend will interact with a deployed Raffle smart contract.",
               "source": "@site/docs/dapp/front.md",
               "sourceDirName": "dapp",
               "slug": "/dapp/basics",
@@ -1234,7 +1234,7 @@
               "frontMatter": {
                 "id": "basics",
                 "disable_pagination": true,
-                "title": "Build a dapp - basics",
+                "title": "Frontend (Basics)",
                 "authors": "Benjamin Pilia"
               },
               "sidebar": "docs",
@@ -1243,7 +1243,7 @@
                 "permalink": "/dapp/temple"
               },
               "next": {
-                "title": "Build a dapp - User Experience",
+                "title": "Frontend (Advanced)",
                 "permalink": "/dapp/front_user_experience"
               }
             },
@@ -1269,7 +1269,7 @@
               },
               "sidebar": "docs",
               "previous": {
-                "title": "Build a dapp - User Experience",
+                "title": "Frontend (Advanced)",
                 "permalink": "/dapp/front_user_experience"
               },
               "next": {
@@ -1281,7 +1281,7 @@
               "unversionedId": "dapp/front_user_experience",
               "id": "dapp/front_user_experience",
               "isDocsHomePage": false,
-              "title": "Build a dapp - User Experience",
+              "title": "Frontend (Advanced)",
               "description": "In the previous chapter, the basic usages of the Temple Wallet were covered. The React app that was developed is functional.",
               "source": "@site/docs/dapp/front-user-experience.md",
               "sourceDirName": "dapp",
@@ -1295,12 +1295,12 @@
               "frontMatter": {
                 "id": "front_user_experience",
                 "disable_pagination": true,
-                "title": "Build a dapp - User Experience",
+                "title": "Frontend (Advanced)",
                 "authors": "Benjamin Pilia"
               },
               "sidebar": "docs",
               "previous": {
-                "title": "Build a dapp - basics",
+                "title": "Frontend (Basics)",
                 "permalink": "/dapp/basics"
               },
               "next": {
@@ -1336,7 +1336,7 @@
                 "permalink": "/michelson/take-away"
               },
               "next": {
-                "title": "Smart contract deployment with Truffle",
+                "title": "Deploy with Truffle",
                 "permalink": "/dapp/truffle_compilation_migration"
               }
             },
@@ -1345,7 +1345,7 @@
               "id": "dapp/taquito",
               "isDocsHomePage": false,
               "title": "Taquito",
-              "description": "Interactions with a Tezos blockchain can be done thanks to the Tezos CLI.",
+              "description": "Interacting with the Tezos blockchain can be done using to the Tezos CLI. However, it is not suitable for Dapps since it needs to be integrated into web interfaces.",
               "source": "@site/docs/dapp/taquito.md",
               "sourceDirName": "dapp",
               "slug": "/dapp/taquito",
@@ -1363,7 +1363,7 @@
               },
               "sidebar": "docs",
               "previous": {
-                "title": "Smart contract deployment with Truffle",
+                "title": "Deploy with Truffle",
                 "permalink": "/dapp/truffle_compilation_migration"
               },
               "next": {
@@ -1376,7 +1376,7 @@
               "id": "dapp/temple",
               "isDocsHomePage": false,
               "title": "Temple Wallet",
-              "description": "Dapp users need to have both addresses and the associated private keys of these addresses. They want to be able to securely store their private keys, easily use and manage their addresses, and easily use the different dapps. All of this can be performed by some tools called wallets. They can be desktop applications, browser plugins, hardware or smart contracts...",
+              "description": "Dapp users need to sign transactions on the Dapp without disclosing their private keys. They want to be able to securely store their private keys, easily use and manage their addresses, and easily use the different Dapps. All of this can be performed by wallets. These can be desktop applications, browser extensions, hardware dongles or smart contracts themselves.",
               "source": "@site/docs/dapp/temple.md",
               "sourceDirName": "dapp",
               "slug": "/dapp/temple",
@@ -1398,7 +1398,7 @@
                 "permalink": "/dapp/taquito"
               },
               "next": {
-                "title": "Build a dapp - basics",
+                "title": "Frontend (Basics)",
                 "permalink": "/dapp/basics"
               }
             },
@@ -1406,8 +1406,8 @@
               "unversionedId": "dapp/truffle_compilation_migration",
               "id": "dapp/truffle_compilation_migration",
               "isDocsHomePage": false,
-              "title": "Smart contract deployment with Truffle",
-              "description": "The first step to creating a Dapp is to deploy a smart contract onto a Tezos network, whether for testing or real-life use. There are several ways to do this, like using the Tezos CLI.",
+              "title": "Deploy with Truffle",
+              "description": "The first step to creating a Dapp is to deploy a smart contract on the Tezos network, whether for testing or real-life use. There are several ways to do this, such as using the Tezos CLI.",
               "source": "@site/docs/dapp/truffle_compilation_migration.md",
               "sourceDirName": "dapp",
               "slug": "/dapp/truffle_compilation_migration",
@@ -1419,7 +1419,7 @@
               "formattedLastUpdatedAt": "10/14/2018",
               "frontMatter": {
                 "id": "truffle_compilation_migration",
-                "title": "Smart contract deployment with Truffle",
+                "title": "Deploy with Truffle",
                 "authors": "Benjamin Pilia"
               },
               "sidebar": "docs",

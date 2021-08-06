@@ -1,24 +1,23 @@
 ---
 id: front_user_experience
 disable_pagination: true 
-title: Build a dapp - User Experience
+title: Frontend (Advanced)
 authors: Benjamin Pilia
 ---
 
 In the previous chapter, the basic usages of the _Temple Wallet_ were covered. The React app that was developed is functional.
-The app displays the storage information and enables the user to make two contract calls: the first to open a raffle and the second to buy a ticket.
+The app displays the storage information and enables the user to make two contract calls: open a raffle and buy a ticket.
 
 However, the user experience could be improved for these aspects of the application:
 1. transactions: if the user wants to send two transactions in a row, he needs to wait for the first transaction to be confirmed before sending the second one. Thus, the application should prevent the user from sending several transactions and should keep the user informed about the confirmed transactions.
-2. storage information: everyone should be able to read the storage information. However, our app requires you to connect your temple wallet, before. This method has to be improved.
-3. Some parts of the application should not be reachable to everyone: only the contract administrator should be able to fill the form and open the raffle, and an address having already bought a ticket should not be able to try to buy, another one.
+2. storage information: everyone should be able to read the storage information. However, our app requires you to connect a temple wallet beforehand. This method has to be improved.
+3. Some parts of the application should not be reachable to everyone: only the contract administrator should be able to fill the form and open the raffle, and an address having already bought a ticket should not be able to try to buy another one.
 
 In this chapter, we will refactor the react app to fix these three points.
 
-
 # Adding notifications
 
-The project can be found here: [https://github.com/bepi-octo/raffle-react-app](https://github.com/bepi-octo/raffle-react-app)
+The full project can be found here: [https://github.com/bepi-octo/raffle-react-app](https://github.com/bepi-octo/raffle-react-app)
 
 To install the project:
 ``` shell
@@ -29,6 +28,7 @@ To run the application:
 ``` shell
 $ yarn start
 ```
+
 First, we will integrate alert notifications into our app. A notification should pop up when a transaction is sent, and when a transaction succeeds or fails.
 
 We will use two node modules for the notifications: [react-alert](https://www.npmjs.com/package/react-alert) and [react-alert-template-basic](https://www.npmjs.com/package/react-alert-template-basic)
@@ -72,13 +72,13 @@ function App() {
 export default App;
 ```
 
-Let's test it: we will display a notification when connecting a new account. 
+Let's test it. We will display a notification when connecting a new account. 
 There are three types of alerts:
-- `info`: display some information
-- `success`: display the success of an operation
-- `error`: display the failure of an operation
+- `info`: displays some information,
+- `success`: displays the success of an operation,
+- `error`: displays the failure of an operation.
 
-We will use an `info` alert:
+Let's use an `info` alert:
 
 ``` typescript jsx
 function ConnectionSection() {
@@ -99,8 +99,8 @@ function ConnectionSection() {
   ...
 }
 ```
-Let's try our app and connect a new account:
 
+Let's try our app and connect a new account:
 ![](../../static/img/dapp/front15.png)
 
 An alert appears in the top-right corner and disappears after five seconds.
@@ -146,7 +146,6 @@ return <button onClick={() => {
     });
 ```
 
-
 The same thing can be done with the call to the `buyTicket` entrypoint:
 
 ``` typescript jsx
@@ -178,15 +177,14 @@ An error notification displaying the error message from the smart contract shoul
 
 # Preventing the user from using the same counter
 
-Let's try to make two contract calls to the `buyTicket` entrypoint, in a row. If we quicly click twice on the "Buy" button, a `Counter already in use` error may be raised as is shown below:
-
+Let's try to make two contract calls to the `buyTicket` entrypoint in a row. If we quickly click twice on the "Buy" button, a `Counter already in use` error is raised as shown below:
 ![](../../static/img/dapp/front17.png)
 
-It means that our first transaction is still in the mempool: the second transaction uses the same counter, hence the error notification.
+It means that our first transaction is still in the mempool and the second transaction uses the same counter, hence the error notification.
 
-The user should not be able to send a transaction if one is already in the mempool. These buttons therefor need to be disabled.
+The user should not be able to send a transaction if one is already in the mempool. These buttons therefore need to be disabled.
 
-We need to know if there is a pending transaction in the app: a boolean that we update before and after each transaction will be enough.
+We need to know if there is a pending transaction in the app. A boolean that we update before and after each transaction should be enough.
 
 ``` typescript jsx
 function App() {
@@ -208,7 +206,7 @@ function App() {
 }
 ```
 
-The `LaunchRaffleSection` and `BuyTicketButton` actions need to know if a transaction is pending. They need to get this boolean and a callback, to update it in their `props`:
+The `LaunchRaffleSection` and `BuyTicketButton` actions need to know if a transaction is pending. They need to get this boolean and a callback to update it in their `props`:
 
 ``` typescript jsx 
 type BuyTicketButtonProps = { pendingTransaction: boolean; setPendingTransactionCallback: (b : boolean) => void}
@@ -242,7 +240,7 @@ function App() {
 }
 ```
 
-Let's see how to use this boolean in our `BuyTicketButton`. We need to first check if there is a pending transaction: it must be done before any contract call (step 1). If a transaction is pending, the user must be notified and asked to wait (step 2). Then, once a transaction is sent, the boolean must be set to `true` (step 3). Finally, once the transaction is either validated or rejected, the user must be notified, and the boolean set back to `false` (step 4)
+Let's see how to use this boolean in our `BuyTicketButton`. First, we need to check if there is a pending transaction. It must be done before any contract call (step 1). If a transaction is pending, the user must be notified and asked to wait (step 2). Then, once a transaction is sent, the boolean must be set to `true` (step 3). Finally, once the transaction is either validated or rejected, the user must be notified, and the boolean set back to `false` (step 4)
 
 ``` typescript
   return <button onClick={() => {
@@ -270,11 +268,11 @@ The same has to be done with the `LaunchRaffleSection` component.
 
 # Fetching the storage without a wallet
 
-Most dapp users want to know information from a contract without having to install a wallet or to use an address: those pieces of information are found in the contract storage. In our case, the users want to know the reward or the end date. 
+Most Dapp users want to see the Dapp data without installing a wallet or using an address. In our case, the users want to know the reward or the end date. 
 
-We will use _Taquito_, which can fetch a contract's storage without requiring any account. We will use a `TezosToolkit` (with an rpc), instead of a Temple Wallet. 
+We will use _Taquito_, which can fetch a contract's storage without requiring any wallet account. We will use a `TezosToolkit` (with an RPC) instead of the _Temple_ Wallet. 
 
-First, let's define a rpc provider. We will use the _Smartpy_ edonet rpc: https://edonet.smartpy.io
+First, let's define a RPC provider. We will use the _Smartpy_ _Edonet_ RPC at https://edonet.smartpy.io
 
 ``` typescript jsx
 //src/dapp/defaults.ts
@@ -313,13 +311,10 @@ function RaffleInformation( {tzToolkit} : RaffleInformationProps) {
 
 And that's it! Since the Temple Wallet is based on _Taquito_, the way the storage is fetched remains the same.
 
-
 ![](../../static/img/dapp/front18.png)
 
 
-Everyone, even those who do not have a Temple Wallet, can have access to the stored pieces of information.
-
-
+Everyone, even those who do not have a Temple Wallet, can now access the stored data.
 
 # Restricting the access
 
@@ -331,7 +326,7 @@ By checking which user is connected, the app can display content or withhold it.
 
 ## Page component refactoring
 
-First, we need to do some refactoring. So far, the contract storage is only accessible from the `RaffleInformation` component. However, if we want to restrict some parts of the app, we need to access the contract storage from the `Page` component, which renders the `LaunchRaffleSection` and `BuyTicketButton` components. Both those pieces of information are stored in the storage.
+First, we need to do some refactoring. So far, the contract storage is only accessible from the `RaffleInformation` component. However, if we want to restrict some parts of the app, we need to access the contract storage from the `Page` component, which renders the `LaunchRaffleSection` and `BuyTicketButton` components. Both of these are stored in the storage.
 
 We need to pull the storage retrieving logic up to the component `Page`.
 
@@ -376,16 +371,14 @@ const Page = ({ pendingTransaction, setPendingTransactionCallback, tzToolkit }: 
     <BuyTicketButton pendingTransaction={pendingTransaction} setPendingTransactionCallback={setPendingTransactionCallback}></BuyTicketButton> 
     </div>
 }
-
 ```
 
-
 The `RaffleInformationProps` are:
+
 ``` typescript jsx
 type RaffleInformationProps = { storage: RaffleStorage | undefined, tickets: string[] }
 function RaffleInformation({ storage, tickets }: RaffleInformationProps) {...}
 ```
-
 
 ``` typescript jsx
 function App() {
@@ -441,6 +434,7 @@ return <div className="App">
 ```
 
 From now on, our app will look different if it's an administrator, a player or a buyer connecting.
+
 For instance, if an address is not connected, the app will display:
 ![](../../static/img/dapp/front19.png)
 
@@ -450,8 +444,8 @@ If an address (different from the administrator) has not yet bought a ticket:
 
 # Conclusion
 
-Just like any web application, the user experience is essential in dapps. Users expect those applications to be easy-to-use and with quick access to clear information. Those apps must prevent average users from accessing restricted parts and from doing unnecessary actions.
+Just like any web application, the user experience is essential in Dapps. Users expect those applications to be easy-to-use and with quick access to clear information. Those apps must prevent average users from accessing restricted areas and from doing unnecessary actions.
 
-All the refactoring made in this chapter aims to improve the function and the user experience: event notifications, restricting the access to the `openRaffle` entrypoint, preventing the user from trying to buy a second ticket...
+All the refactoring made in this chapter aims to improve the function and the user experience: event notifications, restricting the access to the `openRaffle` entrypoint, preventing the user from trying to buy a second ticket, etc.
 
-Your dapp will certainly be a more complicated use-case: the smart contract will expose more entrypoints, the storage will hold more information, the front app is likely to have more pages... However, the features described in this chapter will most certainly come in handy.
+Your Dapp will undoubtedly be more complicated than that. The smart contract will expose more entrypoints, the storage will hold more information, the frontend will likely to have more pages, and so on. However, the features described in this chapter will most certainly still come in handy.

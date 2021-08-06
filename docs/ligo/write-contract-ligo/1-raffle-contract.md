@@ -16,7 +16,7 @@ If you want to learn the complete LIGO syntax, you can take a look at:
 
 This chapter has been written with a smart contract development approach. Each part starts with an explanation of the LIGO syntax (called _LIGO prerequisite_ sections) that are later used for smart contract development.
 
-The _LIGO prerequisite_ parts can be skipped if you do not want to learn the _PascaLIGO_ syntax.
+The _LIGO prerequisite_ parts can be skipped if you do not want to learn the _PascaLigo_ syntax.
 
 <NotificationBar>
   <p>
