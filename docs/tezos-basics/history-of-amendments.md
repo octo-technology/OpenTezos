@@ -73,7 +73,7 @@ Florence's notable bug fixes and improvements are the:
 
 * Improved gas consumption for the execution of more complex smart contracts
 
-* Changing inter-contract calls to a depth-first serach[[4]](/tezos-basics/history-of-amendments#references) ordering, as opposed to breadth-first search[[5]](/tezos-basics/history-of-amendments#references) ordering
+* Changing inter-contract calls to a depth-first search[[4]](/tezos-basics/history-of-amendments#references) ordering, as opposed to breadth-first search[[5]](/tezos-basics/history-of-amendments#references) ordering
 
 * The elimination of the test chain activation
   

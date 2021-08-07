@@ -120,7 +120,7 @@ Use the `SmartPy.sh` script to run the tests:
 This leads to multiple outputs: types of storage values and entrypoint parameters, generated Michelson code, pretty-printed scenario, etc.
 
 ## Conclusion
-Installing an environment for programming with SmartPy is easy to do. You need Python and the necessary libraries. Or you can simply start coding from the online editor.
+Installing an environment for programming with SmartPy is easy to do. You just need Python and the necessary libraries. Or you can simply start coding in the online editor.
 
 ## References
 [1] https://smartpy.io/reference.html#_command_line_interface
