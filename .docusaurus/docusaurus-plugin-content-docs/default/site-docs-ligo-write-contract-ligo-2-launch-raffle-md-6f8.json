@@ -1,0 +1,31 @@
+{
+  "unversionedId": "ligo/write-contract-ligo/2-launch-raffle",
+  "id": "ligo/write-contract-ligo/2-launch-raffle",
+  "isDocsHomePage": false,
+  "title": "Launch raffle",
+  "description": "Smart Contract development: launch raffle entrypoint",
+  "source": "@site/docs/ligo/write-contract-ligo/2-launch-raffle.md",
+  "sourceDirName": "ligo/write-contract-ligo",
+  "slug": "/ligo/write-contract-ligo/2-launch-raffle",
+  "permalink": "/ligo/write-contract-ligo/2-launch-raffle",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/write-contract-ligo/2-launch-raffle.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "id": "2-launch-raffle",
+    "title": "Launch raffle",
+    "authors": "Maxime Sallerin and Benjamin Pilia"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Raffle contract",
+    "permalink": "/ligo/write-contract-ligo/1-raffle-contract"
+  },
+  "next": {
+    "title": "Buy ticket",
+    "permalink": "/ligo/write-contract-ligo/3-buy-ticket"
+  }
+}

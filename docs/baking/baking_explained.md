@@ -9,7 +9,7 @@ In this section, we will discuss how baking works. The different actors of the m
 ![](../../static/img/baking/baking_explained.svg)
 <small className="figure">FIGURE 1: How Baking Works?</small>
 
-**Delegators** can delegate their tokens to a **Delegate**. A delegate can be :
+**Delegators** can delegate their tokens to a **Delegate**. A delegate can be:
 - a **Baker**, who participates in the consensus by **creating** new blocks.
 - an **Endorser**, who participates in the consensus by **validating** the blocks created by other bakers.
 - an **Accuser**, who participates in the consensus by **monitoring** bakers and endorsers works.
@@ -18,7 +18,7 @@ In this section, we will discuss how baking works. The different actors of the m
 
 **A roll snapshots** represents the state of rolls for a given block. 
 
-We also define :
+We also define:
 - `BLOCKS_PER_CYLCE` = 4096 blocks.
 - `n`, th current cycle.
 - `PRESERVED_CYCLES` = 5 cyles, i.e. the number of cycles during which the tokens are frozen.

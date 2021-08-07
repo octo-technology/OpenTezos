@@ -1,0 +1,31 @@
+{
+  "unversionedId": "ligo/write-contract-ligo/5-refactoring",
+  "id": "ligo/write-contract-ligo/5-refactoring",
+  "isDocsHomePage": false,
+  "title": "Refactoring",
+  "description": "Smart contract refactoring",
+  "source": "@site/docs/ligo/write-contract-ligo/5-refactoring.md",
+  "sourceDirName": "ligo/write-contract-ligo",
+  "slug": "/ligo/write-contract-ligo/5-refactoring",
+  "permalink": "/ligo/write-contract-ligo/5-refactoring",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/write-contract-ligo/5-refactoring.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "sidebarPosition": 5,
+  "frontMatter": {
+    "id": "5-refactoring",
+    "title": "Refactoring",
+    "authors": "Maxime Sallerin and Benjamin Pilia"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Close raffle",
+    "permalink": "/ligo/write-contract-ligo/4-close-raffle"
+  },
+  "next": {
+    "title": "Compiling and deploying",
+    "permalink": "/ligo/deploy-a-contract"
+  }
+}

@@ -37,7 +37,7 @@ A block is simply a structure containing:
 - an arbitrary number called _NONCE_ (diminutive of _Number used ONCE_ )
 - and the hash of all these data
 
-Fig. 3 shows an example of a block. Notice that the hash of the block starts with "_d8ca_". So far, this block is considered _invalid_. There are different rules for validating a block depending on the chosen blockchain. Most blockchains use *Proof-of-Work*, which consists of proving that validation's work has been done on the block.
+Fig. 3 shows an example of a block. Notice that the hash of the block starts with "_d8ca_". So far, this block is considered _invalid_. There are different rules for validating a block depending on the chosen blockchain. Most blockchains use *Proof-of-Work*, which consists in proving that validation's work has been done on the block.
 
 ![](../../static/img/blockchain-basics/invalid_block.svg)
 <small className="figure">FIGURE 3: The hash of DATA, NONCE and block number does not start with 000: The block is invalid.</small>
@@ -146,7 +146,7 @@ Did you find it? Consider how the transactions are authenticated.
 Knowing that Chris has a positive balance of \$100, could Jane add the transaction "\$ 40 from Chris to Jane" herself in a new block without Chris ever giving his consent? At this point of the chapter, anyone seems to be able to spend anyone else's money!
 
 ## Keys inside Transactions inside Blocks
-It is essential for the proper functioning of the crypto-money that only Chris can send the transaction "$40 from Chris to Jane". For that, we need to use one of the bases of modern cryptography, the [*Public Key Cryptography*](https://en.wikipedia.org/wiki/Public-key_cryptography) or [*Asymmetric Key Algorithm*](https://en.wikipedia.org/wiki/Public-key_cryptography), which consists of a private key and a public key.
+It is essential for the proper functioning of the crypto-money that only Chris can send the transaction "$40 from Chris to Jane". For that, we need to use one of the bases of modern cryptography, the [*Public Key Cryptography*](https://en.wikipedia.org/wiki/Public-key_cryptography) or [*Asymmetric Key Algorithm*](https://en.wikipedia.org/wiki/Public-key_cryptography), which consists in a private key and a public key.
 
 Fig. 13 shows a pair of keys. The private key is a very long, randomly generated number (you could create that number yourself by flipping a coin randomly a large number of times). A public key is a hexadecimal number that is calculated from the private key. It is possible to calculate the public key from the private key, but it is practically impossible to find the private key from the public key.
 

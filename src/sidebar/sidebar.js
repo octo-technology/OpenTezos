@@ -69,8 +69,11 @@ module.exports = {
       items: [
         'ligo/introduction',
         'ligo/installation',
-        'ligo/write-contracts-ligo',
-        'ligo/language-basics',
+        {
+          type: 'category',
+          label: 'Raffle example',
+          items: ['ligo/write-contract-ligo/1-raffle-contract', 'ligo/write-contract-ligo/2-launch-raffle', 'ligo/write-contract-ligo/3-buy-ticket', 'ligo/write-contract-ligo/4-close-raffle', 'ligo/write-contract-ligo/5-refactoring'],
+        },
         'ligo/deploy-a-contract',
         'ligo/unit-testing',
         'ligo/examples',

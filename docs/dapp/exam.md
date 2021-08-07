@@ -52,7 +52,7 @@ When writing a migration, some javascript types are directly able to be used in 
 
 ### Question 5
 
-What is one problem solved by an API call?
+What is one problem solved by an API call to an explorer?
 
 <ExamCheckbox name="40" isCorrect="false">A more efficient storage fetching</ExamCheckbox>
 <ExamCheckbox name="41" isCorrect="true">Retrieving keys of a big map</ExamCheckbox>
@@ -75,8 +75,8 @@ Why should the user be prevented from sending transactions in a row?
 
 <ExamCheckbox name="60" isCorrect="true">Because there can still be transactions in the mempool</ExamCheckbox>
 <ExamCheckbox name="61" isCorrect="false">The more transactions you send the higher the transaction fees will be </ExamCheckbox>
-<ExamCheckbox name="62" isCorrect="false">Sending too many transactions might slow the dapp down</ExamCheckbox>
-<ExamCheckbox name="63" isCorrect="false">To prevent users from spending too many tz in the app</ExamCheckbox>
+<ExamCheckbox name="62" isCorrect="false">Sending too many transactions might slow the Dapp down</ExamCheckbox>
+<ExamCheckbox name="63" isCorrect="false">To prevent users from spending too many Tez in the app</ExamCheckbox>
 
 ### Question 8
 

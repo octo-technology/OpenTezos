@@ -1,0 +1,31 @@
+{
+  "unversionedId": "ligo/write-contract-ligo/1-raffle-contract",
+  "id": "ligo/write-contract-ligo/1-raffle-contract",
+  "isDocsHomePage": false,
+  "title": "Raffle contract",
+  "description": "The language used in smart contracts on Tezos is Michelson, a stack-based language. However, this kind of language is not commonly used by developers and as the code becomes complex and longer, it gets increasingly harder to keep readable and clean code in Michelson. However, the Tezos ecosystem provides a number of high level languages, which make smart contracts development as easy as any application development. LIGO is one of these languages.",
+  "source": "@site/docs/ligo/write-contract-ligo/1-raffle-contract.md",
+  "sourceDirName": "ligo/write-contract-ligo",
+  "slug": "/ligo/write-contract-ligo/1-raffle-contract",
+  "permalink": "/ligo/write-contract-ligo/1-raffle-contract",
+  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/ligo/write-contract-ligo/1-raffle-contract.md",
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "id": "1-raffle-contract",
+    "title": "Raffle contract",
+    "authors": "Maxime Sallerin and Benjamin Pilia"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Installation",
+    "permalink": "/ligo/installation"
+  },
+  "next": {
+    "title": "Launch raffle",
+    "permalink": "/ligo/write-contract-ligo/2-launch-raffle"
+  }
+}

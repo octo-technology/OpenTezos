@@ -146,7 +146,7 @@ $$
 
 Rewards for cycle `n` come in the cycle `n + 1` (after $\approx$ 3 days) so, you will then receive your delegating reward every **3 days**.
 
-There are no direct risks of delegating Tez. The only risk you take is not earning the potential rewards. Carefully choose your baker to ensure the quality of service and rewards.
+There are no direct risks of delegating Tez. The only risk you take is not earning the potential rewards. Carefully choose your baker to ensure the quality of service and reward.
 
 When delegating, your Tez are completely liquid. You are free to move your tokens anytime as there are no freezing periods when delegating to a baker.
 

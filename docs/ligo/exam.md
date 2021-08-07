@@ -15,7 +15,7 @@ What is correct about LIGO?
 
 <ExamCheckbox name="00" isCorrect="true">LIGO is a programming language for writing Tezos smart contracts.</ExamCheckbox>
 <ExamCheckbox name="01" isCorrect="false">Smart contracts are, by default, written in the LIGO language.</ExamCheckbox>
-<ExamCheckbox name="02" isCorrect="true">LIGO compiles scripts written in a high-level language into Michelson script.</ExamCheckbox>
+<ExamCheckbox name="02" isCorrect="true">The LIGO compiler converts LIGO high-level code into Michelson script.</ExamCheckbox>
 <ExamCheckbox name="03" isCorrect="false">The LIGO syntax is PascaLigo.</ExamCheckbox>
 
 ### Question 2
@@ -27,9 +27,8 @@ What notions are defined inside the smart contract?
 <ExamCheckbox name="12" isCorrect="false">The initial value of the storage.</ExamCheckbox>
 <ExamCheckbox name="13" isCorrect="false">The value of the entry point and its related parameters.</ExamCheckbox>
 <ExamCheckbox name="14" isCorrect="true">The type definition of the entry point.</ExamCheckbox>
-<ExamCheckbox name="15" isCorrect="false">The size of the storage.</ExamCheckbox>
-<ExamCheckbox name="16" isCorrect="true">The code of the smart contract.</ExamCheckbox>
-<ExamCheckbox name="17" isCorrect="false">The list of users allowed to call the smart contract.</ExamCheckbox>
+<ExamCheckbox name="15" isCorrect="true">The code of the smart contract.</ExamCheckbox>
+<ExamCheckbox name="16" isCorrect="false">The list of users allowed to call the smart contract.</ExamCheckbox>
 
 ### Question 3
 
@@ -81,7 +80,7 @@ Which of the following operations are correct?
 
 What is correct about type aliasing?
 
-<ExamCheckbox name="60" isCorrect="true">Type aliasing consists of naming a given type when the context calls for a more precise name.</ExamCheckbox>
+<ExamCheckbox name="60" isCorrect="true">Type aliasing consists in naming a given type when the context calls for a more precise name.</ExamCheckbox>
 <ExamCheckbox name="61" isCorrect="true">Type aliasing increases the readability and maintainability of your smart contracts.</ExamCheckbox>
 <ExamCheckbox name="62" isCorrect="false">`type name = string` is the correct way to define a type.</ExamCheckbox>
 <ExamCheckbox name="63" isCorrect="true">`type name is string` is the correct way to define a type.</ExamCheckbox>
@@ -132,7 +131,7 @@ block {
 ```
 
 Complete the ######## part in the code to give the return type of the main function a correct definition.
-(More than one answers can be considered valid)
+(More than one answer may be valid)
 
 <ExamCheckbox name="90" isCorrect="false">`type counterReturn is list(operation) * counterEntrypoints`</ExamCheckbox>
 <ExamCheckbox name="91" isCorrect="false">`type counterReturn is counterEntrypoints * counterStorage`</ExamCheckbox>

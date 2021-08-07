@@ -3,7 +3,7 @@
   "id": "dapp/temple",
   "isDocsHomePage": false,
   "title": "Temple Wallet",
-  "description": "Dapp users need to have both addresses and the associated private keys of these addresses. They want to be able to securely store their private keys, easily use and manage their addresses, and easily use the different dapps. All of this can be performed by some tools called wallets. They can be desktop applications, browser plugins, hardware or smart contracts...",
+  "description": "Dapp users need to sign transactions on the Dapp without disclosing their private keys. They want to be able to securely store their private keys, easily use and manage their addresses, and easily use the different Dapps. All of this can be performed by wallets. These can be desktop applications, browser extensions, hardware dongles or smart contracts themselves.",
   "source": "@site/docs/dapp/temple.md",
   "sourceDirName": "dapp",
   "slug": "/dapp/temple",
@@ -25,7 +25,7 @@
     "permalink": "/dapp/taquito"
   },
   "next": {
-    "title": "Build a dapp - basics",
+    "title": "Frontend (Basics)",
     "permalink": "/dapp/basics"
   }
 }

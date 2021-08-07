@@ -384,7 +384,7 @@ Michelson language doesn't directly support tuples of more than 2 elements, but 
 ![](../../static/img/michelson/michelson_tutorial_pair.svg)
 <small className="figure">FIGURE 17: Illustration of the C[AD]+R macro</small>
 
-The creation of a _nested pair_ consists of a succession of `PAIR` instructions (which reorganizes elements in the stack). This may become a fastidious exercise with large _nested pairs_. The Michelson language supports these nested pairs by providing the `PAPPAIIR` macros for creating _nested pair_ in a single instruction.
+The creation of a _nested pair_ consists in a succession of `PAIR` instructions (which reorganizes elements in the stack). This may become a fastidious exercise with large _nested pairs_. The Michelson language supports these nested pairs by providing the `PAPPAIIR` macros for creating _nested pair_ in a single instruction.
 
 Similarly, the Michelson language provides the `UNPAPPAIIR` macro for destructuring _nested pairs_.
 
@@ -1367,10 +1367,10 @@ The second expected element for `CREATE_CONTRACT` is the quantity of mutez trans
 The third expected element for `CREATE_CONTRACT` is the initial storage value for the new contract. Here the `PUSH int 9;` set the default counter value to 9.
 
 The `CREATE_CONTRACT` instruction produces on top of the stack an _operation_ and the _address_ of the contract.
-The `DIP { NIL operation }; CONS` sequence adds this operation into a list of operation (which will constitute the return of the smart contract).
+The `DIP { NIL operation }; CONS` sequence adds this operation into a list of operations (which will constitute the return of the smart contract).
 The `DIP { DROP }` sequence deletes the address of the (because we don't use it here). 
 The `UNIT` instruction specifies an empty storage as described in the storage definition (`storage unit;`)
-The `PAIR` instruction forms the _pair_ returned by the smart contract (including the list of operation and the storage).
+The `PAIR` instruction forms the _pair_ returned by the smart contract (including the list of operations and the storage).
 
 This smart contract can be simulated with the CLI command:
 

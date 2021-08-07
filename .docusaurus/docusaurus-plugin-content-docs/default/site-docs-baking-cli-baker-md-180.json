@@ -20,11 +20,11 @@
   },
   "sidebar": "docs",
   "previous": {
-    "title": "Rewards",
-    "permalink": "/baking/reward"
+    "title": "List of bakers",
+    "permalink": "/baking/bakers_list"
   },
   "next": {
-    "title": "Delegating",
-    "permalink": "/baking/delegating"
+    "title": "Exam",
+    "permalink": "/baking/exam"
   }
 }

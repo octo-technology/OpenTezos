@@ -2,7 +2,7 @@
   "unversionedId": "dapp/front_user_experience",
   "id": "dapp/front_user_experience",
   "isDocsHomePage": false,
-  "title": "Build a dapp - User Experience",
+  "title": "Frontend (Advanced)",
   "description": "In the previous chapter, the basic usages of the Temple Wallet were covered. The React app that was developed is functional.",
   "source": "@site/docs/dapp/front-user-experience.md",
   "sourceDirName": "dapp",
@@ -16,12 +16,12 @@
   "frontMatter": {
     "id": "front_user_experience",
     "disable_pagination": true,
-    "title": "Build a dapp - User Experience",
+    "title": "Frontend (Advanced)",
     "authors": "Benjamin Pilia"
   },
   "sidebar": "docs",
   "previous": {
-    "title": "Build a dapp - basics",
+    "title": "Frontend (Basics)",
     "permalink": "/dapp/basics"
   },
   "next": {

@@ -76,7 +76,7 @@ The difference between the effective swap price and the marginal price is referr
 ![](../../static/img/defi/swap.svg)
 <small className="figure">FIGURE 2: Illustration of a token Swap. The trader first sends his input tokens, then the pool computes the effective swap price by maintaining a constant product, and finally sends the output of tokens.</small>
 
-From this, you can deduce two things :
+From this, you can deduce two things:
 
 1. You can never empty all the liquidity from a pool. As you withdraw more and more tokens from one side of the pool, the effective swap price will shift toward the other side of the curve in an asymptotically manner toward infinity.
 

@@ -21,7 +21,7 @@
   "/__docusaurus/debug/routes-244": {
     "component": "component---theme-debug-routes-946-699"
   },
-  "/-06e": {
+  "/-91b": {
     "component": "component---theme-doc-page-1-be-9be",
     "versionMetadata": "versionMetadata---935-fcf"
   },
@@ -285,9 +285,25 @@
     "component": "component---theme-doc-item-178-a40",
     "content": "content---ligo-unit-testing-2-a-9-480"
   },
-  "/ligo/write-contracts-ligo-3af": {
+  "/ligo/write-contract-ligo/1-raffle-contract-127": {
     "component": "component---theme-doc-item-178-a40",
-    "content": "content---ligo-write-contracts-ligod-78-d58"
+    "content": "content---ligo-write-contract-ligo-1-raffle-contract-875-21a"
+  },
+  "/ligo/write-contract-ligo/2-launch-raffle-94d": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---ligo-write-contract-ligo-2-launch-raffle-6-f-8-20d"
+  },
+  "/ligo/write-contract-ligo/3-buy-ticket-0c8": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---ligo-write-contract-ligo-3-buy-ticket-65-b-11c"
+  },
+  "/ligo/write-contract-ligo/4-close-raffle-cc7": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---ligo-write-contract-ligo-4-close-rafflec-80-316"
+  },
+  "/ligo/write-contract-ligo/5-refactoring-8bc": {
+    "component": "component---theme-doc-item-178-a40",
+    "content": "content---ligo-write-contract-ligo-5-refactoring-864-1b2"
   },
   "/michelson-e49": {
     "component": "component---theme-doc-item-178-a40",
