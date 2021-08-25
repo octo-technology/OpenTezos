@@ -138,7 +138,7 @@ To recap, the _Nakamoto Consensus_, which Bitcoin is based on, is driven by:
 - A probabilistic solution to the [Byzantine General Problem](https://en.wikipedia.org/wiki/Byzantine_fault) (a quick word on that below)
 - The _MAD_ property (defined below)
 
-In the Bitcoin mesh network, the **rewards** make it possible to sustain up to 50% of bad actors ($\frac{1}{2}$). The network uses "Byzantine Fault Tolerant" (BFT). Probabilistically, Bitcoin's solution is more efficient than the main mathematical solution: The actual main solution requires less than one-third of bad actors($\frac{1}{3}$).
+In the Bitcoin mesh network, the **rewards** make it possible to sustain up to 50% of bad actors ($\frac{1}{2}$). The network uses "Byzantine Fault Tolerance" (BFT). Probabilistically, Bitcoin's solution is more efficient than the main mathematical solution: The actual main solution requires less than one-third of bad actors($\frac{1}{3}$).
 
 The _**M**utual **A**ssured **D**estruction_ (**_MAD_**) property reinforces this BFT solution:  
 
