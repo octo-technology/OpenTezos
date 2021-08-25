@@ -72,8 +72,8 @@ The first DAO on Ethereum, simply called "[_The DAO_](https://en.wikipedia.org/w
 
 Today, Bitcoin and Ethereum remain the two main protocols with the most adoption, but many exciting alternatives have been created, notably Tezos in 2018.
 
-![A non-hexaustive timeline](../../static/img/blockchain-basics/timeline.svg "A non-hexaustive timeline")
-<small className="figure">FIGURE 2: A non-hexaustive timeline</small>
+![A non-hexaustive timeline](../../static/img/blockchain-basics/timeline.svg "A non-exhaustive timeline")
+<small className="figure">FIGURE 2: A non-exhaustive timeline</small>
 
 ## Terminology
 A *blockchain* is a particular type of [_**D**istributed **L**edger **T**echnology_](https://en.wikipedia.org/wiki/Distributed_ledger) (DLT), a consensus on replicated, shared, and synchronized digital information, geographically spread across multiple sites.
