@@ -11,7 +11,7 @@ import ExamCheckbox from '../../src/components/docs/ExamCheckbox';
 
 ### Question 1
 
-What are the two main functions of a Tezos node?
+What is/are the main function(s) of a Tezos node?
 
 <ExamCheckbox name="00" isCorrect="false">Creating and endorsing new blocks.</ExamCheckbox>
 <ExamCheckbox name="01" isCorrect="true">Running the gossip network and updating the context.</ExamCheckbox>
