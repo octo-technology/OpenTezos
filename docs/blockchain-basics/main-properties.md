@@ -93,7 +93,7 @@ More details on that in the [next chapter on Proof-of-Work](/blockchain-basics/p
 ## Account Unit and Economy Basics
 Miners use their computational power and electricity to mine. That's why they are rewarded for it. The rewards are in the account unit. Bitcoin uses bitcoins, while Ethereum uses ethers.
 
-To get these rewards, they must _work_, and then _proove they have worked_. In Bitcoin, they work by using up electricity and computing time. So to make this activity profitable, miners have to find efficient calculators and low-cost electricity.
+To get these rewards, they must _work_, and then _prove they have worked_. In Bitcoin, they work by using up electricity and computing time. So to make this activity profitable, miners have to find efficient calculators and low-cost electricity.
 
 Over time, miners have grouped to use more and more powerful machines together as more people began this activity. This increases the number of attempts (the number of lottery tickets) of the global network to find a valid block. Because the function used for that is a **hash** function (_SHA256_), this network efficiency is called "**hashing power**".
 
@@ -138,7 +138,7 @@ To recap, the _Nakamoto Consensus_, which Bitcoin is based on, is driven by:
 - A probabilistic solution to the [Byzantine General Problem](https://en.wikipedia.org/wiki/Byzantine_fault) (a quick word on that below)
 - The _MAD_ property (defined below)
 
-In the Bitcoin mesh network, the **rewards** make it possible to sustain up to 50% of bad actors ($\frac{1}{2}$). The network uses "Byzantine Fault Tolerant" (BFT). Probabilistically, Bitcoin's solution is more efficient than the main mathematical solution: The actual main solution requires less than one-third of bad actors($\frac{1}{3}$).
+In the Bitcoin mesh network, the **rewards** make it possible to sustain up to 50% of bad actors ($\frac{1}{2}$). The network uses "Byzantine Fault Tolerance" (BFT). Probabilistically, Bitcoin's solution is more efficient than the main mathematical solution: The actual main solution requires less than one-third of bad actors($\frac{1}{3}$).
 
 The _**M**utual **A**ssured **D**estruction_ (**_MAD_**) property reinforces this BFT solution:  
 

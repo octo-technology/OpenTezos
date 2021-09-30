@@ -58,7 +58,7 @@ Following the success of Bitcoin, many forked its code and started creating new 
 
 Note here that Bitcoin's transactions are, to a certain degree programmable. One can program how funds are spent using scripts. However, only a small set of basic uses is possible in practice as Bitcoin's underlying scripting language is very limited.
 
-In 2011, Vitalik Buterin discovered Bitcoin, and two years later (October 2013) began work on a proposal for an extention of [_Mastercoin_] (https://web.archive.org/web/20150627031414/http://vbuterin.com/ultimatescripting.html), a protocol with more programmable capabilities than Bitcoin.
+In 2011, Vitalik Buterin discovered Bitcoin, and two years later (October 2013) began work on a proposal for an extension of [_Mastercoin_](https://web.archive.org/web/20150627031414/http://vbuterin.com/ultimatescripting.html), a protocol with more programmable capabilities than Bitcoin.
 
 However, the team at _Mastercoin_ didn't want to go in this direction, and Vitalik Buterin began to re-work his proposal into another project named _Ethereum_ (December 2013). The interest into [_**D**ecentralized **A**utonomous **O**rganizations_](https://en.wikipedia.org/wiki/Decentralized_autonomous_organization) (or DAO) drove the need for even more complex scripts. A "DAO" is a form of investor-directed venture capital fund that no blockchain could so far implement. It was also in December 2013 that Gavin Wood (protocol-side) and Jeffrey Wilcke (client-side) joined forces with Vitalik Buterin to work on Ethereum, and a [white paper was first published in January 2014](https://ethereum.org/en/whitepaper/).
 
@@ -72,8 +72,8 @@ The first DAO on Ethereum, simply called "[_The DAO_](https://en.wikipedia.org/w
 
 Today, Bitcoin and Ethereum remain the two main protocols with the most adoption, but many exciting alternatives have been created, notably Tezos in 2018.
 
-![A non-hexaustive timeline](../../static/img/blockchain-basics/timeline.svg "A non-hexaustive timeline")
-<small className="figure">FIGURE 2: A non-hexaustive timeline</small>
+![A non-hexaustive timeline](../../static/img/blockchain-basics/timeline.svg "A non-exhaustive timeline")
+<small className="figure">FIGURE 2: A non-exhaustive timeline</small>
 
 ## Terminology
 A *blockchain* is a particular type of [_**D**istributed **L**edger **T**echnology_](https://en.wikipedia.org/wiki/Distributed_ledger) (DLT), a consensus on replicated, shared, and synchronized digital information, geographically spread across multiple sites.
