@@ -71,7 +71,7 @@ One must account for these two variables to optimize a contract:
     So, the size optimization comes down to decreasing the number of instructions and the variable-size constants. [[7]](/tezos-basics/economics-and-rewards#references)
 
 ## Tezos reward
-To maintain the network, Tezos needs bakers and endorsers. They stake their tokens and use their computing power to create blocks, manage transactions, vote, and secure the network. In exchange for these tasks, bakers are rewarded with a fee.  
+To maintain the network, Tezos needs bakers and endorsers. They stake their tokens to create blocks, manage transactions, vote, and secure the network. In exchange for these tasks, bakers are rewarded with a fee.  
 Since the Carthage update[[8]](/tezos-basics/economics-and-rewards#references), the reward system has been updated to make the network more robust against non-cooperative baking strategies. 
 
 ### Baking reward

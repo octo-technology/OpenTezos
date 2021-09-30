@@ -49,17 +49,14 @@ img {
 } */
 
 .menu__link {
-  /* display: grid;
-  grid-template-columns: auto auto auto;
-  grid-gap: 10px; */
+  align-items: center;
   display: flex;
-  align-items: left;
-  justify-content: end;
+  justify-content: flex-start;
 }
 
-.menu > .menu__list > .menu__list-item > .menu__link--sublist {
+/* .menu > .menu__list > .menu__list-item > .menu__link--sublist {
   text-align: left !important;
-}
+} */
 
 .menu > .menu__list > .menu__list-item > .menu__link--sublist::before {
   content: '';

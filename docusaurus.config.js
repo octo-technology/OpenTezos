@@ -30,7 +30,7 @@ module.exports = {
       },
       items: [
         {
-          href: 'https://github.com/octo-technology/OpenTezos/',
+          href: 'https://gitlab.com/tezos-paris-hub/OpenTezos/',
           label: 'GitHub',
           position: 'right',
         },
@@ -69,7 +69,7 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve('./src/sidebar/sidebar.js'),
           routeBasePath: '/',
-          editUrl: 'https://github.com/octo-technology/OpenTezos/tree/main/',
+          editUrl: 'https://gitlab.com/tezos-paris-hub/OpenTezos/-/blob/main/',
           remarkPlugins: [math],
           rehypePlugins: [katex],
           showLastUpdateTime: true,

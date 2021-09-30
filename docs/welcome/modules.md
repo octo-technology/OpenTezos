@@ -15,7 +15,7 @@ Welcome Tezos Developers! Explore the technical and economic concepts behind the
 
 <NotificationBar>
   <p>
-    See an error somewhere? Fix it with a <a href="https://github.com/octo-technology/OpenTezos" target="_blank">Github Pull Request here</a>. OpenTezos is a constantly evolving platform that welcome all readers inputs. You can even add a new chapter or module if wish.
+    See an error somewhere? Fix it with a <a href="https://gitlab.com/tezos-paris-hub/OpenTezos" target="_blank">Gitlab Merge Request here</a>. OpenTezos is a constantly evolving platform that welcome all readers inputs. You can even add a new chapter or module if wish.
   </p>
 </NotificationBar>
 

@@ -152,11 +152,11 @@ When delegating, your Tez are completely liquid. You are free to move your token
 
 ## Accusation reward
 
-The accuser monitors the network, detects double-baking or double-endorsing.
+The accuser monitors the network, detects double-baking or double-endorsing and accuses if necessary.
 
 If two endorsements are made for the same slot or two blocks baked at the same height, the evidence can be collected by an accuser and included in a block for a period of 5 cycles, including the current cycle.
 
-This accusation forfeits the entirety of the safety deposit of the accused baker and future rewards up to that point in the cycle. Half is burned, half goes to the accuser in the form of a block reward.
+This accusation forfeits the entirety safety deposit and future rewards up to that point in the cycle. Half is burned, half goes to the accuser in the form of a block reward.
 
 ## References
 

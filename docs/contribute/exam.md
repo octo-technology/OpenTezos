@@ -15,7 +15,7 @@ I see an error on _OpenTezos_; what should I do?
 
 <ExamCheckbox name="00" isCorrect="false">Nothing</ExamCheckbox>
 <ExamCheckbox name="01" isCorrect="false">Complain on _StackOverflow_</ExamCheckbox>
-<ExamCheckbox name="02" isCorrect="true">Open a Github issue on [github.com/octo-technology/OpenTezos](https://github.com/octo-technology/OpenTezos)</ExamCheckbox>
+<ExamCheckbox name="02" isCorrect="true">Open a Github issue on [gitlab.com/tezos-paris-hub/OpenTezos](https://gitlab.com/tezos-paris-hub/OpenTezos)</ExamCheckbox>
 <ExamCheckbox name="03" isCorrect="true">Optionally fix the error in the source code and submit a pull request</ExamCheckbox>
 
 ### Question 2

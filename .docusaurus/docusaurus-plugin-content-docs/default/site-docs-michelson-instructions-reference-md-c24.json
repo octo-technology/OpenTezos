@@ -8,7 +8,7 @@
   "sourceDirName": "michelson",
   "slug": "/michelson/instructions-reference",
   "permalink": "/michelson/instructions-reference",
-  "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/docs/michelson/instructions-reference.md",
+  "editUrl": "https://gitlab.com/tezos-paris-hub/OpenTezos/-/blob/main/docs/michelson/instructions-reference.md",
   "version": "current",
   "lastUpdatedBy": "Author",
   "lastUpdatedAt": 1539502055,

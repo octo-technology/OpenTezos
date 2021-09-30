@@ -25,7 +25,7 @@ export default {
       },
       "items": [
         {
-          "href": "https://github.com/octo-technology/OpenTezos/",
+          "href": "https://gitlab.com/tezos-paris-hub/OpenTezos/",
           "label": "GitHub",
           "position": "right"
         }
@@ -429,7 +429,7 @@ export default {
         "docs": {
           "sidebarPath": "/Users/lol/apps/work/opentezos-docusaurus/opentezos/src/sidebar/sidebar.js",
           "routeBasePath": "/",
-          "editUrl": "https://github.com/octo-technology/OpenTezos/tree/main/",
+          "editUrl": "https://gitlab.com/tezos-paris-hub/OpenTezos/-/blob/main/",
           "remarkPlugins": [
             null
           ],

@@ -93,7 +93,7 @@ Snapshots of owned rolls are done every 256 blocks and define who can bake. The 
 
 #### Random seed
 
-Since Tezos runs a deterministic protocol, there is no real randomness. More specifically, there is no randomness in the snapshot selection and baking/endorsement slots attribution, i.e., we know the result before the operation occurs (unlike in _PoW_ where you can only estimate it).
+There is randomness in the snapshot selection and baking/endorsement slots attribution. The point is that we know the result before the operation occurs (not like in POW where you can only estimate it).
 
 The seed is created by requesting a secret number (nonce) from all roll owners. All secret numbers are gathered and used to create a hash that will be used as the random seed. Since the last owner to reveal his secret already knows the other numbers, a 2-phase process called "Commit & Reveal" is necessary.
 

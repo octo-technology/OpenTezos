@@ -33,7 +33,7 @@ docker run -v ubuntu-tezos-volume:/base-dir -i -t ubuntu-tezos fetch-binaries \
 
 ## Running the first baker
 
-Baking is the act of signing and publishing blocks to the Tezos blockchain. Therefore bakers are the people participating in the consensus by **creating** new blocks.
+Baking is the act of creating, signing and publishing blocks to the Tezos blockchain. Therefore bakers are the people participating in the consensus by **creating** new blocks.
 Check out the [Baking](/baking) module for more information.
 
 The script `start-baker.sh` will do the following tasks:

@@ -19,9 +19,9 @@ Note that a baker also has to accept to play the role of _Endorser_, which means
 To bake blocks, a baker needs to participate in the network, which requires:
 - a minimum of 8,000ꜩ (i.e., one roll)
 - a dedicated infrastructure (e.g., a server or a raspberry pi) with enough CPU power and memory space
-- An internet connexion
+- an optimal internet connexion
 
-The more rolls of Tez a baker owns, the higher his chances to bake blocks and earn baking rewards.
+The more rolls of Tez a baker owns, the higher are his chances to bake blocks and earn baking rewards.
 
 ### What is delegating?
 
