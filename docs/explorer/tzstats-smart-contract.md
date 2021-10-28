@@ -44,7 +44,7 @@ Available at this [link](https://tzstats.com/KT1HbQepzV1nVGg8QVznG7z4RcHseD5kwqB
 
 Here you have the history of all transactions related to your smart contract.
 
-It appears:
+You can see:
 - The transactions with the amount and the address of the sender.
 - The calls made to the entrypoints with the name of the entrypoint in question.
 - On the right the status of the block with the number of confirmation received.
