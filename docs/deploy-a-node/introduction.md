@@ -16,7 +16,7 @@ The shell receives blocks from the gossip network and uses them to keep the curr
 
 The *last block* received on a chain, is also called the "*head*" of that chain. Each new head is then advertised by the node to its peers, disseminating this information to build a *consensus* across the network.
 
-Other than passively observing the network, your node can inject its own new operations when instructed by the "`tezos-client`" application and even register as a delegate to bake new blocks with the "`tezos-baker-`" prefix. The node also has a view of the multiple chains that may exist concurrently and selects the best one based on its fitness (see [*Liquid Proof-of-Stake*](/tezos-basics/liquid-proof-of-stake) chapter in [*Tezos Basics*](/tezos-basics/introduction) module).
+Other than passively observing the network, your node can inject its own new operations when instructed by the "`tezos-client`" application and even register as a delegate to bake new blocks with the "`tezos-baker-`" command. The node also has a view of the multiple chains that may exist concurrently and selects the best one based on its fitness (see [*Liquid Proof-of-Stake*](/tezos-basics/liquid-proof-of-stake) chapter in [*Tezos Basics*](/tezos-basics/introduction) module).
 
 
 ## References

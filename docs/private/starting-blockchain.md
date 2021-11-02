@@ -7,7 +7,7 @@ authors: Maxime Sallerin
 
 ## Activating the procotol and starting the blockchain
 
-Leave the second shell running of the [last chapter](/genesis).
+Here we will use the second terminal, as created at the end of the [previous chapter](/genesis).
 
 Open a third shell and go to your workspace.
 
